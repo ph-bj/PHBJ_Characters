@@ -2,6 +2,29 @@ import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import { Character, Relationship } from '../types';
 
+const ROLE_COLORS: Record<string, string> = {
+  scholar: '#1e3a8a',
+  performer: '#991b1b',
+  official: '#854d0e',
+  villain: '#1f2937',
+  minor: '#44403c',
+  female: '#6b21a8',
+  servant: '#065f46',
+  deceased: '#3f3f46',
+  Other: '#44403c'
+};
+
+const ROLE_LABELS: Record<string, { en: string, zh: string }> = {
+  scholar: { en: 'Scholar', zh: '名士' },
+  performer: { en: 'Performer', zh: '伶人' },
+  official: { en: 'Official', zh: '官员' },
+  villain: { en: 'Villain', zh: '反派' },
+  minor: { en: 'Minor', zh: '配角' },
+  female: { en: 'Female', zh: '女性' },
+  servant: { en: 'Servant', zh: '仆从' },
+  deceased: { en: 'Deceased', zh: '已故' }
+};
+
 interface NetworkGraphProps {
   characters: Character[];
   relationships: Relationship[];
@@ -15,8 +38,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
   useEffect(() => {
     if (!svgRef.current) return;
 
-    const width = 1200;
-    const height = 800;
+    const width = 800;
+    const height = 600;
 
     const nodes = characters.map(c => ({ ...c }));
     const links = relationships.map(r => ({ ...r }));
@@ -74,8 +97,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
     node.append("circle")
       .attr("r", 25)
-      .attr("fill", "#f4ecd8")
-      .attr("stroke", "#d4c5a9")
+      .attr("fill", (d: any) => `${ROLE_COLORS[d.role] || ROLE_COLORS.Other}22`) // 22 is ~13% opacity for parchment feel
+      .attr("stroke", (d: any) => ROLE_COLORS[d.role] || ROLE_COLORS.Other)
       .attr("stroke-width", 1.5);
 
     node.append("text")
@@ -83,7 +106,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .attr("dy", ".35em")
       .attr("font-size", "9px")
       .attr("font-weight", "bold")
-      .attr("fill", "#2c2420")
+      .attr("fill", (d: any) => ROLE_COLORS[d.role] || ROLE_COLORS.Other)
       .text((d: any) => d.name.split(' ')[0]);
 
     simulation.on("tick", () => {
@@ -122,7 +145,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
   }, [characters, relationships, lang]);
 
   return (
-    <div className="w-full h-[600px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative">
+    <div className="w-full h-[400px] sm:h-[600px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative">
       <div className="absolute top-4 left-4 z-10">
         <h3 className="text-xs font-bold uppercase tracking-widest text-[#8b4513]">
           {lang === 'en' ? 'Character Network' : '人物关系图谱'}
@@ -130,6 +153,24 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         <p className="text-[10px] text-[#5d5048] italic">
           {lang === 'en' ? 'Drag nodes to explore relationships' : '拖动节点探索人物关系'}
         </p>
+      </div>
+      <div className="absolute top-4 right-4 z-10 bg-[#f4ecd8]/80 p-2 rounded border border-[#d4c5a9] backdrop-blur-sm max-w-[120px] sm:max-w-none">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
+          {Object.entries(ROLE_LABELS).map(([role, labels]) => (
+            <div key={role} className="flex items-center gap-2">
+              <div 
+                className="w-2 h-2 sm:w-3 sm:h-3 rounded-full border"
+                style={{ 
+                  backgroundColor: `${ROLE_COLORS[role]}22`,
+                  borderColor: ROLE_COLORS[role]
+                }}
+              />
+              <span className="text-[8px] sm:text-[10px] font-medium text-[#5d5048] truncate">
+                {lang === 'en' ? labels.en : labels.zh}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
       <svg
         ref={svgRef}

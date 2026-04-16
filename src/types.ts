@@ -19,3 +19,9 @@ export interface Relationship {
   type: string;   // Relationship type (e.g., 'romantic', 'family', 'friend')
   typeZh: string;
 }
+
+export interface Chapter {
+  id: number;
+  title: string;
+  content: string;
+}
