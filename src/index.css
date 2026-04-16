@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-hans: "Noto Serif SC", serif;
+}
+
+:root {
+  --paper-bg: #f4ecd8;
+  --paper-border: #d4c5a9;
+  --ink-main: #2c2420;
+  --ink-dim: #5d5048;
+  --accent: #8b4513;
+}
+
+body {
+  background-color: #e5dcc3;
+  background-image: 
+    url("https://www.transparenttextures.com/patterns/parchment.png"),
+    radial-gradient(circle at center, #f4ecd8 0%, #e5dcc3 100%);
+  color: var(--ink-main);
+  font-family: var(--font-serif);
+}
+
+.parchment {
+  background-color: var(--paper-bg);
+  background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+  border: 1px solid var(--paper-border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1), inset 0 0 40px rgba(139, 69, 19, 0.05);
+}
+
+.ink-border {
+  border: 1px solid rgba(44, 36, 32, 0.2);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

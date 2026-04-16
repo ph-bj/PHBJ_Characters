@@ -1,0 +1,305 @@
+import { Character, Relationship } from './types';
+
+const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male protagonist; scholar-gentry; falls for Qinyan; later marries Wang Qionghua; promoted examiner (ch.15); builds Qu shrine (ch.59)	男主角；书生士绅；钟情于琴言；后娶王琼华；第15回升任主考官；第59回为屈方正修建祠堂。
+杜琴言 Dù Qínyán	琴官 / 玉侬	15	Jiangsu	performer	ch.1	Central romantic figure; orphaned; renamed by Xu Ziyun (ch.5); redeemed in ch.43; reunites with Ziyu	核心浪漫人物；孤儿；第5回由徐子云改名；第43回赎身；最终与子玉重逢。
+颜仲清 Yán Zhòngqīng	剑潭	23	Jinling	scholar	ch.1	Orphaned nephew of Lady Yan; raised by Mei family; married into Wang family; chivalrous	颜夫人的孤儿侄子；由梅家抚养；入赘王家；为人侠义。
+史南湘 Shǐ Nánxiāng	竹君	24	Hanyang	scholar	ch.1	Provincial exam top; compiled 《曲台花选》; witty; infatuated with Lu Sulan	乡试第一名；编纂《曲台花选》；机智幽默；痴恋陆素兰。
+王恂 Wáng Xún	庸庵	22	—	scholar	ch.1	Son of Wang Wenhui; fond of performers; Ziyu's cousin	王文辉之子；喜好优伶；子玉的表兄弟。
+魏聘才 Wèi Pìncái	—	~20	Jiangning	scholar	ch.2	Clever and glib; spreads slander (ch.44); marries Lin-shi courtesan (ch.50)	聪明伶俐但口齿轻薄；第44回散布谣言；第50回娶林氏妓女为妻。
+李元茂 Lǐ Yuánmào	—	~20	—	scholar	ch.2	Son of tutor Li Xingquan; obtuse; comic misunderstandings; stammer jokes	老师李性全之子；迟钝；引发喜剧性误会；常有结巴笑话。
+徐子云 Xú Zǐyún	度香	25	"Zhejiang, Shanyin"	scholar	ch.4	Wealthy patron; built Yiyuan garden (500k taels); redeems Qinyan (ch.43); upright and generous	富有的赞助人；耗资50万两修建怡园；第43回为琴言赎身；正直慷慨。
+萧次贤 Xiāo Cìxián	静宜	32	"Hunan, Xiangtan"	scholar	ch.5	Xu Ziyun's closest friend; polymath; designed Yiyuan; detached from fame	徐子云的挚友；博学多才；设计了怡园；淡泊名利。
+刘文泽 Liú Wénzé	前舟	~24	"Henan, Zhengyang"	scholar	ch.6	Vice-minister's son; generous; close friend of Xu Ziyun and Hua Guangsu	刘侍郎之子；慷慨大方；徐子云与华光宿的好友。
+高品 Gāo Pǐn	卓然	~25	Suzhou	scholar	ch.2	Tribute student (拔贡); wickedly funny; coins the Sun brothers' nicknames; lives at Hongji Temple	拔贡；极其幽默；为孙氏兄弟起绰号；住在鸿济寺。
+张仲雨 Zhāng Zhòngyǔ	—	~22	Yangzhou	scholar	ch.6	Nephew of Grand Secretary Wu; versatile; goes by '二老爷'; frequents Yiyuan (ch.8)	吴阁学之侄；多才多艺；人称“二老爷”；常出入怡园。
+沈伯才 Shěn Bócái	—	~30	—	scholar	ch.6	Son of Director Shen; recently selected county magistrate; capable	沈司业之子；新任知县；精明强干。
+巴霖 Bā Lín	—	~20	Tianjin	scholar	ch.6	Son of garrison commander Ba; handsome; close to Liu Wenze; dislikes Sun brothers	巴天宠之子；英俊；与刘文泽亲近；讨厌孙氏兄弟。
+冯子佩 Féng Zǐpèi	—	~18	Beijing	scholar	ch.6	Son of former Jiangsu magistrate; very handsome; arrives late at banquets	前江苏知县之子；极其俊美；宴会常迟到。
+田春航 Tián Chūnháng	湘帆	~25	—	scholar	ch.4	Proud and passionate; writes 《浪淘沙》 anonymously on tavern wall; infatuated with Lu Sulan (ch.12)	孤傲热情；在酒楼墙上匿名题写《浪淘沙》；痴恋陆素兰。
+祝芳年 Zhù Fāngnián	—	—	—	scholar	ch.17	Hosts poetry banquet in ch.17; part of Xu Ziyun's literary circle	第17回主持诗宴；徐子云文人圈成员。
+金吉甫 Jīn Jífǔ	—	—	—	scholar	ch.60	Literary elder who frames the novel's conclusion in ch.60	文坛长辈；在第60回为小说作结。
+屈方正 Qū Fāngzhèng	—	—	—	scholar	ch.56	Virtuous deceased scholar; appears as a divine spirit (ch.56); Mei builds a shrine for him (ch.59)	正直的已故学者；第56回以神灵身份出现；梅子玉为其建祠。
+屈少君 Qū Shàojūn	—	—	—	scholar	ch.59	Son of Qu Fangzheng; returns to capital in ch.59; helped by Ziyu	屈方正之子；第59回回京；得子玉相助。
+李性全 Lǐ Xìngquán	—	—	Zhejiang	scholar	ch.1	Ziyu's strict Confucian tutor; Li Yuanmao's father; stays with Mei family	子玉严厉的儒家老师；李元茂之父；住在梅家。
+孙嗣徽 Sūn Sìhuī	虫蛀千字文	26	—	scholar	ch.2	Elder Sun son; pedantic; 'Worm-eaten Primer' nickname; red nose	孙家长子；迂腐；绰号“虫蛀千字文”；红鼻子。
+孙嗣元 Sūn Sìyuán	迭韵双声谱	~24	—	scholar	ch.2	Younger Sun son; severe stammer; 'Unfinished Three-Character Classic' nickname	孙家次子；严重结巴；绰号“迭韵双声谱”。
+袁宝珠 Yuán Bǎozhū	瑶卿	16	Suzhou	performer	ch.1	#1 in Flower Register; painter and poet; Lianjin troupe; Xu Ziyun's favourite; loyal friend to Qinyan	花榜第一；擅长书画诗词；联锦班；徐子云的最爱；琴言的忠实朋友。
+苏蕙芳 Sū Huìfāng	媚香	17	Suzhou	performer	ch.1	#2; from official family; principled; wins poetry contest (ch.17); Lianjin troupe	花榜第二；官宦出身；有原则；第17回赢得诗赛；联锦班。
+陆素兰 Lù Sùlán	香畹	16	Suzhou	performer	ch.1	#3; skilled calligrapher; righteous; loved by Tian Chunhang; Lianjin troupe	花榜第三；擅长书法；为人正直；田春航所爱；联锦班。
+金漱芳 Jīn Shùfāng	瘦香	15	Suzhou	performer	ch.1	#4; plays flute and chess; Lianzhu troupe	花榜第四；擅长吹笛下棋；联珠班。
+李玉林 Lǐ Yùlín	佩仙	15	Yangzhou	performer	ch.1	#5; musician; famous for 《折柳阳关》; Lianzhu troupe	花榜第五；乐师；以《折柳阳关》闻名；联珠班。
+王兰保 Wáng Lánbǎo	静芳	17	Yangzhou	performer	ch.1	#6; martial arts; refuses powerful patrons; elder brother of Guibao; Lianjin troupe	花榜第六；擅长武术；拒绝权贵；桂保之兄；联锦班。
+王桂保 Wáng Guìbǎo	蕊香	15	Yangzhou	performer	ch.1	#7; younger brother of Lanbao; witty and charming; key presence across all 60 chapters	花榜第七；兰保之弟；机智迷人；贯穿全书60回的关键人物。
+林春喜 Lín Chūnxǐ	小梅	14	Suzhou	performer	ch.1	#8; entered troupe at 12; plays male and female roles; rewrites opera scripts (ch.50)	花榜第八；12岁入班；兼演男女角；第50回改写剧本。
+袁琪官 Yuán Qíguān	琪官	14	—	performer	ch.2	Companion to Qinyan on the canal journey; vivid beauty; joins Lianjin troupe	琴言进京途中的同伴；容貌出众；加入联锦班。
+蓉官 Róngguān	—	~15	—	performer	ch.3	Friend of Fu Lun; witty; comic scenes chs.2–3; knows about Xi Shiyi	富伦之友；机智；第2-3回有喜剧场面；了解奚十一。
+春兰 Chūnlán	—	~15	—	performer	ch.3	"Associated with Xi Shiyi; smashes crockery in the restaurant scene, ch.3"	与奚十一有关；第3回在酒楼摔碎瓷器。
+小福 Xiǎofú	—	~15	—	performer	ch.3	Quanfu troupe; rumoured Fu Lun spent 3000 cash on his graduation ceremony	全福班；传闻富伦为其出师礼花费三千钱。
+玉美 Yùměi	—	—	—	performer	ch.4	"Jianchun troupe; seen with Tian Chunhang at the tavern scene, ch.4"	建春班；第4回出现在酒楼场面。
+四喜 Sìxǐ	—	—	—	performer	ch.4	Jianchun troupe; seen in ch.4 tavern scene	建春班；第4回出现在酒楼场面。
+全福 Quánfú	—	—	—	performer	ch.4	Jianchun troupe; seen in ch.4 tavern scene	建春班；第4回出现在酒楼场面。
+保珠 Bǎozhū (ch.1)	—	~15	—	performer	ch.1	"Seen at the theatre in ch.1; name accidentally mirrors Yuan Baozhu, causing confusion for Ziyu"	第1回出现在剧场；因名字与袁宝珠相似引起子玉误会。
+珊枝 Shānzhī	—	—	—	performer	ch.36	Scandalous; rebuked by the whole group in ch.36; morally condemned	名声不佳；第36回遭众人斥责；受道德谴责。
+袁绮香 Yuán Qǐxiāng	—	—	—	performer	ch.57	Hosts a drinking game in ch.57	第57回主持酒令。
+王琼华 Wáng Qiónghúa (performer)	—	—	—	performer	ch.57	Poetry-card game leader in ch.57; distinct from Wang Qionghua the daughter	第57回诗牌游戏领袖；非王文辉之女。
+林珊枝 Lín Shānzhī	—	—	—	performer	ch.5	"Bought by Hua Guangsu for 8,000 taels; lives in Hua mansion as personal companion"	被华光宿以八千两买下；住在华府作为私人伴侣。
+谭八 Tán Bā	—	—	—	performer	ch.2	Comic lead (京丑) of Lianjin troupe; his mannerisms imitated by Sun Lianggong at the banquet	联锦班丑角；宴会上被孙亮功模仿。
+小顺儿 Xiǎo Shùn'ér	—	—	—	performer	ch.5	十不闲 drum performer; brought by Fu Lun; rejected by Hua Guangsu with contempt	“十不闲”鼓手；富伦带来；遭华光宿蔑视拒绝。
+二喜 Èr Xǐ	—	—	—	performer	ch.8	Male performer (dan); attaches himself to Li Yuanmao at the theatre; performs drinking games	旦角；在剧场缠住李元茂；玩酒令。
+保珠 Bǎozhū (ch.8)	—	—	—	performer	ch.8	Performer in ch.8 restaurant scene; distinct from the ch.1 theatre Baozhu	第8回酒楼场面的伶人；非第1回的保珠。
+梅士燮 Méi Shìxiè	铁庵	46	Jinling	official	ch.1	Hanlin reader; Ziyu's father; stern Confucian; promoted to vice-minister later; appointed provincial examiner (ch.15)	翰林侍读；子玉之父；严厉的儒者；后升任侍郎；第15回任主考官。
+王文辉 Wáng Wénhuī	—	~55	—	official	ch.1	3rd-rank Tongzheng official; Wang Xun's father; father-in-law of Yan Zhongqing	三品通政使；王恂之父；颜仲清之岳父。
+孙亮功 Sūn Liàngōng	—	~50	—	official	ch.2	Ministry of Works official; father of Sun Sihui and Siyuan; comic banquet scenes	工部官员；孙氏兄弟之父；宴会上的喜剧人物。
+杨方猷 Yáng Fāngyóu	—	—	—	official	ch.2	Ministry of War deputy director; guest at Wang Wenhui's banquet	兵部员外郎；王文辉宴会宾客。
+周锡爵 Zhōu Xíjué	—	—	—	official	ch.2	Guanglu Temple junior director; guest at Wang Wenhui's banquet	光禄寺少卿；王文辉宴会宾客。
+陆宗沅 Lù Zōngyuán	—	—	—	official	ch.2	Censor; gets wine sprayed in his face by Sun Lianggong; cousin of the two Madam Lu	御史；被孙亮功喷了一脸酒；两位陆夫人的堂兄弟。
+富伦 Fú Lún	富三爷	~30	Jiangning	official	ch.3	2nd-rank shadow-privilege student; Household Dept. secretary; warm-hearted patron; son of governor Fu Anshi	荫生；内务府司员；热心的赞助人；富安世之子。
+贵芬 Guì Fēn	贵大爷	~30	—	official	ch.3	7th-rank ministry clerk; prudent and steady; Fu Lun's close friend	七品部吏；谨慎稳重；富伦好友。
+华光宿 Huá Guāngsù	华公子 / 星北	21	—	official	ch.5	Hereditary 1st-rank noble; owns Jinchun Garden; dissolute but not arrogant; antagonist chs.26–33	世袭一等侯；拥有锦春园；放荡但不傲慢；第26-33回的反派。
+曹长庆 Cáo Chángqìng	—	—	—	official	ch.3	Took in the ill Qinyan before she entered the troupe officially; mentioned briefly	琴言入班前曾收留生病的她；简短提及。
+史曾望 Shǐ Zēngwàng	—	—	—	official	ch.1	Shi Nanxiang's father; Censor (吏科给事中)	史南湘之父；吏科给事中。
+袁浩 Yuán Hào	—	—	—	official	ch.5	Yunnan governor; Xu Ziyun's father-in-law	云南巡抚；徐子云岳父。
+徐震 Xú Zhèn	—	—	—	official	ch.5	Grand Secretary; Xu Ziyun's father; governs Guangdong	大学士；徐子云之父；总督广东。
+徐子容 Xú Zǐróng	—	—	—	official	ch.5	Xu Ziyun's elder brother; Huaiyang circuit intendant	徐子云之兄；淮扬道。
+刘侍郎 Liú Shìláng	—	—	—	official	ch.6	Vice-minister; Liu Wenze's father; attends the Spring Festival banquet	刘侍郎；刘文泽之父；出席春节宴会。
+吴阁学 Wú Gé Xué	—	—	—	official	ch.6	Grand Secretary; Zhang Zhongyu's maternal uncle	大学士；张仲雨舅父。
+沈司业 Shěn Sīyè	—	—	—	official	ch.6	National Academy director; Shen Bocai's father; old-fashioned Confucian; praises Ziyu	国子监司业；沈伯才之父；守旧儒者；赞赏子玉。
+巴天宠 Bā Tiānchǒng	—	~40	Tianjin	official	ch.6	Garrison commander; father of Ba Lin and Ba Laifeng; misled by a matchmaker	总兵；巴霖与巴来风之父；被媒人误导。
+陆宗淮 Lù Zōnghuái	—	—	Sichuan	official	ch.6	Judicial commissioner of Sichuan; elder brother of the two Madam Lu	四川按察使；两位陆夫人之兄。
+田状元 Tián Zhuàngyuán	—	—	—	official	ch.49	Top imperial exam graduate; proposes marriage in ch.49	状元；第49回提亲。
+侯太史 Hóu Tàishǐ	—	—	—	official	ch.56	Hanlin historian; feigns charity toward orphans; hypocritical antagonist	翰林太史；假装慈善；虚伪的反派。
+詹事府正詹事庄 Zhuāng	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	詹事府正詹事；春节宴会宾客。
+左庶子郑 Zhèng	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	左庶子；春节宴会宾客。
+国子监司业张 Zhāng	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	国子监司业；春节宴会宾客。
+掌山西道陆 Lù	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	掌山西道；春节宴会宾客。
+奚十一 Xī Shíyī	奚正绅	~30	Guangdong	villain	ch.3	Wealthy Cantonese dissolute; violent; causes chaos at Qiushuitan (ch.27); loses virility as karma (ch.40)	广东富商；残暴；在秋水潭闹事；第40回因报应丧失性能力。
+潘其观 Pān Qíguān	—	—	—	villain	ch.13	"Vile schemer; suffers grotesque physical punishments as karma (chs.40, 47, 58)"	卑鄙的阴谋家；因报应遭受酷刑。
+老王 Lǎo Wáng	—	~60	—	villain	ch.3	Hunchbacked jade-vendor; tries to extort Pincai at the theatre; expelled by Xi Shiyi's men	驼背玉商；在剧场敲诈聘才；被奚十一的人赶走。
+唐和尚 Táng Héshang	—	~40	—	minor	ch.8	Wine-and-meat Buddhist monk (酒肉和尚); purple-faced; fur-robed; friend of Zhang Zhongyu; arranges meetings; comic figure in ch.8	酒肉和尚；紫脸皮袄；张仲雨之友；安排会面；喜剧人物。
+起盛银号潘老三 Pān Lǎosān	—	—	—	minor	ch.8	Silver-exchange merchant; dines with Zhang Zhongyu in ch.8; very minor	银号商人；第8回与张仲雨共餐。
+屈本立 Qū Běnlì	道生	—	—	minor	ch.7	Calligrapher; his ancient-style inscription hangs in Liu Wenze's study room (ch.7)	书法家；其古风题字挂在刘文泽书房。
+华夫人 Huá Fūrén	—	—	—	minor	ch.5	"Hua Guangsu's beautiful wife; née Su, daughter of Jingbian Hou (靖边侯); described as 'the most beautiful woman in the empire'; ten pearl-maids"	华光宿之妻；靖边侯之女；号称“天下第一美人”。
+青姨奶奶 Qīng Yínǎinai	—	—	—	minor	ch.3	One of Fu Lun's two quarrelling concubines; fights with Bai Yinainai; mentioned by Rong Guan	富伦的姨太太；与白姨奶奶争吵。
+白姨奶奶 Bái Yínǎinai	—	—	—	minor	ch.3	Fu Lun's other quarrelling concubine; fights with Qing Yinainai; mentioned by Rong Guan	富伦的另一位姨太太；与青姨奶奶争吵。
+阿呆 Ā Dāi	—	—	—	minor	ch.23	Simple-minded victim who is cruelly harmed by Xi Shiyi's men in ch.23	愚笨的受害者；第23回遭奚十一手下残害。
+劣幕 Liè Mù	—	—	—	minor	ch.23	Corrupt private secretary encountered riding the night-soil cart; describes his dissolute schemes (ch.23)	腐败的幕友；出现在粪车上；描述其放荡阴谋。
+苗先生 Miáo Xiānsheng	—	—	—	minor	ch.42	Su Huifang's widowed aunt/guardian's male advisor; extorts money for Suifang's redemption in ch.42	苏蕙芳婶母的谋士；在赎身时敲诈钱财。
+何三 Hé Sān	—	—	—	minor	ch.18	Dissolute patron type in ch.18; teaches tricks to exploit performers	放荡的赞助人；教授剥削伶人的技巧。
+王大夫 Wáng Dàfū	—	—	—	minor	ch.4	Doctor who treats Sun Lianggong when the Sun household couple have a fight; mentioned by Sihui in ch.4	医生；在孙亮功夫妇吵架后为其诊治。
+颜夫人 Yán Fūrén	—	44	Jinling	female	ch.1	Wife of Mei Shixie; moral guardian of the novel; arranges Ziyu's betrothal to Wang Qionghua	梅士燮之妻；小说中的道德守护者；安排子玉与王琼华的婚事。
+陆氏夫人（王家）	—	40	—	female	ch.1	Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu	王文辉继室；王恂继母；孙家陆夫人之妹。
+孙氏 Sūn Shì	—	—	—	female	ch.1	Wang Xun's wife; daughter of Sun Lianggong	王恂之妻；孙亮功之女。
+蓉华 Rónghuá	—	—	—	female	ch.1	Yan Zhongqing's wife; Wang Wenhui's daughter; sister of Wang Qionghua	颜仲清之妻；王文辉之女；王琼华之姐。
+王琼华 Wáng Qiónghúa	—	16	—	female	ch.1	Wang Wenhui's second daughter; shy; scratches Ziyu's poem; eventually betrothed and married to Ziyu	王文辉次女；害羞；涂抹子玉的诗；最终嫁给子玉。
+袁夫人 Yuán Fūrén	—	23	—	female	ch.5	Xu Ziyun's wife; née Yuan; daughter of Yunnan governor; beautiful and virtuous	徐子云之妻；云南巡抚之女；美丽贤德。
+郑氏 Zhèng Shì	—	—	—	female	ch.1	Yan Zhuang's wife; fasted to death after his death; honoured for chastity; Yan Zhongqing's mother	颜庄之妻；绝食殉夫；贞节受表彰；颜仲清之母。
+苏蕙芳婶母 Sū Fūrén	—	—	—	female	ch.43	Su Huifang's widowed aunt/guardian; deceived by Suifang in ch.43 to allow her redemption	苏蕙芳的婶母；第43回被蕙芳欺骗以允许其赎身。
+许三姐 Xǔ Sānjiě	—	—	—	female	ch.49	Recognizes a lost brother unexpectedly; family reunion subplot in ch.49	意外认出失散的弟弟；家庭团圆情节。
+林氏 Lín Shì	—	—	—	female	ch.50	Courtesan married by Wei Pincai in ch.50 after he helps revise opera texts	妓女；魏聘才改写剧本后娶其为妻。
+陆氏夫人（孙家）	—	39	—	female	ch.6	Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu	孙亮功继室；嫉妒霸道；王家陆夫人之姐。
+沈芸姑 Shěn Yúngū	—	—	—	female	ch.6	Sun Sihui's wife; née Shen; intelligent but miserable in marriage	孙嗣徽之妻；聪明但婚姻不幸。
+巴来风 Bā Láifēng	—	~17	—	female	ch.6	Sun Siyuan's wife; née Ba; beautiful and fierce; physically overpowers husband on wedding night	孙嗣元之妻；美丽凶悍；新婚之夜制服丈夫。
+王大姑娘	—	~29	—	female	ch.2	Wang Wenhui's eldest daughter; prematurely white-haired; unable to marry	王文辉长女；少白头；无法出嫁。
+佩秋 Pèiqiū	—	~18	—	female	ch.6	Wang Xun's wife; née Sun; daughter of Sun Lianggong's second wife; gentle and beautiful	王恂之妻；孙亮功继室之女；温柔美丽。
+潘氏 Pān Shì	—	—	—	female	ch.58	Pan Qiguan's wife; involved in a scandalous scene in ch.58	潘其观之妻；第58回涉及丑闻场面。
+云儿 Yún'ér	—	~12	—	servant	ch.1	Ziyu's personal page; rides on horseback; runs errands and carries messages throughout	子玉的小厮；骑马；负责跑腿传信。
+俊儿 Jùn'ér	—	~12	—	servant	ch.1	Ziyu's second young page; carries lanterns; also rides on horseback alongside Yun'er	子玉的第二个小厮；打灯笼；也骑马。
+许顺 Xǔ Shùn	—	—	—	servant	ch.2	Mei household steward and accounts manager; came with Lady Yan from her natal home	梅府管家；随颜夫人从娘家来。
+许顺妻 Xǔ Shùn qī	—	—	—	servant	ch.3	Xu Shun's wife; works alongside him in household management	许顺之妻；协助管理家务。
+梅进 Méi Jìn	—	—	—	servant	ch.2	Mei household gate attendant; called in to receive and seat guests	梅府门房；负责接待客人。
+虎儿 Hǔ'ér	—	—	—	servant	ch.8	Household page in the Mei residence; brings messages between rooms	梅府小厮；负责传话。
+书僮 (×2)	—	—	—	servant	ch.4	Two unnamed study boys; wait outside schoolroom; bring tea during the snow-appreciation gathering	书童；在书房外候着；端茶倒水。
+仆妇（门上）	—	—	—	servant	ch.2	Doorwoman who brings calling cards from Wei Pincai and Li Yuanmao in to Mei Shixie	门上仆妇；递送名帖。
+家人媳妇（衣裳）	—	—	—	servant	ch.1	Household woman who fetches Ziyu's fur coat at Lady Yan's instruction	家里的媳妇；负责取衣物。
+小丫鬟（子玉书房）	—	—	—	servant	ch.7	Maidservant in Ziyu's study; reports that Wang Qionghua scratched out two characters from Ziyu's poem; relays betrothal gossip from Xue'er	子玉书房的小丫鬟；报告王琼华涂诗；传闲话。
+四儿 Sì'ér	—	—	—	servant	ch.2	Wei Pincai's personal page-boy; carries money; sits on carriage edge; receives tips from Fu Lun	魏聘才的小厮；管钱；坐车沿；收小费。
+健儿 Jiàn'ér	—	—	—	servant	ch.4	Yan Zhongqing's running-boy messenger; carries letters between the Yan and Mei households	颜仲清的跑腿；在颜梅两家间传信。
+雪儿 Xuě'ér	—	—	—	servant	ch.7	Wang Qionghua's personal maidservant; gossips about the betrothal arrangement and the jade hairpin incident	王琼华的贴身丫鬟；传关于婚约和玉簪的闲话。
+松儿 Sōng'ér	—	—	—	servant	ch.6	Originally Shen Yungu's dowry maid; taken as concubine by Sun Sihui; effectively relieves Shen Yungu	沈芸姑的陪嫁丫鬟；被孙嗣徽收为妾。
+伴送婆（巴家）	—	—	—	servant	ch.6	Bridal escort matron who accompanied Ba Laifeng to the Sun household; mediates the violent wedding night	巴家的送亲婆；调解新婚之夜的冲突。
+乳母（巴来风）	—	—	—	servant	ch.6	Ba Laifeng's childhood nanny; persuades her to accept the marriage with moral arguments	巴来风的奶妈；劝其接受婚姻。
+跟班（富家）	—	—	—	servant	ch.3	Fu Lun's neat household attendant; brings tea to Pincai; wears plain silk padded jacket	富府跟班；端茶；穿素绸棉袄。
+卢大爷 Lú Dàyé	—	—	—	servant	ch.5	Hua Guangsu's stable and livestock manager; oversees 100+ horses and 70–80 large mules	华府马房总管；管理百余匹马。
+跟班队（华家，~20–30人）	—	—	—	servant	ch.5	20–30 liveried grooms and mounted escorts who accompany Hua Guangsu on outings	华府跟班队；随华光宿出巡。
+叶茂林 Yè Màolín	—	50+	Suzhou	servant	ch.2	Impresario who bought and transported the young performers from Suzhou to Beijing by canal boat	班主；将伶人从苏州运往北京。
+金二 Jīn Èr	—	—	—	servant	ch.3	Head troupe manager (掌班) of the Lianjin troupe; negotiates booking contracts	联锦班掌班；负责签约。
+老三 Lǎo Sān	—	—	—	servant	ch.3	Restaurant server at the crockery-smashing scene; scolded for not bringing fine enough porcelain	酒楼伙计；因瓷器不够好被骂。
+掌柜的 Zhǎngguì de	—	—	—	servant	ch.3	Restaurant owner in the crockery-smashing scene; fawns on Xi Shiyi; lectures waiter on porcelain acoustics	酒楼掌柜；讨好奚十一。
+梅鼎 Méi Dǐng	—	—	—	deceased	ch.1	Mei Shixie's grandfather; former Minister of Personnel (吏部尚书)	梅士燮之祖父；前吏部尚书。
+梅羹调 Méi Gēngdiào	—	—	—	deceased	ch.1	Mei Shixie's father; former Grand Secretary (文华殿大学士)	梅士燮之父；前文华殿大学士。
+颜庄 Yán Zhuāng	—	—	—	deceased	ch.1	Hanlin compiler; Lady Yan's brother; died at 30; Yan Zhongqing's father	翰林编修；颜夫人之弟；30岁去世；颜仲清之父。
+颜尧臣 Yán Yàochén	—	—	—	deceased	ch.1	Left Censor; Lady Yan's father	左都御史；颜夫人之父。
+富安世 Fù Ānshì	—	—	—	deceased	ch.3	Fu Lun's father; former Jiangnan governor; venerated as a local deity in Nanjing	富伦之父；前江南巡抚；在南京被尊为地方神。
+杜琴师 Dù Qínshī	—	—	Jiangsu	deceased	ch.5	Qinyan's father; a zither-maker; died of anger after being humiliated by a powerful man	琴言之父；琴师；受辱后气绝身亡。
+杜母 Dù Mǔ	—	—	Jiangsu	deceased	ch.5	Qinyan's mother; died of grief a year after her husband	琴言之母；夫死后一年忧郁而亡。
+杜族叔 Dù Zúshū	—	—	—	deceased	ch.5	Qinyan's clan uncle who took him in; died when Qinyan was 13	琴言族叔；收留琴言；琴言13岁时去世。
+魏老仁 Wèi Lǎorén	—	—	—	deceased	ch.2	Wei Pincai's father; a failed litigious scholar; now works in a salt bureau	魏聘才之父；落魄文人；在盐务局工作。`;
+
+const ROLE_MAP: Record<string, string> = {
+  scholar: '名士',
+  performer: '伶人',
+  official: '官员',
+  villain: '反派',
+  minor: '配角',
+  female: '女性',
+  servant: '仆从',
+  deceased: '已故',
+  Other: '其他'
+};
+
+const ORIGIN_MAP: Record<string, string> = {
+  'Suzhou': '苏州',
+  'Yangzhou': '扬州',
+  'Jinling': '金陵',
+  'Beijing': '北京',
+  'Zhejiang': '浙江',
+  'Hangzhou': '杭州',
+  'Jiangnan': '江南',
+  'Jiangsu': '江苏',
+  'Anhui': '安徽',
+  'Fujian': '福建',
+  'Guangdong': '广东',
+  'Shanxi': '山西',
+  'Shandong': '山东',
+  'Sichuan': '四川',
+  'Hubei': '湖北',
+  'Hunan': '湖南',
+  'Jiangxi': '江西',
+  'Henan': '河南',
+  'Hebei': '河北',
+  'Shaanxi': '陕西',
+  'Gansu': '甘肃',
+  'Yunnan': '云南',
+  'Guizhou': '贵州',
+  'Guangxi': '广西',
+  'Zhejiang, Shanyin': '浙江山阴',
+  'Suzhou, Wu County': '苏州吴县',
+  'Hanyang': '汉阳',
+  'Jiangning': '江宁',
+  'Tianjin': '天津',
+  'Hunan, Xiangtan': '湖南湘潭',
+  'Henan, Zhengyang': '河南正阳',
+  '—': '—'
+};
+
+export const relationships: Relationship[] = [
+  // Core Protagonists: Mei Ziyu (char-0)
+  { source: 'char-0', target: 'char-1', type: 'Soulmate', typeZh: '情定知己' },
+  { source: 'char-0', target: 'char-90', type: 'Marriage', typeZh: '明媒正娶' },
+  { source: 'char-0', target: 'char-4', type: 'Cousin', typeZh: '中表之亲' },
+  { source: 'char-0', target: 'char-2', type: 'Close Cousin', typeZh: '姑侄同袍' },
+  { source: 'char-0', target: 'char-47', type: 'Father/Son', typeZh: '严父慈子' },
+  { source: 'char-0', target: 'char-86', type: 'Mother/Son', typeZh: '母子情深' },
+  { source: 'char-0', target: 'char-7', type: 'Literary Circle', typeZh: '文坛诗友' },
+  { source: 'char-0', target: 'char-18', type: 'Veneration', typeZh: '修建祠堂' },
+  { source: 'char-0', target: 'char-19', type: 'Benefactor', typeZh: '提携后辈' },
+  { source: 'char-0', target: 'char-20', type: 'Student/Tutor', typeZh: '师生' },
+  { source: 'char-0', target: 'char-102', type: 'Master/Servant', typeZh: '主仆' },
+  { source: 'char-0', target: 'char-103', type: 'Master/Servant', typeZh: '主仆' },
+
+  // Du Qinyan (char-1)
+  { source: 'char-1', target: 'char-7', type: 'Patron/Protege', typeZh: '救赎恩主' },
+  { source: 'char-1', target: 'char-23', type: 'Loyal Friend', typeZh: '同门挚友' },
+  { source: 'char-1', target: 'char-31', type: 'Companion', typeZh: '进京同伴' },
+  { source: 'char-1', target: 'char-56', type: 'Former Guardian', typeZh: '曾收留者' },
+  { source: 'char-1', target: 'char-130', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-1', target: 'char-131', type: 'Mother/Son', typeZh: '母子' },
+  { source: 'char-1', target: 'char-132', type: 'Uncle/Nephew', typeZh: '族叔' },
+
+  // Yan Zhongqing (char-2)
+  { source: 'char-2', target: 'char-86', type: 'Aunt/Nephew', typeZh: '姑侄' },
+  { source: 'char-2', target: 'char-89', type: 'Marriage', typeZh: '入赘姊妹' },
+  { source: 'char-2', target: 'char-92', type: 'Mother/Son', typeZh: '母子' },
+  { source: 'char-2', target: 'char-127', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-2', target: 'char-113', type: 'Master/Servant', typeZh: '主仆' },
+
+  // Shi Nanxiang (char-3) & Tian Chunhang (char-15)
+  { source: 'char-3', target: 'char-25', type: 'Unrequited Love', typeZh: '痴情苦恋' },
+  { source: 'char-15', target: 'char-25', type: 'Passionate Pursuit', typeZh: '热烈追求' },
+  { source: 'char-3', target: 'char-57', type: 'Father/Son', typeZh: '父子' },
+
+  // Xu Ziyun Circle (char-7)
+  { source: 'char-7', target: 'char-23', type: 'Favored Performer', typeZh: '钟爱伶人' },
+  { source: 'char-7', target: 'char-8', type: 'Intimate Friend', typeZh: '莫逆之交' },
+  { source: 'char-7', target: 'char-9', type: 'Friend', typeZh: '好友' },
+  { source: 'char-7', target: 'char-91', type: 'Marriage', typeZh: '夫妻' },
+  { source: 'char-7', target: 'char-58', type: 'Son-in-law/Father-in-law', typeZh: '翁婿' },
+  { source: 'char-7', target: 'char-59', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-7', target: 'char-60', type: 'Brothers', typeZh: '兄弟' },
+
+  // Wang Family (char-4, 48)
+  { source: 'char-4', target: 'char-48', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-4', target: 'char-87', type: 'Stepmother/Son', typeZh: '继母子' },
+  { source: 'char-4', target: 'char-88', type: 'Marriage', typeZh: '夫妻' },
+  { source: 'char-4', target: 'char-100', type: 'Marriage', typeZh: '夫妻' },
+  { source: 'char-48', target: 'char-87', type: 'Marriage', typeZh: '夫妻' },
+  { source: 'char-48', target: 'char-89', type: 'Father/Daughter', typeZh: '父女' },
+  { source: 'char-48', target: 'char-90', type: 'Father/Daughter', typeZh: '父女' },
+  { source: 'char-48', target: 'char-99', type: 'Father/Daughter', typeZh: '父女' },
+
+  // Sun Family (char-21, 22, 49)
+  { source: 'char-21', target: 'char-22', type: 'Brothers', typeZh: '同胞兄弟' },
+  { source: 'char-21', target: 'char-49', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-21', target: 'char-97', type: 'Marriage', typeZh: '夫妻' },
+  { source: 'char-21', target: 'char-115', type: 'Concubine', typeZh: '收为妾' },
+  { source: 'char-22', target: 'char-49', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-22', target: 'char-98', type: 'Marriage', typeZh: '夫妻' },
+  { source: 'char-49', target: 'char-96', type: 'Marriage', typeZh: '夫妻' },
+  { source: 'char-49', target: 'char-88', type: 'Father/Daughter', typeZh: '父女' },
+  { source: 'char-49', target: 'char-100', type: 'Father/Daughter', typeZh: '父女' },
+
+  // Performers
+  { source: 'char-28', target: 'char-29', type: 'Brothers', typeZh: '同胞兄弟' },
+
+  // Villains & Antagonists
+  { source: 'char-72', target: 'char-33', type: 'Associated', typeZh: '有关' },
+  { source: 'char-72', target: 'char-81', type: 'Oppressor', typeZh: '残害' },
+  { source: 'char-72', target: 'char-124', type: 'Fawning', typeZh: '讨好' },
+  { source: 'char-5', target: 'char-6', type: 'Scheming Peers', typeZh: '狐朋狗友' },
+  { source: 'char-5', target: 'char-95', type: 'Marriage', typeZh: '夫妻' },
+  { source: 'char-5', target: 'char-112', type: 'Master/Servant', typeZh: '主仆' },
+  { source: 'char-5', target: 'char-133', type: 'Father/Son', typeZh: '父子' },
+
+  // Others
+  { source: 'char-10', target: 'char-21', type: 'Mockery', typeZh: '嘲弄' },
+  { source: 'char-10', target: 'char-22', type: 'Mockery', typeZh: '嘲弄' },
+  { source: 'char-6', target: 'char-20', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-47', target: 'char-86', type: 'Marriage', typeZh: '夫妻' },
+  { source: 'char-53', target: 'char-54', type: 'Friend', typeZh: '好友' },
+  { source: 'char-53', target: 'char-79', type: 'Concubine', typeZh: '姨太太' },
+  { source: 'char-53', target: 'char-80', type: 'Concubine', typeZh: '姨太太' },
+  { source: 'char-53', target: 'char-129', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-55', target: 'char-78', type: 'Marriage', typeZh: '夫妻' },
+  { source: 'char-55', target: 'char-42', type: 'Companion', typeZh: '私人伴侣' },
+  { source: 'char-9', target: 'char-61', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-11', target: 'char-62', type: 'Nephew/Uncle', typeZh: '舅侄' },
+  { source: 'char-12', target: 'char-63', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-13', target: 'char-64', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-98', target: 'char-64', type: 'Father/Daughter', typeZh: '父女' },
+  { source: 'char-18', target: 'char-19', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-86', target: 'char-127', type: 'Brother/Sister', typeZh: '姐弟' },
+  { source: 'char-86', target: 'char-128', type: 'Father/Daughter', typeZh: '父女' },
+  { source: 'char-104', target: 'char-105', type: 'Marriage', typeZh: '夫妻' },
+  { source: 'char-90', target: 'char-114', type: 'Master/Servant', typeZh: '主仆' },
+  { source: 'char-2', target: 'char-113', type: 'Master/Servant', typeZh: '主仆' },
+];
+
+export const characters: Character[] = rawData.split('\n').map((line, index) => {
+  const [name, alias, age, originRaw, role, chapter, description, descriptionZh] = line.split('\t');
+  const origin = originRaw?.trim().replace(/^"(.*)"$/, '$1') || '—';
+  
+  return {
+    id: `char-${index}`,
+    name: name?.trim() || 'Unknown',
+    alias: alias?.trim() || '—',
+    age: age?.trim() || '—',
+    origin,
+    originZh: ORIGIN_MAP[origin] || origin,
+    role: role?.trim() || 'Other',
+    roleZh: ROLE_MAP[role?.trim() || 'Other'] || role?.trim() || '其他',
+    chapter: chapter?.trim() || '—',
+    chapterNum: parseInt(chapter?.match(/\d+/)?.[0] || '999'),
+    description: description?.trim() || '',
+    descriptionZh: descriptionZh?.trim() || ''
+  };
+});
