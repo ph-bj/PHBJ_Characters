@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npm install *)",
+      "Bash(python3 -)",
+      "Bash(node -e ' *)",
+      "Bash(node C:/Users/ffmae/AppData/Local/Temp/genc.cjs)",
+      "Bash(node -e \"require\\('./src/chapter2Translation.ts'\\)\")",
+      "Bash(node --input-type=module)",
+      "Bash(npx tsc *)",
+      "Bash(node scripts/generateTranslations.mjs)",
+      "Bash(node -e \"const d=require\\('./src/chapterData.json'\\); const ch=d.chapters.find\\(c=>c.id===3\\); ch.content.split\\('\\\\n\\\\n'\\).forEach\\(\\(p,i\\)=>console.log\\(i+': '+p.substring\\(0,80\\)\\)\\);\")",
+      "Bash(node scripts/mergeChapter.mjs)"
+    ]
+  }
+}

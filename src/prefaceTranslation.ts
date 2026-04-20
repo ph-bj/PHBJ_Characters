@@ -1,0 +1,58 @@
+// Paragraph-by-paragraph English translation of the 序 (preface), indexed to match
+// the preface content split by double newlines.
+export const prefaceTranslations: string[] = [
+  // 0
+  'I have always maintained that the true art of playful writing lies in capturing both form and sound. Realistic writing can capture form but not sound; romantic writing can capture sound but not form — both leave me with a sense of incompleteness. For a work that captures both, beyond the various books of talented men, and beyond Liaozhai and Dream of the Red Chamber, I would place Shifan\'s Pinhua Baojian foremost of all.',
+  // 1
+  'I have heard that Shifan was a celebrated figure from the Jiangnan region who spent half his life in poverty and repeatedly failed the examinations, yet his travels took him across half the empire. The famous mountains and great rivers he encountered accumulated as inner landscape, finding expression in his writing, so that whether depicting the wicked or the virtuous, all seems true to life. He is truly a distinctive voice among fiction writers.',
+  // 2
+  'I borrowed and copied the manuscript from various friends, though it was full of inconsistencies and gaps. Before I had corrected even half of it, borrowers came one after another and I could barely finish reading it myself. I later heard that someone had begun to have it carved and printed, and made inquiries everywhere. I learned that only a few volumes had been carved when the owner left town and handed the woodblocks to the printer. The printer, knowing I had a handwritten copy, consulted me and asked me to help complete the project. When I examined what had been carved, not only were there errors of mistaken characters, but it also differed somewhat from the manuscript I had previously copied.',
+  // 3
+  'This spring, beset by both sorrow and illness and finding no relief, I spent my days idly among medicine stoves and tea bowls, feeling quite wretched, and used this work as a distraction. I reviewed it repeatedly, cut and revised until it was consistent, and after seven months it was carved and printed. Had it not been for my old handwritten copy, these woodblocks would surely have ended up as firewood.',
+  // 4
+  'As for Shifan himself, we have never met in person, yet this book has ultimately relied upon me to be transmitted — truly a matter of predestined connection, which I deeply believe.',
+  // 5
+  'I once read Han Yu\'s words: "In general, things cry out when they cannot find equilibrium." And also: "Choose those who cry out well, and give them voice." I take only what cries out well in this work, wishing that all under heaven might hear its cry, borrowing its forms and sounds on paper to serve present pleasures. Flowers in a mirror, moon on the water — all that passes the eye is empty; a mirage — all is illusion in the end. What matter whose form it is, or whose sound? And what matter what kind of person has rendered these forms and sounds? The world has many enlightened souls who, I trust, will not dismiss my words. This is the preface.',
+  // 6
+  'The Hermit Who Sees Through Illusion Within Illusion',
+  // 7
+  'Preface to Pinhua Baojian',
+  // 8
+  'When I formerly lodged in the capital as a guest at the residence of a certain Board of Revenue gentleman from my hometown, I had written a chuanqi play called Dream of the Plum Blossom. Though I paid careful attention to its diction, the rhyme and rhythm were not quite harmonious, and I never showed it to anyone. The Board gentleman appreciated that my writing, though unconventional, could achieve its aims; was upright yet elegant; and playful yet witty. He urged me to write a novel instead — where one could speak one\'s mind freely and write with an easy brush, which surely would not fall into worn-out grooves the way composing verse to fixed tunes inevitably did. At the time I was devoted to studying classical prose, poetry, and songs, while holding fiction in low regard. Then I failed the autumn examination; my circumstances grew increasingly difficult, my spirits increasingly sorrowful, and the pent-up feelings in my chest found no outlet. I spent my days amusing myself in music halls and theaters, forgot my weariness for three months, and came to know something of the artistry of voice, appearance, and performance — as well as the chastity or licentiousness of character, the refinement or coarseness of speech, and the genuineness or falseness of feeling in writing. During occasional discussions with the Board gentleman about the theater and its personalities, he said: "The theme I urged you to make of your novel lies precisely here — why not write about these people? If you complete such a book, it will say what no one has said before." I too was drawn to the idea, and secretly began to compose. I produced a first volume of barely five thousand characters, which the Board gentleman approved, making suggestions and refinements.',
+  // 9
+  'I then produced two or three more volumes with a somewhat freer brush, and in two months had fifteen volumes in all. Readers came one after another to borrow them; clean copies went out and never came back, and people clamored that a new book had appeared. But then, bound by melancholy and reduced circumstances, my thoughts blocked and unable to flow, I set it aside and wrote no more.',
+  // 10
+  'The following year, a prefect of western Guangdong engaged me as his secretary, and I accompanied him to Guangdong, traveling through several prefectures. The landscapes were extraordinary, and I felt my learning had advanced somewhat in all areas. I also visited pleasure quarters and theaters there, but the unfamiliar customs rarely suited my taste. One or two of my traveling companions were taciturn men with little breadth or cultural refinement. My patron was occupied with official duties and had no leisure, and this manuscript lay in my worn basket for eight full years, more than half eaten by silverfish — I had nearly forgotten it myself.',
+  // 11
+  'When my host returned to the capital, he took me along again and urged me to sit for the capital examination once more. The Guangdong terrain is all secluded mountain streams; the waterways twist like snakes and worms; wind and snow impeded the boat as we picked our way through jagged rocks and sand, making only one or two or two or three li a day. My host pressed me urgently to continue the book and was almost ready to set a deadline. From Xing\'an county in Guangdong to Wuchang prefecture in Hubei, we traveled by boat for seventy days in all. During the day the noise of people made composition impossible. Late at night when all was still, I would write by candlelight at a furious pace, and produced another fifteen volumes. But once we entered the Yangtze River, with sails full in a fair wind, passing Jiujiang and reaching Jinling, homesickness filled my dreams and I could write no more.',
+  // 12
+  'I arrived in the capital in mid-July, took out my examination essays and practice verses and looked them over briefly. When the examinations were done, I had failed as before — and I was now past forty. Could I still go on studying and cramming away like a student in his prime? I had long known that official advancement and I had nothing in common. Too poor to return home, I continued as a guest in my host\'s household. A certain gentleman from the Board of Agriculture had seen my original fifteen volumes ten years earlier, and now saw the fifteen newly continued volumes as well. He was greatly fond of them and felt that, with half the work already done, it would be a pity to abandon it. He urged me to complete it and came daily to press me — exactly like a teacher supervising a student. Pleased yet daunted, I took up my lamp at the end of the twelfth month, roused my determination, and in five months produced thirty more volumes, thereby declaring the work finished.',
+  // 13
+  'I then reviewed the original fifteen volumes, corrected the inconsistencies between earlier and later parts, and revised them anew — sixty volumes in all from beginning to end.',
+  // 14
+  'All of it is a mirage, with no basis in fact. The beauties described are beauties my eyes have never seen; the feelings expressed are feelings I wished to give voice to from within; the voices, laughter, and faces written here — beautiful or ugly, perverse or upright, down to the trifling matters of licentiousness and vulgarity — are all things I privately surmised must exist in this world. And wherever my brush went, it was like water rushing through a gorge, a boat shooting the rapids, a horse galloping to a spring — it rested wherever it came to rest, not from any fondness for sharp words. As for the ministers, men of letters, handsome performers, beautiful women, clever maids, eccentric men, and common folk depicted here, they are as vague and imaginary as the figures in Gan Bao\'s Soushen ji or Ren Fang\'s Shuyi ji. Alas — I know full well this book strays from the orthodox path and will be scorned by serious writers; yet there is something worthwhile in it. That is for the reader to decide.',
+  // 15
+  'Ten years of neglect, yet the work completed in half a year — this confirms that diligence leads to mastery while idleness leads to ruin. If this holds even for a playful work, how much more must it apply to serious study.',
+  // 16
+  'A certain Board of Revenue gentleman set me on this course at the beginning; a certain prefect encouraged me in the middle; a certain Board of Agriculture gentleman brought it to completion at the end. These three gentlemen have done this book a very great service. Had all three of them not cared for this book, it would still be today as sky without cloud, water without ripple, tree without wind — paper without words. How could one have hoped for these sprawling, strange, and marvelous five hundred thousand characters? After completing the manuscript, I have written this account of its origins from beginning to end.',
+  // 17
+  'Jade towers in heaven or the hell of mud and fire — let it be placed wherever fate decrees.',
+  // 18
+  'Written by Shifanshi',
+  // 19
+  'Colophon Verses for Pinhua Baojian',
+  // 20
+  'A single word of praise or censure carries its lesson; wise and foolish have never gotten along since ancient times.',
+  // 21
+  'The feeling reads like the Sao and Elegances, the prose like history — no wonder copies spread and the price of paper rose.',
+  // 22
+  'It curses every flatterer and slanderer in the world, like Yu\'s cauldron casting images of all demons.',
+  // 23
+  'Strange that a single airy brush should write both demons and immortals alike.',
+  // 24
+  'The romance of boudoir and bower surpasses all others; beauties and men of letters contest in verse and prose.',
+  // 25
+  'People used to say the Dream of the Red Chamber was dazzling — this is ten times more dazzling still.',
+  // 26
+  'Inscribed by the Old Man of Wolun Pavilion',
+];

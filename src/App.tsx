@@ -34,6 +34,207 @@ import {
 } from 'lucide-react';
 import { characters, relationships } from './data';
 import { chapters } from './chapters';
+import { prefaceTranslations } from './prefaceTranslation';
+import { chapter1Translations } from './chapter1Translation';
+import { chapter2Translations } from './chapter2Translation';
+import { chapterTranslations3to60 } from './chapterTranslations3to60';
+import { chapterTranslations33to36 } from './chapterTranslations33to36';
+import { chapterTranslations37to38 } from './chapterTranslations37to38';
+import { chapterTranslations39to40 } from './chapterTranslations39to40';
+import { chapterTranslations41to42 } from './chapterTranslations41to42';
+import { chapterTranslations43to44 } from './chapterTranslations43to44';
+import { chapterTranslations45 } from './chapterTranslations45';
+import { chapterTranslations46 } from './chapterTranslations46';
+import { chapterTranslations47 } from './chapterTranslations47';
+import { chapterTranslations48 } from './chapterTranslations48';
+import { chapterTranslations49 } from './chapterTranslations49';
+import { chapterTranslations50 } from './chapterTranslations50';
+import { chapterTranslations51 } from './chapterTranslations51';
+import { chapterTranslations52 } from './chapterTranslations52';
+import { chapterTranslations53 } from './chapterTranslations53';
+import { chapterTranslations54 } from './chapterTranslations54';
+import { chapterTranslations55 } from './chapterTranslations55';
+import { chapterTranslations56 } from './chapterTranslations56';
+import { chapterTranslations57 } from './chapterTranslations57';
+import { chapterTranslations58 } from './chapterTranslations58';
+import { chapterTranslations59 } from './chapterTranslations59';
+import { chapterTranslations60 } from './chapterTranslations60';
+
+/** English line under each title in the 目录 view; keyed by chapter id (optional). */
+const chapterTitleTranslations: Partial<Record<number, string>> = {
+  1: "Shi Nanxiang compiles a floral register of celebrated beauties; Mei Ziyu, catching their fragrance, is stunned by peerless allure.",
+  2: "Wei Pincai boasts of encounters with beauties along the road; Wang Guibao sends flowers flying in riot at the feast.",
+  3: "Old Wang the snuff-bottle seller attempts extortion; a young dan shatters dishes in coquettish protest.",
+  4: "Three scholars compose by a snowy window; a young man inscribes a lyric on a powder-white wall.",
+  5: "Yuan Baozhu introduces Du Qinyan; Third Master Fu gives a detailed account of Lord Hua.",
+  6: "Madam Yan swiftly settles an excellent marriage match; Young Master Mei first surveys the realm of beauty.",
+  7: "Yan Zhongqing excels at one-character antitheses; Shi Nanxiang uniquely produces five-character verse.",
+  8: "Theater thieves steal silver yet again; amid merriment at the wine shop, disorder erupts.",
+  9: "At moonlit Lantern Night, flowers blaze in full bloom; amid pearl-like passion and qin-like yearning, one meeting is missed.",
+  10: "Spring dreams swirl between long and short affections; floral figures appear half-true, half-doubtful.",
+  11: "Three beauties turn language into fresh brilliance; maidservants are rebuked over playful talk.",
+  12: "Yan Zhongqing's chivalrous heart reveals elder compassion; Tian Chunhang's proud bones expose obsessive devotion.",
+  13: "Two hearts secretly imprint deep feeling; lustful demons and lecherous ghosts continue crooked entanglements.",
+  14: "Ancient heptasyllabics are recited as qin melodies return; a drinking game is innovated from four selected characters.",
+  15: "The old scholar is appointed to official duty away from home; the noble young master idly seeks his beloved.",
+  16: "Wei Pincai first enters Lord Hua's mansion; Mei Ziyu again visits Du Qinyan.",
+  17: "At Zhu Fangnian's banquet, poets gather in splendor; in the floral register, supreme beauty crowns all fragrance.",
+  18: "In a pleasure house, tricks are taught for exploiting performers; at a courtesan's door, willow songs are sung.",
+  19: "Lewd plots and treachery hide within the wooden barrel; clever speech and quick wit deceive for gain.",
+  20: "Dragon boats race for the championship; paired lovers pass cups through a playful wine game.",
+  21: "Rumor-making wins only cold contempt; true feelings are confessed in hidden tears.",
+  22: "Under an unlucky star, plain hearts weep in double grief; touring the canal, Mei and Du renew their bond.",
+  23: "A-Dai is attacked by poisoners under a grass mat; riding a night-soil cart, a vile secretary reveals depraved intent.",
+  24: "News of a new opera spreads; in fixing terms of affection, one leaps free from emotional bondage.",
+  25: "At waterside pavilions and wind galleries, flowers seem to speak; clear songs and subtle dances let jade-like grace arise.",
+  26: "Slander is advanced to satisfy old grudges; valuing beauty above all, Lord Hua purchases celebrated performers.",
+  27: "Xi Zhengshen makes a violent disturbance at Qiushui Hall; Du Qinyan seeks refuge in Lord Hua's mansion.",
+  28: "At parting, hidden words are sent through the Morning Glory; blinded by greed, one learns petty and crooked tricks.",
+  29: "A broken moon rounds again and true feeling smiles alone; in strict seclusion among pearls, who can pity divided longing?",
+  30: "Under moonlit lanterns, a banquet appraises the flowers; in trial costume and makeup, a brilliant stage piece is presented.",
+  31: "After drink, the flowers keep the night moon in lingering company; old sorrow returns as scholars sing of autumn graves.",
+  32: "In Xiao's studio, celebrated men await examination news; in a cold yamen office, a minor official adjudicates petitions.",
+  33: "Inspector Mei sends a family letter instructing his son; Young Master Hua bids farewell and dismisses his guests.",
+  34: "To repay debts, Li Yuanmao borrows money; during Lantern festivities, Wei Pincai is robbed.",
+  35: "In collecting floral classics, twin blossoms arise from one stem; in crafting lyric airs, red beans cast lovesick longing.",
+  36: "In intimate talk, all mouths curse Shanzhi; amid treacherous scheming, a jade bracelet is smashed in anger.",
+  37: "In a minor game, one character transforms into three; in theater-title antiphony, two words expand into four.",
+  38: "On authenticity and forgery, annotations debate the Divine Yu stele; on omen counting, Taiyi numerology is refuted.",
+  39: "In wedding-chamber revelry, quick wit yields elegant jokes; with false hair arranged, white locks become youthful color.",
+  40: "Xi the rustic libertine is poisoned by lust and rendered a eunuch; Pan Qiguan receives retribution through a degrading affliction.",
+  41: "Cherishing spring, all butterflies turn to dreams; beating erotic rhythms, paired mandarin ducks envy no immortals.",
+  42: "A guardian extorts support fees at inflated rates; in tea-house rounds, a parasite loses his money.",
+  43: "Su Huifang uses keen wit to outmaneuver the widow; Xu Ziyun redeems Qinyan at great expense.",
+  44: "Listening to rumors, three households erupt in conflict; seeing vicious letters, two young masters sever ties.",
+  45: "A noble youth visits his beloved by moonlight; the jade-like gentleman receives spirit-writing and recognizes an adoptive father.",
+  46: "Talented men divide topics and compose linked brilliance; an elder master writes a preface and lets his brush bloom with flowers.",
+  47: "Xi Eleven seeks a bizarre remedy to strengthen his kidneys; Pan Qiguan endures humiliation while treating his injured backside.",
+  48: "On a magnolia boat, a heartbroken lyric is sung; at Huanghua Pavilion, tears are shed in painful farewell.",
+  49: "Moved by love, Scholar Tian seeks marriage as top laureate; by chance affection, Third Sister Xu recognizes her lost brother.",
+  50: "Lin Chunxi revises opera texts into proper form; Wei Pincai's story closes with his marriage to a courtesan.",
+  51: "In poverty and frustration, people eavesdrop on opera through walls; pent-up resentment breaks into open conflict indoors.",
+  52: "Young masters celebrate in the garden; beautiful ladies accompany the newlyweds in embroidered chambers.",
+  53: "By inscribing songs on a peach-blossom fan, fragrant affection is sealed; at Swallow Bluff, an infatuated soul is shocked by a phantom dream.",
+  54: "A talented scholar enters the Hanlin through lyric examination; in the ladies' chamber, beauties discuss Tang poetry.",
+  55: "At Phoenix Mountain they pay respects to a literary altar; beside Emerald Nest they seek an old tomb.",
+  56: "Qu Fangzheng appears in a dream after becoming a god; Historian Hou feigns righteousness in aiding an orphan.",
+  57: "Yuan Qixiang leads drinking-game banter among beauties; Wang Qionghua becomes alliance leader through poetry cards.",
+  58: "Xi Eleven and his servant suffer karmic retribution; Pan Qiguan and his wife descend into obscene turmoil.",
+  59: "Vice-Minister Mei independently builds the Qu shrine; Young Master Qu returns to the capital.",
+  60: "Jin Jifu brings Pinhua Baojian to its conclusion; Yuan Baozhu leads the invocation honoring the literary stars.",
+};
+function pickDistributedIndices(total: number): number[] {
+  if (total <= 0) return [];
+  if (total <= 6) return Array.from({ length: total }, (_, i) => i);
+  const base = new Set<number>([
+    0,
+    1,
+    Math.floor(total * 0.2),
+    Math.floor(total * 0.35),
+    Math.floor(total * 0.5),
+    Math.floor(total * 0.65),
+    Math.floor(total * 0.8),
+    total - 2,
+    total - 1,
+  ]);
+  return Array.from(base).filter((i) => i >= 0 && i < total).sort((a, b) => a - b);
+}
+
+function trimByWords(text: string, maxWords: number): string {
+  const words = text.replace(/\s+/g, ' ').trim().split(' ');
+  if (words.length <= maxWords) return words.join(' ');
+  return `${words.slice(0, maxWords).join(' ')}...`;
+}
+
+function trimByChars(text: string, maxChars: number): string {
+  const compact = text.replace(/\s+/g, '').trim();
+  if (compact.length <= maxChars) return compact;
+  return `${compact.slice(0, maxChars)}……`;
+}
+
+function chapterHeadingFromTitle(chapter: Chapter): { heading: string; theme: string } {
+  const titleParts = chapter.title.trim().split(/\s+/);
+  const heading = titleParts[0] ?? `第${chapter.id}回`;
+  const theme = titleParts.slice(1).join(' ') || chapter.title;
+  return { heading, theme };
+}
+
+function buildChapterSummary(chapter: Chapter): { en: string; zh: string } {
+  const paragraphsZh = chapter.content.split('\n\n').filter((p) => p.trim().length > 0);
+  const paragraphsEn = translationMap[chapter.id] ?? [];
+  const { heading, theme } = chapterHeadingFromTitle(chapter);
+  const indices = pickDistributedIndices(paragraphsZh.length);
+
+  if (chapter.id === 0) {
+    const zhSummary = [
+      '本篇序文以“绘形绘声”为纲，先论小说之所以动人，不仅在于叙事结构，更在于能否同时写出人物之形、情、声、气。',
+      '作者借评诸书，特别推重《品花宝鉴》在人物神态与世情风习上的细腻刻画，强调其“另具一格”的叙事价值。',
+      '文中又追述此书流传经历：抄本错杂、借阅辗转、半途停刻，后经重校删订方得成编。',
+      '在“病中校刻”的叙述里，序者把个人际遇与文本命运并置，形成一种“人事飘零而文脉得续”的自我见证。',
+      '末段以镜花水月、海市蜃楼作喻，点明繁华情事终归幻影，却仍主张借文字留下可供玩味的人情与世态。',
+      '故此序既是版本说明，也是审美宣言：承认世事无常，同时坚持文学可存其神。'
+    ].join('');
+    const enSummary = [
+      "The preface frames the novel through the paired ideals of depicting form and voice: compelling fiction must render not only events but the lived texture of people, speech, temperament, and mood.",
+      "By comparing major narrative works, the writer singles out Pinhua Baojian as distinctive for its unusually vivid social portraiture and character presence, arguing that it occupies a unique place in the tradition.",
+      "The text then recounts a difficult transmission history: scattered manuscripts, inconsistent copies, interrupted printing, and eventual rescue through painstaking collation and revision.",
+      "The editor's account of correcting the work while ill fuses personal hardship with textual preservation, turning publication into both literary labor and moral commitment.",
+      "In its closing movement, the preface invokes mirror-flowers and mirage imagery to acknowledge that worldly splendor is transient, yet still insists that writing can preserve the emotional truth of a historical milieu.",
+      "As a result, this opening operates at once as publication note, aesthetic statement, and defense of fiction's lasting value despite the impermanence of life."
+    ].join(' ');
+    return { en: enSummary, zh: zhSummary };
+  }
+
+  const zhCore = indices
+    .map((i) => trimByChars(paragraphsZh[i], 110))
+    .filter((p) => p.length > 0);
+
+  const enCore = indices
+    .map((i) => paragraphsEn[i] ?? '')
+    .filter((p) => p.trim().length > 0)
+    .map((p) => trimByWords(p, 60));
+
+  const zhIntro = `${heading}围绕“${theme}”展开，情节由开端铺陈、中段冲突到结尾收束层层推进。`;
+  const zhBody = zhCore.map((p, idx) => `其${idx + 1}，${p}`).join('');
+  const zhClose = '综观全回，人物关系、情绪走向与事件后果彼此牵引，既回应前文伏线，也为后续情节递进奠定关键转折。';
+
+  const enIntro = `Chapter ${chapter.id} develops through setup, escalation, turning points, and resolution in a tightly connected narrative arc.`;
+  const enBody = enCore.map((p, idx) => `Point ${idx + 1}: ${p}`).join(' ');
+  const enClose = 'Taken as a whole, the chapter interlocks character motivation, emotional reversal, and consequential action, while paying off earlier threads and preparing the next stage of the novel.';
+
+  return {
+    en: `${enIntro} ${enBody} ${enClose}`,
+    zh: `${zhIntro}${zhBody}${zhClose}`,
+  };
+}
+
+const translationMap: Record<number, string[]> = {
+  0: prefaceTranslations,
+  1: chapter1Translations,
+  2: chapter2Translations,
+  ...chapterTranslations3to60,
+  ...chapterTranslations33to36,
+  ...chapterTranslations37to38,
+  ...chapterTranslations39to40,
+  ...chapterTranslations41to42,
+  ...chapterTranslations43to44,
+  ...chapterTranslations45,
+  ...chapterTranslations46,
+  ...chapterTranslations47,
+  ...chapterTranslations48,
+  ...chapterTranslations49,
+  ...chapterTranslations50,
+  ...chapterTranslations51,
+  ...chapterTranslations52,
+  ...chapterTranslations53,
+  ...chapterTranslations54,
+  ...chapterTranslations55,
+  ...chapterTranslations56,
+  ...chapterTranslations57,
+  ...chapterTranslations58,
+  ...chapterTranslations59,
+  ...chapterTranslations60,
+};
 import { Character, Chapter } from './types';
 import NetworkGraph from './components/NetworkGraph';
 
@@ -85,6 +286,34 @@ const ROLE_ACCENTS: Record<string, string> = {
   Other: '#44403c'
 };
 
+function extractChineseTokens(text: string): string[] {
+  const matches = text.match(/[\u4e00-\u9fff]+/g);
+  return matches ? matches.filter(Boolean) : [];
+}
+
+function getChapterMentionedCharacters(content: string): Character[] {
+  const hitIds = new Set<string>();
+  const hits: Character[] = [];
+
+  for (const character of characters) {
+    const nameTokens = extractChineseTokens(character.name);
+    const aliasTokens = character.alias
+      .split('/')
+      .flatMap((part) => extractChineseTokens(part))
+      .filter((token) => token !== '—');
+    const tokens = Array.from(new Set([...nameTokens, ...aliasTokens])).filter((token) => token.length >= 2);
+
+    if (tokens.some((token) => content.includes(token))) {
+      if (!hitIds.has(character.id)) {
+        hitIds.add(character.id);
+        hits.push(character);
+      }
+    }
+  }
+
+  return hits.sort((a, b) => a.chapterNum - b.chapterNum || a.name.localeCompare(b.name));
+}
+
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
@@ -95,7 +324,7 @@ export default function App() {
 
   const t = {
     en: {
-      title: "品花宝鉴 Character Database",
+      title: "Pinhua baojian Database 品花宝鉴数据库",
       subtitle: `Exploring ${characters.length} characters from the classic Chinese novel`,
       hometown: "Hometown",
       ageDist: "Age Distribution",
@@ -116,7 +345,7 @@ export default function App() {
       readChapter: "Read Chapter"
     },
     zh: {
-      title: "品花宝鉴 人物数据库",
+      title: "Pinhua baojian Database 品花宝鉴数据库",
       subtitle: `探索中国古典小说中的${characters.length}位人物`,
       hometown: "籍贯",
       ageDist: "年龄分布",
@@ -214,7 +443,6 @@ export default function App() {
           <div className="hidden sm:block flex-1" />
           <div className="flex flex-col items-center text-center gap-1 flex-1">
             <h1 className="text-xl sm:text-3xl font-bold tracking-tight text-[#2c2420]">{t.title}</h1>
-            <p className="text-xs sm:text-sm italic text-[#5d5048]">{t.subtitle}</p>
           </div>
           <div className="flex-1 flex justify-center sm:justify-end">
             <div className="flex bg-black/5 p-1 rounded-sm border border-[#d4c5a9]">
@@ -241,7 +469,7 @@ export default function App() {
 
       <main className="max-w-[1800px] mx-auto p-2 sm:p-5 grid grid-cols-1 xl:grid-cols-[280px_1fr_300px] lg:grid-cols-[280px_1fr] gap-4 sm:gap-6">
         {/* Left Sidebar */}
-        <aside className="flex flex-col gap-4 sm:gap-5 h-fit lg:sticky lg:top-5 order-2 lg:order-1">
+        <aside className="flex flex-col gap-4 sm:gap-5 h-fit order-2 lg:order-1">
           <div className="parchment p-4 sm:p-8 rounded-sm flex flex-col gap-6 sm:gap-10 border-double border-4 border-[#d4c5a9]">
             <div>
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">{t.hometown}</h2>
@@ -324,6 +552,17 @@ export default function App() {
 
         {/* Content Area */}
         <section className="flex flex-col gap-4 sm:gap-5 order-1 lg:order-2">
+          {/* Network Graph Section */}
+          <div>
+            <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">
+              {lang === 'en' ? 'Character Relationship Network' : '人物关系网络图谱'}
+            </h2>
+            <p className="text-xs italic text-[#5d5048] mb-4">
+              Exploring 134 characters from the classic Chinese novel
+            </p>
+            <NetworkGraph characters={characters} relationships={relationships} lang={lang} onNodeClick={setSelectedCharacter} />
+          </div>
+
           {/* Search & Filters */}
           <div className="parchment p-4 sm:p-6 rounded-sm flex flex-col gap-4 sm:gap-6 border-double border-4 border-[#d4c5a9]">
             <div className="flex flex-col md:flex-row gap-4 items-center">
@@ -410,20 +649,25 @@ export default function App() {
             </div>
           )}
 
-          {/* Network Graph Section */}
-          <div className="mt-12">
-            <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">
-              {lang === 'en' ? 'Character Relationship Network' : '人物关系网络图谱'}
-            </h2>
-            <NetworkGraph characters={characters} relationships={relationships} lang={lang} onNodeClick={setSelectedCharacter} />
-          </div>
         </section>
 
         {/* Right Sidebar - Chapters */}
-        <aside className="flex flex-col gap-4 sm:gap-5 h-fit order-3 lg:col-span-2 xl:col-span-1 xl:sticky xl:top-5">
+        <aside className="flex flex-col gap-4 sm:gap-5 h-fit order-3 lg:col-span-2 xl:col-span-1">
           <div className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9]">
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">{t.chapters}</h2>
+            <div className="mb-6 space-y-2 pb-4 border-b border-[#d4c5a9]">
+              <p className="text-base font-bold font-hans text-[#2c2420]">品花宝鉴</p>
+              <p className="text-[11px] font-hans text-[#5d5048]">作者：陈森</p>
+              <p className="text-[11px] font-hans text-[#2c2420] leading-relaxed">《品花宝鉴》，亦作《怡情佚史》、《群花宝鉴》，清代陈森所著的一部描写狎优风气的长篇小说，共60回。陈森是常州人，科举常年不得意，40岁后放弃科举。他寓居北京时常与优伶交往，为日后的创作积累了素材。</p>
+            </div>
             <div className="flex flex-col gap-1.5">
+              <button
+                onClick={() => setSelectedChapter({ id: -1, title: '目录', content: chapters.filter(c => c.id > 0).map(c => c.title).join('\n') })}
+                className="text-left p-2 rounded-sm border border-[#8b4513]/40 hover:bg-[#8b4513]/10 hover:border-[#8b4513]/60 transition-all group flex items-center gap-2 mb-1"
+              >
+                <Book size={12} className="text-[#8b4513]/60 group-hover:text-[#8b4513] shrink-0" />
+                <span className="text-[11px] font-hans font-bold text-[#8b4513] leading-tight">目录</span>
+              </button>
               {chapters.map((chapter) => (
                 <button
                   key={chapter.id}
@@ -438,6 +682,12 @@ export default function App() {
           </div>
         </aside>
       </main>
+
+      <footer className="max-w-[1800px] mx-auto px-2 sm:px-5 pb-8 text-center">
+        <p className="text-xs text-[#5d5048]">
+          Pinhua baojian Database 品花宝鉴数据库 is authored by TengChao Zhou in 2026 with the help of AI technologies.
+        </p>
+      </footer>
 
       {/* Floating Scroll Buttons */}
       <div className="fixed bottom-6 right-6 flex flex-col gap-2 z-40">
@@ -461,6 +711,18 @@ export default function App() {
         </motion.button>
       </div>
 
+      {/* Chapter Reader Modal */}
+      <AnimatePresence>
+        {selectedChapter && (
+          <ChapterReader 
+            chapter={selectedChapter} 
+            onClose={() => setSelectedChapter(null)} 
+            lang={lang}
+            onSelectCharacter={(character) => setSelectedCharacter(character)}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Detail Modal */}
       <AnimatePresence>
         {selectedCharacter && (
@@ -471,22 +733,31 @@ export default function App() {
           />
         )}
       </AnimatePresence>
-
-      {/* Chapter Reader Modal */}
-      <AnimatePresence>
-        {selectedChapter && (
-          <ChapterReader 
-            chapter={selectedChapter} 
-            onClose={() => setSelectedChapter(null)} 
-            lang={lang}
-          />
-        )}
-      </AnimatePresence>
     </div>
   );
 }
 
-function ChapterReader({ chapter, onClose, lang }: { chapter: Chapter; onClose: () => void; lang: 'en' | 'zh' }) {
+function ChapterReader({
+  chapter,
+  onClose,
+  lang,
+  onSelectCharacter,
+}: {
+  chapter: Chapter;
+  onClose: () => void;
+  lang: 'en' | 'zh';
+  onSelectCharacter: (character: Character) => void;
+}) {
+  const chapterSummary = useMemo(
+    () => (chapter.id >= 0 ? buildChapterSummary(chapter) : null),
+    [chapter]
+  );
+
+  const chapterMentionedCharacters = useMemo(
+    () => (chapter.id > 0 ? getChapterMentionedCharacters(chapter.content) : []),
+    [chapter.id, chapter.content]
+  );
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <motion.div
@@ -522,14 +793,80 @@ function ChapterReader({ chapter, onClose, lang }: { chapter: Chapter; onClose: 
           <div className="max-w-2xl mx-auto space-y-6">
             <div className="text-center mb-12">
               <div className="w-16 h-1 bg-[#8b4513]/20 mx-auto mb-6" />
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4">{chapter.title}</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4 font-hans">{chapter.title}</h3>
+              {chapter.id > 0 && chapterTitleTranslations[chapter.id] && (
+                <p className="text-[12px] italic text-[#5d5048] max-w-2xl mx-auto leading-relaxed">
+                  {chapterTitleTranslations[chapter.id]}
+                </p>
+              )}
               <div className="text-[10px] uppercase tracking-[0.5em] text-[#5d5048] opacity-60">
                 Pinhua Baojian Archive
               </div>
             </div>
-            <div className="whitespace-pre-wrap text-base sm:text-lg italic font-hans first-letter:text-4xl first-letter:font-bold first-letter:mr-1 first-letter:float-left">
-              {chapter.content}
-            </div>
+            {chapterSummary && (
+              <div className="mb-8 border border-[#d4c5a9] bg-black/5 p-4 rounded-sm space-y-3">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#5d5048] font-bold">
+                  {lang === 'en' ? 'Chapter Summary' : '章节提要'}
+                </p>
+                <div className="space-y-2">
+                  <p className="text-[11px] font-bold text-[#2c2420]">English</p>
+                  <p className="text-[12px] italic text-[#5d5048] leading-relaxed">
+                    {chapterSummary.en}
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-[11px] font-bold text-[#2c2420]">中文</p>
+                  <p className="text-[12px] text-[#2c2420] font-hans leading-relaxed">
+                    {chapterSummary.zh}
+                  </p>
+                </div>
+              </div>
+            )}
+            {chapter.id > 0 && chapterMentionedCharacters.length > 0 && (
+              <div className="mb-8 border border-[#d4c5a9] bg-black/5 p-4 rounded-sm">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-3">
+                  {lang === 'en' ? 'Characters Mentioned In This Chapter' : '本回出现人物'}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {chapterMentionedCharacters.map((character) => (
+                    <button
+                      key={character.id}
+                      onClick={() => onSelectCharacter(character)}
+                      className="px-2 py-1 text-[11px] rounded-sm border border-[#d4c5a9] bg-white/30 hover:bg-[#8b4513]/10 hover:border-[#8b4513]/40 transition-colors font-hans"
+                    >
+                      {character.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+            {chapter.id === -1 ? (
+              <div className="space-y-5">
+                {chapter.content.split('\n').map((line, i) => (
+                  <div key={i} className="border-b border-[#d4c5a9]/50 pb-4">
+                    <p className="text-base font-hans text-[#2c2420] leading-snug">{line}</p>
+                    {chapterTitleTranslations[i + 1] != null && chapterTitleTranslations[i + 1] !== '' && (
+                      <p className="text-[12px] italic text-[#5d5048] mt-1 leading-snug">{chapterTitleTranslations[i + 1]}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : translationMap[chapter.id] ? (
+              <div className="space-y-8">
+                {chapter.content.split('\n\n').map((para, i) => (
+                  <div key={i} className="border-b border-[#d4c5a9]/40 pb-6 last:border-0">
+                    <p className="text-base font-hans text-[#2c2420] leading-relaxed">{para}</p>
+                    {translationMap[chapter.id][i] && (
+                      <p className="text-[12px] italic text-[#5d5048] mt-3 leading-relaxed">{translationMap[chapter.id][i]}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="whitespace-pre-wrap text-base sm:text-lg italic font-hans first-letter:text-4xl first-letter:font-bold first-letter:mr-1 first-letter:float-left">
+                {chapter.content}
+              </div>
+            )}
             <div className="pt-12 text-center text-[#5d5048] italic text-sm opacity-60">
               {lang === 'en' ? '--- End of Chapter ---' : '--- 本回完 ---'}
             </div>

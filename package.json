@@ -8,9 +8,12 @@
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "translation-batch:ch43-60": "node scripts/generate-translation-batch-ch43-60.mjs",
+    "rebuild:ch43-44": "node scripts/rebuild-ch43-44.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.90.0",
     "@google/genai": "^1.29.0",
     "@tailwindcss/vite": "^4.1.14",
     "@types/d3": "^7.4.3",
