@@ -32,7 +32,7 @@ import {
   ChevronDown,
   Book
 } from 'lucide-react';
-import { characters, relationships } from './data';
+import { characters, relationships, identityLinksById } from './data';
 import { chapters } from './chapters';
 import { prefaceTranslations } from './prefaceTranslation';
 import { chapter1Translations } from './chapter1Translation';
@@ -59,6 +59,8 @@ import { chapterTranslations57 } from './chapterTranslations57';
 import { chapterTranslations58 } from './chapterTranslations58';
 import { chapterTranslations59 } from './chapterTranslations59';
 import { chapterTranslations60 } from './chapterTranslations60';
+import { chapterSummaries } from './chapterSummaries';
+import { characterAppearances } from './characterAppearances';
 
 /** English line under each title in the 目录 view; keyed by chapter id (optional). */
 const chapterTitleTranslations: Partial<Record<number, string>> = {
@@ -123,90 +125,6 @@ const chapterTitleTranslations: Partial<Record<number, string>> = {
   59: "Vice-Minister Mei independently builds the Qu shrine; Young Master Qu returns to the capital.",
   60: "Jin Jifu brings Pinhua Baojian to its conclusion; Yuan Baozhu leads the invocation honoring the literary stars.",
 };
-function pickDistributedIndices(total: number): number[] {
-  if (total <= 0) return [];
-  if (total <= 6) return Array.from({ length: total }, (_, i) => i);
-  const base = new Set<number>([
-    0,
-    1,
-    Math.floor(total * 0.2),
-    Math.floor(total * 0.35),
-    Math.floor(total * 0.5),
-    Math.floor(total * 0.65),
-    Math.floor(total * 0.8),
-    total - 2,
-    total - 1,
-  ]);
-  return Array.from(base).filter((i) => i >= 0 && i < total).sort((a, b) => a - b);
-}
-
-function trimByWords(text: string, maxWords: number): string {
-  const words = text.replace(/\s+/g, ' ').trim().split(' ');
-  if (words.length <= maxWords) return words.join(' ');
-  return `${words.slice(0, maxWords).join(' ')}...`;
-}
-
-function trimByChars(text: string, maxChars: number): string {
-  const compact = text.replace(/\s+/g, '').trim();
-  if (compact.length <= maxChars) return compact;
-  return `${compact.slice(0, maxChars)}……`;
-}
-
-function chapterHeadingFromTitle(chapter: Chapter): { heading: string; theme: string } {
-  const titleParts = chapter.title.trim().split(/\s+/);
-  const heading = titleParts[0] ?? `第${chapter.id}回`;
-  const theme = titleParts.slice(1).join(' ') || chapter.title;
-  return { heading, theme };
-}
-
-function buildChapterSummary(chapter: Chapter): { en: string; zh: string } {
-  const paragraphsZh = chapter.content.split('\n\n').filter((p) => p.trim().length > 0);
-  const paragraphsEn = translationMap[chapter.id] ?? [];
-  const { heading, theme } = chapterHeadingFromTitle(chapter);
-  const indices = pickDistributedIndices(paragraphsZh.length);
-
-  if (chapter.id === 0) {
-    const zhSummary = [
-      '本篇序文以“绘形绘声”为纲，先论小说之所以动人，不仅在于叙事结构，更在于能否同时写出人物之形、情、声、气。',
-      '作者借评诸书，特别推重《品花宝鉴》在人物神态与世情风习上的细腻刻画，强调其“另具一格”的叙事价值。',
-      '文中又追述此书流传经历：抄本错杂、借阅辗转、半途停刻，后经重校删订方得成编。',
-      '在“病中校刻”的叙述里，序者把个人际遇与文本命运并置，形成一种“人事飘零而文脉得续”的自我见证。',
-      '末段以镜花水月、海市蜃楼作喻，点明繁华情事终归幻影，却仍主张借文字留下可供玩味的人情与世态。',
-      '故此序既是版本说明，也是审美宣言：承认世事无常，同时坚持文学可存其神。'
-    ].join('');
-    const enSummary = [
-      "The preface frames the novel through the paired ideals of depicting form and voice: compelling fiction must render not only events but the lived texture of people, speech, temperament, and mood.",
-      "By comparing major narrative works, the writer singles out Pinhua Baojian as distinctive for its unusually vivid social portraiture and character presence, arguing that it occupies a unique place in the tradition.",
-      "The text then recounts a difficult transmission history: scattered manuscripts, inconsistent copies, interrupted printing, and eventual rescue through painstaking collation and revision.",
-      "The editor's account of correcting the work while ill fuses personal hardship with textual preservation, turning publication into both literary labor and moral commitment.",
-      "In its closing movement, the preface invokes mirror-flowers and mirage imagery to acknowledge that worldly splendor is transient, yet still insists that writing can preserve the emotional truth of a historical milieu.",
-      "As a result, this opening operates at once as publication note, aesthetic statement, and defense of fiction's lasting value despite the impermanence of life."
-    ].join(' ');
-    return { en: enSummary, zh: zhSummary };
-  }
-
-  const zhCore = indices
-    .map((i) => trimByChars(paragraphsZh[i], 110))
-    .filter((p) => p.length > 0);
-
-  const enCore = indices
-    .map((i) => paragraphsEn[i] ?? '')
-    .filter((p) => p.trim().length > 0)
-    .map((p) => trimByWords(p, 60));
-
-  const zhIntro = `${heading}围绕“${theme}”展开，情节由开端铺陈、中段冲突到结尾收束层层推进。`;
-  const zhBody = zhCore.map((p, idx) => `其${idx + 1}，${p}`).join('');
-  const zhClose = '综观全回，人物关系、情绪走向与事件后果彼此牵引，既回应前文伏线，也为后续情节递进奠定关键转折。';
-
-  const enIntro = `Chapter ${chapter.id} develops through setup, escalation, turning points, and resolution in a tightly connected narrative arc.`;
-  const enBody = enCore.map((p, idx) => `Point ${idx + 1}: ${p}`).join(' ');
-  const enClose = 'Taken as a whole, the chapter interlocks character motivation, emotional reversal, and consequential action, while paying off earlier threads and preparing the next stage of the novel.';
-
-  return {
-    en: `${enIntro} ${enBody} ${enClose}`,
-    zh: `${zhIntro}${zhBody}${zhClose}`,
-  };
-}
 
 const translationMap: Record<number, string[]> = {
   0: prefaceTranslations,
@@ -284,6 +202,31 @@ const ROLE_ACCENTS: Record<string, string> = {
   servant: '#065f46',
   deceased: '#3f3f46',
   Other: '#44403c'
+};
+
+// Chip colours — unselected (light tint) and selected (solid)
+const ROLE_CHIP_IDLE: Record<string, string> = {
+  scholar:  'bg-blue-100   border-blue-300   text-blue-900',
+  performer:'bg-red-100    border-red-300    text-red-900',
+  official: 'bg-yellow-100 border-yellow-300 text-yellow-900',
+  villain:  'bg-gray-100   border-gray-400   text-gray-800',
+  minor:    'bg-stone-100  border-stone-300  text-stone-700',
+  female:   'bg-purple-100 border-purple-300 text-purple-900',
+  servant:  'bg-green-100  border-green-300  text-green-900',
+  deceased: 'bg-zinc-100   border-zinc-300   text-zinc-700',
+  Other:    'bg-stone-100  border-stone-300  text-stone-700',
+};
+
+const ROLE_CHIP_ACTIVE: Record<string, string> = {
+  scholar:  'bg-blue-800   border-blue-800   text-white',
+  performer:'bg-red-800    border-red-800    text-white',
+  official: 'bg-yellow-700 border-yellow-700 text-white',
+  villain:  'bg-gray-800   border-gray-800   text-white',
+  minor:    'bg-stone-700  border-stone-700  text-white',
+  female:   'bg-purple-800 border-purple-800 text-white',
+  servant:  'bg-green-800  border-green-800  text-white',
+  deceased: 'bg-zinc-700   border-zinc-700   text-white',
+  Other:    'bg-stone-700  border-stone-700  text-white',
 };
 
 function extractChineseTokens(text: string): string[] {
@@ -368,8 +311,13 @@ export default function App() {
   }[lang];
 
   const roles = useMemo(() => {
-    const uniqueRoles = Array.from(new Set(characters.map(c => lang === 'zh' ? c.roleZh : c.role)));
-    return uniqueRoles.sort();
+    const seen = new Map<string, string>(); // key → label
+    characters.forEach(c => {
+      if (!seen.has(c.role)) seen.set(c.role, lang === 'zh' ? c.roleZh : c.role);
+    });
+    return Array.from(seen.entries())
+      .map(([key, label]) => ({ key, label }))
+      .sort((a, b) => a.key.localeCompare(b.key));
   }, [lang]);
 
   const filteredCharacters = useMemo(() => {
@@ -377,9 +325,12 @@ export default function App() {
       const matchesSearch = 
         char.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         char.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        char.alias.toLowerCase().includes(searchQuery.toLowerCase());
+        char.alias.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (identityLinksById[char.id] || []).some((name) =>
+          name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
       
-      const matchesRole = !selectedRole || (lang === 'zh' ? char.roleZh === selectedRole : char.role === selectedRole);
+      const matchesRole = !selectedRole || char.role === selectedRole;
       
       return matchesSearch && matchesRole;
     });
@@ -558,7 +509,7 @@ export default function App() {
               {lang === 'en' ? 'Character Relationship Network' : '人物关系网络图谱'}
             </h2>
             <p className="text-xs italic text-[#5d5048] mb-4">
-              Exploring 134 characters from the classic Chinese novel
+              {t.subtitle}
             </p>
             <NetworkGraph characters={characters} relationships={relationships} lang={lang} onNodeClick={setSelectedCharacter} />
           </div>
@@ -597,10 +548,10 @@ export default function App() {
                 </button>
               </div>
             </div>
-            <div className="flex gap-2 overflow-x-auto w-full pb-2 no-scrollbar border-t border-[#d4c5a9] pt-4">
+            <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-2 overflow-x-visible md:overflow-x-auto w-full pb-1 md:pb-2 no-scrollbar border-t border-[#d4c5a9] pt-4">
               <button
                 onClick={() => setSelectedRole(null)}
-                className={`px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-widest transition-all border whitespace-nowrap ${
+                className={`px-3 sm:px-4 py-2.5 rounded-sm text-[11px] md:text-[10px] font-bold uppercase tracking-wider md:tracking-widest transition-all border whitespace-nowrap min-h-10 ${
                   !selectedRole 
                     ? 'bg-[#2c2420] text-[#f4ecd8] border-[#2c2420]' 
                     : 'bg-white/10 text-[#5d5048] border-[#d4c5a9] hover:border-[#8b4513]/30'
@@ -608,17 +559,17 @@ export default function App() {
               >
                 {t.allRecords}
               </button>
-              {roles.map(role => (
+              {roles.map(({ key, label }) => (
                 <button
-                  key={role}
-                  onClick={() => setSelectedRole(role)}
-                  className={`px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-widest transition-all border whitespace-nowrap font-hans ${
-                    selectedRole === role 
-                      ? 'bg-[#2c2420] text-[#f4ecd8] border-[#2c2420]' 
-                      : 'bg-white/10 text-[#5d5048] border-[#d4c5a9] hover:border-[#8b4513]/30'
+                  key={key}
+                  onClick={() => setSelectedRole(key)}
+                  className={`px-3 sm:px-4 py-2.5 rounded-sm text-[11px] md:text-[10px] font-bold uppercase tracking-wider md:tracking-widest transition-all border whitespace-nowrap font-hans min-h-10 ${
+                    selectedRole === key
+                      ? (ROLE_CHIP_ACTIVE[key] ?? ROLE_CHIP_ACTIVE.Other)
+                      : (ROLE_CHIP_IDLE[key] ?? ROLE_CHIP_IDLE.Other) + ' hover:opacity-75'
                   }`}
                 >
-                  {role}
+                  {label}
                 </button>
               ))}
             </div>
@@ -666,7 +617,9 @@ export default function App() {
                 className="text-left p-2 rounded-sm border border-[#8b4513]/40 hover:bg-[#8b4513]/10 hover:border-[#8b4513]/60 transition-all group flex items-center gap-2 mb-1"
               >
                 <Book size={12} className="text-[#8b4513]/60 group-hover:text-[#8b4513] shrink-0" />
-                <span className="text-[11px] font-hans font-bold text-[#8b4513] leading-tight">目录</span>
+                <span className="text-[11px] font-hans font-bold text-[#8b4513] leading-tight">
+                  {lang === 'en' ? 'Contents' : '目录'}
+                </span>
               </button>
               {chapters.map((chapter) => (
                 <button
@@ -675,7 +628,13 @@ export default function App() {
                   className="text-left p-2 rounded-sm border border-[#d4c5a9]/30 hover:bg-[#8b4513]/5 hover:border-[#8b4513]/30 transition-all group flex items-center gap-2"
                 >
                   <Book size={12} className="text-[#8b4513]/40 group-hover:text-[#8b4513] shrink-0" />
-                  <span className="text-[11px] font-hans text-[#2c2420] leading-tight">{chapter.title}</span>
+                  <span className="text-[11px] font-hans text-[#2c2420] leading-tight">
+                    {lang === 'en'
+                      ? chapter.id === 0
+                        ? 'Preface'
+                        : `Ch. ${chapter.id} — ${chapterTitleTranslations[chapter.id] || chapter.title}`
+                      : chapter.title}
+                  </span>
                 </button>
               ))}
             </div>
@@ -726,10 +685,11 @@ export default function App() {
       {/* Detail Modal */}
       <AnimatePresence>
         {selectedCharacter && (
-          <CharacterDetail 
-            character={selectedCharacter} 
-            onClose={() => setSelectedCharacter(null)} 
+          <CharacterDetail
+            character={selectedCharacter}
+            onClose={() => setSelectedCharacter(null)}
             lang={lang}
+            onSelectChapter={setSelectedChapter}
           />
         )}
       </AnimatePresence>
@@ -749,8 +709,8 @@ function ChapterReader({
   onSelectCharacter: (character: Character) => void;
 }) {
   const chapterSummary = useMemo(
-    () => (chapter.id >= 0 ? buildChapterSummary(chapter) : null),
-    [chapter]
+    () => chapterSummaries[chapter.id] ?? null,
+    [chapter.id]
   );
 
   const chapterMentionedCharacters = useMemo(
@@ -795,12 +755,12 @@ function ChapterReader({
               <div className="w-16 h-1 bg-[#8b4513]/20 mx-auto mb-6" />
               <h3 className="text-2xl sm:text-3xl font-bold mb-4 font-hans">{chapter.title}</h3>
               {chapter.id > 0 && chapterTitleTranslations[chapter.id] && (
-                <p className="text-[12px] italic text-[#5d5048] max-w-2xl mx-auto leading-relaxed">
+                <p className="text-sm sm:text-base text-[#4a3f38] max-w-3xl mx-auto leading-relaxed font-sans">
                   {chapterTitleTranslations[chapter.id]}
                 </p>
               )}
               <div className="text-[10px] uppercase tracking-[0.5em] text-[#5d5048] opacity-60">
-                Pinhua Baojian Archive
+                Pinhua baojian Database 品花宝鉴数据库
               </div>
             </div>
             {chapterSummary && (
@@ -810,13 +770,13 @@ function ChapterReader({
                 </p>
                 <div className="space-y-2">
                   <p className="text-[11px] font-bold text-[#2c2420]">English</p>
-                  <p className="text-[12px] italic text-[#5d5048] leading-relaxed">
+                  <p className="text-sm sm:text-base text-[#4a3f38] leading-relaxed font-sans whitespace-pre-line">
                     {chapterSummary.en}
                   </p>
                 </div>
                 <div className="space-y-2">
                   <p className="text-[11px] font-bold text-[#2c2420]">中文</p>
-                  <p className="text-[12px] text-[#2c2420] font-hans leading-relaxed">
+                  <p className="text-[12px] text-[#2c2420] font-hans leading-relaxed whitespace-pre-line">
                     {chapterSummary.zh}
                   </p>
                 </div>
@@ -857,7 +817,7 @@ function ChapterReader({
                   <div key={i} className="border-b border-[#d4c5a9]/40 pb-6 last:border-0">
                     <p className="text-base font-hans text-[#2c2420] leading-relaxed">{para}</p>
                     {translationMap[chapter.id][i] && (
-                      <p className="text-[12px] italic text-[#5d5048] mt-3 leading-relaxed">{translationMap[chapter.id][i]}</p>
+                      <p className="text-sm sm:text-base text-[#4a3f38] mt-3 leading-7 font-sans">{translationMap[chapter.id][i]}</p>
                     )}
                   </div>
                 ))}
@@ -874,7 +834,7 @@ function ChapterReader({
         </div>
 
         <div className="bg-[#d4c5a9]/20 p-4 text-[#5d5048] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[#d4c5a9] font-hans shrink-0">
-          Imperial Archives &bull; Reading Mode
+          Pinhua baojian Database 品花宝鉴数据库
         </div>
       </motion.div>
     </div>
@@ -935,7 +895,7 @@ function CharacterCard({ character, isActive, onClick, lang }: { character: Char
   );
 }
 
-function CharacterDetail({ character, onClose, lang }: { character: Character; onClose: () => void; lang: 'en' | 'zh' }) {
+function CharacterDetail({ character, onClose, lang, onSelectChapter }: { character: Character; onClose: () => void; lang: 'en' | 'zh'; onSelectChapter: (chapter: (typeof chapters)[0]) => void }) {
   const Icon = ROLE_ICONS[character.role] || Info;
   const tintClass = ROLE_TINTS[character.role] || ROLE_TINTS.Other;
   const textClass = ROLE_TEXT_COLORS[character.role] || ROLE_TEXT_COLORS.Other;
@@ -948,7 +908,9 @@ function CharacterDetail({ character, onClose, lang }: { character: Character; o
       firstEntry: "First Entry",
       historicalRecord: "Historical Record",
       dossier: "Dossier",
-      archives: "Imperial Archives"
+      archives: "Imperial Archives",
+      appearances: "Chapter Appearances",
+      mentionedIn: (n: number) => `Mentioned in ${n} of 60 chapters`,
     },
     zh: {
       alias: "别名",
@@ -956,9 +918,76 @@ function CharacterDetail({ character, onClose, lang }: { character: Character; o
       firstEntry: "首次登场",
       historicalRecord: "历史记录",
       dossier: "档案",
-      archives: "皇家档案馆"
+      archives: "皇家档案馆",
+      appearances: "章回出现",
+      mentionedIn: (n: number) => `出现于60回中的${n}回`,
     }
   }[lang];
+
+  const mentionData = useMemo(() => {
+    const chineseName = character.name.split(' ')[0];
+    const givenName = chineseName.length > 2 ? chineseName.slice(-2) : '';
+    const aliases = character.alias !== '—'
+      ? character.alias.split(/[/\s，、]+/).filter(Boolean)
+      : [];
+    const tokens = [...new Set([chineseName, givenName, ...aliases])].filter(t => t.length >= 2);
+
+    return chapters
+      .filter(ch => ch.id >= 1)
+      .map(ch => {
+        const count = tokens.reduce((sum, token) => {
+          let n = 0, pos = 0;
+          while ((pos = ch.content.indexOf(token, pos)) !== -1) { n++; pos++; }
+          return sum + n;
+        }, 0);
+        return { ch: ch.id, count };
+      });
+  }, [character]);
+
+  const mentionedChapters = mentionData.filter(d => d.count > 0);
+  const maxCount = Math.max(...mentionData.map(d => d.count), 1);
+
+  const [activeChapter, setActiveChapter] = useState<number | null>(null);
+
+  // Pre-computed scenes for this character, or fall back to text snippets
+  const precomputed = characterAppearances[character.id] ?? {};
+
+  const activeScenes = useMemo(() => {
+    if (activeChapter === null) return null;
+
+    const scenes = precomputed[activeChapter] ?? null;
+
+    // Always extract text snippets
+    const ch = chapters.find(c => c.id === activeChapter);
+    if (!ch) return scenes ? { scenes, snippets: [] } : null;
+    const chineseName = character.name.split(' ')[0];
+    const givenName = chineseName.length > 2 ? chineseName.slice(-2) : '';
+    const aliases = character.alias !== '—' ? character.alias.split(/[/\s，、]+/).filter(Boolean) : [];
+    const tokens = [...new Set([chineseName, givenName, ...aliases])].filter(t => t.length >= 2);
+
+    const positions: number[] = [];
+    for (const token of tokens) {
+      let pos = 0;
+      while ((pos = ch.content.indexOf(token, pos)) !== -1) { positions.push(pos); pos++; }
+    }
+    positions.sort((a, b) => a - b);
+
+    const snippets: string[] = [];
+    let clusterStart = -1, clusterEnd = -1;
+    for (const pos of positions) {
+      if (clusterStart === -1) { clusterStart = pos; clusterEnd = pos; }
+      else if (pos - clusterEnd < 200) { clusterEnd = pos; }
+      else {
+        snippets.push(ch.content.slice(Math.max(0, clusterStart - 80), Math.min(ch.content.length, clusterEnd + 80)));
+        clusterStart = pos; clusterEnd = pos;
+      }
+    }
+    if (clusterStart !== -1) {
+      snippets.push(ch.content.slice(Math.max(0, clusterStart - 80), Math.min(ch.content.length, clusterEnd + 80)));
+    }
+
+    return { scenes, snippets: snippets.slice(0, 8), tokens };
+  }, [activeChapter, character, precomputed]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -974,7 +1003,7 @@ function CharacterDetail({ character, onClose, lang }: { character: Character; o
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className={`relative w-[95%] sm:w-full max-w-2xl parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] my-4 sm:my-0`}
+        className={`relative w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] my-4 sm:my-0 flex flex-col`}
       >
         <button 
           onClick={onClose}
@@ -983,7 +1012,7 @@ function CharacterDetail({ character, onClose, lang }: { character: Character; o
           <X size={20} />
         </button>
 
-        <div className="p-6 sm:p-10 md:p-16">
+        <div className="flex-1 overflow-y-auto p-6 sm:p-10 md:p-16">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-8 sm:mb-10 border-b-2 border-[#d4c5a9] pb-6 sm:pb-8">
             <div className={`p-3 sm:p-4 rounded-sm border-2 border-double ${tintClass} ${textClass}`}>
               <Icon size={24} className="sm:w-7 sm:h-7" />
@@ -1022,6 +1051,17 @@ function CharacterDetail({ character, onClose, lang }: { character: Character; o
             </div>
           </div>
 
+          {(identityLinksById[character.id] || []).length > 0 && (
+            <div className="mb-8 sm:mb-12">
+              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#5d5048] mb-2 font-hans">
+                {lang === 'en' ? 'Identity Links' : '身份同一线'}
+              </p>
+              <p className="text-sm sm:text-base text-[#2c2420] font-hans">
+                {(identityLinksById[character.id] || []).join(' / ')}
+              </p>
+            </div>
+          )}
+
           <div className="space-y-4 sm:space-y-6">
             <div className="space-y-2 sm:space-y-3">
               <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#5d5048] font-hans">{t.historicalRecord}</p>
@@ -1040,11 +1080,155 @@ function CharacterDetail({ character, onClose, lang }: { character: Character; o
                 </div>
               </div>
             </div>
+
+            {/* Chapter Appearances Timeline */}
+            <div className="space-y-2 sm:space-y-3 pt-2">
+              <div className="flex items-center justify-between">
+                <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#5d5048] font-hans">{t.appearances}</p>
+                <p className="text-[9px] sm:text-[10px] text-[#8b7355] font-hans">{t.mentionedIn(mentionedChapters.length)}</p>
+              </div>
+              <div className="bg-black/5 p-4 rounded-sm border border-[#d4c5a9]">
+                <ResponsiveContainer width="100%" height={90}>
+                  <BarChart data={mentionData} margin={{ top: 4, right: 4, left: -28, bottom: 0 }}>
+                    <XAxis
+                      dataKey="ch"
+                      tick={{ fill: '#8b7355', fontSize: 9 }}
+                      tickLine={false}
+                      axisLine={{ stroke: '#d4c5a9' }}
+                      interval={9}
+                    />
+                    <YAxis hide domain={[0, maxCount]} />
+                    <Tooltip
+                      cursor={{ fill: 'rgba(0,0,0,0.04)' }}
+                      content={({ active, payload }) => {
+                        if (!active || !payload?.length) return null;
+                        const { ch, count } = payload[0].payload as { ch: number; count: number };
+                        if (count === 0) return null;
+                        const summary = chapterSummaries[ch];
+                        return (
+                          <div className="bg-[#f4ecd8] border border-[#d4c5a9] p-2 text-[#2c2420] text-[10px] max-w-[220px] shadow-md">
+                            <p className="font-bold mb-1">Ch.{ch} — {count} mention{count !== 1 ? 's' : ''}</p>
+                            {summary && <p className="text-[#5d5048] leading-snug italic">{(lang === 'zh' ? summary.zh : summary.en).slice(0, 120)}…</p>}
+                          </div>
+                        );
+                      }}
+                    />
+                    <Bar dataKey="count" maxBarSize={12}>
+                      {mentionData.map(({ ch, count }) => (
+                        <Cell
+                          key={`cell-${ch}`}
+                          fill={count > 0 ? '#8b4513' : '#e8dcc8'}
+                          opacity={count > 0 ? 0.4 + 0.6 * (count / maxCount) : 1}
+                        />
+                      ))}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+
+                {/* Chapter pills */}
+                <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-[#d4c5a9]">
+                  {mentionedChapters.map(({ ch, count }) => (
+                    <button
+                      key={ch}
+                      onClick={() => setActiveChapter(activeChapter === ch ? null : ch)}
+                      title={`Ch.${ch}: ${count} mention${count !== 1 ? 's' : ''}`}
+                      className={`px-2 py-0.5 text-[10px] font-bold border transition-colors rounded-sm font-hans ${
+                        activeChapter === ch
+                          ? 'bg-[#8b4513] text-[#f4ecd8] border-[#8b4513]'
+                          : 'border-[#8b4513]/40 text-[#8b4513] hover:bg-[#8b4513]/10'
+                      }`}
+                    >
+                      Ch.{ch}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Inline chapter analysis panel */}
+                <AnimatePresence>
+                  {activeChapter !== null && activeScenes && (
+                    <motion.div
+                      key={activeChapter}
+                      initial={{ opacity: 0, y: -6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.15 }}
+                      className="mt-3 border border-[#8b4513]/30 rounded-sm overflow-hidden"
+                    >
+                      {/* Panel header */}
+                      <div className="flex items-center justify-between px-4 py-2.5 bg-[#8b4513]/8 border-b border-[#8b4513]/20">
+                        <div>
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-[#8b4513] font-hans">
+                            Ch.{activeChapter}
+                          </span>
+                          <span className="text-[10px] text-[#5d5048] ml-2 font-hans">
+                            {chapters.find(c => c.id === activeChapter)?.title}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <span className="text-[9px] text-[#8b7355] font-hans">
+                            {mentionData.find(d => d.ch === activeChapter)?.count ?? 0} mentions
+                          </span>
+                          <button
+                            onClick={() => setActiveChapter(null)}
+                            className="text-[#8b7355] hover:text-[#2c2420] transition-colors"
+                          >
+                            <X size={13} />
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Panel body */}
+                      <div className="px-4 py-3 space-y-2.5 bg-[#faf6ee]">
+                        {activeScenes.scenes && (
+                          <>
+                            <p className="text-[9px] uppercase tracking-[0.2em] text-[#8b4513]/70 font-bold font-hans mb-1">
+                              {lang === 'zh' ? '场景摘要' : 'Scene Summary'}
+                            </p>
+                            {activeScenes.scenes.map((scene, i) => (
+                              <div key={i} className="flex gap-2.5">
+                                <span className="text-[#8b4513]/50 mt-0.5 shrink-0">◆</span>
+                                <p className="text-[11px] sm:text-xs leading-relaxed text-[#2c2420]">{lang === 'zh' ? scene.zh : scene.en}</p>
+                              </div>
+                            ))}
+                          </>
+                        )}
+                        {activeScenes.snippets.length > 0 && (
+                          <>
+                            {activeScenes.scenes && (
+                              <div className="border-t border-[#d4c5a9] my-2 pt-2">
+                                <p className="text-[9px] uppercase tracking-[0.2em] text-[#8b4513]/70 font-bold font-hans mb-1">
+                                  {lang === 'zh' ? '原文节选' : 'Text Excerpts'}
+                                </p>
+                              </div>
+                            )}
+                            {activeScenes.snippets.map((snippet, i) => {
+                              const regex = new RegExp(`(${activeScenes.tokens.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g');
+                              const parts = snippet.split(regex);
+                              return (
+                                <div key={i} className="bg-black/5 rounded-sm px-3 py-2 border-l-2 border-[#8b4513]/30">
+                                  <p className="text-[11px] leading-relaxed text-[#2c2420] font-hans">
+                                    …{parts.map((part, j) =>
+                                      activeScenes.tokens.includes(part)
+                                        ? <mark key={j} style={{ backgroundColor: accentColor + '33', color: accentColor }} className="rounded-sm px-0.5 not-italic font-bold">{part}</mark>
+                                        : part
+                                    )}…
+                                  </p>
+                                </div>
+                              );
+                            })}
+                          </>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="bg-[#d4c5a9]/20 p-4 text-[#5d5048] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[#d4c5a9] font-hans">
-          {t.archives} &bull; Pinhua Baojian
+        <div className="bg-[#d4c5a9]/20 p-4 text-[#5d5048] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[#d4c5a9] font-hans shrink-0">
+          Pinhua baojian Database 品花宝鉴数据库
         </div>
       </motion.div>
     </div>

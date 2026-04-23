@@ -133,7 +133,26 @@ const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male prota
 杜琴师 Dù Qínshī	—	—	Jiangsu	deceased	ch.5	Qinyan's father; a zither-maker; died of anger after being humiliated by a powerful man	琴言之父；琴师；受辱后气绝身亡。
 杜母 Dù Mǔ	—	—	Jiangsu	deceased	ch.5	Qinyan's mother; died of grief a year after her husband	琴言之母；夫死后一年忧郁而亡。
 杜族叔 Dù Zúshū	—	—	—	deceased	ch.5	Qinyan's clan uncle who took him in; died when Qinyan was 13	琴言族叔；收留琴言；琴言13岁时去世。
-魏老仁 Wèi Lǎorén	—	—	—	deceased	ch.2	Wei Pincai's father; a failed litigious scholar; now works in a salt bureau	魏聘才之父；落魄文人；在盐务局工作。`;
+魏老仁 Wèi Lǎorén	—	—	—	deceased	ch.2	Wei Pincai's father; a failed litigious scholar; now works in a salt bureau	魏聘才之父；落魄文人；在盐务局工作。
+刘喜 Liú Xǐ	—	40+	—	servant	ch.55	Loyal longtime attendant to Qu Daosheng; protects and supports Qinxian through illness, theft, funeral rites, and return arrangements	屈道生的老仆；在重病、失窃、丧事与返京过程中始终尽心扶持琴仙。
+侯石翁 Hóu Shíwēng	石翁	74	Nanjing	scholar	ch.55	Elder literary celebrity at Phoenix Mountain; outwardly patronizing but morally ambiguous in his treatment of Qinxian after Daosheng's death	凤凰山文坛名宿；在道翁身后对琴仙“照应”中显出复杂且暧昧的真实面目。
+巴英官 Bā Yīngguān	英官	~15	—	servant	ch.40	Youth attached to Xi Shiyi's household; central to Xi's late-stage debauchery arc and ensuing bodily retribution	奚十一身边少年；卷入其后期淫乱与报应情节，是关键当事人之一。
+菊花 Júhuā	—	20+	Guangxi	minor	ch.40	Xi Shiyi's intimate companion; frequently appears in his domestic and decline arcs, including the retribution episodes	奚十一身边亲近之人；在其家内生活与衰败报应线中反复出现。
+得月 Déyuè	—	~17	—	performer	ch.40	Young novice/performance-world youth linked with Xi Shiyi, Wei Pincai, and Pan Qiguan; pivotal in major karmic episodes in later chapters	与奚十一、魏聘才、潘其观等线索相连的重要少年人物；在后段多起报应事件中居关键位置。
+卓天香 Zhuō Tiānxiāng	—	—	—	performer	ch.40	Performer associated with Wei Pincai's circle; appears repeatedly in the Xi Shiyi/Pan Qiguan late-stage entanglements	与魏聘才圈层相关的伶人；在奚十一、潘其观后期纠葛中多次出现。
+阳善修 Yáng Shànxiū	—	—	—	minor	ch.40	Doctor specializing in intimate ailments; repeatedly called to treat major injuries and illnesses of key characters in late chapters	专治下体病症的医生；在后段关键人物伤病处理中多次出场。
+屈道翁 Qū Dàowēng	道翁	—	—	scholar	ch.38	Major senior scholar associated with Qu Benli/Qu Fangzheng; adopts Qinxian, mentors him, and remains central through the late-chapter shrine and dream arcs	书中后段核心名士，与屈本立/屈方正同一人物线；收养并教导琴仙，牵动建祠与托梦主线。
+苏侯 Sū Hóu	—	—	—	official	ch.48	Powerful noble household head; father-in-law of Tian Chunhang through his daughter's marriage	权势显赫的侯门家长；其女与田春航成婚后，成为田春航岳家核心人物。
+姬亮轩 Jī Liàngxuān	—	—	—	minor	ch.27	Corrupt hanger-on tied to Xi Shiyi's milieu; repeatedly appears in rumor, coercion, and underhand social manipulation arcs	与奚十一圈层相关的奸滑人物；多次卷入流言、挟制与权势投机情节。
+金粟 Jīn Sù	—	—	—	scholar	ch.32	Literary-circle member active in later gatherings, inscriptions, and the Nine Fragrance cultural projects	后段文士圈成员之一，参与题赞、聚会与九香楼文化工程。
+张笑梅 Zhāng Xiàoméi	—	—	—	performer	ch.19	Performer connected to Wei Pincai's social circle; appears in his expanding pleasure-network entanglements	与魏聘才交游圈相关的伶人，出现在其声色关系扩张阶段的关键场景中。
+杨梅窗 Yáng Méichuāng	—	—	—	performer	ch.19	Performer in Wei Pincai's orbit; linked to his theatrical-social network and late-stage decline arc	魏聘才圈层伶人之一，牵连其戏园交游网络与后期失序线索。
+周小三 Zhōu Xiǎosān	—	—	—	servant	ch.40	Driver and fixer tied to Pan Qiguan's household sphere; central participant in the revenge setup against Pan	与潘其观圈层关联的车夫/办事人；在对潘的报复布局中居关键执行位置。
+孟七 Mèng Qī	—	—	—	servant	ch.44	Xu Ziyun household servant appearing in communication and dispatch tasks during conflict-heavy chapters	徐子云家中仆从，主要出现在冲突密集段落中的传递与差遣环节。
+姚贤 Yáo Xián	—	—	—	servant	ch.44	Outer attendant under Hua Guangsu's side, dispatched in retrieval and pursuit errands around Qinyan's transfer period	华光宿一侧外跟班人物，在琴言去留风波中承担追索差事。
+吴紫烟 Wú Zǐyān	—	23	—	female	ch.57	Liu Wenze's wife; one of the central ladies in Yuan Qixiang's Chapter 57 women-only drinking-game gathering	刘文泽之妻；第57回袁绮香闺阁酒令局中的核心女性成员之一。
+蔡某 Cài Mǒu	—	—	—	minor	ch.35	Named suspect in temple theft-related incident chain; appears in the investigation and blame-casting context	寺中失窃事件链条中的具名嫌疑角色，出现在追查与归责语境中。
+长庆师娘 Chángqìng Shīniáng	—	—	—	female	ch.42	Widow of troupe master Changqing; involved in maintenance-price bargaining and pressure over performer arrangements	长庆亡后相关寡妇角色；在养赡索价与伶人去留博弈中承担关键施压方。`;
 
 const ROLE_MAP: Record<string, string> = {
   scholar: '名士',
@@ -182,7 +201,7 @@ const ORIGIN_MAP: Record<string, string> = {
   '—': '—'
 };
 
-export const relationships: Relationship[] = [
+const baseRelationships: Relationship[] = [
   // Core Protagonists: Mei Ziyu (char-0)
   { source: 'char-0', target: 'char-1', type: 'Soulmate', typeZh: '情定知己' },
   { source: 'char-0', target: 'char-90', type: 'Marriage', typeZh: '明媒正娶' },
@@ -284,7 +303,7 @@ export const relationships: Relationship[] = [
   { source: 'char-2', target: 'char-113', type: 'Master/Servant', typeZh: '主仆' },
 ];
 
-export const characters: Character[] = rawData.split('\n').map((line, index) => {
+const parsedCharacters: Character[] = rawData.split('\n').map((line, index) => {
   const [name, alias, age, originRaw, role, chapter, description, descriptionZh] = line.split('\t');
   const origin = originRaw?.trim().replace(/^"(.*)"$/, '$1') || '—';
   
@@ -303,3 +322,145 @@ export const characters: Character[] = rawData.split('\n').map((line, index) => 
     descriptionZh: descriptionZh?.trim() || ''
   };
 });
+
+type MergeGroup = {
+  canonicalNameKeyword: string;
+  memberNameKeywords: string[];
+};
+
+const mergeGroups: MergeGroup[] = [
+  {
+    canonicalNameKeyword: '屈道翁',
+    memberNameKeywords: ['屈方正', '屈本立', '屈道翁'],
+  },
+  {
+    canonicalNameKeyword: '孙氏',
+    memberNameKeywords: ['孙氏', '佩秋'],
+  },
+];
+
+const idRemap: Record<string, string> = {};
+const mergedIdentityAliasesByCanonicalId: Record<string, string[]> = {};
+
+for (const group of mergeGroups) {
+  const members = parsedCharacters.filter((c) =>
+    group.memberNameKeywords.some((keyword) => c.name.includes(keyword))
+  );
+  if (members.length <= 1) continue;
+
+  const canonical =
+    members.find((c) => c.name.includes(group.canonicalNameKeyword)) || members[0];
+  const nonCanonical = members.filter((c) => c.id !== canonical.id);
+  const mergedAliases = [
+    ...new Set(
+      members
+        .flatMap((c) => [c.name, ...c.alias.split('/').map((item) => item.trim())])
+        .map((item) => item.trim())
+        .filter((item) => item && item !== '—' && item !== canonical.name)
+    ),
+  ];
+
+  canonical.alias = mergedAliases.join(' / ') || canonical.alias;
+  for (const removed of nonCanonical) {
+    idRemap[removed.id] = canonical.id;
+  }
+  mergedIdentityAliasesByCanonicalId[canonical.id] = mergedAliases;
+}
+
+export const characters: Character[] = parsedCharacters.filter((c) => !idRemap[c.id]);
+
+export const identityLinksById: Record<string, string[]> = (() => {
+  const map: Record<string, string[]> = {};
+  for (const [canonicalId, aliases] of Object.entries(mergedIdentityAliasesByCanonicalId)) {
+    map[canonicalId] = aliases;
+  }
+  return map;
+})();
+
+const relationshipKey = (rel: Relationship) =>
+  [rel.source, rel.target, rel.type, rel.typeZh].join('|');
+
+function findCharacterIdByNameKeyword(keyword: string): string | undefined {
+  return characters.find((c) => c.name.includes(keyword))?.id;
+}
+
+type RelationshipSpec = {
+  sourceKeyword: string;
+  targetKeyword: string;
+  type: string;
+  typeZh: string;
+};
+
+const chapterValidatedRelationshipSpecs: RelationshipSpec[] = [
+  { sourceKeyword: '屈道翁', targetKeyword: '杜琴言', type: 'Adoptive Father/Child', typeZh: '义父义子' },
+  { sourceKeyword: '屈道翁', targetKeyword: '刘喜', type: 'Master/Servant', typeZh: '主仆' },
+  { sourceKeyword: '屈道翁', targetKeyword: '梅子玉', type: 'Trusted Friend', typeZh: '知交' },
+  { sourceKeyword: '屈少君', targetKeyword: '梅子玉', type: 'Benefactor', typeZh: '提携' },
+  { sourceKeyword: '苏侯', targetKeyword: '田春航', type: 'Father-in-law/Son-in-law', typeZh: '岳父女婿' },
+  { sourceKeyword: '姬亮轩', targetKeyword: '奚十一', type: 'Corrupt Associate', typeZh: '狼狈为奸' },
+  { sourceKeyword: '巴英官', targetKeyword: '奚十一', type: 'Attendant', typeZh: '仆从附势' },
+  { sourceKeyword: '菊花', targetKeyword: '奚十一', type: 'Concubine', typeZh: '姬妾' },
+  { sourceKeyword: '得月', targetKeyword: '奚十一', type: 'Victim/Abuser', typeZh: '受害与加害' },
+  { sourceKeyword: '得月', targetKeyword: '魏聘才', type: 'Exploited By', typeZh: '受其摆布' },
+  { sourceKeyword: '得月', targetKeyword: '潘其观', type: 'Exploited By', typeZh: '受其摆布' },
+  { sourceKeyword: '周小三', targetKeyword: '潘其观', type: 'Driver/Servant', typeZh: '车夫主仆' },
+  { sourceKeyword: '孟七', targetKeyword: '徐子云', type: 'Servant', typeZh: '主仆' },
+  { sourceKeyword: '姚贤', targetKeyword: '华光宿', type: 'Servant', typeZh: '主仆' },
+  { sourceKeyword: '吴紫烟', targetKeyword: '刘文泽', type: 'Marriage', typeZh: '夫妻' },
+  { sourceKeyword: '蔡某', targetKeyword: '潘其观', type: 'Criminal Entanglement', typeZh: '盗案牵连' },
+  { sourceKeyword: '长庆师娘', targetKeyword: '曹长庆', type: 'Marriage', typeZh: '夫妻' },
+  { sourceKeyword: '金粟', targetKeyword: '徐子云', type: 'Nine Fragrance Literary Collaboration', typeZh: '九香楼文事同道' },
+  { sourceKeyword: '张笑梅', targetKeyword: '魏聘才', type: 'Wei Pincai Social Circle', typeZh: '魏聘才交游圈' },
+  { sourceKeyword: '杨梅窗', targetKeyword: '魏聘才', type: 'Wei Pincai Social Circle', typeZh: '魏聘才交游圈' },
+  { sourceKeyword: '卓天香', targetKeyword: '魏聘才', type: 'Wei Pincai Social Circle', typeZh: '魏聘才交游圈' },
+  { sourceKeyword: '阳善修', targetKeyword: '奚十一', type: 'Physician/Patient', typeZh: '医患' },
+  { sourceKeyword: '阳善修', targetKeyword: '潘其观', type: 'Physician/Patient', typeZh: '医患' },
+  { sourceKeyword: '侯石翁', targetKeyword: '屈道翁', type: 'Literary Peers', typeZh: '文坛同辈' },
+  { sourceKeyword: '刘喜', targetKeyword: '杜琴言', type: 'Protector', typeZh: '护持' },
+];
+
+function buildValidatedRelationshipsFromSpecs(specs: RelationshipSpec[]): Relationship[] {
+  const rels: Relationship[] = [];
+  for (const spec of specs) {
+    const source = findCharacterIdByNameKeyword(spec.sourceKeyword);
+    const target = findCharacterIdByNameKeyword(spec.targetKeyword);
+    if (!source || !target || source === target) continue;
+    rels.push({
+      source,
+      target,
+      type: spec.type,
+      typeZh: spec.typeZh,
+    });
+  }
+  return rels;
+}
+
+export const relationships: Relationship[] = (() => {
+  const seen = new Set<string>();
+  const result: Relationship[] = [];
+  const manual = buildValidatedRelationshipsFromSpecs(chapterValidatedRelationshipSpecs);
+  const allCandidates = [...baseRelationships, ...manual];
+
+  for (const rel of allCandidates) {
+    const source = idRemap[rel.source] || rel.source;
+    const target = idRemap[rel.target] || rel.target;
+    if (source === target) continue;
+
+    const sourceExists = characters.some((c) => c.id === source);
+    const targetExists = characters.some((c) => c.id === target);
+    if (!sourceExists || !targetExists) continue;
+
+    const normalized =
+      source < target
+        ? { ...rel, source, target }
+        : { ...rel, source: target, target: source };
+
+    const key = relationshipKey(normalized);
+    if (seen.has(key)) continue;
+
+    seen.add(key);
+    result.push(normalized);
+  }
+
+  return result;
+})();
