@@ -11,7 +11,8 @@
       "Bash(npx tsc *)",
       "Bash(node scripts/generateTranslations.mjs)",
       "Bash(node -e \"const d=require\\('./src/chapterData.json'\\); const ch=d.chapters.find\\(c=>c.id===3\\); ch.content.split\\('\\\\n\\\\n'\\).forEach\\(\\(p,i\\)=>console.log\\(i+': '+p.substring\\(0,80\\)\\)\\);\")",
-      "Bash(node scripts/mergeChapter.mjs)"
+      "Bash(node scripts/mergeChapter.mjs)",
+      "Bash(npm run *)"
     ]
   }
 }

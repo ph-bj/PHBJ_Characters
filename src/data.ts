@@ -4,7 +4,7 @@ const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male prota
 杜琴言 Dù Qínyán	琴官 / 玉侬	15	Jiangsu	performer	ch.1	Central romantic figure; orphaned; renamed by Xu Ziyun (ch.5); redeemed in ch.43; reunites with Ziyu	核心浪漫人物；孤儿；第5回由徐子云改名；第43回赎身；最终与子玉重逢。
 颜仲清 Yán Zhòngqīng	剑潭	23	Jinling	scholar	ch.1	Orphaned nephew of Lady Yan; raised by Mei family; married into Wang family; chivalrous	颜夫人的孤儿侄子；由梅家抚养；入赘王家；为人侠义。
 史南湘 Shǐ Nánxiāng	竹君	24	Hanyang	scholar	ch.1	Provincial exam top; compiled 《曲台花选》; witty; infatuated with Lu Sulan	乡试第一名；编纂《曲台花选》；机智幽默；痴恋陆素兰。
-王恂 Wáng Xún	庸庵	22	—	scholar	ch.1	Son of Wang Wenhui; fond of performers; Ziyu's cousin	王文辉之子；喜好优伶；子玉的表兄弟。
+王恂 Wáng Xún	庸庵	22	Jinling	scholar	ch.1	Son of Wang Wenhui; fond of performers; Ziyu's cousin	王文辉之子；喜好优伶；子玉的表兄弟。
 魏聘才 Wèi Pìncái	—	~20	Jiangning	scholar	ch.2	Clever and glib; spreads slander (ch.44); marries Lin-shi courtesan (ch.50)	聪明伶俐但口齿轻薄；第44回散布谣言；第50回娶林氏妓女为妻。
 李元茂 Lǐ Yuánmào	—	~20	—	scholar	ch.2	Son of tutor Li Xingquan; obtuse; comic misunderstandings; stammer jokes	老师李性全之子；迟钝；引发喜剧性误会；常有结巴笑话。
 徐子云 Xú Zǐyún	度香	25	"Zhejiang, Shanyin"	scholar	ch.4	Wealthy patron; built Yiyuan garden (500k taels); redeems Qinyan (ch.43); upright and generous	富有的赞助人；耗资50万两修建怡园；第43回为琴言赎身；正直慷慨。
@@ -15,14 +15,14 @@ const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male prota
 沈伯才 Shěn Bócái	—	~30	—	scholar	ch.6	Son of Director Shen; recently selected county magistrate; capable	沈司业之子；新任知县；精明强干。
 巴霖 Bā Lín	—	~20	Tianjin	scholar	ch.6	Son of garrison commander Ba; handsome; close to Liu Wenze; dislikes Sun brothers	巴天宠之子；英俊；与刘文泽亲近；讨厌孙氏兄弟。
 冯子佩 Féng Zǐpèi	—	~18	Beijing	scholar	ch.6	Son of former Jiangsu magistrate; very handsome; arrives late at banquets	前江苏知县之子；极其俊美；宴会常迟到。
-田春航 Tián Chūnháng	湘帆	~25	—	scholar	ch.4	Proud and passionate; writes 《浪淘沙》 anonymously on tavern wall; infatuated with Lu Sulan (ch.12)	孤傲热情；在酒楼墙上匿名题写《浪淘沙》；痴恋陆素兰。
+田春航 Tián Chūnháng	湘帆	23	Jinling	scholar	ch.4	Proud and passionate; from Jinling but residing in Yangzhou; writes 《浪淘沙》 anonymously on tavern wall; infatuated with Lu Sulan (ch.12)	孤傲热情；金陵人，寄居扬州；在酒楼墙上匿名题写《浪淘沙》；痴恋陆素兰。
 祝芳年 Zhù Fāngnián	—	—	—	scholar	ch.17	Hosts poetry banquet in ch.17; part of Xu Ziyun's literary circle	第17回主持诗宴；徐子云文人圈成员。
-金吉甫 Jīn Jífǔ	—	—	—	scholar	ch.60	Literary elder who frames the novel's conclusion in ch.60	文坛长辈；在第60回为小说作结。
+金吉甫 Jīn Jífǔ	金栗	—	Jinling	scholar	ch.38	From a great Nanjing family; real name Jin Su (金栗), art name Jifu; leading literary scholar; frames the novel's conclusion in ch.60	南京巨族；本名金栗，号吉甫；文坛名士；第60回为小说作结。
 屈方正 Qū Fāngzhèng	—	—	—	scholar	ch.56	Virtuous deceased scholar; appears as a divine spirit (ch.56); Mei builds a shrine for him (ch.59)	正直的已故学者；第56回以神灵身份出现；梅子玉为其建祠。
 屈少君 Qū Shàojūn	—	—	—	scholar	ch.59	Son of Qu Fangzheng; returns to capital in ch.59; helped by Ziyu	屈方正之子；第59回回京；得子玉相助。
 李性全 Lǐ Xìngquán	—	—	Zhejiang	scholar	ch.1	Ziyu's strict Confucian tutor; Li Yuanmao's father; stays with Mei family	子玉严厉的儒家老师；李元茂之父；住在梅家。
-孙嗣徽 Sūn Sìhuī	虫蛀千字文	26	—	scholar	ch.2	Elder Sun son; pedantic; 'Worm-eaten Primer' nickname; red nose	孙家长子；迂腐；绰号“虫蛀千字文”；红鼻子。
-孙嗣元 Sūn Sìyuán	迭韵双声谱	~24	—	scholar	ch.2	Younger Sun son; severe stammer; 'Unfinished Three-Character Classic' nickname	孙家次子；严重结巴；绰号“迭韵双声谱”。
+孙嗣徽 Sūn Sìhuī	虫蛀千字文	26	Jinling	scholar	ch.2	Elder Sun son; pedantic; 'Worm-eaten Primer' nickname; red nose	孙家长子；迂腐；绰号”虫蛀千字文”；红鼻子。
+孙嗣元 Sūn Sìyuán	迭韵双声谱	~24	Jinling	scholar	ch.2	Younger Sun son; severe stammer; 'Unfinished Three-Character Classic' nickname	孙家次子；严重结巴；绰号”迭韵双声谱”。
 袁宝珠 Yuán Bǎozhū	瑶卿	16	Suzhou	performer	ch.1	#1 in Flower Register; painter and poet; Lianjin troupe; Xu Ziyun's favourite; loyal friend to Qinyan	花榜第一；擅长书画诗词；联锦班；徐子云的最爱；琴言的忠实朋友。
 苏蕙芳 Sū Huìfāng	媚香	17	Suzhou	performer	ch.1	#2; from official family; principled; wins poetry contest (ch.17); Lianjin troupe	花榜第二；官宦出身；有原则；第17回赢得诗赛；联锦班。
 陆素兰 Lù Sùlán	香畹	16	Suzhou	performer	ch.1	#3; skilled calligrapher; righteous; loved by Tian Chunhang; Lianjin troupe	花榜第三；擅长书法；为人正直；田春航所爱；联锦班。
@@ -48,8 +48,8 @@ const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male prota
 二喜 Èr Xǐ	—	—	—	performer	ch.8	Male performer (dan); attaches himself to Li Yuanmao at the theatre; performs drinking games	旦角；在剧场缠住李元茂；玩酒令。
 保珠 Bǎozhū (ch.8)	—	—	—	performer	ch.8	Performer in ch.8 restaurant scene; distinct from the ch.1 theatre Baozhu	第8回酒楼场面的伶人；非第1回的保珠。
 梅士燮 Méi Shìxiè	铁庵	46	Jinling	official	ch.1	Hanlin reader; Ziyu's father; stern Confucian; promoted to vice-minister later; appointed provincial examiner (ch.15)	翰林侍读；子玉之父；严厉的儒者；后升任侍郎；第15回任主考官。
-王文辉 Wáng Wénhuī	—	~55	—	official	ch.1	3rd-rank Tongzheng official; Wang Xun's father; father-in-law of Yan Zhongqing	三品通政使；王恂之父；颜仲清之岳父。
-孙亮功 Sūn Liàngōng	—	~50	—	official	ch.2	Ministry of Works official; father of Sun Sihui and Siyuan; comic banquet scenes	工部官员；孙氏兄弟之父；宴会上的喜剧人物。
+王文辉 Wáng Wénhuī	—	~55	Jinling	official	ch.1	3rd-rank Tongzheng official; Wang Xun's father; father-in-law of Yan Zhongqing; same hometown as Mei Shixie	三品通政使；王恂之父；颜仲清之岳父；与梅士燮同乡。
+孙亮功 Sūn Liàngōng	—	~50	Jinling	official	ch.2	Ministry of Works official; father of Sun Sihui and Siyuan; comic banquet scenes; same hometown as Wang Wenhui	工部官员；孙氏兄弟之父；宴会上的喜剧人物；与王文辉同乡。
 杨方猷 Yáng Fāngyóu	—	—	—	official	ch.2	Ministry of War deputy director; guest at Wang Wenhui's banquet	兵部员外郎；王文辉宴会宾客。
 周锡爵 Zhōu Xíjué	—	—	—	official	ch.2	Guanglu Temple junior director; guest at Wang Wenhui's banquet	光禄寺少卿；王文辉宴会宾客。
 陆宗沅 Lù Zōngyuán	—	—	—	official	ch.2	Censor; gets wine sprayed in his face by Sun Lianggong; cousin of the two Madam Lu	御史；被孙亮功喷了一脸酒；两位陆夫人的堂兄弟。
@@ -392,6 +392,53 @@ type RelationshipSpec = {
 };
 
 const chapterValidatedRelationshipSpecs: RelationshipSpec[] = [
+  // Isolated-character links added only where the chapter text/character notes state direct ties.
+  { sourceKeyword: '祝芳年', targetKeyword: '徐子云', type: 'Literary Circle Peer', typeZh: '文会同人' },
+  { sourceKeyword: '苏蕙芳', targetKeyword: '杜琴言', type: 'Allied Performers', typeZh: '伶界盟友' },
+  { sourceKeyword: '金漱芳', targetKeyword: '李玉林', type: 'Lianzhu Troupe Colleagues', typeZh: '联珠班同伶' },
+  { sourceKeyword: '蓉官', targetKeyword: '富伦', type: 'Friend/Patron Circle', typeZh: '友朋与 patron 圈' },
+  { sourceKeyword: '小福', targetKeyword: '富伦', type: 'Sponsored Performer', typeZh: '出师资助' },
+  { sourceKeyword: '玉美', targetKeyword: '田春航', type: 'Tavern Encounter', typeZh: '酒楼同场' },
+  { sourceKeyword: '保珠 Bǎozhū (ch.1)', targetKeyword: '袁宝珠', type: 'Name Confusion', typeZh: '同名误认' },
+  { sourceKeyword: '袁绮香', targetKeyword: '吴紫烟', type: 'Women\'s Gathering Host/Guest', typeZh: '闺阁酒令主客' },
+  { sourceKeyword: '袁绮香', targetKeyword: '王琼华 Wáng Qiónghúa (performer)', type: 'Women\'s Gathering Host/Guest', typeZh: '闺阁酒令主客' },
+  { sourceKeyword: '谭八', targetKeyword: '孙亮功', type: 'Imitated Performer', typeZh: '被模仿之角' },
+  { sourceKeyword: '小顺儿', targetKeyword: '富伦', type: 'Brought by Patron', typeZh: '携带引见' },
+  { sourceKeyword: '小顺儿', targetKeyword: '华光宿', type: 'Rejected by Patron', typeZh: '遭权门拒绝' },
+  { sourceKeyword: '二喜', targetKeyword: '李元茂', type: 'Attached Performer/Patron', typeZh: '缠附与 patron' },
+  { sourceKeyword: '杨方猷', targetKeyword: '王文辉', type: 'Banquet Guest', typeZh: '宴会宾客' },
+  { sourceKeyword: '周锡爵', targetKeyword: '王文辉', type: 'Banquet Guest', typeZh: '宴会宾客' },
+  { sourceKeyword: '陆宗沅', targetKeyword: '王文辉', type: 'Banquet Guest', typeZh: '宴会宾客' },
+  { sourceKeyword: '陆宗淮', targetKeyword: '陆氏夫人（王家）', type: 'Brother/Sister', typeZh: '兄妹' },
+  { sourceKeyword: '陆宗淮', targetKeyword: '陆氏夫人（孙家）', type: 'Brother/Sister', typeZh: '兄妹' },
+  { sourceKeyword: '侯太史', targetKeyword: '杜琴言', type: 'Predatory Patronage Attempt', typeZh: '假义逼迫' },
+  { sourceKeyword: '老王', targetKeyword: '魏聘才', type: 'Extortion Attempt', typeZh: '敲诈冲突' },
+  { sourceKeyword: '老王', targetKeyword: '奚十一', type: 'Driven Out By', typeZh: '被其手下驱逐' },
+  { sourceKeyword: '唐和尚', targetKeyword: '张仲雨', type: 'Friend/Intermediary', typeZh: '交游中介' },
+  { sourceKeyword: '起盛银号潘老三', targetKeyword: '张仲雨', type: 'Dining Companion', typeZh: '同席酒食' },
+  { sourceKeyword: '苗先生', targetKeyword: '苏蕙芳婶母', type: 'Advisor/Guardian', typeZh: '谋士与监护' },
+  { sourceKeyword: '苗先生', targetKeyword: '苏蕙芳', type: 'Redemption Extortion', typeZh: '赎身勒索' },
+  { sourceKeyword: '王大夫', targetKeyword: '孙亮功', type: 'Physician/Patient', typeZh: '医患' },
+  { sourceKeyword: '苏蕙芳婶母', targetKeyword: '苏蕙芳', type: 'Aunt/Guardian', typeZh: '婶母监护' },
+  { sourceKeyword: '潘氏', targetKeyword: '潘其观', type: 'Marriage', typeZh: '夫妻' },
+  { sourceKeyword: '梅进', targetKeyword: '梅士燮', type: 'Gate Attendant/Master', typeZh: '门房主仆' },
+  { sourceKeyword: '虎儿', targetKeyword: '梅子玉', type: 'Page/Master', typeZh: '小厮主仆' },
+  { sourceKeyword: '书僮 (×2)', targetKeyword: '李性全', type: 'Study Attendants', typeZh: '塾馆书僮' },
+  { sourceKeyword: '仆妇（门上）', targetKeyword: '梅士燮', type: 'Doorkeeper/Master', typeZh: '门上传帖' },
+  { sourceKeyword: '家人媳妇（衣裳）', targetKeyword: '颜夫人', type: 'Household Servant', typeZh: '内宅使唤' },
+  { sourceKeyword: '小丫鬟（子玉书房）', targetKeyword: '梅子玉', type: 'Maid/Master', typeZh: '书房使女' },
+  { sourceKeyword: '小丫鬟（子玉书房）', targetKeyword: '王琼华', type: 'Maid/Young Lady', typeZh: '闺阁侍女' },
+  { sourceKeyword: '伴送婆（巴家）', targetKeyword: '巴来风', type: 'Bridal Escort', typeZh: '送亲陪伴' },
+  { sourceKeyword: '乳母（巴来风）', targetKeyword: '巴来风', type: 'Nanny/Young Lady', typeZh: '乳母与小姐' },
+  { sourceKeyword: '跟班（富家）', targetKeyword: '富伦', type: 'Attendant/Master', typeZh: '跟班主仆' },
+  { sourceKeyword: '卢大爷', targetKeyword: '华光宿', type: 'Stable Manager/Master', typeZh: '马房总管主仆' },
+  { sourceKeyword: '跟班队（华家，~20–30人）', targetKeyword: '华光宿', type: 'Retinue/Master', typeZh: '随从队伍' },
+  { sourceKeyword: '叶茂林', targetKeyword: '袁宝珠', type: 'Impresario/Troupe Link', typeZh: '班主与伶人' },
+  { sourceKeyword: '金二', targetKeyword: '袁宝珠', type: 'Troupe Manager/Performer', typeZh: '掌班与伶人' },
+  { sourceKeyword: '老三', targetKeyword: '掌柜的', type: 'Waiter/Owner', typeZh: '伙计掌柜' },
+  { sourceKeyword: '梅鼎', targetKeyword: '梅士燮', type: 'Grandfather/Grandson', typeZh: '祖孙' },
+  { sourceKeyword: '梅羹调', targetKeyword: '梅士燮', type: 'Father/Son', typeZh: '父子' },
+
   { sourceKeyword: '屈道翁', targetKeyword: '杜琴言', type: 'Adoptive Father/Child', typeZh: '义父义子' },
   { sourceKeyword: '屈道翁', targetKeyword: '刘喜', type: 'Master/Servant', typeZh: '主仆' },
   { sourceKeyword: '屈道翁', targetKeyword: '梅子玉', type: 'Trusted Friend', typeZh: '知交' },

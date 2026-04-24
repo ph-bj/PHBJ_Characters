@@ -169,64 +169,64 @@ const ROLE_ICONS: Record<string, any> = {
 };
 
 const ROLE_TINTS: Record<string, string> = {
-  scholar: 'bg-blue-900/5 border-blue-900/20',
-  performer: 'bg-red-900/5 border-red-900/20',
-  official: 'bg-yellow-900/5 border-yellow-900/20',
-  villain: 'bg-gray-900/5 border-gray-900/20',
-  minor: 'bg-stone-900/5 border-stone-900/20',
-  female: 'bg-purple-900/5 border-purple-900/20',
-  servant: 'bg-green-900/5 border-green-900/20',
-  deceased: 'bg-zinc-900/5 border-zinc-900/20',
-  Other: 'bg-stone-900/5 border-stone-900/20'
+  scholar: 'bg-[#355070]/10 border-[#355070]/30',
+  performer: 'bg-[#8c3b3b]/10 border-[#8c3b3b]/30',
+  official: 'bg-[#8a6a2f]/10 border-[#8a6a2f]/30',
+  villain: 'bg-[#3f2f2f]/10 border-[#3f2f2f]/30',
+  minor: 'bg-[#3f6b63]/10 border-[#3f6b63]/30',
+  female: 'bg-[#6b4a7d]/10 border-[#6b4a7d]/30',
+  servant: 'bg-[#4d6a3a]/10 border-[#4d6a3a]/30',
+  deceased: 'bg-[#5b5f67]/10 border-[#5b5f67]/30',
+  Other: 'bg-[#7a5c43]/10 border-[#7a5c43]/30'
 };
 
 const ROLE_TEXT_COLORS: Record<string, string> = {
-  scholar: 'text-blue-800',
-  performer: 'text-red-800',
-  official: 'text-yellow-800',
-  villain: 'text-gray-800',
-  minor: 'text-stone-800',
-  female: 'text-purple-800',
-  servant: 'text-green-800',
-  deceased: 'text-zinc-800',
-  Other: 'text-stone-800'
+  scholar: 'text-[#355070]',
+  performer: 'text-[#8c3b3b]',
+  official: 'text-[#8a6a2f]',
+  villain: 'text-[#3f2f2f]',
+  minor: 'text-[#3f6b63]',
+  female: 'text-[#6b4a7d]',
+  servant: 'text-[#4d6a3a]',
+  deceased: 'text-[#5b5f67]',
+  Other: 'text-[#7a5c43]'
 };
 
 const ROLE_ACCENTS: Record<string, string> = {
-  scholar: '#1e3a8a',
-  performer: '#991b1b',
-  official: '#854d0e',
-  villain: '#1f2937',
-  minor: '#44403c',
-  female: '#6b21a8',
-  servant: '#065f46',
-  deceased: '#3f3f46',
-  Other: '#44403c'
+  scholar: '#355070',
+  performer: '#8c3b3b',
+  official: '#8a6a2f',
+  villain: '#3f2f2f',
+  minor: '#3f6b63',
+  female: '#6b4a7d',
+  servant: '#4d6a3a',
+  deceased: '#5b5f67',
+  Other: '#7a5c43'
 };
 
 // Chip colours — unselected (light tint) and selected (solid)
 const ROLE_CHIP_IDLE: Record<string, string> = {
-  scholar:  'bg-blue-100   border-blue-300   text-blue-900',
-  performer:'bg-red-100    border-red-300    text-red-900',
-  official: 'bg-yellow-100 border-yellow-300 text-yellow-900',
-  villain:  'bg-gray-100   border-gray-400   text-gray-800',
-  minor:    'bg-stone-100  border-stone-300  text-stone-700',
-  female:   'bg-purple-100 border-purple-300 text-purple-900',
-  servant:  'bg-green-100  border-green-300  text-green-900',
-  deceased: 'bg-zinc-100   border-zinc-300   text-zinc-700',
-  Other:    'bg-stone-100  border-stone-300  text-stone-700',
+  scholar:  'bg-[#e7edf2] border-[#8ea1b5] text-[#355070]',
+  performer:'bg-[#f3e4e4] border-[#b68888] text-[#8c3b3b]',
+  official: 'bg-[#f2ead8] border-[#b79f73] text-[#8a6a2f]',
+  villain:  'bg-[#ece7e3] border-[#8f7f73] text-[#3f2f2f]',
+  minor:    'bg-[#e3efec] border-[#8ea89f] text-[#3f6b63]',
+  female:   'bg-[#ece5f2] border-[#9f88b0] text-[#6b4a7d]',
+  servant:  'bg-[#e8efe3] border-[#94a686] text-[#4d6a3a]',
+  deceased: 'bg-[#e8e9ec] border-[#9da1ab] text-[#5b5f67]',
+  Other:    'bg-[#efe8df] border-[#a88f79] text-[#7a5c43]',
 };
 
 const ROLE_CHIP_ACTIVE: Record<string, string> = {
-  scholar:  'bg-blue-800   border-blue-800   text-white',
-  performer:'bg-red-800    border-red-800    text-white',
-  official: 'bg-yellow-700 border-yellow-700 text-white',
-  villain:  'bg-gray-800   border-gray-800   text-white',
-  minor:    'bg-stone-700  border-stone-700  text-white',
-  female:   'bg-purple-800 border-purple-800 text-white',
-  servant:  'bg-green-800  border-green-800  text-white',
-  deceased: 'bg-zinc-700   border-zinc-700   text-white',
-  Other:    'bg-stone-700  border-stone-700  text-white',
+  scholar:  'bg-[#355070] border-[#355070] text-[#f4ecd8]',
+  performer:'bg-[#8c3b3b] border-[#8c3b3b] text-[#f4ecd8]',
+  official: 'bg-[#8a6a2f] border-[#8a6a2f] text-[#f4ecd8]',
+  villain:  'bg-[#3f2f2f] border-[#3f2f2f] text-[#f4ecd8]',
+  minor:    'bg-[#3f6b63] border-[#3f6b63] text-[#f4ecd8]',
+  female:   'bg-[#6b4a7d] border-[#6b4a7d] text-[#f4ecd8]',
+  servant:  'bg-[#4d6a3a] border-[#4d6a3a] text-[#f4ecd8]',
+  deceased: 'bg-[#5b5f67] border-[#5b5f67] text-[#f4ecd8]',
+  Other:    'bg-[#7a5c43] border-[#7a5c43] text-[#f4ecd8]',
 };
 
 function extractChineseTokens(text: string): string[] {
@@ -347,41 +347,74 @@ export default function App() {
 
   // Calculate Stats
   const stats = useMemo(() => {
-    const origins: Record<string, number> = {};
+    type CharList = { count: number; chars: typeof characters };
+    const originMap: Record<string, CharList> = {};
+    const unknownOriginChars: typeof characters = [];
     const rolesCount: Record<string, number> = {};
-    const ageGroups: Record<string, number> = {
-      '<15': 0,
-      '15-19': 0,
-      '20-24': 0,
-      '25-29': 0,
-      '30+': 0
-    };
-    
+    const ageGroupOrder = ['<15', '15-19', '20-24', '25-29', '30+'];
+    const ageGroupMap: Record<string, CharList> = Object.fromEntries(
+      ageGroupOrder.map(g => [g, { count: 0, chars: [] }])
+    );
+    const unknownAgeChars: typeof characters = [];
+
     characters.forEach(c => {
-      if (c.origin !== '—') origins[c.origin] = (origins[c.origin] || 0) + 1;
+      if (c.origin === '—') {
+        unknownOriginChars.push(c);
+      } else {
+        if (!originMap[c.origin]) originMap[c.origin] = { count: 0, chars: [] };
+        originMap[c.origin].count++;
+        originMap[c.origin].chars.push(c);
+      }
       rolesCount[c.role] = (rolesCount[c.role] || 0) + 1;
 
       // Parse Age
-      const ageStr = c.age.replace('~', '').trim();
+      const ageStr = c.age.replace('~', '').replace('+', '').trim();
       const age = parseInt(ageStr);
       if (!isNaN(age)) {
-        if (age < 15) ageGroups['<15']++;
-        else if (age <= 19) ageGroups['15-19']++;
-        else if (age <= 24) ageGroups['20-24']++;
-        else if (age <= 29) ageGroups['25-29']++;
-        else ageGroups['30+']++;
+        let bucket: string;
+        if (age < 15) bucket = '<15';
+        else if (age <= 19) bucket = '15-19';
+        else if (age <= 24) bucket = '20-24';
+        else if (age <= 29) bucket = '25-29';
+        else bucket = '30+';
+        ageGroupMap[bucket].count++;
+        ageGroupMap[bucket].chars.push(c);
+      } else {
+        unknownAgeChars.push(c);
       }
     });
 
-    const topOrigins = Object.entries(origins)
-      .sort((a, b) => b[1] - a[1])
-      .map(([name, count]) => ({ name, count, percentage: Math.round((count / characters.length) * 100) }));
+    const maxOriginCount = Math.max(...Object.values(originMap).map(v => v.count), unknownOriginChars.length, 1);
+    const topOrigins = [
+      ...Object.entries(originMap)
+        .sort((a, b) => b[1].count - a[1].count)
+        .map(([name, { count, chars }]) => ({
+          name, count, chars,
+          percentage: Math.round((count / maxOriginCount) * 100)
+        })),
+      ...(unknownOriginChars.length > 0 ? [{
+        name: 'Unknown', count: unknownOriginChars.length,
+        chars: unknownOriginChars,
+        percentage: Math.round((unknownOriginChars.length / maxOriginCount) * 100)
+      }] : [])
+    ];
 
+    const maxRoleCount = Math.max(...Object.values(rolesCount), 1);
     const topRoles = Object.entries(rolesCount)
       .sort((a, b) => b[1] - a[1])
-      .map(([name, count]) => ({ name, count, percentage: Math.round((count / characters.length) * 100) }));
+      .map(([name, count]) => ({ name, count, percentage: Math.round((count / maxRoleCount) * 100) }));
 
-    const ageData = Object.entries(ageGroups).map(([group, count]) => ({ group, count }));
+    const maxAgeCount = Math.max(...Object.values(ageGroupMap).map(v => v.count), unknownAgeChars.length, 1);
+    const ageData = [
+      ...ageGroupOrder.map(group => ({
+        group, ...ageGroupMap[group],
+        percentage: Math.round((ageGroupMap[group].count / maxAgeCount) * 100)
+      })),
+      ...(unknownAgeChars.length > 0 ? [{
+        group: '?', count: unknownAgeChars.length, chars: unknownAgeChars,
+        percentage: Math.round((unknownAgeChars.length / maxAgeCount) * 100)
+      }] : [])
+    ];
 
     return { topOrigins, topRoles, ageData };
   }, []);
@@ -429,16 +462,29 @@ export default function App() {
                   <div key={i} className="space-y-1.5">
                     <div className="flex justify-between text-[12px]">
                       <span className="truncate pr-2 font-hans">
-                        {lang === 'zh' ? (characters.find(c => c.origin === stat.name)?.originZh || stat.name) : stat.name}
+                        {lang === 'zh'
+                          ? (stat.name === 'Unknown' ? '未知' : (stat.chars[0]?.originZh || stat.name))
+                          : stat.name}
                       </span>
                       <span className="text-[#5d5048] flex-shrink-0">{stat.count}</span>
                     </div>
                     <div className="h-1 bg-black/5 rounded-full overflow-hidden">
-                      <motion.div 
+                      <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${stat.percentage}%` }}
                         className="h-full bg-[#8b4513] opacity-60"
                       />
+                    </div>
+                    <div className="flex flex-wrap gap-1 pt-0.5">
+                      {stat.chars.map(c => (
+                        <button
+                          key={c.id}
+                          onClick={() => setSelectedCharacter(c)}
+                          className="text-[9px] px-1.5 py-0.5 bg-black/5 hover:bg-[#8b4513]/15 text-[#5d5048] hover:text-[#8b4513] rounded-sm transition-colors font-sans leading-tight"
+                        >
+                          {c.name.split(' ')[0]}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 ))}
@@ -447,32 +493,33 @@ export default function App() {
 
             <div>
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">{t.ageDist}</h2>
-              <div className="h-[160px] w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={stats.ageData}>
-                    <XAxis 
-                      dataKey="group" 
-                      axisLine={{ stroke: '#d4c5a9' }} 
-                      tickLine={false} 
-                      tick={{ fill: '#5d5048', fontSize: 10 }}
-                    />
-                    <Tooltip 
-                      cursor={{ fill: 'rgba(0,0,0,0.03)' }}
-                      contentStyle={{ 
-                        backgroundColor: '#f4ecd8', 
-                        border: '1px solid #d4c5a9',
-                        borderRadius: '0px',
-                        fontSize: '10px',
-                        color: '#2c2420'
-                      }}
-                    />
-                    <Bar dataKey="count" radius={[0, 0, 0, 0]}>
-                      {stats.ageData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill="#8b4513" opacity={0.6 + (index * 0.05)} />
+              <div className="space-y-4">
+                {stats.ageData.map((stat, i) => (
+                  <div key={i} className="space-y-1.5">
+                    <div className="flex justify-between text-[12px]">
+                      <span className="font-sans">{stat.group === '?' ? (lang === 'zh' ? '未知' : 'Unknown') : stat.group}</span>
+                      <span className="text-[#5d5048] flex-shrink-0">{stat.count}</span>
+                    </div>
+                    <div className="h-1 bg-black/5 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: `${stat.percentage}%` }}
+                        className={`h-full opacity-60 ${stat.group === '?' ? 'bg-[#5d5048]' : 'bg-[#8b4513]'}`}
+                      />
+                    </div>
+                    <div className="flex flex-wrap gap-1 pt-0.5">
+                      {stat.chars.map(c => (
+                        <button
+                          key={c.id}
+                          onClick={() => setSelectedCharacter(c)}
+                          className="text-[9px] px-1.5 py-0.5 bg-black/5 hover:bg-[#8b4513]/15 text-[#5d5048] hover:text-[#8b4513] rounded-sm transition-colors font-sans leading-tight"
+                        >
+                          {c.name.split(' ')[0]}
+                        </button>
                       ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -1023,17 +1070,27 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
               </div>
               <h2 className="text-3xl sm:text-5xl font-bold text-[#2c2420] leading-tight">{character.name}</h2>
               {character.alias !== '—' && (
-                <div className="text-base sm:text-lg italic text-[#5d5048] mt-1 font-hans">
-                  {character.alias}
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {character.alias.split(/\s*\/\s*/).map((a, i) => (
+                    <span key={i} className="text-[11px] px-2 py-0.5 bg-black/5 text-[#5d5048] italic font-hans rounded-sm border border-[#d4c5a9]">{a.trim()}</span>
+                  ))}
                 </div>
               )}
             </div>
           </div>
 
           <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-12">
-            <div className="space-y-1">
+            <div className="space-y-1.5">
               <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#5d5048] font-hans">{t.alias}</p>
-              <p className="text-sm sm:text-base italic text-[#2c2420] font-hans">{character.alias}</p>
+              {character.alias === '—' ? (
+                <p className="text-sm sm:text-base italic text-[#2c2420] font-hans">—</p>
+              ) : (
+                <div className="flex flex-wrap gap-1">
+                  {character.alias.split(/\s*\/\s*/).map((a, i) => (
+                    <span key={i} className="text-[11px] px-2 py-0.5 bg-black/5 text-[#5d5048] italic font-hans rounded-sm border border-[#d4c5a9]">{a.trim()}</span>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="space-y-1">
               <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#5d5048] font-hans">{t.origin}</p>
@@ -1051,18 +1108,8 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
             </div>
           </div>
 
-          {(identityLinksById[character.id] || []).length > 0 && (
-            <div className="mb-8 sm:mb-12">
-              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#5d5048] mb-2 font-hans">
-                {lang === 'en' ? 'Identity Links' : '身份同一线'}
-              </p>
-              <p className="text-sm sm:text-base text-[#2c2420] font-hans">
-                {(identityLinksById[character.id] || []).join(' / ')}
-              </p>
-            </div>
-          )}
 
-          <div className="space-y-4 sm:space-y-6">
+<div className="space-y-4 sm:space-y-6">
             <div className="space-y-2 sm:space-y-3">
               <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#5d5048] font-hans">{t.historicalRecord}</p>
               <div className="space-y-3 sm:space-y-4">

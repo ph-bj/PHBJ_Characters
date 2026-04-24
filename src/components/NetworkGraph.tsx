@@ -3,15 +3,15 @@ import * as d3 from 'd3';
 import { Character, Relationship } from '../types';
 
 const ROLE_COLORS: Record<string, string> = {
-  scholar: '#1e3a8a',
-  performer: '#991b1b',
-  official: '#854d0e',
-  villain: '#1f2937',
-  minor: '#44403c',
-  female: '#6b21a8',
-  servant: '#065f46',
-  deceased: '#3f3f46',
-  Other: '#44403c'
+  scholar: '#355070',
+  performer: '#8c3b3b',
+  official: '#8a6a2f',
+  villain: '#3f2f2f',
+  minor: '#3f6b63',
+  female: '#6b4a7d',
+  servant: '#4d6a3a',
+  deceased: '#5b5f67',
+  Other: '#7a5c43'
 };
 
 const ROLE_LABELS: Record<string, { en: string, zh: string }> = {
@@ -40,6 +40,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
     const width = 800;
     const height = 600;
+    const nodeRadius = 25;
 
     const nodes = characters.map(c => ({ ...c }));
     const links = relationships.map(r => ({ ...r }));
@@ -96,7 +97,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .on("end", dragended) as any);
 
     node.append("circle")
-      .attr("r", 25)
+      .attr("r", nodeRadius)
       .attr("fill", (d: any) => `${ROLE_COLORS[d.role] || ROLE_COLORS.Other}22`) // 22 is ~13% opacity for parchment feel
       .attr("stroke", (d: any) => ROLE_COLORS[d.role] || ROLE_COLORS.Other)
       .attr("stroke-width", 1.5);
@@ -109,12 +110,102 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .attr("fill", (d: any) => ROLE_COLORS[d.role] || ROLE_COLORS.Other)
       .text((d: any) => d.name.split(' ')[0]);
 
+    const getNodeId = (endpoint: any) =>
+      typeof endpoint === 'string' ? endpoint : endpoint?.id;
+
+    const resetHoverStyles = () => {
+      node
+        .style("opacity", 1)
+        .style("filter", "none");
+      link
+        .attr("stroke-opacity", 0.3)
+        .attr("stroke-width", 1.5)
+        .style("filter", "none");
+      linkText
+        .style("opacity", 1)
+        .style("filter", "none");
+    };
+
+    const applyHoverStyles = (hoveredId: string) => {
+      const connectedIds = new Set<string>([hoveredId]);
+
+      links.forEach((l: any) => {
+        const sourceId = getNodeId(l.source);
+        const targetId = getNodeId(l.target);
+        if (sourceId === hoveredId || targetId === hoveredId) {
+          if (sourceId) connectedIds.add(sourceId);
+          if (targetId) connectedIds.add(targetId);
+        }
+      });
+
+      node
+        .style("opacity", (d: any) => (connectedIds.has(d.id) ? 1 : 0.2))
+        .style("filter", (d: any) => (connectedIds.has(d.id) ? "none" : "blur(1.5px)"));
+
+      link
+        .attr("stroke-opacity", (d: any) => {
+          const sourceId = getNodeId(d.source);
+          const targetId = getNodeId(d.target);
+          return sourceId === hoveredId || targetId === hoveredId ? 0.95 : 0.08;
+        })
+        .attr("stroke-width", (d: any) => {
+          const sourceId = getNodeId(d.source);
+          const targetId = getNodeId(d.target);
+          return sourceId === hoveredId || targetId === hoveredId ? 1 : 1;
+        })
+        .style("filter", (d: any) => {
+          const sourceId = getNodeId(d.source);
+          const targetId = getNodeId(d.target);
+          return sourceId === hoveredId || targetId === hoveredId ? "none" : "blur(1.5px)";
+        });
+
+      linkText
+        .style("opacity", (d: any) => {
+          const sourceId = getNodeId(d.source);
+          const targetId = getNodeId(d.target);
+          return sourceId === hoveredId || targetId === hoveredId ? 1 : 0.1;
+        })
+        .style("filter", (d: any) => {
+          const sourceId = getNodeId(d.source);
+          const targetId = getNodeId(d.target);
+          return sourceId === hoveredId || targetId === hoveredId ? "none" : "blur(1px)";
+        });
+    };
+
+    node
+      .on("mouseenter", (_event, d: any) => {
+        applyHoverStyles(d.id);
+      })
+      .on("mouseleave", () => {
+        resetHoverStyles();
+      });
+
     simulation.on("tick", () => {
       link
-        .attr("x1", (d: any) => d.source.x)
-        .attr("y1", (d: any) => d.source.y)
-        .attr("x2", (d: any) => d.target.x)
-        .attr("y2", (d: any) => d.target.y);
+        .attr("x1", (d: any) => {
+          const dx = d.target.x - d.source.x;
+          const dy = d.target.y - d.source.y;
+          const dist = Math.hypot(dx, dy) || 1;
+          return d.source.x + (dx / dist) * nodeRadius;
+        })
+        .attr("y1", (d: any) => {
+          const dx = d.target.x - d.source.x;
+          const dy = d.target.y - d.source.y;
+          const dist = Math.hypot(dx, dy) || 1;
+          return d.source.y + (dy / dist) * nodeRadius;
+        })
+        .attr("x2", (d: any) => {
+          const dx = d.target.x - d.source.x;
+          const dy = d.target.y - d.source.y;
+          const dist = Math.hypot(dx, dy) || 1;
+          return d.target.x - (dx / dist) * nodeRadius;
+        })
+        .attr("y2", (d: any) => {
+          const dx = d.target.x - d.source.x;
+          const dy = d.target.y - d.source.y;
+          const dist = Math.hypot(dx, dy) || 1;
+          return d.target.y - (dy / dist) * nodeRadius;
+        });
 
       linkText
         .attr("x", (d: any) => (d.source.x + d.target.x) / 2)
