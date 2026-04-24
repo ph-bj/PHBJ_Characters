@@ -1,7 +1,7 @@
 import { Character, Relationship } from './types';
 
 const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male protagonist; scholar-gentry; falls for Qinyan; later marries Wang Qionghua; promoted examiner (ch.15); builds Qu shrine (ch.59)	男主角；书生士绅；钟情于琴言；后娶王琼华；第15回升任主考官；第59回为屈方正修建祠堂。
-杜琴言 Dù Qínyán	琴官 / 玉侬	15	Jiangsu	performer	ch.1	Central romantic figure; orphaned; renamed by Xu Ziyun (ch.5); redeemed in ch.43; reunites with Ziyu	核心浪漫人物；孤儿；第5回由徐子云改名；第43回赎身；最终与子玉重逢。
+杜琴言 Dù Qínyán	琴官 / 玉侬 / 琴仙	15	Jiangsu	performer	ch.1	Central romantic figure; orphaned; renamed by Xu Ziyun (ch.5); redeemed in ch.43; reunites with Ziyu	核心浪漫人物；孤儿；第5回由徐子云改名；第43回赎身；最终与子玉重逢。
 颜仲清 Yán Zhòngqīng	剑潭	23	Jinling	scholar	ch.1	Orphaned nephew of Lady Yan; raised by Mei family; married into Wang family; chivalrous	颜夫人的孤儿侄子；由梅家抚养；入赘王家；为人侠义。
 史南湘 Shǐ Nánxiāng	竹君	24	Hanyang	scholar	ch.1	Provincial exam top; compiled 《曲台花选》; witty; infatuated with Lu Sulan	乡试第一名；编纂《曲台花选》；机智幽默；痴恋陆素兰。
 王恂 Wáng Xún	庸庵	22	Jinling	scholar	ch.1	Son of Wang Wenhui; fond of performers; Ziyu's cousin	王文辉之子；喜好优伶；子玉的表兄弟。
@@ -152,7 +152,16 @@ const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male prota
 姚贤 Yáo Xián	—	—	—	servant	ch.44	Outer attendant under Hua Guangsu's side, dispatched in retrieval and pursuit errands around Qinyan's transfer period	华光宿一侧外跟班人物，在琴言去留风波中承担追索差事。
 吴紫烟 Wú Zǐyān	—	23	—	female	ch.57	Liu Wenze's wife; one of the central ladies in Yuan Qixiang's Chapter 57 women-only drinking-game gathering	刘文泽之妻；第57回袁绮香闺阁酒令局中的核心女性成员之一。
 蔡某 Cài Mǒu	—	—	—	minor	ch.35	Named suspect in temple theft-related incident chain; appears in the investigation and blame-casting context	寺中失窃事件链条中的具名嫌疑角色，出现在追查与归责语境中。
-长庆师娘 Chángqìng Shīniáng	—	—	—	female	ch.42	Widow of troupe master Changqing; involved in maintenance-price bargaining and pressure over performer arrangements	长庆亡后相关寡妇角色；在养赡索价与伶人去留博弈中承担关键施压方。`;
+长庆师娘 Chángqìng Shīniáng	—	—	—	female	ch.42	Widow of troupe master Changqing; involved in maintenance-price bargaining and pressure over performer arrangements	长庆亡后相关寡妇角色；在养赡索价与伶人去留博弈中承担关键施压方。
+苏浣香 Sū Huànxiāng	—	21	—	female	ch.57	Wife of Hua Guangsu; ranked 5th among the seven ladies at Yuan Qixiang's ch.57 gathering; graceful and witty	华光宿之妻；第57回袁绮香闺阁酒令局七位女主之一，排行第五；温婉机智。
+浣兰 Huàn Lán	—	19	—	female	ch.57	Wife of Tian Chunhang; ranked 6th among the seven ladies at Yuan Qixiang's ch.57 gathering; youngest of the group	田春航之妻；第57回袁绮香闺阁酒令局七位女主之一，排行第六；年龄最小。
+红雪 Hóng Xuě	—	—	—	servant	ch.57	Yuan Qixiang's maidservant; active participant in the tongue-twister drinking games in ch.57	袁绮香的丫鬟；第57回酒令游戏中的活跃参与者。
+红香 Hóng Xiāng	—	—	—	servant	ch.57	Yuan Qixiang's maidservant; participates in chess and shoe-game sequences in ch.57	袁绮香的丫鬟；第57回棋局与鞋令游戏的参与者。
+花珠 Huā Zhū	—	—	—	servant	ch.57	Su Huanxiang's maidservant, lent to Yuan Qixiang's team; plays the role of 商君 in the ch.57 games	苏浣香的丫鬟，被借入袁绮香一方；第57回扮演"商君"角色。
+画珠 Huà Zhū	—	—	—	servant	ch.57	Ronghua's maidservant; plays the role of 蔺相如 in the ch.57 poetry-card games	蓉华的丫鬟；第57回诗牌游戏中扮演"蔺相如"角色。
+明珠 Míng Zhū	—	—	—	servant	ch.57	Su Huanxiang's maidservant; participates in the topknot and tongue-twister games in ch.57	苏浣香的丫鬟；第57回参与顶针续麻令与绕口令游戏。
+荷珠 Hé Zhū	—	—	—	servant	ch.57	Huanlan's maidservant; plays the role of 孟尝君 in the ch.57 games	浣兰的丫鬟；第57回扮演"孟尝君"角色。
+蕊珠 Ruǐ Zhū	—	—	—	servant	ch.57	Wang Qionghua's maidservant; plays the role of 张子房 in the ch.57 dice games	王琼华的丫鬟；第57回扮演"张子房"角色。`;
 
 const ROLE_MAP: Record<string, string> = {
   scholar: '名士',

@@ -9,14 +9,14 @@ import {
   ResponsiveContainer,
   Cell
 } from 'recharts';
-import { 
-  Search, 
-  Filter, 
-  X, 
-  User, 
-  MapPin, 
-  BookOpen, 
-  Calendar, 
+import {
+  Search,
+  Filter,
+  X,
+  User,
+  MapPin,
+  BookOpen,
+  Calendar,
   Info,
   ChevronRight,
   Users,
@@ -30,10 +30,13 @@ import {
   Clock,
   ChevronUp,
   ChevronDown,
-  Book
+  Book,
+  Leaf,
+  Home,
 } from 'lucide-react';
 import { characters, relationships, identityLinksById } from './data';
 import { chapters } from './chapters';
+import { gardens, getGardenById, type Garden } from './gardens';
 import { prefaceTranslations } from './prefaceTranslation';
 import { chapter1Translations } from './chapter1Translation';
 import { chapter2Translations } from './chapter2Translation';
@@ -234,6 +237,70 @@ function extractChineseTokens(text: string): string[] {
   return matches ? matches.filter(Boolean) : [];
 }
 
+function stripDiacritics(s: string): string {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+type Segment = string | { token: string; char: Character };
+
+// Tokens that are also common Chinese nouns — require context confirmation before
+// being rendered as a name chip. Add any token here that causes false positives.
+const CONTEXT_SENSITIVE_TOKENS = new Set(['菊花']);
+
+/**
+ * Returns true if the token at [start, end) in `text` looks like a person name
+ * rather than a common noun, based on surrounding characters.
+ */
+function isPersonNameContext(text: string, start: number, end: number): boolean {
+  const before = text.slice(Math.max(0, start - 6), start);
+  const after  = text.slice(end, end + 8);
+
+  // Strong person indicators: followed by a dialogue/action verb
+  if (/^[道说答问笑叹嗔骂哭喊叫]/.test(after)) return true;
+  if (/^[便也都只就却]?[道说]/.test(after)) return true; // 便道/也说/就说
+
+  // Strong noun indicators: preceded by a Chinese numeral or classifier
+  if (/[一二三四五六七八九十百千万两\d][层盆朵束枝株棵个只瓶碗堆]?$/.test(before)) return false;
+  // Noun verb: insert/arrange/pile/plant immediately before
+  if (/[插摆堆种赏采送买折剪].$/.test(before)) return false;
+  if (/[插摆堆种赏采送买折剪]$/.test(before)) return false;
+
+  // Default: not confident it's a person name — skip the chip
+  return false;
+}
+
+function segmentText(text: string, tokenMap: [string, Character][]): Segment[] {
+  const segments: Segment[] = [];
+  let cursor = 0;
+  while (cursor < text.length) {
+    let matched = false;
+    for (const [token, char] of tokenMap) {
+      if (text.startsWith(token, cursor)) {
+        const afterPos = cursor + token.length;
+        // ASCII tokens require a word-boundary after the match
+        const isAscii = /[a-zA-Z]/.test(token);
+        if (isAscii && afterPos < text.length && /[a-zA-Z]/.test(text[afterPos])) continue;
+        // Context-sensitive tokens: only chip if context confirms a person name
+        if (CONTEXT_SENSITIVE_TOKENS.has(token) && !isPersonNameContext(text, cursor, afterPos)) continue;
+        segments.push({ token, char });
+        cursor += token.length;
+        matched = true;
+        break;
+      }
+    }
+    if (!matched) {
+      const last = segments[segments.length - 1];
+      if (typeof last === 'string') {
+        segments[segments.length - 1] = last + text[cursor];
+      } else {
+        segments.push(text[cursor]);
+      }
+      cursor++;
+    }
+  }
+  return segments;
+}
+
 function getChapterMentionedCharacters(content: string): Character[] {
   const hitIds = new Set<string>();
   const hits: Character[] = [];
@@ -262,6 +329,7 @@ export default function App() {
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   const [selectedChapter, setSelectedChapter] = useState<Chapter | null>(null);
+  const [selectedGarden, setSelectedGarden] = useState<Garden | null>(null);
   const [sortBy, setSortBy] = useState<'role' | 'appearance'>('appearance');
   const [lang, setLang] = useState<'en' | 'zh'>('en');
 
@@ -419,6 +487,29 @@ export default function App() {
     return { topOrigins, topRoles, ageData };
   }, []);
 
+  const DRINKING_KEYWORDS = ['酒令','行令','罚酒','猜拳','猜枚','飞花令','酒筹'];
+  const WORDGAME_KEYWORDS = ['灯谜','联句','分韵','赋诗','拆字','射覆','诗谜','猜谜'];
+  const MATURE_KEYWORDS   = ['奸','嫖','云雨','行房','幸了','土窑子','春宫','淫欲'];
+
+  const chapterStats = useMemo(() => {
+    return chapters
+      .filter(ch => ch.id >= 1)
+      .map(ch => {
+        const chineseChars = (ch.content.match(/[\u4e00-\u9fff]/g) ?? []).length;
+        const englishText = (translationMap[ch.id] ?? []).join(' ');
+        const englishWords = (englishText.match(/\b[A-Za-z]+(?:'[A-Za-z]+)?\b/g) ?? []).length;
+        const paragraphs = ch.content.split(/\n\n+/).filter(p => p.trim().length > 0).length;
+        const conversations = (ch.content.match(/[「『]/g) ?? []).length;
+        const works = new Set((ch.content.match(/《[^》\n]{1,40}》/g) ?? []).map((w) => w.trim()));
+        const hasDrinking = DRINKING_KEYWORDS.some(k => ch.content.includes(k));
+        const hasWordGame = WORDGAME_KEYWORDS.some(k => ch.content.includes(k));
+        const hasMature   = MATURE_KEYWORDS.some(k => ch.content.includes(k));
+        return { id: ch.id, title: ch.title, chineseChars, englishWords, paragraphs, conversations, worksMentioned: works.size, hasDrinking, hasWordGame, hasMature };
+      });
+  }, []);
+
+  const [chapterSortMode, setChapterSortMode] = useState<'longest' | 'shortest' | 'chapter' | 'talkative' | 'works'>('longest');
+
   return (
     <div className="min-h-screen font-serif text-[#2c2420] selection:bg-amber-900/20">
       {/* Header */}
@@ -535,13 +626,241 @@ export default function App() {
                       <span className="text-[#5d5048] flex-shrink-0">{stat.count}</span>
                     </div>
                     <div className="h-1 bg-black/5 rounded-full overflow-hidden">
-                      <motion.div 
+                      <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${stat.percentage}%` }}
                         className="h-full bg-[#2c2420] opacity-40"
                       />
                     </div>
                   </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Chapter Statistics */}
+            {(() => {
+              const totalChineseChars = chapterStats.reduce((s, c) => s + c.chineseChars, 0);
+              const totalEnglishWords = chapterStats.reduce((s, c) => s + c.englishWords, 0);
+              const totalParagraphs = chapterStats.reduce((s, c) => s + c.paragraphs, 0);
+              const totalConversations = chapterStats.reduce((s, c) => s + c.conversations, 0);
+              const totalWorks = chapterStats.reduce((s, c) => s + c.worksMentioned, 0);
+              const avgChineseChars = Math.round(totalChineseChars / chapterStats.length);
+              const avgEnglishWords = Math.round(totalEnglishWords / chapterStats.length);
+              const avgParagraphs = Math.round(totalParagraphs / chapterStats.length);
+              const avgConversations = Math.round(totalConversations / chapterStats.length);
+              const avgWorks = Math.round((totalWorks / chapterStats.length) * 10) / 10;
+              const maxChineseChars = Math.max(...chapterStats.map(c => c.chineseChars));
+              const maxConversations = Math.max(...chapterStats.map(c => c.conversations));
+              const maxWorks = Math.max(...chapterStats.map(c => c.worksMentioned), 1);
+              const sorted = [...chapterStats].sort((a, b) =>
+                chapterSortMode === 'longest'   ? b.chineseChars - a.chineseChars
+                : chapterSortMode === 'shortest'  ? a.chineseChars - b.chineseChars
+                : chapterSortMode === 'talkative' ? b.conversations - a.conversations
+                : chapterSortMode === 'works' ? b.worksMentioned - a.worksMentioned
+                : a.id - b.id
+              );
+              const zhCountLabel = lang === 'zh' ? '中文字' : 'CN chars';
+              const enCountLabel = lang === 'zh' ? '英文词' : 'EN words';
+              const paraLabel = lang === 'zh' ? '段' : 'para';
+              return (
+                <div>
+                  <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mt-6 mb-6 font-bold border-b border-[#d4c5a9] pb-2">
+                    {lang === 'zh' ? '章回统计' : 'Chapter Statistics'}
+                  </h2>
+
+                  {/* Summary row */}
+                  <div className="grid grid-cols-2 gap-2 mb-5">
+                    {[
+                      { label: lang === 'zh' ? '中文总字数' : 'Total CN chars', value: totalChineseChars.toLocaleString() },
+                      { label: lang === 'zh' ? '英文总词数' : 'Total EN words', value: totalEnglishWords.toLocaleString() },
+                      { label: lang === 'zh' ? '总段落' : 'Total para',     value: totalParagraphs.toLocaleString() },
+                      { label: lang === 'zh' ? '总对话' : 'Total dialogue', value: totalConversations.toLocaleString() },
+                      { label: lang === 'zh' ? '总书目提及' : 'Total works', value: totalWorks.toLocaleString() },
+                      { label: lang === 'zh' ? '每回均值' : 'Avg / chapter', value: `${avgChineseChars.toLocaleString()} ${zhCountLabel} · ${avgEnglishWords.toLocaleString()} ${enCountLabel} · ${avgParagraphs} ${paraLabel} · ${avgConversations} ${lang === 'zh' ? '对话' : 'dlg'} · ${avgWorks} ${lang === 'zh' ? '书' : 'works'}` },
+                    ].map(({ label, value }) => (
+                      <div key={label} className="bg-black/3 rounded-sm p-2 border border-[#d4c5a9]/50">
+                        <p className="text-[8px] uppercase tracking-widest text-[#5d5048] mb-0.5 leading-tight">{label}</p>
+                        <p className="text-[10px] font-bold text-[#2c2420] font-sans leading-tight">{value}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Sparkline */}
+                  <p className="text-[8px] uppercase tracking-widest text-[#5d5048] mb-1.5">
+                    {lang === 'zh' ? '各回中文字数' : 'Chinese chars per chapter'}
+                  </p>
+                  <div className="flex items-end gap-[1.5px] h-12 mb-5">
+                    {chapterStats.map(c => {
+                      const ch = chapters.find(ch => ch.id === c.id)!;
+                      return (
+                        <div
+                          key={c.id}
+                          className="flex-1 rounded-t-[1px] cursor-pointer transition-opacity hover:opacity-60"
+                          style={{
+                            height: `${Math.max(8, Math.round((c.chineseChars / maxChineseChars) * 100))}%`,
+                            backgroundColor: '#8b4513',
+                            opacity: 0.55,
+                          }}
+                          title={`Ch.${c.id} · ${c.chineseChars.toLocaleString()} ${zhCountLabel} · ${c.englishWords.toLocaleString()} ${enCountLabel} · ${c.paragraphs} ${paraLabel}`}
+                          onClick={() => setSelectedChapter(ch)}
+                        />
+                      );
+                    })}
+                  </div>
+
+                  {/* Sort controls */}
+                  <div className="grid grid-cols-2 gap-1 mb-3">
+                    {([
+                      { key: 'chapter',   labelEn: 'Ch #',      labelZh: '回序' },
+                      { key: 'longest',   labelEn: 'Longest',   labelZh: '最长' },
+                      { key: 'shortest',  labelEn: 'Shortest',  labelZh: '最短' },
+                      { key: 'talkative', labelEn: 'Chattiest', labelZh: '最多对话' },
+                      { key: 'works', labelEn: 'Most works', labelZh: '最多书目' },
+                    ] as const).map(({ key, labelEn, labelZh }) => (
+                      <button
+                        key={key}
+                        onClick={() => setChapterSortMode(key)}
+                        className={`text-[8px] px-1.5 py-1 rounded-sm border uppercase tracking-widest font-bold transition-all ${
+                          chapterSortMode === key
+                            ? 'bg-[#8b4513] text-[#f4ecd8] border-[#8b4513]'
+                            : 'border-[#d4c5a9] text-[#5d5048] hover:border-[#8b4513]/40 hover:text-[#8b4513]'
+                        }`}
+                      >
+                        {lang === 'zh' ? labelZh : labelEn}
+                      </button>
+                    ))}
+                  </div>
+                  {/* Badge legend */}
+                  <div className="flex gap-2 mb-3 flex-wrap">
+                    <span className="text-[8px] text-[#5d5048] italic">{lang === 'zh' ? '标记：' : 'Tags:'}</span>
+                    <span className="inline-flex items-center gap-1 text-[8px] text-amber-700">
+                      <span className="px-1 rounded-sm bg-amber-100 border border-amber-300 font-bold font-sans leading-tight">令</span>
+                      {lang === 'zh' ? '酒令' : 'Drinking game'}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-[8px] text-sky-700">
+                      <span className="px-1 rounded-sm bg-sky-100 border border-sky-300 font-bold font-sans leading-tight">诗</span>
+                      {lang === 'zh' ? '文字游戏' : 'Word game'}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-[8px] text-rose-700">
+                      <span className="px-1 rounded-sm bg-rose-100 border border-rose-300 font-bold font-sans leading-tight">艳</span>
+                      {lang === 'zh' ? '成人内容' : 'Mature'}
+                    </span>
+                  </div>
+
+                  <div className="space-y-2">
+                    {sorted.map(c => {
+                      const ch = chapters.find(ch => ch.id === c.id)!;
+                      return (
+                        <button
+                          key={c.id}
+                          onClick={() => setSelectedChapter(ch)}
+                          className="w-full text-left group px-2 py-2 rounded-sm border border-[#d4c5a9]/40 hover:border-[#8b4513]/30 hover:bg-[#8b4513]/3 transition-colors"
+                        >
+                          <div className="flex justify-between items-center text-[10px] mb-1">
+                            <span className="text-[#5d5048] group-hover:text-[#8b4513] transition-colors font-bold">
+                              Ch.{c.id}
+                            </span>
+                            <span className="text-[#5d5048] font-sans text-right leading-tight">
+                              <span className="block">
+                                {c.chineseChars.toLocaleString()} {zhCountLabel} · {c.englishWords.toLocaleString()} {enCountLabel}
+                              </span>
+                              <span className="block">
+                                {c.conversations} {lang === 'zh' ? '对话' : 'dlg'} · {c.worksMentioned} {lang === 'zh' ? '书目' : 'works'}
+                              </span>
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1.5 mb-1.5">
+                            {c.hasDrinking && (
+                              <span title={lang === 'zh' ? '酒令' : 'Drinking game'} className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm bg-amber-100 text-amber-700 border border-amber-300 leading-tight font-bold font-sans">令</span>
+                            )}
+                            {c.hasWordGame && (
+                              <span title={lang === 'zh' ? '文字游戏' : 'Word game'} className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm bg-sky-100 text-sky-700 border border-sky-300 leading-tight font-bold font-sans">诗</span>
+                            )}
+                            {c.hasMature && (
+                              <span title={lang === 'zh' ? '成人内容' : 'Mature content'} className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm bg-rose-100 text-rose-700 border border-rose-300 leading-tight font-bold font-sans">艳</span>
+                            )}
+                          </div>
+                          <div className="h-1 bg-black/5 rounded-full overflow-hidden">
+                            <motion.div
+                              initial={{ width: 0 }}
+                              animate={{ width: `${Math.round((c.chineseChars / maxChineseChars) * 100)}%` }}
+                              className="h-full bg-[#8b4513] opacity-50 group-hover:opacity-70 transition-opacity"
+                              title={lang === 'zh'
+                                ? `第${c.id}回：${c.chineseChars.toLocaleString()} 中文字`
+                                : `Chapter ${c.id}: ${c.chineseChars.toLocaleString()} Chinese characters`}
+                            />
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+
+          {/* Gardens Section */}
+          <div className="parchment p-4 sm:p-8 rounded-sm flex flex-col gap-5 border-double border-4 border-[#d4c5a9]">
+            <div>
+              <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-1 font-bold border-b border-[#d4c5a9] pb-2 flex items-center gap-2">
+                <Leaf size={11} className="text-[#4d6a3a]" />
+                {lang === 'zh' ? '园林与场所' : 'Gardens & Spaces'}
+              </h2>
+              <p className="text-[10px] text-[#5d5048] italic mt-2 mb-4 font-hans leading-relaxed">
+                {lang === 'zh'
+                  ? '小说中出现的13处命名园林与建筑空间'
+                  : '13 named locations across the 60 chapters'}
+              </p>
+
+              {/* Major gardens */}
+              <p className="text-[9px] uppercase tracking-widest text-[#5d5048] mb-2 font-bold">
+                {lang === 'zh' ? '主要园林' : 'Major Gardens'}
+              </p>
+              <div className="flex flex-col gap-1.5 mb-4">
+                {gardens.filter(g => g.type === 'major').map(g => (
+                  <button
+                    key={g.id}
+                    onClick={() => setSelectedGarden(g)}
+                    className="text-left px-2.5 py-2 rounded-sm border border-[#d4c5a9]/60 hover:border-[#4d6a3a]/50 hover:bg-[#4d6a3a]/5 transition-all group flex items-center gap-2"
+                  >
+                    <Leaf size={10} className="text-[#4d6a3a]/50 group-hover:text-[#4d6a3a] shrink-0" />
+                    <div className="min-w-0">
+                      <span className="text-[12px] font-hans font-bold text-[#2c2420] block leading-tight">{g.name}</span>
+                      <span className="text-[9px] text-[#5d5048] leading-tight">{lang === 'zh' ? g.location : g.locationEn}</span>
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              {/* Sub-locations */}
+              <p className="text-[9px] uppercase tracking-widest text-[#5d5048] mb-2 font-bold">
+                {lang === 'zh' ? '园中胜景' : 'Sub-Locations'}
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {gardens.filter(g => g.type === 'sublocation').map(g => (
+                  <button
+                    key={g.id}
+                    onClick={() => setSelectedGarden(g)}
+                    className="text-[10px] px-2 py-1 rounded-sm border border-[#d4c5a9]/60 hover:border-[#8b4513]/40 bg-white/20 hover:bg-[#8b4513]/5 text-[#5d5048] hover:text-[#8b4513] transition-all font-hans leading-tight"
+                  >
+                    {g.name}
+                  </button>
+                ))}
+              </div>
+
+              {/* Other */}
+              <p className="text-[9px] uppercase tracking-widest text-[#5d5048] mb-2 font-bold">
+                {lang === 'zh' ? '其他场所' : 'Other Spaces'}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {gardens.filter(g => g.type === 'other').map(g => (
+                  <button
+                    key={g.id}
+                    onClick={() => setSelectedGarden(g)}
+                    className="text-[10px] px-2 py-1 rounded-sm border border-[#d4c5a9]/60 hover:border-[#8b4513]/40 bg-white/20 hover:bg-[#8b4513]/5 text-[#5d5048] hover:text-[#8b4513] transition-all font-hans leading-tight"
+                  >
+                    {g.name}
+                  </button>
                 ))}
               </div>
             </div>
@@ -740,6 +1059,19 @@ export default function App() {
           />
         )}
       </AnimatePresence>
+
+      {/* Garden Detail Modal */}
+      <AnimatePresence>
+        {selectedGarden && (
+          <GardenDetail
+            garden={selectedGarden}
+            onClose={() => setSelectedGarden(null)}
+            lang={lang}
+            onSelectChapter={setSelectedChapter}
+            onSelectGarden={setSelectedGarden}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -764,6 +1096,61 @@ function ChapterReader({
     () => (chapter.id > 0 ? getChapterMentionedCharacters(chapter.content) : []),
     [chapter.id, chapter.content]
   );
+
+  const chapterCitedWorks = useMemo(() => {
+    if (chapter.id <= 0) return [];
+    const matches = chapter.content.match(/《[^》\n]{1,40}》/g) ?? [];
+    return Array.from(new Set(matches.map((m) => m.trim())));
+  }, [chapter.id, chapter.content]);
+
+  const tokenMap = useMemo<[string, Character][]>(() => {
+    const entries: [string, Character][] = [];
+    for (const char of characters) {
+      // Chinese tokens: full name + given-name shortform + aliases
+      const chineseName = char.name.split(' ')[0];
+      // For 3-char names (surname + 2-char given name), also register the 2-char given name
+      // e.g. "梅子玉" → also register "子玉" since text routinely uses the given name alone
+      const givenName = chineseName.length === 3 ? chineseName.slice(1) : null;
+      const aliasTokens: string[] =
+        char.alias !== '—'
+          ? char.alias.split('/').flatMap((part) => extractChineseTokens(part.trim()))
+          : [];
+      const candidates = [chineseName, ...(givenName ? [givenName] : []), ...aliasTokens];
+      const zhTokens = [...new Set(candidates)]
+        .filter((t) => t.length >= 2 && !GENERIC_HONORIFICS.has(t));
+      for (const t of zhTokens) entries.push([t, char]);
+
+      // English tokens: de-accented pinyin parts (≥4 chars)
+      const pinyinPart = char.name.slice(chineseName.length).trim();
+      if (pinyinPart) {
+        const plain = stripDiacritics(pinyinPart);
+        const parts = plain.split(' ').filter((p) => p.length >= 4);
+        const enTokens = new Set<string>();
+        if (parts.length >= 2) enTokens.add(parts.join(' '));
+        for (const p of parts) enTokens.add(p);
+        for (const t of enTokens) entries.push([t, char]);
+      }
+    }
+    entries.sort((a, b) => b[0].length - a[0].length);
+    return entries;
+  }, []);
+
+  const renderAnnotated = (text: string) => {
+    if (!text) return null;
+    return segmentText(text, tokenMap).map((seg, i) => {
+      if (typeof seg === 'string') return seg;
+      const roleChipClass = ROLE_CHIP_IDLE[seg.char.role] ?? ROLE_CHIP_IDLE.Other;
+      return (
+        <button
+          key={i}
+          onClick={() => onSelectCharacter(seg.char)}
+          className={`inline-flex items-center rounded-sm border px-1 py-[1px] mx-[1px] align-baseline cursor-pointer transition-all hover:brightness-95 ${roleChipClass}`}
+        >
+          {seg.token}
+        </button>
+      );
+    });
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -839,7 +1226,9 @@ function ChapterReader({
                     <button
                       key={character.id}
                       onClick={() => onSelectCharacter(character)}
-                      className="px-2 py-1 text-[11px] rounded-sm border border-[#d4c5a9] bg-white/30 hover:bg-[#8b4513]/10 hover:border-[#8b4513]/40 transition-colors font-hans"
+                      className={`px-2 py-1 text-[11px] rounded-sm border transition-colors font-hans hover:brightness-95 ${
+                        ROLE_CHIP_IDLE[character.role] ?? ROLE_CHIP_IDLE.Other
+                      }`}
                     >
                       {character.name}
                     </button>
@@ -862,16 +1251,33 @@ function ChapterReader({
               <div className="space-y-8">
                 {chapter.content.split('\n\n').map((para, i) => (
                   <div key={i} className="border-b border-[#d4c5a9]/40 pb-6 last:border-0">
-                    <p className="text-base font-hans text-[#2c2420] leading-relaxed">{para}</p>
+                    <p className="text-base font-hans text-[#2c2420] leading-relaxed">{renderAnnotated(para)}</p>
                     {translationMap[chapter.id][i] && (
-                      <p className="text-sm sm:text-base text-[#4a3f38] mt-3 leading-7 font-sans">{translationMap[chapter.id][i]}</p>
+                      <p className="text-sm sm:text-base text-[#4a3f38] mt-3 leading-7 font-sans">{renderAnnotated(translationMap[chapter.id][i])}</p>
                     )}
                   </div>
                 ))}
               </div>
             ) : (
               <div className="whitespace-pre-wrap text-base sm:text-lg italic font-hans first-letter:text-4xl first-letter:font-bold first-letter:mr-1 first-letter:float-left">
-                {chapter.content}
+                {renderAnnotated(chapter.content)}
+              </div>
+            )}
+            {chapter.id > 0 && chapterCitedWorks.length > 0 && (
+              <div className="mt-10 border border-[#d4c5a9] bg-black/5 p-4 rounded-sm">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-3">
+                  {lang === 'en' ? 'Cited Books / Works' : '本回引书与作品'}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {chapterCitedWorks.map((work) => (
+                    <span
+                      key={work}
+                      className="px-2 py-1 text-[11px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] font-hans"
+                    >
+                      {work}
+                    </span>
+                  ))}
+                </div>
               </div>
             )}
             <div className="pt-12 text-center text-[#5d5048] italic text-sm opacity-60">
@@ -942,6 +1348,8 @@ function CharacterCard({ character, isActive, onClick, lang }: { character: Char
   );
 }
 
+const GENERIC_HONORIFICS = new Set(['夫人', '公子', '先生', '老爷', '太太', '小姐', '姑娘', '奶奶', '大人', '将军', '夫君']);
+
 function CharacterDetail({ character, onClose, lang, onSelectChapter }: { character: Character; onClose: () => void; lang: 'en' | 'zh'; onSelectChapter: (chapter: (typeof chapters)[0]) => void }) {
   const Icon = ROLE_ICONS[character.role] || Info;
   const tintClass = ROLE_TINTS[character.role] || ROLE_TINTS.Other;
@@ -977,7 +1385,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
     const aliases = character.alias !== '—'
       ? character.alias.split(/[/\s，、]+/).filter(Boolean)
       : [];
-    const tokens = [...new Set([chineseName, givenName, ...aliases])].filter(t => t.length >= 2);
+    const tokens = [...new Set([chineseName, givenName, ...aliases])].filter(t => t.length >= 2 && !GENERIC_HONORIFICS.has(t));
 
     return chapters
       .filter(ch => ch.id >= 1)
@@ -1010,7 +1418,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
     const chineseName = character.name.split(' ')[0];
     const givenName = chineseName.length > 2 ? chineseName.slice(-2) : '';
     const aliases = character.alias !== '—' ? character.alias.split(/[/\s，、]+/).filter(Boolean) : [];
-    const tokens = [...new Set([chineseName, givenName, ...aliases])].filter(t => t.length >= 2);
+    const tokens = [...new Set([chineseName, givenName, ...aliases])].filter(t => t.length >= 2 && !GENERIC_HONORIFICS.has(t));
 
     const positions: number[] = [];
     for (const token of tokens) {
@@ -1271,6 +1679,305 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
                 </AnimatePresence>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="bg-[#d4c5a9]/20 p-4 text-[#5d5048] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[#d4c5a9] font-hans shrink-0">
+          Pinhua baojian Database 品花宝鉴数据库
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GardenDetail — full-screen profile modal for a named garden / space
+// ─────────────────────────────────────────────────────────────────────────────
+function GardenDetail({
+  garden,
+  onClose,
+  lang,
+  onSelectChapter,
+  onSelectGarden,
+}: {
+  garden: Garden;
+  onClose: () => void;
+  lang: 'en' | 'zh';
+  onSelectChapter: (ch: Chapter) => void;
+  onSelectGarden: (g: Garden) => void;
+}) {
+  const [activeChapter, setActiveChapter] = useState<number | null>(null);
+
+  const mentionData = useMemo(() => {
+    const tokens = garden.searchTokens;
+    return chapters
+      .filter(ch => ch.id >= 1)
+      .map(ch => {
+        const count = tokens.reduce((sum, token) => {
+          let n = 0, pos = 0;
+          while ((pos = ch.content.indexOf(token, pos)) !== -1) { n++; pos++; }
+          return sum + n;
+        }, 0);
+        return { ch: ch.id, count };
+      });
+  }, [garden]);
+
+  const mentionedChapters = mentionData.filter(d => d.count > 0);
+  const maxCount = Math.max(...mentionData.map(d => d.count), 1);
+
+  const activeSnippets = useMemo(() => {
+    if (activeChapter === null) return null;
+    const ch = chapters.find(c => c.id === activeChapter);
+    if (!ch) return null;
+    const tokens = garden.searchTokens;
+    const positions: number[] = [];
+    for (const token of tokens) {
+      let pos = 0;
+      while ((pos = ch.content.indexOf(token, pos)) !== -1) { positions.push(pos); pos++; }
+    }
+    positions.sort((a, b) => a - b);
+    const snippets: string[] = [];
+    let clusterStart = -1, clusterEnd = -1;
+    for (const pos of positions) {
+      if (clusterStart === -1) { clusterStart = pos; clusterEnd = pos; }
+      else if (pos - clusterEnd < 200) { clusterEnd = pos; }
+      else {
+        snippets.push(ch.content.slice(Math.max(0, clusterStart - 80), Math.min(ch.content.length, clusterEnd + 80)));
+        clusterStart = pos; clusterEnd = pos;
+      }
+    }
+    if (clusterStart !== -1) {
+      snippets.push(ch.content.slice(Math.max(0, clusterStart - 80), Math.min(ch.content.length, clusterEnd + 80)));
+    }
+    return { snippets: snippets.slice(0, 8), tokens };
+  }, [garden, activeChapter]);
+
+  const typeBadge = {
+    major:       lang === 'zh' ? '主要园林' : 'Major Garden',
+    sublocation: lang === 'zh' ? '园中胜景' : 'Sub-Location',
+    other:       lang === 'zh' ? '其他场所' : 'Other Space',
+  }[garden.type];
+
+  const parent = garden.parentId ? getGardenById(garden.parentId) : null;
+  const children = (garden.subLocationIds ?? [])
+    .map(id => getGardenById(id))
+    .filter((g): g is NonNullable<typeof g> => g !== undefined);
+  const accentColor = garden.accentColor;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+      />
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="relative w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] my-4 sm:my-0 flex flex-col"
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 hover:bg-black/5 rounded-full transition-colors z-10 text-[#2c2420]"
+        >
+          <X size={20} />
+        </button>
+
+        <div className="flex-1 overflow-y-auto p-6 sm:p-10 md:p-16 flex flex-col gap-8">
+          {/* Header */}
+          <div className="flex items-start gap-4 pr-10">
+            <div
+              className="w-12 h-12 rounded-sm flex items-center justify-center shrink-0 border"
+              style={{ backgroundColor: accentColor + '18', borderColor: accentColor + '40' }}
+            >
+              <Leaf size={22} style={{ color: accentColor }} />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                <span
+                  className="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm border"
+                  style={{ color: accentColor, borderColor: accentColor + '40', backgroundColor: accentColor + '12' }}
+                >
+                  {typeBadge}
+                </span>
+                {parent && (
+                  <button
+                    onClick={() => onSelectGarden(parent)}
+                    className="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm border border-[#d4c5a9] text-[#5d5048] hover:text-[#8b4513] hover:border-[#8b4513]/40 transition-colors"
+                  >
+                    ↑ {parent.name}
+                  </button>
+                )}
+              </div>
+              <h2 className="text-3xl font-bold text-[#2c2420] font-hans leading-tight">{garden.name}</h2>
+              <p className="text-sm text-[#5d5048] mt-0.5 italic">{garden.pinyin} · {garden.nameEn}</p>
+            </div>
+          </div>
+
+          {/* Metadata */}
+          <div className="grid grid-cols-2 gap-3 text-[11px]">
+            <div className="bg-black/3 border border-[#d4c5a9]/60 rounded-sm p-3">
+              <p className="text-[9px] uppercase tracking-widest text-[#5d5048] mb-1 font-bold">
+                {lang === 'zh' ? '园主 / 相关人物' : 'Owner / Associated'}
+              </p>
+              <p className="font-hans text-[#2c2420] font-semibold">
+                {lang === 'zh' ? garden.owner : garden.ownerEn}
+              </p>
+            </div>
+            <div className="bg-black/3 border border-[#d4c5a9]/60 rounded-sm p-3">
+              <p className="text-[9px] uppercase tracking-widest text-[#5d5048] mb-1 font-bold">
+                {lang === 'zh' ? '位置' : 'Location'}
+              </p>
+              <p className="font-hans text-[#2c2420] font-semibold">
+                {lang === 'zh' ? garden.location : garden.locationEn}
+              </p>
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="flex flex-col gap-3">
+            <p className="text-[9px] font-bold uppercase tracking-widest text-[#5d5048] border-b border-[#d4c5a9] pb-2">
+              {lang === 'zh' ? '园林志 · 英文' : 'Garden Record · English'}
+            </p>
+            <p className="text-[12px] leading-relaxed text-[#2c2420]">{garden.description}</p>
+            <p className="text-[9px] font-bold uppercase tracking-widest text-[#5d5048] border-b border-[#d4c5a9] pb-2 mt-2">
+              园林志 · 中文
+            </p>
+            <p className="text-[12px] leading-relaxed text-[#2c2420] font-hans">{garden.descriptionZh}</p>
+          </div>
+
+          {/* Sub-locations */}
+          {children.length > 0 && (
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-widest text-[#5d5048] border-b border-[#d4c5a9] pb-2 mb-3">
+                {lang === 'zh' ? '园中胜景' : 'Notable Sub-Locations'}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {children.map(child => (
+                  <button
+                    key={child.id}
+                    onClick={() => onSelectGarden(child)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[#d4c5a9]/60 hover:border-[#8b4513]/40 hover:bg-[#8b4513]/5 text-[#2c2420] hover:text-[#8b4513] transition-all text-[11px] font-hans"
+                  >
+                    <Home size={10} className="shrink-0" />
+                    {child.name}
+                    <span className="text-[9px] text-[#5d5048]">· {child.pinyin}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Chapter Appearances */}
+          <div>
+            <p className="text-[9px] font-bold uppercase tracking-widest text-[#5d5048] border-b border-[#d4c5a9] pb-2 mb-3 flex items-center gap-2">
+              <BookOpen size={10} />
+              {lang === 'zh'
+                ? `章回出现 · 共${mentionedChapters.length}回`
+                : `Chapter Appearances · ${mentionedChapters.length} of 60 chapters`}
+            </p>
+
+            <div className="flex items-end gap-[2px] h-10 mb-4">
+              {mentionData.map(d => (
+                <div
+                  key={d.ch}
+                  className="flex-1 rounded-t-sm transition-all cursor-pointer hover:opacity-80"
+                  style={{
+                    height: d.count > 0 ? `${Math.max(15, (d.count / maxCount) * 100)}%` : '2px',
+                    backgroundColor: d.count > 0
+                      ? (activeChapter === d.ch ? accentColor : accentColor + '70')
+                      : '#d4c5a960',
+                  }}
+                  title={`Ch.${d.ch}: ${d.count} mention${d.count !== 1 ? 's' : ''}`}
+                  onClick={() => {
+                    if (d.count > 0) setActiveChapter(prev => prev === d.ch ? null : d.ch);
+                  }}
+                />
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-1.5">
+              {mentionedChapters.map(d => (
+                <button
+                  key={d.ch}
+                  onClick={() => setActiveChapter(prev => prev === d.ch ? null : d.ch)}
+                  className={`text-[10px] px-2.5 py-1 rounded-sm border font-bold transition-all ${
+                    activeChapter === d.ch
+                      ? 'text-[#f4ecd8] border-transparent'
+                      : 'border-[#d4c5a9] text-[#5d5048] hover:border-[#8b4513]/40 hover:text-[#8b4513]'
+                  }`}
+                  style={activeChapter === d.ch ? { backgroundColor: accentColor, borderColor: accentColor } : {}}
+                >
+                  Ch.{d.ch}
+                </button>
+              ))}
+            </div>
+
+            <AnimatePresence>
+              {activeChapter !== null && activeSnippets && (
+                <motion.div
+                  key={activeChapter}
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.15 }}
+                  className="mt-4 border border-[#d4c5a9] rounded-sm overflow-hidden"
+                >
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-black/3 border-b border-[#d4c5a9]">
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-widest font-hans" style={{ color: accentColor }}>
+                        Ch.{activeChapter}
+                      </span>
+                      <span className="text-[10px] text-[#5d5048] ml-2 font-hans">
+                        {chapters.find(c => c.id === activeChapter)?.title}
+                      </span>
+                    </div>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => {
+                          const ch = chapters.find(c => c.id === activeChapter);
+                          if (ch) onSelectChapter(ch);
+                        }}
+                        className="text-[9px] px-2 py-1 rounded-sm border text-[#5d5048] border-[#d4c5a9] hover:bg-[#8b4513]/10 hover:text-[#8b4513] transition-colors uppercase tracking-widest font-bold"
+                      >
+                        {lang === 'zh' ? '阅读全回' : 'Read Chapter'}
+                      </button>
+                      <button onClick={() => setActiveChapter(null)} className="text-[#5d5048] hover:text-[#2c2420]">
+                        <X size={12} />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="p-4 space-y-3 max-h-80 overflow-y-auto">
+                    {activeSnippets.snippets.length === 0 ? (
+                      <p className="text-[11px] italic text-[#5d5048] font-hans">
+                        {lang === 'zh' ? '无文本摘录。' : 'No text excerpts found.'}
+                      </p>
+                    ) : (
+                      activeSnippets.snippets.map((snippet, i) => {
+                        const parts = snippet.split(
+                          new RegExp(`(${activeSnippets.tokens.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g')
+                        );
+                        return (
+                          <div key={i} className="bg-black/5 rounded-sm px-3 py-2 border-l-2" style={{ borderColor: accentColor + '50' }}>
+                            <p className="text-[11px] leading-relaxed text-[#2c2420] font-hans">
+                              …{parts.map((part, j) =>
+                                activeSnippets.tokens.includes(part)
+                                  ? <mark key={j} style={{ backgroundColor: accentColor + '33', color: accentColor }} className="rounded-sm px-0.5 not-italic font-bold">{part}</mark>
+                                  : part
+                              )}…
+                            </p>
+                          </div>
+                        );
+                      })
+                    )}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
 

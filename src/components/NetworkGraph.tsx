@@ -47,6 +47,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove();
+    let lockedNodeId: string | null = null;
 
     const simulation = d3.forceSimulation(nodes as any)
       .force("link", d3.forceLink(links).id((d: any) => d.id).distance(100))
@@ -62,6 +63,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     });
     
     svg.call(zoom as any);
+    svg.on("dblclick.zoom", null);
 
     const link = g.append("g")
       .selectAll("line")
@@ -89,6 +91,13 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .on("click", (event, d: any) => {
         // Prevent click when dragging
         if (event.defaultPrevented) return;
+        event.stopPropagation();
+        lockedNodeId = d.id;
+        applyHoverStyles(d.id);
+      })
+      .on("dblclick", (event, d: any) => {
+        if (event.defaultPrevented) return;
+        event.stopPropagation();
         onNodeClick(d);
       })
       .call(d3.drag()
@@ -174,11 +183,19 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
     node
       .on("mouseenter", (_event, d: any) => {
+        if (lockedNodeId) return;
         applyHoverStyles(d.id);
       })
       .on("mouseleave", () => {
+        if (lockedNodeId) return;
         resetHoverStyles();
       });
+
+    // Click empty canvas to clear locked highlight.
+    svg.on("click", () => {
+      lockedNodeId = null;
+      resetHoverStyles();
+    });
 
     simulation.on("tick", () => {
       link
