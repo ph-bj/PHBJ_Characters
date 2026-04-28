@@ -64,6 +64,7 @@ import { chapterTranslations59 } from './chapterTranslations59';
 import { chapterTranslations60 } from './chapterTranslations60';
 import { chapterSummaries } from './chapterSummaries';
 import { characterAppearances } from './characterAppearances';
+import { chapterLacunae } from './lacunae';
 
 /** English line under each title in the 目录 view; keyed by chapter id (optional). */
 const chapterTitleTranslations: Partial<Record<number, string>> = {
@@ -242,6 +243,16 @@ function stripDiacritics(s: string): string {
 }
 
 type Segment = string | { token: string; char: Character };
+type LacunaConfidence = 'certain' | 'probable' | 'speculative';
+
+type LacunaEntry = {
+  chapterId: number;
+  snippet: string;
+  symbol: '□' | '▉';
+  inferredCharacter: string;
+  confidence: LacunaConfidence;
+  note: string;
+};
 
 // Tokens that are also common Chinese nouns — require context confirmation before
 // being rendered as a name chip. Add any token here that causes false positives.
@@ -332,6 +343,39 @@ export default function App() {
   const [selectedGarden, setSelectedGarden] = useState<Garden | null>(null);
   const [sortBy, setSortBy] = useState<'role' | 'appearance'>('appearance');
   const [lang, setLang] = useState<'en' | 'zh'>('en');
+  const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(null);
+
+  const lacunaChapterNumbers = useMemo(
+    () => chapters.filter((chapter) => Number(chapter.id) > 0).map((chapter) => Number(chapter.id)),
+    []
+  );
+
+  const lacunaeByChapter = useMemo(() => {
+    const grouped = new Map<number, LacunaEntry[]>();
+    for (const chapter of chapterLacunae) {
+      grouped.set(
+        chapter.chapterId,
+        chapter.lacunae.map((lacuna) => ({
+          chapterId: chapter.chapterId,
+          snippet: lacuna.context,
+          symbol: lacuna.context.includes('▉') ? '▉' : '□',
+          inferredCharacter: lacuna.inference,
+          confidence: lacuna.confidence,
+          note: lacuna.note,
+        }))
+      );
+    }
+    return grouped;
+  }, []);
+
+  const lacunaCountByChapter = useMemo(() => {
+    const counts: Record<number, number> = {};
+    for (const chapterNumber of lacunaChapterNumbers) counts[chapterNumber] = 0;
+    for (const chapterNumber of lacunaChapterNumbers) {
+      counts[chapterNumber] = lacunaeByChapter.get(chapterNumber)?.length ?? 0;
+    }
+    return counts;
+  }, [lacunaeByChapter, lacunaChapterNumbers]);
 
   const t = {
     en: {
@@ -865,6 +909,39 @@ export default function App() {
               </div>
             </div>
           </div>
+
+          {/* Lacunae Sidebar */}
+          <div className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9]">
+            <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-4 font-bold border-b border-[#d4c5a9] pb-2">
+              Lacunae
+            </h2>
+            <div className="grid grid-cols-6 sm:grid-cols-8 lg:grid-cols-4 xl:grid-cols-5 gap-1.5">
+              {lacunaChapterNumbers.map((chapterNumber) => (
+                (() => {
+                  const lacunaCount = lacunaCountByChapter[chapterNumber] ?? 0;
+                  const isDisabled = lacunaCount === 0;
+                  return (
+                    <button
+                      key={chapterNumber}
+                      onClick={isDisabled ? undefined : () => setActiveLacunaChapter(chapterNumber)}
+                      aria-disabled={isDisabled}
+                      className={`text-center text-[10px] font-bold px-1.5 py-1.5 rounded-sm border transition-colors ${
+                        isDisabled
+                          ? 'border-[#d4c5a9]/25 bg-black/5 text-[#5d5048]/45 cursor-default'
+                          : 'border-[#d4c5a9]/40 text-[#2c2420] hover:bg-amber-700/10 hover:border-amber-700/40 cursor-pointer'
+                      }`}
+                      title={isDisabled ? `Chapter ${chapterNumber} (no lacunae)` : `Chapter ${chapterNumber} (${lacunaCount} lacunae)`}
+                    >
+                      <span className="block leading-tight">{chapterNumber}</span>
+                      <span className={`block text-[9px] font-sans leading-tight ${isDisabled ? 'text-[#5d5048]/40' : 'text-[#8b4513]'}`}>
+                        {lacunaCount}
+                      </span>
+                    </button>
+                  );
+                })()
+              ))}
+            </div>
+          </div>
         </aside>
 
         {/* Content Area */}
@@ -1072,6 +1149,114 @@ export default function App() {
           />
         )}
       </AnimatePresence>
+
+      {/* Lacunae Modal */}
+      <AnimatePresence>
+        {activeLacunaChapter !== null && (
+          <LacunaeModal
+            chapterId={activeLacunaChapter}
+            entries={lacunaeByChapter.get(activeLacunaChapter) ?? []}
+            onClose={() => setActiveLacunaChapter(null)}
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function LacunaeModal({
+  chapterId,
+  entries,
+  onClose,
+}: {
+  chapterId: number;
+  entries: LacunaEntry[];
+  onClose: () => void;
+}) {
+  const confidenceTone: Record<LacunaConfidence, string> = {
+    certain: 'bg-emerald-100 text-emerald-800 border-emerald-300',
+    probable: 'bg-amber-100 text-amber-800 border-amber-300',
+    speculative: 'bg-violet-100 text-violet-800 border-violet-300',
+  };
+  const confidenceLabel: Record<LacunaConfidence, 'Certain' | 'Probable' | 'Speculative'> = {
+    certain: 'Certain',
+    probable: 'Probable',
+    speculative: 'Speculative',
+  };
+
+  const renderSnippet = (snippet: string, symbol: LacunaEntry['symbol']) => {
+    const idx = snippet.indexOf(symbol);
+    if (idx === -1) return snippet;
+    return (
+      <>
+        {snippet.slice(0, idx)}
+        <mark className="bg-amber-300/70 text-[#2c2420] px-1 rounded-sm">{symbol}</mark>
+        {snippet.slice(idx + symbol.length)}
+      </>
+    );
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="absolute inset-0 bg-black/55 backdrop-blur-sm"
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 30, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 20, scale: 0.98 }}
+        className="relative w-full max-w-3xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[#d4c5a9] shadow-2xl flex flex-col"
+      >
+        <div className="p-4 sm:p-5 border-b border-[#d4c5a9] bg-[#f4ecd8] flex items-center justify-between">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#5d5048]">Lacunae</p>
+            <h3 className="text-lg font-bold text-[#2c2420]">Chapter {chapterId}</h3>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#2c2420]"
+            aria-label="Close lacunae modal"
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        <div className="p-5 sm:p-6 overflow-y-auto space-y-4">
+          {entries.length === 0 ? (
+            <div className="border border-[#d4c5a9] rounded-sm p-5 bg-black/5">
+              <p className="text-[12px] text-[#5d5048] italic">
+                No lacunae annotations are available for this chapter yet.
+              </p>
+            </div>
+          ) : (
+            entries.map((entry, idx) => (
+              <div key={`${entry.chapterId}-${idx}`} className="border border-[#d4c5a9] rounded-sm p-4 bg-black/5 space-y-3">
+                <p className="text-[14px] font-hans text-[#2c2420] leading-relaxed">
+                  {renderSnippet(entry.snippet, entry.symbol)}
+                </p>
+
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] uppercase tracking-widest text-[#5d5048] font-bold">Inferred</span>
+                    <span className="text-3xl leading-none font-serif text-[#2c2420]">{entry.inferredCharacter}</span>
+                  </div>
+                  <span className={`text-[10px] font-bold uppercase tracking-widest border rounded-sm px-2 py-1 ${confidenceTone[entry.confidence]}`}>
+                    {confidenceLabel[entry.confidence]}
+                  </span>
+                </div>
+
+                <p className="text-[11px] leading-relaxed text-[#4a3f38] font-sans">
+                  {entry.note}
+                </p>
+              </div>
+            ))
+          )}
+        </div>
+      </motion.div>
     </div>
   );
 }
