@@ -1,4 +1,4 @@
-/** Chapter 52 — 《群公子花园贺喜 众佳人绣阁陪新》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 52 — 《群公子花园贺喜 众佳人绣阁陪新》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations52: Record<number, string[]> = {
   52: [
     "Time flew. June passed and July began. Gao Pin arrived and lodged at Yiyuan with Nanxiang in Cool Tranquil Poetic Realm, carrying his provincial governor's recommendation papers—one to the Ministry of Rites, one to the prefectural magistrate—for the upcoming Broad Learning and Grand Diction exam. Noted scholars from all directions continued arriving; the exam was fixed for the tenth day of the eighth month.",

@@ -1,4 +1,4 @@
-/** Chapter 54 — 《才子词科登翰苑 佳人绣阁论唐诗》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 54 — 《才子词科登翰苑 佳人绣阁论唐诗》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations54: Record<number, string[]> = {
   54: [
     "After receiving Qinyan's answering lyric, Ziyu remained in sorrow for days. He also kept recalling that dream in which Qinyan looked haggard, and he could not tell whether it boded good or ill. Depressed and unsettled, he drifted through his days listless, with tears constantly wetting his kerchief.",

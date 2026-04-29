@@ -1,4 +1,4 @@
-/** Chapter 50 — 《改戏文林春喜正谱 娶妓女魏聘才收场》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 50 — 《改戏文林春喜正谱 娶妓女魏聘才收场》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations50: Record<number, string[]> = {
   50: [
     "Chunhang had now become formally engaged to Su the Marquis's daughter and only awaited the seventh day of the seventh month for the wedding. By then May had passed; midsummer blazed, and the heat burned like fire beneath an umbrella of sun.",

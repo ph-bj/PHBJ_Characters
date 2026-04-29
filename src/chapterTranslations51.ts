@@ -1,4 +1,4 @@
-/** Chapter 51 — 《闹缝穷隔墙听戏 舒积忿同室操戈》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 51 — 《闹缝穷隔墙听戏 舒积忿同室操戈》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations51: Record<number, string[]> = {
   51: [
     "When Wei Pincai was leaving the capital, he had tried to collect a debt from Yuanmao, but Yuanmao happened to be away in Tongzhou.",

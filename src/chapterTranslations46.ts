@@ -1,4 +1,4 @@
-/** Chapter 46 — 《众英才分题联集锦 老名士制序笔生花》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 46 — 《众英才分题联集锦 老名士制序笔生花》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations46: Record<number, string[]> = {
   46: [
     "When Qu Daosheng moved into the Garden of Ease, he and Qinxian lodged at the Crabapple Spring Arbour; Cixian stayed in the Pear Court nearby. Daosheng tutored him at once: books Qinxian had begun were reviewed as they discussed poetry and prose and he practised regular script. Qinxian proved bright—memorizing at a glance—and bent his mind to study, laying aside old sorrows. After several days Daosheng saw promise and rejoiced; Ziyun was elated and told the staff to call him Master Qu. Within half a month Qinxian's essays improved, his characters steadied, and regulated verse came smoothly. Father and son grew tender as blood kin. Visiting actors no longer lingered—only peeked at the gate. Qinxian would not skip lessons and never went abroad; if not practicing calligraphy he read, until even the carefree Qu found himself pinned answering questions hour by hour.",

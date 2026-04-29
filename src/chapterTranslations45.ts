@@ -1,4 +1,4 @@
-/** Chapter 45 — 《佳公子踏月访情人 美玉郎扶乩认义父》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 45 — 《佳公子踏月访情人 美玉郎扶乩认义父》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations45: Record<number, string[]> = {
   45: [
     "Speaking of Qinyan's staying on at Yiyuan: thanks to Xu Ziyun and Xiao Cixian counselling him day after day, and to the celebrated dan performers who drifted in without fixing a time—sometimes brewing tea for quiet conversation, sometimes matching verses over wine—the garden offered scene after splendid scene; today the Peony Terrace, tomorrow the Herbaceous Peony Beds, and thus more than half his gloom had melted away.",
