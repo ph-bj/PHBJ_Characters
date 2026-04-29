@@ -552,6 +552,15 @@ export default function App() {
       });
   }, []);
 
+  const allWorksCited = useMemo(() => {
+    const workMap = new Map<string, number>();
+    chapters.filter(ch => ch.id >= 1).forEach(ch => {
+      const works = new Set((ch.content.match(/《[^》\n]{1,40}》/g) ?? []).map(w => w.trim()));
+      works.forEach(w => workMap.set(w, (workMap.get(w) ?? 0) + 1));
+    });
+    return Array.from(workMap.entries()).sort((a, b) => b[1] - a[1]);
+  }, []);
+
   const [chapterSortMode, setChapterSortMode] = useState<'longest' | 'shortest' | 'chapter' | 'talkative' | 'works'>('longest');
 
   return (
@@ -759,7 +768,7 @@ export default function App() {
                       { key: 'longest',   labelEn: 'Longest',   labelZh: '最长' },
                       { key: 'shortest',  labelEn: 'Shortest',  labelZh: '最短' },
                       { key: 'talkative', labelEn: 'Chattiest', labelZh: '最多对话' },
-                      { key: 'works', labelEn: 'Most works', labelZh: '最多书目' },
+                      { key: 'works', labelEn: 'Most works cited', labelZh: '最多书目' },
                     ] as const).map(({ key, labelEn, labelZh }) => (
                       <button
                         key={key}
@@ -1052,7 +1061,11 @@ export default function App() {
             <div className="mb-6 space-y-2 pb-4 border-b border-[#d4c5a9]">
               <p className="text-base font-bold font-hans text-[#2c2420]">品花宝鉴</p>
               <p className="text-[11px] font-hans text-[#5d5048]">作者：陈森</p>
-              <p className="text-[11px] font-hans text-[#2c2420] leading-relaxed">《品花宝鉴》，亦作《怡情佚史》、《群花宝鉴》，清代陈森所著的一部描写狎优风气的长篇小说，共60回。陈森是常州人，科举常年不得意，40岁后放弃科举。他寓居北京时常与优伶交往，为日后的创作积累了素材。</p>
+              <p className="text-[11px] font-hans text-[#2c2420] leading-relaxed">
+                {lang === 'en'
+                  ? 'Pinhua Baojian (also known as Yiqing Yishi and Qunhua Baojian) is a 60-chapter novel by Chen Sen of the Qing dynasty, depicting the culture of male entertainers. A native of Changzhou, Chen Sen repeatedly failed the imperial examinations and gave up around age 40. While living in Beijing he frequently associated with performers, gathering material for the novel.'
+                  : '《品花宝鉴》，亦作《怡情佚史》、《群花宝鉴》，清代陈森所著的一部描写狎优风气的长篇小说，共60回。陈森是常州人，科举常年不得意，40岁后放弃科举。他寓居北京时常与优伶交往，为日后的创作积累了素材。'}
+              </p>
             </div>
             <div className="flex flex-col gap-1.5">
               <button
@@ -1079,6 +1092,30 @@ export default function App() {
                       : chapter.title}
                   </span>
                 </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Works Cited */}
+          <div className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9]">
+            <div className="flex items-baseline justify-between border-b border-[#d4c5a9] pb-2 mb-4">
+              <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] font-bold">
+                {lang === 'zh' ? '引书与作品' : 'Works Cited'}
+              </h2>
+              <span className="text-[10px] text-[#8b4513] font-sans font-bold">{allWorksCited.length} {lang === 'zh' ? '部' : 'unique'}</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {allWorksCited.map(([work, count]) => (
+                <span
+                  key={work}
+                  title={`${count} ${lang === 'zh' ? '回' : count === 1 ? 'chapter' : 'chapters'}`}
+                  className="px-2 py-0.5 text-[10px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] font-hans cursor-default"
+                >
+                  {work}
+                  {count > 1 && (
+                    <span className="ml-1 text-[9px] text-[#8b4513] font-sans">×{count}</span>
+                  )}
+                </span>
               ))}
             </div>
           </div>
