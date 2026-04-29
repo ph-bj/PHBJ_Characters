@@ -1,4 +1,4 @@
-/** Chapter 48 — 《木兰艇吟出断肠词 皇华亭痛洒离情泪》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 48 — 《木兰艇吟出断肠词 皇华亭痛洒离情泪》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations48: Record<number, string[]> = {
   48: [
     "Qu Daosheng had been appointed assistant prefect of Nanchang. After receiving his papers he prepared to depart; these days people kept feasting him in farewell, so he was often away from the garden. The scholars and famous performers likewise took turns hosting farewell gatherings for Qinxian.",

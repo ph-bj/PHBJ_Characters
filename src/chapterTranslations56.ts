@@ -1,4 +1,4 @@
-/** Chapter 56 — 《屈方正成神托梦 侯太史假义恤孤》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 56 — 《屈方正成神托梦 侯太史假义恤孤》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations56: Record<number, string[]> = {
   56: [
     "When Qinxian came aboard and heard that Daosheng had fallen and hurt himself, he hurried into the cabin to see him. Daosheng said: \"I feel a little clearer now, but half my body won't move—still, it should mend. I've taken a good deal of medicine. Where did you go today?\" Qinxian said he had strolled at Mochou Lake, where there was a Du Fairy's tomb that matched what the spirit-planchette had said. Daosheng was surprised and asked: \"So there really is such a grave—is there an inscription?\" Qinxian said there was none, and described the scene with the girl in red. Daosheng guessed it was guidance from the lotus spirit. Father and son talked a while longer.",

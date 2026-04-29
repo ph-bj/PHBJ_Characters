@@ -1,4 +1,4 @@
-/** Chapter 49 — 《爱中慕田状元求婚 意外情许三姐认弟》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 49 — 《爱中慕田状元求婚 意外情许三姐认弟》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations49: Record<number, string[]> = {
   49: [
     "After sending Qinxian off, Ziyu suffered such shock and pain that he lost his balance of mind; his old illness relapsed and only healed after a full month. Later Lady Yan learned Qinxian had left the capital and been taken as Qu Daosheng's adopted son, and she too felt glad for him.",

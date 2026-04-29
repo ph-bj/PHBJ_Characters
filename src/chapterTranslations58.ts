@@ -1,4 +1,4 @@
-/** Chapter 58 — 《奚十一主仆遭恶报 潘其观夫妇闹淫魔》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 58 — 《奚十一主仆遭恶报 潘其观夫妇闹淫魔》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations58: Record<number, string[]> = {
   58: [
     "The beauties' gathering at Yiyuan had been like every blossom opening at once, a hundred birds contending in song, their fragrance lingering for days. Later they exchanged many matching poems, which became a celebrated tale. In this chapter, several low characters commit a few low deeds.",

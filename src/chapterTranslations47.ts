@@ -1,4 +1,4 @@
-/** Chapter 47 — 《奚十一奇方修肾 潘其观忍辱医臀》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 47 — 《奚十一奇方修肾 潘其观忍辱医臀》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations47: Record<number, string[]> = {
   47: [
     "The day those scholars had matched scrolls at the Garden of Ease, Qu Daosheng’s praise left them glowing; after they read the preface text as well they were utterly awed—only prostrate respect would do. Even Nanxiang and Chunhang, who seldom let anyone overtop them, knelt in earnest this time. The next day Ziyun invited Jin Jifu to the garden to review the plaques and scrolls; Jifu was full of admiration too. Ziyun had Daosheng brush the sixteen fan-screens of the great paravent in regular and running script, and the carver Ji the Tenth Dwarf—introduced by Jifu—set to work engraving them in the garden.",

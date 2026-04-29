@@ -1,4 +1,4 @@
-/** Chapter 59 — 《梅侍郎独建屈公祠 屈少君重返都门地》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 59 — 《梅侍郎独建屈公祠 屈少君重返都门地》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations59: Record<number, string[]> = {
   59: [
     "Meanwhile Qinxian had kept vigil at Huguo Temple in Nanjing; in a blink a hundred days had passed. Master and servant lived modestly, yet daily offerings of rice and paper money, with rent altogether, ran to ten taels of silver a month.",

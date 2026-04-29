@@ -1,4 +1,4 @@
-/** Chapter 55 — 《凤凰山下谒骚坛 翡翠巢边寻旧冢》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 55 — 《凤凰山下谒骚坛 翡翠巢边寻旧冢》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations55: Record<number, string[]> = {
   55: [
     "After leaving the capital, Qinxian spent the journey in ceaseless longing and tears. They covered eighteen overland relay stations to Wangjiaying, crossed the Yellow River, then lodged at Qingjiangpu on the South River while hiring a Jiang boat, making flags and title boards, and delayed three days. Qu Daosheng had old friends in both grain-transport offices but chose not to call on them. Daosheng's longtime attendant Liu Xi—honest, loyal, over forty, and skilled at cooking from prior service under notable officials—was assigned to care for Qinxian and fussed over him like an old matron. Qinxian benefited greatly. After departure they reached Yangzhou in three days. Fearing merchants would pester him for poems, paintings, banquets, and songs, Daosheng stayed off shore.",

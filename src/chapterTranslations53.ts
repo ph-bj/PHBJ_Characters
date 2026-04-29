@@ -1,4 +1,4 @@
-/** Chapter 53 — 《桃花扇题曲定芳情 燕子矶痴魂惊幻梦》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 53 — 《桃花扇题曲定芳情 燕子矶痴魂惊幻梦》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations53: Record<number, string[]> = {
   53: [
     "In the previous chapter, Huagongzi had swapped fans with Sulan. Later, when Lady Hua asked about it, he realized with regret that he had given away the peach-blossom fan painted and inscribed by his wife. One day he sent a servant to summon Sulan and specifically told him to bring that fan. At the time Sulan was with Huifang discussing their planned antique-and-art shop. Beyond Su and Lu, Baozhu, Shufang, Lanbao, and Yulin also meant to join; pooling antiquities, books, and paintings would already make a substantial stock. Yiyuan itself had abundant flowers and trees to contribute. They thought it better to open first and then source more from the south, rather than delay two or three months waiting for full procurement.",

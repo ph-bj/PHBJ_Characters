@@ -1,4 +1,4 @@
-/** Chapter 57 — 《袁绮香酒令戏群芳 王琼华诗牌作盟主》 paragraph-aligned to `chapter.content.split('\\n\\n')`. */
+/** Chapter 57 — 《袁绮香酒令戏群芳 王琼华诗牌作盟主》 paragraph-aligned to `chapter.content.split('\n\n')`. */
 export const chapterTranslations57: Record<number, string[]> = {
   57: [
     "The last chapter told how Qinxian fell on hard times at Jiangning and tasted every bitterness; this one turns again to affairs in the capital. It was already the early tenth month—\"little spring\" weather, mild sun and gentle light, a hundred blossoms flourishing once more, and Yiyuan was growing lively again.",
