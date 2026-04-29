@@ -1320,18 +1320,28 @@ function ChapterReader({
     return entries;
   }, []);
 
-  const renderAnnotated = (text: string) => {
+  const renderAnnotated = (text: string, showBilingual = false) => {
     if (!text) return null;
     return segmentText(text, tokenMap).map((seg, i) => {
       if (typeof seg === 'string') return seg;
       const roleChipClass = ROLE_CHIP_IDLE[seg.char.role] ?? ROLE_CHIP_IDLE.Other;
+      let chipLabel: string;
+      if (showBilingual) {
+        chipLabel = seg.char.name;
+      } else {
+        const chineseName = seg.char.name.split(' ')[0];
+        const isChineseToken = /[一-鿿]/.test(seg.token);
+        chipLabel = isChineseToken
+          ? chineseName
+          : seg.char.name.slice(chineseName.length).trim();
+      }
       return (
         <button
           key={i}
           onClick={() => onSelectCharacter(seg.char)}
           className={`inline-flex items-center rounded-sm border px-1 py-[1px] mx-[1px] align-baseline cursor-pointer transition-all hover:brightness-95 ${roleChipClass}`}
         >
-          {seg.token}
+          {chipLabel}
         </button>
       );
     });
@@ -1390,13 +1400,13 @@ function ChapterReader({
                 <div className="space-y-2">
                   <p className="text-[11px] font-bold text-[#2c2420]">English</p>
                   <p className="text-sm sm:text-base text-[#4a3f38] leading-relaxed font-sans whitespace-pre-line">
-                    {chapterSummary.en}
+                    {renderAnnotated(chapterSummary.en, true)}
                   </p>
                 </div>
                 <div className="space-y-2">
                   <p className="text-[11px] font-bold text-[#2c2420]">中文</p>
                   <p className="text-[12px] text-[#2c2420] font-hans leading-relaxed whitespace-pre-line">
-                    {chapterSummary.zh}
+                    {renderAnnotated(chapterSummary.zh, true)}
                   </p>
                 </div>
               </div>
