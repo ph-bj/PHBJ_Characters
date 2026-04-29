@@ -563,6 +563,42 @@ export default function App() {
 
   const [chapterSortMode, setChapterSortMode] = useState<'longest' | 'shortest' | 'chapter' | 'talkative' | 'works'>('longest');
 
+  const downloadTxt = (filename: string, content: string) => {
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const downloadChinese = () => {
+    const text = chapters.map(ch => `${ch.title}\n\n${ch.content}`).join('\n\n\n');
+    downloadTxt('pinhua-baojian-chinese.txt', text);
+  };
+
+  const downloadEnglish = () => {
+    const text = chapters.map(ch => {
+      const title = ch.id === 0 ? 'Preface' : `Chapter ${ch.id} — ${chapterTitleTranslations[ch.id] || ch.title}`;
+      const paras = (translationMap[ch.id] ?? []).join('\n\n');
+      return `${title}\n\n${paras}`;
+    }).join('\n\n\n');
+    downloadTxt('pinhua-baojian-english.txt', text);
+  };
+
+  const downloadInterleaved = () => {
+    const text = chapters.map(ch => {
+      const zhTitle = ch.title;
+      const enTitle = ch.id === 0 ? 'Preface' : `Chapter ${ch.id} — ${chapterTitleTranslations[ch.id] || ch.title}`;
+      const zhParas = ch.content.split(/\n\n+/).filter(p => p.trim());
+      const enParas = translationMap[ch.id] ?? [];
+      const pairs = zhParas.map((zhP, i) => `${zhP}${enParas[i] ? `\n\n${enParas[i]}` : ''}`).join('\n\n');
+      return `${zhTitle} / ${enTitle}\n\n${pairs}`;
+    }).join('\n\n\n');
+    downloadTxt('pinhua-baojian-bilingual.txt', text);
+  };
+
   return (
     <div className="min-h-screen font-serif text-[#2c2420] selection:bg-amber-900/20">
       {/* Header */}
@@ -1067,6 +1103,18 @@ export default function App() {
                   : '《品花宝鉴》，亦作《怡情佚史》、《群花宝鉴》，清代陈森所著的一部描写狎优风气的长篇小说，共60回。陈森是常州人，科举常年不得意，40岁后放弃科举。他寓居北京时常与优伶交往，为日后的创作积累了素材。'}
               </p>
             </div>
+            <div className="flex flex-col gap-1.5 mb-4 pb-4 border-b border-[#d4c5a9]">
+              <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-1">{lang === 'en' ? 'Download' : '下载'}</p>
+              <button onClick={downloadChinese} className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]">
+                {lang === 'en' ? '↓ Chinese text (.txt)' : '↓ 中文全文 (.txt)'}
+              </button>
+              <button onClick={downloadEnglish} className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]">
+                {lang === 'en' ? '↓ English translation (.txt)' : '↓ 英文译文 (.txt)'}
+              </button>
+              <button onClick={downloadInterleaved} className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]">
+                {lang === 'en' ? '↓ Bilingual interleaved (.txt)' : '↓ 中英对照 (.txt)'}
+              </button>
+            </div>
             <div className="flex flex-col gap-1.5">
               <button
                 onClick={() => setSelectedChapter({ id: -1, title: '目录', content: chapters.filter(c => c.id > 0).map(c => c.title).join('\n') })}
@@ -1094,6 +1142,14 @@ export default function App() {
                 </button>
               ))}
             </div>
+            <a
+              href="https://zh.wikisource.org/zh-hans/%E5%93%81%E8%8A%B1%E5%AF%B6%E9%91%92"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-1 text-[10px] text-[#8b4513]/70 hover:text-[#8b4513] transition-colors underline underline-offset-2"
+            >
+              {lang === 'en' ? 'Source: Wikisource' : '文本来源：维基文库'}
+            </a>
           </div>
 
           {/* Works Cited */}
