@@ -33,6 +33,7 @@ import {
   Book,
   Leaf,
   Home,
+  Menu,
 } from 'lucide-react';
 import { characters, relationships, identityLinksById } from './data';
 import { chapters } from './chapters';
@@ -344,6 +345,7 @@ export default function App() {
   const [sortBy, setSortBy] = useState<'role' | 'appearance'>('appearance');
   const [lang, setLang] = useState<'en' | 'zh'>('en');
   const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const lacunaChapterNumbers = useMemo(
     () => chapters.filter((chapter) => Number(chapter.id) > 0).map((chapter) => Number(chapter.id)),
@@ -599,10 +601,35 @@ export default function App() {
     downloadTxt('pinhua-baojian-bilingual.txt', text);
   };
 
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setMobileMenuOpen(false);
+  };
+
+  const openContents = () => {
+    setSelectedChapter({ id: -1, title: '目录', content: chapters.filter(c => c.id > 0).map(c => c.title).join('\n') });
+    setMobileMenuOpen(false);
+  };
+
+  const mobileSections = [
+    { id: 'overview', label: lang === 'zh' ? '总览' : 'Overview', icon: Home },
+    { id: 'characters', label: lang === 'zh' ? '人物' : 'Characters', icon: Users },
+    { id: 'chapters', label: lang === 'zh' ? '章节' : 'Chapters', icon: BookOpen },
+    { id: 'gardens', label: lang === 'zh' ? '园林' : 'Gardens', icon: Leaf },
+  ];
+
+  const mobileMenuSections = [
+    ...mobileSections,
+    { id: 'stats', label: lang === 'zh' ? '统计' : 'Statistics', icon: Activity },
+    { id: 'works', label: lang === 'zh' ? '引书' : 'Works Cited', icon: Book },
+    { id: 'ocr', label: lang === 'zh' ? '勘误' : 'OCR Corrections', icon: Filter },
+    { id: 'lacunae', label: lang === 'zh' ? '缺文' : 'Lacunae', icon: Info },
+  ];
+
   return (
     <div className="min-h-screen font-serif text-[#2c2420] selection:bg-amber-900/20">
       {/* Header */}
-      <div className="max-w-[1800px] mx-auto w-full px-2 sm:px-5">
+      <div id="overview" className="max-w-[1800px] mx-auto w-full px-2 sm:px-5 scroll-mt-24">
         <header className="parchment mt-2 sm:mt-5 mb-2 px-4 sm:px-10 py-4 sm:h-24 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-sm border-double border-4 border-[#d4c5a9]">
           <div className="hidden sm:block flex-1" />
           <div className="flex flex-col items-center text-center gap-1 flex-1">
@@ -631,10 +658,32 @@ export default function App() {
         </header>
       </div>
 
+      <div className="lg:hidden sticky top-0 z-30 px-2 pb-2 bg-[#e5dcc3]/95 backdrop-blur-sm border-b border-[#d4c5a9]/80">
+        <nav className="parchment rounded-sm border border-[#d4c5a9] p-1.5 flex items-center gap-1.5 shadow-md" aria-label={lang === 'zh' ? '移动导航' : 'Mobile navigation'}>
+          {mobileSections.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className="flex-1 min-w-0 h-11 rounded-sm flex flex-col items-center justify-center gap-0.5 text-[#5d5048] hover:bg-[#8b4513]/8 hover:text-[#8b4513] transition-colors"
+            >
+              <Icon size={16} />
+              <span className="text-[9px] font-bold leading-none uppercase tracking-wide truncate max-w-full">{label}</span>
+            </button>
+          ))}
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="h-11 w-11 rounded-sm bg-[#8b4513] text-[#f4ecd8] flex items-center justify-center border border-[#8b4513] shadow-sm"
+            aria-label={lang === 'zh' ? '打开全部菜单' : 'Open full menu'}
+          >
+            <Menu size={18} />
+          </button>
+        </nav>
+      </div>
+
       <main className="max-w-[1800px] mx-auto p-2 sm:p-5 grid grid-cols-1 xl:grid-cols-[280px_1fr_300px] lg:grid-cols-[280px_1fr] gap-4 sm:gap-6">
         {/* Left Sidebar */}
         <aside className="flex flex-col gap-4 sm:gap-5 h-fit order-2 lg:order-1">
-          <div className="parchment p-4 sm:p-8 rounded-sm flex flex-col gap-6 sm:gap-10 border-double border-4 border-[#d4c5a9]">
+          <div id="stats" className="parchment p-4 sm:p-8 rounded-sm flex flex-col gap-6 sm:gap-10 border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <div>
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">{t.hometown}</h2>
               <div className="space-y-4">
@@ -889,7 +938,7 @@ export default function App() {
           </div>
 
           {/* Gardens Section */}
-          <div className="parchment p-4 sm:p-8 rounded-sm flex flex-col gap-5 border-double border-4 border-[#d4c5a9]">
+          <div id="gardens" className="parchment p-4 sm:p-8 rounded-sm flex flex-col gap-5 border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <div>
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-1 font-bold border-b border-[#d4c5a9] pb-2 flex items-center gap-2">
                 <Leaf size={11} className="text-[#4d6a3a]" />
@@ -956,7 +1005,7 @@ export default function App() {
           </div>
 
           {/* OCR Corrections Sidebar */}
-          <div className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9]">
+          <div id="ocr" className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-4 font-bold border-b border-[#d4c5a9] pb-2">
               {lang === 'zh' ? 'OCR 勘误' : 'OCR Corrections'}
             </h2>
@@ -994,7 +1043,7 @@ export default function App() {
           </div>
 
           {/* Lacunae Sidebar */}
-          <div className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9]">
+          <div id="lacunae" className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-4 font-bold border-b border-[#d4c5a9] pb-2">
               Lacunae
             </h2>
@@ -1030,7 +1079,7 @@ export default function App() {
         {/* Content Area */}
         <section className="flex flex-col gap-4 sm:gap-5 order-1 lg:order-2">
           {/* Network Graph Section */}
-          <div>
+          <div id="network" className="scroll-mt-24">
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">
               {lang === 'en' ? 'Character Relationship Network' : '人物关系网络图谱'}
             </h2>
@@ -1041,7 +1090,7 @@ export default function App() {
           </div>
 
           {/* Search & Filters */}
-          <div className="parchment p-4 sm:p-6 rounded-sm flex flex-col gap-4 sm:gap-6 border-double border-4 border-[#d4c5a9]">
+          <div id="characters" className="parchment p-4 sm:p-6 rounded-sm flex flex-col gap-4 sm:gap-6 border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <div className="relative flex-1 w-full">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#5d5048]" size={16} />
@@ -1130,7 +1179,7 @@ export default function App() {
 
         {/* Right Sidebar - Chapters */}
         <aside className="flex flex-col gap-4 sm:gap-5 h-fit order-3 lg:col-span-2 xl:col-span-1">
-          <div className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9]">
+          <div id="chapters" className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">{t.chapters}</h2>
             <div className="mb-6 space-y-2 pb-4 border-b border-[#d4c5a9]">
               <p className="text-base font-bold font-hans text-[#2c2420]">品花宝鉴</p>
@@ -1191,7 +1240,7 @@ export default function App() {
           </div>
 
           {/* Works Cited */}
-          <div className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9]">
+          <div id="works" className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <div className="flex items-baseline justify-between border-b border-[#d4c5a9] pb-2 mb-4">
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] font-bold">
                 {lang === 'zh' ? '引书与作品' : 'Works Cited'}
@@ -1223,7 +1272,7 @@ export default function App() {
       </footer>
 
       {/* Floating Scroll Buttons */}
-      <div className="fixed bottom-6 right-6 flex flex-col gap-2 z-40">
+      <div className="hidden sm:flex fixed bottom-6 right-6 flex-col gap-2 z-40">
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -1243,6 +1292,104 @@ export default function App() {
           <ChevronDown size={20} />
         </motion.button>
       </div>
+
+      {/* Mobile Navigation Sheet */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <div className="lg:hidden fixed inset-0 z-50 flex items-end">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="absolute inset-0 bg-black/45 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
+              transition={{ type: 'spring', damping: 28, stiffness: 260 }}
+              className="relative w-full max-h-[86vh] overflow-y-auto parchment rounded-t-sm border-t-4 border-x-4 border-double border-[#d4c5a9] shadow-2xl p-4"
+            >
+              <div className="flex items-center justify-between gap-3 border-b border-[#d4c5a9] pb-3 mb-4">
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-[#5d5048] font-bold">
+                    {lang === 'zh' ? '快速前往' : 'Go To'}
+                  </p>
+                  <h2 className="text-lg font-bold text-[#2c2420]">
+                    {lang === 'zh' ? '品花宝鉴数据库' : 'Pinhua Baojian'}
+                  </h2>
+                </div>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="h-10 w-10 rounded-sm border border-[#d4c5a9] bg-white/20 text-[#2c2420] flex items-center justify-center hover:bg-black/5 transition-colors"
+                  aria-label={lang === 'zh' ? '关闭菜单' : 'Close menu'}
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                {mobileMenuSections.map(({ id, label, icon: Icon }) => (
+                  <button
+                    key={id}
+                    onClick={() => scrollToSection(id)}
+                    className="min-h-14 text-left rounded-sm border border-[#d4c5a9]/70 bg-white/15 hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all px-3 py-2 flex items-center gap-3"
+                  >
+                    <Icon size={17} className="text-[#8b4513] shrink-0" />
+                    <span className="text-[12px] font-bold uppercase tracking-wide text-[#2c2420] leading-tight">{label}</span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                <button
+                  onClick={openContents}
+                  className="min-h-12 rounded-sm bg-[#8b4513] text-[#f4ecd8] px-3 py-2 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-wider"
+                >
+                  <Book size={15} />
+                  {lang === 'zh' ? '打开目录' : 'Open Contents'}
+                </button>
+                <button
+                  onClick={() => {
+                    const firstChapter = chapters.find((chapter) => chapter.id === 1);
+                    if (firstChapter) setSelectedChapter(firstChapter);
+                    setMobileMenuOpen(false);
+                  }}
+                  className="min-h-12 rounded-sm border border-[#8b4513]/50 text-[#8b4513] bg-[#8b4513]/5 px-3 py-2 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-wider"
+                >
+                  <BookOpen size={15} />
+                  {lang === 'zh' ? '读第一回' : 'Read Ch. 1'}
+                </button>
+              </div>
+
+              <div className="border-t border-[#d4c5a9] pt-4">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-2">
+                  {lang === 'zh' ? '常用章节' : 'Common Chapters'}
+                </p>
+                <div className="grid grid-cols-6 gap-1.5">
+                  {[0, 1, 10, 20, 30, 40, 50, 60].map((chapterId) => {
+                    const chapter = chapters.find((item) => item.id === chapterId);
+                    if (!chapter) return null;
+                    return (
+                      <button
+                        key={chapter.id}
+                        onClick={() => {
+                          setSelectedChapter(chapter);
+                          setMobileMenuOpen(false);
+                        }}
+                        className="h-10 rounded-sm border border-[#d4c5a9] bg-white/15 text-[10px] font-bold text-[#2c2420] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-colors"
+                      >
+                        {chapter.id === 0 ? (lang === 'zh' ? '序' : 'Pre') : chapter.id}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Chapter Reader Modal */}
       <AnimatePresence>
