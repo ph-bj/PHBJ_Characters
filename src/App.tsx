@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useLayoutEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   BarChart, 
@@ -38,7 +38,7 @@ import {
 import { characters, relationships, identityLinksById } from './data';
 import { chapters } from './chapters';
 import { gardens, getGardenById, type Garden } from './gardens';
-import { locationTypeLabels, locationTypeOrder, novelLocations } from './locations';
+import { locationTypeLabels, locationTypeOrder, novelLocations, type NovelLocation } from './locations';
 import { prefaceTranslations } from './prefaceTranslation';
 import { chapter1Translations } from './chapter1Translation';
 import { chapter2Translations } from './chapter2Translation';
@@ -255,6 +255,7 @@ type LacunaEntry = {
   confidence: LacunaConfidence;
   note: string;
 };
+type NovelLocationWithChapters = NovelLocation & { chapterIds: number[] };
 
 // Tokens that are also common Chinese nouns — require context confirmation before
 // being rendered as a name chip. Add any token here that causes false positives.
@@ -412,6 +413,7 @@ export default function App() {
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   const [selectedChapter, setSelectedChapter] = useState<Chapter | null>(null);
   const [selectedGarden, setSelectedGarden] = useState<Garden | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<NovelLocationWithChapters | null>(null);
   const [sortBy, setSortBy] = useState<'role' | 'appearance'>('appearance');
   const [lang, setLang] = useState<'en' | 'zh'>('en');
   const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(null);
@@ -725,10 +727,16 @@ export default function App() {
     { id: 'lacunae', label: lang === 'zh' ? '缺文' : 'Lacunae', icon: Info },
   ];
 
-  const hasOpenModal = Boolean(selectedChapter || selectedCharacter || selectedGarden || activeLacunaChapter !== null);
+  const hasOpenModal = Boolean(
+    selectedChapter ||
+    selectedCharacter ||
+    selectedGarden ||
+    selectedLocation ||
+    activeLacunaChapter !== null
+  );
   const hasOpenOverlay = hasOpenModal || mobileMenuOpen;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!hasOpenOverlay) return;
 
     const scrollY = window.scrollY;
@@ -742,19 +750,66 @@ export default function App() {
       width: bodyStyle.width,
       overflow: bodyStyle.overflow,
       touchAction: bodyStyle.touchAction,
+      overscrollBehavior: bodyStyle.overscrollBehavior,
+      paddingRight: bodyStyle.paddingRight,
     };
-    const previousHtmlOverflow = htmlStyle.overflow;
+    const previousHtml = {
+      overflow: htmlStyle.overflow,
+      position: htmlStyle.position,
+      width: htmlStyle.width,
+      overscrollBehavior: htmlStyle.overscrollBehavior,
+    };
+
+    const allowScrollTarget = (target: EventTarget | null) =>
+      target instanceof Element && target.closest('[data-overlay-scroll="true"]');
+
+    const preventScrollOutsideOverlay = (event: WheelEvent | TouchEvent) => {
+      if (!allowScrollTarget(event.target)) {
+        event.preventDefault();
+      }
+    };
+    const preventKeyboardScrollOutsideOverlay = (event: KeyboardEvent) => {
+      const scrollKeys = new Set([
+        'ArrowUp',
+        'ArrowDown',
+        'PageUp',
+        'PageDown',
+        'Home',
+        'End',
+        ' ',
+      ]);
+      if (!scrollKeys.has(event.key)) return;
+      if (!allowScrollTarget(event.target)) {
+        event.preventDefault();
+      }
+    };
 
     bodyStyle.position = 'fixed';
     bodyStyle.top = `-${scrollY}px`;
     bodyStyle.left = '0';
     bodyStyle.right = '0';
     bodyStyle.width = '100%';
+    // Keep layout stable when scrollbar disappears during modal lock.
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbarWidth > 0) {
+      bodyStyle.paddingRight = `${scrollbarWidth}px`;
+    }
     bodyStyle.overflow = 'hidden';
     bodyStyle.touchAction = 'none';
+    bodyStyle.overscrollBehavior = 'none';
     htmlStyle.overflow = 'hidden';
+    htmlStyle.position = 'fixed';
+    htmlStyle.width = '100%';
+    htmlStyle.overscrollBehavior = 'none';
+
+    window.addEventListener('wheel', preventScrollOutsideOverlay, { passive: false });
+    window.addEventListener('touchmove', preventScrollOutsideOverlay, { passive: false });
+    window.addEventListener('keydown', preventKeyboardScrollOutsideOverlay, { passive: false });
 
     return () => {
+      window.removeEventListener('wheel', preventScrollOutsideOverlay);
+      window.removeEventListener('touchmove', preventScrollOutsideOverlay);
+      window.removeEventListener('keydown', preventKeyboardScrollOutsideOverlay);
       bodyStyle.position = previousBody.position;
       bodyStyle.top = previousBody.top;
       bodyStyle.left = previousBody.left;
@@ -762,14 +817,18 @@ export default function App() {
       bodyStyle.width = previousBody.width;
       bodyStyle.overflow = previousBody.overflow;
       bodyStyle.touchAction = previousBody.touchAction;
-      htmlStyle.overflow = previousHtmlOverflow;
+      bodyStyle.overscrollBehavior = previousBody.overscrollBehavior;
+      bodyStyle.paddingRight = previousBody.paddingRight;
+      htmlStyle.overflow = previousHtml.overflow;
+      htmlStyle.position = previousHtml.position;
+      htmlStyle.width = previousHtml.width;
+      htmlStyle.overscrollBehavior = previousHtml.overscrollBehavior;
       window.scrollTo(0, scrollY);
     };
   }, [hasOpenOverlay]);
 
   return (
     <div className="min-h-screen font-serif text-[#2c2420] selection:bg-amber-900/20">
-      <div hidden={hasOpenModal} aria-hidden={hasOpenModal}>
       {/* Header */}
       <div id="overview" className="max-w-[1800px] mx-auto w-full px-2 sm:px-5 scroll-mt-24">
         <header className="parchment mt-2 sm:mt-5 mb-2 px-4 sm:px-10 py-4 sm:h-24 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-sm border-double border-4 border-[#d4c5a9]">
@@ -1294,7 +1353,7 @@ export default function App() {
 
           {/* Grid */}
           <motion.div 
-            layout
+            layout={!hasOpenOverlay}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6"
           >
             <AnimatePresence mode="popLayout">
@@ -1305,6 +1364,7 @@ export default function App() {
                   isActive={selectedCharacter?.id === char.id}
                   onClick={() => setSelectedCharacter(char)}
                   lang={lang}
+                  lockMotion={hasOpenOverlay}
                 />
               ))}
             </AnimatePresence>
@@ -1425,41 +1485,19 @@ export default function App() {
                     </p>
                     <span className="text-[9px] text-[#8b4513] font-sans font-bold">{group.locations.length}</span>
                   </div>
-                  <div className="flex flex-col gap-1.5">
-                    {group.locations.map((location) => {
-                      const firstChapter = chapters.find(chapter => chapter.id === location.chapterIds[0]);
-                      const chapterLabel = location.chapterIds.length > 8
-                        ? `${location.chapterIds.slice(0, 8).join(', ')}...`
-                        : location.chapterIds.join(', ');
-                      return (
-                        <button
-                          key={location.id}
-                          onClick={() => firstChapter && setSelectedChapter(firstChapter)}
-                          className="text-left p-2 rounded-sm border border-[#d4c5a9]/50 bg-white/10 hover:bg-[#8b4513]/5 hover:border-[#8b4513]/30 transition-all group"
-                          title={lang === 'zh'
-                            ? `${location.name}：第 ${location.chapterIds.join(', ')} 回`
-                            : `${location.nameEn}: chapters ${location.chapterIds.join(', ')}`}
-                        >
-                          <div className="flex items-start justify-between gap-2">
-                            <div className="min-w-0">
-                              <p className="text-[11px] font-bold text-[#2c2420] font-hans leading-tight group-hover:text-[#8b4513] transition-colors">
-                                {location.name}
-                              </p>
-                              <p className="text-[9px] text-[#5d5048] leading-tight mt-0.5">
-                                {location.nameEn}
-                              </p>
-                            </div>
-                            <span className="shrink-0 text-[9px] font-bold text-[#8b4513] bg-[#8b4513]/8 border border-[#8b4513]/20 rounded-sm px-1.5 py-0.5">
-                              {location.chapterIds.length}
-                            </span>
-                          </div>
-                          <p className="text-[9px] text-[#5d5048] mt-1.5 font-sans leading-tight">
-                            {lang === 'zh' ? '回目：' : 'Ch. '}
-                            {chapterLabel}
-                          </p>
-                        </button>
-                      );
-                    })}
+                  <div className="flex flex-wrap gap-1.5">
+                    {group.locations.map((location) => (
+                      <button
+                        key={location.id}
+                        onClick={() => setSelectedLocation(location)}
+                        className="px-2.5 py-1.5 rounded-sm border border-[#d4c5a9]/50 bg-white/10 hover:bg-[#8b4513]/5 hover:border-[#8b4513]/30 transition-all group"
+                        title={lang === 'zh' ? `${location.name}` : location.nameEn}
+                      >
+                        <p className="text-[11px] font-bold text-[#2c2420] font-hans leading-tight group-hover:text-[#8b4513] transition-colors whitespace-nowrap">
+                          {location.name}
+                        </p>
+                      </button>
+                    ))}
                   </div>
                 </div>
               ))}
@@ -1495,7 +1533,6 @@ export default function App() {
           <ChevronDown size={20} />
         </motion.button>
       </div>
-      </div>
 
       {/* Mobile Navigation Sheet */}
       <AnimatePresence>
@@ -1513,6 +1550,7 @@ export default function App() {
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 260 }}
+              data-overlay-scroll="true"
               className="relative w-full max-h-[86vh] overflow-y-auto parchment rounded-t-sm border-t-4 border-x-4 border-double border-[#d4c5a9] shadow-2xl p-4"
             >
               <div className="flex items-center justify-between gap-3 border-b border-[#d4c5a9] pb-3 mb-4">
@@ -1632,6 +1670,17 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      {/* Location Detail Modal */}
+      <AnimatePresence>
+        {selectedLocation && (
+          <LocationDetail
+            location={selectedLocation}
+            lang={lang}
+            onClose={() => setSelectedLocation(null)}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Lacunae Modal */}
       <AnimatePresence>
         {activeLacunaChapter !== null && (
@@ -1707,7 +1756,7 @@ function LacunaeModal({
           </button>
         </div>
 
-        <div className="p-5 sm:p-6 overflow-y-auto space-y-4">
+        <div data-overlay-scroll="true" className="p-5 sm:p-6 overflow-y-auto space-y-4">
           {entries.length === 0 ? (
             <div className="border border-[#d4c5a9] rounded-sm p-5 bg-black/5">
               <p className="text-[12px] text-[#5d5048] italic">
@@ -1737,6 +1786,90 @@ function LacunaeModal({
               </div>
             ))
           )}
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+function LocationDetail({
+  location,
+  lang,
+  onClose,
+}: {
+  location: NovelLocationWithChapters;
+  lang: 'en' | 'zh';
+  onClose: () => void;
+}) {
+  const typeLabel = locationTypeLabels[location.type];
+  const chapterList = location.chapterIds.join(', ');
+  const tokenList = location.searchTokens.join(' / ');
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+        className="absolute inset-0 bg-black/55 backdrop-blur-sm"
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 20, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 20, scale: 0.98 }}
+        className="relative w-full max-w-xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[#d4c5a9] shadow-2xl flex flex-col"
+      >
+        <div className="p-4 sm:p-5 border-b border-[#d4c5a9] bg-[#f4ecd8] flex items-center justify-between">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#5d5048]">
+              {lang === 'zh' ? '地点档案' : 'Location Profile'}
+            </p>
+            <h3 className="text-lg font-bold text-[#2c2420] font-hans">{location.name}</h3>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#2c2420]"
+            aria-label="Close location modal"
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        <div data-overlay-scroll="true" className="p-5 sm:p-6 overflow-y-auto space-y-4 text-[#2c2420]">
+          <div className="border border-[#d4c5a9] rounded-sm p-3 bg-black/5">
+            <p className="text-[10px] uppercase tracking-widest font-bold text-[#5d5048] mb-1">
+              {lang === 'zh' ? '英文名' : 'English Name'}
+            </p>
+            <p className="text-sm font-sans">{location.nameEn}</p>
+          </div>
+
+          <div className="border border-[#d4c5a9] rounded-sm p-3 bg-black/5">
+            <p className="text-[10px] uppercase tracking-widest font-bold text-[#5d5048] mb-1">
+              {lang === 'zh' ? '类型' : 'Type'}
+            </p>
+            <p className="text-sm font-hans">
+              {lang === 'zh' ? typeLabel.zh : typeLabel.en}
+            </p>
+          </div>
+
+          <div className="border border-[#d4c5a9] rounded-sm p-3 bg-black/5">
+            <p className="text-[10px] uppercase tracking-widest font-bold text-[#5d5048] mb-1">
+              {lang === 'zh' ? '检索词' : 'Search Tokens'}
+            </p>
+            <p className="text-sm font-hans break-words">{tokenList}</p>
+          </div>
+
+          <div className="border border-[#d4c5a9] rounded-sm p-3 bg-black/5">
+            <div className="flex items-center justify-between gap-2 mb-1">
+              <p className="text-[10px] uppercase tracking-widest font-bold text-[#5d5048]">
+                {lang === 'zh' ? '出现回目' : 'Chapter Appearances'}
+              </p>
+              <span className="text-[10px] font-bold text-[#8b4513]">{location.chapterIds.length}</span>
+            </div>
+            <p className="text-sm font-sans">{chapterList}</p>
+          </div>
         </div>
       </motion.div>
     </div>
@@ -1862,7 +1995,7 @@ function ChapterReader({
           </button>
         </div>
 
-        <div className="flex-1 min-h-0 overflow-y-auto px-5 py-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:p-12 font-serif text-[#2c2420] leading-loose selection:bg-[#8b4513]/20 scrollbar-thin">
+        <div data-overlay-scroll="true" className="flex-1 min-h-0 overflow-y-auto px-5 py-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:p-12 font-serif text-[#2c2420] leading-loose selection:bg-[#8b4513]/20 scrollbar-thin">
           <div className="max-w-2xl mx-auto space-y-6">
             <div className="text-center mb-12">
               <div className="w-16 h-1 bg-[#8b4513]/20 mx-auto mb-6" />
@@ -1973,18 +2106,18 @@ function ChapterReader({
   );
 }
 
-function CharacterCard({ character, isActive, onClick, lang }: { character: Character; isActive: boolean; onClick: () => void; lang: 'en' | 'zh'; key?: string }) {
+function CharacterCard({ character, isActive, onClick, lang, lockMotion = false }: { character: Character; isActive: boolean; onClick: () => void; lang: 'en' | 'zh'; lockMotion?: boolean; key?: string }) {
   const tintClass = ROLE_TINTS[character.role] || ROLE_TINTS.Other;
   const textClass = ROLE_TEXT_COLORS[character.role] || ROLE_TEXT_COLORS.Other;
   const accentColor = ROLE_ACCENTS[character.role] || ROLE_ACCENTS.Other;
 
   return (
     <motion.div
-      layout
+      layout={!lockMotion}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      whileHover={{ y: -4 }}
+      whileHover={lockMotion ? undefined : { y: -4 }}
       onClick={onClick}
       className={`parchment p-5 sm:p-8 rounded-sm cursor-pointer transition-all relative flex flex-col justify-between h-full group border-l-4 ${tintClass} ${
         isActive ? `ring-2 ring-[#8b4513]/40` : 'hover:border-[#8b4513]/30'
@@ -2146,7 +2279,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
           <X size={20} />
         </button>
 
-        <div className="flex-1 overflow-y-auto p-6 sm:p-10 md:p-16">
+        <div data-overlay-scroll="true" className="flex-1 overflow-y-auto p-6 sm:p-10 md:p-16">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-8 sm:mb-10 border-b-2 border-[#d4c5a9] pb-6 sm:pb-8">
             <div className={`p-3 sm:p-4 rounded-sm border-2 border-double ${tintClass} ${textClass}`}>
               <Icon size={24} className="sm:w-7 sm:h-7" />
@@ -2466,7 +2599,7 @@ function GardenDetail({
           <X size={20} />
         </button>
 
-        <div className="flex-1 overflow-y-auto p-6 sm:p-10 md:p-16 flex flex-col gap-8">
+        <div data-overlay-scroll="true" className="flex-1 overflow-y-auto p-6 sm:p-10 md:p-16 flex flex-col gap-8">
           {/* Header */}
           <div className="flex items-start gap-4 pr-10">
             <div
@@ -2630,7 +2763,7 @@ function GardenDetail({
                       </button>
                     </div>
                   </div>
-                  <div className="p-4 space-y-3 max-h-80 overflow-y-auto">
+                  <div data-overlay-scroll="true" className="p-4 space-y-3 max-h-80 overflow-y-auto">
                     {activeSnippets.snippets.length === 0 ? (
                       <p className="text-[11px] italic text-[#5d5048] font-hans">
                         {lang === 'zh' ? '无文本摘录。' : 'No text excerpts found.'}
