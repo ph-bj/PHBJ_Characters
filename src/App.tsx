@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   BarChart, 
@@ -38,6 +38,7 @@ import {
 import { characters, relationships, identityLinksById } from './data';
 import { chapters } from './chapters';
 import { gardens, getGardenById, type Garden } from './gardens';
+import { locationTypeLabels, locationTypeOrder, novelLocations } from './locations';
 import { prefaceTranslations } from './prefaceTranslation';
 import { chapter1Translations } from './chapter1Translation';
 import { chapter2Translations } from './chapter2Translation';
@@ -259,6 +260,51 @@ type LacunaEntry = {
 // being rendered as a name chip. Add any token here that causes false positives.
 const CONTEXT_SENSITIVE_TOKENS = new Set(['菊花']);
 
+const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
+  '庾香': ['Yuxiang', 'Yu Xiang'],
+  '琴官': ['Qinguan', 'Qin Guan', 'Master Du Qin'],
+  '玉侬': ['Yunong', 'Yu Nong'],
+  '琴仙': ['Qinxian', 'Qin Xian', 'Qin Immortal'],
+  '剑潭': ['Jiantan', 'Jian Tan'],
+  '竹君': ['Zhujun', 'Zhu Jun'],
+  '庸庵': ['Yongan', 'Yong An'],
+  '度香': ['Duxiang', 'Du Xiang'],
+  '静宜': ['Jingyi', 'Jing Yi'],
+  '前舟': ['Qianzhou', 'Qian Zhou'],
+  '卓然': ['Zhuoran', 'Zhuo Ran'],
+  '湘帆': ['Xiangfan', 'Xiang Fan'],
+  '金栗': ['Jinli', 'Jin Li', 'Jin Su'],
+  '虫蛀千字文': ['Worm-eaten Primer'],
+  '迭韵双声谱': ['Iterated Rhymes and Double Sounds'],
+  '瑶卿': ['Yaoqing', 'Yao Qing'],
+  '媚香': ['Meixiang', 'Mei Xiang'],
+  '香畹': ['Xiangwan', 'Xiang Wan'],
+  '瘦香': ['Shouxiang', 'Shou Xiang', 'Shoufang', 'Shou Fang'],
+  '佩仙': ['Peixian', 'Pei Xian'],
+  '静芳': ['Jingfang', 'Jing Fang'],
+  '蕊香': ['Ruixiang', 'Rui Xiang'],
+  '小梅': ['Xiaomei', 'Xiao Mei', 'Little Mei'],
+  '琪官': ['Qiguan', 'Qi Guan'],
+  '铁庵': ['Tiean', "Tie'an", 'Tie An'],
+  '富三爷': ['Fu Third', 'Third Master Fu'],
+  '贵大爷': ['Gui First', 'Eldest Master Gui'],
+  '华公子': ['Young Master Hua', 'Lord Hua'],
+  '星北': ['Xingbei', 'Xing Bei'],
+  '奚正绅': ['Xi Zhengshen', 'Xi Zheng Shen'],
+  '道生': ['Daosheng', 'Dao Sheng'],
+  '石翁': ['Shiweng', 'Shi Weng'],
+  '英官': ['Yingguan', 'Ying Guan'],
+  '道翁': ['Daoweng', 'Dao Weng'],
+};
+
+function getEnglishAliasTokens(character: Character): string[] {
+  if (character.alias === '—') return [];
+  const chineseAliases = character.alias
+    .split('/')
+    .flatMap((part) => extractChineseTokens(part.trim()));
+  return [...new Set(chineseAliases.flatMap((alias) => ENGLISH_ALIAS_TOKENS[alias] ?? []))];
+}
+
 /**
  * Returns true if the token at [start, end) in `text` looks like a person name
  * rather than a common noun, based on surrounding characters.
@@ -281,6 +327,26 @@ function isPersonNameContext(text: string, start: number, end: number): boolean 
   return false;
 }
 
+function removeTrailingSurname(text: string, char: Character, token: string): string {
+  const chineseName = char.name.split(' ')[0];
+  const givenName = chineseName.length === 3 ? chineseName.slice(1) : null;
+
+  if (givenName && token === givenName && text.endsWith(chineseName[0])) {
+    return text.slice(0, -chineseName[0].length);
+  }
+
+  const pinyinPart = char.name.slice(chineseName.length).trim();
+  if (!pinyinPart || /[\u4e00-\u9fff]/.test(token)) return text;
+
+  const plainParts = stripDiacritics(pinyinPart).split(/\s+/).filter(Boolean);
+  const surname = plainParts[0];
+  const remainingNameParts = plainParts.slice(1);
+  const englishAliases = getEnglishAliasTokens(char);
+  if (!surname || (!remainingNameParts.includes(token) && !englishAliases.includes(token))) return text;
+
+  return text.replace(new RegExp(`\\b${surname}\\s+$`, 'i'), '');
+}
+
 function segmentText(text: string, tokenMap: [string, Character][]): Segment[] {
   const segments: Segment[] = [];
   let cursor = 0;
@@ -294,6 +360,10 @@ function segmentText(text: string, tokenMap: [string, Character][]): Segment[] {
         if (isAscii && afterPos < text.length && /[a-zA-Z]/.test(text[afterPos])) continue;
         // Context-sensitive tokens: only chip if context confirms a person name
         if (CONTEXT_SENSITIVE_TOKENS.has(token) && !isPersonNameContext(text, cursor, afterPos)) continue;
+        const previous = segments[segments.length - 1];
+        if (typeof previous === 'string') {
+          segments[segments.length - 1] = removeTrailingSurname(previous, char, token);
+        }
         segments.push({ token, char });
         cursor += token.length;
         matched = true;
@@ -563,6 +633,27 @@ export default function App() {
     return Array.from(workMap.entries()).sort((a, b) => b[1] - a[1]);
   }, []);
 
+  const locationsByType = useMemo(() => {
+    const chapterList = chapters.filter(ch => ch.id >= 1);
+    const entries = novelLocations
+      .map(location => {
+        const chapterIds = chapterList
+          .filter(chapter => location.searchTokens.some(token => chapter.content.includes(token)))
+          .map(chapter => chapter.id);
+        return { ...location, chapterIds };
+      })
+      .filter(location => location.chapterIds.length > 0)
+      .sort((a, b) => b.chapterIds.length - a.chapterIds.length || a.name.localeCompare(b.name));
+
+    return locationTypeOrder
+      .map(type => ({
+        type,
+        label: locationTypeLabels[type],
+        locations: entries.filter(location => location.type === type),
+      }))
+      .filter(group => group.locations.length > 0);
+  }, []);
+
   const [chapterSortMode, setChapterSortMode] = useState<'longest' | 'shortest' | 'chapter' | 'talkative' | 'works'>('longest');
 
   const downloadTxt = (filename: string, content: string) => {
@@ -602,8 +693,15 @@ export default function App() {
   };
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!mobileMenuOpen) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
     setMobileMenuOpen(false);
+    window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 0);
   };
 
   const openContents = () => {
@@ -622,12 +720,56 @@ export default function App() {
     ...mobileSections,
     { id: 'stats', label: lang === 'zh' ? '统计' : 'Statistics', icon: Activity },
     { id: 'works', label: lang === 'zh' ? '引书' : 'Works Cited', icon: Book },
+    { id: 'locations', label: lang === 'zh' ? '地点' : 'Locations', icon: MapPin },
     { id: 'ocr', label: lang === 'zh' ? '勘误' : 'OCR Corrections', icon: Filter },
     { id: 'lacunae', label: lang === 'zh' ? '缺文' : 'Lacunae', icon: Info },
   ];
 
+  const hasOpenModal = Boolean(selectedChapter || selectedCharacter || selectedGarden || activeLacunaChapter !== null);
+  const hasOpenOverlay = hasOpenModal || mobileMenuOpen;
+
+  useEffect(() => {
+    if (!hasOpenOverlay) return;
+
+    const scrollY = window.scrollY;
+    const bodyStyle = document.body.style;
+    const htmlStyle = document.documentElement.style;
+    const previousBody = {
+      position: bodyStyle.position,
+      top: bodyStyle.top,
+      left: bodyStyle.left,
+      right: bodyStyle.right,
+      width: bodyStyle.width,
+      overflow: bodyStyle.overflow,
+      touchAction: bodyStyle.touchAction,
+    };
+    const previousHtmlOverflow = htmlStyle.overflow;
+
+    bodyStyle.position = 'fixed';
+    bodyStyle.top = `-${scrollY}px`;
+    bodyStyle.left = '0';
+    bodyStyle.right = '0';
+    bodyStyle.width = '100%';
+    bodyStyle.overflow = 'hidden';
+    bodyStyle.touchAction = 'none';
+    htmlStyle.overflow = 'hidden';
+
+    return () => {
+      bodyStyle.position = previousBody.position;
+      bodyStyle.top = previousBody.top;
+      bodyStyle.left = previousBody.left;
+      bodyStyle.right = previousBody.right;
+      bodyStyle.width = previousBody.width;
+      bodyStyle.overflow = previousBody.overflow;
+      bodyStyle.touchAction = previousBody.touchAction;
+      htmlStyle.overflow = previousHtmlOverflow;
+      window.scrollTo(0, scrollY);
+    };
+  }, [hasOpenOverlay]);
+
   return (
     <div className="min-h-screen font-serif text-[#2c2420] selection:bg-amber-900/20">
+      <div hidden={hasOpenModal} aria-hidden={hasOpenModal}>
       {/* Header */}
       <div id="overview" className="max-w-[1800px] mx-auto w-full px-2 sm:px-5 scroll-mt-24">
         <header className="parchment mt-2 sm:mt-5 mb-2 px-4 sm:px-10 py-4 sm:h-24 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-sm border-double border-4 border-[#d4c5a9]">
@@ -1262,6 +1404,67 @@ export default function App() {
               ))}
             </div>
           </div>
+
+          {/* Locations */}
+          <div id="locations" className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
+            <div className="flex items-baseline justify-between border-b border-[#d4c5a9] pb-2 mb-4">
+              <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] font-bold flex items-center gap-2">
+                <MapPin size={12} className="text-[#8b4513]" />
+                {lang === 'zh' ? '地点索引' : 'Locations'}
+              </h2>
+              <span className="text-[10px] text-[#8b4513] font-sans font-bold">
+                {locationsByType.reduce((sum, group) => sum + group.locations.length, 0)} {lang === 'zh' ? '处' : 'places'}
+              </span>
+            </div>
+            <div className="space-y-5">
+              {locationsByType.map((group) => (
+                <div key={group.type}>
+                  <div className="flex items-center justify-between gap-3 mb-2">
+                    <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold">
+                      {lang === 'zh' ? group.label.zh : group.label.en}
+                    </p>
+                    <span className="text-[9px] text-[#8b4513] font-sans font-bold">{group.locations.length}</span>
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    {group.locations.map((location) => {
+                      const firstChapter = chapters.find(chapter => chapter.id === location.chapterIds[0]);
+                      const chapterLabel = location.chapterIds.length > 8
+                        ? `${location.chapterIds.slice(0, 8).join(', ')}...`
+                        : location.chapterIds.join(', ');
+                      return (
+                        <button
+                          key={location.id}
+                          onClick={() => firstChapter && setSelectedChapter(firstChapter)}
+                          className="text-left p-2 rounded-sm border border-[#d4c5a9]/50 bg-white/10 hover:bg-[#8b4513]/5 hover:border-[#8b4513]/30 transition-all group"
+                          title={lang === 'zh'
+                            ? `${location.name}：第 ${location.chapterIds.join(', ')} 回`
+                            : `${location.nameEn}: chapters ${location.chapterIds.join(', ')}`}
+                        >
+                          <div className="flex items-start justify-between gap-2">
+                            <div className="min-w-0">
+                              <p className="text-[11px] font-bold text-[#2c2420] font-hans leading-tight group-hover:text-[#8b4513] transition-colors">
+                                {location.name}
+                              </p>
+                              <p className="text-[9px] text-[#5d5048] leading-tight mt-0.5">
+                                {location.nameEn}
+                              </p>
+                            </div>
+                            <span className="shrink-0 text-[9px] font-bold text-[#8b4513] bg-[#8b4513]/8 border border-[#8b4513]/20 rounded-sm px-1.5 py-0.5">
+                              {location.chapterIds.length}
+                            </span>
+                          </div>
+                          <p className="text-[9px] text-[#5d5048] mt-1.5 font-sans leading-tight">
+                            {lang === 'zh' ? '回目：' : 'Ch. '}
+                            {chapterLabel}
+                          </p>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </aside>
       </main>
 
@@ -1291,6 +1494,7 @@ export default function App() {
         >
           <ChevronDown size={20} />
         </motion.button>
+      </div>
       </div>
 
       {/* Mobile Navigation Sheet */}
@@ -1583,14 +1787,16 @@ function ChapterReader({
         .filter((t) => t.length >= 2 && !GENERIC_HONORIFICS.has(t));
       for (const t of zhTokens) entries.push([t, char]);
 
-      // English tokens: de-accented pinyin parts (≥4 chars)
+      // English tokens: full de-accented pinyin plus longer individual name parts.
       const pinyinPart = char.name.slice(chineseName.length).trim();
       if (pinyinPart) {
         const plain = stripDiacritics(pinyinPart);
-        const parts = plain.split(' ').filter((p) => p.length >= 4);
+        const allParts = plain.split(/\s+/).filter(Boolean);
+        const parts = allParts.filter((p) => p.length >= 4);
         const enTokens = new Set<string>();
-        if (parts.length >= 2) enTokens.add(parts.join(' '));
+        if (allParts.length >= 2) enTokens.add(allParts.join(' '));
         for (const p of parts) enTokens.add(p);
+        for (const alias of getEnglishAliasTokens(char)) enTokens.add(alias);
         for (const t of enTokens) entries.push([t, char]);
       }
     }
@@ -1626,7 +1832,7 @@ function ChapterReader({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-stretch justify-stretch p-0 sm:items-center sm:justify-center sm:p-4">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -1639,7 +1845,7 @@ function ChapterReader({
         initial={{ opacity: 0, y: 50, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="relative w-full max-w-5xl h-[90vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] flex flex-col"
+        className="relative w-full max-w-none h-[100dvh] max-h-[100dvh] sm:max-w-5xl sm:h-[90dvh] sm:max-h-[90dvh] parchment rounded-none sm:rounded-sm overflow-hidden shadow-2xl border-0 sm:border-4 border-double border-[#d4c5a9] flex flex-col"
       >
         <div className="p-4 sm:p-6 border-b border-[#d4c5a9] flex items-center justify-between bg-[#f4ecd8]">
           <div className="flex items-center gap-3">
@@ -1656,7 +1862,7 @@ function ChapterReader({
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-6 sm:p-12 font-serif text-[#2c2420] leading-loose selection:bg-[#8b4513]/20 scrollbar-thin">
+        <div className="flex-1 min-h-0 overflow-y-auto px-5 py-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:p-12 font-serif text-[#2c2420] leading-loose selection:bg-[#8b4513]/20 scrollbar-thin">
           <div className="max-w-2xl mx-auto space-y-6">
             <div className="text-center mb-12">
               <div className="w-16 h-1 bg-[#8b4513]/20 mx-auto mb-6" />
@@ -1678,13 +1884,13 @@ function ChapterReader({
                 <div className="space-y-2">
                   <p className="text-[11px] font-bold text-[#2c2420]">English</p>
                   <p className="text-sm sm:text-base text-[#4a3f38] leading-relaxed font-sans whitespace-pre-line">
-                    {renderAnnotated(chapterSummary.en, true)}
+                    {renderAnnotated(chapterSummary.en)}
                   </p>
                 </div>
                 <div className="space-y-2">
                   <p className="text-[11px] font-bold text-[#2c2420]">中文</p>
                   <p className="text-[12px] text-[#2c2420] font-hans leading-relaxed whitespace-pre-line">
-                    {renderAnnotated(chapterSummary.zh, true)}
+                    {renderAnnotated(chapterSummary.zh)}
                   </p>
                 </div>
               </div>
