@@ -1804,6 +1804,50 @@ function LocationDetail({
   const typeLabel = locationTypeLabels[location.type];
   const chapterList = location.chapterIds.join(', ');
   const tokenList = location.searchTokens.join(' / ');
+  const locationTokenRegex = useMemo(() => {
+    const escaped = [...location.searchTokens]
+      .sort((a, b) => b.length - a.length)
+      .map((token) => token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    return escaped.length > 0 ? new RegExp(`(${escaped.join('|')})`, 'g') : null;
+  }, [location.searchTokens]);
+  const locationMentions = useMemo(() => {
+    return location.chapterIds.map((chapterId) => {
+      const chapter = chapters.find((item) => item.id === chapterId);
+      if (!chapter) return { chapterId, snippets: [] as string[] };
+
+      const positions: Array<{ start: number; end: number }> = [];
+      for (const token of location.searchTokens) {
+        let pos = 0;
+        while ((pos = chapter.content.indexOf(token, pos)) !== -1) {
+          positions.push({ start: pos, end: pos + token.length });
+          pos += token.length;
+        }
+      }
+      positions.sort((a, b) => a.start - b.start);
+      if (positions.length === 0) return { chapterId, snippets: [] as string[] };
+
+      const snippets: string[] = [];
+      let clusterStart = positions[0].start;
+      let clusterEnd = positions[0].end;
+      for (let i = 1; i < positions.length; i++) {
+        const current = positions[i];
+        if (current.start - clusterEnd <= 120) {
+          clusterEnd = Math.max(clusterEnd, current.end);
+        } else {
+          snippets.push(
+            chapter.content.slice(Math.max(0, clusterStart - 60), Math.min(chapter.content.length, clusterEnd + 60))
+          );
+          clusterStart = current.start;
+          clusterEnd = current.end;
+        }
+      }
+      snippets.push(
+        chapter.content.slice(Math.max(0, clusterStart - 60), Math.min(chapter.content.length, clusterEnd + 60))
+      );
+
+      return { chapterId, snippets };
+    });
+  }, [location.chapterIds, location.searchTokens]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -1869,6 +1913,46 @@ function LocationDetail({
               <span className="text-[10px] font-bold text-[#8b4513]">{location.chapterIds.length}</span>
             </div>
             <p className="text-sm font-sans">{chapterList}</p>
+          </div>
+
+          <div className="border border-[#d4c5a9] rounded-sm p-3 bg-black/5 space-y-3">
+            <p className="text-[10px] uppercase tracking-widest font-bold text-[#5d5048]">
+              {lang === 'zh' ? '章节提及与上下文' : 'Mentions with Context'}
+            </p>
+            <div className="space-y-3">
+              {locationMentions.map(({ chapterId, snippets }) => (
+                <div key={chapterId} className="border border-[#d4c5a9]/70 rounded-sm p-2 bg-[#f4ecd8]/60">
+                  <p className="text-[10px] font-bold text-[#8b4513] mb-1">
+                    {lang === 'zh' ? `第 ${chapterId} 回` : `Chapter ${chapterId}`} ({snippets.length})
+                  </p>
+                  {snippets.length === 0 ? (
+                    <p className="text-[11px] text-[#5d5048] italic">
+                      {lang === 'zh' ? '无上下文摘录。' : 'No surrounding snippet found.'}
+                    </p>
+                  ) : (
+                    <div className="space-y-1.5">
+                      {snippets.map((snippet, idx) => (
+                        <p key={`${chapterId}-${idx}`} className="text-[11px] leading-relaxed font-hans text-[#2c2420]">
+                          …{(locationTokenRegex ? snippet.split(locationTokenRegex) : [snippet]).map((part, partIdx) => {
+                            const isMatch = location.searchTokens.includes(part);
+                            return isMatch ? (
+                              <mark
+                                key={`${chapterId}-${idx}-${partIdx}`}
+                                className="bg-amber-300/70 text-[#2c2420] px-0.5 rounded-sm"
+                              >
+                                {part}
+                              </mark>
+                            ) : (
+                              <span key={`${chapterId}-${idx}-${partIdx}`}>{part}</span>
+                            );
+                          })}…
+                        </p>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </motion.div>
