@@ -2,20 +2,20 @@ import { Character, Relationship } from './types';
 
 const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male protagonist; scholar-gentry; falls for Qinyan; later marries Wang Qionghua; promoted examiner (ch.15); builds Qu shrine (ch.59)	男主角；书生士绅；钟情于琴言；后娶王琼华；第15回升任主考官；第59回为屈方正修建祠堂。
 杜琴言 Dù Qínyán	琴官 / 玉侬 / 琴仙	15	Jiangsu	performer	ch.1	Central romantic figure; orphaned; renamed by Xu Ziyun (ch.5); redeemed in ch.43; reunites with Ziyu	核心浪漫人物；孤儿；第5回由徐子云改名；第43回赎身；最终与子玉重逢。
-颜仲清 Yán Zhòngqīng	剑潭	23	Jinling	scholar	ch.1	Orphaned nephew of Lady Yan; raised by Mei family; married into Wang family; chivalrous	颜夫人的孤儿侄子；由梅家抚养；入赘王家；为人侠义。
-史南湘 Shǐ Nánxiāng	竹君	24	Hanyang	scholar	ch.1	Provincial exam top; compiled 《曲台花选》; witty; infatuated with Lu Sulan	乡试第一名；编纂《曲台花选》；机智幽默；痴恋陆素兰。
-王恂 Wáng Xún	庸庵	22	Jinling	scholar	ch.1	Son of Wang Wenhui; fond of performers; Ziyu's cousin	王文辉之子；喜好优伶；子玉的表兄弟。
-魏聘才 Wèi Pìncái	—	~20	Jiangning	scholar	ch.2	Clever and glib; spreads slander (ch.44); marries Lin-shi courtesan (ch.50)	聪明伶俐但口齿轻薄；第44回散布谣言；第50回娶林氏妓女为妻。
-李元茂 Lǐ Yuánmào	—	~20	—	scholar	ch.2	Son of tutor Li Xingquan; obtuse; comic misunderstandings; stammer jokes	老师李性全之子；迟钝；引发喜剧性误会；常有结巴笑话。
-徐子云 Xú Zǐyún	度香	25	"Zhejiang, Shanyin"	scholar	ch.4	Wealthy patron; built Yiyuan garden (500k taels); redeems Qinyan (ch.43); upright and generous	富有的赞助人；耗资50万两修建怡园；第43回为琴言赎身；正直慷慨。
-萧次贤 Xiāo Cìxián	静宜	32	"Hunan, Xiangtan"	scholar	ch.5	Xu Ziyun's closest friend; polymath; designed Yiyuan; detached from fame	徐子云的挚友；博学多才；设计了怡园；淡泊名利。
-刘文泽 Liú Wénzé	前舟	~24	"Henan, Zhengyang"	scholar	ch.6	Vice-minister's son; generous; close friend of Xu Ziyun and Hua Guangsu	刘侍郎之子；慷慨大方；徐子云与华光宿的好友。
+颜仲清 Yán Zhòngqīng	剑潭	23	Jinling	scholar	ch.1	A chivalrous scholar and close friend of Ziyu; nephew of Lady Yan. Often mediates between friends and participates in major literary gatherings.	侠义书生，子玉挚友；颜夫人之侄。常在友人间周旋，活跃于各大文会雅集。
+史南湘 Shǐ Nánxiāng	竹君	24	Hanyang	scholar	ch.1	Top graduate who compiled the Flower Register; witty and romantic. Deeply attached to Lu Sulan; later achieves Jinshi rank (ch. 44).	乡试榜首，编纂《花选》；机智风流。痴情于陆素兰，后于第44回高中进士。
+王恂 Wáng Xún	庸庵	22	Jinling	scholar	ch.1	Son of Wang Wenhui and cousin to Ziyu; a key figure in social circles. Fond of opera and often involved in arranging local social affairs.	王文辉之子，子玉表兄；名士圈核心人物。平生好优伶，常参与筹办京中社交雅事。
+魏聘才 Wèi Pìncái	—	~20	Jiangning	scholar	ch.2	A glib and opportunistic scholar; initially a guest at the Mei house. Known for scheming and gossip, he endures public humiliations before marrying a courtesan (ch. 50).	伶牙俐齿的投机文人；初寄居梅府。为人阴险好造谣，历经多次丑闻折辱，最终在第50回娶妓为妻。
+李元茂 Lǐ Yuánmào	—	~20	—	scholar	ch.2	The obtuse son of Ziyu's tutor; serves as comic relief. Infamous for being robbed in a disreputable area (ch. 23), he eventually marries into the Sun family as a matrilocal husband.	塾师李性全之子；书中喜剧人物。因在东园遭抢沦为笑谈（第23回），后于第39回招赘入孙家。
+徐子云 Xú Zǐyún	度香	25	"Zhejiang, Shanyin"	scholar	ch.4	The generous and refined owner of Yiyuan Garden; a key patron of the arts. He treats performers with respect and redeems Qinyan in ch. 43.	怡园主人，慷慨儒雅的名士领袖。对伶人以礼相待，第43回斥巨资为琴言赎身。
+萧次贤 Xiāo Cìxián	静宜	32	"Hunan, Xiangtan"	scholar	ch.5	Xu Ziyun's closest friend; polymath; designed Yiyuan. A detached and brilliant scholar who offers artistic guidance to many.	徐子云的挚友，博学多才，亲手设计了怡园。为人淡泊名利，常为众人提供艺术指引。
+刘文泽 Liú Wénzé	前舟	~24	"Henan, Zhengyang"	scholar	ch.6	Vice-minister's son; exceptionally generous and approachable. A close friend of Xu Ziyun who hosts major literary banquets.	刘侍郎之子；慷慨大方，平易近人。徐子云的好友，常在自家宅邸主持重要文会。
 高品 Gāo Pǐn	卓然	~25	Suzhou	scholar	ch.2	Tribute student (拔贡); wickedly funny; coins the Sun brothers' nicknames; lives at Hongji Temple	拔贡；极其幽默；为孙氏兄弟起绰号；住在鸿济寺。
 张仲雨 Zhāng Zhòngyǔ	—	~22	Yangzhou	scholar	ch.6	Nephew of Grand Secretary Wu; versatile; goes by '二老爷'; frequents Yiyuan (ch.8)	吴阁学之侄；多才多艺；人称“二老爷”；常出入怡园。
 沈伯才 Shěn Bócái	—	~30	—	scholar	ch.6	Son of Director Shen; recently selected county magistrate; capable	沈司业之子；新任知县；精明强干。
 巴霖 Bā Lín	—	~20	Tianjin	scholar	ch.6	Son of garrison commander Ba; handsome; close to Liu Wenze; dislikes Sun brothers	巴天宠之子；英俊；与刘文泽亲近；讨厌孙氏兄弟。
 冯子佩 Féng Zǐpèi	—	~18	Beijing	scholar	ch.6	Son of former Jiangsu magistrate; very handsome; arrives late at banquets	前江苏知县之子；极其俊美；宴会常迟到。
-田春航 Tián Chūnháng	湘帆	23	Jinling	scholar	ch.4	Proud and passionate; from Jinling but residing in Yangzhou; writes 《浪淘沙》 anonymously on tavern wall; infatuated with Lu Sulan (ch.12)	孤傲热情；金陵人，寄居扬州；在酒楼墙上匿名题写《浪淘沙》；痴恋陆素兰。
+田春航 Tián Chūnháng	湘帆	23	Jinling	scholar	ch.4	A passionate Nanjing scholar who finds a soulmate in Su Huifang (ch. 13); eventually achieves the rank of top laureate (Zhuangyuan) in chapter 49.	金陵才子，第13回与苏蕙芳结为知己，后高中状元（第49回）。
 祝芳年 Zhù Fāngnián	—	—	—	scholar	ch.17	Hosts poetry banquet in ch.17; part of Xu Ziyun's literary circle	第17回主持诗宴；徐子云文人圈成员。
 金吉甫 Jīn Jífǔ	金栗	—	Jinling	scholar	ch.38	From a great Nanjing family; real name Jin Su (金栗), art name Jifu; leading literary scholar; frames the novel's conclusion in ch.60	南京巨族；本名金栗，号吉甫；文坛名士；第60回为小说作结。
 屈方正 Qū Fāngzhèng	—	—	—	scholar	ch.56	Virtuous deceased scholar; appears as a divine spirit (ch.56); Mei builds a shrine for him (ch.59)	正直的已故学者；第56回以神灵身份出现；梅子玉为其建祠。
@@ -23,13 +23,13 @@ const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male prota
 李性全 Lǐ Xìngquán	—	—	Zhejiang	scholar	ch.1	Ziyu's strict Confucian tutor; Li Yuanmao's father; stays with Mei family	子玉严厉的儒家老师；李元茂之父；住在梅家。
 孙嗣徽 Sūn Sìhuī	虫蛀千字文	26	Jinling	scholar	ch.2	Elder Sun son; pedantic; 'Worm-eaten Primer' nickname; red nose	孙家长子；迂腐；绰号”虫蛀千字文”；红鼻子。
 孙嗣元 Sūn Sìyuán	迭韵双声谱	~24	Jinling	scholar	ch.2	Younger Sun son; severe stammer; 'Unfinished Three-Character Classic' nickname	孙家次子；严重结巴；绰号”迭韵双声谱”。
-袁宝珠 Yuán Bǎozhū	瑶卿	16	Suzhou	performer	ch.1	#1 in Flower Register; painter and poet; Lianjin troupe; Xu Ziyun's favourite; loyal friend to Qinyan	花榜第一；擅长书画诗词；联锦班；徐子云的最爱；琴言的忠实朋友。
-苏蕙芳 Sū Huìfāng	媚香	17	Suzhou	performer	ch.1	#2; from official family; principled; wins poetry contest (ch.17); Lianjin troupe	花榜第二；官宦出身；有原则；第17回赢得诗赛；联锦班。
-陆素兰 Lù Sùlán	香畹	16	Suzhou	performer	ch.1	#3; skilled calligrapher; righteous; loved by Tian Chunhang; Lianjin troupe	花榜第三；擅长书法；为人正直；田春航所爱；联锦班。
+袁宝珠 Yuán Bǎozhū	瑶卿	16	Suzhou	performer	ch.1	Top-ranked performer, celebrated for painting and poetry. A close confidant of Xu Ziyun and a loyal friend who supports Qinyan during hardships.	花榜状元，以书画诗词见长。是徐子云的知音，也是琴言最可靠的盟友。
+苏蕙芳 Sū Huìfāng	媚香	17	Suzhou	performer	ch.1	High-principled performer of official descent; soulmate to Tian Chunhang. Known for her wit and integrity, helping secure Qinyan's freedom (ch. 43).	花榜榜眼，官宦之后。与田春航情投意合，第43回以机智助琴言赎身。
+陆素兰 Lù Sùlán	香畹	16	Suzhou	performer	ch.1	A talented performer and calligrapher, loved by Shi Nanxiang. Known for her righteousness, she actively assists in the Ziyu-Qinyan reunion (ch. 22).	花榜探花，精通书法。史南湘之知己，第22回苦心促成子玉与琴言重逢。
 金漱芳 Jīn Shùfāng	瘦香	15	Suzhou	performer	ch.1	#4; plays flute and chess; Lianzhu troupe	花榜第四；擅长吹笛下棋；联珠班。
 李玉林 Lǐ Yùlín	佩仙	15	Yangzhou	performer	ch.1	#5; musician; famous for 《折柳阳关》; Lianzhu troupe	花榜第五；乐师；以《折柳阳关》闻名；联珠班。
 王兰保 Wáng Lánbǎo	静芳	17	Yangzhou	performer	ch.1	#6; martial arts; refuses powerful patrons; elder brother of Guibao; Lianjin troupe	花榜第六；擅长武术；拒绝权贵；桂保之兄；联锦班。
-王桂保 Wáng Guìbǎo	蕊香	15	Yangzhou	performer	ch.1	#7; younger brother of Lanbao; witty and charming; key presence across all 60 chapters	花榜第七；兰保之弟；机智迷人；贯穿全书60回的关键人物。
+王桂保 Wáng Guìbǎo	蕊香	15	Yangzhou	performer	ch.1	A charming and witty performer, younger brother of Lanbao. A steady presence in social and literary scenes throughout the novel.	兰保之弟，排行花榜第七，为人机智讨喜。是文人雅集中的常客，贯穿全书始终。
 林春喜 Lín Chūnxǐ	小梅	14	Suzhou	performer	ch.1	#8; entered troupe at 12; plays male and female roles; rewrites opera scripts (ch.50)	花榜第八；12岁入班；兼演男女角；第50回改写剧本。
 袁琪官 Yuán Qíguān	琪官	14	—	performer	ch.2	Companion to Qinyan on the canal journey; vivid beauty; joins Lianjin troupe	琴言进京途中的同伴；容貌出众；加入联锦班。
 蓉官 Róngguān	—	~15	—	performer	ch.3	Friend of Fu Lun; witty; comic scenes chs.2–3; knows about Xi Shiyi	富伦之友；机智；第2-3回有喜剧场面；了解奚十一。
@@ -49,13 +49,13 @@ const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male prota
 保珠 Bǎozhū (ch.8)	—	—	—	performer	ch.8	Performer in ch.8 restaurant scene; distinct from the ch.1 theatre Baozhu	第8回酒楼场面的伶人；非第1回的保珠。
 梅士燮 Méi Shìxiè	铁庵	46	Jinling	official	ch.1	Hanlin reader; Ziyu's father; stern Confucian; promoted to vice-minister later; appointed provincial examiner (ch.15)	翰林侍读；子玉之父；严厉的儒者；后升任侍郎；第15回任主考官。
 王文辉 Wáng Wénhuī	—	~55	Jinling	official	ch.1	3rd-rank Tongzheng official; Wang Xun's father; father-in-law of Yan Zhongqing; same hometown as Mei Shixie	三品通政使；王恂之父；颜仲清之岳父；与梅士燮同乡。
-孙亮功 Sūn Liàngōng	—	~50	Jinling	official	ch.2	Ministry of Works official; father of Sun Sihui and Siyuan; comic banquet scenes; same hometown as Wang Wenhui	工部官员；孙氏兄弟之父；宴会上的喜剧人物；与王文辉同乡。
+孙亮功 Sūn Liàngōng	—	~50	Jinling	official	ch.2	An official in the Ministry of Works whose household is a source of domestic drama. Known for his colorful and comic personality at banquets.	工部官员，孙氏兄弟之父。其家宅内斗频发，常在宴席上闹出笑话。
 杨方猷 Yáng Fāngyóu	—	—	—	official	ch.2	Ministry of War deputy director; guest at Wang Wenhui's banquet	兵部员外郎；王文辉宴会宾客。
 周锡爵 Zhōu Xíjué	—	—	—	official	ch.2	Guanglu Temple junior director; guest at Wang Wenhui's banquet	光禄寺少卿；王文辉宴会宾客。
 陆宗沅 Lù Zōngyuán	—	—	—	official	ch.2	Censor; gets wine sprayed in his face by Sun Lianggong; cousin of the two Madam Lu	御史；被孙亮功喷了一脸酒；两位陆夫人的堂兄弟。
-富伦 Fú Lún	富三爷	~30	Jiangning	official	ch.3	2nd-rank shadow-privilege student; Household Dept. secretary; warm-hearted patron; son of governor Fu Anshi	荫生；内务府司员；热心的赞助人；富安世之子。
+富伦 Fú Lún	富三爷	~30	Jiangning	official	ch.3	A warm-hearted and wealthy official who serves as a generous patron to performers. A close friend of many scholars who often mediates social conflicts.	内务府官员，为人热诚。他是名伶们的重要赞助人，常在京城社交圈中排忧解难。
 贵芬 Guì Fēn	贵大爷	~30	—	official	ch.3	7th-rank ministry clerk; prudent and steady; Fu Lun's close friend	七品部吏；谨慎稳重；富伦好友。
-华光宿 Huá Guāngsù	华公子 / 星北	21	—	official	ch.5	Hereditary 1st-rank noble; owns Jinchun Garden; dissolute but not arrogant; antagonist chs.26–33	世袭一等侯；拥有锦春园；放荡但不傲慢；第26-33回的反派。
+华光宿 Huá Guāngsù	华公子 / 星北	21	—	official	ch.5	A high-ranking noble and owner of Jinchun Garden. While dissolute, he possesses genuine taste, but his possessive acquisition of Qinyan (ch. 28) makes him a primary antagonist.	世袭侯爵，锦春园主。虽放荡不羁但颇具文采，因强纳琴言入府（第28回）而成为核心反派。
 曹长庆 Cáo Chángqìng	—	—	—	official	ch.3	Took in the ill Qinyan before she entered the troupe officially; mentioned briefly	琴言入班前曾收留生病的她；简短提及。
 史曾望 Shǐ Zēngwàng	—	—	—	official	ch.1	Shi Nanxiang's father; Censor (吏科给事中)	史南湘之父；吏科给事中。
 袁浩 Yuán Hào	—	—	—	official	ch.5	Yunnan governor; Xu Ziyun's father-in-law	云南巡抚；徐子云岳父。
@@ -72,8 +72,8 @@ const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male prota
 左庶子郑 Zhèng	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	左庶子；春节宴会宾客。
 国子监司业张 Zhāng	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	国子监司业；春节宴会宾客。
 掌山西道陆 Lù	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	掌山西道；春节宴会宾客。
-奚十一 Xī Shíyī	奚正绅	~30	Guangdong	villain	ch.3	Wealthy Cantonese dissolute; violent; causes chaos at Qiushuitan (ch.27); loses virility as karma (ch.40)	广东富商；残暴；在秋水潭闹事；第40回因报应丧失性能力。
-潘其观 Pān Qíguān	—	—	—	villain	ch.13	"Vile schemer; suffers grotesque physical punishments as karma (chs.40, 47, 58)"	卑鄙的阴谋家；因报应遭受酷刑。
+奚十一 Xī Shíyī	奚正绅	~30	Guangdong	villain	ch.3	A violent and wealthy Cantonese merchant known as the 'Smoke-Blackened Grand Duke.' He repeatedly harasses Qinyan, ultimately suffering grotesque karmic retribution.	绰号“烟熏太岁”的广东富商。屡次纠缠迫害琴言，最终在第40及58回遭到惨烈的报应。
+潘其观 Pān Qíguān	—	—	—	villain	ch.13	A malicious schemer and chronic gambler associated with Xi Shiyi. He endures a series of degrading physical punishments as retribution for his misdeeds.	奚十一的帮凶，为人阴险好赌。因作恶多端，在书中后段多次遭遇毒打与恶疾报应。
 老王 Lǎo Wáng	—	~60	—	villain	ch.3	Hunchbacked jade-vendor; tries to extort Pincai at the theatre; expelled by Xi Shiyi's men	驼背玉商；在剧场敲诈聘才；被奚十一的人赶走。
 唐和尚 Táng Héshang	—	~40	—	minor	ch.8	Wine-and-meat Buddhist monk (酒肉和尚); purple-faced; fur-robed; friend of Zhang Zhongyu; arranges meetings; comic figure in ch.8	酒肉和尚；紫脸皮袄；张仲雨之友；安排会面；喜剧人物。
 起盛银号潘老三 Pān Lǎosān	—	—	—	minor	ch.8	Silver-exchange merchant; dines with Zhang Zhongyu in ch.8; very minor	银号商人；第8回与张仲雨共餐。
