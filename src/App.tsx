@@ -67,6 +67,8 @@ import { chapterTranslations60 } from './chapterTranslations60';
 import { chapterSummaries } from './chapterSummaries';
 import { characterAppearances } from './characterAppearances';
 import { chapterLacunae } from './lacunae';
+import worksDataJson from './worksData.json';
+const worksData: Record<string, { descZh: string, descEn: string, contextZh: string, contextEn: string }> = worksDataJson;
 
 /** English line under each title in the 目录 view; keyed by chapter id (optional). */
 const chapterTitleTranslations: Partial<Record<number, string>> = {
@@ -414,6 +416,7 @@ export default function App() {
   const [selectedChapter, setSelectedChapter] = useState<Chapter | null>(null);
   const [selectedGarden, setSelectedGarden] = useState<Garden | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<NovelLocationWithChapters | null>(null);
+  const [selectedWork, setSelectedWork] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<'role' | 'appearance'>('appearance');
   const [lang, setLang] = useState<'en' | 'zh'>('en');
   const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(null);
@@ -738,6 +741,7 @@ export default function App() {
     selectedCharacter ||
     selectedGarden ||
     selectedLocation ||
+    selectedWork ||
     activeLacunaChapter !== null
   );
   const hasOpenOverlay = hasOpenModal || mobileMenuOpen;
@@ -1457,16 +1461,17 @@ export default function App() {
             </div>
             <div className="flex flex-wrap gap-1.5">
               {allWorksCited.map(([work, count]) => (
-                <span
+                <button
                   key={work}
+                  onClick={() => setSelectedWork(work.replace(/《|》/g, ''))}
                   title={`${count} ${lang === 'zh' ? '回' : count === 1 ? 'chapter' : 'chapters'}`}
-                  className="px-2 py-0.5 text-[10px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] font-hans cursor-default"
+                  className="px-2 py-0.5 text-[10px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] font-hans cursor-pointer hover:bg-[#d4c5a9]/40 transition-colors"
                 >
                   {work}
                   {count > 1 && (
                     <span className="ml-1 text-[9px] text-[#8b4513] font-sans">×{count}</span>
                   )}
-                </span>
+                </button>
               ))}
             </div>
           </div>
@@ -1676,6 +1681,17 @@ export default function App() {
         )}
       </AnimatePresence>
 
+      {/* Work Modal */}
+      <AnimatePresence>
+        {selectedWork && (
+          <WorkModal
+            work={selectedWork}
+            lang={lang}
+            onClose={() => setSelectedWork(null)}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Location Detail Modal */}
       <AnimatePresence>
         {selectedLocation && (
@@ -1816,6 +1832,78 @@ function LacunaeModal({
               </div>
             ))
           )}
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+function WorkModal({
+  work,
+  lang,
+  onClose,
+}: {
+  work: string;
+  lang: 'en' | 'zh';
+  onClose: () => void;
+}) {
+  const data = worksData[work];
+
+  if (!data) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+        className="absolute inset-0 bg-[#2c2420]/80 backdrop-blur-sm"
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        className="relative w-full max-w-2xl max-h-[85vh] bg-[#f4ecd8] rounded-sm shadow-2xl border-4 border-double border-[#8b4513] flex flex-col overflow-hidden parchment"
+      >
+        <div className="flex-none p-4 sm:p-6 border-b border-[#d4c5a9]">
+          <div className="flex justify-between items-start">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#2c2420] font-hans">
+                {lang === 'zh' ? `《${work}》` : work}
+              </h2>
+            </div>
+            <button
+              onClick={onClose}
+              className="p-2 -mr-2 text-[#8b4513]/60 hover:text-[#8b4513] hover:bg-[#d4c5a9]/20 rounded-full transition-colors"
+            >
+              <X size={20} />
+            </button>
+          </div>
+        </div>
+
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 custom-scrollbar">
+          <div className="space-y-6">
+            <section>
+              <h3 className="text-sm font-bold text-[#8b4513] uppercase tracking-wider mb-2 font-sans flex items-center gap-2">
+                <Book className="w-4 h-4" />
+                {lang === 'zh' ? '简介' : 'Description'}
+              </h3>
+              <p className="text-sm sm:text-base text-[#2c2420]/90 leading-relaxed font-hans whitespace-pre-wrap">
+                {lang === 'zh' ? data.descZh : data.descEn}
+              </p>
+            </section>
+
+            <section>
+              <h3 className="text-sm font-bold text-[#8b4513] uppercase tracking-wider mb-2 font-sans flex items-center gap-2">
+                <Info className="w-4 h-4" />
+                {lang === 'zh' ? '小说引用情境' : 'Context in Novel'}
+              </h3>
+              <p className="text-sm sm:text-base text-[#2c2420]/90 leading-relaxed font-hans italic">
+                {lang === 'zh' ? data.contextZh : data.contextEn}
+              </p>
+            </section>
+          </div>
         </div>
       </motion.div>
     </div>
