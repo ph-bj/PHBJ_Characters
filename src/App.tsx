@@ -1460,19 +1460,27 @@ export default function App() {
               <span className="text-[10px] text-[#8b4513] font-sans font-bold">{allWorksCited.length} {lang === 'zh' ? '部' : 'unique'}</span>
             </div>
             <div className="flex flex-wrap gap-1.5">
-              {allWorksCited.map(([work, count]) => (
-                <button
-                  key={work}
-                  onClick={() => setSelectedWork(work.replace(/《|》/g, ''))}
-                  title={`${count} ${lang === 'zh' ? '回' : count === 1 ? 'chapter' : 'chapters'}`}
-                  className="px-2 py-0.5 text-[10px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] font-hans cursor-pointer hover:bg-[#d4c5a9]/40 transition-colors"
-                >
-                  {work}
-                  {count > 1 && (
-                    <span className="ml-1 text-[9px] text-[#8b4513] font-sans">×{count}</span>
-                  )}
-                </button>
-              ))}
+              {allWorksCited.map(([work, count]) => {
+                const workKey = work.replace(/《|》/g, '');
+                const hasDetailedDescription = worksData[workKey]?.descEn !== "A literary work, opera scene, or book cited in Pinhua Baojian.";
+                return (
+                  <button
+                    key={work}
+                    onClick={() => setSelectedWork(workKey)}
+                    title={`${count} ${lang === 'zh' ? '回' : count === 1 ? 'chapter' : 'chapters'}`}
+                    className={`px-2 py-0.5 text-[10px] rounded-sm font-hans cursor-pointer transition-colors ${
+                      hasDetailedDescription
+                        ? 'border-2 border-[#8b4513] bg-[#e8dcc4] text-[#8b4513] font-bold shadow-sm hover:bg-[#d4c5a9]'
+                        : 'border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] hover:bg-[#d4c5a9]/40'
+                    }`}
+                  >
+                    {work}
+                    {count > 1 && (
+                      <span className={`ml-1 text-[9px] font-sans ${hasDetailedDescription ? 'text-[#5d5048]' : 'text-[#8b4513]'}`}>×{count}</span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -1894,19 +1902,13 @@ function WorkModal({
               </p>
             </section>
 
-            <section>
-              <h3 className="text-sm font-bold text-[#8b4513] uppercase tracking-wider mb-2 font-sans flex items-center gap-2">
-                <Info className="w-4 h-4" />
-                {lang === 'zh' ? '小说引用情境' : 'Context in Novel'}
-              </h3>
-              <p className="text-sm sm:text-base text-[#2c2420]/90 leading-relaxed font-hans italic mb-3">
-                {lang === 'zh' ? data.contextZh : data.contextEn}
-              </p>
-              {data.chapters && data.chapters.length > 0 && (
+            {data.chapters && data.chapters.length > 0 && (
+              <section>
+                <h3 className="text-sm font-bold text-[#8b4513] uppercase tracking-wider mb-2 font-sans flex items-center gap-2">
+                  <Info className="w-4 h-4" />
+                  {lang === 'zh' ? '出现章节' : 'Appears in Chapters'}
+                </h3>
                 <div>
-                  <h4 className="text-xs font-bold text-[#5d5048] mb-2 uppercase tracking-wider">
-                    {lang === 'zh' ? '出现章节' : 'Appears in Chapters'}
-                  </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {data.chapters.map(ch => (
                       <span key={ch} className="px-2 py-0.5 text-[10px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/50 text-[#5d5048] font-sans">
@@ -1915,8 +1917,8 @@ function WorkModal({
                     ))}
                   </div>
                 </div>
-              )}
-            </section>
+              </section>
+            )}
           </div>
         </div>
       </motion.div>
