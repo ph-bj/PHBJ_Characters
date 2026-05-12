@@ -1252,7 +1252,7 @@ export default function App() {
           {/* Lacunae Sidebar */}
           <div id="lacunae" className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-4 font-bold border-b border-[#d4c5a9] pb-2">
-              {lang === 'zh' ? '缺文档案' : 'Lacunae'}
+              {lang === 'zh' ? '缺文' : 'Lacunae'}
             </h2>
             <div className="grid grid-cols-6 sm:grid-cols-8 lg:grid-cols-4 xl:grid-cols-5 gap-1.5">
               {lacunaChapterNumbers.map((chapterNumber) => (
@@ -1739,10 +1739,10 @@ function LacunaeModal({
     probable: 'bg-amber-100 text-amber-800 border-amber-300',
     speculative: 'bg-violet-100 text-violet-800 border-violet-300',
   };
-  const confidenceLabel: Record<LacunaConfidence, string> = {
-    certain: t.certain,
-    probable: t.probable,
-    speculative: t.speculative,
+  const confidenceLabel: Record<LacunaConfidence, { en: string; zh: string }> = {
+    certain: { en: 'Certain', zh: '确证' },
+    probable: { en: 'Probable', zh: '可能' },
+    speculative: { en: 'Speculative', zh: '推测' },
   };
 
   const renderSnippet = (snippet: string, symbol: LacunaEntry['symbol']) => {
@@ -1774,7 +1774,7 @@ function LacunaeModal({
       >
         <div className="p-4 sm:p-5 border-b border-[#d4c5a9] bg-[#f4ecd8] flex items-center justify-between">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#5d5048]">{t.lacunae}</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#5d5048]">{lang === 'zh' ? '缺文' : 'Lacunae'}</p>
             <h3 className="text-lg font-bold text-[#2c2420]">{lang === 'zh' ? `第 ${chapterId} 回` : `Chapter ${chapterId}`}</h3>
           </div>
           <button
@@ -1789,8 +1789,8 @@ function LacunaeModal({
         <div data-overlay-scroll="true" className="p-5 sm:p-6 overflow-y-auto space-y-4">
           {entries.length === 0 ? (
             <div className="border border-[#d4c5a9] rounded-sm p-5 bg-black/5">
-              <p className="text-[12px] text-[#5d5048] italic font-hans">
-                {t.noLacunae}
+              <p className="text-[12px] text-[#5d5048] italic">
+                {lang === 'zh' ? '此回暂无缺文勘误记录。' : 'No lacunae annotations are available for this chapter yet.'}
               </p>
             </div>
           ) : (
@@ -1802,11 +1802,11 @@ function LacunaeModal({
 
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] uppercase tracking-widest text-[#5d5048] font-bold">{t.inferred}</span>
+                    <span className="text-[10px] uppercase tracking-widest text-[#5d5048] font-bold">{lang === 'zh' ? '推测' : 'Inferred'}</span>
                     <span className="text-3xl leading-none font-serif text-[#2c2420]">{entry.inferredCharacter}</span>
                   </div>
                   <span className={`text-[10px] font-bold uppercase tracking-widest border rounded-sm px-2 py-1 ${confidenceTone[entry.confidence]}`}>
-                    {confidenceLabel[entry.confidence]}
+                    {lang === 'zh' ? confidenceLabel[entry.confidence].zh : confidenceLabel[entry.confidence].en}
                   </span>
                 </div>
 
@@ -2129,13 +2129,13 @@ function ChapterReader({
                   {lang === 'en' ? 'Chapter Summary' : '章节提要'}
                 </p>
                 <div className="space-y-2">
-                  <p className="text-[11px] font-bold text-[#2c2420]">English</p>
+                  <p className="text-[11px] font-bold text-[#2c2420]">{lang === 'zh' ? '英文' : 'English'}</p>
                   <p className="text-sm sm:text-base text-[#4a3f38] leading-relaxed font-sans whitespace-pre-line">
                     {renderAnnotated(chapterSummary.en)}
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[11px] font-bold text-[#2c2420]">中文</p>
+                  <p className="text-[11px] font-bold text-[#2c2420]">{lang === 'zh' ? '中文' : 'Chinese'}</p>
                   <p className="text-[12px] text-[#2c2420] font-hans leading-relaxed whitespace-pre-line">
                     {renderAnnotated(chapterSummary.zh)}
                   </p>
@@ -2454,13 +2454,13 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
               <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#5d5048] font-hans">{t.historicalRecord}</p>
               <div className="space-y-3 sm:space-y-4">
                 <div className="bg-black/5 p-4 sm:p-6 rounded-sm border border-[#d4c5a9]">
-                  <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#8b4513] mb-1 sm:mb-2 font-hans opacity-60">English Record</p>
+                  <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#8b4513] mb-1 sm:mb-2 font-hans opacity-60">{lang === 'zh' ? '英文记录' : 'English Record'}</p>
                   <p className="leading-relaxed text-[#2c2420] text-sm sm:text-base italic">
                     {character.description}
                   </p>
                 </div>
                 <div className="bg-black/5 p-4 sm:p-6 rounded-sm border border-[#d4c5a9]">
-                  <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#8b4513] mb-1 sm:mb-2 font-hans opacity-60">中文记录</p>
+                  <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#8b4513] mb-1 sm:mb-2 font-hans opacity-60">{lang === 'zh' ? '中文记录' : 'Chinese Record'}</p>
                   <p className="leading-relaxed text-[#2c2420] text-base sm:text-lg font-hans">
                     {character.descriptionZh}
                   </p>
