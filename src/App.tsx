@@ -454,6 +454,9 @@ export default function App() {
   const t = {
     en: {
       title: "Pinhua baojian Database 品花宝鉴数据库",
+      chapterAbbr: "Ch.",
+      mentions: (count: number) => `mention${count !== 1 ? 's' : ''}`,
+      noTextExcerpts: "No text excerpts found.",
       subtitle: `Exploring ${characters.length} characters from the classic Chinese novel`,
       hometown: "Hometown",
       ageDist: "Age Distribution",
@@ -475,6 +478,9 @@ export default function App() {
     },
     zh: {
       title: "Pinhua baojian Database 品花宝鉴数据库",
+      chapterAbbr: "第",
+      mentions: (count: number) => `次提及`,
+      noTextExcerpts: "无文本摘录。",
       subtitle: `探索中国古典小说中的${characters.length}位人物`,
       hometown: "籍贯",
       ageDist: "年龄分布",
@@ -492,7 +498,7 @@ export default function App() {
       archives: "人物数据库",
       age: "年龄",
       chapters: "章节目录",
-      readChapter: "阅读回目"
+      readChapter: "阅读全回"
     }
   }[lang];
 
@@ -1707,6 +1713,27 @@ function LacunaeModal({
   onClose: () => void;
   lang: 'en' | 'zh';
 }) {
+  const t = {
+    en: {
+      lacunae: "Lacunae",
+      noLacunae: "No lacunae annotations are available for this chapter yet.",
+      inferred: "Inferred",
+      certain: "Certain",
+      probable: "Probable",
+      speculative: "Speculative",
+      chapter: "Chapter",
+    },
+    zh: {
+      lacunae: "缺文档案",
+      noLacunae: "此回暂无缺文勘误记录。",
+      inferred: "推断字",
+      certain: "确凿",
+      probable: "合理",
+      speculative: "存疑",
+      chapter: "第",
+    }
+  }[lang];
+
   const confidenceTone: Record<LacunaConfidence, string> = {
     certain: 'bg-emerald-100 text-emerald-800 border-emerald-300',
     probable: 'bg-amber-100 text-amber-800 border-amber-300',
@@ -2258,6 +2285,9 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
   const t = {
     en: {
       alias: "Alias",
+      chapterAbbr: "Ch.",
+      mentions: (count: number) => `mention${count !== 1 ? 's' : ''}`,
+      readChapter: "Read Chapter",
       origin: "Origin",
       firstEntry: "First Entry",
       historicalRecord: "Historical Record",
@@ -2268,6 +2298,9 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
     },
     zh: {
       alias: "别名",
+      chapterAbbr: "第",
+      mentions: (count: number) => `次提及`,
+      readChapter: "阅读全回",
       origin: "籍贯",
       firstEntry: "首次登场",
       historicalRecord: "历史记录",
@@ -2461,7 +2494,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
                         const summary = chapterSummaries[ch];
                         return (
                           <div className="bg-[#f4ecd8] border border-[#d4c5a9] p-2 text-[#2c2420] text-[10px] max-w-[220px] shadow-md">
-                            <p className="font-bold mb-1">Ch.{ch} — {count} mention{count !== 1 ? 's' : ''}</p>
+                            <p className="font-bold mb-1">{t.chapterAbbr}{lang === 'zh' ? ` ${ch} 回` : ch} — {count} {t.mentions(count)}</p>
                             {summary && <p className="text-[#5d5048] leading-snug italic">{(lang === 'zh' ? summary.zh : summary.en).slice(0, 120)}…</p>}
                           </div>
                         );
@@ -2485,14 +2518,14 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
                     <button
                       key={ch}
                       onClick={() => setActiveChapter(activeChapter === ch ? null : ch)}
-                      title={`Ch.${ch}: ${count} mention${count !== 1 ? 's' : ''}`}
+                      title={`${t.chapterAbbr}${lang === 'zh' ? ` ${ch} 回` : ch}: ${count} ${t.mentions(count)}`}
                       className={`px-2 py-0.5 text-[10px] font-bold border transition-colors rounded-sm font-hans ${
                         activeChapter === ch
                           ? 'bg-[#8b4513] text-[#f4ecd8] border-[#8b4513]'
                           : 'border-[#8b4513]/40 text-[#8b4513] hover:bg-[#8b4513]/10'
                       }`}
                     >
-                      Ch.{ch}
+                      {t.chapterAbbr}{lang === 'zh' ? ` ${ch} 回` : ch}
                     </button>
                   ))}
                 </div>
@@ -2512,7 +2545,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
                       <div className="flex items-center justify-between px-4 py-2.5 bg-[#8b4513]/8 border-b border-[#8b4513]/20">
                         <div>
                           <span className="text-[10px] font-bold uppercase tracking-widest text-[#8b4513] font-hans">
-                            Ch.{activeChapter}
+                            {t.chapterAbbr}{lang === 'zh' ? ` ${activeChapter} 回` : activeChapter}
                           </span>
                           <span className="text-[10px] text-[#5d5048] ml-2 font-hans">
                             {chapters.find(c => c.id === activeChapter)?.title}
@@ -2520,7 +2553,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
                         </div>
                         <div className="flex items-center gap-3">
                           <span className="text-[9px] text-[#8b7355] font-hans">
-                            {mentionData.find(d => d.ch === activeChapter)?.count ?? 0} mentions
+                            {mentionData.find(d => d.ch === activeChapter)?.count ?? 0} {t.mentions(mentionData.find(d => d.ch === activeChapter)?.count ?? 0)}
                           </span>
                           <button
                             onClick={() => setActiveChapter(null)}
@@ -2657,6 +2690,19 @@ function GardenDetail({
     other:       lang === 'zh' ? '其他场所' : 'Other Space',
   }[garden.type];
 
+  const t = {
+    en: {
+      chapterAbbr: "Ch.",
+      mentions: (count: number) => `mention${count !== 1 ? 's' : ''}`,
+      readChapter: "Read Chapter",
+    },
+    zh: {
+      chapterAbbr: "第",
+      mentions: (count: number) => `次提及`,
+      readChapter: "阅读全回",
+    }
+  }[lang];
+
   const parent = garden.parentId ? getGardenById(garden.parentId) : null;
   const children = (garden.subLocationIds ?? [])
     .map(id => getGardenById(id))
@@ -2791,7 +2837,7 @@ function GardenDetail({
                       ? (activeChapter === d.ch ? accentColor : accentColor + '70')
                       : '#d4c5a960',
                   }}
-                  title={`Ch.${d.ch}: ${d.count} mention${d.count !== 1 ? 's' : ''}`}
+                  title={`${t.chapterAbbr}${lang === 'zh' ? ` ${d.ch} 回` : d.ch}: ${d.count} ${t.mentions(d.count)}`}
                   onClick={() => {
                     if (d.count > 0) setActiveChapter(prev => prev === d.ch ? null : d.ch);
                   }}
@@ -2811,7 +2857,7 @@ function GardenDetail({
                   }`}
                   style={activeChapter === d.ch ? { backgroundColor: accentColor, borderColor: accentColor } : {}}
                 >
-                  Ch.{d.ch}
+                  {t.chapterAbbr}{lang === 'zh' ? ` ${d.ch} 回` : d.ch}
                 </button>
               ))}
             </div>
@@ -2829,7 +2875,7 @@ function GardenDetail({
                   <div className="flex items-center justify-between px-4 py-2.5 bg-black/3 border-b border-[#d4c5a9]">
                     <div>
                       <span className="text-[10px] font-bold uppercase tracking-widest font-hans" style={{ color: accentColor }}>
-                        Ch.{activeChapter}
+                        {t.chapterAbbr}{lang === 'zh' ? ` ${activeChapter} 回` : activeChapter}
                       </span>
                       <span className="text-[10px] text-[#5d5048] ml-2 font-hans">
                         {chapters.find(c => c.id === activeChapter)?.title}
@@ -2843,7 +2889,7 @@ function GardenDetail({
                         }}
                         className="text-[9px] px-2 py-1 rounded-sm border text-[#5d5048] border-[#d4c5a9] hover:bg-[#8b4513]/10 hover:text-[#8b4513] transition-colors uppercase tracking-widest font-bold"
                       >
-                        {lang === 'zh' ? '阅读全回' : 'Read Chapter'}
+                        {t.readChapter}
                       </button>
                       <button onClick={() => setActiveChapter(null)} className="text-[#5d5048] hover:text-[#2c2420]">
                         <X size={12} />
