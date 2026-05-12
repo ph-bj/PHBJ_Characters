@@ -68,7 +68,7 @@ import { chapterSummaries } from './chapterSummaries';
 import { characterAppearances } from './characterAppearances';
 import { chapterLacunae } from './lacunae';
 import worksDataJson from './worksData.json';
-const worksData: Record<string, { descZh: string, descEn: string, contextZh: string, contextEn: string }> = worksDataJson;
+const worksData: Record<string, { descZh: string, descEn: string, contextZh: string, contextEn: string, chapters?: number[] }> = worksDataJson;
 
 /** English line under each title in the 目录 view; keyed by chapter id (optional). */
 const chapterTitleTranslations: Partial<Record<number, string>> = {
@@ -1899,9 +1899,23 @@ function WorkModal({
                 <Info className="w-4 h-4" />
                 {lang === 'zh' ? '小说引用情境' : 'Context in Novel'}
               </h3>
-              <p className="text-sm sm:text-base text-[#2c2420]/90 leading-relaxed font-hans italic">
+              <p className="text-sm sm:text-base text-[#2c2420]/90 leading-relaxed font-hans italic mb-3">
                 {lang === 'zh' ? data.contextZh : data.contextEn}
               </p>
+              {data.chapters && data.chapters.length > 0 && (
+                <div>
+                  <h4 className="text-xs font-bold text-[#5d5048] mb-2 uppercase tracking-wider">
+                    {lang === 'zh' ? '出现章节' : 'Appears in Chapters'}
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {data.chapters.map(ch => (
+                      <span key={ch} className="px-2 py-0.5 text-[10px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/50 text-[#5d5048] font-sans">
+                        {lang === 'zh' ? `第${ch}回` : `Chapter ${ch}`}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </section>
           </div>
         </div>
