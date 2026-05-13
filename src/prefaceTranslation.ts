@@ -2,7 +2,7 @@
 // the preface content split by double newlines.
 export const prefaceTranslations: string[] = [
   // 0
-  'I have always maintained that the true art of playful writing lies in capturing both form and sound. Realistic writing can capture form but not sound; romantic writing can capture sound but not form — both leave me with a sense of incompleteness. For a work that captures both, beyond the various books of talented men, and beyond Liaozhai and Dream of the Red Chamber, I would place Shifan\'s Pinhua Baojian foremost of all.',
+  'I have always maintained that the true art of playful writing lies in capturing both form and sound. Realistic writing can capture form but not sound; romantic writing can capture sound but not form — both leave me with a feeling that half is missing. For a work that captures both, beyond the various books of talented men, and beyond Liaozhai and Dream of the Red Chamber, I would place Shifan\'s Pinhua Baojian foremost of all.',
   // 1
   'I have heard that Shifan was a celebrated figure from the Jiangnan region who spent half his life in poverty and repeatedly failed the examinations, yet his travels took him across half the empire. The famous mountains and great rivers he encountered accumulated as inner landscape, finding expression in his writing, so that whether depicting the wicked or the virtuous, all seems true to life. He is truly a distinctive voice among fiction writers.',
   // 2

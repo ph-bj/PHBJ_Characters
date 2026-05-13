@@ -43,6 +43,7 @@ import { prefaceTranslations } from './prefaceTranslation';
 import { chapter1Translations } from './chapter1Translation';
 import { chapter2Translations } from './chapter2Translation';
 import { chapterTranslations3to60 } from './chapterTranslations3to60';
+import { chapterTranslations32 } from './chapterTranslations32';
 import { chapterTranslations33to36 } from './chapterTranslations33to36';
 import { chapterTranslations37to38 } from './chapterTranslations37to38';
 import { chapterTranslations39to40 } from './chapterTranslations39to40';
@@ -139,6 +140,7 @@ const translationMap: Record<number, string[]> = {
   1: chapter1Translations,
   2: chapter2Translations,
   ...chapterTranslations3to60,
+  ...chapterTranslations32,
   ...chapterTranslations33to36,
   ...chapterTranslations37to38,
   ...chapterTranslations39to40,
