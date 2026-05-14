@@ -705,6 +705,64 @@ export default function App() {
     downloadTxt('pinhua-baojian-bilingual.txt', text);
   };
 
+  const downloadJSON = () => {
+    const data = chapters.map(ch => {
+      const chapterId = ch.id;
+      const isPreface = chapterId === 0;
+
+      const titleZh = ch.title;
+      const titleEn = isPreface ? 'Preface' : `Chapter ${chapterId} — ${chapterTitleTranslations[chapterId] || titleZh}`;
+
+      const summaryZh = chapterSummaries[chapterId]?.zh || '';
+      const summaryEn = chapterSummaries[chapterId]?.en || '';
+
+      const zhParas = ch.content.split(/\n\n+/).filter(p => p.trim());
+      const enParas = translationMap[chapterId] || [];
+
+      const citedWorks = Object.entries(worksData).filter(([_, w]) => w.chapters?.includes(chapterId));
+      const citedWorksZh = citedWorks.map(([workId]) => workId).join('; ');
+      const citedWorksEn = citedWorks.map(([workId, w]) => w.descEn !== "A literary work, opera scene, or book cited in Pinhua Baojian." ? workId : workId).join('; ');
+
+      const lacunaeChData = chapterLacunae.find(cl => cl.chapterId === chapterId);
+      const lacunaeForCh = lacunaeChData?.lacunae || [];
+      const lacunaeZh = lacunaeForCh.map(l => l.context.replace(/[□▉]/g, '缺')).join('; ');
+      const lacunaeEn = lacunaeForCh.map(l => l.note).join('; ');
+
+      const charsForCh = Object.entries(characterAppearances)
+        .filter(([_, apps]) => apps[chapterId])
+        .map(([charId]) => characters.find(c => c.id === charId))
+        .filter(c => c);
+
+      const charsZh = charsForCh.map((c: any) => c.name).join('; ');
+      const charsEn = charsForCh.map((c: any) => c.pinyin ? `${c.name} ${c.pinyin}` : c.name).join('; ');
+
+      const chapterObj: any = {
+        "Chapter number": isPreface ? 0 : chapterId,
+        "chapter title Chinese": titleZh,
+        "chapter title English": titleEn,
+        "summary Chinese": summaryZh,
+        "summary English": summaryEn,
+      };
+
+      for (let i = 0; i < Math.max(zhParas.length, enParas.length); i++) {
+        if (zhParas[i]) chapterObj[`paragraph ${i+1} Chinese`] = zhParas[i];
+        if (enParas[i]) chapterObj[`paragraph ${i+1} English`] = enParas[i];
+      }
+
+      chapterObj["cited works Chinese"] = citedWorksZh;
+      chapterObj["cited works English"] = citedWorksEn;
+      chapterObj["lacunae Chinese"] = lacunaeZh;
+      chapterObj["lacunae English"] = lacunaeEn;
+      chapterObj["characters Chinese"] = charsZh;
+      chapterObj["characters English"] = charsEn;
+
+      return chapterObj;
+    });
+
+    const text = JSON.stringify(data, null, 2);
+    downloadTxt('pinhua-baojian-full.json', text);
+  };
+
   const scrollToSection = (id: string) => {
     if (!mobileMenuOpen) {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1414,6 +1472,9 @@ export default function App() {
               </button>
               <button onClick={downloadInterleaved} className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]">
                 {lang === 'en' ? '↓ Bilingual interleaved (.txt)' : '↓ 中英对照 (.txt)'}
+              </button>
+              <button onClick={downloadJSON} className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]">
+                {lang === 'en' ? '↓ Full Data (.json)' : '↓ 完整数据 (.json)'}
               </button>
             </div>
             <div className="flex flex-col gap-1.5">
