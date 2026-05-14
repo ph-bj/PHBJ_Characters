@@ -1662,7 +1662,8 @@ export default function App() {
             onClose={() => setSelectedChapter(null)} 
             lang={lang}
             onSelectCharacter={(character) => setSelectedCharacter(character)}
-                      />
+            onSelectLacuna={() => setActiveLacunaChapter(selectedChapter.id)}
+          />
         )}
       </AnimatePresence>
 
@@ -2189,12 +2190,14 @@ function ChapterReader({
   onClose,
   lang,
   onSelectCharacter,
-  }: {
+  onSelectLacuna,
+}: {
   chapter: Chapter;
   onClose: () => void;
   lang: 'en' | 'zh';
   onSelectCharacter: (character: Character) => void;
-  }) {
+  onSelectLacuna: () => void;
+}) {
   const chapterSummary = useMemo(
     () => chapterSummaries[chapter.id] ?? null,
     [chapter.id]
@@ -2249,6 +2252,21 @@ function ChapterReader({
     if (!text) return null;
     return segmentText(text, tokenMap).map((seg, i) => {
       if (typeof seg === 'string') {
+        const parts = seg.split(/([▉□])/g);
+        if (parts.length === 1) return seg;
+
+        return parts.map((part, j) => {
+          if (part === '▉' || part === '□') {
+            return (
+              <button
+                key={`${i}-${j}`}
+                onClick={onSelectLacuna}
+                className="inline-flex items-center rounded-sm border px-1 py-[1px] mx-[1px] align-baseline cursor-pointer transition-all hover:brightness-95 bg-amber-200/70 text-[#2c2420] border-amber-400/50"
+                title={lang === 'zh' ? '查看缺文档案' : 'View Lacunae'}
+              >
+                {part}
+              </button>
+            );
         const parts = seg.split(/(《[^》\n]+》|\*(?!\s)[^*]+(?<!\s)\*|\bPinhua Baojian\b|\bYiqing Yishi\b|\bFlower Register\b|\bCatalogue of Flowers\b|\bClassic of Poetry\b|\bBook of Songs\b|\bGuofeng\b)/g);
         if (parts.length === 1) return seg;
         return parts.map((part, index) => {
