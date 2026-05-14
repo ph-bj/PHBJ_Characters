@@ -1662,7 +1662,7 @@ export default function App() {
             onClose={() => setSelectedChapter(null)} 
             lang={lang}
             onSelectCharacter={(character) => setSelectedCharacter(character)}
-          />
+                      />
         )}
       </AnimatePresence>
 
@@ -2189,12 +2189,12 @@ function ChapterReader({
   onClose,
   lang,
   onSelectCharacter,
-}: {
+  }: {
   chapter: Chapter;
   onClose: () => void;
   lang: 'en' | 'zh';
   onSelectCharacter: (character: Character) => void;
-}) {
+  }) {
   const chapterSummary = useMemo(
     () => chapterSummaries[chapter.id] ?? null,
     [chapter.id]
@@ -2248,7 +2248,16 @@ function ChapterReader({
   const renderAnnotated = (text: string, showBilingual = false) => {
     if (!text) return null;
     return segmentText(text, tokenMap).map((seg, i) => {
-      if (typeof seg === 'string') return seg;
+      if (typeof seg === 'string') {
+        const parts = seg.split(/(《[^》\n]+》|\*(?!\s)[^*]+(?<!\s)\*|\bPinhua Baojian\b|\bYiqing Yishi\b|\bFlower Register\b|\bCatalogue of Flowers\b|\bClassic of Poetry\b|\bBook of Songs\b|\bGuofeng\b)/g);
+        if (parts.length === 1) return seg;
+        return parts.map((part, index) => {
+          if (/^《[^》\n]+》$|^\*(?!\s)[^*]+(?<!\s)\*$|^\bPinhua Baojian\b$|^\bYiqing Yishi\b$|^\bFlower Register\b$|^\bCatalogue of Flowers\b$|^\bClassic of Poetry\b$|^\bBook of Songs\b$|^\bGuofeng\b$/.test(part)) {
+            return <span key={`${i}-${index}`} className="glowing-work">{part}</span>;
+          }
+          return part;
+        });
+      }
       const roleChipClass = ROLE_CHIP_IDLE[seg.char.role] ?? ROLE_CHIP_IDLE.Other;
       let chipLabel: string;
       if (showBilingual) {

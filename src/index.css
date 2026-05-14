@@ -41,3 +41,9 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.glowing-work {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(139, 69, 19, 0.6), 0 0 12px rgba(139, 69, 19, 0.4);
+  font-weight: 700;
+}
