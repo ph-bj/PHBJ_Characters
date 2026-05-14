@@ -2250,12 +2250,19 @@ function ChapterReader({
 
   const renderAnnotated = (text: string, showBilingual = false) => {
     if (!text) return null;
+    const tokenRegex =
+      /(▉|□|《[^》\n]+》|\*(?!\s)[^*]+(?<!\s)\*|\bPinhua Baojian\b|\bYiqing Yishi\b|\bFlower Register\b|\bCatalogue of Flowers\b|\bClassic of Poetry\b|\bBook of Songs\b|\bGuofeng\b)/g;
+    const workRegex =
+      /^《[^》\n]+》$|^\*(?!\s)[^*]+(?<!\s)\*$|^Pinhua Baojian$|^Yiqing Yishi$|^Flower Register$|^Catalogue of Flowers$|^Classic of Poetry$|^Book of Songs$|^Guofeng$/;
+
     return segmentText(text, tokenMap).map((seg, i) => {
       if (typeof seg === 'string') {
-        const parts = seg.split(/([▉□])/g);
+        const parts = seg.split(tokenRegex);
         if (parts.length === 1) return seg;
 
         return parts.map((part, j) => {
+          if (!part) return null;
+
           if (part === '▉' || part === '□') {
             return (
               <button
@@ -2267,15 +2274,20 @@ function ChapterReader({
                 {part}
               </button>
             );
-        const parts = seg.split(/(《[^》\n]+》|\*(?!\s)[^*]+(?<!\s)\*|\bPinhua Baojian\b|\bYiqing Yishi\b|\bFlower Register\b|\bCatalogue of Flowers\b|\bClassic of Poetry\b|\bBook of Songs\b|\bGuofeng\b)/g);
-        if (parts.length === 1) return seg;
-        return parts.map((part, index) => {
-          if (/^《[^》\n]+》$|^\*(?!\s)[^*]+(?<!\s)\*$|^\bPinhua Baojian\b$|^\bYiqing Yishi\b$|^\bFlower Register\b$|^\bCatalogue of Flowers\b$|^\bClassic of Poetry\b$|^\bBook of Songs\b$|^\bGuofeng\b$/.test(part)) {
-            return <span key={`${i}-${index}`} className="glowing-work">{part}</span>;
           }
+
+          if (workRegex.test(part)) {
+            return (
+              <span key={`${i}-${j}`} className="glowing-work">
+                {part}
+              </span>
+            );
+          }
+
           return part;
         });
       }
+
       const roleChipClass = ROLE_CHIP_IDLE[seg.char.role] ?? ROLE_CHIP_IDLE.Other;
       let chipLabel: string;
       if (showBilingual) {
