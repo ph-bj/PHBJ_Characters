@@ -760,7 +760,15 @@ export default function App() {
     });
 
     const text = JSON.stringify(data, null, 2);
-    downloadTxt('pinhua-baojian-full.json', text);
+    const blob = new Blob([text], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const view = window.open(url, '_blank', 'noopener,noreferrer');
+    if (view) {
+      window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    } else {
+      URL.revokeObjectURL(url);
+      downloadTxt('pinhua-baojian-full.json', text);
+    }
   };
 
   const scrollToSection = (id: string) => {
