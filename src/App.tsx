@@ -68,6 +68,7 @@ import { chapterTranslations60 } from './chapterTranslations60';
 import { chapterSummaries } from './chapterSummaries';
 import { characterAppearances } from './characterAppearances';
 import { chapterLacunae } from './lacunae';
+import { questions } from './questions';
 import worksDataJson from './worksData.json';
 const worksData: Record<string, { descZh: string, descEn: string, contextZh: string, contextEn: string, chapters?: number[] }> = worksDataJson;
 
@@ -422,6 +423,7 @@ export default function App() {
   const [sortBy, setSortBy] = useState<'role' | 'appearance'>('appearance');
   const [lang, setLang] = useState<'en' | 'zh'>('en');
   const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(null);
+  const [selectedQuestion, setSelectedQuestion] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const lacunaChapterNumbers = useMemo(
@@ -778,6 +780,7 @@ export default function App() {
     { id: 'locations', label: lang === 'zh' ? '地点' : 'Locations', icon: MapPin },
     { id: 'ocr', label: lang === 'zh' ? '勘误' : 'OCR Corrections', icon: Filter },
     { id: 'lacunae', label: lang === 'zh' ? '缺文' : 'Lacunae', icon: Info },
+    { id: 'questions', label: lang === 'zh' ? '问题' : 'Questions', icon: BookOpen },
   ];
 
   const hasOpenModal = Boolean(
@@ -786,7 +789,8 @@ export default function App() {
     selectedGarden ||
     selectedLocation ||
     selectedWork ||
-    activeLacunaChapter !== null
+    activeLacunaChapter !== null ||
+    selectedQuestion !== null
   );
   const hasOpenOverlay = hasOpenModal || mobileMenuOpen;
 
@@ -1329,6 +1333,24 @@ export default function App() {
               ))}
             </div>
           </div>
+
+          {/* Questions Sidebar */}
+          <div id="questions" className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
+            <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-4 font-bold border-b border-[#d4c5a9] pb-2">
+              {lang === 'zh' ? '问题' : 'Questions'}
+            </h2>
+            <div className="space-y-2">
+              {questions.map((q) => (
+                <button
+                  key={q.id}
+                  onClick={() => setSelectedQuestion(q.id)}
+                  className="w-full text-left p-3 rounded-sm border border-[#d4c5a9]/40 bg-black/5 hover:bg-amber-700/10 hover:border-amber-700/40 transition-colors cursor-pointer"
+                >
+                  <p className="text-[11px] font-bold text-[#2c2420] leading-relaxed">{q.question}</p>
+                </button>
+              ))}
+            </div>
+          </div>
         </aside>
 
         {/* Content Area */}
@@ -1770,6 +1792,17 @@ export default function App() {
           />
         )}
       </AnimatePresence>
+
+      {/* Questions Modal */}
+      <AnimatePresence>
+        {selectedQuestion !== null && (
+          <QuestionsModal
+            questionId={selectedQuestion}
+            onClose={() => setSelectedQuestion(null)}
+            lang={lang}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -1888,6 +1921,61 @@ function LacunaeModal({
               </div>
             ))
           )}
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+function QuestionsModal({
+  questionId,
+  onClose,
+  lang,
+}: {
+  questionId: number;
+  onClose: () => void;
+  lang: 'en' | 'zh';
+}) {
+  const question = questions.find((q) => q.id === questionId);
+  if (!question) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="absolute inset-0 bg-black/55 backdrop-blur-sm"
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 30, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 20, scale: 0.98 }}
+        className="relative w-full max-w-3xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[#d4c5a9] shadow-2xl flex flex-col"
+      >
+        <div className="p-4 sm:p-5 border-b border-[#d4c5a9] bg-[#f4ecd8] flex items-center justify-between">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#5d5048]">
+              {lang === 'zh' ? '问题' : 'Question'}
+            </p>
+            <h3 className="text-lg font-bold text-[#2c2420]">{question.question}</h3>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#2c2420]"
+            aria-label="Close questions modal"
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        <div data-overlay-scroll="true" className="p-5 sm:p-6 overflow-y-auto space-y-4">
+          <div className="border border-[#d4c5a9] rounded-sm p-5 bg-black/5">
+            <p className="text-sm sm:text-base text-[#2c2420] leading-relaxed font-hans whitespace-pre-wrap">
+              {question.answer}
+            </p>
+          </div>
         </div>
       </motion.div>
     </div>
