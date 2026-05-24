@@ -1346,7 +1346,7 @@ export default function App() {
                   onClick={() => setSelectedQuestion(q.id)}
                   className="w-full text-left p-3 rounded-sm border border-[#d4c5a9]/40 bg-black/5 hover:bg-amber-700/10 hover:border-amber-700/40 transition-colors cursor-pointer"
                 >
-                  <p className="text-[11px] font-bold text-[#2c2420] leading-relaxed">{q.question}</p>
+                  <p className="text-[11px] font-bold text-[#2c2420] leading-relaxed">{lang === 'zh' ? q.questionZh : q.questionEn}</p>
                 </button>
               ))}
             </div>
@@ -1959,7 +1959,7 @@ function QuestionsModal({
             <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#5d5048]">
               {lang === 'zh' ? '问题' : 'Question'}
             </p>
-            <h3 className="text-lg font-bold text-[#2c2420]">{question.question}</h3>
+            <h3 className="text-lg font-bold text-[#2c2420]">{lang === 'zh' ? question.questionZh : question.questionEn}</h3>
           </div>
           <button
             onClick={onClose}
@@ -1973,7 +1973,7 @@ function QuestionsModal({
         <div data-overlay-scroll="true" className="p-5 sm:p-6 overflow-y-auto space-y-4">
           <div className="border border-[#d4c5a9] rounded-sm p-5 bg-black/5">
             <p className="text-sm sm:text-base text-[#2c2420] leading-relaxed font-hans whitespace-pre-wrap">
-              {question.answer}
+              {lang === 'zh' ? question.answerZh : question.answerEn}
             </p>
           </div>
         </div>
