@@ -106,6 +106,8 @@ function parseBlocks(markdown: string): Block[] {
     if (ulMatch) {
       const ulItems: { indent: number; text: string }[] = [];
       while (i < lines.length) {
+        while (i < lines.length && !lines[i].trim()) i++;
+        if (i >= lines.length) break;
         const m = lines[i].match(/^(\s*)[\*\-]\s+(.+)$/);
         if (!m) break;
         ulItems.push({ indent: m[1].length, text: m[2] });
@@ -119,6 +121,8 @@ function parseBlocks(markdown: string): Block[] {
     if (olMatch) {
       const olItems: string[] = [];
       while (i < lines.length) {
+        while (i < lines.length && !lines[i].trim()) i++;
+        if (i >= lines.length) break;
         const m = lines[i].trim().match(/^\d+\.\s+(.+)$/);
         if (!m) break;
         olItems.push(m[1]);
@@ -150,17 +154,6 @@ function parseBlocks(markdown: string): Block[] {
   return blocks;
 }
 
-function ListItem({ indent, text }: { indent: number; text: string }) {
-  return (
-    <li
-      className="leading-relaxed"
-      style={{ marginLeft: indent > 0 ? `${Math.min(indent, 8) * 0.75}rem` : undefined }}
-    >
-      {renderInline(text)}
-    </li>
-  );
-}
-
 export function QuestionAnswer({ content }: { content: string }) {
   const blocks = parseBlocks(content);
 
@@ -187,7 +180,15 @@ export function QuestionAnswer({ content }: { content: string }) {
             return (
               <ul key={idx} className="list-disc pl-5 sm:pl-6 space-y-2 marker:text-[#8b4513]/70">
                 {block.items.map((item, j) => (
-                  <ListItem key={j} indent={item.indent} text={item.text} />
+                  <li
+                    key={j}
+                    className="leading-relaxed"
+                    style={{
+                      marginLeft: item.indent > 0 ? `${Math.min(item.indent, 8) * 0.75}rem` : undefined,
+                    }}
+                  >
+                    {renderInline(item.text)}
+                  </li>
                 ))}
               </ul>
             );
