@@ -1,0 +1,28 @@
+export const chapterTranslations23: Record<number, string[]> = {
+  23: [
+    "On the day Ziyu toured the canal, Li Yuanmao borrowed money, converted part of it into notes for convenience, and went out roaming, still obsessed with a woman he had seen before in East Garden.",
+    "At East Garden he ogled doorways and was drawn toward a flirtatious woman who invited him inside while bystanders teased him for inexperience.",
+    "Encouraged and pushed in by two loafers, Yuanmao entered; an accomplice immediately demanded payment, and he handed over a one-string note.",
+    "He said to the man: \"The note says one string of cash — you should give me change for the difference. Just bring me the change.\" The man smiled, looked at the note, stuffed it into a large leather satchel pocket, and went back into the interior.",
+    "Li Yuanmao then summoned his courage, lifted the curtain, and went inside, feeling somewhat assaulted by odors.",
+    "He saw the woman sitting on the kang, with a strip of matting, a red pillow, and a long bench beside it.",
+    "She gave him tea, washed herself crudely, beckoned him close, and just as things began, a violent commotion erupted outside and she rushed out.",
+    "Men burst in fighting; amid the chaos several pinned Yuanmao down, stripped him completely, and robbed him clean before scattering.",
+    "The woman and collector vanished. Crowds mocked him while he hid with a straw curtain and shouted for his boy Wang Bao, who eventually fetched fresh clothes so he could leave in humiliation.",
+    "The whole incident was a planned swindle by the woman and her associates targeting a naive outsider with money. The scandal spread widely, even reaching his future in-laws.",
+    "The narrative then turns to Sun Sihui seeking out his relative Ji Liangxuan, a morally dubious legal secretary who came to Beijing to curry favor and secure employment.",
+    "A long aside contrasts upright, principled secretaries with corrupt, factional profiteers who flatter patrons and sell recommendations.",
+    "Once installed in a position, they simply hold up past cases as their guiding principles and treat the clerks as their models; they bring in a couple of idle, impoverished friends to do the copying and writing, while they themselves live in comfortable dignity without exerting their minds in the least. They put on a few new sets of clothes, ride in a grand sedan chair, and wear stiff-toed boots — and pass for perfectly respectable gentlemen.",
+    "That day Sihui invited Ji to dine and hear opera, bringing actor Fenglin; Ji also brought a handsome young attendant he had bought and renamed Yingguan.",
+    "Ji boasted of Beijing actors' polish and hinted at his own arrangement with the boy, while jealousy and flirtation simmered around the table.",
+    "\"For example, right now in summer: just one robe, a summer hat, coming into the yamen in groups of three or four — they absolutely refuse to come singly. Payment is casually one tael or two taels, any amount will do.\" Sihui said: \"That cheap! If one comes in alone, could I then climb the host's wall and embrace him?\"",
+    "Liangxuan laughed: \"Brother-in-law is joking — how could one scale the host's wall? Even if it's very late, the second or third watch, the mansion gates can still be called open.\" Sihui said: \"Calling at the gate at the third watch causes all sorts of fuss and commotion — there are still inconveniences. Why not open a back entrance? Then people could come and go without being seen.\"",
+    "Feng Lin said: \"Hard to say precisely — adding it all up over a year, three or four thousand strings of cash is the usual amount.\" Liangxuan stuck out his tongue: \"That much? More than we legal secretaries earn in tuition fees! Now I feel some regret — I should have learned to perform at the theater; it would have been much more enjoyable than learning the secretarial trade.\"",
+    "This remark struck home with Liangxuan, who laughed: \"This little page-boy has done double duty — both a donkey and a concubine, he has been both at once.\" Sihui said: \"How remarkable! What does 'donkey and concubine' mean? I wish to hear in detail.\" Liangxuan explained: \"I use him only as my attendant for now — the two roles complementary, neither wasted.\"",
+    "Sihui answered in muddled classical quotations; Fenglin mocked his pockmarked red face and the men tumbled into coarse joking and teasing.",
+    "Fenglin slapped and laughed, Sihui chased him, and Ji smoothed things over with more drink and food.",
+    "Jealous Yingguan sulked while Ji launched into explicit, technical obscenities, comparing sexual methods to boats and carts.",
+    "Fenglin cut him off with ridicule and drinking penalties. As night fell, they ate, settled tips and bills, and dispersed.",
+    "The narrator then defends including such indecency: the world contains both refined passion and base lust, and a truthful book must depict both right and wrong."
+]
+};
