@@ -47,3 +47,12 @@ body {
   text-shadow: 0 0 8px rgba(139, 69, 19, 0.6), 0 0 12px rgba(139, 69, 19, 0.4);
   font-weight: 700;
 }
+
+.question-answer h3 + ul,
+.question-answer h3 + p {
+  margin-top: 0.25rem;
+}
+
+.question-answer blockquote + h3 {
+  margin-top: 1.25rem;
+}

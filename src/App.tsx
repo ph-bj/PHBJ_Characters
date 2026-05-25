@@ -69,6 +69,7 @@ import { chapterSummaries } from './chapterSummaries';
 import { characterAppearances } from './characterAppearances';
 import { chapterLacunae } from './lacunae';
 import { questions } from './questions';
+import { QuestionAnswer } from './QuestionAnswer';
 import worksDataJson from './worksData.json';
 const worksData: Record<string, { descZh: string, descEn: string, contextZh: string, contextEn: string, chapters?: number[] }> = worksDataJson;
 
@@ -1971,10 +1972,8 @@ function QuestionsModal({
         </div>
 
         <div data-overlay-scroll="true" className="p-5 sm:p-6 overflow-y-auto space-y-4">
-          <div className="border border-[#d4c5a9] rounded-sm p-5 bg-black/5">
-            <p className="text-sm sm:text-base text-[#2c2420] leading-relaxed font-hans whitespace-pre-wrap">
-              {lang === 'zh' ? question.answerZh : question.answerEn}
-            </p>
+          <div className="border border-[#d4c5a9] rounded-sm p-5 sm:p-6 bg-black/5">
+            <QuestionAnswer content={lang === 'zh' ? question.answerZh : question.answerEn} />
           </div>
         </div>
       </motion.div>
