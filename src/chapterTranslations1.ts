@@ -1,4 +1,4 @@
-export const chapter1Translations: string[] = [
+export const chapterTranslations1: string[] = [
   // 0
   'The theatrical scene of the capital surpasses all under heaven. Set at the very edge of the sky, stage pavilions and dance terraces appear at every turn; amid the vast multitudes, people spend their days drunk on moonlight and judging beauties. Truly the splendor defies description, the spectacle defies depiction. What one hears and sees in a moment — strange and wondrous — falls within the bounds of reason and touches the full range of human feeling. And so, with a playful brush, I have portrayed these playful souls. The rarest among them are the few gentlemen who love with restraint and hold to propriety, and the few performers who keep themselves upright — truly embodying the line from the Guofeng: "fond of beauty yet not licentious." I first divide the young men of the gentry into ten types, all under the single word: feeling.',
   // 1
