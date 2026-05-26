@@ -942,6 +942,79 @@ export const characterAppearances: Record<
       },
     ],
   },
+
+  "char-2": {
+    1: [
+      {
+        en: "Introduced as a twenty-three-year-old chivalrous scholar, nephew of Lady Yan and cousin/closest friend to Ziyu. He shares a deep, complementary bond with Ziyu, where his broad-minded perspective balances Ziyu's precision.",
+        zh: "正式出场：二十三岁的侠义书生，颜夫人之侄，子玉的表兄兼至交。他气度豁达，与子玉的严谨精细形成互补，两人交情极深。",
+      },
+      {
+        en: "Accompanies Shi Nanxiang to visit Ziyu, where they discuss the Flower Register and the nature of beauty, challenging Ziyu's limited views on performers and sparking his initial interest.",
+        zh: "同史南湘拜访子玉，谈论《花选》与美之本质，打破子玉对优伶的成见，激起他初探梨园的兴趣。",
+      },
+    ],
+    7: [
+      {
+        en: "Attends the refined poetry gathering at Liu Wenze's residence alongside Ziyu, Wang Xun, and Gao Pin, engaging in literary games and matching poetic couplets with easy brilliance.",
+        zh: "与子玉、王珣、高品同赴刘文泽府上的雅集，参与文字游戏与对对子，才思敏捷，挥洒自如。",
+      },
+    ],
+    12: [
+      {
+        en: "Introduced by Gao Pin to the passionate scholar Tian Chunhang. Zhongqing praises Chunhang's lyric poetry and they immediately form a mutual respect.",
+        zh: "经高品引荐结识深情的田春航。仲清对其词作大加赞赏，两人一见如故，惺惺相惜。",
+      },
+    ],
+    17: [
+      {
+        en: "Attends another literary banquet with his close circle, mediating discussions and helping to elevate the mood with poetry when the conversation turns to the complexities of theater patronage.",
+        zh: "参加文友聚会，在席间调和气氛，当众人谈及狎优的种种纠葛时，他以诗酒助兴，化解沉闷。",
+      },
+    ],
+    24: [
+      {
+        en: "Shares gossip and social news with Wang Xun, discussing Tian Chunhang's passionate and expensive pursuit of Su Huifang, and helping direct Li Yuanmao's studies.",
+        zh: "与王珣闲谈京中轶事，谈及田春航不惜重金追求苏蕙芳的痴情，并为李元茂的学业指点迷津。",
+      },
+    ],
+    31: [
+      {
+        en: "Visits Ziyu with Wang Xun and Nanxiang while Ziyu is recovering. They discuss the upcoming examinations, with Zhongqing expressing high confidence in Chunhang and Gao Pin's essays.",
+        zh: "与王珣、南湘一同探望病中的子玉。谈及即将到来的科考，仲清对春航与高品的文章极有信心。",
+      },
+    ],
+    35: [
+      {
+        en: "Joins the Lantern Festival viewing at Yiyuan Garden, participating in the stone-inscription drinking games and reciting poetry among friends and performers.",
+        zh: "赴怡园赏元宵花灯，参与梅花墩旁的刻石行令游戏，与众名士和伶人饮酒赋诗。",
+      },
+    ],
+    46: [
+      {
+        en: "Gathers with Ziyu, Chunhang, and others for an outing. He rejoices with the group when Qinxian's singing is praised and shares the collective delight of the literary circle.",
+        zh: "与子玉、春航等人同游。当琴仙的曲艺赢得满堂喝彩时，他与众人同乐，共享文人雅集的欢愉。",
+      },
+    ],
+    50: [
+      {
+        en: "Attends a gathering where wordplay and couplets are shared. He jokes with Wenze and explains Ziyu's recent seclusion to the group.",
+        zh: "参与一场文字游戏聚会，与文泽谈笑风生，并向众人解释子玉近来闭门不出的缘由。",
+      },
+    ],
+    59: [
+      {
+        en: "Is present when Mei Shixie returns with Qinxian (now adopted as Qu Daoweng's son). Zhongqing quickly assesses the situation, discreetly mediating to ensure Qinxian's true identity is handled gracefully within the Mei household.",
+        zh: "当梅侍郎带琴仙（已过继为屈道翁之子）归家时，他在场并迅速洞察局势，暗中斡旋，确保琴仙的身份在梅府得到妥善处理。",
+      },
+    ],
+    60: [
+      {
+        en: "Participates in the grand finale gathering at Yiyuan where the performers honor the scholars. He writes the encomium for Qin Qiguan as the 'Tribute-Ranking Flower Scribe' and is himself honored with a portrait and poem as the 'Eminent Scribe Among Immortals'.",
+        zh: "参加怡园的大团圆聚会。他为秦琪官撰写“及第花史”的赞语，并被伶人们尊为“仙中高品”，获赠画像与颂诗。",
+      },
+    ],
+  },
 };
 
 /** Curated scene bullets from characterAppearances; empty when none exist for this chapter. */
