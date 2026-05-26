@@ -1547,16 +1547,16 @@ export const characterAppearances: Record<
   "char-12": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 沈伯才 appears and observes the surroundings and moves through the scene.",
+        zh: "只见对面楼上来了几个，先是右待郎的少君刘文泽做主，请了史给事的少君史南湘、吴阁学的外甥张仲雨、姑苏名士高品、国子监司业沈公之子沈伯才、天津镇守海口巴总兵之子巴霖，这两位就是孙氏弟兄的妻舅。",
       },
     ],
   },
   "char-13": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 巴霖 appears and observes the surroundings and moves through the scene.",
+        zh: "只见对面楼上来了几个，先是右待郎的少君刘文泽做主，请了史给事的少君史南湘、吴阁学的外甥张仲雨、姑苏名士高品、国子监司业沈公之子沈伯才、天津镇守海口巴总兵之子巴霖，这两位就是孙氏弟兄的妻舅。",
       },
     ],
   },
@@ -1645,8 +1645,8 @@ export const characterAppearances: Record<
   "char-16": {
     17: [
       {
-        en: "Appears or is referenced in Chapter 17.",
-        zh: "在第 17 回中出场或被提及。",
+        en: "In Chapter 17, 祝芳年 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 17 回中，祝芳年出场或被提及。",
       },
     ],
   },
@@ -1661,16 +1661,16 @@ export const characterAppearances: Record<
   "char-18": {
     56: [
       {
-        en: "Appears or is referenced in Chapter 56.",
-        zh: "在第 56 回中出场或被提及。",
+        en: "In Chapter 56, 屈方正 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 56 回中，屈方正出场或被提及。",
       },
     ],
   },
   "char-19": {
     59: [
       {
-        en: "Appears or is referenced in Chapter 59.",
-        zh: "在第 59 回中出场或被提及。",
+        en: "In Chapter 59, 屈少君 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 59 回中，屈少君出场或被提及。",
       },
     ],
   },
@@ -2005,136 +2005,136 @@ export const characterAppearances: Record<
   "char-34": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 小福 appears and engages in conversation, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "这蓉官瞅着那胖子说道：「三老爷你好冤，人说你常在全福班听戏，花了三千吊钱，替小福出师。",
       },
     ],
   },
   "char-35": {
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 玉美 appears and engages in conversation.",
+        zh: "春喜道：「穿染貂的是玉美，穿倭刀的是四喜，穿水獭的是全福。",
       },
     ],
     12: [
       {
-        en: "Appears or is referenced in Chapter 12.",
-        zh: "在第 12 回中出场或被提及。",
+        en: "In Chapter 12, 玉美 appears and experiences a moment of introspection or emotion.",
+        zh: "大约诸名班中，要推登春的玉美、全福的翠宝，其余联珠的蓉官，也还可以，想都是有目共赏的。",
       },
     ],
     22: [
       {
-        en: "Appears or is referenced in Chapter 22.",
-        zh: "在第 22 回中出场或被提及。",
+        en: "In Chapter 22, 玉美 appears and is present in the gathering and is involved in musical or theatrical performance.",
+        zh: "坐在怀里的，是登春班的玉美，那弹弦子的叫春林，唱的是叫凤林，皆是凤台班的。",
       },
     ],
     24: [
       {
-        en: "Appears or is referenced in Chapter 24.",
-        zh: "在第 24 回中出场或被提及。",
+        en: "In Chapter 24, 玉美 appears and engages in conversation.",
+        zh: "」王恂道：「蓉官、二喜、玉美、春林、凤林，这些人又是怎样？",
       },
     ],
   },
   "char-36": {
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 四喜 appears and engages in conversation.",
+        zh: "春喜道：「穿染貂的是玉美，穿倭刀的是四喜，穿水獭的是全福。",
       },
     ],
     16: [
       {
-        en: "Appears or is referenced in Chapter 16.",
-        zh: "在第 16 回中出场或被提及。",
+        en: "In Chapter 16, 四喜 appears and engages in conversation and moves through the scene.",
+        zh: "我们舅太爷笔底下也来的，去年老佛爷叫他和过诗，并说好，还赏了黄辫子荷包一对，四喜搬指儿一个呢。",
       },
     ],
     18: [
       {
-        en: "Appears or is referenced in Chapter 18.",
-        zh: "在第 18 回中出场或被提及。",
+        en: "In Chapter 18, 四喜 appears and is present in the gathering.",
+        zh: "身上穿得素净，脚下拖了一双尖头四喜堆绒蝠的高底鞋，也到凳上坐下，与那两个讲话。",
       },
     ],
   },
   "char-37": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 全福 appears and engages in conversation, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "这蓉官瞅着那胖子说道：「三老爷你好冤，人说你常在全福班听戏，花了三千吊钱，替小福出师。",
       },
     ],
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 全福 appears and engages in conversation.",
+        zh: "春喜道：「穿染貂的是玉美，穿倭刀的是四喜，穿水獭的是全福。",
       },
     ],
     12: [
       {
-        en: "Appears or is referenced in Chapter 12.",
-        zh: "在第 12 回中出场或被提及。",
+        en: "In Chapter 12, 全福 appears and experiences a moment of introspection or emotion.",
+        zh: "大约诸名班中，要推登春的玉美、全福的翠宝，其余联珠的蓉官，也还可以，想都是有目共赏的。",
       },
     ],
     30: [
       {
-        en: "Appears or is referenced in Chapter 30.",
-        zh: "在第 30 回中出场或被提及。",
+        en: "In Chapter 30, 全福 appears and observes the surroundings.",
+        zh: "子云看九人之外添了一个全福班的全贵，也很娇娆艳丽，风致动人。",
       },
     ],
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 全福 appears and engages in conversation.",
+        zh: "富三却不认识，问他是谁，在那一班的，聘才就说是全福班的。",
       },
     ],
     49: [
       {
-        en: "Appears or is referenced in Chapter 49.",
-        zh: "在第 49 回中出场或被提及。",
+        en: "In Chapter 49, 全福 briefly enters the narrative, adding to the ongoing events.",
+        zh: "而且尊公的福气那是世间全福，就是令泰山也比不上他。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 全福 appears and engages in conversation and observes the surroundings.",
+        zh: "」田老夫人笑道：「我看太太的福气也就是全福了，自己是正二品的诰命，到一品也快了。",
       },
     ],
   },
   "char-38": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 保珠 appears and engages in conversation.",
+        zh: "」那人道：「叫保珠。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 保珠 appears and is involved in musical or theatrical performance.",
+        zh: "子玉前日在戏园的光景，倒像那个保珠沾染了他什么，那片心应该永远不动才是。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 保珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "那个那里是袁宝珠，那是顶黑的黑相公，偏偏他的名字也叫保珠，庾香一听就当是你定的第一名。",
       },
     ],
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 保珠 appears and engages in conversation.",
+        zh: "聘才问他的名字，叫保珠。",
       },
     ],
     9: [
       {
-        en: "Appears or is referenced in Chapter 9.",
-        zh: "在第 9 回中出场或被提及。",
+        en: "In Chapter 9, 保珠 appears and is involved in matters of money or commerce.",
+        zh: "到了次日，只得央了许顺，借了十吊钱的票子，分作两张，写了一封字，叫四儿送与叶茂林，分给二喜、保珠。",
       },
     ],
     21: [
       {
-        en: "Appears or is referenced in Chapter 21.",
-        zh: "在第 21 回中出场或被提及。",
+        en: "In Chapter 21, 保珠 appears and engages in conversation, participates in a meal or drinking session, and experiences a moment of introspection or emotion.",
+        zh: "新年上，这姓魏的同了几个人，带着保珠、二喜，吃了五十几吊钱，掌柜的因不认识，写账的时候，想必说了什么话。",
       },
     ],
   },
@@ -2197,16 +2197,16 @@ export const characterAppearances: Record<
   "char-43": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 谭八 appears and engages in conversation and participates in a meal or drinking session.",
+        zh: "」说着，把眼睛四下里飞了一转，宛然联锦班内京丑谭八的丑态，引得合席大笑，桂保笑得如花枝乱颤，杨方猷只得饮了一杯。",
       },
     ],
   },
   "char-44": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 小顺儿 appears and experiences a moment of introspection or emotion.",
+        zh: "那一日我原冒失些，我爱听《十不闲》，有个小顺儿是《十不闲》中的状元了，我想他必定也喜欢他。",
       },
     ],
   },
@@ -2221,38 +2221,38 @@ export const characterAppearances: Record<
   "char-46": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 保珠 appears and engages in conversation.",
+        zh: "」那人道：「叫保珠。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 保珠 appears and is involved in musical or theatrical performance.",
+        zh: "子玉前日在戏园的光景，倒像那个保珠沾染了他什么，那片心应该永远不动才是。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 保珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "那个那里是袁宝珠，那是顶黑的黑相公，偏偏他的名字也叫保珠，庾香一听就当是你定的第一名。",
       },
     ],
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 保珠 appears and engages in conversation.",
+        zh: "聘才问他的名字，叫保珠。",
       },
     ],
     9: [
       {
-        en: "Appears or is referenced in Chapter 9.",
-        zh: "在第 9 回中出场或被提及。",
+        en: "In Chapter 9, 保珠 appears and is involved in matters of money or commerce.",
+        zh: "到了次日，只得央了许顺，借了十吊钱的票子，分作两张，写了一封字，叫四儿送与叶茂林，分给二喜、保珠。",
       },
     ],
     21: [
       {
-        en: "Appears or is referenced in Chapter 21.",
-        zh: "在第 21 回中出场或被提及。",
+        en: "In Chapter 21, 保珠 appears and engages in conversation, participates in a meal or drinking session, and experiences a moment of introspection or emotion.",
+        zh: "新年上，这姓魏的同了几个人，带着保珠、二喜，吃了五十几吊钱，掌柜的因不认识，写账的时候，想必说了什么话。",
       },
     ],
   },
@@ -2299,140 +2299,140 @@ export const characterAppearances: Record<
   "char-49": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 孙亮功 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "刚说得一两句话，有王恂两个内舅前来看望：一个叫孙嗣徽，一个叫孙嗣元，本是王文辉同乡同年孙亮功部郎之子。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 孙亮功 appears and moves through the scene.",
+        zh: "到了初五日，颜夫人也要请客，请了他表嫂王文辉的陆氏夫人，并他家孙氏少奶奶，与两位表侄女，又请了孙亮功的陆氏夫人，与其大姑娘，并两位少奶奶，就是孙大姑娘辞了不来。",
       },
     ],
     15: [
       {
-        en: "Appears or is referenced in Chapter 15.",
-        zh: "在第 15 回中出场或被提及。",
+        en: "In Chapter 15, 孙亮功 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "」正说话间，孙亮功来拜，士燮出见，问了起程日子，便说起他的夫人的意思来，说：「新年与王家订亲，彼此是娘儿们行事，究竟也须行过礼，方才成个局面。",
       },
     ],
     23: [
       {
-        en: "Appears or is referenced in Chapter 23.",
-        zh: "在第 23 回中出场或被提及。",
+        en: "In Chapter 23, 孙亮功 appears and engages in conversation, moves through the scene, and participates in a meal or drinking session.",
+        zh: "过后元茂因王保失手打破了茶碗，打了他两个嘴巴，王保不平，便将那日的事告诉众人，从此又复传扬开去，连孙亮功也略略知道了，自然过门之后，要教训女婿起来。",
       },
     ],
     27: [
       {
-        en: "Appears or is referenced in Chapter 27.",
-        zh: "在第 27 回中出场或被提及。",
+        en: "In Chapter 27, 孙亮功 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "就是那位坐粪车的姬先生，见奚十一到班不远，且是个直隶州，若得个美缺，一二年就可发财；又知他是个大手笔，不过胡涂公子，官将来怕不是替我做的，便去求孙亮功转托王文辉，竟是一说就妥。",
       },
     ],
     30: [
       {
-        en: "Appears or is referenced in Chapter 30.",
-        zh: "在第 30 回中出场或被提及。",
+        en: "In Chapter 30, 孙亮功 briefly enters the narrative, adding to the ongoing events.",
+        zh: "这一科大主考即系文泽之父大宗伯刘守正，副主考系王文辉，已升了阁学，陆宗沅、杨芳猷、周锡爵、孙亮功一班可可的一齐分房，将那一班知名之士回避了一大半。",
       },
     ],
     32: [
       {
-        en: "Appears or is referenced in Chapter 32.",
-        zh: "在第 32 回中出场或被提及。",
+        en: "In Chapter 32, 孙亮功 appears and observes the surroundings and moves through the scene.",
+        zh: "春航出于第四房孙亮功门下，相见之后，亮功久已闻名，就是刘尚书、王阁学，虽未见过春航，于他儿子们书房内，见他些笔墨东西，也久已倾倒，惟恐不得其人为憾。",
       },
     ],
     38: [
       {
-        en: "Appears or is referenced in Chapter 38.",
-        zh: "在第 38 回中出场或被提及。",
+        en: "In Chapter 38, 孙亮功 appears and moves through the scene.",
+        zh: "王恂是日为孙亮功请去有事，因李元茂吉期已定，要招赘过来。",
       },
     ],
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 孙亮功 appears and engages in conversation and moves through the scene.",
+        zh: "话说王恂前日不能赴怡园之约，因为孙亮功请去商办喜事，也替他张罗了几天。",
       },
     ],
     51: [
       {
-        en: "Appears or is referenced in Chapter 51.",
-        zh: "在第 51 回中出场或被提及。",
+        en: "In Chapter 51, 孙亮功 briefly enters the narrative, adding to the ongoing events.",
+        zh: "却又得了个喜信，亮功放了安徽凤阳府。",
       },
     ],
   },
   "char-50": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 杨方猷 appears and is present in the gathering and participates in a meal or drinking session.",
+        zh: "这些客都是文辉同年，论年纪孙亮功最长，因系姻亲，便让兵部员外杨方猷坐了首席。",
       },
     ],
     49: [
       {
-        en: "Appears or is referenced in Chapter 49.",
-        zh: "在第 49 回中出场或被提及。",
+        en: "In Chapter 49, 杨方猷 appears and engages in conversation, moves through the scene, and experiences a moment of introspection or emotion.",
+        zh: "便在武选司郎中杨方猷面前，略露了些口风，似要他去对春航说，托人来求的意思。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 杨方猷 appears and participates in a meal or drinking session and is involved in musical or theatrical performance.",
+        zh: "初六那一日有两处戏酒，一处在聚星堂，请的是乡试座师礼部尚书刘守正、座师内阁学士王文辉、会试房师兵部郎中杨方猷，鸿胪寺卿周锡爵、光禄少卿陆宗沅，这两位是同乡前辈兼有年谊。",
       },
     ],
   },
   "char-51": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 周锡爵 briefly enters the narrative, adding to the ongoing events.",
+        zh: "对面是光禄寺少卿周锡爵。",
       },
     ],
     30: [
       {
-        en: "Appears or is referenced in Chapter 30.",
-        zh: "在第 30 回中出场或被提及。",
+        en: "In Chapter 30, 周锡爵 briefly enters the narrative, adding to the ongoing events.",
+        zh: "这一科大主考即系文泽之父大宗伯刘守正，副主考系王文辉，已升了阁学，陆宗沅、杨芳猷、周锡爵、孙亮功一班可可的一齐分房，将那一班知名之士回避了一大半。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 周锡爵 appears and participates in a meal or drinking session and is involved in musical or theatrical performance.",
+        zh: "初六那一日有两处戏酒，一处在聚星堂，请的是乡试座师礼部尚书刘守正、座师内阁学士王文辉、会试房师兵部郎中杨方猷，鸿胪寺卿周锡爵、光禄少卿陆宗沅，这两位是同乡前辈兼有年谊。",
       },
     ],
   },
   "char-52": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 陆宗沅 appears and is present in the gathering and participates in a meal or drinking session.",
+        zh: "监察御史陆宗沅坐了第三席，孙亮功坐了第四席，文辉坐了主席。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 陆宗沅 briefly enters the narrative, adding to the ongoing events.",
+        zh: "这王、孙两家的陆氏夫人，是嫡堂姊妹，王家的陆氏夫人，是陆御史宗沅的堂妹，他亲哥哥叫陆宗淮，现任四川臬司。",
       },
     ],
     30: [
       {
-        en: "Appears or is referenced in Chapter 30.",
-        zh: "在第 30 回中出场或被提及。",
+        en: "In Chapter 30, 陆宗沅 briefly enters the narrative, adding to the ongoing events.",
+        zh: "这一科大主考即系文泽之父大宗伯刘守正，副主考系王文辉，已升了阁学，陆宗沅、杨芳猷、周锡爵、孙亮功一班可可的一齐分房，将那一班知名之士回避了一大半。",
       },
     ],
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 陆宗沅 appears and moves through the scene.",
+        zh: "女客只有陆氏夫人的嫂子，就是陆宗沅的夫人，带了小女儿前来。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 陆宗沅 appears and participates in a meal or drinking session and is involved in musical or theatrical performance.",
+        zh: "初六那一日有两处戏酒，一处在聚星堂，请的是乡试座师礼部尚书刘守正、座师内阁学士王文辉、会试房师兵部郎中杨方猷，鸿胪寺卿周锡爵、光禄少卿陆宗沅，这两位是同乡前辈兼有年谊。",
       },
     ],
     59: [
       {
-        en: "Appears or is referenced in Chapter 59.",
-        zh: "在第 59 回中出场或被提及。",
+        en: "In Chapter 59, 陆宗沅 briefly enters the narrative, adding to the ongoing events.",
+        zh: "江西学政改放了陆宗沅。",
       },
     ],
   },
@@ -2447,32 +2447,32 @@ export const characterAppearances: Record<
   "char-54": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 贵芬 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 3 回中，贵芬出场或被提及。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 贵芬 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 5 回中，贵芬出场或被提及。",
       },
     ],
     16: [
       {
-        en: "Appears or is referenced in Chapter 16.",
-        zh: "在第 16 回中出场或被提及。",
+        en: "In Chapter 16, 贵芬 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 16 回中，贵芬出场或被提及。",
       },
     ],
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 贵芬 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 34 回中，贵芬出场或被提及。",
       },
     ],
     50: [
       {
-        en: "Appears or is referenced in Chapter 50.",
-        zh: "在第 50 回中出场或被提及。",
+        en: "In Chapter 50, 贵芬 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 50 回中，贵芬出场或被提及。",
       },
     ],
   },
@@ -2573,72 +2573,72 @@ export const characterAppearances: Record<
   "char-57": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 史曾望 appears and observes the surroundings.",
+        zh: "父亲史曾望现为吏科给事中。",
       },
     ],
   },
   "char-58": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 袁浩 briefly enters the narrative, adding to the ongoing events.",
+        zh: "夫人袁氏，年方二十三岁，是现任云南巡抚袁浩之女。",
       },
     ],
   },
   "char-59": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 徐震 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 5 回中，徐震出场或被提及。",
       },
     ],
   },
   "char-60": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 徐子容 appears and engages in conversation and moves through the scene.",
+        zh: "其兄名子容，也是翰林出身，由御史放了淮扬巡道。",
       },
     ],
   },
   "char-61": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 刘侍郎 appears and engages in conversation and moves through the scene.",
+        zh: "忙了两天，至初三日，王文辉处就有知单并三副帖子来，知单上开的是：户部侍郎刘、内阁学士吴、翰林院侍读学士梅、詹事府正詹事庄、左庶子郑、通政司王、光禄寺少卿周、国子监司业张、吏科给事中史、掌山西道陆、兵部员外郎杨、工部郎中孙、共十二位。",
       },
     ],
   },
   "char-62": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 吴阁学 appears and engages in conversation and moves through the scene.",
+        zh: "忙了两天，至初三日，王文辉处就有知单并三副帖子来，知单上开的是：户部侍郎刘、内阁学士吴、翰林院侍读学士梅、詹事府正詹事庄、左庶子郑、通政司王、光禄寺少卿周、国子监司业张、吏科给事中史、掌山西道陆、兵部员外郎杨、工部郎中孙、共十二位。",
       },
     ],
   },
   "char-63": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 沈司业 appears and engages in conversation and moves through the scene.",
+        zh: "忙了两天，至初三日，王文辉处就有知单并三副帖子来，知单上开的是：户部侍郎刘、内阁学士吴、翰林院侍读学士梅、詹事府正詹事庄、左庶子郑、通政司王、光禄寺少卿周、国子监司业张、吏科给事中史、掌山西道陆、兵部员外郎杨、工部郎中孙、共十二位。",
       },
     ],
   },
   "char-64": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 巴天宠 appears and moves through the scene.",
+        zh: "父亲巴天宠，是上江风阳人，清白出身。",
       },
     ],
   },
   "char-65": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 陆宗淮 briefly enters the narrative, adding to the ongoing events.",
+        zh: "这王、孙两家的陆氏夫人，是嫡堂姊妹，王家的陆氏夫人，是陆御史宗沅的堂妹，他亲哥哥叫陆宗淮，现任四川臬司。",
       },
     ],
   },
@@ -2661,32 +2661,32 @@ export const characterAppearances: Record<
   "char-68": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 詹事府正詹事庄 appears and engages in conversation and moves through the scene.",
+        zh: "忙了两天，至初三日，王文辉处就有知单并三副帖子来，知单上开的是：户部侍郎刘、内阁学士吴、翰林院侍读学士梅、詹事府正詹事庄、左庶子郑、通政司王、光禄寺少卿周、国子监司业张、吏科给事中史、掌山西道陆、兵部员外郎杨、工部郎中孙、共十二位。",
       },
     ],
   },
   "char-69": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 左庶子郑 appears and engages in conversation and moves through the scene.",
+        zh: "忙了两天，至初三日，王文辉处就有知单并三副帖子来，知单上开的是：户部侍郎刘、内阁学士吴、翰林院侍读学士梅、詹事府正詹事庄、左庶子郑、通政司王、光禄寺少卿周、国子监司业张、吏科给事中史、掌山西道陆、兵部员外郎杨、工部郎中孙、共十二位。",
       },
     ],
   },
   "char-70": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 国子监司业张 appears and engages in conversation and moves through the scene.",
+        zh: "忙了两天，至初三日，王文辉处就有知单并三副帖子来，知单上开的是：户部侍郎刘、内阁学士吴、翰林院侍读学士梅、詹事府正詹事庄、左庶子郑、通政司王、光禄寺少卿周、国子监司业张、吏科给事中史、掌山西道陆、兵部员外郎杨、工部郎中孙、共十二位。",
       },
     ],
   },
   "char-71": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 掌山西道陆 appears and engages in conversation and moves through the scene.",
+        zh: "忙了两天，至初三日，王文辉处就有知单并三副帖子来，知单上开的是：户部侍郎刘、内阁学士吴、翰林院侍读学士梅、詹事府正詹事庄、左庶子郑、通政司王、光禄寺少卿周、国子监司业张、吏科给事中史、掌山西道陆、兵部员外郎杨、工部郎中孙、共十二位。",
       },
     ],
   },
@@ -2751,14 +2751,14 @@ export const characterAppearances: Record<
   "char-74": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 老王 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "聘才待要发作，只见那个胖子伸过手来，将那卖玉器的一扯，就指着他说道：「老王，你别要这么着。",
       },
     ],
     45: [
       {
-        en: "Appears or is referenced in Chapter 45.",
-        zh: "在第 45 回中出场或被提及。",
+        en: "In Chapter 45, 老王 appears and engages in conversation.",
+        zh: "」子云道：「老王的胡子越发长了。",
       },
     ],
   },
@@ -2779,8 +2779,8 @@ export const characterAppearances: Record<
   "char-76": {
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 起盛银号潘老三 appears and moves through the scene, participates in a meal or drinking session, and is involved in matters of money or commerce.",
+        zh: "清早到锦春园华公府走了一走，出来又到怡园徐二爷处商量件事，遂同起盛银号潘老三在天香楼吃了饭。",
       },
     ],
   },
@@ -2869,44 +2869,44 @@ export const characterAppearances: Record<
   "char-79": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 青姨奶奶 appears and moves through the scene.",
+        zh: "在你书房里住，原很好，三奶奶也很疼我，就听不得青姨奶奶骂小子，打丫头，摔这样，砸那样，再和白姨奶奶打起架来，教你两边张罗不开。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 青姨奶奶 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "「前日戏园里，蓉官说他青姨奶奶、白姨奶奶打架起来，摔这样，砸那样，我当是顽话。今日看来是真的了。」回去尚早，出了城，打发了车，又从戏园门口，各处逛了一逛而回。",
       },
     ],
   },
   "char-80": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 白姨奶奶 appears and moves through the scene.",
+        zh: "在你书房里住，原很好，三奶奶也很疼我，就听不得青姨奶奶骂小子，打丫头，摔这样，砸那样，再和白姨奶奶打起架来，教你两边张罗不开。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 白姨奶奶 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "「前日戏园里，蓉官说他青姨奶奶、白姨奶奶打架起来，摔这样，砸那样，我当是顽话。今日看来是真的了。」回去尚早，出了城，打发了车，又从戏园门口，各处逛了一逛而回。",
       },
     ],
   },
   "char-81": {
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 阿呆 appears and engages in conversation.",
+        zh: "』瞎妓道：『头一个是秀才，第二个是刑名师爷，第三个是近视眼的阿呆。",
       },
     ],
   },
   "char-82": {
     23: [
       {
-        en: "Appears or is referenced in Chapter 23.",
-        zh: "在第 23 回中出场或被提及。",
+        en: "In Chapter 23, 劣幕 appears and engages in conversation and participates in a meal or drinking session.",
+        zh: "至于那种劣幕，无论大席小席，都是一样下作，胁肩谄笑，□刺营求。",
       },
     ],
   },
@@ -2921,22 +2921,22 @@ export const characterAppearances: Record<
   "char-84": {
     30: [
       {
-        en: "Appears or is referenced in Chapter 30.",
-        zh: "在第 30 回中出场或被提及。",
+        en: "In Chapter 30, 何三 appears and engages in conversation and moves through the scene.",
+        zh: "」聘才道：「缘何三更半夜的才来？",
       },
     ],
   },
   "char-85": {
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 王大夫 appears and moves through the scene.",
+        zh: "有一王大夫，以人治人，有以去其旧染之污，睨而视之，曰无伤也。",
       },
     ],
     56: [
       {
-        en: "Appears or is referenced in Chapter 56.",
-        zh: "在第 56 回中出场或被提及。",
+        en: "In Chapter 56, 王大夫 briefly enters the narrative, adding to the ongoing events.",
+        zh: "但我生无以为家，死无以为墓，照伍大夫以鸱夷裹尸，沉我于燕子矶下罢，切勿殡葬。",
       },
     ],
   },
@@ -3017,58 +3017,58 @@ export const characterAppearances: Record<
   "char-87": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 陆氏夫人（王家） appears and observes the surroundings and moves through the scene.",
+        zh: "先同到内里去见了表舅母陆氏夫人。",
       },
     ],
   },
   "char-88": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 孙氏 appears and observes the surroundings.",
+        zh: "又见了王恂的妻室孙氏，那是表嫂。",
       },
     ],
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 孙氏 appears and observes the surroundings, moves through the scene, and is present in the gathering.",
+        zh: "刚到二门口，可巧碰见孙亮功进来，孙氏弟兄站在一边。",
       },
     ],
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 孙氏 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "王恂又将孙氏昆仲与他说了，子玉也笑，就叫人请了聘才、元茂出来，大家见了。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 孙氏 appears and engages in conversation, moves through the scene, and participates in a meal or drinking session.",
+        zh: "少顷，子玉出来对他二人说道：「昨日听得王母舅于团拜那一日，格外备两桌酒请我们，还有孙氏弟兄。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 孙氏 appears and moves through the scene.",
+        zh: "到了初五日，颜夫人也要请客，请了他表嫂王文辉的陆氏夫人，并他家孙氏少奶奶，与两位表侄女，又请了孙亮功的陆氏夫人，与其大姑娘，并两位少奶奶，就是孙大姑娘辞了不来。",
       },
     ],
     32: [
       {
-        en: "Appears or is referenced in Chapter 32.",
-        zh: "在第 32 回中出场或被提及。",
+        en: "In Chapter 32, 孙氏 appears and moves through the scene.",
+        zh: "惟有孙氏昆仲颇难浃洽，然亦不得不往来，惟淡交而已。",
       },
     ],
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 孙氏 appears and moves through the scene.",
+        zh: "那孙氏也猜不出他作什么。元茂费了半夜心，早上又睡着了。孙氏梳好了头，元茂才起来净脸时，就牢记着发顶里有纸包，急忙带上帽子，跑到外间，打开一开，却是漆黑的一根。",
       },
     ],
     51: [
       {
-        en: "Appears or is referenced in Chapter 51.",
-        zh: "在第 51 回中出场或被提及。",
+        en: "In Chapter 51, 孙氏 appears and moves through the scene.",
+        zh: "元茂与孙氏昆仲都冒了顺天籍贯，府县考过了，到通州院考，租了寓，进了场。",
       },
     ],
   },
@@ -3165,16 +3165,16 @@ export const characterAppearances: Record<
   "char-92": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 郑氏 briefly enters the narrative, adding to the ongoing events.",
+        zh: "不料于三十岁即赴召玉楼，他夫人郑氏绝食殉节。",
       },
     ],
   },
   "char-93": {
     43: [
       {
-        en: "Appears or is referenced in Chapter 43.",
-        zh: "在第 43 回中出场或被提及。",
+        en: "In Chapter 43, 苏蕙芳婶母 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 43 回中，苏蕙芳婶母出场或被提及。",
       },
     ],
   },
@@ -3189,16 +3189,16 @@ export const characterAppearances: Record<
   "char-95": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 林氏 briefly enters the narrative, adding to the ongoing events.",
+        zh: "天上玉麟林春喜春喜姓林氏，字小梅，年十四岁。姑苏人。",
       },
     ],
   },
   "char-96": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 陆氏夫人（孙家） appears and moves through the scene.",
+        zh: "到了初五日，颜夫人也要请客，请了他表嫂王文辉的陆氏夫人，并他家孙氏少奶奶，与两位表侄女，又请了孙亮功的陆氏夫人，与其大姑娘，并两位少奶奶，就是孙大姑娘辞了不来。",
       },
     ],
   },
@@ -3221,166 +3221,166 @@ export const characterAppearances: Record<
   "char-99": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 王大姑娘 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 2 回中，王大姑娘出场或被提及。",
       },
     ],
   },
   "char-100": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 佩秋 appears and moves through the scene.",
+        zh: "陆夫人就生了王恂的少奶奶一个，名叫佩秋，生得德容兼备，爱若掌珠，十八岁嫁与王家去了。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 佩秋 appears and moves through the scene.",
+        zh: "田太夫人请了王文辉的陆氏夫人，带了他大姑奶奶蓉华并媳妇孙少奶奶佩秋，又请刘守正的夫人，没有来，他媳妇吴少奶奶紫烟来了。",
       },
     ],
     54: [
       {
-        en: "Appears or is referenced in Chapter 54.",
-        zh: "在第 54 回中出场或被提及。",
+        en: "In Chapter 54, 佩秋 appears and engages in conversation and moves through the scene.",
+        zh: "一日，王恂的妻子孙佩秋与仲清的妻子蓉华，到琼华房里来贺喜，蓉华道：「妹夫恭喜，压倒了天下英才。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 佩秋 briefly enters the narrative, adding to the ongoing events.",
+        zh: "于十月初十日，请了华公子的夫人苏浣香、田春航的夫人浣兰、刘文泽的夫人吴紫烟、颜仲清的夫人王蓉华、梅子玉的夫人琼华、王恂的夫人孙佩秋。",
       },
     ],
   },
   "char-101": {
     58: [
       {
-        en: "Appears or is referenced in Chapter 58.",
-        zh: "在第 58 回中出场或被提及。",
+        en: "In Chapter 58, 潘氏 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 58 回中，潘氏出场或被提及。",
       },
     ],
   },
   "char-102": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 云儿 appears and moves through the scene.",
+        zh: "两个小使：一个云儿，一个俊儿，骑了马，先到他表母舅王通政宅内，适值通政出门去了，通政的少君出来接进。",
       },
     ],
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 云儿 appears and is present in the gathering and participates in a meal or drinking session.",
+        zh: "」就引聘才到对面船房内坐下，云儿与俊儿送了茶。",
       },
     ],
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 云儿 appears and moves through the scene.",
+        zh: "」云儿已拿了斗篷、风帽来，请子玉穿戴了进去。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 云儿 appears and moves through the scene.",
+        zh: "」子玉就命云儿进去。",
       },
     ],
     9: [
       {
-        en: "Appears or is referenced in Chapter 9.",
-        zh: "在第 9 回中出场或被提及。",
+        en: "In Chapter 9, 云儿 appears and moves through the scene.",
+        zh: "」上玉禀过父母，梅进即叫套了车，云儿跟着出来。",
       },
     ],
     10: [
       {
-        en: "Appears or is referenced in Chapter 10.",
-        zh: "在第 10 回中出场或被提及。",
+        en: "In Chapter 10, 云儿 appears and engages in conversation, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "子玉令云儿抱了瑶琴，向子云、次贤道了谢出来。",
       },
     ],
     15: [
       {
-        en: "Appears or is referenced in Chapter 15.",
-        zh: "在第 15 回中出场或被提及。",
+        en: "In Chapter 15, 云儿 appears and engages in conversation, moves through the scene, and participates in a meal or drinking session.",
+        zh: "再说子玉在家无趣，趁他们吃酒时，便带了云儿去找刘文泽、史南湘。",
       },
     ],
     21: [
       {
-        en: "Appears or is referenced in Chapter 21.",
-        zh: "在第 21 回中出场或被提及。",
+        en: "In Chapter 21, 云儿 appears and moves through the scene.",
+        zh: "他的云儿就忙的了不得，高高的喊一声：『有客来了！",
       },
     ],
     22: [
       {
-        en: "Appears or is referenced in Chapter 22.",
-        zh: "在第 22 回中出场或被提及。",
+        en: "In Chapter 22, 云儿 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "正在情绪烦闷之时，忽见云儿拿了一封信进来，放在桌上，说怡园徐老爷送来的，明日请逛运河，并要回信呢。",
       },
     ],
     28: [
       {
-        en: "Appears or is referenced in Chapter 28.",
-        zh: "在第 28 回中出场或被提及。",
+        en: "In Chapter 28, 云儿 appears and engages in conversation and moves through the scene.",
+        zh: "这一日天气凉爽，早饭后到素兰处，先叫云儿问了在家，素兰闻知甚喜，忙出迎进。",
       },
     ],
     29: [
       {
-        en: "Appears or is referenced in Chapter 29.",
-        zh: "在第 29 回中出场或被提及。",
+        en: "In Chapter 29, 云儿 briefly enters the narrative, adding to the ongoing events.",
+        zh: "云儿先把帐子掀开，叫声：「少爷！",
       },
     ],
     31: [
       {
-        en: "Appears or is referenced in Chapter 31.",
-        zh: "在第 31 回中出场或被提及。",
+        en: "In Chapter 31, 云儿 briefly enters the narrative, adding to the ongoing events.",
+        zh: "外间已套上车，子玉也不换衣服，云儿恐怕寒冷，包上了几件棉衣。",
       },
     ],
     33: [
       {
-        en: "Appears or is referenced in Chapter 33.",
-        zh: "在第 33 回中出场或被提及。",
+        en: "In Chapter 33, 云儿 appears and moves through the scene.",
+        zh: "」云儿勒转马头，赶车的倒转车来，出了城，忽然有几辆车塞满了路，还有一群骆驼挤在里头。",
       },
     ],
     36: [
       {
-        en: "Appears or is referenced in Chapter 36.",
-        zh: "在第 36 回中出场或被提及。",
+        en: "In Chapter 36, 云儿 briefly enters the narrative, adding to the ongoing events.",
+        zh: "况且他家的人除了云儿之外，一个都不认识。",
       },
     ],
     45: [
       {
-        en: "Appears or is referenced in Chapter 45.",
-        zh: "在第 45 回中出场或被提及。",
+        en: "In Chapter 45, 云儿 appears and moves through the scene and experiences a moment of introspection or emotion.",
+        zh: "今日晚饭后，想趁着那一钩新月，去到怡园，也可畅叙一会，遂禀明了颜夫人、带了云儿，乘兴而来。",
       },
     ],
     53: [
       {
-        en: "Appears or is referenced in Chapter 53.",
-        zh: "在第 53 回中出场或被提及。",
+        en: "In Chapter 53, 云儿 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "一夜在睡梦中，忽见云儿走来道：「少爷，琴言回来了。",
       },
     ],
     59: [
       {
-        en: "Appears or is referenced in Chapter 59.",
-        zh: "在第 59 回中出场或被提及。",
+        en: "In Chapter 59, 云儿 appears and moves through the scene and is involved in musical or theatrical performance.",
+        zh: "家人们出去，今日幸喜云儿没跟来，仲清也是新用的人，都不认识琴仙，故此一宵无话。",
       },
     ],
   },
   "char-103": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 俊儿 appears and moves through the scene.",
+        zh: "两个小使：一个云儿，一个俊儿，骑了马，先到他表母舅王通政宅内，适值通政出门去了，通政的少君出来接进。",
       },
     ],
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 俊儿 appears and is present in the gathering and participates in a meal or drinking session.",
+        zh: "」就引聘才到对面船房内坐下，云儿与俊儿送了茶。",
       },
     ],
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 俊儿 appears and observes the surroundings and moves through the scene.",
+        zh: "忽见俊儿拿了一封书信来，签子上写着梅少爷手展，旁有一行小字。",
       },
     ],
   },
@@ -3407,188 +3407,188 @@ export const characterAppearances: Record<
   "char-105": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 许顺妻 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 3 回中，许顺妻出场或被提及。",
       },
     ],
   },
   "char-106": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 梅进 appears and engages in conversation, moves through the scene, and participates in a meal or drinking session.",
+        zh: "既是他儿子远来投奔，老弟也是义无所辞的。」士燮叫梅进进来问了，果然是他。一个是西席李先生之子。吩咐梅进：",
       },
     ],
     9: [
       {
-        en: "Appears or is referenced in Chapter 9.",
-        zh: "在第 9 回中出场或被提及。",
+        en: "In Chapter 9, 梅进 appears and engages in conversation and moves through the scene.",
+        zh: "子玉一人正在无聊，恰好梅进进来说道：「刘少爷、颜少爷、王少爷，请少爷出去逛灯，都在门口等着。",
       },
     ],
     15: [
       {
-        en: "Appears or is referenced in Chapter 15.",
-        zh: "在第 15 回中出场或被提及。",
+        en: "In Chapter 15, 梅进 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "忽见门上梅进满面笑容的进来，说道：「恭喜少爷，老爷放了江西学差，报喜的现在门口。",
       },
     ],
     33: [
       {
-        en: "Appears or is referenced in Chapter 33.",
-        zh: "在第 33 回中出场或被提及。",
+        en: "In Chapter 33, 梅进 appears and moves through the scene and is present in the gathering.",
+        zh: "」便叫个仆妇去传梅进进来，梅进即便走到阶下站住。",
       },
     ],
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 梅进 appears and moves through the scene.",
+        zh: "元茂的事是梅进代办，替他办了钗环簪镯、彩缎衣衫，并借了颜夫人的珠冠玉带、补服朝珠、蟒衣绣裙，共铺了十六盒，扎了亭子，也还像个局面。",
       },
     ],
     59: [
       {
-        en: "Appears or is referenced in Chapter 59.",
-        zh: "在第 59 回中出场或被提及。",
+        en: "In Chapter 59, 梅进 appears and observes the surroundings, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "梅进、云儿一见琴仙，个个骇异，又猜是他，又猜不是他。",
       },
     ],
   },
   "char-107": {
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 虎儿 appears and engages in conversation and moves through the scene.",
+        zh: "那边虎儿走来道：「少爷出去后，师爷就有人请出去了，今日不回来。",
       },
     ],
     15: [
       {
-        en: "Appears or is referenced in Chapter 15.",
-        zh: "在第 15 回中出场或被提及。",
+        en: "In Chapter 15, 虎儿 appears and moves through the scene.",
+        zh: "」就有龙儿拿上脸水，还有个虎儿送出衣裳靴帽。",
       },
     ],
   },
   "char-108": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 书僮 briefly enters the narrative, adding to the ongoing events.",
+        zh: "三人讲了些话，书僮送上香茗。",
       },
     ],
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 书僮 appears and moves through the scene and participates in a meal or drinking session.",
+        zh: "性全自己精于药理，便叫书僮去抓了几味发散药吃了，蒙头安睡。",
       },
     ],
   },
   "char-109": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 仆妇（门上） appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "」正说着，只见一个仆妇，手里拿着两个红帖走进二门。",
       },
     ],
   },
   "char-110": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 家人媳妇（衣裳） appears and observes the surroundings and moves through the scene.",
+        zh: "禀过萱堂，颜夫人见今日天气寒冷，起了朔风，且是冬月中旬，便叫家人媳妇取出副葡萄的猞猁裘与他穿了，吩咐车里也换了自狐暖围。",
       },
     ],
   },
   "char-111": {
     7: [
       {
-        en: "Appears or is referenced in Chapter 7.",
-        zh: "在第 7 回中出场或被提及。",
+        en: "In Chapter 7, 小丫鬟（子玉书房） appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "忽见三四两首，挖去了两个字，心甚诧异，即问小丫鬟道：「这两日谁到这里来看我的书？",
       },
     ],
   },
   "char-112": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 四儿 appears and moves through the scene.",
+        zh: "次早聘才带了他的小子四儿，将王文辉的信送去。",
       },
     ],
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 四儿 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "只见四儿跑进来说道：「同路来的叶先生找少爷说话，现在账房里。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 四儿 appears and observes the surroundings, moves through the scene, and is present in the gathering.",
+        zh: "一日，天气晴和，雪也化了，聘才想起富三爷来，要进城去看他，便叫四儿去雇了一辆车坐了，望东城来。",
       },
     ],
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 四儿 appears and moves through the scene, participates in a meal or drinking session, and is involved in musical or theatrical performance.",
+        zh: "吃了饭，带了四儿，拿了马褥子，雇了车，急急往戏园来。",
       },
     ],
     9: [
       {
-        en: "Appears or is referenced in Chapter 9.",
-        zh: "在第 9 回中出场或被提及。",
+        en: "In Chapter 9, 四儿 appears and engages in conversation and moves through the scene.",
+        zh: "话说魏聘才、李元茂回家时已三更，梅宅关了门落了锁，四儿敲了半天，才有人来开了。",
       },
     ],
     16: [
       {
-        en: "Appears or is referenced in Chapter 16.",
-        zh: "在第 16 回中出场或被提及。",
+        en: "In Chapter 16, 四儿 appears and moves through the scene.",
+        zh: "明早富三爷即遣人带了两辆车来接聘才，聘才即拜别颜夫人并子玉，又辞了元茂，收拾停妥，带了四儿一径上车。",
       },
     ],
     21: [
       {
-        en: "Appears or is referenced in Chapter 21.",
-        zh: "在第 21 回中出场或被提及。",
+        en: "In Chapter 21, 四儿 appears and observes the surroundings and moves through the scene.",
+        zh: "一日，因张、顾二人有事，遂独自出城，雇了一辆十三太保玻璃热车，把四儿也打扮了，意气扬扬，特来看子玉之病。",
       },
     ],
     26: [
       {
-        en: "Appears or is referenced in Chapter 26.",
-        zh: "在第 26 回中出场或被提及。",
+        en: "In Chapter 26, 四儿 appears and moves through the scene and is present in the gathering.",
+        zh: "明日早饭后，聘才带了四儿，坐了大鞍车，即出城找着了叶茂林，茂林就搭了聘才的车到长庆处来。",
       },
     ],
     28: [
       {
-        en: "Appears or is referenced in Chapter 28.",
-        zh: "在第 28 回中出场或被提及。",
+        en: "In Chapter 28, 四儿 appears and moves through the scene, is present in the gathering, and is involved in musical or theatrical performance.",
+        zh: "出了大门，即叫琴言坐在车里，放下车帘，自己跨沿，四儿坐在车尾，不多一刻即到了梅宅。",
       },
     ],
     29: [
       {
-        en: "Appears or is referenced in Chapter 29.",
-        zh: "在第 29 回中出场或被提及。",
+        en: "In Chapter 29, 四儿 briefly enters the narrative, adding to the ongoing events.",
+        zh: "」聘才叫交四儿拿了。",
       },
     ],
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 四儿 appears and moves through the scene and participates in a meal or drinking session.",
+        zh: "元茂不知好歹，吹了烟又要吃果子，停一回又要点心，把聘才那个四儿呼来唤去，忙个不了。",
       },
     ],
     36: [
       {
-        en: "Appears or is referenced in Chapter 36.",
-        zh: "在第 36 回中出场或被提及。",
+        en: "In Chapter 36, 四儿 appears and observes the surroundings, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "琴言低着头，并不留心别处，一直到了聘才院子里，见聘才的四儿出来，与他点点头，把风门一开。",
       },
     ],
   },
   "char-113": {
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 健儿 appears and engages in conversation.",
+        zh: "俊儿道：「是颜少爷的健儿。",
       },
     ],
   },
   "char-114": {
     7: [
       {
-        en: "Appears or is referenced in Chapter 7.",
-        zh: "在第 7 回中出场或被提及。",
+        en: "In Chapter 7, 雪儿 appears and engages in conversation and moves through the scene.",
+        zh: "」又笑道：「前日我听得二姑娘雪儿说，孙家太太做媒，将二姑娘配了少爷了，将二姑娘配了少爷了，二姑娘还戴了太太一根簪子回去。",
       },
     ],
   },
@@ -3603,40 +3603,40 @@ export const characterAppearances: Record<
   "char-116": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 伴送婆（巴家） appears and moves through the scene and is present in the gathering.",
+        zh: "巴姑娘趁他走近身时，便站将起来，索性的劈胸一拳，把嗣元打了一交，嗣元爬起来往外就跑，伴送婆、家人媳妇、陪房的丫头一齐拖住，再三的劝他，又将巴姑娘也劝了一会。",
       },
     ],
   },
   "char-117": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 乳母（巴来风） appears and engages in conversation and moves through the scene.",
+        zh: "过了几天，巴姑娘的乳母苦苦的喻以大义，说官家之女，怎好打起丈夫来，就是丈夫生得不好，也是各人前定的姻缘。",
       },
     ],
   },
   "char-118": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 跟班（富家） appears and observes the surroundings and is present in the gathering.",
+        zh: "望着那边楼上，有一班像些京官模样，背后站着许多跟班。",
       },
     ],
   },
   "char-119": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 卢大爷 appears and engages in conversation.",
+        zh: "他们有个管牲口的爷们卢大爷，我曾听他说有一百几十匹马，七八十个大骡子，你说这人家阔不阔？",
       },
     ],
   },
   "char-120": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 跟班队（华家，~20–30人） makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 5 回中，跟班队（华家，~20–30人）出场或被提及。",
       },
     ],
   },
@@ -3651,202 +3651,202 @@ export const characterAppearances: Record<
   "char-122": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 金二 appears and engages in conversation, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "」叶茂林道：「这是我们大掌班金二爷，来请梅大人定戏的。",
       },
     ],
   },
   "char-123": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 老三 appears and engages in conversation and moves through the scene.",
+        zh: "掌柜的又说那走堂的道：「老三，你不会伺候。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 老三 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "我今日还请了孙氏昆仲，这两位与众不同的，沈大哥虽不接浃，还不要紧，想能容得他。我实在怕巴老三一见他们，就要闹起来。」众人皆笑。",
       },
     ],
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 老三 appears and moves through the scene, participates in a meal or drinking session, and is involved in matters of money or commerce.",
+        zh: "清早到锦春园华公府走了一走，出来又到怡园徐二爷处商量件事，遂同起盛银号潘老三在天香楼吃了饭。",
       },
     ],
     13: [
       {
-        en: "Appears or is referenced in Chapter 13.",
-        zh: "在第 13 回中出场或被提及。",
+        en: "In Chapter 13, 老三 appears and engages in conversation, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "」潘三目视仲雨，仲雨道：「你瞧，这蕙芳难道只值二百银子，你潘老三就支支吾吾起来。",
       },
     ],
     16: [
       {
-        en: "Appears or is referenced in Chapter 16.",
-        zh: "在第 16 回中出场或被提及。",
+        en: "In Chapter 16, 老三 appears and observes the surroundings and moves through the scene.",
+        zh: "因此处稍可巴结，且富老三力为作合，且去看看光景。",
       },
     ],
     22: [
       {
-        en: "Appears or is referenced in Chapter 22.",
-        zh: "在第 22 回中出场或被提及。",
+        en: "In Chapter 22, 老三 appears and engages in conversation and is present in the gathering.",
+        zh: "」那一个坐着的说道：「老三，且别生气，你候着。",
       },
     ],
     25: [
       {
-        en: "Appears or is referenced in Chapter 25.",
-        zh: "在第 25 回中出场或被提及。",
+        en: "In Chapter 25, 老三 briefly enters the narrative, adding to the ongoing events.",
+        zh: "如今这个正指挥，一总也花到四千头，还是起盛的潘老三替我垫了五百两才成的。",
       },
     ],
     28: [
       {
-        en: "Appears or is referenced in Chapter 28.",
-        zh: "在第 28 回中出场或被提及。",
+        en: "In Chapter 28, 老三 appears and engages in conversation.",
+        zh: "」聘才听了此话，便深深的一揖道：「好老三，好兄弟，你若成全了这件事，我叫我那兄弟送你两匹新花样的好库纱。",
       },
     ],
     29: [
       {
-        en: "Appears or is referenced in Chapter 29.",
-        zh: "在第 29 回中出场或被提及。",
+        en: "In Chapter 29, 老三 appears and engages in conversation and moves through the scene.",
+        zh: "聘才听了，似信不信的道：「老三，你不要唬人，我是不关事的，是你担了担子叫他出去的，自然先要问你。",
       },
     ],
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 老三 appears and engages in conversation, observes the surroundings, and participates in a meal or drinking session.",
+        zh: "安了席，奚十一看那灯屏上的春画，对潘三笑道：「老三，你看那挨嘴巴的很像是你。",
       },
     ],
     36: [
       {
-        en: "Appears or is referenced in Chapter 36.",
-        zh: "在第 36 回中出场或被提及。",
+        en: "In Chapter 36, 老三 briefly enters the narrative, adding to the ongoing events.",
+        zh: "那魏聘才是叫他三兄弟、老三、三太爷这些称呼。",
       },
     ],
     40: [
       {
-        en: "Appears or is referenced in Chapter 40.",
-        zh: "在第 40 回中出场或被提及。",
+        en: "In Chapter 40, 老三 appears and engages in conversation.",
+        zh: "却说潘三店内有个小伙计，叫许老三，只得十六岁，生得颇为标致。",
       },
     ],
     47: [
       {
-        en: "Appears or is referenced in Chapter 47.",
-        zh: "在第 47 回中出场或被提及。",
+        en: "In Chapter 47, 老三 appears and moves through the scene.",
+        zh: "那赶车的就是周小三，进来后，又荐他小舅子许老三，改名许贵，做了跟班，局面一变，暂且按下。",
       },
     ],
     50: [
       {
-        en: "Appears or is referenced in Chapter 50.",
-        zh: "在第 50 回中出场或被提及。",
+        en: "In Chapter 50, 老三 briefly enters the narrative, adding to the ongoing events.",
+        zh: "他表侄忙至潘老三家内告知，家中大闹了一场。",
       },
     ],
   },
   "char-124": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 掌柜的 appears and engages in conversation and moves through the scene.",
+        zh: "掌柜的、走堂的一齐进来劝解，都不敢说一句话。",
       },
     ],
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 掌柜的 appears and engages in conversation and moves through the scene.",
+        zh: "」聘才听了，住了步，问元茂，仲雨道」是我的，交代掌柜的就是了。",
       },
     ],
     21: [
       {
-        en: "Appears or is referenced in Chapter 21.",
-        zh: "在第 21 回中出场或被提及。",
+        en: "In Chapter 21, 掌柜的 appears and engages in conversation, moves through the scene, and participates in a meal or drinking session.",
+        zh: "」素兰道：「不为别的，我昨日在春阳楼吃饭，听得说，掌柜的闹了一件事，得罪了华公府一个师爷，便送到兵马司，打了二十个嘴巴，还出脱了几十吊钱，又是两桌酒席。",
       },
     ],
     24: [
       {
-        en: "Appears or is referenced in Chapter 24.",
-        zh: "在第 24 回中出场或被提及。",
+        en: "In Chapter 24, 掌柜的 appears and engages in conversation and moves through the scene.",
+        zh: "」仲清道：「我还听得说，那魏聘才进了华公府，就变了相，在外边很不安分：闹了春阳馆，送了掌柜的，打了二十还不要紧。",
       },
     ],
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 掌柜的 appears and is involved in matters of money or commerce.",
+        zh: "」于是二人上车，不到半里路，到了一个银号，掌柜的招呼到里面。",
       },
     ],
     36: [
       {
-        en: "Appears or is referenced in Chapter 36.",
-        zh: "在第 36 回中出场或被提及。",
+        en: "In Chapter 36, 掌柜的 appears and observes the surroundings, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "到了接三那日，有些人来，便请了金三、叶茂林来张罗，同班的脚色之外，还有各班的并左右街邻，和馆子掌柜的，挤满了一屋，看烧了纸才散。琴言也乏极了，回房就睡了。",
       },
     ],
     47: [
       {
-        en: "Appears or is referenced in Chapter 47.",
-        zh: "在第 47 回中出场或被提及。",
+        en: "In Chapter 47, 掌柜的 appears and observes the surroundings, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "前月春阳馆的黄掌柜的来，看这屋子好开庄子，与我搭伙计，我出了四千吊钱，才开了三天。",
       },
     ],
     50: [
       {
-        en: "Appears or is referenced in Chapter 50.",
-        zh: "在第 50 回中出场或被提及。",
+        en: "In Chapter 50, 掌柜的 appears and moves through the scene and participates in a meal or drinking session.",
+        zh: "文泽等走进，掌柜的忙出柜迎接，即引到后面一个密室，却是三间，隔去一间，并预备了床帐枕席。",
       },
     ],
     56: [
       {
-        en: "Appears or is referenced in Chapter 56.",
-        zh: "在第 56 回中出场或被提及。",
+        en: "In Chapter 56, 掌柜的 appears and observes the surroundings, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "琴仙也只得睡下，恍恍惚惚的，一会觉自己走出寺来，见对面有个书铺，招牌写着华正昌三字，有个老年掌柜的照应了他。",
       },
     ],
     58: [
       {
-        en: "Appears or is referenced in Chapter 58.",
-        zh: "在第 58 回中出场或被提及。",
+        en: "In Chapter 58, 掌柜的 appears and engages in conversation and observes the surroundings.",
+        zh: "奚十一四下张望，并不见班里一个，便问那人道：「这班掌柜的都不住在这里么？",
       },
     ],
   },
   "char-125": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 梅鼎 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 1 回中，梅鼎出场或被提及。",
       },
     ],
   },
   "char-126": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 梅羹调 briefly enters the narrative, adding to the ongoing events.",
+        zh: "其祖名鼎，曾任吏部尚书；其父名羹调，曾任文华殿大学士，三代单传。",
       },
     ],
   },
   "char-127": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 颜庄 briefly enters the narrative, adding to the ongoing events.",
+        zh: "夫人额氏，也是金陵大家，为左都御史颜尧臣之女，翰林院编修颜庄之妹，父兄皆已物故。",
       },
     ],
     49: [
       {
-        en: "Appears or is referenced in Chapter 49.",
-        zh: "在第 49 回中出场或被提及。",
+        en: "In Chapter 49, 颜庄 appears and engages in conversation.",
+        zh: "子云又道：「已故翰林院编修颜庄之子名仲清，现任礼部尚书刘大人之子名文泽，内阁学士王大人之子名恂。",
       },
     ],
   },
   "char-128": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 颜尧臣 briefly enters the narrative, adding to the ongoing events.",
+        zh: "夫人额氏，也是金陵大家，为左都御史颜尧臣之女，翰林院编修颜庄之妹，父兄皆已物故。",
       },
     ],
   },
   "char-129": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 富安世 appears and engages in conversation.",
+        zh: "」富三道：「你问我们老爷的名字么，我们老爷叫富安世。",
       },
     ],
   },
@@ -3861,24 +3861,24 @@ export const characterAppearances: Record<
   "char-131": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 杜母 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 5 回中，杜母出场或被提及。",
       },
     ],
   },
   "char-132": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 杜族叔 appears and is involved in musical or theatrical performance.",
+        zh: "遗下这个琴官无依无靠，赖其族叔收养。",
       },
     ],
   },
   "char-133": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 魏老仁 appears and engages in conversation.",
+        zh: "」王文辉道：「世愚侄，不要是魏老仁的儿子么？",
       },
     ],
   },
@@ -3893,38 +3893,38 @@ export const characterAppearances: Record<
   "char-135": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 侯石翁 appears and engages in conversation.",
+        zh: "又说侯石翁又硬荐了两个亲戚。只好代为设法，或转荐别处。",
       },
     ],
     37: [
       {
-        en: "Appears or is referenced in Chapter 37.",
-        zh: "在第 37 回中出场或被提及。",
+        en: "In Chapter 37, 侯石翁 appears and engages in conversation and observes the surroundings.",
+        zh: "」子云道：「你看道生的诗文，与侯石翁如何？",
       },
     ],
     45: [
       {
-        en: "Appears or is referenced in Chapter 45.",
-        zh: "在第 45 回中出场或被提及。",
+        en: "In Chapter 45, 侯石翁 briefly enters the narrative, adding to the ongoing events.",
+        zh: "至于候石翁的起凤园，更不必提了。",
       },
     ],
     55: [
       {
-        en: "Appears or is referenced in Chapter 55.",
-        zh: "在第 55 回中出场或被提及。",
+        en: "In Chapter 55, 侯石翁 appears and engages in conversation and is involved in musical or theatrical performance.",
+        zh: "道翁有个长随叫刘喜，为人老实忠厚，四十多岁，跟随了五六年，跟过江宁侯石翁太史，善于烹调，如今叫他伺侯琴仙。",
       },
     ],
     56: [
       {
-        en: "Appears or is referenced in Chapter 56.",
-        zh: "在第 56 回中出场或被提及。",
+        en: "In Chapter 56, 侯石翁 appears and engages in conversation, observes the surroundings, and is involved in musical or theatrical performance.",
+        zh: "琴仙又将石翁所赠的诗，与道翁看了。",
       },
     ],
     59: [
       {
-        en: "Appears or is referenced in Chapter 59.",
-        zh: "在第 59 回中出场或被提及。",
+        en: "In Chapter 59, 侯石翁 appears and moves through the scene, experiences a moment of introspection or emotion, and is involved in musical or theatrical performance.",
+        zh: "一日，侯石翁自苏州回来，闻知琴仙还在寺里，已到衣食不周，心上又念着他。",
       },
     ],
   },
@@ -3961,40 +3961,40 @@ export const characterAppearances: Record<
   "char-139": {
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 卓天香 appears and engages in conversation.",
+        zh: "」子佩道：「一个叫卓天香，一个叫张翠官。",
       },
     ],
     40: [
       {
-        en: "Appears or is referenced in Chapter 40.",
-        zh: "在第 40 回中出场或被提及。",
+        en: "In Chapter 40, 卓天香 appears and moves through the scene.",
+        zh: "去年得了巴英官，如获至宝，如今又弄上了得月、卓天香，将英官也疏远起来。",
       },
     ],
     47: [
       {
-        en: "Appears or is referenced in Chapter 47.",
-        zh: "在第 47 回中出场或被提及。",
+        en: "In Chapter 47, 卓天香 appears and moves through the scene, participates in a meal or drinking session, and experiences a moment of introspection or emotion.",
+        zh: "又挨了几日，那天多喝了一盅，更痒得利害，偶然想起卓天香也十七八岁了，又是他的老主顾，叫他来商量商量倒可以，即叫人去叫了天香来。",
       },
     ],
     58: [
       {
-        en: "Appears or is referenced in Chapter 58.",
-        zh: "在第 58 回中出场或被提及。",
+        en: "In Chapter 58, 卓天香 briefly enters the narrative, adding to the ongoing events.",
+        zh: "我又不是得月、卓天香，□了要烂鸡巴的，我们好好的家伙为什么要装这个狗鸡巴？",
       },
     ],
   },
   "char-140": {
     47: [
       {
-        en: "Appears or is referenced in Chapter 47.",
-        zh: "在第 47 回中出场或被提及。",
+        en: "In Chapter 47, 阳善修 appears and experiences a moment of introspection or emotion.",
+        zh: "这人叫阳善修，现寓在城外，想必你那个也可以接得。",
       },
     ],
     58: [
       {
-        en: "Appears or is referenced in Chapter 58.",
-        zh: "在第 58 回中出场或被提及。",
+        en: "In Chapter 58, 阳善修 briefly enters the narrative, adding to the ongoing events.",
+        zh: "那阳善修拿些药和鸡皮捣烂了，与他洗净了血，敷上了药。",
       },
     ],
   },
@@ -4053,44 +4053,44 @@ export const characterAppearances: Record<
   "char-143": {
     23: [
       {
-        en: "Appears or is referenced in Chapter 23.",
-        zh: "在第 23 回中出场或被提及。",
+        en: "In Chapter 23, 姬亮轩 appears and engages in conversation, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "且说孙嗣徽今日出门是找他一个亲戚，系姑表妻舅，姓姬叫作亮轩，江苏常州府金匮县人，向办刑钱，屡食重聘，因其品行不端，以致闻风畏惕。",
       },
     ],
     27: [
       {
-        en: "Appears or is referenced in Chapter 27.",
-        zh: "在第 27 回中出场或被提及。",
+        en: "In Chapter 27, 姬亮轩 briefly enters the narrative, adding to the ongoing events.",
+        zh: "姬亮轩每到情急求他，竟是勉强应酬，不是那从前服贴光景。",
       },
     ],
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 姬亮轩 appears and experiences a moment of introspection or emotion.",
+        zh: "倒是姬亮轩在那里假热闹，心上想闹闹新房，自有两位废物招接。",
       },
     ],
     42: [
       {
-        en: "Appears or is referenced in Chapter 42.",
-        zh: "在第 42 回中出场或被提及。",
+        en: "In Chapter 42, 姬亮轩 appears and is involved in musical or theatrical performance.",
+        zh: "一个是乌大傻，一个是姬亮轩，他二人新在戏园里认识。",
       },
     ],
     43: [
       {
-        en: "Appears or is referenced in Chapter 43.",
-        zh: "在第 43 回中出场或被提及。",
+        en: "In Chapter 43, 姬亮轩 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "话说琴言是晚听姬亮轩、乌大傻说了多少瞎话，更加烦闷，幸他们就出去了。候到二更，不见宝珠、素兰过来，只得睡了。",
       },
     ],
     50: [
       {
-        en: "Appears or is referenced in Chapter 50.",
-        zh: "在第 50 回中出场或被提及。",
+        en: "In Chapter 50, 姬亮轩 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "玉天仙吃了饭，谢了菊花要回，菊花送出来。到了二门，两人还是依依的拉着手，站住说话。姬亮轩在书房里听得清清楚楚，便剜破窗纸，闭着一眼，睁着一眼，从窗隙里望将出去。",
       },
     ],
     58: [
       {
-        en: "Appears or is referenced in Chapter 58.",
-        zh: "在第 58 回中出场或被提及。",
+        en: "In Chapter 58, 姬亮轩 appears and is present in the gathering.",
+        zh: "到了明日，早饭后，奚十一即拉了姬亮轩，坐了车，巴英官骑了马，到了九香楼。",
       },
     ],
   },
@@ -4183,292 +4183,292 @@ export const characterAppearances: Record<
   "char-154": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 浣兰 briefly enters the narrative, adding to the ongoing events.",
+        zh: "并无嗣子，只生二女：长名浣香，次名浣兰，皆生得华容绝代，每于花下闲行，有百蝶随舞。",
       },
     ],
     49: [
       {
-        en: "Appears or is referenced in Chapter 49.",
-        zh: "在第 49 回中出场或被提及。",
+        en: "In Chapter 49, 浣兰 appears and engages in conversation.",
+        zh: "方才说的二世妹，叫浣兰，一母所生的。",
       },
     ],
     54: [
       {
-        en: "Appears or is referenced in Chapter 54.",
-        zh: "在第 54 回中出场或被提及。",
+        en: "In Chapter 54, 浣兰 briefly enters the narrative, adding to the ongoing events.",
+        zh: "还有那浣香、浣兰这几首七律，真是绣口锦心，香因慧果，这两人不知是那里人？",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 浣兰 briefly enters the narrative, adding to the ongoing events.",
+        zh: "于十月初十日，请了华公子的夫人苏浣香、田春航的夫人浣兰、刘文泽的夫人吴紫烟、颜仲清的夫人王蓉华、梅子玉的夫人琼华、王恂的夫人孙佩秋。",
       },
     ],
   },
   "char-155": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 红雪 briefly enters the narrative, adding to the ongoing events.",
+        zh: "遂于十二红丫鬟中带了红雪，红□、红香、红玉、红薇、红雯六个，都是盈盈十五，窈窕多姿，识字能书，工诗善绣。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 红雪 appears and engages in conversation.",
+        zh: "」夫人道：「以后唯《红雪楼九种》可以匹敌，余皆不及。",
       },
     ],
     46: [
       {
-        en: "Appears or is referenced in Chapter 46.",
-        zh: "在第 46 回中出场或被提及。",
+        en: "In Chapter 46, 红雪 briefly enters the narrative, adding to the ongoing events.",
+        zh: "」便数今天添的对子，已有了二十二副，内有最多者是子玉与他自己，其余也有两副的，惟文泽、王恂只有一副，未免不公，于是烦王恂、文泽各撰一副，又改稻庄为红雪西庄。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 红雪 appears and is present in the gathering.",
+        zh: "徐家的红雪、红莲、红香、红玉、红梅、红月、红露、红□八个，并华家六珠，与那些家人媳妇丫鬟们，整整坐了八桌。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 红雪 briefly enters the narrative, adding to the ongoing events.",
+        zh: "绮香命红雪、红云、红玉调丝品竹，小拍清歌。",
       },
     ],
   },
   "char-156": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 红香 briefly enters the narrative, adding to the ongoing events.",
+        zh: "遂于十二红丫鬟中带了红雪，红□、红香、红玉、红薇、红雯六个，都是盈盈十五，窈窕多姿，识字能书，工诗善绣。",
       },
     ],
     16: [
       {
-        en: "Appears or is referenced in Chapter 16.",
-        zh: "在第 16 回中出场或被提及。",
+        en: "In Chapter 16, 红香 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "却说子玉因聘才去了，心中也着实思念了几天。此时是四月中旬，因有个闰五月，所以节气较迟，尚见芍药盛开，庭外又有丁香、海棠等，红香粉腻，素面冰心，独自玩赏了一回。",
       },
     ],
     25: [
       {
-        en: "Appears or is referenced in Chapter 25.",
-        zh: "在第 25 回中出场或被提及。",
+        en: "In Chapter 25, 红香 appears and observes the surroundings, moves through the scene, and is present in the gathering.",
+        zh: "华公子等进了水榭，一望尽是荷花，红香芬馥，翠盖缤纷，好个色天香界，遂又入席坐定。",
       },
     ],
     37: [
       {
-        en: "Appears or is referenced in Chapter 37.",
-        zh: "在第 37 回中出场或被提及。",
+        en: "In Chapter 37, 红香 appears and is involved in musical or theatrical performance.",
+        zh: "长廊曲槛钩连，绿萼红香围绕。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 红香 appears and is present in the gathering.",
+        zh: "徐家的红雪、红莲、红香、红玉、红梅、红月、红露、红□八个，并华家六珠，与那些家人媳妇丫鬟们，整整坐了八桌。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 红香 appears and participates in a meal or drinking session.",
+        zh: "」就先点自己的丫鬟，点了红香、红玉、红雪、红雯、红薇、红莲、红□、红娟，其余那四个不能饮酒。",
       },
     ],
   },
   "char-157": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 花珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "又有十个美婢，名字都有一个珠子，宝珠、明珠、爱珠、花珠、荷珠、蕊珠、掌珠、珍珠、画珠、赠珠。",
       },
     ],
     26: [
       {
-        en: "Appears or is referenced in Chapter 26.",
-        zh: "在第 26 回中出场或被提及。",
+        en: "In Chapter 26, 花珠 appears and engages in conversation.",
+        zh: "花珠亦在旁蹲着，拖下一条大红绦子，一半在地，就道：「爷今日像醉了，只管打量我们。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 花珠 appears and engages in conversation and moves through the scene.",
+        zh: "约有两刻工夫，听得环□▉▉，华夫人带了明珠、花珠、荷珠、赠珠四个女婢过来，华公子笑面相迎。",
       },
     ],
     44: [
       {
-        en: "Appears or is referenced in Chapter 44.",
-        zh: "在第 44 回中出场或被提及。",
+        en: "In Chapter 44, 花珠 appears and moves through the scene.",
+        zh: "」珊枝知是花珠、荷珠，就急往园中来。",
       },
     ],
     45: [
       {
-        en: "Appears or is referenced in Chapter 45.",
-        zh: "在第 45 回中出场或被提及。",
+        en: "In Chapter 45, 花珠 appears and observes the surroundings, experiences a moment of introspection or emotion, and is involved in musical or theatrical performance.",
+        zh: "望见琴言穿着随身的月白夹袄，脚上是双大红盘花珠履，倚着海棠花树，对着块太湖石，在那里凝思。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 花珠 appears and engages in conversation, moves through the scene, and is present in the gathering.",
+        zh: "」即叫浣香的爱珠、花珠过来，道：「你两人到我大国来立些功业，不要在你那个小国埋没。",
       },
     ],
   },
   "char-158": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 画珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "又有十个美婢，名字都有一个珠子，宝珠、明珠、爱珠、花珠、荷珠、蕊珠、掌珠、珍珠、画珠、赠珠。",
       },
     ],
     26: [
       {
-        en: "Appears or is referenced in Chapter 26.",
-        zh: "在第 26 回中出场或被提及。",
+        en: "In Chapter 26, 画珠 appears and engages in conversation, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "」宝珠答应了，便拉了画珠同去，先将那些东西配定了，又取了一碗香稻米，拎了一瓶雪水出来，也不到厨房，就在公子卧房前，一个八角琉璃亭的廊檐下，生了一个铜炉的火，用个银吊子，慢慢的熬起来。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 画珠 appears and engages in conversation and is involved in musical or theatrical performance.",
+        zh: "《节节高》\n画珠接唱，明珠合着唱道：",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 画珠 appears and is involved in musical or theatrical performance.",
+        zh: "绮香自己点了爱珠、花珠、红香、红玉、红雪、红□，浣香自己留了宝珠、明珠、掌珠，浣兰留了许三姐、小翠，要了荷珠，紫烟留了侍香，要了红薇、赠珠，佩秋留了金凤，要了红莲、红娟，蓉华留了秋莲，要了红雯、画珠，琼华留了青琴，要了珍珠、蕊珠。",
       },
     ],
   },
   "char-159": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 明珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 明珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "犹虑珊网难逢，明珠投暗，卞珍莫识，按剑徒遭，因此常自郁郁。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 明珠 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "」子玉过来，与聘才同看，见头几出是《扫花》、《三醉》、《议剑》、《谒师》、《赏荷》，都已唱过；以下是《功宴》、《瑶台》、《舞盘》、《偷诗》、《题曲》、《山门》、《出猎》、《回猎》、《游园惊梦》，末后是《明珠记》上的《侠隐》，子玉悄悄的向聘才道：「戏倒罢了，只不晓得有琴官的戏没有？",
       },
     ],
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 明珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "又有十个美婢，名字都有一个珠子，宝珠、明珠、爱珠、花珠、荷珠、蕊珠、掌珠、珍珠、画珠、赠珠。",
       },
     ],
     26: [
       {
-        en: "Appears or is referenced in Chapter 26.",
-        zh: "在第 26 回中出场或被提及。",
+        en: "In Chapter 26, 明珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "明珠先送上一盏冰梅汤，掌珠拿了鹅毛扇，轻轻的打着。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 明珠 appears and engages in conversation and moves through the scene.",
+        zh: "约有两刻工夫，听得环□▉▉，华夫人带了明珠、花珠、荷珠、赠珠四个女婢过来，华公子笑面相迎。",
       },
     ],
     45: [
       {
-        en: "Appears or is referenced in Chapter 45.",
-        zh: "在第 45 回中出场或被提及。",
+        en: "In Chapter 45, 明珠 appears and is involved in musical or theatrical performance.",
+        zh: "\n只惜豪华怒□琴，明珠减价珊瑚贱。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 明珠 appears and moves through the scene.",
+        zh: "将要出门，带了宝珠、爱珠、蕊珠、珍珠、明珠、掌珠六婢，又带了小香儿与两个仆妇。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 明珠 appears and is involved in musical or theatrical performance.",
+        zh: "绮香自己点了爱珠、花珠、红香、红玉、红雪、红□，浣香自己留了宝珠、明珠、掌珠，浣兰留了许三姐、小翠，要了荷珠，紫烟留了侍香，要了红薇、赠珠，佩秋留了金凤，要了红莲、红娟，蓉华留了秋莲，要了红雯、画珠，琼华留了青琴，要了珍珠、蕊珠。",
       },
     ],
     60: [
       {
-        en: "Appears or is referenced in Chapter 60.",
-        zh: "在第 60 回中出场或被提及。",
+        en: "In Chapter 60, 明珠 appears and observes the surroundings.",
+        zh: "」看第四方，一个仙女月佩霓裳，十分娇艳，手捧明珠一颗，题曰：弄珠花史袁仙。",
       },
     ],
   },
   "char-160": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 荷珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "又有十个美婢，名字都有一个珠子，宝珠、明珠、爱珠、花珠、荷珠、蕊珠、掌珠、珍珠、画珠、赠珠。",
       },
     ],
     26: [
       {
-        en: "Appears or is referenced in Chapter 26.",
-        zh: "在第 26 回中出场或被提及。",
+        en: "In Chapter 26, 荷珠 appears and is present in the gathering.",
+        zh: "荷珠与公子换了件轻纱衫子，都在两旁站着。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 荷珠 appears and engages in conversation and moves through the scene.",
+        zh: "约有两刻工夫，听得环□▉▉，华夫人带了明珠、花珠、荷珠、赠珠四个女婢过来，华公子笑面相迎。",
       },
     ],
     44: [
       {
-        en: "Appears or is referenced in Chapter 44.",
-        zh: "在第 44 回中出场或被提及。",
+        en: "In Chapter 44, 荷珠 appears and moves through the scene.",
+        zh: "」珊枝知是花珠、荷珠，就急往园中来。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 荷珠 appears and is involved in musical or theatrical performance.",
+        zh: "绮香自己点了爱珠、花珠、红香、红玉、红雪、红□，浣香自己留了宝珠、明珠、掌珠，浣兰留了许三姐、小翠，要了荷珠，紫烟留了侍香，要了红薇、赠珠，佩秋留了金凤，要了红莲、红娟，蓉华留了秋莲，要了红雯、画珠，琼华留了青琴，要了珍珠、蕊珠。",
       },
     ],
   },
   "char-161": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 蕊珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "又有十个美婢，名字都有一个珠子，宝珠、明珠、爱珠、花珠、荷珠、蕊珠、掌珠、珍珠、画珠、赠珠。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 蕊珠 appears and engages in conversation, observes the surroundings, and is involved in musical or theatrical performance.",
+        zh: "」见蕊珠唱起，宝珠合着唱道：",
       },
     ],
     44: [
       {
-        en: "Appears or is referenced in Chapter 44.",
-        zh: "在第 44 回中出场或被提及。",
+        en: "In Chapter 44, 蕊珠 appears and observes the surroundings and moves through the scene.",
+        zh: "珊枝便轻了脚步，绕到西边，隐身在太湖石后，从石穴中远远望去，只见蕊珠穿了桃红绸袄，绿绸背心，跪在桃花林下，背的是《长恨歌》，背到了：",
       },
     ],
     46: [
       {
-        en: "Appears or is referenced in Chapter 46.",
-        zh: "在第 46 回中出场或被提及。",
+        en: "In Chapter 46, 蕊珠 appears and engages in conversation.",
+        zh: "道翁道：「此处既供设花神，索性做个花神庙，改名为蕊珠仙府，湘帆兄可再咏一联。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 蕊珠 appears and moves through the scene.",
+        zh: "将要出门，带了宝珠、爱珠、蕊珠、珍珠、明珠、掌珠六婢，又带了小香儿与两个仆妇。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 蕊珠 appears and is involved in musical or theatrical performance.",
+        zh: "绮香自己点了爱珠、花珠、红香、红玉、红雪、红□，浣香自己留了宝珠、明珠、掌珠，浣兰留了许三姐、小翠，要了荷珠，紫烟留了侍香，要了红薇、赠珠，佩秋留了金凤，要了红莲、红娟，蓉华留了秋莲，要了红雯、画珠，琼华留了青琴，要了珍珠、蕊珠。",
       },
     ],
   },
