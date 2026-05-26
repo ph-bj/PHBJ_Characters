@@ -105,6 +105,11 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .on("drag", dragged)
         .on("end", dragended) as any);
 
+    // Opaque background circle to hide lines behind the node
+    node.append("circle")
+      .attr("r", nodeRadius)
+      .attr("fill", "#f4ecd8");
+
     node.append("circle")
       .attr("r", nodeRadius)
       .attr("fill", (d: any) => `${ROLE_COLORS[d.role] || ROLE_COLORS.Other}22`) // 22 is ~13% opacity for parchment feel
