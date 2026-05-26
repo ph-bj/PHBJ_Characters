@@ -2,7 +2,10 @@
 // Key: character id → chapter number → array of bilingual scene descriptions.
 export type SceneBullet = { en: string; zh: string };
 
-export const characterAppearances: Record<string, Record<number, SceneBullet[]>> = {
+export const characterAppearances: Record<
+  string,
+  Record<number, SceneBullet[]>
+> = {
   "char-0": {
     1: [
       {
@@ -531,7 +534,6 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
-
   "char-1": {
     2: [
       {
@@ -940,7 +942,6 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
-
   "char-2": {
     4: [
       {
@@ -1543,6 +1544,22 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-12": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-13": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
   "char-14": {
     19: [
       {
@@ -1625,11 +1642,35 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-16": {
+    17: [
+      {
+        en: "Appears or is referenced in Chapter 17.",
+        zh: "在第 17 回中出场或被提及。",
+      },
+    ],
+  },
   "char-17": {
     60: [
       {
         en: "The Lantern Festival brings the novel full circle. Xu Ziyun hosts one last great gathering at the Yi Garden; fireworks turn the night sky to daylight; Du Qinyan sits among friends — no longer a theatre boy but a scholar among scholars — and feels the long nightmare of the south dissolve like fog. It is Jin Jifu who gives the evening its lasting shape: he proposes that the nine celebrated beauties of the Nine Fragrance Pavilion be commemorated in portrait and prose, carved in stone to outlast them all, enshrined as flower deities. The company draws lots for assignments with the delighted solemnity of a literary game — and the lots fall with the uncanny aptness of fate: Mei Ziyu draws Du Qinyan and the Lady Du, the two souls most entwined with his own. Yan Zhongqing, Wang Xun, Gao Pin, Tian Chunhang — each receives his subject as though the slips of paper already knew. The novel closes not with loss but with consecration: art and friendship conspiring to make beauty permanent.",
         zh: "元宵佳节，子云大宴群友，琴仙重回京城，与众名旦、名士把酒言欢，旧日艰辛恍若隔世一梦。席间金吉甫提议以九香楼诸人入画立传，刻石传世，众人一拍即合，拈阄分赋，子玉得琴仙与杜仙女，缘分天定，令人叹服。小说以众人共绘花神图、分写传赞作结，屈道翁精神永存，一段才子佳人的传奇，于诗画流传中获得了超越时间的不朽。",
+      },
+    ],
+  },
+  "char-18": {
+    56: [
+      {
+        en: "Appears or is referenced in Chapter 56.",
+        zh: "在第 56 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-19": {
+    59: [
+      {
+        en: "Appears or is referenced in Chapter 59.",
+        zh: "在第 59 回中出场或被提及。",
       },
     ],
   },
@@ -1961,6 +2002,142 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-34": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-35": {
+    4: [
+      {
+        en: "Appears or is referenced in Chapter 4.",
+        zh: "在第 4 回中出场或被提及。",
+      },
+    ],
+    12: [
+      {
+        en: "Appears or is referenced in Chapter 12.",
+        zh: "在第 12 回中出场或被提及。",
+      },
+    ],
+    22: [
+      {
+        en: "Appears or is referenced in Chapter 22.",
+        zh: "在第 22 回中出场或被提及。",
+      },
+    ],
+    24: [
+      {
+        en: "Appears or is referenced in Chapter 24.",
+        zh: "在第 24 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-36": {
+    4: [
+      {
+        en: "Appears or is referenced in Chapter 4.",
+        zh: "在第 4 回中出场或被提及。",
+      },
+    ],
+    16: [
+      {
+        en: "Appears or is referenced in Chapter 16.",
+        zh: "在第 16 回中出场或被提及。",
+      },
+    ],
+    18: [
+      {
+        en: "Appears or is referenced in Chapter 18.",
+        zh: "在第 18 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-37": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+    4: [
+      {
+        en: "Appears or is referenced in Chapter 4.",
+        zh: "在第 4 回中出场或被提及。",
+      },
+    ],
+    12: [
+      {
+        en: "Appears or is referenced in Chapter 12.",
+        zh: "在第 12 回中出场或被提及。",
+      },
+    ],
+    30: [
+      {
+        en: "Appears or is referenced in Chapter 30.",
+        zh: "在第 30 回中出场或被提及。",
+      },
+    ],
+    34: [
+      {
+        en: "Appears or is referenced in Chapter 34.",
+        zh: "在第 34 回中出场或被提及。",
+      },
+    ],
+    49: [
+      {
+        en: "Appears or is referenced in Chapter 49.",
+        zh: "在第 49 回中出场或被提及。",
+      },
+    ],
+    52: [
+      {
+        en: "Appears or is referenced in Chapter 52.",
+        zh: "在第 52 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-38": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+    8: [
+      {
+        en: "Appears or is referenced in Chapter 8.",
+        zh: "在第 8 回中出场或被提及。",
+      },
+    ],
+    9: [
+      {
+        en: "Appears or is referenced in Chapter 9.",
+        zh: "在第 9 回中出场或被提及。",
+      },
+    ],
+    21: [
+      {
+        en: "Appears or is referenced in Chapter 21.",
+        zh: "在第 21 回中出场或被提及。",
+      },
+    ],
+  },
   "char-39": {
     19: [
       {
@@ -2017,11 +2194,65 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-43": {
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-44": {
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+  },
   "char-45": {
     19: [
       {
         en: "Acting on Zhang Zhongyu",
         zh: "聘才依张仲雨所授，在华府内先从林珊枝处下手，以昆曲技艺一鸣惊人，获珊枝赞誉，渐入华公子视野。他又广撒小恩小惠，将府中上下打点得熨熨帖帖，人人称好。某日趁华公子出门，聘才约了张笑梅出城，到冯子佩家中闲聚，又遇杨梅窗，四人相携到酒楼小饮。席间叫来相公，琴言、玉林皆以病辞，蓉官赴约，聘才心知琴言对除子玉以外的人始终冷淡。觥筹交错、嬉笑取闹之间，聘才自报进了华公府，二喜等顿时另眼相看。繁华热闹的表面下，众人各怀算盘，情义与利益的边界日渐模糊。",
+      },
+    ],
+  },
+  "char-46": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+    8: [
+      {
+        en: "Appears or is referenced in Chapter 8.",
+        zh: "在第 8 回中出场或被提及。",
+      },
+    ],
+    9: [
+      {
+        en: "Appears or is referenced in Chapter 9.",
+        zh: "在第 9 回中出场或被提及。",
+      },
+    ],
+    21: [
+      {
+        en: "Appears or is referenced in Chapter 21.",
+        zh: "在第 21 回中出场或被提及。",
       },
     ],
   },
@@ -2065,11 +2296,183 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-49": {
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+    15: [
+      {
+        en: "Appears or is referenced in Chapter 15.",
+        zh: "在第 15 回中出场或被提及。",
+      },
+    ],
+    23: [
+      {
+        en: "Appears or is referenced in Chapter 23.",
+        zh: "在第 23 回中出场或被提及。",
+      },
+    ],
+    27: [
+      {
+        en: "Appears or is referenced in Chapter 27.",
+        zh: "在第 27 回中出场或被提及。",
+      },
+    ],
+    30: [
+      {
+        en: "Appears or is referenced in Chapter 30.",
+        zh: "在第 30 回中出场或被提及。",
+      },
+    ],
+    32: [
+      {
+        en: "Appears or is referenced in Chapter 32.",
+        zh: "在第 32 回中出场或被提及。",
+      },
+    ],
+    38: [
+      {
+        en: "Appears or is referenced in Chapter 38.",
+        zh: "在第 38 回中出场或被提及。",
+      },
+    ],
+    39: [
+      {
+        en: "Appears or is referenced in Chapter 39.",
+        zh: "在第 39 回中出场或被提及。",
+      },
+    ],
+    51: [
+      {
+        en: "Appears or is referenced in Chapter 51.",
+        zh: "在第 51 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-50": {
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+    49: [
+      {
+        en: "Appears or is referenced in Chapter 49.",
+        zh: "在第 49 回中出场或被提及。",
+      },
+    ],
+    52: [
+      {
+        en: "Appears or is referenced in Chapter 52.",
+        zh: "在第 52 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-51": {
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+    30: [
+      {
+        en: "Appears or is referenced in Chapter 30.",
+        zh: "在第 30 回中出场或被提及。",
+      },
+    ],
+    52: [
+      {
+        en: "Appears or is referenced in Chapter 52.",
+        zh: "在第 52 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-52": {
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+    30: [
+      {
+        en: "Appears or is referenced in Chapter 30.",
+        zh: "在第 30 回中出场或被提及。",
+      },
+    ],
+    39: [
+      {
+        en: "Appears or is referenced in Chapter 39.",
+        zh: "在第 39 回中出场或被提及。",
+      },
+    ],
+    52: [
+      {
+        en: "Appears or is referenced in Chapter 52.",
+        zh: "在第 52 回中出场或被提及。",
+      },
+    ],
+    59: [
+      {
+        en: "Appears or is referenced in Chapter 59.",
+        zh: "在第 59 回中出场或被提及。",
+      },
+    ],
+  },
   "char-53": {
     16: [
       {
         en: "With Shize gone to Jiangxi, the Mei household settles into a gentle routine: Lady Yan manages domestic affairs, the steward Xu Shun oversees the outer staff, and Ziyu bends himself to his studies. On fine days he gathers Liu Wenze, Yan Zhongqing, and a few other kindred spirits for poetry parties — brushes, ink, and wine on a clean table, the world held at bay. Wei Pincai, by contrast, grows restless and schemes his way into the household of Hua Guangsu as a resident guest, imagining that proximity to such wealth and influence must lead somewhere. He is quickly disillusioned. Hundreds of parasites already crowd the Hua establishment; the servants are arrogant; Hua himself remains invisible behind a wall of engagements and excuses. Pincai endures a month of thankless socialising and mounting expenditure, unable to secure even a proper introduction to his host. The chapter offers a dry, sharp-eyed portrait of a great household",
         zh: "梅士燮赴任之后，梅宅内由颜夫人主掌，外由管家许顺经理，秩序如故。子玉专心攻读，花晨月夕偶邀刘文泽、颜仲清等知己小聚，把酒清谈，题诗分韵，悠然自得。魏聘才则百无聊赖，思谋着自谋出路，辗转托富三爷引荐，进了华光宿门下做食客。华公子府中门客数百，奴仆横行，聘才进去一月，始终见不着主人一面，尽是赔累，内心郁郁。贫富之间的落差、富贵场中的势利人情，借聘才的眼睛一一呈现，嘲弄之意隐于字里行间。",
+      },
+    ],
+  },
+  "char-54": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+    16: [
+      {
+        en: "Appears or is referenced in Chapter 16.",
+        zh: "在第 16 回中出场或被提及。",
+      },
+    ],
+    34: [
+      {
+        en: "Appears or is referenced in Chapter 34.",
+        zh: "在第 34 回中出场或被提及。",
+      },
+    ],
+    50: [
+      {
+        en: "Appears or is referenced in Chapter 50.",
+        zh: "在第 50 回中出场或被提及。",
       },
     ],
   },
@@ -2167,6 +2570,78 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-57": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-58": {
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-59": {
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-60": {
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-61": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-62": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-63": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-64": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-65": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
   "char-66": {
     48: [
       {
@@ -2180,6 +2655,38 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       {
         en: "A hundred days of mourning have stripped Qinyan of nearly everything. The money is gone; the warm clothes are pawned. Old retainer Liu Xi sets up a modest fruit stall at the temple gate while Qinyan paints flowers on raw paper to sell to passers-by — and discovers, to his own surprise, that his brushwork commands real admiration: a peony sells for two hundred cash, a plum blossom for a hundred and fifty, and a customer commissions a full eight-panel screen. Then Historian Hou arrives, all unctuous concern and subtle pressure, offering money and a comfortable room in his household — with unmistakable intent. Qinyan receives him with a face like winter ice and sends him away unthanked, choosing dignified poverty over purchased comfort. Letters go out to Mei Ziyu, Xu Ziyun, and Su Huifang — careful, heartfelt, each one a lifeline cast into the distance.",
         zh: "琴仙在南京护国寺为道翁守灵已逾百日，盘缠耗尽，衣单食薄。刘喜在庙门口摆摊卖果，琴仙则以丹青糊口，在生纸上画花卉出售，竟颇受好评。道貌岸然的侯太史携金登门，企图趁人之危笼络琴仙，被琴仙冷脸相拒，其虚伪嘴脸暴露无遗。琴仙写信向子玉、子云、蕙芳等人求援，心中对子玉的牵念，如寒冬里一炉炭火，始终不曾熄灭。",
+      },
+    ],
+  },
+  "char-68": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-69": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-70": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-71": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
       },
     ],
   },
@@ -2241,6 +2748,20 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-74": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+    45: [
+      {
+        en: "Appears or is referenced in Chapter 45.",
+        zh: "在第 45 回中出场或被提及。",
+      },
+    ],
+  },
   "char-75": {
     34: [
       {
@@ -2252,6 +2773,14 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       {
         en: "The night",
         zh: "一夜之间，聘才寄存的箱笼、拜匣遭贼洗劫，金银细软悉数被盗，仅余几件棉衣和一块摔碎的洋表。众人趁月色搜查菜园，发现空箱弃于墙角，灌园伙计神秘失踪。唐和尚疑是内贼，将种菜人夫妇绑缚审问，老婆子哭天抢地。聘才清点损失逾千金，草草报了官，坊里几番审讯，终查明是那新来伙计蔡某借机逃盗，案情虽明，人却早已无踪。宝珠生日喜宴与聘才的遭窃之夜遥相对照，世间悲喜从不相让，热闹与凄凉往往只隔一墙之遥。",
+      },
+    ],
+  },
+  "char-76": {
+    8: [
+      {
+        en: "Appears or is referenced in Chapter 8.",
+        zh: "在第 8 回中出场或被提及。",
       },
     ],
   },
@@ -2337,11 +2866,77 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-79": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-80": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-81": {
+    39: [
+      {
+        en: "Appears or is referenced in Chapter 39.",
+        zh: "在第 39 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-82": {
+    23: [
+      {
+        en: "Appears or is referenced in Chapter 23.",
+        zh: "在第 23 回中出场或被提及。",
+      },
+    ],
+  },
   "char-83": {
     4: [
       {
         en: "An overnight snowfall blankets Beijing in five inches of white — a rare winter gift after months of dry winds. Tutor Li Xingquan, struck by the chill, retreats to bed, leaving Ziyu gloriously unsupervised. He settles into his study, the Twenty-Four Qin Chamber, to read Xie Huilian",
         zh: "腊雪忽至，一夜铺下五寸，琼装世界。先生性全感了风寒，卧床休养，子玉得了片刻自由，独坐二十四琴斋，翻阅谢惠连《雪赋》消遣。他唤来聘才、元茂，备下佳肴，共在雪景中小酌赏玩。席间他再问聘才琴官近况，聘才此时改了口风，将琴官的才情身份盛赞一番，令子玉愈加倾慕，心想若能在这雪天一见玉人，当真胜过瑶岛看花。饭后煮雪煎茶，别有韵味。不多时，颜仲清遣人送来书信一封，附有王恂初稿的《雪窗八咏》组诗——雪山、雪塔、雪屏、雪灯，逐一吟咏，工整华美。子玉阅后大为赞赏，当即着手应和，一股少年才子的诗情在雪天里自然流露，令人忘却了室外的寒意。",
+      },
+    ],
+  },
+  "char-84": {
+    30: [
+      {
+        en: "Appears or is referenced in Chapter 30.",
+        zh: "在第 30 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-85": {
+    4: [
+      {
+        en: "Appears or is referenced in Chapter 4.",
+        zh: "在第 4 回中出场或被提及。",
+      },
+    ],
+    56: [
+      {
+        en: "Appears or is referenced in Chapter 56.",
+        zh: "在第 56 回中出场或被提及。",
       },
     ],
   },
@@ -2416,6 +3011,64 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       {
         en: "October brings a different kind of gathering to the Yi Garden. Yuan Qixiang, wife of Xu Ziyun, hosts six of Beijing",
         zh: "十月，怡园重归热闹，袁绮香设宴邀请七位名门夫人赏菊。苏浣香、吴紫烟、颜蓉华、梅琼华等佳人云集宝香堂，锦褥翠幕，七层菊花堆砌如山。众人仿竹林七贤结拜姊妹，序齿排行，欢声笑语，香风盈袖。席间行酒令、联诗句，才思横溢，相互唱和，宛若群花争妍，百鸟竞鸣，京城闺秀的风雅气象尽在其中。",
+      },
+    ],
+  },
+  "char-87": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-88": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+    4: [
+      {
+        en: "Appears or is referenced in Chapter 4.",
+        zh: "在第 4 回中出场或被提及。",
+      },
+    ],
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+    32: [
+      {
+        en: "Appears or is referenced in Chapter 32.",
+        zh: "在第 32 回中出场或被提及。",
+      },
+    ],
+    39: [
+      {
+        en: "Appears or is referenced in Chapter 39.",
+        zh: "在第 39 回中出场或被提及。",
+      },
+    ],
+    51: [
+      {
+        en: "Appears or is referenced in Chapter 51.",
+        zh: "在第 51 回中出场或被提及。",
       },
     ],
   },
@@ -2509,11 +3162,43 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-92": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-93": {
+    43: [
+      {
+        en: "Appears or is referenced in Chapter 43.",
+        zh: "在第 43 回中出场或被提及。",
+      },
+    ],
+  },
   "char-94": {
     49: [
       {
         en: "Mei Ziyu escorts Qinxian to the city gate and watches the carriage diminish into the road dust. The grief hits him like a physical blow: his old illness returns, and he spends a month confined to bed. When he recovers, the city feels rearranged. Tian Chunhang, newly widowed, faces his own domestic crisis. His elderly mother is installed in the new house but accustomed to Southern refinement; the succession of Beijing housemaids she tries proves uniformly unsuitable—one a tireless gossip, another with the habits of a tavern regular. It is the coachman Zhou Xiaosan who solves the problem by recommending his own sister. She arrives looking understated and capable, with a waist like a willow stem and eyes quick with intelligence, and both the old lady and Chunhang are immediately won over. Su Huifang, organizing the household as always from an ambiguous position between guest and steward, finds himself unexpectedly charmed when she addresses him one afternoon—soft-voiced, smiling—as Master Su. A small moment, but the novel watches it with careful attention.",
         zh: "琴仙离京后，子玉大恸，旧病复发，足月方愈。春航家中断弦，太夫人无人服侍，苦于北地难觅贤婢。赶车的周小三推荐了他三姐，那三姐扎着蛾眉，腰细如柳，进门一见，令春航大为惊异。三姐千伶百俐，上下周到，老太太喜欢，蕙芳也待她有几分异样的亲近。一日蕙芳独坐书房，三姐奉命送点心进来，两人相对，各自心事，一时皆沉在那一声软软的",
+      },
+    ],
+  },
+  "char-95": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-96": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
       },
     ],
   },
@@ -2530,6 +3215,172 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       {
         en: "The New Year social season unfolds in Chapter Six. Mei Shixie receives an invitation to the usual cohort banquet — only twelve guests this year, the list shortened by postings and absences — while Lady Yan holds her own gathering for the women of connected families. The two Mrs. Lu sisters, married into the Wang and Sun households respectively, are the social anchors of the scene: both middle-aged, both still handsome, and possessing very different domestic circumstances. The chapter",
         zh: "正月里京城的官场应酬热闹非凡。梅学士收到王文辉同年团拜的请帖，宾客名单寥寥十二人，较往年愈发冷清。颜夫人亦在家中设宴，请来王、孙两家亲眷——两位陆氏夫人姊妹，虽年届四旬，风韵犹存。本回以细腻的笔法刻画了孙家几位奇葩儿媳：嗣徽妻沈芸姑，书香门第出身，嫁了个红鼻子废物丈夫，只得忍辱将陪嫁丫头松儿送与他收房，自己泪洗面；嗣元妻巴来风，武将之女，性气燥烈，十七岁嫁入孙家，却遭遇了另一番窘境。本回以对比笔法写尽了官宦之家后院的参差众生相：有的夫妻和谐，有的凑合将就，有的悲苦无声。笔墨虽属旁线，却将彼时贵族婚姻的荒诞与女子命运的无奈刻画入骨。",
+      },
+    ],
+  },
+  "char-99": {
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-100": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+    52: [
+      {
+        en: "Appears or is referenced in Chapter 52.",
+        zh: "在第 52 回中出场或被提及。",
+      },
+    ],
+    54: [
+      {
+        en: "Appears or is referenced in Chapter 54.",
+        zh: "在第 54 回中出场或被提及。",
+      },
+    ],
+    57: [
+      {
+        en: "Appears or is referenced in Chapter 57.",
+        zh: "在第 57 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-101": {
+    58: [
+      {
+        en: "Appears or is referenced in Chapter 58.",
+        zh: "在第 58 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-102": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+    4: [
+      {
+        en: "Appears or is referenced in Chapter 4.",
+        zh: "在第 4 回中出场或被提及。",
+      },
+    ],
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+    9: [
+      {
+        en: "Appears or is referenced in Chapter 9.",
+        zh: "在第 9 回中出场或被提及。",
+      },
+    ],
+    10: [
+      {
+        en: "Appears or is referenced in Chapter 10.",
+        zh: "在第 10 回中出场或被提及。",
+      },
+    ],
+    15: [
+      {
+        en: "Appears or is referenced in Chapter 15.",
+        zh: "在第 15 回中出场或被提及。",
+      },
+    ],
+    21: [
+      {
+        en: "Appears or is referenced in Chapter 21.",
+        zh: "在第 21 回中出场或被提及。",
+      },
+    ],
+    22: [
+      {
+        en: "Appears or is referenced in Chapter 22.",
+        zh: "在第 22 回中出场或被提及。",
+      },
+    ],
+    28: [
+      {
+        en: "Appears or is referenced in Chapter 28.",
+        zh: "在第 28 回中出场或被提及。",
+      },
+    ],
+    29: [
+      {
+        en: "Appears or is referenced in Chapter 29.",
+        zh: "在第 29 回中出场或被提及。",
+      },
+    ],
+    31: [
+      {
+        en: "Appears or is referenced in Chapter 31.",
+        zh: "在第 31 回中出场或被提及。",
+      },
+    ],
+    33: [
+      {
+        en: "Appears or is referenced in Chapter 33.",
+        zh: "在第 33 回中出场或被提及。",
+      },
+    ],
+    36: [
+      {
+        en: "Appears or is referenced in Chapter 36.",
+        zh: "在第 36 回中出场或被提及。",
+      },
+    ],
+    45: [
+      {
+        en: "Appears or is referenced in Chapter 45.",
+        zh: "在第 45 回中出场或被提及。",
+      },
+    ],
+    53: [
+      {
+        en: "Appears or is referenced in Chapter 53.",
+        zh: "在第 53 回中出场或被提及。",
+      },
+    ],
+    59: [
+      {
+        en: "Appears or is referenced in Chapter 59.",
+        zh: "在第 59 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-103": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+    4: [
+      {
+        en: "Appears or is referenced in Chapter 4.",
+        zh: "在第 4 回中出场或被提及。",
       },
     ],
   },
@@ -2553,11 +3404,239 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-105": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-106": {
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+    9: [
+      {
+        en: "Appears or is referenced in Chapter 9.",
+        zh: "在第 9 回中出场或被提及。",
+      },
+    ],
+    15: [
+      {
+        en: "Appears or is referenced in Chapter 15.",
+        zh: "在第 15 回中出场或被提及。",
+      },
+    ],
+    33: [
+      {
+        en: "Appears or is referenced in Chapter 33.",
+        zh: "在第 33 回中出场或被提及。",
+      },
+    ],
+    39: [
+      {
+        en: "Appears or is referenced in Chapter 39.",
+        zh: "在第 39 回中出场或被提及。",
+      },
+    ],
+    59: [
+      {
+        en: "Appears or is referenced in Chapter 59.",
+        zh: "在第 59 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-107": {
+    8: [
+      {
+        en: "Appears or is referenced in Chapter 8.",
+        zh: "在第 8 回中出场或被提及。",
+      },
+    ],
+    15: [
+      {
+        en: "Appears or is referenced in Chapter 15.",
+        zh: "在第 15 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-108": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+    4: [
+      {
+        en: "Appears or is referenced in Chapter 4.",
+        zh: "在第 4 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-109": {
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-110": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-111": {
+    7: [
+      {
+        en: "Appears or is referenced in Chapter 7.",
+        zh: "在第 7 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-112": {
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+    8: [
+      {
+        en: "Appears or is referenced in Chapter 8.",
+        zh: "在第 8 回中出场或被提及。",
+      },
+    ],
+    9: [
+      {
+        en: "Appears or is referenced in Chapter 9.",
+        zh: "在第 9 回中出场或被提及。",
+      },
+    ],
+    16: [
+      {
+        en: "Appears or is referenced in Chapter 16.",
+        zh: "在第 16 回中出场或被提及。",
+      },
+    ],
+    21: [
+      {
+        en: "Appears or is referenced in Chapter 21.",
+        zh: "在第 21 回中出场或被提及。",
+      },
+    ],
+    26: [
+      {
+        en: "Appears or is referenced in Chapter 26.",
+        zh: "在第 26 回中出场或被提及。",
+      },
+    ],
+    28: [
+      {
+        en: "Appears or is referenced in Chapter 28.",
+        zh: "在第 28 回中出场或被提及。",
+      },
+    ],
+    29: [
+      {
+        en: "Appears or is referenced in Chapter 29.",
+        zh: "在第 29 回中出场或被提及。",
+      },
+    ],
+    34: [
+      {
+        en: "Appears or is referenced in Chapter 34.",
+        zh: "在第 34 回中出场或被提及。",
+      },
+    ],
+    36: [
+      {
+        en: "Appears or is referenced in Chapter 36.",
+        zh: "在第 36 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-113": {
+    4: [
+      {
+        en: "Appears or is referenced in Chapter 4.",
+        zh: "在第 4 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-114": {
+    7: [
+      {
+        en: "Appears or is referenced in Chapter 7.",
+        zh: "在第 7 回中出场或被提及。",
+      },
+    ],
+  },
   "char-115": {
     6: [
       {
         en: "The New Year social season unfolds in Chapter Six. Mei Shixie receives an invitation to the usual cohort banquet — only twelve guests this year, the list shortened by postings and absences — while Lady Yan holds her own gathering for the women of connected families. The two Mrs. Lu sisters, married into the Wang and Sun households respectively, are the social anchors of the scene: both middle-aged, both still handsome, and possessing very different domestic circumstances. The chapter",
         zh: "正月里京城的官场应酬热闹非凡。梅学士收到王文辉同年团拜的请帖，宾客名单寥寥十二人，较往年愈发冷清。颜夫人亦在家中设宴，请来王、孙两家亲眷——两位陆氏夫人姊妹，虽年届四旬，风韵犹存。本回以细腻的笔法刻画了孙家几位奇葩儿媳：嗣徽妻沈芸姑，书香门第出身，嫁了个红鼻子废物丈夫，只得忍辱将陪嫁丫头松儿送与他收房，自己泪洗面；嗣元妻巴来风，武将之女，性气燥烈，十七岁嫁入孙家，却遭遇了另一番窘境。本回以对比笔法写尽了官宦之家后院的参差众生相：有的夫妻和谐，有的凑合将就，有的悲苦无声。笔墨虽属旁线，却将彼时贵族婚姻的荒诞与女子命运的无奈刻画入骨。",
+      },
+    ],
+  },
+  "char-116": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-117": {
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-118": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-119": {
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-120": {
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
       },
     ],
   },
@@ -2569,6 +3648,208 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-122": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-123": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+    8: [
+      {
+        en: "Appears or is referenced in Chapter 8.",
+        zh: "在第 8 回中出场或被提及。",
+      },
+    ],
+    13: [
+      {
+        en: "Appears or is referenced in Chapter 13.",
+        zh: "在第 13 回中出场或被提及。",
+      },
+    ],
+    16: [
+      {
+        en: "Appears or is referenced in Chapter 16.",
+        zh: "在第 16 回中出场或被提及。",
+      },
+    ],
+    22: [
+      {
+        en: "Appears or is referenced in Chapter 22.",
+        zh: "在第 22 回中出场或被提及。",
+      },
+    ],
+    25: [
+      {
+        en: "Appears or is referenced in Chapter 25.",
+        zh: "在第 25 回中出场或被提及。",
+      },
+    ],
+    28: [
+      {
+        en: "Appears or is referenced in Chapter 28.",
+        zh: "在第 28 回中出场或被提及。",
+      },
+    ],
+    29: [
+      {
+        en: "Appears or is referenced in Chapter 29.",
+        zh: "在第 29 回中出场或被提及。",
+      },
+    ],
+    34: [
+      {
+        en: "Appears or is referenced in Chapter 34.",
+        zh: "在第 34 回中出场或被提及。",
+      },
+    ],
+    36: [
+      {
+        en: "Appears or is referenced in Chapter 36.",
+        zh: "在第 36 回中出场或被提及。",
+      },
+    ],
+    40: [
+      {
+        en: "Appears or is referenced in Chapter 40.",
+        zh: "在第 40 回中出场或被提及。",
+      },
+    ],
+    47: [
+      {
+        en: "Appears or is referenced in Chapter 47.",
+        zh: "在第 47 回中出场或被提及。",
+      },
+    ],
+    50: [
+      {
+        en: "Appears or is referenced in Chapter 50.",
+        zh: "在第 50 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-124": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+    8: [
+      {
+        en: "Appears or is referenced in Chapter 8.",
+        zh: "在第 8 回中出场或被提及。",
+      },
+    ],
+    21: [
+      {
+        en: "Appears or is referenced in Chapter 21.",
+        zh: "在第 21 回中出场或被提及。",
+      },
+    ],
+    24: [
+      {
+        en: "Appears or is referenced in Chapter 24.",
+        zh: "在第 24 回中出场或被提及。",
+      },
+    ],
+    34: [
+      {
+        en: "Appears or is referenced in Chapter 34.",
+        zh: "在第 34 回中出场或被提及。",
+      },
+    ],
+    36: [
+      {
+        en: "Appears or is referenced in Chapter 36.",
+        zh: "在第 36 回中出场或被提及。",
+      },
+    ],
+    47: [
+      {
+        en: "Appears or is referenced in Chapter 47.",
+        zh: "在第 47 回中出场或被提及。",
+      },
+    ],
+    50: [
+      {
+        en: "Appears or is referenced in Chapter 50.",
+        zh: "在第 50 回中出场或被提及。",
+      },
+    ],
+    56: [
+      {
+        en: "Appears or is referenced in Chapter 56.",
+        zh: "在第 56 回中出场或被提及。",
+      },
+    ],
+    58: [
+      {
+        en: "Appears or is referenced in Chapter 58.",
+        zh: "在第 58 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-125": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-126": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-127": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+    49: [
+      {
+        en: "Appears or is referenced in Chapter 49.",
+        zh: "在第 49 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-128": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-129": {
+    3: [
+      {
+        en: "Appears or is referenced in Chapter 3.",
+        zh: "在第 3 回中出场或被提及。",
+      },
+    ],
+  },
   "char-130": {
     5: [
       {
@@ -2577,11 +3858,73 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       },
     ],
   },
+  "char-131": {
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-132": {
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-133": {
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+  },
   "char-134": {
     59: [
       {
         en: "A hundred days of mourning have stripped Qinyan of nearly everything. The money is gone; the warm clothes are pawned. Old retainer Liu Xi sets up a modest fruit stall at the temple gate while Qinyan paints flowers on raw paper to sell to passers-by — and discovers, to his own surprise, that his brushwork commands real admiration: a peony sells for two hundred cash, a plum blossom for a hundred and fifty, and a customer commissions a full eight-panel screen. Then Historian Hou arrives, all unctuous concern and subtle pressure, offering money and a comfortable room in his household — with unmistakable intent. Qinyan receives him with a face like winter ice and sends him away unthanked, choosing dignified poverty over purchased comfort. Letters go out to Mei Ziyu, Xu Ziyun, and Su Huifang — careful, heartfelt, each one a lifeline cast into the distance.",
         zh: "琴仙在南京护国寺为道翁守灵已逾百日，盘缠耗尽，衣单食薄。刘喜在庙门口摆摊卖果，琴仙则以丹青糊口，在生纸上画花卉出售，竟颇受好评。道貌岸然的侯太史携金登门，企图趁人之危笼络琴仙，被琴仙冷脸相拒，其虚伪嘴脸暴露无遗。琴仙写信向子玉、子云、蕙芳等人求援，心中对子玉的牵念，如寒冬里一炉炭火，始终不曾熄灭。",
+      },
+    ],
+  },
+  "char-135": {
+    2: [
+      {
+        en: "Appears or is referenced in Chapter 2.",
+        zh: "在第 2 回中出场或被提及。",
+      },
+    ],
+    37: [
+      {
+        en: "Appears or is referenced in Chapter 37.",
+        zh: "在第 37 回中出场或被提及。",
+      },
+    ],
+    45: [
+      {
+        en: "Appears or is referenced in Chapter 45.",
+        zh: "在第 45 回中出场或被提及。",
+      },
+    ],
+    55: [
+      {
+        en: "Appears or is referenced in Chapter 55.",
+        zh: "在第 55 回中出场或被提及。",
+      },
+    ],
+    56: [
+      {
+        en: "Appears or is referenced in Chapter 56.",
+        zh: "在第 56 回中出场或被提及。",
+      },
+    ],
+    59: [
+      {
+        en: "Appears or is referenced in Chapter 59.",
+        zh: "在第 59 回中出场或被提及。",
       },
     ],
   },
@@ -2612,6 +3955,46 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       {
         en: "The moral ledger begins at last to balance. Xi Shiyi, who engineered Du Qinyan",
         zh: "奚十一曾以琴言之事大闹上门，种下的恶因如今开始结出报应之果。他弃旧怜新、玩弄情义，春兰、巴英官皆对其寒心，私下历数他昔日种种不堪，尤其那只诓人的机关桶子，不知害了多少无辜。奚十一一日独自入寺，见得月酣睡，意图轻薄，不料得月腹泻骤发，秽物喷涌，弄得狼狈不堪。另一边厢，潘其观长期于寺庙赌场厮混，输多赢少，欠下烂账，终至众怒，被人揪住痛打，颜面尽失。两人一臭一打，皆因平日作恶多端，天道轮回，报应不爽，令旁观者拍手称快。",
+      },
+    ],
+  },
+  "char-139": {
+    34: [
+      {
+        en: "Appears or is referenced in Chapter 34.",
+        zh: "在第 34 回中出场或被提及。",
+      },
+    ],
+    40: [
+      {
+        en: "Appears or is referenced in Chapter 40.",
+        zh: "在第 40 回中出场或被提及。",
+      },
+    ],
+    47: [
+      {
+        en: "Appears or is referenced in Chapter 47.",
+        zh: "在第 47 回中出场或被提及。",
+      },
+    ],
+    58: [
+      {
+        en: "Appears or is referenced in Chapter 58.",
+        zh: "在第 58 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-140": {
+    47: [
+      {
+        en: "Appears or is referenced in Chapter 47.",
+        zh: "在第 47 回中出场或被提及。",
+      },
+    ],
+    58: [
+      {
+        en: "Appears or is referenced in Chapter 58.",
+        zh: "在第 58 回中出场或被提及。",
       },
     ],
   },
@@ -2664,6 +4047,50 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       {
         en: "Midsummer in the capital: the heat sits on the city like a lid. Tian Chunhang is promised in marriage to Minister Su",
         zh: "盛夏炎炎，春航已与苏侯之女订下婚约，七夕完婚在即。刘文泽路过林春喜门口，顺道拜访，见他书室幽雅，芭蕉叶上密密写满了练笔的字，院中支着小卷篷，盆景点缀其间。春喜将团扇递来，上面画着螳螂捕蝉，栩栩如生，叫文泽看得目瞪口呆。原来春喜这几个月悄悄钻研绘画，已大有长进，连素来挑剔的瑶卿也甘拜下风。文泽索扇不得，讨来一把，心满意足而去。才情与风雅，在这一片消夏的蝉声里，轻盈地流转。",
+      },
+    ],
+  },
+  "char-143": {
+    23: [
+      {
+        en: "Appears or is referenced in Chapter 23.",
+        zh: "在第 23 回中出场或被提及。",
+      },
+    ],
+    27: [
+      {
+        en: "Appears or is referenced in Chapter 27.",
+        zh: "在第 27 回中出场或被提及。",
+      },
+    ],
+    39: [
+      {
+        en: "Appears or is referenced in Chapter 39.",
+        zh: "在第 39 回中出场或被提及。",
+      },
+    ],
+    42: [
+      {
+        en: "Appears or is referenced in Chapter 42.",
+        zh: "在第 42 回中出场或被提及。",
+      },
+    ],
+    43: [
+      {
+        en: "Appears or is referenced in Chapter 43.",
+        zh: "在第 43 回中出场或被提及。",
+      },
+    ],
+    50: [
+      {
+        en: "Appears or is referenced in Chapter 50.",
+        zh: "在第 50 回中出场或被提及。",
+      },
+    ],
+    58: [
+      {
+        en: "Appears or is referenced in Chapter 58.",
+        zh: "在第 58 回中出场或被提及。",
       },
     ],
   },
@@ -2750,6 +4177,298 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
       {
         en: "October brings a different kind of gathering to the Yi Garden. Yuan Qixiang, wife of Xu Ziyun, hosts six of Beijing",
         zh: "十月，怡园重归热闹，袁绮香设宴邀请七位名门夫人赏菊。苏浣香、吴紫烟、颜蓉华、梅琼华等佳人云集宝香堂，锦褥翠幕，七层菊花堆砌如山。众人仿竹林七贤结拜姊妹，序齿排行，欢声笑语，香风盈袖。席间行酒令、联诗句，才思横溢，相互唱和，宛若群花争妍，百鸟竞鸣，京城闺秀的风雅气象尽在其中。",
+      },
+    ],
+  },
+  "char-154": {
+    11: [
+      {
+        en: "Appears or is referenced in Chapter 11.",
+        zh: "在第 11 回中出场或被提及。",
+      },
+    ],
+    49: [
+      {
+        en: "Appears or is referenced in Chapter 49.",
+        zh: "在第 49 回中出场或被提及。",
+      },
+    ],
+    54: [
+      {
+        en: "Appears or is referenced in Chapter 54.",
+        zh: "在第 54 回中出场或被提及。",
+      },
+    ],
+    57: [
+      {
+        en: "Appears or is referenced in Chapter 57.",
+        zh: "在第 57 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-155": {
+    11: [
+      {
+        en: "Appears or is referenced in Chapter 11.",
+        zh: "在第 11 回中出场或被提及。",
+      },
+    ],
+    41: [
+      {
+        en: "Appears or is referenced in Chapter 41.",
+        zh: "在第 41 回中出场或被提及。",
+      },
+    ],
+    46: [
+      {
+        en: "Appears or is referenced in Chapter 46.",
+        zh: "在第 46 回中出场或被提及。",
+      },
+    ],
+    52: [
+      {
+        en: "Appears or is referenced in Chapter 52.",
+        zh: "在第 52 回中出场或被提及。",
+      },
+    ],
+    57: [
+      {
+        en: "Appears or is referenced in Chapter 57.",
+        zh: "在第 57 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-156": {
+    11: [
+      {
+        en: "Appears or is referenced in Chapter 11.",
+        zh: "在第 11 回中出场或被提及。",
+      },
+    ],
+    16: [
+      {
+        en: "Appears or is referenced in Chapter 16.",
+        zh: "在第 16 回中出场或被提及。",
+      },
+    ],
+    25: [
+      {
+        en: "Appears or is referenced in Chapter 25.",
+        zh: "在第 25 回中出场或被提及。",
+      },
+    ],
+    37: [
+      {
+        en: "Appears or is referenced in Chapter 37.",
+        zh: "在第 37 回中出场或被提及。",
+      },
+    ],
+    52: [
+      {
+        en: "Appears or is referenced in Chapter 52.",
+        zh: "在第 52 回中出场或被提及。",
+      },
+    ],
+    57: [
+      {
+        en: "Appears or is referenced in Chapter 57.",
+        zh: "在第 57 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-157": {
+    11: [
+      {
+        en: "Appears or is referenced in Chapter 11.",
+        zh: "在第 11 回中出场或被提及。",
+      },
+    ],
+    26: [
+      {
+        en: "Appears or is referenced in Chapter 26.",
+        zh: "在第 26 回中出场或被提及。",
+      },
+    ],
+    41: [
+      {
+        en: "Appears or is referenced in Chapter 41.",
+        zh: "在第 41 回中出场或被提及。",
+      },
+    ],
+    44: [
+      {
+        en: "Appears or is referenced in Chapter 44.",
+        zh: "在第 44 回中出场或被提及。",
+      },
+    ],
+    45: [
+      {
+        en: "Appears or is referenced in Chapter 45.",
+        zh: "在第 45 回中出场或被提及。",
+      },
+    ],
+    57: [
+      {
+        en: "Appears or is referenced in Chapter 57.",
+        zh: "在第 57 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-158": {
+    11: [
+      {
+        en: "Appears or is referenced in Chapter 11.",
+        zh: "在第 11 回中出场或被提及。",
+      },
+    ],
+    26: [
+      {
+        en: "Appears or is referenced in Chapter 26.",
+        zh: "在第 26 回中出场或被提及。",
+      },
+    ],
+    41: [
+      {
+        en: "Appears or is referenced in Chapter 41.",
+        zh: "在第 41 回中出场或被提及。",
+      },
+    ],
+    57: [
+      {
+        en: "Appears or is referenced in Chapter 57.",
+        zh: "在第 57 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-159": {
+    1: [
+      {
+        en: "Appears or is referenced in Chapter 1.",
+        zh: "在第 1 回中出场或被提及。",
+      },
+    ],
+    5: [
+      {
+        en: "Appears or is referenced in Chapter 5.",
+        zh: "在第 5 回中出场或被提及。",
+      },
+    ],
+    6: [
+      {
+        en: "Appears or is referenced in Chapter 6.",
+        zh: "在第 6 回中出场或被提及。",
+      },
+    ],
+    11: [
+      {
+        en: "Appears or is referenced in Chapter 11.",
+        zh: "在第 11 回中出场或被提及。",
+      },
+    ],
+    26: [
+      {
+        en: "Appears or is referenced in Chapter 26.",
+        zh: "在第 26 回中出场或被提及。",
+      },
+    ],
+    41: [
+      {
+        en: "Appears or is referenced in Chapter 41.",
+        zh: "在第 41 回中出场或被提及。",
+      },
+    ],
+    45: [
+      {
+        en: "Appears or is referenced in Chapter 45.",
+        zh: "在第 45 回中出场或被提及。",
+      },
+    ],
+    52: [
+      {
+        en: "Appears or is referenced in Chapter 52.",
+        zh: "在第 52 回中出场或被提及。",
+      },
+    ],
+    57: [
+      {
+        en: "Appears or is referenced in Chapter 57.",
+        zh: "在第 57 回中出场或被提及。",
+      },
+    ],
+    60: [
+      {
+        en: "Appears or is referenced in Chapter 60.",
+        zh: "在第 60 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-160": {
+    11: [
+      {
+        en: "Appears or is referenced in Chapter 11.",
+        zh: "在第 11 回中出场或被提及。",
+      },
+    ],
+    26: [
+      {
+        en: "Appears or is referenced in Chapter 26.",
+        zh: "在第 26 回中出场或被提及。",
+      },
+    ],
+    41: [
+      {
+        en: "Appears or is referenced in Chapter 41.",
+        zh: "在第 41 回中出场或被提及。",
+      },
+    ],
+    44: [
+      {
+        en: "Appears or is referenced in Chapter 44.",
+        zh: "在第 44 回中出场或被提及。",
+      },
+    ],
+    57: [
+      {
+        en: "Appears or is referenced in Chapter 57.",
+        zh: "在第 57 回中出场或被提及。",
+      },
+    ],
+  },
+  "char-161": {
+    11: [
+      {
+        en: "Appears or is referenced in Chapter 11.",
+        zh: "在第 11 回中出场或被提及。",
+      },
+    ],
+    41: [
+      {
+        en: "Appears or is referenced in Chapter 41.",
+        zh: "在第 41 回中出场或被提及。",
+      },
+    ],
+    44: [
+      {
+        en: "Appears or is referenced in Chapter 44.",
+        zh: "在第 44 回中出场或被提及。",
+      },
+    ],
+    46: [
+      {
+        en: "Appears or is referenced in Chapter 46.",
+        zh: "在第 46 回中出场或被提及。",
+      },
+    ],
+    52: [
+      {
+        en: "Appears or is referenced in Chapter 52.",
+        zh: "在第 52 回中出场或被提及。",
+      },
+    ],
+    57: [
+      {
+        en: "Appears or is referenced in Chapter 57.",
+        zh: "在第 57 回中出场或被提及。",
       },
     ],
   },
