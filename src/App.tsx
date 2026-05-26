@@ -101,7 +101,7 @@ import { chapterTranslations58 } from './chapterTranslations58';
 import { chapterTranslations59 } from './chapterTranslations59';
 import { chapterTranslations60 } from './chapterTranslations60';
 import { chapterSummaries } from './chapterSummaries';
-import { characterAppearances } from './characterAppearances';
+import { getCharacterSceneBullets, type SceneBullet } from './characterAppearances';
 import { chapterLacunae } from './lacunae';
 import { questions } from './questions';
 import { QuestionAnswer } from './QuestionAnswer';
@@ -2771,17 +2771,12 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
 
   const [activeChapter, setActiveChapter] = useState<number | null>(null);
 
-  // Pre-computed scenes for this character, or fall back to text snippets
-  const precomputed = characterAppearances[character.id] ?? {};
-
   const activeScenes = useMemo(() => {
     if (activeChapter === null) return null;
 
-    const scenes = precomputed[activeChapter] ?? null;
-
-    // Always extract text snippets
     const ch = chapters.find(c => c.id === activeChapter);
-    if (!ch) return scenes ? { scenes, snippets: [] } : null;
+    if (!ch) return null;
+
     const chineseName = character.name.split(' ')[0];
     const givenName = chineseName.length > 2 ? chineseName.slice(-2) : '';
     const aliases = character.alias !== '—' ? character.alias.split(/[/\s，、]+/).filter(Boolean) : [];
@@ -2808,8 +2803,29 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
       snippets.push(ch.content.slice(Math.max(0, clusterStart - 80), Math.min(ch.content.length, clusterEnd + 80)));
     }
 
-    return { scenes, snippets: snippets.slice(0, 8), tokens };
-  }, [activeChapter, character, precomputed]);
+    const trimmedSnippets = snippets.slice(0, 8);
+    const sceneBullets = getCharacterSceneBullets(character.id, activeChapter, {
+      characterName: character.name,
+      snippets: trimmedSnippets,
+      tokens,
+      chapterTitleZh: ch.title,
+      chapterTitleEn: chapterTitleTranslations[activeChapter],
+    });
+
+    return { sceneBullets, snippets: trimmedSnippets, tokens };
+  }, [activeChapter, character]);
+
+  const displaySceneBullets = useMemo(() => {
+    if (!activeScenes) return [];
+    const seen = new Set<string>();
+    const line = lang === 'zh' ? (b: SceneBullet) => b.zh : (b: SceneBullet) => b.en;
+    return activeScenes.sceneBullets.filter((b) => {
+      const k = line(b);
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
+  }, [activeScenes, lang]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -2999,14 +3015,14 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
                         </div>
                       </div>
 
-                      {/* Panel body */}
+                      {/* Panel body: Scene Summary always before Text Excerpts */}
                       <div className="px-4 py-3 space-y-2.5 bg-[#faf6ee]">
-                        {activeScenes.scenes && (
+                        {displaySceneBullets.length > 0 && (
                           <>
                             <p className="text-[9px] uppercase tracking-[0.2em] text-[#8b4513]/70 font-bold font-hans mb-1">
                               {lang === 'zh' ? '场景摘要' : 'Scene Summary'}
                             </p>
-                            {activeScenes.scenes.map((scene, i) => (
+                            {displaySceneBullets.map((scene, i) => (
                               <div key={i} className="flex gap-2.5">
                                 <span className="text-[#8b4513]/50 mt-0.5 shrink-0">◆</span>
                                 <p className="text-[11px] sm:text-xs leading-relaxed text-[#2c2420]">{lang === 'zh' ? scene.zh : scene.en}</p>
@@ -3016,7 +3032,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
                         )}
                         {activeScenes.snippets.length > 0 && (
                           <>
-                            {activeScenes.scenes && (
+                            {displaySceneBullets.length > 0 && (
                               <div className="border-t border-[#d4c5a9] my-2 pt-2">
                                 <p className="text-[9px] uppercase tracking-[0.2em] text-[#8b4513]/70 font-bold font-hans mb-1">
                                   {lang === 'zh' ? '原文节选' : 'Text Excerpts'}
