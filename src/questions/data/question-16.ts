@@ -2,8 +2,8 @@ import type { Question } from '../types';
 
 export const question: Question = {
   id: 16,
-  questionEn: "Chapter-by-chapter summary: What is Qinyan's story in each chapter? Please gather and cite specific relevant paragraphs from all chapters.",
-  questionZh: "按章总结，琴言在每一章里的故事是怎么样的？ 注意：结合这个应用中的所有章节全文回答，引用具体的段落，做到收集所有相关段落。",
+  questionEn: "What is Qinyan's story in each chapter?",
+  questionZh: "琴言在每一章里的故事是怎么样的？",
   answerEn: `In *Pinhua Baojian*, Du Qinyan (Du Qinxian, Qinguan) is one of the central characters of the novel. Below is a chapter-by-chapter summary of Qinyan's story across all chapters, including quotes from the relevant paragraphs:
 
 ### Chapter 2
