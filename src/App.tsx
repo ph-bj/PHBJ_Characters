@@ -2804,13 +2804,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
     }
 
     const trimmedSnippets = snippets.slice(0, 8);
-    const sceneBullets = getCharacterSceneBullets(character.id, activeChapter, {
-      characterName: character.name,
-      snippets: trimmedSnippets,
-      tokens,
-      chapterTitleZh: ch.title,
-      chapterTitleEn: chapterTitleTranslations[activeChapter],
-    });
+    const sceneBullets = getCharacterSceneBullets(character.id, activeChapter);
 
     return { sceneBullets, snippets: trimmedSnippets, tokens };
   }, [activeChapter, character]);

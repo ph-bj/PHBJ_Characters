@@ -2755,76 +2755,10 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
   },
 };
 
-export type CharacterSceneFallback = {
-  characterName: string;
-  snippets: string[];
-  tokens: string[];
-  chapterTitleZh?: string;
-  chapterTitleEn?: string;
-};
-
-/** Curated scene bullets when present; otherwise character-focused bullets from mention excerpts. */
+/** Curated scene bullets from characterAppearances; empty when none exist for this chapter. */
 export function getCharacterSceneBullets(
   characterId: string,
   chapterId: number,
-  fallback?: CharacterSceneFallback,
 ): SceneBullet[] {
-  const curated = characterAppearances[characterId]?.[chapterId];
-  if (curated && curated.length > 0) return curated;
-  if (!fallback) return [];
-  return buildSyntheticCharacterSceneBullets(fallback);
-}
-
-function buildSyntheticCharacterSceneBullets({
-  characterName,
-  snippets,
-  tokens,
-  chapterTitleZh = '',
-  chapterTitleEn = '',
-}: CharacterSceneFallback): SceneBullet[] {
-  const chineseName = characterName.split(' ')[0];
-  const givenShort = chineseName.length >= 2 ? chineseName.slice(-2) : chineseName;
-  const englishRest = characterName.slice(chineseName.length).trim();
-  const englishDisplayName = englishRest || chineseName;
-
-  const clip = (s: string, max = 56) => {
-    const t = s.replace(/\s+/g, ' ').trim();
-    return t.length > max ? `${t.slice(0, max)}…` : t;
-  };
-
-  const bullets: SceneBullet[] = [];
-
-  for (const snippet of snippets.slice(0, 4)) {
-    let focusToken = tokens[0] ?? givenShort;
-    let bestIdx = -1;
-    for (const token of tokens) {
-      const idx = snippet.indexOf(token);
-      if (idx !== -1 && (bestIdx === -1 || idx < bestIdx)) {
-        bestIdx = idx;
-        focusToken = token;
-      }
-    }
-
-    const windowStart = bestIdx === -1 ? 0 : Math.max(0, bestIdx - 28);
-    const windowText = clip(snippet.slice(windowStart), 64);
-
-    const zh = chapterTitleZh
-      ? `本回《${chapterTitleZh}》叙事中，点及「${focusToken}」，语境紧接「${windowText}」，可见其在此回人事中的位置与照应。`
-      : `本回叙事中，点及「${focusToken}」，语境紧接「${windowText}」，可见其在此回情节中的具体关涉。`;
-
-    const en = chapterTitleEn
-      ? `Within this chapter’s arc (“${chapterTitleEn}”), the text names “${focusToken}” in a passage adjoining “${windowText}”, situating ${englishDisplayName} in the scene’s immediate action rather than summarizing the whole chapter.`
-      : `In this chapter’s narration, the text names “${focusToken}” in a passage adjoining “${windowText}”, foregrounding ${englishDisplayName} in the moment rather than the whole episode.`;
-
-    bullets.push({ en, zh });
-  }
-
-  if (bullets.length === 0) {
-    bullets.push({
-      zh: `本回文本虽不便于自动摘录连续片段，但仍可见「${givenShort}」之名出现，关合其在全书脉络中的位置。`,
-      en: `Although this chapter does not yield a clean contiguous excerpt here, the name “${givenShort}” still appears in ways that anchor ${englishDisplayName} within the chapter’s events.`,
-    });
-  }
-
-  return bullets;
+  return characterAppearances[characterId]?.[chapterId] ?? [];
 }
