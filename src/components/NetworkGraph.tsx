@@ -157,15 +157,12 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
     const resetHoverStyles = () => {
       node
-        .style("opacity", 1)
-        .style("filter", "none");
+        .style("opacity", 1);
       link
         .attr("stroke-opacity", 0.3)
-        .attr("stroke-width", 1.5)
-        .style("filter", "none");
+        .attr("stroke-width", 1.5);
       linkText
-        .style("opacity", 1)
-        .style("filter", "none");
+        .style("opacity", 1);
     };
 
     const applyHoverStyles = (hoveredId: string) => {
@@ -181,8 +178,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       });
 
       node
-        .style("opacity", (d: any) => (connectedIds.has(d.id) ? 1 : 0.2))
-        .style("filter", (d: any) => (connectedIds.has(d.id) ? "none" : "blur(1.5px)"));
+        .style("opacity", (d: any) => (connectedIds.has(d.id) ? 1 : 0.2));
 
       link
         .attr("stroke-opacity", (d: any) => {
@@ -194,11 +190,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           const sourceId = getNodeId(d.source);
           const targetId = getNodeId(d.target);
           return sourceId === hoveredId || targetId === hoveredId ? 1 : 1;
-        })
-        .style("filter", (d: any) => {
-          const sourceId = getNodeId(d.source);
-          const targetId = getNodeId(d.target);
-          return sourceId === hoveredId || targetId === hoveredId ? "none" : "blur(1.5px)";
         });
 
       linkText
@@ -206,11 +197,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           const sourceId = getNodeId(d.source);
           const targetId = getNodeId(d.target);
           return sourceId === hoveredId || targetId === hoveredId ? 1 : 0.1;
-        })
-        .style("filter", (d: any) => {
-          const sourceId = getNodeId(d.source);
-          const targetId = getNodeId(d.target);
-          return sourceId === hoveredId || targetId === hoveredId ? "none" : "blur(1px)";
         });
     };
 
