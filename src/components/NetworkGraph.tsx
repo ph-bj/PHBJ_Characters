@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
+import { Maximize, Minimize } from 'lucide-react';
 import { Character, Relationship } from '../types';
 
 const ROLE_COLORS: Record<string, string> = {
@@ -34,12 +35,25 @@ interface NetworkGraphProps {
 
 export default function NetworkGraph({ characters, relationships, lang, onNodeClick }: NetworkGraphProps) {
   const svgRef = useRef<SVGSVGElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
-    if (!svgRef.current) return;
+    if (isFullscreen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isFullscreen]);
 
-    const width = 800;
-    const height = 600;
+  useEffect(() => {
+    if (!svgRef.current || !containerRef.current) return;
+
+    const container = containerRef.current;
+    let { width, height } = container.getBoundingClientRect();
     const nodeRadius = 25;
 
     const nodes = characters.map(c => ({ ...c }));
@@ -47,6 +61,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove();
+    svg.attr("viewBox", `0 0 ${width} ${height}`);
+
     let lockedNodeId: string | null = null;
 
     const simulation = d3.forceSimulation(nodes as any)
@@ -56,6 +72,18 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .force("collision", d3.forceCollide().radius(40));
 
     const g = svg.append("g");
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      if (!entries || !entries.length) return;
+      const { width: newWidth, height: newHeight } = entries[0].contentRect;
+      width = newWidth;
+      height = newHeight;
+      svg.attr("viewBox", `0 0 ${width} ${height}`);
+      simulation.force("center", d3.forceCenter(width / 2, height / 2));
+      simulation.alpha(0.3).restart();
+    });
+
+    resizeObserver.observe(container);
 
     // Add zoom
     const zoom = d3.zoom().on("zoom", (event) => {
@@ -254,11 +282,21 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       event.subject.fy = null;
     }
 
-    return () => simulation.stop();
+    return () => {
+      simulation.stop();
+      resizeObserver.disconnect();
+    };
   }, [characters, relationships, lang]);
 
   return (
-    <div className="w-full h-[400px] sm:h-[600px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative">
+    <div
+      ref={containerRef}
+      className={
+        isFullscreen
+          ? "fixed inset-0 z-50 w-screen h-screen parchment overflow-hidden"
+          : "w-full h-[400px] sm:h-[600px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative"
+      }
+    >
       <div className="absolute top-4 left-4 z-10">
         <h3 className="text-xs font-bold uppercase tracking-widest text-[#8b4513]">
           {lang === 'en' ? 'Character Network' : '人物关系图谱'}
@@ -285,9 +323,15 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           ))}
         </div>
       </div>
+      <button
+        onClick={() => setIsFullscreen(!isFullscreen)}
+        className="absolute bottom-4 right-4 z-20 p-2 bg-[#f4ecd8] hover:bg-[#d4c5a9] border border-[#8b4513]/30 rounded-full shadow-md transition-colors text-[#5d5048]"
+        title={isFullscreen ? (lang === 'en' ? 'Exit Fullscreen' : '退出全屏') : (lang === 'en' ? 'Fullscreen' : '全屏')}
+      >
+        {isFullscreen ? <Minimize size={20} /> : <Maximize size={20} />}
+      </button>
       <svg
         ref={svgRef}
-        viewBox="0 0 800 600"
         className="w-full h-full cursor-move"
       />
     </div>
