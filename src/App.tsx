@@ -40,8 +40,8 @@ import { chapters } from './chapters';
 import { gardens, getGardenById, type Garden } from './gardens';
 import { locationTypeLabels, locationTypeOrder, novelLocations, type NovelLocation } from './locations';
 import { prefaceTranslations } from './prefaceTranslation';
-import { chapter1Translations } from './chapter1Translation';
-import { chapter2Translations } from './chapter2Translation';
+import { chapterTranslations1 } from './chapterTranslations1';
+import { chapterTranslations2 } from './chapterTranslations2';
 import { chapterTranslations3 } from './chapterTranslations3';
 import { chapterTranslations4 } from './chapterTranslations4';
 import { chapterTranslations5 } from './chapterTranslations5';
@@ -174,8 +174,8 @@ const chapterTitleTranslations: Partial<Record<number, string>> = {
 
 const translationMap: Record<number, string[]> = {
   0: prefaceTranslations,
-  1: chapter1Translations,
-  2: chapter2Translations,
+  1: chapterTranslations1,
+  2: chapterTranslations2,
   ...chapterTranslations3,
   ...chapterTranslations4,
   ...chapterTranslations5,
