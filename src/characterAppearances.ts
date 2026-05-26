@@ -1547,16 +1547,16 @@ export const characterAppearances: Record<
   "char-12": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 沈伯才 appears and observes the surroundings and moves through the scene.",
+        zh: "在第 6 回中，沈伯才出场并观察周围动向与在场景中活动。",
       },
     ],
   },
   "char-13": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 巴霖 appears and observes the surroundings and moves through the scene.",
+        zh: "在第 6 回中，巴霖出场并观察周围动向与在场景中活动。",
       },
     ],
   },
@@ -1645,8 +1645,8 @@ export const characterAppearances: Record<
   "char-16": {
     17: [
       {
-        en: "Appears or is referenced in Chapter 17.",
-        zh: "在第 17 回中出场或被提及。",
+        en: "In Chapter 17, 祝芳年 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 17 回中，祝芳年短暂出场或被他人提及。",
       },
     ],
   },
@@ -1661,16 +1661,16 @@ export const characterAppearances: Record<
   "char-18": {
     56: [
       {
-        en: "Appears or is referenced in Chapter 56.",
-        zh: "在第 56 回中出场或被提及。",
+        en: "In Chapter 56, 屈方正 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 56 回中，屈方正短暂出场或被他人提及。",
       },
     ],
   },
   "char-19": {
     59: [
       {
-        en: "Appears or is referenced in Chapter 59.",
-        zh: "在第 59 回中出场或被提及。",
+        en: "In Chapter 59, 屈少君 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 59 回中，屈少君短暂出场或被他人提及。",
       },
     ],
   },
@@ -2005,136 +2005,136 @@ export const characterAppearances: Record<
   "char-34": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 小福 appears and engages in conversation, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "在第 3 回中，小福出场并参与对话交流、在场景中活动及牵涉金钱交易。",
       },
     ],
   },
   "char-35": {
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 玉美 appears and engages in conversation.",
+        zh: "在第 4 回中，玉美出场并参与对话交流。",
       },
     ],
     12: [
       {
-        en: "Appears or is referenced in Chapter 12.",
-        zh: "在第 12 回中出场或被提及。",
+        en: "In Chapter 12, 玉美 appears and experiences a moment of introspection or emotion.",
+        zh: "在第 12 回中，玉美出场并流露内心情感。",
       },
     ],
     22: [
       {
-        en: "Appears or is referenced in Chapter 22.",
-        zh: "在第 22 回中出场或被提及。",
+        en: "In Chapter 22, 玉美 appears and is present in the gathering and is involved in musical or theatrical performance.",
+        zh: "在第 22 回中，玉美出场并出席聚会与进行才艺表演。",
       },
     ],
     24: [
       {
-        en: "Appears or is referenced in Chapter 24.",
-        zh: "在第 24 回中出场或被提及。",
+        en: "In Chapter 24, 玉美 appears and engages in conversation.",
+        zh: "在第 24 回中，玉美出场并参与对话交流。",
       },
     ],
   },
   "char-36": {
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 四喜 appears and engages in conversation.",
+        zh: "在第 4 回中，四喜出场并参与对话交流。",
       },
     ],
     16: [
       {
-        en: "Appears or is referenced in Chapter 16.",
-        zh: "在第 16 回中出场或被提及。",
+        en: "In Chapter 16, 四喜 appears and engages in conversation and moves through the scene.",
+        zh: "在第 16 回中，四喜出场并参与对话交流与在场景中活动。",
       },
     ],
     18: [
       {
-        en: "Appears or is referenced in Chapter 18.",
-        zh: "在第 18 回中出场或被提及。",
+        en: "In Chapter 18, 四喜 appears and is present in the gathering.",
+        zh: "在第 18 回中，四喜出场并出席聚会。",
       },
     ],
   },
   "char-37": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 全福 appears and engages in conversation, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "在第 3 回中，全福出场并参与对话交流、在场景中活动及牵涉金钱交易。",
       },
     ],
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 全福 appears and engages in conversation.",
+        zh: "在第 4 回中，全福出场并参与对话交流。",
       },
     ],
     12: [
       {
-        en: "Appears or is referenced in Chapter 12.",
-        zh: "在第 12 回中出场或被提及。",
+        en: "In Chapter 12, 全福 appears and experiences a moment of introspection or emotion.",
+        zh: "在第 12 回中，全福出场并流露内心情感。",
       },
     ],
     30: [
       {
-        en: "Appears or is referenced in Chapter 30.",
-        zh: "在第 30 回中出场或被提及。",
+        en: "In Chapter 30, 全福 appears and observes the surroundings.",
+        zh: "在第 30 回中，全福出场并观察周围动向。",
       },
     ],
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 全福 appears and engages in conversation.",
+        zh: "在第 34 回中，全福出场并参与对话交流。",
       },
     ],
     49: [
       {
-        en: "Appears or is referenced in Chapter 49.",
-        zh: "在第 49 回中出场或被提及。",
+        en: "In Chapter 49, 全福 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 49 回中，全福短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 全福 appears and engages in conversation and observes the surroundings.",
+        zh: "在第 52 回中，全福出场并参与对话交流与观察周围动向。",
       },
     ],
   },
   "char-38": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 保珠 appears and engages in conversation.",
+        zh: "在第 1 回中，保珠出场并参与对话交流。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 保珠 appears and is involved in musical or theatrical performance.",
+        zh: "在第 5 回中，保珠出场并进行才艺表演。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 保珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 6 回中，保珠短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 保珠 appears and engages in conversation.",
+        zh: "在第 8 回中，保珠出场并参与对话交流。",
       },
     ],
     9: [
       {
-        en: "Appears or is referenced in Chapter 9.",
-        zh: "在第 9 回中出场或被提及。",
+        en: "In Chapter 9, 保珠 appears and is involved in matters of money or commerce.",
+        zh: "在第 9 回中，保珠出场并牵涉金钱交易。",
       },
     ],
     21: [
       {
-        en: "Appears or is referenced in Chapter 21.",
-        zh: "在第 21 回中出场或被提及。",
+        en: "In Chapter 21, 保珠 appears and engages in conversation, participates in a meal or drinking session, and experiences a moment of introspection or emotion.",
+        zh: "在第 21 回中，保珠出场并参与对话交流、参与宴饮及流露内心情感。",
       },
     ],
   },
@@ -2197,16 +2197,16 @@ export const characterAppearances: Record<
   "char-43": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 谭八 appears and engages in conversation and participates in a meal or drinking session.",
+        zh: "在第 2 回中，谭八出场并参与对话交流与参与宴饮。",
       },
     ],
   },
   "char-44": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 小顺儿 appears and experiences a moment of introspection or emotion.",
+        zh: "在第 5 回中，小顺儿出场并流露内心情感。",
       },
     ],
   },
@@ -2221,38 +2221,38 @@ export const characterAppearances: Record<
   "char-46": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 保珠 appears and engages in conversation.",
+        zh: "在第 1 回中，保珠出场并参与对话交流。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 保珠 appears and is involved in musical or theatrical performance.",
+        zh: "在第 5 回中，保珠出场并进行才艺表演。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 保珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 6 回中，保珠短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 保珠 appears and engages in conversation.",
+        zh: "在第 8 回中，保珠出场并参与对话交流。",
       },
     ],
     9: [
       {
-        en: "Appears or is referenced in Chapter 9.",
-        zh: "在第 9 回中出场或被提及。",
+        en: "In Chapter 9, 保珠 appears and is involved in matters of money or commerce.",
+        zh: "在第 9 回中，保珠出场并牵涉金钱交易。",
       },
     ],
     21: [
       {
-        en: "Appears or is referenced in Chapter 21.",
-        zh: "在第 21 回中出场或被提及。",
+        en: "In Chapter 21, 保珠 appears and engages in conversation, participates in a meal or drinking session, and experiences a moment of introspection or emotion.",
+        zh: "在第 21 回中，保珠出场并参与对话交流、参与宴饮及流露内心情感。",
       },
     ],
   },
@@ -2299,140 +2299,140 @@ export const characterAppearances: Record<
   "char-49": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 孙亮功 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 2 回中，孙亮功出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 孙亮功 appears and moves through the scene.",
+        zh: "在第 6 回中，孙亮功出场并在场景中活动。",
       },
     ],
     15: [
       {
-        en: "Appears or is referenced in Chapter 15.",
-        zh: "在第 15 回中出场或被提及。",
+        en: "In Chapter 15, 孙亮功 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 15 回中，孙亮功出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     23: [
       {
-        en: "Appears or is referenced in Chapter 23.",
-        zh: "在第 23 回中出场或被提及。",
+        en: "In Chapter 23, 孙亮功 appears and engages in conversation, moves through the scene, and participates in a meal or drinking session.",
+        zh: "在第 23 回中，孙亮功出场并参与对话交流、在场景中活动及参与宴饮。",
       },
     ],
     27: [
       {
-        en: "Appears or is referenced in Chapter 27.",
-        zh: "在第 27 回中出场或被提及。",
+        en: "In Chapter 27, 孙亮功 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 27 回中，孙亮功出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     30: [
       {
-        en: "Appears or is referenced in Chapter 30.",
-        zh: "在第 30 回中出场或被提及。",
+        en: "In Chapter 30, 孙亮功 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 30 回中，孙亮功短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     32: [
       {
-        en: "Appears or is referenced in Chapter 32.",
-        zh: "在第 32 回中出场或被提及。",
+        en: "In Chapter 32, 孙亮功 appears and observes the surroundings and moves through the scene.",
+        zh: "在第 32 回中，孙亮功出场并观察周围动向与在场景中活动。",
       },
     ],
     38: [
       {
-        en: "Appears or is referenced in Chapter 38.",
-        zh: "在第 38 回中出场或被提及。",
+        en: "In Chapter 38, 孙亮功 appears and moves through the scene.",
+        zh: "在第 38 回中，孙亮功出场并在场景中活动。",
       },
     ],
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 孙亮功 appears and engages in conversation and moves through the scene.",
+        zh: "在第 39 回中，孙亮功出场并参与对话交流与在场景中活动。",
       },
     ],
     51: [
       {
-        en: "Appears or is referenced in Chapter 51.",
-        zh: "在第 51 回中出场或被提及。",
+        en: "In Chapter 51, 孙亮功 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 51 回中，孙亮功短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
   "char-50": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 杨方猷 appears and is present in the gathering and participates in a meal or drinking session.",
+        zh: "在第 2 回中，杨方猷出场并出席聚会与参与宴饮。",
       },
     ],
     49: [
       {
-        en: "Appears or is referenced in Chapter 49.",
-        zh: "在第 49 回中出场或被提及。",
+        en: "In Chapter 49, 杨方猷 appears and engages in conversation, moves through the scene, and experiences a moment of introspection or emotion.",
+        zh: "在第 49 回中，杨方猷出场并参与对话交流、在场景中活动及流露内心情感。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 杨方猷 appears and participates in a meal or drinking session and is involved in musical or theatrical performance.",
+        zh: "在第 52 回中，杨方猷出场并参与宴饮与进行才艺表演。",
       },
     ],
   },
   "char-51": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 周锡爵 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 2 回中，周锡爵短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     30: [
       {
-        en: "Appears or is referenced in Chapter 30.",
-        zh: "在第 30 回中出场或被提及。",
+        en: "In Chapter 30, 周锡爵 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 30 回中，周锡爵短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 周锡爵 appears and participates in a meal or drinking session and is involved in musical or theatrical performance.",
+        zh: "在第 52 回中，周锡爵出场并参与宴饮与进行才艺表演。",
       },
     ],
   },
   "char-52": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 陆宗沅 appears and is present in the gathering and participates in a meal or drinking session.",
+        zh: "在第 2 回中，陆宗沅出场并出席聚会与参与宴饮。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 陆宗沅 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 6 回中，陆宗沅短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     30: [
       {
-        en: "Appears or is referenced in Chapter 30.",
-        zh: "在第 30 回中出场或被提及。",
+        en: "In Chapter 30, 陆宗沅 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 30 回中，陆宗沅短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 陆宗沅 appears and moves through the scene.",
+        zh: "在第 39 回中，陆宗沅出场并在场景中活动。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 陆宗沅 appears and participates in a meal or drinking session and is involved in musical or theatrical performance.",
+        zh: "在第 52 回中，陆宗沅出场并参与宴饮与进行才艺表演。",
       },
     ],
     59: [
       {
-        en: "Appears or is referenced in Chapter 59.",
-        zh: "在第 59 回中出场或被提及。",
+        en: "In Chapter 59, 陆宗沅 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 59 回中，陆宗沅短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
@@ -2447,32 +2447,32 @@ export const characterAppearances: Record<
   "char-54": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 贵芬 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 3 回中，贵芬短暂出场或被他人提及。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 贵芬 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 5 回中，贵芬短暂出场或被他人提及。",
       },
     ],
     16: [
       {
-        en: "Appears or is referenced in Chapter 16.",
-        zh: "在第 16 回中出场或被提及。",
+        en: "In Chapter 16, 贵芬 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 16 回中，贵芬短暂出场或被他人提及。",
       },
     ],
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 贵芬 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 34 回中，贵芬短暂出场或被他人提及。",
       },
     ],
     50: [
       {
-        en: "Appears or is referenced in Chapter 50.",
-        zh: "在第 50 回中出场或被提及。",
+        en: "In Chapter 50, 贵芬 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 50 回中，贵芬短暂出场或被他人提及。",
       },
     ],
   },
@@ -2573,72 +2573,72 @@ export const characterAppearances: Record<
   "char-57": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 史曾望 appears and observes the surroundings.",
+        zh: "在第 1 回中，史曾望出场并观察周围动向。",
       },
     ],
   },
   "char-58": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 袁浩 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 5 回中，袁浩短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
   "char-59": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 徐震 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 5 回中，徐震短暂出场或被他人提及。",
       },
     ],
   },
   "char-60": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 徐子容 appears and engages in conversation and moves through the scene.",
+        zh: "在第 5 回中，徐子容出场并参与对话交流与在场景中活动。",
       },
     ],
   },
   "char-61": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 刘侍郎 appears and engages in conversation and moves through the scene.",
+        zh: "在第 6 回中，刘侍郎出场并参与对话交流与在场景中活动。",
       },
     ],
   },
   "char-62": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 吴阁学 appears and engages in conversation and moves through the scene.",
+        zh: "在第 6 回中，吴阁学出场并参与对话交流与在场景中活动。",
       },
     ],
   },
   "char-63": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 沈司业 appears and engages in conversation and moves through the scene.",
+        zh: "在第 6 回中，沈司业出场并参与对话交流与在场景中活动。",
       },
     ],
   },
   "char-64": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 巴天宠 appears and moves through the scene.",
+        zh: "在第 6 回中，巴天宠出场并在场景中活动。",
       },
     ],
   },
   "char-65": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 陆宗淮 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 6 回中，陆宗淮短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
@@ -2661,32 +2661,32 @@ export const characterAppearances: Record<
   "char-68": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 詹事府正詹事庄 appears and engages in conversation and moves through the scene.",
+        zh: "在第 6 回中，詹事府正詹事庄出场并参与对话交流与在场景中活动。",
       },
     ],
   },
   "char-69": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 左庶子郑 appears and engages in conversation and moves through the scene.",
+        zh: "在第 6 回中，左庶子郑出场并参与对话交流与在场景中活动。",
       },
     ],
   },
   "char-70": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 国子监司业张 appears and engages in conversation and moves through the scene.",
+        zh: "在第 6 回中，国子监司业张出场并参与对话交流与在场景中活动。",
       },
     ],
   },
   "char-71": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 掌山西道陆 appears and engages in conversation and moves through the scene.",
+        zh: "在第 6 回中，掌山西道陆出场并参与对话交流与在场景中活动。",
       },
     ],
   },
@@ -2751,14 +2751,14 @@ export const characterAppearances: Record<
   "char-74": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 老王 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 3 回中，老王出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     45: [
       {
-        en: "Appears or is referenced in Chapter 45.",
-        zh: "在第 45 回中出场或被提及。",
+        en: "In Chapter 45, 老王 appears and engages in conversation.",
+        zh: "在第 45 回中，老王出场并参与对话交流。",
       },
     ],
   },
@@ -2779,8 +2779,8 @@ export const characterAppearances: Record<
   "char-76": {
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 起盛银号潘老三 appears and moves through the scene, participates in a meal or drinking session, and is involved in matters of money or commerce.",
+        zh: "在第 8 回中，起盛银号潘老三出场并在场景中活动、参与宴饮及牵涉金钱交易。",
       },
     ],
   },
@@ -2869,44 +2869,44 @@ export const characterAppearances: Record<
   "char-79": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 青姨奶奶 appears and moves through the scene.",
+        zh: "在第 3 回中，青姨奶奶出场并在场景中活动。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 青姨奶奶 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 5 回中，青姨奶奶出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
   },
   "char-80": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 白姨奶奶 appears and moves through the scene.",
+        zh: "在第 3 回中，白姨奶奶出场并在场景中活动。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 白姨奶奶 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 5 回中，白姨奶奶出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
   },
   "char-81": {
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 阿呆 appears and engages in conversation.",
+        zh: "在第 39 回中，阿呆出场并参与对话交流。",
       },
     ],
   },
   "char-82": {
     23: [
       {
-        en: "Appears or is referenced in Chapter 23.",
-        zh: "在第 23 回中出场或被提及。",
+        en: "In Chapter 23, 劣幕 appears and engages in conversation and participates in a meal or drinking session.",
+        zh: "在第 23 回中，劣幕出场并参与对话交流与参与宴饮。",
       },
     ],
   },
@@ -2921,22 +2921,22 @@ export const characterAppearances: Record<
   "char-84": {
     30: [
       {
-        en: "Appears or is referenced in Chapter 30.",
-        zh: "在第 30 回中出场或被提及。",
+        en: "In Chapter 30, 何三 appears and engages in conversation and moves through the scene.",
+        zh: "在第 30 回中，何三出场并参与对话交流与在场景中活动。",
       },
     ],
   },
   "char-85": {
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 王大夫 appears and moves through the scene.",
+        zh: "在第 4 回中，王大夫出场并在场景中活动。",
       },
     ],
     56: [
       {
-        en: "Appears or is referenced in Chapter 56.",
-        zh: "在第 56 回中出场或被提及。",
+        en: "In Chapter 56, 王大夫 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 56 回中，王大夫短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
@@ -3017,58 +3017,58 @@ export const characterAppearances: Record<
   "char-87": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 陆氏夫人（王家） appears and observes the surroundings and moves through the scene.",
+        zh: "在第 1 回中，陆氏夫人（王家）出场并观察周围动向与在场景中活动。",
       },
     ],
   },
   "char-88": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 孙氏 appears and observes the surroundings.",
+        zh: "在第 1 回中，孙氏出场并观察周围动向。",
       },
     ],
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 孙氏 appears and observes the surroundings, moves through the scene, and is present in the gathering.",
+        zh: "在第 2 回中，孙氏出场并观察周围动向、在场景中活动及出席聚会。",
       },
     ],
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 孙氏 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 4 回中，孙氏出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 孙氏 appears and engages in conversation, moves through the scene, and participates in a meal or drinking session.",
+        zh: "在第 5 回中，孙氏出场并参与对话交流、在场景中活动及参与宴饮。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 孙氏 appears and moves through the scene.",
+        zh: "在第 6 回中，孙氏出场并在场景中活动。",
       },
     ],
     32: [
       {
-        en: "Appears or is referenced in Chapter 32.",
-        zh: "在第 32 回中出场或被提及。",
+        en: "In Chapter 32, 孙氏 appears and moves through the scene.",
+        zh: "在第 32 回中，孙氏出场并在场景中活动。",
       },
     ],
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 孙氏 appears and moves through the scene.",
+        zh: "在第 39 回中，孙氏出场并在场景中活动。",
       },
     ],
     51: [
       {
-        en: "Appears or is referenced in Chapter 51.",
-        zh: "在第 51 回中出场或被提及。",
+        en: "In Chapter 51, 孙氏 appears and moves through the scene.",
+        zh: "在第 51 回中，孙氏出场并在场景中活动。",
       },
     ],
   },
@@ -3165,16 +3165,16 @@ export const characterAppearances: Record<
   "char-92": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 郑氏 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 1 回中，郑氏短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
   "char-93": {
     43: [
       {
-        en: "Appears or is referenced in Chapter 43.",
-        zh: "在第 43 回中出场或被提及。",
+        en: "In Chapter 43, 苏蕙芳婶母 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 43 回中，苏蕙芳婶母短暂出场或被他人提及。",
       },
     ],
   },
@@ -3189,16 +3189,16 @@ export const characterAppearances: Record<
   "char-95": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 林氏 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 1 回中，林氏短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
   "char-96": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 陆氏夫人（孙家） appears and moves through the scene.",
+        zh: "在第 6 回中，陆氏夫人（孙家）出场并在场景中活动。",
       },
     ],
   },
@@ -3221,166 +3221,166 @@ export const characterAppearances: Record<
   "char-99": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 王大姑娘 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 2 回中，王大姑娘短暂出场或被他人提及。",
       },
     ],
   },
   "char-100": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 佩秋 appears and moves through the scene.",
+        zh: "在第 6 回中，佩秋出场并在场景中活动。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 佩秋 appears and moves through the scene.",
+        zh: "在第 52 回中，佩秋出场并在场景中活动。",
       },
     ],
     54: [
       {
-        en: "Appears or is referenced in Chapter 54.",
-        zh: "在第 54 回中出场或被提及。",
+        en: "In Chapter 54, 佩秋 appears and engages in conversation and moves through the scene.",
+        zh: "在第 54 回中，佩秋出场并参与对话交流与在场景中活动。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 佩秋 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 57 回中，佩秋短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
   "char-101": {
     58: [
       {
-        en: "Appears or is referenced in Chapter 58.",
-        zh: "在第 58 回中出场或被提及。",
+        en: "In Chapter 58, 潘氏 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 58 回中，潘氏短暂出场或被他人提及。",
       },
     ],
   },
   "char-102": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 云儿 appears and moves through the scene.",
+        zh: "在第 1 回中，云儿出场并在场景中活动。",
       },
     ],
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 云儿 appears and is present in the gathering and participates in a meal or drinking session.",
+        zh: "在第 2 回中，云儿出场并出席聚会与参与宴饮。",
       },
     ],
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 云儿 appears and moves through the scene.",
+        zh: "在第 4 回中，云儿出场并在场景中活动。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 云儿 appears and moves through the scene.",
+        zh: "在第 6 回中，云儿出场并在场景中活动。",
       },
     ],
     9: [
       {
-        en: "Appears or is referenced in Chapter 9.",
-        zh: "在第 9 回中出场或被提及。",
+        en: "In Chapter 9, 云儿 appears and moves through the scene.",
+        zh: "在第 9 回中，云儿出场并在场景中活动。",
       },
     ],
     10: [
       {
-        en: "Appears or is referenced in Chapter 10.",
-        zh: "在第 10 回中出场或被提及。",
+        en: "In Chapter 10, 云儿 appears and engages in conversation, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "在第 10 回中，云儿出场并参与对话交流、在场景中活动及进行才艺表演。",
       },
     ],
     15: [
       {
-        en: "Appears or is referenced in Chapter 15.",
-        zh: "在第 15 回中出场或被提及。",
+        en: "In Chapter 15, 云儿 appears and engages in conversation, moves through the scene, and participates in a meal or drinking session.",
+        zh: "在第 15 回中，云儿出场并参与对话交流、在场景中活动及参与宴饮。",
       },
     ],
     21: [
       {
-        en: "Appears or is referenced in Chapter 21.",
-        zh: "在第 21 回中出场或被提及。",
+        en: "In Chapter 21, 云儿 appears and moves through the scene.",
+        zh: "在第 21 回中，云儿出场并在场景中活动。",
       },
     ],
     22: [
       {
-        en: "Appears or is referenced in Chapter 22.",
-        zh: "在第 22 回中出场或被提及。",
+        en: "In Chapter 22, 云儿 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 22 回中，云儿出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     28: [
       {
-        en: "Appears or is referenced in Chapter 28.",
-        zh: "在第 28 回中出场或被提及。",
+        en: "In Chapter 28, 云儿 appears and engages in conversation and moves through the scene.",
+        zh: "在第 28 回中，云儿出场并参与对话交流与在场景中活动。",
       },
     ],
     29: [
       {
-        en: "Appears or is referenced in Chapter 29.",
-        zh: "在第 29 回中出场或被提及。",
+        en: "In Chapter 29, 云儿 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 29 回中，云儿短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     31: [
       {
-        en: "Appears or is referenced in Chapter 31.",
-        zh: "在第 31 回中出场或被提及。",
+        en: "In Chapter 31, 云儿 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 31 回中，云儿短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     33: [
       {
-        en: "Appears or is referenced in Chapter 33.",
-        zh: "在第 33 回中出场或被提及。",
+        en: "In Chapter 33, 云儿 appears and moves through the scene.",
+        zh: "在第 33 回中，云儿出场并在场景中活动。",
       },
     ],
     36: [
       {
-        en: "Appears or is referenced in Chapter 36.",
-        zh: "在第 36 回中出场或被提及。",
+        en: "In Chapter 36, 云儿 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 36 回中，云儿短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     45: [
       {
-        en: "Appears or is referenced in Chapter 45.",
-        zh: "在第 45 回中出场或被提及。",
+        en: "In Chapter 45, 云儿 appears and moves through the scene and experiences a moment of introspection or emotion.",
+        zh: "在第 45 回中，云儿出场并在场景中活动与流露内心情感。",
       },
     ],
     53: [
       {
-        en: "Appears or is referenced in Chapter 53.",
-        zh: "在第 53 回中出场或被提及。",
+        en: "In Chapter 53, 云儿 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 53 回中，云儿出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     59: [
       {
-        en: "Appears or is referenced in Chapter 59.",
-        zh: "在第 59 回中出场或被提及。",
+        en: "In Chapter 59, 云儿 appears and moves through the scene and is involved in musical or theatrical performance.",
+        zh: "在第 59 回中，云儿出场并在场景中活动与进行才艺表演。",
       },
     ],
   },
   "char-103": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 俊儿 appears and moves through the scene.",
+        zh: "在第 1 回中，俊儿出场并在场景中活动。",
       },
     ],
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 俊儿 appears and is present in the gathering and participates in a meal or drinking session.",
+        zh: "在第 2 回中，俊儿出场并出席聚会与参与宴饮。",
       },
     ],
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 俊儿 appears and observes the surroundings and moves through the scene.",
+        zh: "在第 4 回中，俊儿出场并观察周围动向与在场景中活动。",
       },
     ],
   },
@@ -3407,188 +3407,188 @@ export const characterAppearances: Record<
   "char-105": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 许顺妻 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 3 回中，许顺妻短暂出场或被他人提及。",
       },
     ],
   },
   "char-106": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 梅进 appears and engages in conversation, moves through the scene, and participates in a meal or drinking session.",
+        zh: "在第 2 回中，梅进出场并参与对话交流、在场景中活动及参与宴饮。",
       },
     ],
     9: [
       {
-        en: "Appears or is referenced in Chapter 9.",
-        zh: "在第 9 回中出场或被提及。",
+        en: "In Chapter 9, 梅进 appears and engages in conversation and moves through the scene.",
+        zh: "在第 9 回中，梅进出场并参与对话交流与在场景中活动。",
       },
     ],
     15: [
       {
-        en: "Appears or is referenced in Chapter 15.",
-        zh: "在第 15 回中出场或被提及。",
+        en: "In Chapter 15, 梅进 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 15 回中，梅进出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     33: [
       {
-        en: "Appears or is referenced in Chapter 33.",
-        zh: "在第 33 回中出场或被提及。",
+        en: "In Chapter 33, 梅进 appears and moves through the scene and is present in the gathering.",
+        zh: "在第 33 回中，梅进出场并在场景中活动与出席聚会。",
       },
     ],
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 梅进 appears and moves through the scene.",
+        zh: "在第 39 回中，梅进出场并在场景中活动。",
       },
     ],
     59: [
       {
-        en: "Appears or is referenced in Chapter 59.",
-        zh: "在第 59 回中出场或被提及。",
+        en: "In Chapter 59, 梅进 appears and observes the surroundings, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "在第 59 回中，梅进出场并观察周围动向、在场景中活动及进行才艺表演。",
       },
     ],
   },
   "char-107": {
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 虎儿 appears and engages in conversation and moves through the scene.",
+        zh: "在第 8 回中，虎儿出场并参与对话交流与在场景中活动。",
       },
     ],
     15: [
       {
-        en: "Appears or is referenced in Chapter 15.",
-        zh: "在第 15 回中出场或被提及。",
+        en: "In Chapter 15, 虎儿 appears and moves through the scene.",
+        zh: "在第 15 回中，虎儿出场并在场景中活动。",
       },
     ],
   },
   "char-108": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 书僮 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 1 回中，书僮短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 书僮 appears and moves through the scene and participates in a meal or drinking session.",
+        zh: "在第 4 回中，书僮出场并在场景中活动与参与宴饮。",
       },
     ],
   },
   "char-109": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 仆妇（门上） appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 2 回中，仆妇（门上）出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
   },
   "char-110": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 家人媳妇（衣裳） appears and observes the surroundings and moves through the scene.",
+        zh: "在第 1 回中，家人媳妇（衣裳）出场并观察周围动向与在场景中活动。",
       },
     ],
   },
   "char-111": {
     7: [
       {
-        en: "Appears or is referenced in Chapter 7.",
-        zh: "在第 7 回中出场或被提及。",
+        en: "In Chapter 7, 小丫鬟（子玉书房） appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 7 回中，小丫鬟（子玉书房）出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
   },
   "char-112": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 四儿 appears and moves through the scene.",
+        zh: "在第 2 回中，四儿出场并在场景中活动。",
       },
     ],
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 四儿 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 3 回中，四儿出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 四儿 appears and observes the surroundings, moves through the scene, and is present in the gathering.",
+        zh: "在第 5 回中，四儿出场并观察周围动向、在场景中活动及出席聚会。",
       },
     ],
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 四儿 appears and moves through the scene, participates in a meal or drinking session, and is involved in musical or theatrical performance.",
+        zh: "在第 8 回中，四儿出场并在场景中活动、参与宴饮及进行才艺表演。",
       },
     ],
     9: [
       {
-        en: "Appears or is referenced in Chapter 9.",
-        zh: "在第 9 回中出场或被提及。",
+        en: "In Chapter 9, 四儿 appears and engages in conversation and moves through the scene.",
+        zh: "在第 9 回中，四儿出场并参与对话交流与在场景中活动。",
       },
     ],
     16: [
       {
-        en: "Appears or is referenced in Chapter 16.",
-        zh: "在第 16 回中出场或被提及。",
+        en: "In Chapter 16, 四儿 appears and moves through the scene.",
+        zh: "在第 16 回中，四儿出场并在场景中活动。",
       },
     ],
     21: [
       {
-        en: "Appears or is referenced in Chapter 21.",
-        zh: "在第 21 回中出场或被提及。",
+        en: "In Chapter 21, 四儿 appears and observes the surroundings and moves through the scene.",
+        zh: "在第 21 回中，四儿出场并观察周围动向与在场景中活动。",
       },
     ],
     26: [
       {
-        en: "Appears or is referenced in Chapter 26.",
-        zh: "在第 26 回中出场或被提及。",
+        en: "In Chapter 26, 四儿 appears and moves through the scene and is present in the gathering.",
+        zh: "在第 26 回中，四儿出场并在场景中活动与出席聚会。",
       },
     ],
     28: [
       {
-        en: "Appears or is referenced in Chapter 28.",
-        zh: "在第 28 回中出场或被提及。",
+        en: "In Chapter 28, 四儿 appears and moves through the scene, is present in the gathering, and is involved in musical or theatrical performance.",
+        zh: "在第 28 回中，四儿出场并在场景中活动、出席聚会及进行才艺表演。",
       },
     ],
     29: [
       {
-        en: "Appears or is referenced in Chapter 29.",
-        zh: "在第 29 回中出场或被提及。",
+        en: "In Chapter 29, 四儿 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 29 回中，四儿短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 四儿 appears and moves through the scene and participates in a meal or drinking session.",
+        zh: "在第 34 回中，四儿出场并在场景中活动与参与宴饮。",
       },
     ],
     36: [
       {
-        en: "Appears or is referenced in Chapter 36.",
-        zh: "在第 36 回中出场或被提及。",
+        en: "In Chapter 36, 四儿 appears and observes the surroundings, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "在第 36 回中，四儿出场并观察周围动向、在场景中活动及进行才艺表演。",
       },
     ],
   },
   "char-113": {
     4: [
       {
-        en: "Appears or is referenced in Chapter 4.",
-        zh: "在第 4 回中出场或被提及。",
+        en: "In Chapter 4, 健儿 appears and engages in conversation.",
+        zh: "在第 4 回中，健儿出场并参与对话交流。",
       },
     ],
   },
   "char-114": {
     7: [
       {
-        en: "Appears or is referenced in Chapter 7.",
-        zh: "在第 7 回中出场或被提及。",
+        en: "In Chapter 7, 雪儿 appears and engages in conversation and moves through the scene.",
+        zh: "在第 7 回中，雪儿出场并参与对话交流与在场景中活动。",
       },
     ],
   },
@@ -3603,40 +3603,40 @@ export const characterAppearances: Record<
   "char-116": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 伴送婆（巴家） appears and moves through the scene and is present in the gathering.",
+        zh: "在第 6 回中，伴送婆（巴家）出场并在场景中活动与出席聚会。",
       },
     ],
   },
   "char-117": {
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 乳母（巴来风） appears and engages in conversation and moves through the scene.",
+        zh: "在第 6 回中，乳母（巴来风）出场并参与对话交流与在场景中活动。",
       },
     ],
   },
   "char-118": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 跟班（富家） appears and observes the surroundings and is present in the gathering.",
+        zh: "在第 3 回中，跟班（富家）出场并观察周围动向与出席聚会。",
       },
     ],
   },
   "char-119": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 卢大爷 appears and engages in conversation.",
+        zh: "在第 5 回中，卢大爷出场并参与对话交流。",
       },
     ],
   },
   "char-120": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 跟班队（华家，~20–30人） makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 5 回中，跟班队（华家，~20–30人）短暂出场或被他人提及。",
       },
     ],
   },
@@ -3651,202 +3651,202 @@ export const characterAppearances: Record<
   "char-122": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 金二 appears and engages in conversation, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "在第 3 回中，金二出场并参与对话交流、在场景中活动及进行才艺表演。",
       },
     ],
   },
   "char-123": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 老三 appears and engages in conversation and moves through the scene.",
+        zh: "在第 3 回中，老三出场并参与对话交流与在场景中活动。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 老三 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 6 回中，老三出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 老三 appears and moves through the scene, participates in a meal or drinking session, and is involved in matters of money or commerce.",
+        zh: "在第 8 回中，老三出场并在场景中活动、参与宴饮及牵涉金钱交易。",
       },
     ],
     13: [
       {
-        en: "Appears or is referenced in Chapter 13.",
-        zh: "在第 13 回中出场或被提及。",
+        en: "In Chapter 13, 老三 appears and engages in conversation, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "在第 13 回中，老三出场并参与对话交流、在场景中活动及牵涉金钱交易。",
       },
     ],
     16: [
       {
-        en: "Appears or is referenced in Chapter 16.",
-        zh: "在第 16 回中出场或被提及。",
+        en: "In Chapter 16, 老三 appears and observes the surroundings and moves through the scene.",
+        zh: "在第 16 回中，老三出场并观察周围动向与在场景中活动。",
       },
     ],
     22: [
       {
-        en: "Appears or is referenced in Chapter 22.",
-        zh: "在第 22 回中出场或被提及。",
+        en: "In Chapter 22, 老三 appears and engages in conversation and is present in the gathering.",
+        zh: "在第 22 回中，老三出场并参与对话交流与出席聚会。",
       },
     ],
     25: [
       {
-        en: "Appears or is referenced in Chapter 25.",
-        zh: "在第 25 回中出场或被提及。",
+        en: "In Chapter 25, 老三 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 25 回中，老三短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     28: [
       {
-        en: "Appears or is referenced in Chapter 28.",
-        zh: "在第 28 回中出场或被提及。",
+        en: "In Chapter 28, 老三 appears and engages in conversation.",
+        zh: "在第 28 回中，老三出场并参与对话交流。",
       },
     ],
     29: [
       {
-        en: "Appears or is referenced in Chapter 29.",
-        zh: "在第 29 回中出场或被提及。",
+        en: "In Chapter 29, 老三 appears and engages in conversation and moves through the scene.",
+        zh: "在第 29 回中，老三出场并参与对话交流与在场景中活动。",
       },
     ],
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 老三 appears and engages in conversation, observes the surroundings, and participates in a meal or drinking session.",
+        zh: "在第 34 回中，老三出场并参与对话交流、观察周围动向及参与宴饮。",
       },
     ],
     36: [
       {
-        en: "Appears or is referenced in Chapter 36.",
-        zh: "在第 36 回中出场或被提及。",
+        en: "In Chapter 36, 老三 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 36 回中，老三短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     40: [
       {
-        en: "Appears or is referenced in Chapter 40.",
-        zh: "在第 40 回中出场或被提及。",
+        en: "In Chapter 40, 老三 appears and engages in conversation.",
+        zh: "在第 40 回中，老三出场并参与对话交流。",
       },
     ],
     47: [
       {
-        en: "Appears or is referenced in Chapter 47.",
-        zh: "在第 47 回中出场或被提及。",
+        en: "In Chapter 47, 老三 appears and moves through the scene.",
+        zh: "在第 47 回中，老三出场并在场景中活动。",
       },
     ],
     50: [
       {
-        en: "Appears or is referenced in Chapter 50.",
-        zh: "在第 50 回中出场或被提及。",
+        en: "In Chapter 50, 老三 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 50 回中，老三短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
   "char-124": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 掌柜的 appears and engages in conversation and moves through the scene.",
+        zh: "在第 3 回中，掌柜的出场并参与对话交流与在场景中活动。",
       },
     ],
     8: [
       {
-        en: "Appears or is referenced in Chapter 8.",
-        zh: "在第 8 回中出场或被提及。",
+        en: "In Chapter 8, 掌柜的 appears and engages in conversation and moves through the scene.",
+        zh: "在第 8 回中，掌柜的出场并参与对话交流与在场景中活动。",
       },
     ],
     21: [
       {
-        en: "Appears or is referenced in Chapter 21.",
-        zh: "在第 21 回中出场或被提及。",
+        en: "In Chapter 21, 掌柜的 appears and engages in conversation, moves through the scene, and participates in a meal or drinking session.",
+        zh: "在第 21 回中，掌柜的出场并参与对话交流、在场景中活动及参与宴饮。",
       },
     ],
     24: [
       {
-        en: "Appears or is referenced in Chapter 24.",
-        zh: "在第 24 回中出场或被提及。",
+        en: "In Chapter 24, 掌柜的 appears and engages in conversation and moves through the scene.",
+        zh: "在第 24 回中，掌柜的出场并参与对话交流与在场景中活动。",
       },
     ],
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 掌柜的 appears and is involved in matters of money or commerce.",
+        zh: "在第 34 回中，掌柜的出场并牵涉金钱交易。",
       },
     ],
     36: [
       {
-        en: "Appears or is referenced in Chapter 36.",
-        zh: "在第 36 回中出场或被提及。",
+        en: "In Chapter 36, 掌柜的 appears and observes the surroundings, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "在第 36 回中，掌柜的出场并观察周围动向、在场景中活动及进行才艺表演。",
       },
     ],
     47: [
       {
-        en: "Appears or is referenced in Chapter 47.",
-        zh: "在第 47 回中出场或被提及。",
+        en: "In Chapter 47, 掌柜的 appears and observes the surroundings, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "在第 47 回中，掌柜的出场并观察周围动向、在场景中活动及牵涉金钱交易。",
       },
     ],
     50: [
       {
-        en: "Appears or is referenced in Chapter 50.",
-        zh: "在第 50 回中出场或被提及。",
+        en: "In Chapter 50, 掌柜的 appears and moves through the scene and participates in a meal or drinking session.",
+        zh: "在第 50 回中，掌柜的出场并在场景中活动与参与宴饮。",
       },
     ],
     56: [
       {
-        en: "Appears or is referenced in Chapter 56.",
-        zh: "在第 56 回中出场或被提及。",
+        en: "In Chapter 56, 掌柜的 appears and observes the surroundings, moves through the scene, and is involved in musical or theatrical performance.",
+        zh: "在第 56 回中，掌柜的出场并观察周围动向、在场景中活动及进行才艺表演。",
       },
     ],
     58: [
       {
-        en: "Appears or is referenced in Chapter 58.",
-        zh: "在第 58 回中出场或被提及。",
+        en: "In Chapter 58, 掌柜的 appears and engages in conversation and observes the surroundings.",
+        zh: "在第 58 回中，掌柜的出场并参与对话交流与观察周围动向。",
       },
     ],
   },
   "char-125": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 梅鼎 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 1 回中，梅鼎短暂出场或被他人提及。",
       },
     ],
   },
   "char-126": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 梅羹调 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 1 回中，梅羹调短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
   "char-127": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 颜庄 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 1 回中，颜庄短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     49: [
       {
-        en: "Appears or is referenced in Chapter 49.",
-        zh: "在第 49 回中出场或被提及。",
+        en: "In Chapter 49, 颜庄 appears and engages in conversation.",
+        zh: "在第 49 回中，颜庄出场并参与对话交流。",
       },
     ],
   },
   "char-128": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 颜尧臣 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 1 回中，颜尧臣短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
   "char-129": {
     3: [
       {
-        en: "Appears or is referenced in Chapter 3.",
-        zh: "在第 3 回中出场或被提及。",
+        en: "In Chapter 3, 富安世 appears and engages in conversation.",
+        zh: "在第 3 回中，富安世出场并参与对话交流。",
       },
     ],
   },
@@ -3861,24 +3861,24 @@ export const characterAppearances: Record<
   "char-131": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 杜母 makes a brief appearance or is mentioned in passing by the other characters.",
+        zh: "在第 5 回中，杜母短暂出场或被他人提及。",
       },
     ],
   },
   "char-132": {
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 杜族叔 appears and is involved in musical or theatrical performance.",
+        zh: "在第 5 回中，杜族叔出场并进行才艺表演。",
       },
     ],
   },
   "char-133": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 魏老仁 appears and engages in conversation.",
+        zh: "在第 2 回中，魏老仁出场并参与对话交流。",
       },
     ],
   },
@@ -3893,38 +3893,38 @@ export const characterAppearances: Record<
   "char-135": {
     2: [
       {
-        en: "Appears or is referenced in Chapter 2.",
-        zh: "在第 2 回中出场或被提及。",
+        en: "In Chapter 2, 侯石翁 appears and engages in conversation.",
+        zh: "在第 2 回中，侯石翁出场并参与对话交流。",
       },
     ],
     37: [
       {
-        en: "Appears or is referenced in Chapter 37.",
-        zh: "在第 37 回中出场或被提及。",
+        en: "In Chapter 37, 侯石翁 appears and engages in conversation and observes the surroundings.",
+        zh: "在第 37 回中，侯石翁出场并参与对话交流与观察周围动向。",
       },
     ],
     45: [
       {
-        en: "Appears or is referenced in Chapter 45.",
-        zh: "在第 45 回中出场或被提及。",
+        en: "In Chapter 45, 侯石翁 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 45 回中，侯石翁短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     55: [
       {
-        en: "Appears or is referenced in Chapter 55.",
-        zh: "在第 55 回中出场或被提及。",
+        en: "In Chapter 55, 侯石翁 appears and engages in conversation and is involved in musical or theatrical performance.",
+        zh: "在第 55 回中，侯石翁出场并参与对话交流与进行才艺表演。",
       },
     ],
     56: [
       {
-        en: "Appears or is referenced in Chapter 56.",
-        zh: "在第 56 回中出场或被提及。",
+        en: "In Chapter 56, 侯石翁 appears and engages in conversation, observes the surroundings, and is involved in musical or theatrical performance.",
+        zh: "在第 56 回中，侯石翁出场并参与对话交流、观察周围动向及进行才艺表演。",
       },
     ],
     59: [
       {
-        en: "Appears or is referenced in Chapter 59.",
-        zh: "在第 59 回中出场或被提及。",
+        en: "In Chapter 59, 侯石翁 appears and moves through the scene, experiences a moment of introspection or emotion, and is involved in musical or theatrical performance.",
+        zh: "在第 59 回中，侯石翁出场并在场景中活动、流露内心情感及进行才艺表演。",
       },
     ],
   },
@@ -3961,40 +3961,40 @@ export const characterAppearances: Record<
   "char-139": {
     34: [
       {
-        en: "Appears or is referenced in Chapter 34.",
-        zh: "在第 34 回中出场或被提及。",
+        en: "In Chapter 34, 卓天香 appears and engages in conversation.",
+        zh: "在第 34 回中，卓天香出场并参与对话交流。",
       },
     ],
     40: [
       {
-        en: "Appears or is referenced in Chapter 40.",
-        zh: "在第 40 回中出场或被提及。",
+        en: "In Chapter 40, 卓天香 appears and moves through the scene.",
+        zh: "在第 40 回中，卓天香出场并在场景中活动。",
       },
     ],
     47: [
       {
-        en: "Appears or is referenced in Chapter 47.",
-        zh: "在第 47 回中出场或被提及。",
+        en: "In Chapter 47, 卓天香 appears and moves through the scene, participates in a meal or drinking session, and experiences a moment of introspection or emotion.",
+        zh: "在第 47 回中，卓天香出场并在场景中活动、参与宴饮及流露内心情感。",
       },
     ],
     58: [
       {
-        en: "Appears or is referenced in Chapter 58.",
-        zh: "在第 58 回中出场或被提及。",
+        en: "In Chapter 58, 卓天香 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 58 回中，卓天香短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
   "char-140": {
     47: [
       {
-        en: "Appears or is referenced in Chapter 47.",
-        zh: "在第 47 回中出场或被提及。",
+        en: "In Chapter 47, 阳善修 appears and experiences a moment of introspection or emotion.",
+        zh: "在第 47 回中，阳善修出场并流露内心情感。",
       },
     ],
     58: [
       {
-        en: "Appears or is referenced in Chapter 58.",
-        zh: "在第 58 回中出场或被提及。",
+        en: "In Chapter 58, 阳善修 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 58 回中，阳善修短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
@@ -4053,44 +4053,44 @@ export const characterAppearances: Record<
   "char-143": {
     23: [
       {
-        en: "Appears or is referenced in Chapter 23.",
-        zh: "在第 23 回中出场或被提及。",
+        en: "In Chapter 23, 姬亮轩 appears and engages in conversation, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "在第 23 回中，姬亮轩出场并参与对话交流、在场景中活动及牵涉金钱交易。",
       },
     ],
     27: [
       {
-        en: "Appears or is referenced in Chapter 27.",
-        zh: "在第 27 回中出场或被提及。",
+        en: "In Chapter 27, 姬亮轩 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 27 回中，姬亮轩短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     39: [
       {
-        en: "Appears or is referenced in Chapter 39.",
-        zh: "在第 39 回中出场或被提及。",
+        en: "In Chapter 39, 姬亮轩 appears and experiences a moment of introspection or emotion.",
+        zh: "在第 39 回中，姬亮轩出场并流露内心情感。",
       },
     ],
     42: [
       {
-        en: "Appears or is referenced in Chapter 42.",
-        zh: "在第 42 回中出场或被提及。",
+        en: "In Chapter 42, 姬亮轩 appears and is involved in musical or theatrical performance.",
+        zh: "在第 42 回中，姬亮轩出场并进行才艺表演。",
       },
     ],
     43: [
       {
-        en: "Appears or is referenced in Chapter 43.",
-        zh: "在第 43 回中出场或被提及。",
+        en: "In Chapter 43, 姬亮轩 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 43 回中，姬亮轩出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     50: [
       {
-        en: "Appears or is referenced in Chapter 50.",
-        zh: "在第 50 回中出场或被提及。",
+        en: "In Chapter 50, 姬亮轩 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 50 回中，姬亮轩出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     58: [
       {
-        en: "Appears or is referenced in Chapter 58.",
-        zh: "在第 58 回中出场或被提及。",
+        en: "In Chapter 58, 姬亮轩 appears and is present in the gathering.",
+        zh: "在第 58 回中，姬亮轩出场并出席聚会。",
       },
     ],
   },
@@ -4183,292 +4183,292 @@ export const characterAppearances: Record<
   "char-154": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 浣兰 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 11 回中，浣兰短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     49: [
       {
-        en: "Appears or is referenced in Chapter 49.",
-        zh: "在第 49 回中出场或被提及。",
+        en: "In Chapter 49, 浣兰 appears and engages in conversation.",
+        zh: "在第 49 回中，浣兰出场并参与对话交流。",
       },
     ],
     54: [
       {
-        en: "Appears or is referenced in Chapter 54.",
-        zh: "在第 54 回中出场或被提及。",
+        en: "In Chapter 54, 浣兰 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 54 回中，浣兰短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 浣兰 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 57 回中，浣兰短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
   "char-155": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 红雪 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 11 回中，红雪短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 红雪 appears and engages in conversation.",
+        zh: "在第 41 回中，红雪出场并参与对话交流。",
       },
     ],
     46: [
       {
-        en: "Appears or is referenced in Chapter 46.",
-        zh: "在第 46 回中出场或被提及。",
+        en: "In Chapter 46, 红雪 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 46 回中，红雪短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 红雪 appears and is present in the gathering.",
+        zh: "在第 52 回中，红雪出场并出席聚会。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 红雪 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 57 回中，红雪短暂出场或被他人提及，推动了情节发展。",
       },
     ],
   },
   "char-156": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 红香 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 11 回中，红香短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     16: [
       {
-        en: "Appears or is referenced in Chapter 16.",
-        zh: "在第 16 回中出场或被提及。",
+        en: "In Chapter 16, 红香 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 16 回中，红香出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     25: [
       {
-        en: "Appears or is referenced in Chapter 25.",
-        zh: "在第 25 回中出场或被提及。",
+        en: "In Chapter 25, 红香 appears and observes the surroundings, moves through the scene, and is present in the gathering.",
+        zh: "在第 25 回中，红香出场并观察周围动向、在场景中活动及出席聚会。",
       },
     ],
     37: [
       {
-        en: "Appears or is referenced in Chapter 37.",
-        zh: "在第 37 回中出场或被提及。",
+        en: "In Chapter 37, 红香 appears and is involved in musical or theatrical performance.",
+        zh: "在第 37 回中，红香出场并进行才艺表演。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 红香 appears and is present in the gathering.",
+        zh: "在第 52 回中，红香出场并出席聚会。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 红香 appears and participates in a meal or drinking session.",
+        zh: "在第 57 回中，红香出场并参与宴饮。",
       },
     ],
   },
   "char-157": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 花珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 11 回中，花珠短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     26: [
       {
-        en: "Appears or is referenced in Chapter 26.",
-        zh: "在第 26 回中出场或被提及。",
+        en: "In Chapter 26, 花珠 appears and engages in conversation.",
+        zh: "在第 26 回中，花珠出场并参与对话交流。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 花珠 appears and engages in conversation and moves through the scene.",
+        zh: "在第 41 回中，花珠出场并参与对话交流与在场景中活动。",
       },
     ],
     44: [
       {
-        en: "Appears or is referenced in Chapter 44.",
-        zh: "在第 44 回中出场或被提及。",
+        en: "In Chapter 44, 花珠 appears and moves through the scene.",
+        zh: "在第 44 回中，花珠出场并在场景中活动。",
       },
     ],
     45: [
       {
-        en: "Appears or is referenced in Chapter 45.",
-        zh: "在第 45 回中出场或被提及。",
+        en: "In Chapter 45, 花珠 appears and observes the surroundings, experiences a moment of introspection or emotion, and is involved in musical or theatrical performance.",
+        zh: "在第 45 回中，花珠出场并观察周围动向、流露内心情感及进行才艺表演。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 花珠 appears and engages in conversation, moves through the scene, and is present in the gathering.",
+        zh: "在第 57 回中，花珠出场并参与对话交流、在场景中活动及出席聚会。",
       },
     ],
   },
   "char-158": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 画珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 11 回中，画珠短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     26: [
       {
-        en: "Appears or is referenced in Chapter 26.",
-        zh: "在第 26 回中出场或被提及。",
+        en: "In Chapter 26, 画珠 appears and engages in conversation, moves through the scene, and is involved in matters of money or commerce.",
+        zh: "在第 26 回中，画珠出场并参与对话交流、在场景中活动及牵涉金钱交易。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 画珠 appears and engages in conversation and is involved in musical or theatrical performance.",
+        zh: "在第 41 回中，画珠出场并参与对话交流与进行才艺表演。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 画珠 appears and is involved in musical or theatrical performance.",
+        zh: "在第 57 回中，画珠出场并进行才艺表演。",
       },
     ],
   },
   "char-159": {
     1: [
       {
-        en: "Appears or is referenced in Chapter 1.",
-        zh: "在第 1 回中出场或被提及。",
+        en: "In Chapter 1, 明珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 1 回中，明珠短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     5: [
       {
-        en: "Appears or is referenced in Chapter 5.",
-        zh: "在第 5 回中出场或被提及。",
+        en: "In Chapter 5, 明珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 5 回中，明珠短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     6: [
       {
-        en: "Appears or is referenced in Chapter 6.",
-        zh: "在第 6 回中出场或被提及。",
+        en: "In Chapter 6, 明珠 appears and engages in conversation, observes the surroundings, and moves through the scene.",
+        zh: "在第 6 回中，明珠出场并参与对话交流、观察周围动向及在场景中活动。",
       },
     ],
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 明珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 11 回中，明珠短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     26: [
       {
-        en: "Appears or is referenced in Chapter 26.",
-        zh: "在第 26 回中出场或被提及。",
+        en: "In Chapter 26, 明珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 26 回中，明珠短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 明珠 appears and engages in conversation and moves through the scene.",
+        zh: "在第 41 回中，明珠出场并参与对话交流与在场景中活动。",
       },
     ],
     45: [
       {
-        en: "Appears or is referenced in Chapter 45.",
-        zh: "在第 45 回中出场或被提及。",
+        en: "In Chapter 45, 明珠 appears and is involved in musical or theatrical performance.",
+        zh: "在第 45 回中，明珠出场并进行才艺表演。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 明珠 appears and moves through the scene.",
+        zh: "在第 52 回中，明珠出场并在场景中活动。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 明珠 appears and is involved in musical or theatrical performance.",
+        zh: "在第 57 回中，明珠出场并进行才艺表演。",
       },
     ],
     60: [
       {
-        en: "Appears or is referenced in Chapter 60.",
-        zh: "在第 60 回中出场或被提及。",
+        en: "In Chapter 60, 明珠 appears and observes the surroundings.",
+        zh: "在第 60 回中，明珠出场并观察周围动向。",
       },
     ],
   },
   "char-160": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 荷珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 11 回中，荷珠短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     26: [
       {
-        en: "Appears or is referenced in Chapter 26.",
-        zh: "在第 26 回中出场或被提及。",
+        en: "In Chapter 26, 荷珠 appears and is present in the gathering.",
+        zh: "在第 26 回中，荷珠出场并出席聚会。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 荷珠 appears and engages in conversation and moves through the scene.",
+        zh: "在第 41 回中，荷珠出场并参与对话交流与在场景中活动。",
       },
     ],
     44: [
       {
-        en: "Appears or is referenced in Chapter 44.",
-        zh: "在第 44 回中出场或被提及。",
+        en: "In Chapter 44, 荷珠 appears and moves through the scene.",
+        zh: "在第 44 回中，荷珠出场并在场景中活动。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 荷珠 appears and is involved in musical or theatrical performance.",
+        zh: "在第 57 回中，荷珠出场并进行才艺表演。",
       },
     ],
   },
   "char-161": {
     11: [
       {
-        en: "Appears or is referenced in Chapter 11.",
-        zh: "在第 11 回中出场或被提及。",
+        en: "In Chapter 11, 蕊珠 briefly enters the narrative, adding to the ongoing events.",
+        zh: "在第 11 回中，蕊珠短暂出场或被他人提及，推动了情节发展。",
       },
     ],
     41: [
       {
-        en: "Appears or is referenced in Chapter 41.",
-        zh: "在第 41 回中出场或被提及。",
+        en: "In Chapter 41, 蕊珠 appears and engages in conversation, observes the surroundings, and is involved in musical or theatrical performance.",
+        zh: "在第 41 回中，蕊珠出场并参与对话交流、观察周围动向及进行才艺表演。",
       },
     ],
     44: [
       {
-        en: "Appears or is referenced in Chapter 44.",
-        zh: "在第 44 回中出场或被提及。",
+        en: "In Chapter 44, 蕊珠 appears and observes the surroundings and moves through the scene.",
+        zh: "在第 44 回中，蕊珠出场并观察周围动向与在场景中活动。",
       },
     ],
     46: [
       {
-        en: "Appears or is referenced in Chapter 46.",
-        zh: "在第 46 回中出场或被提及。",
+        en: "In Chapter 46, 蕊珠 appears and engages in conversation.",
+        zh: "在第 46 回中，蕊珠出场并参与对话交流。",
       },
     ],
     52: [
       {
-        en: "Appears or is referenced in Chapter 52.",
-        zh: "在第 52 回中出场或被提及。",
+        en: "In Chapter 52, 蕊珠 appears and moves through the scene.",
+        zh: "在第 52 回中，蕊珠出场并在场景中活动。",
       },
     ],
     57: [
       {
-        en: "Appears or is referenced in Chapter 57.",
-        zh: "在第 57 回中出场或被提及。",
+        en: "In Chapter 57, 蕊珠 appears and is involved in musical or theatrical performance.",
+        zh: "在第 57 回中，蕊珠出场并进行才艺表演。",
       },
     ],
   },
