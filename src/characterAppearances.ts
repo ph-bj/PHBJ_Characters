@@ -1018,6 +1018,24 @@ export const characterAppearances: Record<
         zh: "与仲清闲谈京中轶事，议论田春航为苏蕙芳一掷千金的痴情，并谈及李元茂的学业进展。",
       },
     ],
+    25: [
+      {
+        en: "Notable for his absence from Xu Ziyun's banquet due to his wife's impending childbirth, reflecting his domestic responsibilities.",
+        zh: "因妻子即将临盆而未能赴徐子云的宴会，反映出其对家庭责任的看重。",
+      },
+    ],
+    28: [
+      {
+        en: "Visits the distressed and ill Ziyu frequently alongside Zhongqing, trying in vain to comfort him without fully knowing the reason for his lovesickness.",
+        zh: "与仲清频繁探望病中愁苦的子玉，虽不知其相思的深层原因，仍尽力从旁宽慰。",
+      },
+    ],
+    29: [
+      {
+        en: "Questioned by his father about Ziyu's suspected romantic affairs and illness, giving vague answers to protect his cousin.",
+        zh: "被父亲盘问有关子玉疑有外遇及生病之事，含糊其辞以回护表弟。",
+      },
+    ],
     30: [
       {
         en: "Visits the bedridden Ziyu alongside Zhongqing and Nanxiang, attempting to comfort his cousin with poetry and lively conversation.",
@@ -1028,6 +1046,12 @@ export const characterAppearances: Record<
       {
         en: "Continues to visit Ziyu during his convalescence, discussing the upcoming examinations and the academic prospects of their friends.",
         zh: "在子玉病愈期间继续探望，众人同议即将到来的科考及友人们的学业前景。",
+      },
+    ],
+    32: [
+      {
+        en: "Forms a deeper bond with Chunhang after the latter achieves the top rank in the examinations, frequently inviting him over.",
+        zh: "在春航科考高中南元后，与其结下更深的交情，时常邀其过府相聚。",
       },
     ],
     35: [
@@ -1048,16 +1072,46 @@ export const characterAppearances: Record<
         zh: "继续参与怡园的欢庆活动，在文人雅集与戏曲交际中皆显得游刃有余。",
       },
     ],
+    39: [
+      {
+        en: "Handles the wedding arrangements for Li Yuanmao on behalf of his father, mediating between the families and dealing with the eccentricities of the guests.",
+        zh: "代父亲操办李元茂的婚事，在亲家间居中周旋，并应对婚宴上各色宾客的荒诞行径。",
+      },
+    ],
+    43: [
+      {
+        en: "Pledges financial support to help Qinyan redeem himself from his contract, demonstrating his loyalty and generosity within the group.",
+        zh: "承诺出资襄助琴言赎身，展现出他在圈子内的仗义与慷慨。",
+      },
+    ],
+    45: [
+      {
+        en: "Attends the spirit-writing séance and banquet hosted by Xu Ziyun, engaging in the complex poetic games and witnessing the revelation of karmic bonds.",
+        zh: "赴徐子云举办的扶乩大会与盛宴，参与复杂的诗词游戏，并见证众人前世因缘的揭示。",
+      },
+    ],
     46: [
       {
         en: "Gathers with Ziyu, Chunhang, and others for an outing, sharing the collective delight when Qinxian's singing receives high praise.",
         zh: "与子玉、春航等人同游，当琴仙的曲艺赢得满堂喝彩时，与众人共享这份欢愉。",
       },
     ],
+    48: [
+      {
+        en: "Partakes in the farewell gathering for Qu Daosheng and Qinyan outside the city, wishing them a safe journey south.",
+        zh: "在城外参加屈道生与琴言的饯别宴，送别二人南下。",
+      },
+    ],
     50: [
       {
         en: "Attends a gathering where witty wordplay and couplets are shared, enjoying the camaraderie of the scholars.",
         zh: "参与一场文字游戏聚会，享受文人同侪间的欢声笑语。",
+      },
+    ],
+    51: [
+      {
+        en: "Lends money to Li Yuanmao to clear his debts before he departs the capital for his father's new posting.",
+        zh: "在李元茂离京赴任前，借钱给他以偿还欠债。",
       },
     ],
     52: [
@@ -1070,6 +1124,12 @@ export const characterAppearances: Record<
       {
         en: "Attends gatherings where the intertwining destinies of the scholars and their favored performers are further discussed and celebrated.",
         zh: "参加聚会，见证并庆祝名士与伶人们日益交织的命运。",
+      },
+    ],
+    57: [
+      {
+        en: "His wife, Sun Peiqiu, attends the women's poetry and dice gathering hosted by Yuan Qixiang, representing the Wang household's inclusion in the inner circles of the elite.",
+        zh: "其妻孙佩秋赴袁绮香举办的女客诗会，代表王府女眷已融入京城名流的内闺圈子。",
       },
     ],
     60: [
