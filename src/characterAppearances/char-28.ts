@@ -1,4 +1,5 @@
 // Character: 王兰保 Wáng Lánbǎo
+// Chapter Appearances: 1, 2, 9, 14, 17, 20, 24, 27, 28, 30, 31, 36, 37, 42, 45, 46, 47, 48, 52, 53, 58, 60
 import type { SceneBullet } from './types';
 
 export const char_28Appearances: Record<number, SceneBullet[]> = {};

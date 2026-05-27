@@ -1,4 +1,5 @@
 // Character: Li Yuanmao
+// Chapter Appearances: 2, 3, 4, 5, 6, 8, 9, 10, 15, 16, 18, 21, 22, 23, 24, 28, 34, 38, 39, 50, 51
 import type { SceneBullet } from './types';
 
 export const char_6Appearances: Record<number, SceneBullet[]> = {

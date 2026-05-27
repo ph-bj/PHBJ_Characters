@@ -1,4 +1,5 @@
 // Character: Wang Xun
+// Chapter Appearances: 1, 2, 4, 5, 6, 7, 9, 10, 12, 13, 14, 15, 17, 20, 24, 25, 28, 29, 30, 31, 32, 35, 37, 38, 39, 43, 45, 46, 48, 50, 51, 52, 54, 57, 60
 import type { SceneBullet } from './types';
 
 export const char_4Appearances: Record<number, SceneBullet[]> = {

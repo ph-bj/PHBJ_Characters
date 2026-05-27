@@ -1,4 +1,5 @@
 // Character: 奚十一 Xī Shíyī
+// Chapter Appearances: 3, 5, 6, 11, 12, 14, 18, 19, 24, 26, 27, 28, 30, 32, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 47, 49, 50, 53, 56, 57, 58, 59, 60
 import type { SceneBullet } from './types';
 
 export const char_72Appearances: Record<number, SceneBullet[]> = {};

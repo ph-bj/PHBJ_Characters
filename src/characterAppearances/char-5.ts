@@ -1,4 +1,5 @@
 // Character: Wei Pengcai
+// Chapter Appearances: 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 15, 16, 18, 19, 21, 22, 24, 26, 27, 28, 29, 30, 31, 33, 34, 35, 36, 37, 39, 40, 42, 44, 47, 50, 51, 52, 56, 60
 import type { SceneBullet } from './types';
 
 export const char_5Appearances: Record<number, SceneBullet[]> = {

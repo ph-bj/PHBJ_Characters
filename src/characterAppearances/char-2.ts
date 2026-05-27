@@ -1,4 +1,5 @@
 // Character: Yan Zhongqing
+// Chapter Appearances: 1, 2, 4, 5, 6, 7, 9, 12, 13, 14, 15, 16, 17, 20, 24, 25, 28, 30, 31, 32, 33, 35, 37, 38, 39, 43, 44, 45, 46, 48, 49, 50, 52, 54, 57, 59, 60
 import type { SceneBullet } from './types';
 
 export const char_2Appearances: Record<number, SceneBullet[]> = {

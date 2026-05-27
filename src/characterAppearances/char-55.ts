@@ -1,4 +1,5 @@
 // Character: 华光宿 Huá Guāngsù
+// Chapter Appearances: 5, 6, 10, 11, 13, 16, 18, 19, 20, 21, 24, 25, 26, 27, 28, 29, 30, 31, 33, 34, 36, 37, 38, 41, 42, 43, 44, 45, 46, 48, 49, 52, 53, 54, 57, 59, 60
 import type { SceneBullet } from './types';
 
 export const char_55Appearances: Record<number, SceneBullet[]> = {};
