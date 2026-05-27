@@ -1,3 +1,4 @@
+// Character: Du Qinyan
 import type { SceneBullet } from './types';
 
 export const char_1Appearances: Record<number, SceneBullet[]> = {

@@ -5,7 +5,7 @@ import { char_2Appearances } from './characterAppearances/char-2';
 import { char_3Appearances } from './characterAppearances/char-3';
 import { char_4Appearances } from './characterAppearances/char-4';
 import { char_5Appearances } from './characterAppearances/char-5';
-import { char_9Appearances } from './characterAppearances/char-9';
+import { char_6Appearances } from './characterAppearances/char-6';
 
 export type { SceneBullet };
 
@@ -16,7 +16,7 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
   'char-3': char_3Appearances,
   'char-4': char_4Appearances,
   'char-5': char_5Appearances,
-  'char-9': char_9Appearances,
+  'char-6': char_6Appearances,
 };
 
 /** Curated scene bullets from characterAppearances; empty when none exist for this chapter. */

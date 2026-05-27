@@ -1,3 +1,4 @@
+// Character: Mei Ziyu
 import type { SceneBullet } from './types';
 
 export const char_0Appearances: Record<number, SceneBullet[]> = {

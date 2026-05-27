@@ -1,3 +1,4 @@
+// Character: Shi Nanxiang
 import type { SceneBullet } from './types';
 
 export const char_3Appearances: Record<number, SceneBullet[]> = {

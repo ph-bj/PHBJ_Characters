@@ -1,3 +1,4 @@
+// Character: Wang Xun
 import type { SceneBullet } from './types';
 
 export const char_4Appearances: Record<number, SceneBullet[]> = {

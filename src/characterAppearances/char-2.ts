@@ -1,3 +1,4 @@
+// Character: Yan Zhongqing
 import type { SceneBullet } from './types';
 
 export const char_2Appearances: Record<number, SceneBullet[]> = {

@@ -1,3 +1,4 @@
+// Character: Wei Pengcai
 import type { SceneBullet } from './types';
 
 export const char_5Appearances: Record<number, SceneBullet[]> = {

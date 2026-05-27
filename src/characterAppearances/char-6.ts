@@ -1,6 +1,7 @@
+// Character: Li Yuanmao
 import type { SceneBullet } from './types';
 
-export const char_9Appearances: Record<number, SceneBullet[]> = {
+export const char_6Appearances: Record<number, SceneBullet[]> = {
   "2": [
     {
       "en": "Li Yuanmao arrives in the capital with Wei Pingcai and pays a formal visit to Mei Shixie, kneeling awkwardly during the introduction.",
