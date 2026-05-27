@@ -1,6 +1,0 @@
-1. **Analyze source context**: Use the parsed data in `li_yuanmao_full_data.json` to generate per-chapter concise 1-2 sentence bilingual narrative bullets for Li Yuanmao (`char-9`), just like `ziyu` and `qinyan`. If a chapter has no English translation available (e.g., chapter 51), generate English summaries manually based on the Chinese text.
-2. **Update `src/characterAppearances.ts`**: Inject the generated `char-9` summaries object into `src/characterAppearances.ts` in the correct format. Ensure that `char-0`, `char-1`, and `char-2` entries are preserved exactly as they are without being overwritten.
-3. **Format**: Run `npx prettier --write src/characterAppearances.ts` to fix any formatting issues.
-4. **Compile check**: Run `npm run lint` or `npx tsc --noEmit` to ensure the project still compiles and no types are broken.
-5. **Clean up**: Remove `generate_li_yuanmao.js`, `generate_li_yuanmao_summary.js`, `parse_translations.js`, `test_extract_en.js`, `test_ch51_en.js`, `li_yuanmao_appearances.json`, `li_yuanmao_appearances_with_en.json`, and `li_yuanmao_full_data.json` from the repository root.
-6. **Pre-commit and submit**: Run pre-commit instructions, complete testing and review, and finally submit the changes.
