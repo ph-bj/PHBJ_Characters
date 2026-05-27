@@ -2,4 +2,9 @@
 // Chapter Appearances: 11, 49, 54, 57
 import type { SceneBullet } from './types';
 
-export const char_154Appearances: Record<number, SceneBullet[]> = {};
+export const char_154Appearances: Record<number, SceneBullet[]> = {
+  "11": [],
+  "49": [],
+  "54": [],
+  "57": [],
+};
