@@ -2,6 +2,4 @@
 // Chapter Appearances: none
 import type { SceneBullet } from './types';
 
-export const char_105Appearances: Record<number, SceneBullet[]> = {
-  "none": [],
-};
+export const char_105Appearances: Record<number, SceneBullet[]> = {};
