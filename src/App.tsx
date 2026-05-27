@@ -40,66 +40,69 @@ import { chapters } from './chapters';
 import { gardens, getGardenById, type Garden } from './gardens';
 import { locationTypeLabels, locationTypeOrder, novelLocations, type NovelLocation } from './locations';
 import { prefaceTranslations } from './prefaceTranslation';
-import { chapterTranslations1 } from './chapterTranslations1';
-import { chapterTranslations2 } from './chapterTranslations2';
-import { chapterTranslations3 } from './chapterTranslations3';
-import { chapterTranslations4 } from './chapterTranslations4';
-import { chapterTranslations5 } from './chapterTranslations5';
-import { chapterTranslations6 } from './chapterTranslations6';
-import { chapterTranslations7 } from './chapterTranslations7';
-import { chapterTranslations8 } from './chapterTranslations8';
-import { chapterTranslations9 } from './chapterTranslations9';
-import { chapterTranslations10 } from './chapterTranslations10';
-import { chapterTranslations11 } from './chapterTranslations11';
-import { chapterTranslations12 } from './chapterTranslations12';
-import { chapterTranslations13 } from './chapterTranslations13';
-import { chapterTranslations14 } from './chapterTranslations14';
-import { chapterTranslations15 } from './chapterTranslations15';
-import { chapterTranslations16 } from './chapterTranslations16';
-import { chapterTranslations17 } from './chapterTranslations17';
-import { chapterTranslations18 } from './chapterTranslations18';
-import { chapterTranslations19 } from './chapterTranslations19';
-import { chapterTranslations20 } from './chapterTranslations20';
-import { chapterTranslations21 } from './chapterTranslations21';
-import { chapterTranslations22 } from './chapterTranslations22';
-import { chapterTranslations23 } from './chapterTranslations23';
-import { chapterTranslations24 } from './chapterTranslations24';
-import { chapterTranslations25 } from './chapterTranslations25';
-import { chapterTranslations26 } from './chapterTranslations26';
-import { chapterTranslations27 } from './chapterTranslations27';
-import { chapterTranslations28 } from './chapterTranslations28';
-import { chapterTranslations29 } from './chapterTranslations29';
-import { chapterTranslations30 } from './chapterTranslations30';
-import { chapterTranslations31 } from './chapterTranslations31';
-import { chapterTranslations32 } from './chapterTranslations32';
-import { chapterTranslations33 } from './chapterTranslations33';
-import { chapterTranslations34 } from './chapterTranslations34';
-import { chapterTranslations35 } from './chapterTranslations35';
-import { chapterTranslations36 } from './chapterTranslations36';
-import { chapterTranslations37 } from './chapterTranslations37';
-import { chapterTranslations38 } from './chapterTranslations38';
-import { chapterTranslations39 } from './chapterTranslations39';
-import { chapterTranslations40 } from './chapterTranslations40';
-import { chapterTranslations41 } from './chapterTranslations41';
-import { chapterTranslations42 } from './chapterTranslations42';
-import { chapterTranslations43 } from './chapterTranslations43';
-import { chapterTranslations44 } from './chapterTranslations44';
-import { chapterTranslations45 } from './chapterTranslations45';
-import { chapterTranslations46 } from './chapterTranslations46';
-import { chapterTranslations47 } from './chapterTranslations47';
-import { chapterTranslations48 } from './chapterTranslations48';
-import { chapterTranslations49 } from './chapterTranslations49';
-import { chapterTranslations50 } from './chapterTranslations50';
-import { chapterTranslations51 } from './chapterTranslations51';
-import { chapterTranslations52 } from './chapterTranslations52';
-import { chapterTranslations53 } from './chapterTranslations53';
-import { chapterTranslations54 } from './chapterTranslations54';
-import { chapterTranslations55 } from './chapterTranslations55';
-import { chapterTranslations56 } from './chapterTranslations56';
-import { chapterTranslations57 } from './chapterTranslations57';
-import { chapterTranslations58 } from './chapterTranslations58';
-import { chapterTranslations59 } from './chapterTranslations59';
-import { chapterTranslations60 } from './chapterTranslations60';
+import {
+  chapterTranslations1,
+  chapterTranslations2,
+  chapterTranslations3,
+  chapterTranslations4,
+  chapterTranslations5,
+  chapterTranslations6,
+  chapterTranslations7,
+  chapterTranslations8,
+  chapterTranslations9,
+  chapterTranslations10,
+  chapterTranslations11,
+  chapterTranslations12,
+  chapterTranslations13,
+  chapterTranslations14,
+  chapterTranslations15,
+  chapterTranslations16,
+  chapterTranslations17,
+  chapterTranslations18,
+  chapterTranslations19,
+  chapterTranslations20,
+  chapterTranslations21,
+  chapterTranslations22,
+  chapterTranslations23,
+  chapterTranslations24,
+  chapterTranslations25,
+  chapterTranslations26,
+  chapterTranslations27,
+  chapterTranslations28,
+  chapterTranslations29,
+  chapterTranslations30,
+  chapterTranslations31,
+  chapterTranslations32,
+  chapterTranslations33,
+  chapterTranslations34,
+  chapterTranslations35,
+  chapterTranslations36,
+  chapterTranslations37,
+  chapterTranslations38,
+  chapterTranslations39,
+  chapterTranslations40,
+  chapterTranslations41,
+  chapterTranslations42,
+  chapterTranslations43,
+  chapterTranslations44,
+  chapterTranslations45,
+  chapterTranslations46,
+  chapterTranslations47,
+  chapterTranslations48,
+  chapterTranslations49,
+  chapterTranslations50,
+  chapterTranslations51,
+  chapterTranslations52,
+  chapterTranslations53,
+  chapterTranslations54,
+  chapterTranslations55,
+  chapterTranslations56,
+  chapterTranslations57,
+  chapterTranslations58,
+  chapterTranslations59,
+  chapterTranslations60,
+} from "./chapterTranslations";
+
 import { chapterSummaries } from './chapterSummaries';
 import { getCharacterSceneBullets, type SceneBullet } from './characterAppearances';
 import { chapterLacunae } from './lacunae';

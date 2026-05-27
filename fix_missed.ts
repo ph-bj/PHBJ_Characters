@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-let ch54Content = fs.readFileSync('src/chapterTranslations54.ts', 'utf8');
+let ch54Content = fs.readFileSync('src/chapterTranslations/chapterTranslations54.ts', 'utf8');
 
 // Looking east toward home the road is endless...
 ch54Content = ch54Content.replace(
@@ -20,7 +20,7 @@ ch54Content = ch54Content.replace(
     `"Shoo away the yellow orioles, / Don't let them sing on the branches. / Their singing will wake me from my dream, / And I won't get to Liaoxi."`
 );
 
-fs.writeFileSync('src/chapterTranslations54.ts', ch54Content);
+fs.writeFileSync('src/chapterTranslations/chapterTranslations54.ts', ch54Content);
 
 let ch18Content = fs.readFileSync('src/chapterTranslations3to60.ts', 'utf8');
 ch18Content = ch18Content.replace(
