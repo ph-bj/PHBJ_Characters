@@ -1015,6 +1015,58 @@ export const characterAppearances: Record<
       },
     ],
   },
+  "char-3": {
+    1: [
+      {
+        en: "While Yan Zhuang lived, he had been both a close in-law relation and a bosom friend of Shixie's. To everyone's sorrow, he was called to the jade tower at thirty, and his wife, Madame Zheng, starved herself to death in loyal devotion. At the time Zhongqing was barely three years old; Shixie took him in and raised him, and also petitioned for Madame Zheng to be formally honored for her fidelity. At nineteen, while at the Mei household, Zhongqing passed the provincial examination as a runner-up. That same year Shixie arranged his marriage into the household of a fellow-provincial and examination-cohort acquaintance, the current Transmission Office Commissioner Wang Wenhui, as a son-in-law by adoption. Wang Wenhui is Lady Yan's cousin — so the family ties became doubly close — and father- and son-in-law got on extremely well. The other visitor was surnamed Shi, given name Nanxiang, styled Zhujun — a native of Hanyang in Huguang, currently twenty-four years old, who had already passed his provincial examination as top candidate. His father, Shi Zengwang, currently serves as a Supervising Secretary in the Office of the Scrutiny of Civil Appointments. Both men were abundantly talented and deeply learned, yet their characters were quite different. Zhongqing was proudly self-contained and straightforward in heart. Comparing his learning to Ziyu's: Ziyu pursued one pure and thoroughgoing path; Zhongqing took one broad and open-minded path. In all matters of human nature and the principles of things, Zhongqing observed the broad outlines and sought no further; Ziyu probed and investigated hidden depths, striving always for greater precision.",
+        zh: "这颜庄在日，与士燮既系郎舅至亲，又有雷陈至契。不料于三十岁即赴召玉楼，他夫人郑氏绝食殉节。那时仲清年甫三龄，士燮抚养在家，又与郑氏夫人请旌表烈。仲清在士燮处，到十九岁上中了个副车。是年士燮与其作伐，赘于同乡同年现任通政司王文辉家为婿。这王文辉是颜夫人的表兄，与仲清亲上加亲，翁婿甚为相得。那一位姓史名南湘，号竹君，是湖广汉阳人，现年二十四岁，已中了本省解元。父亲史曾望现为吏科给事中。这两人同是才高八斗，学富五车，但两人的情性却又各不相同。仲清是孤高自洁，坦白为怀。将他的学问与子玉比较起来，子玉是纯粹一路，仲清是旷达一路。一切人情物理，仲清不过略观大概，不求甚解。子玉则钩探索隐，精益求精。",
+      },
+      {
+        en: "These two had been inseparable for more than ten years, their bond deeper and more intimate than that of brothers born of the same mother. As for Nanxiang, he was brilliantly unconventional — pure and wild, utterly beyond the commonplace, disdaining the whole world — with ten thousand words pouring from him at a moment's notice; and of all people, he admired only Ziyu and Zhongqing.",
+        zh: "这两个相聚十余年，其结契之厚，比同胞手足更加亲密。那南湘是啸傲忘形，清狂绝俗，目空一世，倚马万言，就只赏识子玉、仲清二人。",
+      },
+      {
+        en: "That day they came together to call on Ziyu. The gateman recognized them as frequent visitors and the young master's closest friends, and led them directly to the study to see Ziyu. Zhongqing then accompanied Ziyu inside to pay respects to his aunt, after which they came out and sat down with Nanxiang. The three conversed for a while, and a page boy brought fragrant tea. Nanxiang, pleased by the refined elegance of the room and the clean scent of the tea, said with sudden enthusiasm: 'Is there anything entertaining to hand?' Ziyu took out a jade flute and played the piece 'Three Variations on the Plum Blossom.' When he finished, Nanxiang beat time in appreciation and sighed: 'A fine sword for a hero, rouge for a beauty — sweet music for my friend. This jade flute was a gift from me to you, and this piece was the perfect choice. Today I have something even finer to give you.' Saying this, he noticed the immaculate elegance of the room, every furnishing refined and antique. Knowing Ziyu's exceptional mind and seeing his noble, radiant bearing—even those selected recently in the Flower Register of the Theater, despite their beauty, lacked this spiritual bone. Yet seeing his humble modesty and seeming reserve, he wondered what his tastes might be. If he were rigid and inflexible, he could not be considered a complete talent. So he decided to test him, asking: 'Yuxiang, let me ask you, of all the things in the world that please the ear and eye, and move the heart and soul, what is the greatest?' Ziyu, taken aback by the question, looked at Nanxiang and thought: 'He is a pure, wild, and unrestrained man; his views surely differ from the vulgar, and there must be a reason for this.' He replied: 'This question is too broad. People's ears and eyes are the same, but their temperaments differ. Some love prosperity, while others despise it. Some love tranquility, while others loathe it. For instance, Xie An found pleasure in music at the Eastern Mountain, while another might find it a noisy disturbance in his humble dwelling. Some dismiss beautiful women, while others keep concubines by their side. Since the pleasures of the ear and eye vary so greatly, the things that move the heart and soul are even harder to agree upon. How can one person's temperament and senses represent everyone's?' Nanxiang said: 'That is not what I mean. I am referring to a specific kind of person.'",
+        zh: "这日同来看子玉，门上见是来惯的，是少爷至好，便一直引到书房与子玉见了。仲清又同子玉进内见了姑母，然后出来与南湘坐下。三人讲了些话，书僮送上香茗。南湘见这室中清雅绝尘，一切陈设甚精且古，久知其胸次不凡，又见那清华尊贵的仪表，就是近日所选那《曲台花谱》中数人，虽然有此姿容，到底无此神骨。但见其谦谦自退，讷讷若虚，究不知他何所嗜好，若有些拘执鲜通，胶滞不化，也算不得全才了。便想来试他一试，即问道：「庾香，我问你，世间能使人娱耳悦目，动心荡魄的，以何物为最？」子玉蓦然被他这一问，便看着南湘，心里想道：「他是个清狂潇洒人，决不与世俗之见相同，必有个道理在内。」便答道：「这句话却问得太泛，人生耳目虽同，性情各异。有好繁华的，即有厌繁华的。有好冷淡的，也有嫌冷淡的。譬如东山以丝竹为陶情，而陋室又以丝竹为乱耳。有屏蛾眉而弗御，有携姬妾以自随。则娱耳悦目之乐既有不同，而荡心动魄之处更自难合，安能以一人之耳目性情，概人人之耳目性情？」南湘道：「不是这么说，我是指一种人而言。",
+      },
+    ],
+    2: [
+      {
+        en: "Wenhui rewarded Guibao with twenty taels of silver. Guibao expressed his thanks, then went to the study to look for Wang Xun and Zhongqing, chatted for a while, and said: \"Two new ones have come into our troupe — one called Qin Guan, one called Qi Guan; both are beautiful and talented. I'm afraid Shi Zhujun's Flower Register is going to need another printing.\" After sitting for another while he also went home. As for what happened next — listen to the following chapter for the explanation.",
+        zh: "文辉赏了桂保二十两银子，桂保谢了，走到书房来找王恂、仲清，谈了一会，说道：「我们班里新来了两个：一个叫琴官，一个叫琪官，生得色艺俱佳，只怕史竹君的《花选》又要翻刻了。」又坐了一会也自回去。不知后事如何，且听下回分解。",
+      },
+    ],
+  },
+  "char-4": {
+    1: [
+      {
+        en: "He was received and led inside; they first went in together to pay respects to his maternal aunt, Madame Lu — she was Wang Wenhui's second wife, only forty years old this year. He also met Wang Xun's wife, née Sun — his cousin's wife — and Zhongqing's wife Ronghua — his cousin's wife on the other side. There was also a Miss Qionghua who had not yet come out.",
+        zh: "接进了子玉。先同到内里去见了表舅母陆氏夫人。这夫人已是文辉续娶的了，今年才四十岁。又见了王恂的妻室孙氏，那是表嫂。仲清的妻室蓉华，那是表姊。还有个琼华小姐没有出来，因听得他父亲前日说那子玉的好处，其口风似要与他联姻的话，所以不肯出来见这表兄了。陆夫人见子玉，真是见一回爱一回，留他坐了，问了一会家常话，子玉告退。",
+      },
+      {
+        en: "After that they went with Wang Xun to the study, and asked after Zhongqing — he had been invited out by Gao Pin and Nanxiang. Ziyu mentioned that when he had first seen Nanxiang's Flower Register the other day he felt it was too far from reality. Wang Xun said: Speaking frankly of Zhujun's Flower Register — one would rather fear it falls short of reality than say it is too far from reality. The treasures currently out there.",
+        zh: "然后同玉恂到了书房，问起仲清，为高品、南湘请去。子玉说起前日所见南湘的《花选》过于失实，玉恂道：「竹君的《花选》，据实而言，尚恐说不到，何以为失实？现在那些宝贝得了这番品题，又长了些声价，你也应该见过这些人。」子玉听了，知王恂也有旦癖，又是个好为附会的人，便不说了。",
+      },
+      {
+        en: "Wang Xun said: What do you make of Zhujun's Flower Register — is the selection unfair, or too few, leaving some gems uncounted? The good ones, there are still some. But none of them match these eight — these are gold coins passing every test. To exhaust all their fine qualities, one would have to write a separate preface for each person.",
+        zh: "王恂道：「你见竹君的《花选》怎样，还是选得不公呢，还是太少，有遗珠之撼么？好的呢也还有些。但总不及这八个，这是万选青钱。若要说尽他们的好处，除非与他们一人序一本年谱才能清楚，这几句话还不过略述大概而已。」子玉心里甚异：「难道现在真有这些人？」又想：「这三人也不是容易说人好的，何以说到这几个小旦，都是心口如一。总要眼见了才信不然总是他们的偏见。」便说道：「我恰不常听戏，是以疏于物色。你何不同我去听两出戏，使我广广眼界？」王恂道：「很好。」即吩咐套了车，备了马，就随身便服。子玉也叫云儿拿便帽来换了。王恂道：「那《花选》联锦有六个，联珠只有两个，自然听联锦了。」即同子玉到了戏园。子玉一进门，见人山人海坐满了一园，便有些懊悔，不愿进去。王恂引他从人缝里侧着身子挤到了台口，子玉见满池子坐的，没有一个好人，楼上楼下，略还有些象样的。看座儿的，见两位阔少爷来，后头跟班夹着狼皮褥子，便腾出了一张桌子，铺上褥子，与他们坐了，送上茶、香火。此刻是唱的《三国演义》，锣鼓盈天，好不热闹。王恂留心非但那六旦之中不见一个，就有些中等的也不丸，身边走来走去的，都是些黑相公，川流不息四处去找吃饭的老斗。",
+      },
+    ],
+    2: [
+      {
+        en: "The next morning Pingcai brought his young attendant Sier and went to deliver Wang Wenhui's letter. It happened that Wenhui had gone out early and not yet returned; Wang Xun was not home either. There was nothing for it but to be received by Yan Zhongqing. Pingcai saw that Zhongqing was extraordinarily distinguished in appearance; they exchanged pleasantries and he learned that Zhongqing was Wenhui's son-in-law and also Shixie's nephew by marriage — which obliged him to offer a round of flattery. He was just about to take his leave when a page came in carrying a bundle of clothes and announced: \"The master is back.\" Pingcai had to remain seated. After a short wait, he heard voices outside — what sounded like arrangements for engaging a troupe for a performance. Then came the sound of boots — tap, tap, tap — and in walked a broad-faced man with a long salt-and-pepper beard, wearing third-rank court dress, his bearing imposing and grand, his fur coat dazzling to the eye, his boots white-soled and black-uppered. Pingcai recognized him as the host and hurried forward to bow and pay his respects. Wenhui seized both his hands and said: \"Good heavens, no need for such ceremony! Which day did you arrive in the capital? And you are staying with my relative Mei Tian'an, are you?\" Pingcai answered yes.",
+        zh: "次早聘才带了他的小子四儿，将王文辉的信送去。适文辉一早出门未回，王恂也不在家，只得请颜仲清会了。聘才见仲清一表非凡，叙了一番寒温，知是文辉之婿，又是士燮的内侄，免不得恭惟一番。正要告辞，只见一个跟班捧着一包衣服进来说：「老爷回来了。」聘才只得坐下。停了一会，听得外面有说话的声音，像是定班子唱戏的话。然后靴声秃秃，见一个大方脸，花白长须，三品服饰，仪容甚伟，犹裘耀目，粉底皂靴，走将进来。聘才知是主人，连忙上前作揖拜见，文辉双手拉住道：「岂敢，岂敢！作什么行这样大礼。那一天你们到京，我就知道了，可是在舍亲梅铁庵处住的？」聘才答应了「是」。",
+      },
+      {
+        en: "Meanwhile, Zhongqing had gone to his own quarters for lunch, chatted with his wife Ronghua, and then came to Wang Xun's study, where Wang Xun had just returned. They had barely exchanged a word or two when two of Wang Xun's maternal uncles arrived to visit: one named Sun Sihui, the other Sun Siyuan — sons of Sun Lianggong, a Bureau Director who was a fellow-provincial and examination cohort-mate of Wang Wenhui's. These Sihui and Siyuan were, as the saying goes, a matched pair of unfortunate brothers.",
+        zh: "且说仲清到自己房中吃了饭，与其妻室蓉华讲了些话，来到王恂书斋，恰值王恂才回。刚说得一两句话，有王恂两个内舅前来看望：一个叫孙嗣徽，一个叫孙嗣元，本是王文辉同乡同年孙亮功部郎之子。这嗣徽、嗣元两个，真所谓难兄难弟。",
+      },
+      {
+        en: "Comparing their appearance and ability to Wang Xun's, the difference was like that between heaven and earth. Sihui had a contracted neck and puffy cheeks; his complexion was fairly pale and clean, except that his lung-fire was far too intense — all year round his face was covered with red pustules, already crowding out every clear patch of skin, with the greatest concentration on his nose, which had become entirely red.",
+        zh: "将他们的外貌内才比起王恂来，真有天渊之隔。这嗣徽生得缩颈堆腮，脸色倒还白净，就是肺火太重，一年四季总是满脸的红疙瘩，已堆得面无余地，而鼻上更多，已变了一个红鼻子。",
+      },
+    ],
+  },
 };
 
 /** Curated scene bullets from characterAppearances; empty when none exist for this chapter. */
