@@ -1,46 +1,216 @@
 // Character: 苏蕙芳 Sū Huìfāng
-// Chapter Appearances: 1, 2, 4, 5, 6, 7, 12, 13, 14, 15, 17, 19, 20, 21, 22, 24, 25, 26, 27, 30, 31, 32, 33, 34, 35, 36, 37, 38, 43, 44, 45, 47, 48, 49, 50, 52, 53, 58, 59, 60
+// Chapter Appearances: 2, 7, 12, 13, 14, 15, 17, 19, 20, 21, 22, 24, 25, 26, 27, 30, 31, 32, 33, 34, 35, 36, 37, 38, 43, 44, 45, 47, 48, 49, 52, 53, 58, 59, 60
 import type { SceneBullet } from './types';
 
 export const char_24Appearances: Record<number, SceneBullet[]> = {
-  "1": [],
-  "2": [],
-  "4": [],
-  "5": [],
-  "6": [],
-  "7": [],
-  "12": [],
-  "13": [],
-  "14": [],
-  "15": [],
-  "17": [],
-  "19": [],
-  "20": [],
-  "21": [],
-  "22": [],
-  "24": [],
-  "25": [],
-  "26": [],
-  "27": [],
-  "30": [],
-  "31": [],
-  "32": [],
-  "33": [],
-  "34": [],
-  "35": [],
-  "36": [],
-  "37": [],
-  "38": [],
-  "43": [],
-  "44": [],
-  "45": [],
-  "47": [],
-  "48": [],
-  "49": [],
-  "50": [],
-  "52": [],
-  "53": [],
-  "58": [],
-  "59": [],
-  "60": [],
+  "2": [
+    {
+      en: "Ziyu returns home to find his father entertaining Wang Wenzheng, the two men trading news of the upcoming New Year banquet and debating how best to find a suitable match for Wang's sixteen-year-old daughter. The domestic scene is interrupted by the arrival of two calling cards: Mei Shixie's young nephew-by-courtesy Wei Pincai, and the son of the family's tutor, Li Yuanmao. The contrast between them is comic: Wei Pincai is slight, sharp-eyed, and ingratiating — dropping to his knees with practised ease; Li Yuanmao is heavyset, nearsighted, and wooden, kowtowing like a man performing a ritual he barely understands. The elder Mei installs them in the back courtyard and sends Ziyu to introduce them to their tutor. Meanwhile, Wei Pincai stumbles upon a copy of the Flower Register in the household accounts room, and spends a happy hour memorizing the names and descriptions of eight celebrated dan performers. Beijing's pleasures are already calling to him — the only question is when he will find a way to answer.",
+      zh: "子玉随父归家，撞见父亲正陪着王文辉议事，话题从同年团拜选戏，到给王家次女物色佳婿，随口又论起择婿之难。不多时，两张红帖送到：一是世侄魏聘才，一是西席之子李元茂，均从外省远道投奔而来。魏聘才身材瘦小、伶俐油滑，叩头见礼时那股子讨巧劲儿一览无余；李元茂则身形笨浊、近视木讷，行礼如拜神像，咕噜了几句竟无人听懂。梅学士将二人安置于后院厢房，命子玉引他们往书房见老师性全。那厢魏聘才在账房翻到一册《曲台花选》，将八位名旦的姓名风姿一一记熟，心里盘算着何时能亲眼一睹。京城的繁华与诱惑，已悄悄向这位新来的外省少年张开了怀抱。"
+    },
+  ],
+  "7": [
+    {
+      en: "Two days after the Suzhou Guild Hall performance, Ziyu is still entirely in thrall to the memory of Qinguan. He ranks and re-ranks the celebrated performers in his mind, always arriving at the same conclusion: Qinguan stands alone. His reverie is interrupted by an odd discovery — two characters scratched out of his poem \"The Person in the Carriage\" by a fingernail. A maid solves the mystery: Wang's second daughter visited during Lady Yan's gathering, read the poem, and damaged those particular words. More astonishingly, the maid reports that a match has apparently been arranged — the Sun family acting as go-between, the girl returning home with one of Lady Yan's hairpins as a token. Ziyu is half-skeptical, half-delighted. He compares the girl's face with Qinguan's in his mind, surprised by the resemblance. Then he reflects wryly that she must have thought his poem was addressed to her — a misunderstanding he can never untangle, and perhaps need not. At a dinner hosted by Liu Wenze on the ninth day, he meets the compiler of the Flower Register, Shi Nanxiang, along with several other young men of talent, and the gathering crackles with the competitive energy of brilliant youth.",
+      zh: "姑苏会馆那出戏后，子玉将琴官的身影足足想了两日，反复比较苏蕙芳、陆素兰诸人，最终仍以琴官为首。他自问：琴官若非生在梨园，天下人怎得瞻仰这样的人？由此生出一番\"造化钟灵\"的感慨。忽见自己所咏《车中人》诗稿被人用指甲挖去两个字，追问之下，原来是王家二姑娘看书时留下的痕迹——而小丫鬟更透露，孙家已从中做媒，将二姑娘许配给了子玉，姑娘还戴了太太一根簪子回去为信。子玉初时将信将疑，细想那二表妹的容貌竟有几分像琴官，不禁心生比较。继而又想：对方必以为他诗中\"有心\"想念，自己却百口莫辩，干脆认了这桩无意间结下的\"冤缘\"。到了初九，刘文泽再度相邀，子玉随一众好友赴宴，席间初遇史南湘、高品等人，一桌少年才子，风华各异，而子玉初次登堂，愈显卓然。"
+    },
+  ],
+  "12": [
+    {
+      en: "Lady Yuan returns from the Hua banquet and recounts every drinking game to Ziyun, who secretly has all sixteen forfeits engraved and circulated among friends — the set becomes known as the 'Crows Crying Round the Phoenix' forfeits and earns wide admiration. Time moves on to mid-spring, and the narrator pauses to introduce a vital new figure: Tian Chunhang, styled Xiangfan, a handsome twenty-three-year-old scholar from Nanjing now lodging near the southern city. Raised by a widowed mother of formidable learning, he passed his district examinations at thirteen, won praise from Suzhou to Hangzhou, yet failed three times at the provincial level. He arrives in Beijing flush with patronage money, only to squander it entirely on theatre-going and lavishing gifts on young performers — not from licentiousness but from a recklessly generous heart. Beijing's coarse courtesans hold no charm for him; the graceful dan actors of the stage are another matter entirely.",
+      zh: "袁夫人归来，将华府宴上所行酒令一一讲与子云，子云背着夫人将那十六个令刻版印行，题诗传世，外号\"群鸦噪凤令\"，一时传为佳话。光阴流转，仲春时节，书中引出一位新要角——田春航，字湘帆，金陵才子，自幼丧父，由贤母抚养成才。他仪表堂堂，情致风流，诗文名动苏杭，却三试不第，囊空入京。进京后迷上听戏，花尽盘缠，亦不悔。旅中绕道泰岱、华山方抵京，寓于城南宏济寺。京城妓女粗俗令他毫无兴致，反倒被台上的相公们深深吸引，散钱般将情意抛洒，毫无章法，却也赤诚。"
+    },
+  ],
+  "13": [
+    {
+      en: "After Yan Zhongqing's deliberate provocation leaves Tian Chunhang furious and penniless, Wang Xun quietly delivers a hundred taels to see him through. Reduced to accepting meals from Gao Pin, Chunhang still haunts the theatre entrance of the Lianjin troupe daily, waiting for a glimpse of Su Huifang. Huifang has noticed this persistent, elegantly dishevelled stranger whose ardent gaze follows her every movement, and is moved by his obvious sincerity. One afternoon she sends a servant to invite him in. They meet at last in a small reception room blooming with early-spring flowers. Huifang speaks with a refinement that astonishes Chunhang; he responds with heartfelt eloquence. Sitting side by side in the quiet courtyard, they fall into a charged, wordless understanding. Huifang then leads him deeper into her private rooms — refined hangings, spotless indigo carpets, a painting of the Immortals' Gathering — and Chunhang knows at once that he has found, in this unlikely place, something like home.",
+      zh: "颜仲清激怒春航后，暗中托王恂送去百金助其度日。走投无路的春航寄食于高品处，却仍每日守在联锦班戏园门口，痴痴等候苏蕙芳。蕙芳留意到这个神清骨秀、衣衫憔悴却不失风雅的身影，心生怜念，终于叫人将他请进门来。二人于花满院落的小客厅中初次对坐，蕙芳吐属雅洁，春航感激涕零，两人相视无言，默契已生。蕙芳引春航入内室，陈设精雅，仇十洲画悬壁，三蓝绒毯铺地，一尘不染。春航甫一踏入，便知此后心上的归处。"
+    },
+  ],
+  "14": [
+    {
+      en: "Huifang dresses Chunhang in fresh clothes from her own wardrobe, and when she holds up a mirror so they can see themselves side by side, two luminous faces reflected together, Chunhang feels a sudden surge of longing that he wrestles down with conscious effort, reminding himself that she is his companion in hardship, not an object of desire. Huifang, seemingly unaware, picks up his travel manuscript 'Capital Journey Drafts' and begins reading aloud a richly sensuous heptasyllabic poem. Her commentary is dazzling — she identifies the influence of Wen Tingyun and Li Shangyin, praises the deftness of individual couplets, and playfully tries to guess which of her troupe-mates the poem's beloved resembles. Chunhang smiles and says only that the subject is an imagined figure. The exchange flows naturally into an afternoon of shared verse and easy laughter, and both are aware — without saying so — that something rare has taken root between them.",
+      zh: "蕙芳为春航换上新衣，二人对镜而照，两张玉颜并影，春航情动而自持，强压邪念，敛神还礼。蕙芳取出春航随身携带的诗稿《燕台旅稿》，轻声吟诵其中一首香艳的七言古风，句句点评精妙，知音之态令春航惊叹。诗中有\"飘烟抱月一尺腰，星眸欲妒春云娇\"等句，蕙芳将其与班中同伴暗暗比对，猜测诗中佳人是谁，春航含笑不语，只说是\"寓言空空\"之人。两人在书房中诗来词往，笑语温柔，俨然是一对忘年知己，情愫在字里行间悄然滋生。"
+    },
+  ],
+  "15": [
+    {
+      en: "Shi Nanxiang returns to Wang Xun and Yan Zhongqing's company and describes the budding romance between Chunhang and Huifang, leaving both men warmly envious. Meanwhile, glad news reaches the Mei household: Mei Shize has been appointed Academic Commissioner for Jiangxi, and the house fills at once with congratulating visitors. Ziyu is delighted for his father but privately mourns the lost chance to call on Qinyan — Pincai had arranged a meeting, and it must now be postponed. Before departing, Shize formalises the engagement of his second daughter to the Wang family, entrusting the ceremonial details to Lady Yan, who manages everything with her customary precision. Ziyu, Wei Pincai, and Li Yuanmao escort Shize thirty-five li beyond the city gates before turning back in tears. The Mei residence feels strangely quiet afterwards, and Ziyu is left to his studies and his unspoken longing, with no one to supervise him and no one in whom to confide.",
+      zh: "史南湘归来，向王恂、仲清讲起春航与蕙芳的相处情形，众人艳羡不已。另一头，梅子玉家中传来喜讯——父亲梅士燮放了江西学差，府中张灯结彩，宾客络绎，子玉却心系琴言，只好将相思暂时搁置。士燮临行前为二女儿与王家订定婚事，礼数周全，颜夫人操持内外，井井有条。子玉与聘才、元茂将父亲送出城外三十五里，依依惜别，洒泪而返。家中顿显冷清，子玉的课业与情怀都悬在空中，既无人约束，亦无人共诉，唯有在书卷与暗思之间独自度日。"
+    },
+  ],
+  "17": [
+    {
+      en: "That evening Gao Pin, Shi Nanxiang, Yan Zhongqing, and Wang Xun arrive together at Ziyu's study, their mood buoyant. Wang Xun proposes a grand gathering at Liu Wenze's residence to celebrate Su Huifang's birthday — scholars and celebrated performers together, a day of poetry, wine, and music. The guest list is refined with care: Xu Ziyun and Xiao Cixian from the Garden of Ease, the scholars, and a constellation of dan performers including — after some pointed prompting — Du Qinyan himself. Ziyu's pulse quickens at the name but he worries: Qinyan has been ill. After the others leave he sits alone and composes an invitation letter to Ziyun and Cixian that is half formal note, half lyric poem, its courtesy barely concealing his longing. Separately, Gao Pin has quietly brokered a reconciliation between Chunhang and Zhongqing; Chunhang, now contentedly anchored by Huifang, is writing the best verse of his life. All threads are converging on a single luminous afternoon.",
+      zh: "入夜后，高品、史南湘、颜仲清、王恂相携来访，众人在子玉书房中畅谈，提议趁苏蕙芳生日，邀集众名士与当红相公在刘文泽宅中大聚，共成一段风雅佳话。王恂点将，将琴言也列入名单，子玉心中一动，却又惦记着琴言病体未愈，忧喜交织。大家定妥人数、席位，子玉独自挥毫，写就一封情文并茂的邀帖，送与怡园的徐子云和萧次贤，措辞既典雅又真挚。春航自与蕙芳订交后闭门读书，名动京师，又经高品从中调解，与仲清重归于好。众缘汇聚，花会前夕，一股欢欣的期待弥漫于字里行间。"
+    },
+  ],
+  "19": [
+    {
+      en: "Acting on Zhang Zhongyu's advice, Pincai begins his campaign to win Hua Guangsu's favour by targeting Lin Shanzhi, the troupe's most trusted performer. When Pincai is discovered to have a fine voice for kunqu opera, Shanzhi is genuinely impressed and begins praising him to Hua at every opportunity. Pincai simultaneously cultivates goodwill throughout the household with small gifts and unfailing good humour, and within a month has made himself popular where others have only made enemies. On a free afternoon he escapes the city with Zhang Xiaomei to visit the charming Feng Zipei, where they encounter Yang Meichuang and the four spend a loose, laughing afternoon at a restaurant. They send for performers: Qinyan pleads illness and declines — unsurprisingly, since he responds warmly only to Ziyu — and the one who does come is met with decent but unremarkable company. When Pincai casually mentions he is now installed at the Hua household, the shift in deference around the table is immediate and telling.",
+      zh: "聘才依张仲雨所授，在华府内先从林珊枝处下手，以昆曲技艺一鸣惊人，获珊枝赞誉，渐入华公子视野。他又广撒小恩小惠，将府中上下打点得熨熨帖帖，人人称好。某日趁华公子出门，聘才约了张笑梅出城，到冯子佩家中闲聚，又遇杨梅窗，四人相携到酒楼小饮。席间叫来相公，琴言、玉林皆以病辞，蓉官赴约，聘才心知琴言对除子玉以外的人始终冷淡。觥筹交错、嬉笑取闹之间，聘才自报进了华公府，二喜等顿时另眼相看。繁华热闹的表面下，众人各怀算盘，情义与利益的边界日渐模糊。"
+    },
+  ],
+  "20": [
+    {
+      en: "As the Dragon Boat Festival approaches, Xu Ziyun and Xiao Cixian host a garden excursion at the Garden of Ease for the remaining scholars — Wang Xun and Yan Zhongqing are held back by a birthday celebration at the Wang household. The four who come mount horses and ride through a landscape of stacked crags, ancient pines, and the summit pavilion called 'Misty Heights,' from which Chunhang exclaims that the Lushan peaks themselves could scarcely surpass it. In the Pavilion of Gathering Clouds they discover a couplet brushed in bold calligraphy by Hua Guangsu, and Ziyun gently defends the notorious young aristocrat: his taste and his circumstances, he suggests, are entirely at odds. Then, gliding through a ten-acre lotus pond, come two painted pleasure boats carrying Yuan Baozhu, Su Huifang, Lu Sulan, and two others — five celebrated performers in holiday dress, a pomegranate flower tucked into a braid, a slender bamboo pole used to punt the ducks aside. The scholars and the performers come together at the water pavilion, and for a long afternoon the world outside the garden simply ceases to exist.",
+      zh: "端午前夕，徐子云与萧次贤邀众名士至怡园赏榴花、观龙舟。王恂、仲清因家中有事未能成行，子云、次贤、春航、南湘四人骑马穿越园中胜景，峭壁、古松、缥缈亭、十亩方塘，一一入目，春航诗兴大发。停云叙雨之斋内，一副华光宿手书的对联令众人刮目相看，子云为其辩护，指出豪门公子也自有胸中丘壑。不多时，宝珠、蕙芳、素兰、漱芳等人乘画舫摇橹而来，榴花映水，彩裙点波，五位名旦登岸与众名士汇聚，水榭之上，一幅绝世的端午行乐图就此铺展开来。"
+    },
+  ],
+  "21": [
+    {
+      en: "Wei Pincai, emboldened by weeks of comfortable lodging in the Hua mansion, arrives at the Mei household in a hired lacquer carriage, putting on airs as he comes to visit the ailing Mei Ziyu. Ziyu has languished in bed for over a month, his illness no medicine can touch — only Du Qinyan's presence could cure him. Pincai, angling to diminish the boy in Ziyu's eyes, sneers that Qinyan is cold and distant, hardly worth pining for. Ziyu rises to Qinyan's defence with passionate eloquence, comparing him to a high-growing flower whose inaccessibility only perfects its fragrance, and to a winter moon whose chill makes its radiance the purer. The speech inadvertently casts Pincai as a coarse, uncomprehending clod. Pincai swallows his humiliation with forced agreement, but leaves nursing a quiet resentment and schemes already forming against the performer he professes to admire.",
+      zh: "魏聘才寄居华府日久，渐生骄纵之气，竟雇车耀武扬威地登门探视病中的梅子玉。子玉缠绵榻上已逾月，心病难医，唯知症结全在杜琴言。聘才话锋一转，竟贬琴言冷若冰霜，不及府中诸人。子玉拍案而起，以高花冬月为喻，力辩琴言之挚情深韵非俗人所能领略，言辞间不觉将聘才比作粗鄙之流。聘才面有愠色，强颜附和，心中已暗生嫉恨，离去前假意允诺传话，却打定主意另行算计。"
+    },
+  ],
+  "22": [
+    {
+      en: "Lu Sulan devises a scheme to reunite the two lovesick young men: she hires a tastefully furnished canal boat under the pretext of a leisure excursion, and sends an invitation to the Mei household in Xu Ziyun's name so as not to raise suspicion. When Ziyu breaks the seal and reads the letter — revealing Sulan's hand and the promise of seeing Qinyan — his month-long melancholy evaporates in an instant; he dashes off an eager reply. But when Sulan goes to deliver the glad news to Qinyan, she peers through a window to find thuggish henchmen of Xi Shiyi rampaging through the rooms, cursing and threatening Qinyan for refusing to receive them. The household servants prostrate themselves in apology and buy the bullies off with coin. The joyful anticipation of the canal reunion is shadowed from the outset by the violence that circles Qinyan like a gathering storm.",
+      zh: "为成全琴言与子玉的再会，陆素兰苦心筹划，借逛运河为名，悄悄租下一艘装点雅致的船，又以徐子云名义致书梅宅。子玉见信，沉锁心头的愁雾顿散，病已去了九分，欣然回函应约。然而素兰前往传喜讯时，却撞见琴言寓中险象横生——奚十一的爪牙登门撒野，粗声喝骂，威逼琴言出来陪酒。琴言的家人跪地求饶，送钱了事方才打发走这伙恶人。一喜一惊之间，运河相会的期盼愈发显得珍贵而脆弱。"
+    },
+  ],
+  "24": [
+    {
+      en: "Over wine, Yan Zhongqing and Wang Xun trade the season's choicest gossip. Zhongqing recounts how Su Huifang outmanoeuvred Pan Qiguan — getting the lecherous silver-merchant drunk until he disgraced himself — and how Li Yuanmao's strip-robbery has become the joke of the city. He then confirms what Sulan let slip: Wei Pincai dispatched ruffians to harass Qinyan on the Hua mansion's behalf. The conversation turns more reflective as the two men puzzle over the extraordinary bond between Mei Ziyu and Du Qinyan — born of a single glance at a New Year performance, deepened by a lantern-riddle at the Leisure Garden, sealed in tears at a reunion neither had dared hope for. How, Wang Xun marvels, does such a profound attachment take root so swiftly, in such improbable soil? The chapter functions as a chorus, gathering the threads of the novel's many plots into a single, searching meditation on the nature of true feeling.",
+      zh: "颜仲清与王恂把盏闲话，将近日京城诸事一一道来：苏蕙芳以妙计灌醉骚扰的潘三银匠，令其丑态百出；李元茂土窑子遭劫的笑话已传遍街巷；魏聘才仗势横行、派人骚扰琴言的卑劣行径也在素兰处坐实。二人继而谈及梅子玉与杜琴言那段说不清的情缘——正月初见惊鸿一瞥，怡园灯谜定情，船上久别重逢，情根何处而生，令人费解而又感叹。仲清盛赞琴言之情深，王恂则叹世间知音难求。一席谈话，将诸人命运与性情勾连，前因后果脉络渐明。"
+    },
+  ],
+  "25": [
+    {
+      en: "Late summer finds Hua Guangsu hosting an elaborate banquet at the Garden of Ease, with Xu Ziyun and Liu Wenze among the few who actually appear. Ziyun leads Wenze through the garden's engineered splendours — the cascading artificial waterfall, the lotus-covered lake, the grand Hanwan Pavilion open to the breeze on all four sides — while explaining why the expected company has failed to arrive: Ziyu has relapsed, Shi Nanjun has drunk himself to vomiting blood, and the rest have found various pretexts. Wenze and Zhang Zhongyu make polite conversation with the host, whose magnificent indolence sits uneasily beside his evident power. Behind the scenes, Xiao Cixian coaches the theatrical troupe on musical precision, his artistic conscience a quiet counterpoint to the excess surrounding him. The chapter captures a social world of elaborate performance — both on and off the stage — in which genuine feeling is carefully rationed.",
+      zh: "夏末时节，华公子在怡园大摆宴席，邀请刘文泽、徐子云等人观赏新排的堂会戏。园中荷香满院，含万楼气宇轩昂，子云一一介绍园中布置之巧。然而约好的名士们借故缺席：子玉旧病复发，史竹君醉伤呕血，其余诸人亦各有推辞。文泽与张仲雨赴约，席间谈论华公子性情，话锋转向萧次贤在后台指点演员声律的细节，气氛悠闲而隐有暗流。名士圈子中，与华府的若即若离，折射出各人不同的处世态度与内心算盘。"
+    },
+  ],
+  "26": [
+    {
+      en: "Hua Guangsu returns to the mansion after nightfall to find his ten pearl-named maids arranged in white silk, fanning and tending him with practiced grace. He dictates a recipe for a cooling medicinal porridge — each flower-dew and medicinal powder measured to the grain — while the girls joke and tussle in the lamplight, a portrait of gilded domesticity. Once the household settles, Hua summons his confidential attendant Lin Shanzhi and dispatches him to Wei Pincai's study with instructions to arrange the acquisition of Du Qinyan. Pincai has already been leaning on the troupe manager Changqing, engineering a deal in which Qinyan will be delivered to the mansion for no upfront fee — a fiction designed to make the transaction look like generosity. The chapter juxtaposes the mansion's pampered surface with the cold machinery working beneath it, drawing Qinyan's fate inexorably closer while he remains entirely ignorant of what is being decided.",
+      zh: "华公子夜归府中，在星栊卧室与十珠侍女把玩消夏，调配防风粥，笑语盈盈，奢靡生活的细节铺陈得如画卷般精致。入夜后公子召林珊枝入内室，密谈收留杜琴言之事。珊枝奉命前往魏聘才书房商议，聘才已向戏班老板长庆施压，谋划将琴言以'无身价'名义送入华府。一边是公子深闺的富贵温柔，一边是幕后运作的机心算计，琴言命运的转折悄然逼近，而他本人尚浑然不觉。"
+    },
+  ],
+  "27": [
+    {
+      en: "Xi Shiyi — the 'Smoke-Blackened Grand Duke' — sweeps back into Beijing flush with remittance money from his family's foreign-trade connections and wastes no time resuming his reign of excess. He installs the morally bankrupt advisor Ji Liangxuan in his residence, the two men feeding each other's worst impulses. Xi's personal attendant Ba Yingguan, spoilt and swaggering, adds another layer of degradation to the household. Meanwhile Wei Pincai, having failed to pressure troupe manager Changqing through straightforward intimidation, arranges for hired thugs to visit Qinyan repeatedly, each visit more threatening than the last. Zhang Zhongyu floats between these circles of influence, collecting favours and dispensing loyalties to whoever holds the most leverage at any given moment. The chapter assembles the novel's forces of corruption into a single tightening net, with Qinyan at its centre.",
+      zh: "奚十一重金归来，与张仲雨、潘其观日日把酒看戏，肆意妄为。此人横行无忌，人称\"烟熏太岁\"，已将心术不正的师爷姬亮轩请入家中，二人臭味相投。奚十一的亲随巴英官仗势骄纵，风流无度。与此同时，聘才为逼长庆就范，暗中安排市井流氓屡次骚扰琴言，手段愈发阴毒。张仲雨周旋其间，左右逢源，令人不齿。诸多恶势力聚集，形成一张将琴言越逼越紧的网，命运的危机悄然逼近顶点。"
+    },
+  ],
+  "30": [
+    {
+      en: "Punished for slipping out to see Ziyu, Qinyan is moved to the inner apartments of the Hua mansion — a world sealed from the outside as completely as a birdcage. Sitting alone beside the crystal rockery, he watches a clump of garden balsam and finds his own image in it: flowers transplanted into gilded pots lose the companionship of their roots and the freedom of wind and rain. He who laughs on command, weeps in secret, and is forbidden to choose even his own expression is no different. He thinks of Ziyu — recovering now, perhaps, but cut off from any word — and fears the silence itself will bring the illness back. Tears fall. Weeks pass. By the twelfth of the eighth month, the osmanthus is in bloom and Hua Guangsu has arranged a grand Mid-Autumn eve banquet in the West Garden, complete with five troupes performing simultaneously under festive lanterns. Xu Ziyun, Xiao Cixian, and Liu Wenze make their way to the brilliantly lit estate while Ziyu, bound by kinship-avoidance rules, sits alone in his study with no company but the moon — its cold light falling equally on the feast he cannot attend and the face he cannot reach.",
+      zh: "琴言回府后因私自外出被华公子迁入内室，与外界全然隔绝。他独坐水晶山畔，望着一丛凤仙花沉思：花被折入金盆，失了根本，正如自己身陷华府，笑不敢笑，哭不敢哭。想及子玉病虽将愈，却内外音讯断绝，旧情复萌恐又成病，不禁泪流满面。转眼已是八月，桂香盈院，华公子筹备中秋前夕的西园夜宴，召来子云、次贤、文泽等人赏灯观戏。子玉因与华公子有亲属回避之例，只能枯坐书斋，对月独愁，与那灯火辉煌、丝竹管弦的夜宴咫尺天涯。"
+    },
+  ],
+  "31": [
+    {
+      en: "As Hua Guangsu's midnight banquet winds down, the host commands each young performer to demonstrate a hidden talent beyond mere singing: Du Qinyan plays a halting qin while the flute-player Shufang soothes the room with smoother melodies, others compose verse on newly painted scrolls, juggle riddles, or brandish a sword in the lamplight. The scholars fall to debating calligraphy and poetry — Mei Ziyu holding his own against elder wits with quiet confidence. When the feast clears, Xu Ziyun proposes a round of matching opera titles, and shouts of laughter fill the hall. Yet Qinyan sits apart, pleading illness. The sound of music only deepens his longing for the freedom he has lost; trapped inside Hua's gilded cage, every burst of applause feels like another bar on the door. Surrounded by revelry and candlelight, he weeps alone behind the screen, his grief invisible to the guests and unbearable to himself. Joy and sorrow, beauty and captivity — the chapter holds them side by side without resolving the tension.",
+      zh: "华公子酒宴将散，命众旦各展所长——琴箫合奏、丹青题诗、笙琵竞鸣、猜谜舞剑，雅趣横生。杜琴言却托病离席，独坐屏后，难掩心中悲凉。座中文人互相品评书法诗词，梅子玉与众人就翰墨之道争辩不休，一时高论迭出。夜深宴罢，子云提议以戏文题目行令，众人竞猜，热闹喧天。琴言困于繁华之中，愈发思念旧日自由，悲从中来，暗自垂泪，乐声与愁绪交织，欢笑背后尽是难言的身世之感。"
+    },
+  ],
+  "32": [
+    {
+      en: "After a week of relentless autumn rain the sky finally clears, and the examination results are due within days. Every candidate in the capital is sleepless with anticipation — even the usually composed Gao Pin and Tian Chunhang lie awake through the night, swapping stories of divination disasters from previous sittings. Gao Pin recalls a hexagram that seemed to promise first place on the list, yet delivered nothing; both men laugh ruefully at the unreliability of omens. Su Huifang, waiting alone at home, proves more agitated than the candidates themselves: she dismisses a visiting official, presses every servant for news, and spends the afternoon pacing between the couch and the window. When the runners finally arrive, the results bring sharply mixed fortune — Gao Pin's name appears on the list, but Chunhang's does not. The news moves swiftly through the social circle, drawing congratulations and consolations that often arrive at the wrong door. Huifang receives the tidings with a complicated heart, aware that talent and the eight-legged essay are uneasy companions, and that the examination hall has never been a reliable court of justice.",
+      zh: "秋雨连绵七八日后初晴，贡院放榜在即，场中士子无不魂不守舍、寝食难安。高品与田春航彻夜长谈，忆起往年问卜中举的笑话，苦中作乐。苏蕙芳比春航更为焦急，坐卧不宁，遣人打探消息，心中挂念远胜儿女私情。报喜声终于传来，几家欢喜几家愁——高品榜上有名，春航名落孙山。消息在怡园迅速传开，众人或贺或慰。蕙芳闻讯，百感交集，深知才情不敌八股，科场公道从来难料，惟将一腔情义深埋心底。"
+    },
+  ],
+  "33": [
+    {
+      en: "As the year draws to a close, Shi Nanxiang departs Beijing to take up his new posting, leaving the circle of intimates noticeably thinner. Mei Ziyu, setting out on a city errand he abandons halfway, chances upon Yuan Baozhu in a lane jammed with camels and carriages. Baozhu leads him to his exquisite study, the \"Xiaolang Chamber,\" where potted narcissi, a spray of winter plum in a bronze vase, and scrolls by old masters create an atmosphere of spare refinement entirely free of official pomposity. They melt rooftop snow for tea and invite Lu Sulan to join them for an afternoon of cultured conversation. When Ziyu casually praises Baozhu's steadfast loyalty to the disgraced painter Jincui — supporting him financially through disgrace and penury — Baozhu's composure suddenly gives way. Tears come unbidden; the poet White's lines about fellow wanderers fall from his lips. Ziyu hastily redirects the talk toward the plum branch outside. Someone mentions Ziyu's impending marriage; he deflects quietly, saying the family letter from Jiangxi has not arrived. The afternoon passes in elegant talk, yet beneath the refinement, longing and constraint run like cold water beneath winter ice.",
+      zh: "腊月时节，史南湘随任出京，众名士相送，知己又少了几人。梅子玉偶遇袁宝珠，被邀入其精致书斋「小琅室」，见壁悬名迹、案置梅花，雅洁脱俗。两人煮雪烹茶，又邀陆素兰同来，共作清谈雅叙。宝珠忆及落难画师金粟，含泪长叹，子玉随口触动其心事，忙以竹石之语转圜解围。席间子玉婚事被一语道破，他只淡淡推说家信未回，神情间却另有隐衷。窗外寒梅暗香，室内风雅依旧，然离别与羁绊的况味，早已渗入每一壶茶香之中。"
+    },
+  ],
+  "34": [
+    {
+      en: "Having been expelled from Hua Guangsu's household, Wei Pincai takes lodgings at a temple run by a monk-host of dubious piety. The new year looms and his debts are mountainous — tailors, restaurants, and sundry creditors have all sent bills totalling over five hundred strings of cash, and he has nothing to show but a few fur coats he cannot afford to pawn. Li Yuanmao arrives that afternoon hoping to borrow forty taels; Pincai theatrically produces his entire stack of IOUs to demonstrate that he is himself bankrupt. The two men trade extravagant complaints over dinner, each convinced the other is secretly flush. Late at night the monk-host summons Pincai for a whispered consultation whose purpose remains strategically vague. Yuanmao, too thick-skinned to take a hint, installs himself for the night — demanding pipe tobacco, fruit, and snacks, keeping the servant rushing between rooms until well past the third watch. Pincai lies on his side and ignores everything. The cramped temple room, thick with lamp-smoke and mutual self-interest, becomes a perfect small theatre of year-end desperation: everyone plotting, no one solvent.",
+      zh: "魏聘才从华府出走，寄居唐和尚处，债台高筑，年关将近却囊空如洗。李元茂登门借钱，聘才当场抖出一叠债单自证穷困，两人相互倒苦水，不欢而散。入夜，聘才被唐和尚邀谈密事，言辞含糊，隐现算计之意。元茂厚颜留宿，借烟吃点心，呼奴唤婢，扰得聘才不得安宁。寺中气氛暧昧，金钱纠葛与人情算计交织其间，一干闲人在岁末寒夜中各打各的算盘，市井江湖的势利面孔，在这逼仄的禅房里显得格外分明。"
+    },
+  ],
+  "35": [
+    {
+      en: "The night's festivities at the temple end in catastrophe. When Pincai returns to his room he finds it stripped bare — the trunk and document-case gone, carrying off fifteen taels of gold, two hundred taels of silver, a package of opium, jade trinkets, and several fur garments, the combined loss exceeding a thousand taels. The household rushes into the moonlit vegetable garden by the light of a full moon and discovers only the emptied trunk abandoned near the wall, a pocket-watch smashed to splinters on the ground. The garden-hand who was supposed to be on night watch has vanished entirely. The monk-host immediately suspects an inside job and has the old gardener and his wife bound as accomplices; the wife wails her innocence to the heavens while her husband stands too frightened to speak. Pincai drafts a hasty inventory and files a report with the ward office. Several hearings follow, ultimately confirming that the real culprit is the recently hired drifter Cai, who exploited the evening's confusion to rob and flee. The theft is confirmed; the thief is gone. Across the city that same night, Yuan Baozhu's birthday banquet glittered with wine and music — a reminder that fortune and ruin share the same Beijing air.",
+      zh: "一夜之间，聘才寄存的箱笼、拜匣遭贼洗劫，金银细软悉数被盗，仅余几件棉衣和一块摔碎的洋表。众人趁月色搜查菜园，发现空箱弃于墙角，灌园伙计神秘失踪。唐和尚疑是内贼，将种菜人夫妇绑缚审问，老婆子哭天抢地。聘才清点损失逾千金，草草报了官，坊里几番审讯，终查明是那新来伙计蔡某借机逃盗，案情虽明，人却早已无踪。宝珠生日喜宴与聘才的遭窃之夜遥相对照，世间悲喜从不相让，热闹与凄凉往往只隔一墙之遥。"
+    },
+  ],
+  "36": [
+    {
+      en: "On the Lantern Festival, Hua Guangsu orders Du Qinyan to perform. Qinyan is unwell and burdened with grief; during the performance, moved beyond control by the scene's emotions, real tears stream down his painted face. Hua takes this as insubordination and delivers a furious dressing-down in front of the entire household, then ignores Qinyan for days. Relegated to a small side-courtyard at the back of the Liuqing study, Qinyan sits alone before two blossoming plum trees — a white-calyx variety and a red — and thinks of the Yiyuan and Mei Ziyu's unfailing gentleness, so different from this cold hierarchical household where every favour from the master breeds fresh resentment among the servants. He broods on Xi Shiyi's treachery, on Pincai's duplicity, on the impossibility of escape. Then Lin Shanzhi appears with news: Qinyan's master-teacher has died quietly in his sleep overnight, without illness or warning. Qinyan is granted leave to attend the funeral. He packs quickly and slips through the front gate into a waiting carriage — a caged bird briefly tasting open air. But Hua's parting instruction follows him out the door: finish the mourning rites and return immediately.",
+      zh: "元宵佳节，华公子命琴言登台演戏。琴言身体欠安，心中更是悲怆，演至动情处竟真情流露、泪洒台上，华公子大为不悦，将其痛斥一番，此后数日将其晾在一旁。琴言独居小院，对着盛开的绿萼梅与红梅，满心思念怡园旧日时光，又恨奚十一当年陷害之仇。正凝神伤感间，林珊枝带来噩耗——其师傅于睡梦中猝然离世。琴言强忍悲痛，趁机出府奔丧，然华公子叮嘱不可久留，须事毕即回。这一场出走，是笼中鸟短暂的振翅，归处依然是那四面高墙。"
+    },
+  ],
+  "37": [
+    {
+      en: "Reeling from a humiliating encounter with Wei Pincai the previous afternoon, Du Qinyan returns to his room in Hua's compound, lies down fully dressed, and weeps through the night, cursing his own naivety. The next morning a messenger from Xu Ziyun arrives: Mei Ziyu is already at Yiyuan and waiting. Qinyan, dizzy and hollow-eyed, forces himself into a carriage and makes the journey. In the Meiyan pavilion, early camellia and magnolia are in full bloom; the plum itself is still coming on. Ziyun proposes a Ten-Day Plum Gathering — an open invitation for any friend with a free afternoon to come and sit among the flowers without ceremony or fixed numbers. Xiao Cixian delivers an irreverent catalogue of the lesser amusements available to Beijingers: gambling dens, trick wrestlers, blind storytellers, drum-and-gong performances, and the ultimate lowbrow pleasure of paint-faced amateurs storming the opera stage. The scholars agree that flower-viewing with wine is the summit of earthly happiness. Wang Xun teases Ziyun with the question of whether a beautiful person among flowers or a beautiful flower among people deserves greater admiration. Yuan Baozhu and Guibao arrive, and the afternoon deepens into book-talk and unhurried laughter. For a few hours, the plum garden quietly seals out the world.",
+      zh: "琴言昨日探望聘才，却遭算计受辱，含恨而归，彻夜哭泣，悔不当初。翌日清晨，徐子云遣人相召，言梅子玉已先到园中等候。梅崦中，早春的茶花与玉兰正盛，梅花尚未开遍。子云提议以十日梅叙会友，不拘人数多寡，随兴而至。萧次贤纵论时人消遣之道，从赌博看戏到登台唱曲，信口谑语，满座皆笑。王恂以「人中花与花中花孰美」为题，引得众人争辩，子云笑而不答。少顷宝珠、桂保到来，席间众人谈书论艺，月下品花，怡园一日，竟如世外桃源，暂将城中一切烦扰隔绝于梅香之外。"
+    },
+  ],
+  "38": [
+    {
+      en: "Xu Ziyun hosts a more elevated gathering in the Meiyan pavilion: the distinguished elder scholar Qu Daosheng, lately retired from a magistracy in Jiangxi, is the guest of honour. Yan Zhongqing, Mei Ziyu, Tian Chunhang, and Shi Nanxiang attend as company; Yuan Baozhu, Su Huifang, and Lu Sulan serve wine and hold ink-stones at the table's edge. Qu's biography is quietly extraordinary: orphaned young, nine consecutive years of mourning rites that kept delaying his examinations, then decades of wandering as a private secretary across six provinces, admired by contemporaries as a new Du Fu or Meng Jiao, yet perpetually short of money, recently widowed, and returning to Beijing with more books and antiques than silver. At table he observes Ziyu with growing delight — the young man's bearing is warm without vanity, his learning worn lightly — and privately thinks: Mei Tieam has genuine reason to be proud. When wine has loosened tongues, a spirited debate erupts over the origins of calligraphy and the true lineage of Tang poetry. Zhongqing argues from stele inscriptions; Ziyu deploys historical precedents; Qu arbitrates with the unhurried authority of sixty years' reading. The performers, permitted to sit close and listen, receive from Qu a few words of genuine appreciation — a rare currency from the literary world to theirs.",
+      zh: "徐子云在梅崦设宴，请来老名士屈道生，颜仲清、梅子玉、田春航等作陪，宝珠、蕙芳、素兰等名旦侍席。屈公身世坎坷，连丁九年忧、宦游四方，以诗文名重一时，时人比之杜少陵、孟东野。席间屈公细察子玉，见其温润儒雅、气象冲虚，心中大喜，暗赞「梅铁庵可为有子矣」。酒酣之际，众人就书法源流与诗歌正统展开一场高谈阔论：颜仲清主张碑帖之别，子玉援引古例力辩，屈公从容裁断，见识深远，令众人叹服。名旦们捧砚拂笺，亦得屈公一一品题，儒林与梨园在梅香中难得相遇，各见风流。"
+    },
+  ],
+  "43": [
+    {
+      en: "Yuan Baozhu and Lu Sulan arrive to find Qinyan in a fog of anxiety. The moment they hear about the widow's demands, Su Sulan slaps her palm on the table: the answer is obvious—buy out his indenture. The sum required is three thousand taels. Silence falls. Then the two women begin to think aloud, turning the problem over like a merchant examining a stone for flaws. The name Xu Ziyun rises naturally: master of the Garden of Ease, patron of talent, a man whose generosity is as reliable as the seasons. If Ziyun were to offer the money under the guise of a formal redemption, it would satisfy the widow's greed while giving Qinyan a dignified path to freedom. The plan takes shape quickly, almost too quickly. As the conspirators leave together to view the apricot blossoms that Duxiang has arranged, the afternoon air feels charged—a future is being quietly negotiated beneath the falling petals.",
+      zh: "宝珠与素兰闻知师娘索钱之事，立刻各有主意。素兰一拍手便断言：出师最妙！但三千两银子从何而来？二人你来我往，盘算着谁能替琴言出这笔钱。话锋一转，议及子云——怡园的徐子云素来慷慨，且对琴言颇有情谊。若能由他出面，以赎身之名将琴言从师娘手中赎出，既解了燃眉之急，又给琴言留了余地。谋议已定，众人心照不宣地去赏杏花，让这一桩关乎命运的密谋，在春花烂漫中悄然成形。"
+    },
+  ],
+  "44": [
+    {
+      en: "On the very day Xu Ziyun's silver drafts change hands at the Rixin money-house, Hua's manservant Yao Xian sets out from the estate to fetch Qinyan back. At the troupe house he finds only the pock-faced Mazi, who delivers the news with maddening vagueness: someone from Jiangnan has bought Qinyan out of his indenture and taken him away. Yao Xian ricochets between outrage and bewilderment, buttonholing passersby until he runs into Meng Qi, one of Xu Ziyun's household men. Over wine in a noodle shop the whole story comes tumbling out—two drafts totaling two thousand four hundred and fifty taels, signed and sealed, the widow satisfied. Qinyan is free. The news lands at the Hua estate like a stone in still water, sending ripples of fury outward. But the deed is done: Qinyan has slipped quietly into the Garden of Ease, no longer anyone's property, beginning life over on entirely new terms.",
+      zh: "琴言出师之日，华府的跑腿姚贤出城寻人，却从麻子嘴里听到一个惊天消息：有江南人替琴言出了师，人已走了！姚贤惊慌失措，辗转打探，偶遇子云家人孟七，方知真相——正是徐子云以两千四百五十两银票，替琴言赎了自由身。消息传回华府，公子大为震怒，却也无可奈何。而此刻琴言已悄然住进怡园，从牢笼般的旧日身份中挣脱出来，开始了一段崭新的人生。"
+    },
+  ],
+  "45": [
+    {
+      en: "The Garden of Ease receives Qinyan like a convalescent receiving clean air. Xu Ziyun and Xiao Cixian take turns drawing him out of his melancholy, and the garden's procession of flowering terraces—the peony platform today, the peony meadow tomorrow—gives the days a gentle, healing rhythm. Then one evening Mei Ziyu steals away alone under a new crescent moon, unable to wait for a more convenient occasion. He finds Qinyan in the crabapple grove, leaning against a Taihu stone in a pale blue jacket, lost in thought. They fall into conversation as naturally as if no months of estrangement had intervened. Ziyu holds forth on crabapple fragrance—a perfume so reticent, he says, that it refuses to announce itself, arriving only when you have looked at the blossom long enough to deserve it. Qinyan bends a branch down and inhales, then nods slowly, his face softening into the smile that has been absent all spring. The moon climbs; the flowers breathe. Something between the two young men, which had been held in suspension, quietly resumes.",
+      zh: "怡园春深，琴言在子云、次贤的悉心开导下，渐渐收拾起愁绪。牡丹台、芍药圃，每日皆有文人名旦相聚，吟花斗酒，好不风雅。入夜，子玉趁着一钩新月，独自来访。两人在海棠春圃相遇，凭栏闲话，子玉说海棠之香藏于花肌深处，非凝眸久视不得，须以心闻之。琴言俯身嗅花，若有所悟，莞尔点头。月色如水，花影婆娑，一段久别重逢的情谊，在夜风中悄悄复苏。"
+    },
+  ],
+  "47": [
+    {
+      en: "The examination results arrive like a spring thunderclap: Tian Chunhang has taken first place in the palace examination—zhuangyuan, top of the empire—and Shi Nanxiang has placed fourth in the second tier. Su Huifang, who staked years of earnings and devotion on Chunhang's success, learns the news with a happiness that seems to exceed even the winner's own. The social machinery of the capital immediately begins to turn: visits to examiners, banquets, reassignments of lodging. Through all of it Huifang arranges, mediates, and pays, seemingly tireless. Meanwhile, across the city, Xi Shiyi has recovered from his mysterious illness but is left with a debilitating private affliction. Proud and desperate in equal measure, he seeks a cure through increasingly unorthodox channels, and a chance visit to a temple leads him past a roadside clinic staffed by practitioners whose methods appear to belong somewhere between medicine and circus. The farce that follows sets the novel's comic register against its romantic one with characteristic precision.",
+      zh: "南湘、春航双双高中进士，蕙芳欣喜之余，为二人张罗搬迁事宜。子云慷慨邀请入住怡园，奈何春航急于接家眷，另觅新宅。而奚十一病愈后旧习难改，伤处留下隐疾，内外皆难应酬，苦不堪言。一日去宏济寺谢恩，偶见寺旁新开了一家奇特医馆，院中立着各色怪人，隐隐透出一股市井江湖气——奚十一的那桩荒唐求医之旅，就此埋下伏笔。"
+    },
+  ],
+  "48": [
+    {
+      en: "The Garden of Ease prepares for a departure. Qu Daoweng has received his appointment to Nanchang and will leave within days, taking Qinxian with him. The farewell banquets multiply—scholars, performers, friends who have shared the garden's charmed months—and each one carries the particular weight of partings that feel permanent. Amid the valedictions, Tian Chunhang is navigating the afterglow of his triumph. The powerful Minister Su, father-in-law to Hua and patron of letters, meets Chunhang and is enchanted; he would dearly like him as a son-in-law, but learns the young man already has a wife. Then a letter arrives from home. Chunhang's wife has died in February. The news collapses him. Su Huifang—who built this success from the ground up, spending every string of cash he had saved across years in the quarter—holds the household together without being asked. Chunhang formally instructs his servants to address Huifang as Master Su. The title confers no legal standing, but it is the most honoring thing he knows how to give.",
+      zh: "屈道翁领了南昌通判，怡园即将失去这对父子。名士们轮流为琴仙饯行，依依惜别。春航高中状元，苏侯一见倾心，欲招为东床，惜已有妻，遗憾而止。不料家书传来噩耗：春航之妻已于二月间暴病亡故。悲喜交集之际，老母与舅父又将同赴京城。蕙芳一力操持新宅事宜，感情深厚却身份尴尬，冷暖自知。春航命下人从此称蕙芳为\"苏大爷\"，这一声称呼，含尽了感激、亏欠与无言的承诺。"
+    },
+  ],
+  "49": [
+    {
+      en: "Mei Ziyu escorts Qinxian to the city gate and watches the carriage diminish into the road dust. The grief hits him like a physical blow: his old illness returns, and he spends a month confined to bed. When he recovers, the city feels rearranged. Tian Chunhang, newly widowed, faces his own domestic crisis. His elderly mother is installed in the new house but accustomed to Southern refinement; the succession of Beijing housemaids she tries proves uniformly unsuitable—one a tireless gossip, another with the habits of a tavern regular. It is the coachman Zhou Xiaosan who solves the problem by recommending his own sister. She arrives looking understated and capable, with a waist like a willow stem and eyes quick with intelligence, and both the old lady and Chunhang are immediately won over. Su Huifang, organizing the household as always from an ambiguous position between guest and steward, finds himself unexpectedly charmed when she addresses him one afternoon—soft-voiced, smiling—as Master Su. A small moment, but the novel watches it with careful attention.",
+      zh: "琴仙离京后，子玉大恸，旧病复发，足月方愈。春航家中断弦，太夫人无人服侍，苦于北地难觅贤婢。赶车的周小三推荐了他三姐，那三姐扎着蛾眉，腰细如柳，进门一见，令春航大为惊异。三姐千伶百俐，上下周到，老太太喜欢，蕙芳也待她有几分异样的亲近。一日蕙芳独坐书房，三姐奉命送点心进来，两人相对，各自心事，一时皆沉在那一声软软的\"苏大爷\"里。"
+    },
+  ],
+  "52": [
+    {
+      en: "With the Grand Examination for Broad Learning and Extensive Words approaching, scholars from across the realm converge on the capital. The focus, however, is a magnificent wedding: Tian Chunhang takes his bride from the wealthy Su family, whose dowry — two hundred acres, ten maids, twenty thousand taels of silver and three thousand in gold — staggers everyone present. Xu Ziyun lends an entire wing of his own residence to accommodate the extravagance. At the banquet Su Huifang rushes between guests and ledgers, the most harried person in the garden. The wit flows freely: Gao Pin stages a sly theatrical joke at Chunhang's expense, choosing the opera piece 'Pawning the Headband' to needle the groom, who parries brilliantly with a clever literary riposte. Only Mei Ziyu is subdued — he has forced himself out of his sickbed, but Du Qinyan's absence haunts every cheerful scene.",
+      zh: "七月，博学鸿词考期将近，四方名士云集京城。田春航迎娶苏氏女，苏家妆奁竟达数万两之巨，子云慷慨借出东厢大宅相助，园中宾客如云，两班戏子同场竞艳。席间高品借《当巾》一出暗讽春航，春航以郑元和自比巧妙还击，宾主应答机锋迭出，言笑晏晏。子玉强撑病体出席，却因琴言缺席而黯然神伤，众人皆心知肚明，却只能以欢笑相掩。"
+    },
+  ],
+  "53": [
+    {
+      en: "A painted fan sets two worlds in motion. The young lord Hua calls Lu Sulan to his garden pavilion to reclaim a peach-blossom fan inadvertently given away — but the errand becomes an occasion for art. Surrounded by autumn colour and the attentive silence of his garden, he asks Sulan to compose a lyric in the demanding 'Liangzhou Xu' mode as tribute to the painted blossoms. Sulan demurs with shy grace, then takes up the brush and writes with a fluency that leaves the connoisseur speechless. The fans are exchanged as tokens of mutual admiration; inscribed poems seal the bond. Across town, Su Huifang, Yuan Baozhu, and Wang Lanbo huddle in cheerful conspiracy, planning to open an antiques and paintings shop in a corner of the Yi Garden — stocking it with surplus books and curios from the vast Duxiang Garden collection. Their laughter and scheming feel like spring after a long winter.",
+      zh: "华公子索还题有桃花画的团扇，陆素兰携扇赴约，华公子命其题写《梁州序》词以赏花。素兰含羞援笔，词成字美，华公子大加叹赏，双扇互换，题诗赠别，一段风雅情缘就此结下。与此同时，蕙芳、宝珠、兰保等人齐聚商议，打算借怡园一角开设古董书画铺，盘算着分取度香园旧藏，众人畅谈兴致勃勃，一派生机盎然。"
+    },
+  ],
+  "58": [
+    {
+      en: "The wheel turns against Xi Shiyi. The man who scattered silver like chaff through the pleasure quarters now finds himself utterly broke: his family's foreign-trade firm has collapsed, storm surge has destroyed the salt works, and a web of loans has tightened around him. A humiliating audience with creditor Pan Qiguan extracts a promissory note for ten thousand taels in exchange for two thousand — the language of charity dressed as extortion. At home that night he retreats to his opium pipe while his concubine Juhua, restless and neglected, catches two servants in a compromising tangle behind a locked door — watching through the crack with a mixture of outrage, bitter amusement, and her own unsatisfied longing. The novel's moral architecture is precise: every coin Xi Shiyi squandered on vanity, every cruelty and manipulation, is now being quietly repaid, not through dramatic punishment but through the grinding diminishment of everything he valued.",
+      zh: "表面风流的奚十一，如今债台高筑，家道中落，洋行倒闭，盐场漂没，向潘其观借贷被迫立下万两欠票，狼狈至极。深夜独自吞云吐雾，菊花无意间窥见下人春兰的丑事，心中既恼又酸，五味杂陈。当年呼风唤雨的公子哥，如今走头无路，色与财的双重衰落同步上演，世事无常，因果昭彰，报应之弦已悄然绷紧。"
+    },
+  ],
+  "59": [
+    {
+      en: "A hundred days of mourning have stripped Qinyan of nearly everything. The money is gone; the warm clothes are pawned. Old retainer Liu Xi sets up a modest fruit stall at the temple gate while Qinyan paints flowers on raw paper to sell to passers-by — and discovers, to his own surprise, that his brushwork commands real admiration: a peony sells for two hundred cash, a plum blossom for a hundred and fifty, and a customer commissions a full eight-panel screen. Then Historian Hou arrives, all unctuous concern and subtle pressure, offering money and a comfortable room in his household — with unmistakable intent. Qinyan receives him with a face like winter ice and sends him away unthanked, choosing dignified poverty over purchased comfort. Letters go out to Mei Ziyu, Xu Ziyun, and Su Huifang — careful, heartfelt, each one a lifeline cast into the distance.",
+      zh: "琴仙在南京护国寺为道翁守灵已逾百日，盘缠耗尽，衣单食薄。刘喜在庙门口摆摊卖果，琴仙则以丹青糊口，在生纸上画花卉出售，竟颇受好评。道貌岸然的侯太史携金登门，企图趁人之危笼络琴仙，被琴仙冷脸相拒，其虚伪嘴脸暴露无遗。琴仙写信向子玉、子云、蕙芳等人求援，心中对子玉的牵念，如寒冬里一炉炭火，始终不曾熄灭。"
+    },
+  ],
+  "60": [
+    {
+      en: "The Lantern Festival brings the novel full circle. Xu Ziyun hosts one last great gathering at the Yi Garden; fireworks turn the night sky to daylight; Du Qinyan sits among friends — no longer a theatre boy but a scholar among scholars — and feels the long nightmare of the south dissolve like fog. It is Jin Jifu who gives the evening its lasting shape: he proposes that the nine celebrated beauties of the Nine Fragrance Pavilion be commemorated in portrait and prose, carved in stone to outlast them all, enshrined as flower deities. The company draws lots for assignments with the delighted solemnity of a literary game — and the lots fall with the uncanny aptness of fate: Mei Ziyu draws Du Qinyan and the Lady Du, the two souls most entwined with his own. Yan Zhongqing, Wang Xun, Gao Pin, Tian Chunhang — each receives his subject as though the slips of paper already knew. The novel closes not with loss but with consecration: art and friendship conspiring to make beauty permanent.",
+      zh: "元宵佳节，子云大宴群友，琴仙重回京城，与众名旦、名士把酒言欢，旧日艰辛恍若隔世一梦。席间金吉甫提议以九香楼诸人入画立传，刻石传世，众人一拍即合，拈阄分赋，子玉得琴仙与杜仙女，缘分天定，令人叹服。小说以众人共绘花神图、分写传赞作结，屈道翁精神永存，一段才子佳人的传奇，于诗画流传中获得了超越时间的不朽。"
+    },
+  ],
 };
