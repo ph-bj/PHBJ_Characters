@@ -346,6 +346,22 @@ const mergeGroups: MergeGroup[] = [
     canonicalNameKeyword: '孙氏',
     memberNameKeywords: ['孙氏', '佩秋'],
   },
+  {
+    canonicalNameKeyword: '金吉甫',
+    memberNameKeywords: ['金吉甫', '金粟'],
+  },
+  {
+    canonicalNameKeyword: '田春航',
+    memberNameKeywords: ['田春航', '田状元'],
+  },
+  {
+    canonicalNameKeyword: '袁宝珠',
+    memberNameKeywords: ['袁宝珠', '保珠'],
+  },
+  {
+    canonicalNameKeyword: '王琼华',
+    memberNameKeywords: ['王琼华', '王琼华 (performer)'],
+  },
 ];
 
 const idRemap: Record<string, string> = {};
