@@ -1,5 +1,5 @@
 // Character: 曹长庆 Cáo Chángqìng
-// Chapter Appearances: 3, 15, 16, 18, 20, 21, 22, 26, 27, 28, 37
+// Chapter Appearances: 3, 15, 16, 18, 20, 21, 22, 26, 27, 28, 37, 42, 43, 44, 58
 import type { SceneBullet } from './types';
 
 export const char_56Appearances: Record<number, SceneBullet[]> = {
@@ -67,6 +67,30 @@ export const char_56Appearances: Record<number, SceneBullet[]> = {
     {
       en: "Xu Ziyun notes that despite Cao Changqing's poor treatment of Qin Yan, Qin Yan still deeply mourns him, showing Qin Yan's emotional depth.",
       zh: "徐子云指出，尽管曹长庆待琴言不好，但琴言依然深切哀悼他，显示了琴言的深情。"
+    }
+  ],
+  "42": [
+    {
+      en: "It is revealed that Cao Changqing has recently died, leaving his wife to manage the household and finances, causing uncertainty about Qin Yan's future.",
+      zh: "曹长庆新近病故，留下妻子管理家务和财务，令琴言的未来充满不确定性。"
+    }
+  ],
+  "43": [
+    {
+      en: "After Cao Changqing's death, Ye Maolin negotiates with his widow to buy out Qin Yan's contract for three thousand strings of cash.",
+      zh: "曹长庆死后，叶茂林与其遗孀交涉，最终以三千吊钱为琴言赎身出师。"
+    }
+  ],
+  "44": [
+    {
+      en: "Master Hua's servant goes to Cao Changqing's former residence to recall Qin Yan, and Hua sends a letter citing Cao's death as the reason for Qin Yan's leave of absence.",
+      zh: "华公子的仆人去曹长庆旧居找琴言，华公子在信中以曹长庆病故作为琴言请假的理由。"
+    }
+  ],
+  "58": [
+    {
+      en: "It is mentioned retrospectively that Wu Mazi followed Cao Changqing's wife back to Yangzhou after Cao's death.",
+      zh: "事后提到伍麻子在曹长庆死后跟着他的妻子回了扬州。"
     }
   ]
 };
