@@ -17,6 +17,7 @@ import { char_14Appearances } from './characterAppearances/char-14';
 import { char_15Appearances } from './characterAppearances/char-15';
 import { char_16Appearances } from './characterAppearances/char-16';
 import { char_17Appearances } from './characterAppearances/char-17';
+import { char_18Appearances } from './characterAppearances/char-18';
 import { char_19Appearances } from './characterAppearances/char-19';
 import { char_20Appearances } from './characterAppearances/char-20';
 import { char_21Appearances } from './characterAppearances/char-21';
@@ -180,6 +181,7 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
   'char-15': char_15Appearances,
   'char-16': char_16Appearances,
   'char-17': char_17Appearances,
+  'char-18': char_18Appearances,
   'char-19': char_19Appearances,
   'char-20': char_20Appearances,
   'char-21': char_21Appearances,
