@@ -339,6 +339,10 @@ type MergeGroup = {
 
 const mergeGroups: MergeGroup[] = [
   {
+    canonicalNameKeyword: '田春航',
+    memberNameKeywords: ['田春航', '田状元'],
+  },
+  {
     canonicalNameKeyword: '屈道翁',
     memberNameKeywords: ['屈方正', '屈本立', '屈道翁'],
   },
