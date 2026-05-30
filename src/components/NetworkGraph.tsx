@@ -415,7 +415,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       className={
         isFullscreen
           ? "fixed inset-0 z-[100] w-full h-[100dvh] max-h-[100dvh] parchment overflow-hidden pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]"
-          : "w-full h-[400px] sm:h-[600px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative"
+          : "w-full h-[400px] sm:h-[520px] md:h-[580px] lg:h-[650px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative"
       }
     >
       <div className="absolute top-4 left-4 z-10 pointer-events-none">
@@ -426,8 +426,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           {lang === 'en' ? 'Drag nodes to explore relationships' : '拖动节点探索人物关系'}
         </p>
       </div>
-      <div className="absolute top-4 right-4 z-10 bg-[#f4ecd8]/80 p-2 rounded border border-[#d4c5a9] backdrop-blur-sm max-w-[120px] sm:max-w-none pointer-events-none">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
+      <div className="absolute top-4 right-4 z-10 bg-[#f4ecd8]/80 p-2 rounded border border-[#d4c5a9] backdrop-blur-sm max-w-[120px] md:max-w-[160px] lg:max-w-none pointer-events-none">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-3 gap-y-1">
           {Object.entries(ROLE_LABELS).map(([role, labels]) => (
             <div key={role} className="flex items-center gap-2">
               <div 
@@ -468,7 +468,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     return (
       <>
         <div
-          className="w-full h-[400px] sm:h-[600px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative opacity-40"
+          className="w-full h-[400px] sm:h-[520px] md:h-[580px] lg:h-[650px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative opacity-40"
           aria-hidden="true"
         />
         {createPortal(graphMarkup, document.body)}

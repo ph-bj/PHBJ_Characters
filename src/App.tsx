@@ -1002,11 +1002,11 @@ export default function App() {
   return (
     <div className="min-h-screen font-serif text-[#2c2420] selection:bg-amber-900/20">
       {/* Header */}
-      <div id="overview" className="max-w-[1800px] mx-auto w-full px-2 sm:px-5 scroll-mt-24 lg:sticky lg:top-0 lg:z-30 lg:bg-[#e5dcc3]/95 lg:backdrop-blur-sm">
-        <header className="parchment mt-2 sm:mt-5 mb-2 px-4 sm:px-10 py-4 sm:h-24 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-sm border-double border-4 border-[#d4c5a9]">
+      <div id="overview" className="max-w-[1800px] mx-auto w-full px-2 sm:px-5 md:px-4 lg:px-5 scroll-mt-24 md:sticky md:top-0 md:z-30 md:bg-[#e5dcc3]/95 md:backdrop-blur-sm">
+        <header className="parchment mt-2 sm:mt-5 mb-2 px-4 sm:px-8 md:px-6 lg:px-10 py-4 md:py-3 lg:py-4 md:min-h-[4.5rem] lg:min-h-[6rem] flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4 rounded-sm border-double border-4 border-[#d4c5a9]">
           <div className="hidden sm:block flex-1" />
           <div className="flex flex-col items-center text-center gap-1 flex-1">
-            <h1 className="text-xl sm:text-3xl font-bold tracking-tight text-[#2c2420]">{t.title}</h1>
+            <h1 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold tracking-tight text-[#2c2420]">{t.title}</h1>
           </div>
           <div className="flex-1 flex justify-center sm:justify-end">
             <LanguageSwitch lang={lang} setLang={setLang} />
@@ -1014,22 +1014,22 @@ export default function App() {
         </header>
       </div>
 
-      <div className="lg:hidden sticky top-0 z-30 px-2 pb-2 bg-[#e5dcc3]/95 backdrop-blur-sm border-b border-[#d4c5a9]/80">
-        <nav className="parchment rounded-sm border border-[#d4c5a9] p-1.5 flex items-center gap-1.5 shadow-md" aria-label={lang === 'zh' ? '移动导航' : 'Mobile navigation'}>
+      <div className="md:hidden sticky top-0 z-30 px-2 pb-2 bg-[#e5dcc3]/95 backdrop-blur-sm border-b border-[#d4c5a9]/80">
+        <nav className="parchment rounded-sm border border-[#d4c5a9] p-1.5 sm:p-2 flex items-center gap-1.5 sm:gap-2 shadow-md" aria-label={lang === 'zh' ? '移动导航' : 'Mobile navigation'}>
           {mobileSections.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
               onClick={() => scrollToSection(id)}
-              className="flex-1 min-w-0 h-11 rounded-sm flex flex-col items-center justify-center gap-0.5 text-[#5d5048] hover:bg-[#8b4513]/8 hover:text-[#8b4513] transition-colors"
+              className="flex-1 min-w-0 h-11 sm:h-12 rounded-sm flex flex-col items-center justify-center gap-0.5 text-[#5d5048] hover:bg-[#8b4513]/8 hover:text-[#8b4513] transition-colors"
             >
-              <Icon size={16} />
-              <span className="text-[9px] font-bold leading-none uppercase tracking-wide truncate max-w-full">{label}</span>
+              <Icon size={16} className="sm:w-[18px] sm:h-[18px]" />
+              <span className="text-[9px] sm:text-[10px] font-bold leading-none uppercase tracking-wide truncate max-w-full">{label}</span>
             </button>
           ))}
           <LanguageSwitch lang={lang} setLang={setLang} compact className="shrink-0 p-0.5" />
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="h-11 w-11 rounded-sm bg-[#8b4513] text-[#f4ecd8] flex items-center justify-center border border-[#8b4513] shadow-sm"
+            className="h-11 w-11 sm:h-12 sm:w-12 rounded-sm bg-[#8b4513] text-[#f4ecd8] flex items-center justify-center border border-[#8b4513] shadow-sm"
             aria-label={lang === 'zh' ? '打开全部菜单' : 'Open full menu'}
           >
             <Menu size={18} />
@@ -1037,10 +1037,10 @@ export default function App() {
         </nav>
       </div>
 
-      <main className="max-w-[1800px] mx-auto p-2 sm:p-5 grid grid-cols-1 xl:grid-cols-[280px_1fr_300px] lg:grid-cols-[280px_1fr] gap-4 sm:gap-6">
+      <main className="max-w-[1800px] mx-auto p-2 sm:p-4 md:p-4 lg:p-5 grid grid-cols-1 md:grid-cols-[minmax(200px,240px)_1fr] lg:grid-cols-[240px_1fr_260px] xl:grid-cols-[280px_1fr_300px] gap-4 md:gap-5 lg:gap-6">
         {/* Left Sidebar */}
-        <aside className="flex flex-col gap-4 sm:gap-5 h-fit order-2 lg:order-1">
-          <div id="stats" className="parchment p-4 sm:p-8 rounded-sm flex flex-col gap-6 sm:gap-10 border-double border-4 border-[#d4c5a9] scroll-mt-24">
+        <aside className="flex flex-col gap-4 md:gap-5 h-fit order-2 md:order-1 md:sticky md:top-[5.25rem] md:self-start md:max-h-[calc(100dvh-6rem)] md:overflow-y-auto md:overscroll-contain scrollbar-thin">
+          <div id="stats" className="parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm flex flex-col gap-6 md:gap-8 lg:gap-10 border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <div>
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">{t.hometown}</h2>
               <div className="space-y-4">
@@ -1404,7 +1404,7 @@ export default function App() {
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-4 font-bold border-b border-[#d4c5a9] pb-2">
               {lang === 'zh' ? '缺文' : 'Lacunae'}
             </h2>
-            <div className="grid grid-cols-6 sm:grid-cols-8 lg:grid-cols-4 xl:grid-cols-5 gap-1.5">
+            <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-4 xl:grid-cols-5 gap-1.5">
               {lacunaChapterNumbers.map((chapterNumber) => (
                 (() => {
                   const lacunaCount = lacunaCountByChapter[chapterNumber] ?? 0;
@@ -1452,7 +1452,7 @@ export default function App() {
         </aside>
 
         {/* Content Area */}
-        <section className="flex flex-col gap-4 sm:gap-5 order-1 lg:order-2">
+        <section className="flex flex-col gap-4 md:gap-5 order-1 md:order-2 min-w-0">
           {/* Network Graph Section */}
           <div id="network" className="scroll-mt-24">
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">
@@ -1534,7 +1534,7 @@ export default function App() {
           {/* Grid */}
           <motion.div 
             layout={!hasOpenOverlay}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-5 lg:gap-6"
           >
             <AnimatePresence mode="popLayout">
               {filteredCharacters.map((char) => (
@@ -1560,7 +1560,7 @@ export default function App() {
         </section>
 
         {/* Right Sidebar - Chapters */}
-        <aside className="flex flex-col gap-4 sm:gap-5 h-fit order-3 lg:col-span-2 xl:col-span-1">
+        <aside className="order-3 md:col-span-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-5 h-fit lg:col-span-1 lg:sticky lg:top-[5.25rem] lg:self-start lg:max-h-[calc(100dvh-6rem)] lg:overflow-y-auto lg:overscroll-contain scrollbar-thin">
           <div id="chapters" className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">{t.chapters}</h2>
             <div className="mb-6 space-y-2 pb-4 border-b border-[#d4c5a9]">
@@ -1705,7 +1705,7 @@ export default function App() {
       </footer>
 
       {/* Floating Scroll Buttons */}
-      <div className="hidden sm:flex fixed bottom-6 right-6 flex-col gap-2 z-40">
+      <div className="hidden md:flex fixed bottom-6 right-6 flex-col gap-2 z-40">
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -1729,7 +1729,7 @@ export default function App() {
       {/* Mobile Navigation Sheet */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 z-50 flex items-end">
+          <div className="md:hidden fixed inset-0 z-50 flex items-end sm:items-center sm:justify-center sm:p-6">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -1743,7 +1743,7 @@ export default function App() {
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 260 }}
               data-overlay-scroll="true"
-              className="relative w-full max-h-[86vh] overflow-y-auto parchment rounded-t-sm border-t-4 border-x-4 border-double border-[#d4c5a9] shadow-2xl p-4"
+              className="relative w-full sm:max-w-lg sm:max-h-[85vh] sm:rounded-sm max-h-[86vh] overflow-y-auto parchment rounded-t-sm sm:rounded-sm border-t-4 sm:border-4 border-x-4 border-double border-[#d4c5a9] shadow-2xl p-4 sm:p-5"
             >
               <div className="flex items-center justify-between gap-3 border-b border-[#d4c5a9] pb-3 mb-4">
                 <div>
@@ -2570,7 +2570,7 @@ function ChapterReader({
         initial={{ opacity: 0, y: 50, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="relative w-full max-w-none h-[100dvh] max-h-[100dvh] sm:max-w-5xl sm:h-[90dvh] sm:max-h-[90dvh] parchment rounded-none sm:rounded-sm overflow-hidden shadow-2xl border-0 sm:border-4 border-double border-[#d4c5a9] flex flex-col"
+        className="relative w-full max-w-none h-[100dvh] max-h-[100dvh] sm:max-w-5xl md:max-w-6xl sm:h-[90dvh] sm:max-h-[90dvh] parchment rounded-none sm:rounded-sm overflow-hidden shadow-2xl border-0 sm:border-4 border-double border-[#d4c5a9] flex flex-col"
       >
         <div className="p-4 sm:p-6 border-b border-[#d4c5a9] flex items-center justify-between bg-[#f4ecd8]">
           <div className="flex items-center gap-3">
@@ -2878,7 +2878,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter, elevated =
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className={`relative w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] my-4 sm:my-0 flex flex-col`}
+        className={`relative w-[95%] sm:w-full max-w-2xl md:max-w-3xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] my-4 sm:my-0 flex flex-col`}
       >
         <button 
           onClick={onClose}
