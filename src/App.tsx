@@ -499,6 +499,7 @@ export default function App() {
   const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(null);
   const [selectedQuestion, setSelectedQuestion] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [networkGraphFullscreen, setNetworkGraphFullscreen] = useState(false);
 
   const lacunaChapterNumbers = useMemo(
     () => chapters.filter((chapter) => Number(chapter.id) > 0).map((chapter) => Number(chapter.id)),
@@ -1437,7 +1438,13 @@ export default function App() {
             <p className="text-xs italic text-[#5d5048] mb-4">
               {t.subtitle}
             </p>
-            <NetworkGraph characters={characters} relationships={relationships} lang={lang} onNodeClick={setSelectedCharacter} />
+            <NetworkGraph
+              characters={characters}
+              relationships={relationships}
+              lang={lang}
+              onNodeClick={setSelectedCharacter}
+              onFullscreenChange={setNetworkGraphFullscreen}
+            />
           </div>
 
           {/* Search & Filters */}
@@ -1816,6 +1823,7 @@ export default function App() {
             onClose={() => setSelectedCharacter(null)}
             lang={lang}
             onSelectChapter={setSelectedChapter}
+            elevated={networkGraphFullscreen}
           />
         )}
       </AnimatePresence>
@@ -2714,7 +2722,7 @@ function CharacterCard({ character, isActive, onClick, lang, lockMotion = false 
 
 const GENERIC_HONORIFICS = new Set(['夫人', '公子', '先生', '老爷', '太太', '小姐', '姑娘', '奶奶', '大人', '将军', '夫君']);
 
-function CharacterDetail({ character, onClose, lang, onSelectChapter }: { character: Character; onClose: () => void; lang: 'en' | 'zh'; onSelectChapter: (chapter: (typeof chapters)[0]) => void }) {
+function CharacterDetail({ character, onClose, lang, onSelectChapter, elevated = false }: { character: Character; onClose: () => void; lang: 'en' | 'zh'; onSelectChapter: (chapter: (typeof chapters)[0]) => void; elevated?: boolean }) {
   const Icon = ROLE_ICONS[character.role] || Info;
   const tintClass = ROLE_TINTS[character.role] || ROLE_TINTS.Other;
   const textClass = ROLE_TEXT_COLORS[character.role] || ROLE_TEXT_COLORS.Other;
@@ -2825,7 +2833,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter }: { charac
   }, [activeScenes, lang]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className={`fixed inset-0 flex items-center justify-center p-4 ${elevated ? 'z-[110]' : 'z-50'}`}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

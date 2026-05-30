@@ -32,12 +32,23 @@ interface NetworkGraphProps {
   relationships: Relationship[];
   lang: 'en' | 'zh';
   onNodeClick: (character: Character) => void;
+  onFullscreenChange?: (isFullscreen: boolean) => void;
 }
 
-export default function NetworkGraph({ characters, relationships, lang, onNodeClick }: NetworkGraphProps) {
+export default function NetworkGraph({ characters, relationships, lang, onNodeClick, onFullscreenChange }: NetworkGraphProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    onFullscreenChange?.(isFullscreen);
+  }, [isFullscreen, onFullscreenChange]);
+
+  useEffect(() => {
+    return () => {
+      onFullscreenChange?.(false);
+    };
+  }, [onFullscreenChange]);
 
   useLayoutEffect(() => {
     if (!isFullscreen) return;
@@ -76,7 +87,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     bodyStyle.right = '0';
     bodyStyle.width = '100%';
     bodyStyle.overflow = 'hidden';
-    bodyStyle.touchAction = 'none';
     bodyStyle.overscrollBehavior = 'none';
     htmlStyle.overflow = 'hidden';
     htmlStyle.position = 'fixed';
@@ -134,6 +144,30 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     svg.style("touch-action", "none");
 
     let lockedNodeId: string | null = null;
+    let lastTapTime = 0;
+    let lastTapNodeId: string | null = null;
+    let lastTouchPointerUpTime = 0;
+    let tapStart: { id: string; x: number; y: number } | null = null;
+    const DOUBLE_TAP_MS = 400;
+    const TAP_MOVE_THRESHOLD = 12;
+
+    const activateNode = (event: any, d: any) => {
+      if (event.defaultPrevented) return;
+      event.stopPropagation();
+
+      const now = Date.now();
+      if (lastTapNodeId === d.id && now - lastTapTime < DOUBLE_TAP_MS) {
+        lastTapTime = 0;
+        lastTapNodeId = null;
+        onNodeClick(d);
+        return;
+      }
+
+      lastTapTime = now;
+      lastTapNodeId = d.id;
+      lockedNodeId = d.id;
+      applyHoverStyles(d.id);
+    };
 
     const simulation = d3.forceSimulation(nodes as any)
       .force("link", d3.forceLink(links).id((d: any) => d.id).distance(100))
@@ -199,19 +233,29 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .data(nodes)
       .join("g")
       .attr("cursor", "pointer")
-      .on("click", (event, d: any) => {
-        // Prevent click when dragging
-        if (event.defaultPrevented) return;
-        event.stopPropagation();
-        lockedNodeId = d.id;
-        applyHoverStyles(d.id);
+      .on("pointerdown", (_event, d: any) => {
+        tapStart = { id: d.id, x: _event.clientX, y: _event.clientY };
       })
-      .on("dblclick", (event, d: any) => {
-        if (event.defaultPrevented) return;
-        event.stopPropagation();
-        onNodeClick(d);
+      .on("pointerup", (event, d: any) => {
+        if (event.pointerType !== 'touch') return;
+        if (!tapStart || tapStart.id !== d.id) return;
+        const moved = Math.hypot(event.clientX - tapStart.x, event.clientY - tapStart.y);
+        tapStart = null;
+        if (moved > TAP_MOVE_THRESHOLD) return;
+        lastTouchPointerUpTime = Date.now();
+        activateNode(event, d);
+      })
+      .on("click", (event, d: any) => {
+        if (event.pointerType === 'touch') {
+          // pointerup handles most touch taps; click is a fallback (e.g. iOS fullscreen).
+          if (Date.now() - lastTouchPointerUpTime < 500) return;
+          activateNode(event, d);
+          return;
+        }
+        activateNode(event, d);
       })
       .call(d3.drag()
+        .clickDistance(TAP_MOVE_THRESHOLD)
         .on("start", dragstarted)
         .on("drag", dragged)
         .on("end", dragended) as any);
@@ -370,7 +414,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       data-network-graph="true"
       className={
         isFullscreen
-          ? "fixed inset-0 z-[100] w-full h-[100dvh] max-h-[100dvh] parchment overflow-hidden touch-none pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]"
+          ? "fixed inset-0 z-[100] w-full h-[100dvh] max-h-[100dvh] parchment overflow-hidden pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]"
           : "w-full h-[400px] sm:h-[600px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative"
       }
     >
