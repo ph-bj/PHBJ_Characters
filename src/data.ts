@@ -55,7 +55,7 @@ const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male prota
 陆宗沅 Lù Zōngyuán	—	—	—	official	ch.2	Censor; gets wine sprayed in his face by Sun Lianggong; cousin of the two Madam Lu	御史；被孙亮功喷了一脸酒；两位陆夫人的堂兄弟。
 富伦 Fú Lún	富三爷	~30	Jiangning	official	ch.3	A warm-hearted and wealthy official who serves as a generous patron to performers. A close friend of many scholars who often mediates social conflicts.	内务府官员，为人热诚。他是名伶们的重要赞助人，常在京城社交圈中排忧解难。
 贵芬 Guì Fēn	贵大爷	~30	—	official	ch.3	7th-rank ministry clerk; prudent and steady; Fu Lun's close friend	七品部吏；谨慎稳重；富伦好友。
-华光宿 Huá Guāngsù	华公子 / 星北	21	—	official	ch.5	A high-ranking noble and owner of Jinchun Garden. While dissolute, he possesses genuine taste, but his possessive acquisition of Qinyan (ch. 28) makes him a primary antagonist.	世袭侯爵，锦春园主。虽放荡不羁但颇具文采，因强纳琴言入府（第28回）而成为核心反派。
+华光宿 Huá Guāngsù	华公子 / 星北	21	—	villain	ch.5	A high-ranking noble and owner of Jinchun Garden. While dissolute, he possesses genuine taste, but his possessive acquisition of Qinyan (ch. 28) makes him a primary antagonist.	世袭侯爵，锦春园主。虽放荡不羁但颇具文采，因强纳琴言入府（第28回）而成为核心反派。
 曹长庆 Cáo Chángqìng	—	—	—	official	ch.3	Took in the ill Qinyan before she entered the troupe officially; mentioned briefly	琴言入班前曾收留生病的她；简短提及。
 史曾望 Shǐ Zēngwàng	—	—	—	official	ch.1	Shi Nanxiang's father; Censor (吏科给事中)	史南湘之父；吏科给事中。
 袁浩 Yuán Hào	—	—	—	official	ch.5	Yunnan governor; Xu Ziyun's father-in-law	云南巡抚；徐子云岳父。
@@ -75,7 +75,7 @@ const rawData = `梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male prota
 奚十一 Xī Shíyī	奚正绅	~30	Guangdong	villain	ch.3	A violent and wealthy Cantonese merchant known as the 'Smoke-Blackened Grand Duke.' He repeatedly harasses Qinyan, ultimately suffering grotesque karmic retribution.	绰号“烟熏太岁”的广东富商。屡次纠缠迫害琴言，最终在第40及58回遭到惨烈的报应。
 潘其观 Pān Qíguān	—	—	—	villain	ch.13	A malicious schemer and chronic gambler associated with Xi Shiyi. He endures a series of degrading physical punishments as retribution for his misdeeds.	奚十一的帮凶，为人阴险好赌。因作恶多端，在书中后段多次遭遇毒打与恶疾报应。
 老王 Lǎo Wáng	—	~60	—	villain	ch.3	Hunchbacked jade-vendor; tries to extort Pincai at the theatre; expelled by Xi Shiyi's men	驼背玉商；在剧场敲诈聘才；被奚十一的人赶走。
-唐和尚 Táng Héshang	—	~40	—	minor	ch.8	Wine-and-meat Buddhist monk (酒肉和尚); purple-faced; fur-robed; friend of Zhang Zhongyu; arranges meetings; comic figure in ch.8	酒肉和尚；紫脸皮袄；张仲雨之友；安排会面；喜剧人物。
+唐和尚 Táng Héshang	—	~40	—	villain	ch.8	Wine-and-meat Buddhist monk (酒肉和尚); purple-faced; fur-robed; associate of Xi Shiyi and Pan Qiguan; enables harassment of Qinyan and runs gambling and opium dens at Hongji Temple.	酒肉和尚；紫脸皮袄；与奚十一、潘其观等勾结；在宏济寺设赌开烟，助虐琴言，为书中反派之一。
 起盛银号潘老三 Pān Lǎosān	—	—	—	minor	ch.8	Silver-exchange merchant; dines with Zhang Zhongyu in ch.8; very minor	银号商人；第8回与张仲雨共餐。
 屈本立 Qū Běnlì	道生	—	—	minor	ch.7	Calligrapher; his ancient-style inscription hangs in Liu Wenze's study room (ch.7)	书法家；其古风题字挂在刘文泽书房。
 华夫人 Huá Fūrén	—	—	—	minor	ch.5	"Hua Guangsu's beautiful wife; née Su, daughter of Jingbian Hou (靖边侯); described as 'the most beautiful woman in the empire'; ten pearl-maids"	华光宿之妻；靖边侯之女；号称“天下第一美人”。
