@@ -3,10 +3,14 @@
 import type { SceneBullet } from './types';
 
 export const char_63Appearances: Record<number, SceneBullet[]> = {
-  6: [
+  "6": [
     {
-      en: "At the banquet, Director Shen converses with Mei Ziyu, praising his exceptional appearance and asking about his studies. He is also mentioned as being related to Gao Pin and as the father of Shen Bocai. Later in the evening, he departs the banquet early along with several other senior officials.",
-      zh: "席间，沈司业与梅子玉交谈，见他丰神秀澈，便问起他目前所读何书、所习何文。此外还提及他与高品有亲戚关系，并且是沈伯才之父。晚些时候，他与其他几位大人一同先行离开。"
+      "en": "Shen Siye, a strict and traditional Confucian scholar, is mentioned early in the chapter as the father of Shen Yunggu. When his daughter returns home in despair over her husband's behavior, he firmly reprimands her and sends her back to the Sun family.",
+      "zh": "沈司业是个古板的道学先生。本回初提及他是沈芸姑的父亲。当女儿因丈夫的行为痛苦不堪而跑回娘家时，他严厉地教训了女儿，并将她送回了孙家。"
+    },
+    {
+      "en": "At the New Year gathering, the elderly and talkative Shen Siye holds on to Mei Ziyu, marveling at the young man's extraordinary refinement and talent. Praising Ziyu extensively, he silently contrasts this \"heavenly immortal\" with his own son-in-law.",
+      "zh": "在新年宴席上，年老健谈的沈司业拉住梅子玉，惊叹这位年轻人如神仙般非凡的风姿与才情。他对子玉大加赞赏，并在心中暗自将这位“天仙化人”与自己的女婿作对比。"
     }
-  ],
+  ]
 };
