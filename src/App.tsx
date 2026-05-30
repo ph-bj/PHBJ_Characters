@@ -574,7 +574,8 @@ export default function App() {
 
   const t = {
     en: {
-      title: "Pinhua baojian Database 品花宝鉴数据库",
+      titleEn: "Pinhua baojian Database",
+      titleZh: "品花宝鉴数据库",
       chapterAbbr: "Ch.",
       mentions: (count: number) => `mention${count !== 1 ? 's' : ''}`,
       noTextExcerpts: "No text excerpts found.",
@@ -598,7 +599,8 @@ export default function App() {
       readChapter: "Read Chapter"
     },
     zh: {
-      title: "Pinhua baojian Database 品花宝鉴数据库",
+      titleEn: "Pinhua baojian Database",
+      titleZh: "品花宝鉴数据库",
       chapterAbbr: "第",
       mentions: (count: number) => `次提及`,
       noTextExcerpts: "无文本摘录。",
@@ -1005,8 +1007,15 @@ export default function App() {
       <div id="overview" className="max-w-[1800px] mx-auto w-full px-2 sm:px-5 md:px-4 lg:px-5 scroll-mt-24 md:sticky md:top-0 md:z-30 md:bg-[#e5dcc3]/95 md:backdrop-blur-sm">
         <header className="parchment mt-2 sm:mt-5 mb-2 px-4 sm:px-8 md:px-6 lg:px-10 py-4 md:py-3 lg:py-4 md:min-h-[4.5rem] lg:min-h-[6rem] flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4 rounded-sm border-double border-4 border-[#d4c5a9]">
           <div className="hidden sm:block flex-1" />
-          <div className="flex flex-col items-center text-center gap-1 flex-1">
-            <h1 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold tracking-tight text-[#2c2420]">{t.title}</h1>
+          <div className="flex flex-col items-center text-center gap-0.5 sm:gap-1 flex-1">
+            <h1 className="flex flex-col items-center gap-0.5 sm:gap-1 leading-tight">
+              <span className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold tracking-tight text-[#2c2420]">
+                {t.titleEn}
+              </span>
+              <span className="text-base sm:text-lg md:text-lg lg:text-xl font-bold font-hans tracking-wide text-[#5d5048]">
+                {t.titleZh}
+              </span>
+            </h1>
           </div>
           <div className="flex-1 flex justify-center sm:justify-end">
             <LanguageSwitch lang={lang} setLang={setLang} />
