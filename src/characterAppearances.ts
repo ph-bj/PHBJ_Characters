@@ -17,7 +17,6 @@ import { char_14Appearances } from './characterAppearances/char-14';
 import { char_15Appearances } from './characterAppearances/char-15';
 import { char_16Appearances } from './characterAppearances/char-16';
 import { char_17Appearances } from './characterAppearances/char-17';
-import { char_18Appearances } from './characterAppearances/char-18';
 import { char_19Appearances } from './characterAppearances/char-19';
 import { char_20Appearances } from './characterAppearances/char-20';
 import { char_21Appearances } from './characterAppearances/char-21';
@@ -76,7 +75,6 @@ import { char_73Appearances } from './characterAppearances/char-73';
 import { char_74Appearances } from './characterAppearances/char-74';
 import { char_75Appearances } from './characterAppearances/char-75';
 import { char_76Appearances } from './characterAppearances/char-76';
-import { char_77Appearances } from './characterAppearances/char-77';
 import { char_78Appearances } from './characterAppearances/char-78';
 import { char_79Appearances } from './characterAppearances/char-79';
 import { char_80Appearances } from './characterAppearances/char-80';
@@ -182,7 +180,6 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
   'char-15': char_15Appearances,
   'char-16': char_16Appearances,
   'char-17': char_17Appearances,
-  'char-18': char_18Appearances,
   'char-19': char_19Appearances,
   'char-20': char_20Appearances,
   'char-21': char_21Appearances,
@@ -241,7 +238,6 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
   'char-74': char_74Appearances,
   'char-75': char_75Appearances,
   'char-76': char_76Appearances,
-  'char-77': char_77Appearances,
   'char-78': char_78Appearances,
   'char-79': char_79Appearances,
   'char-80': char_80Appearances,

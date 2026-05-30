@@ -1,6 +1,6 @@
 import { Character, Relationship } from './types';
 
-const rawData = `char-0	梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male protagonist; scholar-gentry; falls for Qinyan; later marries Wang Qionghua; promoted examiner (ch.15); builds Qu shrine (ch.59)	男主角；书生士绅；钟情于琴言；后娶王琼华；第15回升任主考官；第59回为屈方正修建祠堂。
+const rawData = `char-0	梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male protagonist; scholar-gentry; falls for Qinyan; later marries Wang Qionghua; promoted examiner (ch.15); builds Qu shrine (ch.59)	男主角；书生士绅；钟情于琴言；后娶王琼华；第15回升任主考官；第59回为屈道翁修建祠堂。
 char-1	杜琴言 Dù Qínyán	琴官 / 玉侬 / 琴仙	15	Jiangsu	performer	ch.1	Central romantic figure; orphaned; renamed by Xu Ziyun (ch.5); redeemed in ch.43; reunites with Ziyu	核心浪漫人物；孤儿；第5回由徐子云改名；第43回赎身；最终与子玉重逢。
 char-2	颜仲清 Yán Zhòngqīng	剑潭	23	Jinling	scholar	ch.1	A chivalrous scholar and close friend of Ziyu; nephew of Lady Yan. Often mediates between friends and participates in major literary gatherings.	侠义书生，子玉挚友；颜夫人之侄。常在友人间周旋，活跃于各大文会雅集。
 char-3	史南湘 Shǐ Nánxiāng	竹君	24	Hanyang	scholar	ch.1	Top graduate who compiled the Flower Register; witty and romantic. Deeply attached to Lu Sulan; later achieves Jinshi rank (ch. 44).	乡试榜首，编纂《花选》；机智风流。痴情于陆素兰，后于第44回高中进士。
@@ -18,8 +18,7 @@ char-14	冯子佩 Féng Zǐpèi	—	~18	Beijing	scholar	ch.6	Son of former Jiang
 char-15	田春航 Tián Chūnháng	湘帆	23	Jinling	scholar	ch.4	A passionate Nanjing scholar who finds a soulmate in Su Huifang (ch. 13); eventually achieves the rank of top laureate (Zhuangyuan) in chapter 49.	金陵才子，第13回与苏蕙芳结为知己，后高中状元（第49回）。
 char-16	祝芳年 Zhù Fāngnián	—	—	—	scholar	ch.17	Hosts poetry banquet in ch.17; part of Xu Ziyun's literary circle	第17回主持诗宴；徐子云文人圈成员。
 char-17	金吉甫 Jīn Jífǔ	金栗	—	Jinling	scholar	ch.38	From a great Nanjing family; real name Jin Su (金栗), art name Jifu; leading literary scholar; frames the novel's conclusion in ch.60	南京巨族；本名金栗，号吉甫；文坛名士；第60回为小说作结。
-char-18	屈方正 Qū Fāngzhèng	—	—	—	scholar	ch.56	Virtuous deceased scholar; appears as a divine spirit (ch.56); Mei builds a shrine for him (ch.59)	正直的已故学者；第56回以神灵身份出现；梅子玉为其建祠。
-char-19	屈少君 Qū Shàojūn	—	—	—	scholar	ch.59	Son of Qu Fangzheng; returns to capital in ch.59; helped by Ziyu	屈方正之子；第59回回京；得子玉相助。
+char-19	屈少君 Qū Shàojūn	—	—	—	scholar	ch.59	Adopted son of Qu Daoweng (Qinxian); returns to capital in ch.59; helped by Ziyu	屈道翁义子（琴仙）；第59回回京；得子玉相助。
 char-20	李性全 Lǐ Xìngquán	—	—	Zhejiang	scholar	ch.1	Ziyu's strict Confucian tutor; Li Yuanmao's father; stays with Mei family	子玉严厉的儒家老师；李元茂之父；住在梅家。
 char-21	孙嗣徽 Sūn Sìhuī	虫蛀千字文	26	Jinling	scholar	ch.2	Elder Sun son; pedantic; 'Worm-eaten Primer' nickname; red nose	孙家长子；迂腐；绰号”虫蛀千字文”；红鼻子。
 char-22	孙嗣元 Sūn Sìyuán	迭韵双声谱	~24	Jinling	scholar	ch.2	Younger Sun son; severe stammer; 'Unfinished Three-Character Classic' nickname	孙家次子；严重结巴；绰号”迭韵双声谱”。
@@ -77,7 +76,6 @@ char-73	潘其观 Pān Qíguān	—	—	—	villain	ch.13	A malicious schemer an
 char-74	老王 Lǎo Wáng	—	~60	—	villain	ch.3	Hunchbacked jade-vendor; tries to extort Pincai at the theatre; expelled by Xi Shiyi's men	驼背玉商；在剧场敲诈聘才；被奚十一的人赶走。
 char-75	唐和尚 Táng Héshang	—	~40	—	villain	ch.8	Wine-and-meat Buddhist monk (酒肉和尚); purple-faced; fur-robed; associate of Xi Shiyi and Pan Qiguan; enables harassment of Qinyan and runs gambling and opium dens at Hongji Temple.	酒肉和尚；紫脸皮袄；与奚十一、潘其观等勾结；在宏济寺设赌开烟，助虐琴言，为书中反派之一。
 char-76	起盛银号潘老三 Pān Lǎosān	—	—	—	minor	ch.8	Silver-exchange merchant; dines with Zhang Zhongyu in ch.8; very minor	银号商人；第8回与张仲雨共餐。
-char-77	屈本立 Qū Běnlì	道生	—	—	minor	ch.7	Calligrapher; his ancient-style inscription hangs in Liu Wenze's study room (ch.7)	书法家；其古风题字挂在刘文泽书房。
 char-78	华夫人 Huá Fūrén	—	—	—	minor	ch.5	"Hua Guangsu's beautiful wife; née Su, daughter of Jingbian Hou (靖边侯); described as 'the most beautiful woman in the empire'; ten pearl-maids"	华光宿之妻；靖边侯之女；号称“天下第一美人”。
 char-79	青姨奶奶 Qīng Yínǎinai	—	—	—	minor	ch.3	One of Fu Lun's two quarrelling concubines; fights with Bai Yinainai; mentioned by Rong Guan	富伦的姨太太；与白姨奶奶争吵。
 char-80	白姨奶奶 Bái Yínǎinai	—	—	—	minor	ch.3	Fu Lun's other quarrelling concubine; fights with Qing Yinainai; mentioned by Rong Guan	富伦的另一位姨太太；与青姨奶奶争吵。
@@ -141,7 +139,7 @@ char-137	菊花 Júhuā	—	20+	Guangxi	minor	ch.40	Xi Shiyi's intimate companio
 char-138	得月 Déyuè	—	~17	—	performer	ch.40	Young novice/performance-world youth linked with Xi Shiyi, Wei Pincai, and Pan Qiguan; pivotal in major karmic episodes in later chapters	与奚十一、魏聘才、潘其观等线索相连的重要少年人物；在后段多起报应事件中居关键位置。
 char-139	卓天香 Zhuō Tiānxiāng	—	—	—	performer	ch.40	Performer associated with Wei Pincai's circle; appears repeatedly in the Xi Shiyi/Pan Qiguan late-stage entanglements	与魏聘才圈层相关的伶人；在奚十一、潘其观后期纠葛中多次出现。
 char-140	阳善修 Yáng Shànxiū	—	—	—	minor	ch.40	Doctor specializing in intimate ailments; repeatedly called to treat major injuries and illnesses of key characters in late chapters	专治下体病症的医生；在后段关键人物伤病处理中多次出场。
-char-141	屈道翁 Qū Dàowēng	道翁	—	—	scholar	ch.38	Major senior scholar associated with Qu Benli/Qu Fangzheng; adopts Qinxian, mentors him, and remains central through the late-chapter shrine and dream arcs	书中后段核心名士，与屈本立/屈方正同一人物线；收养并教导琴仙，牵动建祠与托梦主线。
+char-141	屈道翁 Qū Dàowēng	道翁 / 道生 / 屈方正 Qū Fāngzhèng / 屈本立 Qū Běnlì	—	—	scholar	ch.7	Senior scholar known as Qu Benli (calligraphy, ch.7), Qu Daoweng (main name), and Qu Fangzheng (divine aspect); adopts Qinxian; dies in Nanjing (ch.56); shrine and dream arcs (ch.59–60)	名士屈道翁（亦以屈本立、屈方正等名出现）：第7回署名书法，后段收养琴仙，第56回殁于南京，第59–60回托梦、建祠并入选十二花神。
 char-142	苏侯 Sū Hóu	—	—	—	official	ch.48	Powerful noble household head; father-in-law of Tian Chunhang through his daughter's marriage	权势显赫的侯门家长；其女与田春航成婚后，成为田春航岳家核心人物。
 char-143	姬亮轩 Jī Liàngxuān	—	—	—	minor	ch.27	Corrupt hanger-on tied to Xi Shiyi's milieu; repeatedly appears in rumor, coercion, and underhand social manipulation arcs	与奚十一圈层相关的奸滑人物；多次卷入流言、挟制与权势投机情节。
 char-144	金粟 Jīn Sù	—	—	—	scholar	ch.32	Literary-circle member active in later gatherings, inscriptions, and the Nine Fragrance cultural projects	后段文士圈成员之一，参与题赞、聚会与九香楼文化工程。
@@ -219,7 +217,7 @@ const baseRelationships: Relationship[] = [
   { source: 'char-0', target: 'char-47', type: 'Father/Son', typeZh: '严父慈子' },
   { source: 'char-0', target: 'char-86', type: 'Mother/Son', typeZh: '母子情深' },
   { source: 'char-0', target: 'char-7', type: 'Literary Circle', typeZh: '文坛诗友' },
-  { source: 'char-0', target: 'char-18', type: 'Veneration', typeZh: '修建祠堂' },
+  { source: 'char-0', target: 'char-141', type: 'Veneration', typeZh: '修建祠堂' },
   { source: 'char-0', target: 'char-19', type: 'Benefactor', typeZh: '提携后辈' },
   { source: 'char-0', target: 'char-20', type: 'Student/Tutor', typeZh: '师生' },
   { source: 'char-0', target: 'char-102', type: 'Master/Servant', typeZh: '主仆' },
@@ -304,7 +302,7 @@ const baseRelationships: Relationship[] = [
   { source: 'char-12', target: 'char-63', type: 'Father/Son', typeZh: '父子' },
   { source: 'char-13', target: 'char-64', type: 'Father/Son', typeZh: '父子' },
   { source: 'char-98', target: 'char-64', type: 'Father/Daughter', typeZh: '父女' },
-  { source: 'char-18', target: 'char-19', type: 'Father/Son', typeZh: '父子' },
+  { source: 'char-141', target: 'char-19', type: 'Father/Son', typeZh: '父子' },
   { source: 'char-86', target: 'char-127', type: 'Brother/Sister', typeZh: '姐弟' },
   { source: 'char-86', target: 'char-128', type: 'Father/Daughter', typeZh: '父女' },
   { source: 'char-104', target: 'char-105', type: 'Marriage', typeZh: '夫妻' },
@@ -341,10 +339,6 @@ const mergeGroups: MergeGroup[] = [
   {
     canonicalNameKeyword: '田春航',
     memberNameKeywords: ['田春航', '田状元'],
-  },
-  {
-    canonicalNameKeyword: '屈道翁',
-    memberNameKeywords: ['屈方正', '屈本立', '屈道翁'],
   },
   {
     canonicalNameKeyword: '孙氏',
@@ -1017,7 +1011,7 @@ const generatedRelationships: Relationship[] = [
   { source: 'char-94', target: 'char-159', type: 'Social Tie', typeZh: '交集' },
   { source: 'char-94', target: 'char-161', type: 'Social Tie', typeZh: '交集' },
   { source: 'char-40', target: 'char-78', type: 'Social Tie', typeZh: '交集' },
-  { source: 'char-77', target: 'char-135', type: 'Social Tie', typeZh: '交集' },
+  { source: 'char-141', target: 'char-135', type: 'Social Tie', typeZh: '交集' },
   { source: 'char-9', target: 'char-150', type: 'Social Tie', typeZh: '交集' },
   { source: 'char-89', target: 'char-110', type: 'Social Tie', typeZh: '交集' },
   { source: 'char-89', target: 'char-137', type: 'Social Tie', typeZh: '交集' },
