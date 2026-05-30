@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import * as d3 from 'd3';
 import { Maximize, Minimize } from 'lucide-react';
 import { Character, Relationship } from '../types';
@@ -38,15 +39,83 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  useEffect(() => {
-    if (isFullscreen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
+  useLayoutEffect(() => {
+    if (!isFullscreen) return;
+
+    const scrollY = window.scrollY;
+    const bodyStyle = document.body.style;
+    const htmlStyle = document.documentElement.style;
+    const previousBody = {
+      position: bodyStyle.position,
+      top: bodyStyle.top,
+      left: bodyStyle.left,
+      right: bodyStyle.right,
+      width: bodyStyle.width,
+      overflow: bodyStyle.overflow,
+      touchAction: bodyStyle.touchAction,
+      overscrollBehavior: bodyStyle.overscrollBehavior,
     };
+    const previousHtml = {
+      overflow: htmlStyle.overflow,
+      position: htmlStyle.position,
+      width: htmlStyle.width,
+      overscrollBehavior: htmlStyle.overscrollBehavior,
+    };
+
+    const preventBackgroundScroll = (event: TouchEvent | WheelEvent) => {
+      const target = event.target;
+      if (target instanceof Element && target.closest('[data-network-graph="true"]')) {
+        return;
+      }
+      event.preventDefault();
+    };
+
+    bodyStyle.position = 'fixed';
+    bodyStyle.top = `-${scrollY}px`;
+    bodyStyle.left = '0';
+    bodyStyle.right = '0';
+    bodyStyle.width = '100%';
+    bodyStyle.overflow = 'hidden';
+    bodyStyle.touchAction = 'none';
+    bodyStyle.overscrollBehavior = 'none';
+    htmlStyle.overflow = 'hidden';
+    htmlStyle.position = 'fixed';
+    htmlStyle.width = '100%';
+    htmlStyle.overscrollBehavior = 'none';
+
+    window.addEventListener('touchmove', preventBackgroundScroll, { passive: false });
+    window.addEventListener('wheel', preventBackgroundScroll, { passive: false });
+
+    return () => {
+      window.removeEventListener('touchmove', preventBackgroundScroll);
+      window.removeEventListener('wheel', preventBackgroundScroll);
+      bodyStyle.position = previousBody.position;
+      bodyStyle.top = previousBody.top;
+      bodyStyle.left = previousBody.left;
+      bodyStyle.right = previousBody.right;
+      bodyStyle.width = previousBody.width;
+      bodyStyle.overflow = previousBody.overflow;
+      bodyStyle.touchAction = previousBody.touchAction;
+      bodyStyle.overscrollBehavior = previousBody.overscrollBehavior;
+      htmlStyle.overflow = previousHtml.overflow;
+      htmlStyle.position = previousHtml.position;
+      htmlStyle.width = previousHtml.width;
+      htmlStyle.overscrollBehavior = previousHtml.overscrollBehavior;
+      window.scrollTo(0, scrollY);
+    };
+  }, [isFullscreen]);
+
+  useEffect(() => {
+    if (!isFullscreen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsFullscreen(false);
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
   }, [isFullscreen]);
 
   useEffect(() => {
@@ -62,6 +131,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove();
     svg.attr("viewBox", `0 0 ${width} ${height}`);
+    svg.style("touch-action", "none");
 
     let lockedNodeId: string | null = null;
 
@@ -73,22 +143,35 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
     const g = svg.append("g");
 
-    const resizeObserver = new ResizeObserver((entries) => {
-      if (!entries || !entries.length) return;
-      const { width: newWidth, height: newHeight } = entries[0].contentRect;
-      width = newWidth;
-      height = newHeight;
+    const updateDimensions = () => {
+      const rect = container.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      if (width <= 0 || height <= 0) return;
       svg.attr("viewBox", `0 0 ${width} ${height}`);
       simulation.force("center", d3.forceCenter(width / 2, height / 2));
       simulation.alpha(0.3).restart();
+    };
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateDimensions();
     });
 
     resizeObserver.observe(container);
 
+    const onVisualViewportChange = () => updateDimensions();
+    window.visualViewport?.addEventListener('resize', onVisualViewportChange);
+    window.visualViewport?.addEventListener('scroll', onVisualViewportChange);
+
     // Add zoom
-    const zoom = d3.zoom().on("zoom", (event) => {
-      g.attr("transform", event.transform);
-    });
+    const zoom = d3.zoom()
+      .filter((event) => {
+        if (event.type === 'dblclick') return false;
+        return (!event.ctrlKey || event.type === 'wheel') && !event.button;
+      })
+      .on("zoom", (event) => {
+        g.attr("transform", event.transform);
+      });
     
     svg.call(zoom as any);
     svg.on("dblclick.zoom", null);
@@ -268,22 +351,30 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       event.subject.fy = null;
     }
 
+    // iOS Safari may report 0 dimensions until the next frame after entering fullscreen.
+    requestAnimationFrame(updateDimensions);
+
     return () => {
       simulation.stop();
       resizeObserver.disconnect();
+      window.visualViewport?.removeEventListener('resize', onVisualViewportChange);
+      window.visualViewport?.removeEventListener('scroll', onVisualViewportChange);
     };
-  }, [characters, relationships, lang]);
+  }, [characters, relationships, lang, isFullscreen, onNodeClick]);
 
-  return (
+  const toggleFullscreen = () => setIsFullscreen((current) => !current);
+
+  const graphMarkup = (
     <div
       ref={containerRef}
+      data-network-graph="true"
       className={
         isFullscreen
-          ? "fixed inset-0 z-50 w-screen h-screen parchment overflow-hidden"
+          ? "fixed inset-0 z-[100] w-full h-[100dvh] max-h-[100dvh] parchment overflow-hidden touch-none pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]"
           : "w-full h-[400px] sm:h-[600px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative"
       }
     >
-      <div className="absolute top-4 left-4 z-10">
+      <div className="absolute top-4 left-4 z-10 pointer-events-none">
         <h3 className="text-xs font-bold uppercase tracking-widest text-[#8b4513]">
           {lang === 'en' ? 'Character Network' : '人物关系图谱'}
         </h3>
@@ -291,7 +382,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           {lang === 'en' ? 'Drag nodes to explore relationships' : '拖动节点探索人物关系'}
         </p>
       </div>
-      <div className="absolute top-4 right-4 z-10 bg-[#f4ecd8]/80 p-2 rounded border border-[#d4c5a9] backdrop-blur-sm max-w-[120px] sm:max-w-none">
+      <div className="absolute top-4 right-4 z-10 bg-[#f4ecd8]/80 p-2 rounded border border-[#d4c5a9] backdrop-blur-sm max-w-[120px] sm:max-w-none pointer-events-none">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
           {Object.entries(ROLE_LABELS).map(([role, labels]) => (
             <div key={role} className="flex items-center gap-2">
@@ -310,9 +401,15 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         </div>
       </div>
       <button
-        onClick={() => setIsFullscreen(!isFullscreen)}
-        className="absolute bottom-4 right-4 z-20 p-2 bg-[#f4ecd8] hover:bg-[#d4c5a9] border border-[#8b4513]/30 rounded-full shadow-md transition-colors text-[#5d5048]"
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          toggleFullscreen();
+        }}
+        className="absolute bottom-4 right-4 z-20 p-2.5 bg-[#f4ecd8] hover:bg-[#d4c5a9] border border-[#8b4513]/30 rounded-full shadow-md transition-colors text-[#5d5048] touch-manipulation"
+        style={{ bottom: 'max(1rem, env(safe-area-inset-bottom))', right: 'max(1rem, env(safe-area-inset-right))' }}
         title={isFullscreen ? (lang === 'en' ? 'Exit Fullscreen' : '退出全屏') : (lang === 'en' ? 'Fullscreen' : '全屏')}
+        aria-label={isFullscreen ? (lang === 'en' ? 'Exit Fullscreen' : '退出全屏') : (lang === 'en' ? 'Fullscreen' : '全屏')}
       >
         {isFullscreen ? <Minimize size={20} /> : <Maximize size={20} />}
       </button>
@@ -322,4 +419,18 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       />
     </div>
   );
+
+  if (isFullscreen) {
+    return (
+      <>
+        <div
+          className="w-full h-[400px] sm:h-[600px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative opacity-40"
+          aria-hidden="true"
+        />
+        {createPortal(graphMarkup, document.body)}
+      </>
+    );
+  }
+
+  return graphMarkup;
 }
