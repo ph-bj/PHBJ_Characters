@@ -486,6 +486,45 @@ function getChapterMentionedCharacters(content: string): Character[] {
   return hits.sort((a, b) => a.chapterNum - b.chapterNum || a.name.localeCompare(b.name));
 }
 
+function LanguageSwitch({
+  lang,
+  setLang,
+  className = '',
+  compact = false,
+}: {
+  lang: 'en' | 'zh';
+  setLang: (lang: 'en' | 'zh') => void;
+  className?: string;
+  compact?: boolean;
+}) {
+  return (
+    <div
+      className={`flex bg-black/5 p-1 rounded-sm border border-[#d4c5a9] ${className}`}
+      role="group"
+      aria-label={lang === 'zh' ? '语言' : 'Language'}
+    >
+      <button
+        type="button"
+        onClick={() => setLang('en')}
+        className={`${compact ? 'px-1.5 py-1 text-[8px]' : 'px-3 py-1 text-[10px]'} font-bold uppercase tracking-widest transition-all rounded-sm ${
+          lang === 'en' ? 'bg-[#8b4513] text-[#f4ecd8]' : 'text-[#5d5048] hover:bg-black/5'
+        }`}
+      >
+        EN
+      </button>
+      <button
+        type="button"
+        onClick={() => setLang('zh')}
+        className={`${compact ? 'px-1.5 py-1 text-[8px]' : 'px-3 py-1 text-[10px]'} font-bold uppercase tracking-widest transition-all rounded-sm font-hans ${
+          lang === 'zh' ? 'bg-[#8b4513] text-[#f4ecd8]' : 'text-[#5d5048] hover:bg-black/5'
+        }`}
+      >
+        {compact ? '中' : '中文'}
+      </button>
+    </div>
+  );
+}
+
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
@@ -963,31 +1002,14 @@ export default function App() {
   return (
     <div className="min-h-screen font-serif text-[#2c2420] selection:bg-amber-900/20">
       {/* Header */}
-      <div id="overview" className="max-w-[1800px] mx-auto w-full px-2 sm:px-5 scroll-mt-24">
+      <div id="overview" className="max-w-[1800px] mx-auto w-full px-2 sm:px-5 scroll-mt-24 lg:sticky lg:top-0 lg:z-30 lg:bg-[#e5dcc3]/95 lg:backdrop-blur-sm">
         <header className="parchment mt-2 sm:mt-5 mb-2 px-4 sm:px-10 py-4 sm:h-24 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-sm border-double border-4 border-[#d4c5a9]">
           <div className="hidden sm:block flex-1" />
           <div className="flex flex-col items-center text-center gap-1 flex-1">
             <h1 className="text-xl sm:text-3xl font-bold tracking-tight text-[#2c2420]">{t.title}</h1>
           </div>
           <div className="flex-1 flex justify-center sm:justify-end">
-            <div className="flex bg-black/5 p-1 rounded-sm border border-[#d4c5a9]">
-              <button
-                onClick={() => setLang('en')}
-                className={`px-3 py-1 text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  lang === 'en' ? 'bg-[#8b4513] text-[#f4ecd8]' : 'text-[#5d5048] hover:bg-black/5'
-                }`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLang('zh')}
-                className={`px-3 py-1 text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  lang === 'zh' ? 'bg-[#8b4513] text-[#f4ecd8]' : 'text-[#5d5048] hover:bg-black/5'
-                }`}
-              >
-                中文
-              </button>
-            </div>
+            <LanguageSwitch lang={lang} setLang={setLang} />
           </div>
         </header>
       </div>
@@ -1004,6 +1026,7 @@ export default function App() {
               <span className="text-[9px] font-bold leading-none uppercase tracking-wide truncate max-w-full">{label}</span>
             </button>
           ))}
+          <LanguageSwitch lang={lang} setLang={setLang} compact className="shrink-0 p-0.5" />
           <button
             onClick={() => setMobileMenuOpen(true)}
             className="h-11 w-11 rounded-sm bg-[#8b4513] text-[#f4ecd8] flex items-center justify-center border border-[#8b4513] shadow-sm"
@@ -1731,13 +1754,22 @@ export default function App() {
                     {lang === 'zh' ? '品花宝鉴数据库' : 'Pinhua Baojian'}
                   </h2>
                 </div>
-                <button
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="h-10 w-10 rounded-sm border border-[#d4c5a9] bg-white/20 text-[#2c2420] flex items-center justify-center hover:bg-black/5 transition-colors"
-                  aria-label={lang === 'zh' ? '关闭菜单' : 'Close menu'}
-                >
-                  <X size={18} />
-                </button>
+                <div className="flex items-center gap-2 shrink-0">
+                  <button
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="h-10 w-10 rounded-sm border border-[#d4c5a9] bg-white/20 text-[#2c2420] flex items-center justify-center hover:bg-black/5 transition-colors"
+                    aria-label={lang === 'zh' ? '关闭菜单' : 'Close menu'}
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between gap-3 mb-4 pb-4 border-b border-[#d4c5a9]">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-[#5d5048] font-bold">
+                  {lang === 'zh' ? '语言' : 'Language'}
+                </span>
+                <LanguageSwitch lang={lang} setLang={setLang} />
               </div>
 
               <div className="grid grid-cols-2 gap-2 mb-4">
