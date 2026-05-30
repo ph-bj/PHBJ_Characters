@@ -1048,7 +1048,7 @@ export default function App() {
 
       <main className="max-w-[1800px] mx-auto p-2 sm:p-4 md:p-4 lg:p-5 grid grid-cols-1 md:grid-cols-[minmax(200px,240px)_1fr] lg:grid-cols-[240px_1fr_260px] xl:grid-cols-[280px_1fr_300px] gap-4 md:gap-5 lg:gap-6">
         {/* Left Sidebar */}
-        <aside className="flex flex-col gap-4 md:gap-5 h-fit order-2 md:order-1 md:sticky md:top-[5.25rem] md:self-start md:max-h-[calc(100dvh-6rem)] md:overflow-y-auto md:overscroll-contain scrollbar-thin">
+        <aside className="flex flex-col gap-4 md:gap-5 h-fit order-2 md:order-1 md:self-start">
           <div id="stats" className="parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm flex flex-col gap-6 md:gap-8 lg:gap-10 border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <div>
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">{t.hometown}</h2>
@@ -1569,7 +1569,7 @@ export default function App() {
         </section>
 
         {/* Right Sidebar - Chapters */}
-        <aside className="order-3 md:col-span-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-5 h-fit lg:col-span-1 lg:sticky lg:top-[5.25rem] lg:self-start lg:max-h-[calc(100dvh-6rem)] lg:overflow-y-auto lg:overscroll-contain scrollbar-thin">
+        <aside className="order-3 md:col-span-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-5 h-fit lg:col-span-1 lg:self-start">
           <div id="chapters" className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">{t.chapters}</h2>
             <div className="mb-6 space-y-2 pb-4 border-b border-[#d4c5a9]">
