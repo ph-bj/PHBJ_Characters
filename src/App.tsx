@@ -2889,12 +2889,20 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter, elevated =
         exit={{ opacity: 0, scale: 0.95 }}
         className={`relative w-[95%] sm:w-full max-w-2xl md:max-w-3xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] my-4 sm:my-0 flex flex-col`}
       >
-        <button 
-          onClick={onClose}
-          className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 hover:bg-black/5 rounded-full transition-colors z-10 text-[#2c2420]"
-        >
-          <X size={20} />
-        </button>
+        <div className="relative shrink-0 px-4 sm:px-6 pt-4 sm:pt-5 pb-3 border-b border-[#d4c5a9]/50 bg-[#f4ecd8]">
+          <code
+            className="text-[9px] font-mono text-[#5d5048]/35 select-all"
+            title={lang === 'zh' ? '内部人物键' : 'Internal character key'}
+          >
+            {character.id}
+          </code>
+          <button
+            onClick={onClose}
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 hover:bg-black/5 rounded-full transition-colors text-[#2c2420]"
+          >
+            <X size={20} />
+          </button>
+        </div>
 
         <div data-overlay-scroll="true" className="flex-1 overflow-y-auto p-6 sm:p-10 md:p-16">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-8 sm:mb-10 border-b-2 border-[#d4c5a9] pb-6 sm:pb-8">
@@ -2939,7 +2947,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter, elevated =
             <div className="space-y-1">
               <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#5d5048] font-hans">{t.firstEntry}</p>
               <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[#2c2420] font-hans">
-                <BookOpen size={14} className="sm:w-4 sm:h-4" style={{ color: accentColor }} />
+                <BookOpen size={14} className="sm:w-4 sm:h-4 shrink-0" style={{ color: accentColor }} />
                 <span>{character.chapter}</span>
               </div>
             </div>
