@@ -16,7 +16,7 @@ export const char_2Appearances: Record<number, SceneBullet[]> = {
   "2": [
     {
       "en": "Encounters Wei Pengcai and the eccentric Sun brothers (Sihui and Siyuan) at the Wang household, observing their absurd behavior with quiet amusement and discussing it later with Wang Xun.",
-      "zh": "在王府遇见韦朋才与行为古怪的孙氏兄弟（思回、思远），对其荒诞行径暗自觉得好笑，事后与王珣谈论。"
+      "zh": "在王府遇见魏聘才与行为古怪的孙氏兄弟（思回、思远），对其荒诞行径暗自觉得好笑，事后与王珣谈论。"
     }
   ],
   "4": [

@@ -20,7 +20,7 @@ export const char_0Appearances: Record<number, SceneBullet[]> = {
   "2": [
     {
       "en": "Listens to Wei Pengcai describe two exceptionally beautiful actors he encountered on the journey north, deepening Ziyu's longing for the one he briefly saw.",
-      "zh": "听韦朋才讲述北行路上遇见之两位绝代伶人，益加思念旧日一瞥之人。"
+      "zh": "听魏聘才讲述北行路上遇见之两位绝代伶人，益加思念旧日一瞥之人。"
     },
     {
       "en": "Participates in family meals while his father and Wang Wenhui discuss political affairs.",
@@ -34,7 +34,7 @@ export const char_0Appearances: Record<number, SceneBullet[]> = {
   "3": [
     {
       "en": "Peripherally referenced through the activities of Wei Pengcai, who is a guest in the Mei household, as the social world Ziyu inhabits is shown through others' encounters at the theater.",
-      "zh": "以韦朋才在梅家之事迹，隐约显其所处之社交圈。"
+      "zh": "以魏聘才在梅家之事迹，隐约显其所处之社交圈。"
     }
   ],
   "4": [
@@ -58,7 +58,7 @@ export const char_0Appearances: Record<number, SceneBullet[]> = {
     },
     {
       "en": "Hears from Wei Pengcai a detailed account of the extravagant Hua Gongzi's retinue and fearsome reputation.",
-      "zh": "自韦朋才处闻华公子奢华仪从及其威名。"
+      "zh": "自魏聘才处闻华公子奢华仪从及其威名。"
     }
   ],
   "6": [
@@ -172,7 +172,7 @@ export const char_0Appearances: Record<number, SceneBullet[]> = {
   "21": [
     {
       "en": "Central to extended narrative discussion of his character and the social damage done by Wei Pengcai's malicious gossip about him.",
-      "zh": "韦朋才造谣中伤，其名誉遭损，众人皆知其事。"
+      "zh": "魏聘才造谣中伤，其名誉遭损，众人皆知其事。"
     },
     {
       "en": "Shown enduring cold treatment from acquaintances who have believed the rumors, while he himself remains unaware of the source.",
@@ -218,7 +218,7 @@ export const char_0Appearances: Record<number, SceneBullet[]> = {
   "26": [
     {
       "en": "Referenced as Wei Pengcai schemes to have Qinyan acquired by the Hua household — a plot that would permanently sever Ziyu's access to Qinyan.",
-      "zh": "韦朋才图将琴言售与华家，意在永绝其与子玉之缘。"
+      "zh": "魏聘才图将琴言售与华家，意在永绝其与子玉之缘。"
     }
   ],
   "27": [
@@ -286,7 +286,7 @@ export const char_0Appearances: Record<number, SceneBullet[]> = {
     },
     {
       "en": "Learns that his friend Wei Pengcai has been imprisoned on forgery charges, alarming him greatly.",
-      "zh": "闻韦朋才以伪造之罪入狱，惊骇莫名。"
+      "zh": "闻魏聘才以伪造之罪入狱，惊骇莫名。"
     },
     {
       "en": "Receives a stern letter from his father rebuking him for reckless behavior and failure of filial duty, which deeply frightens and chastens him.",
@@ -296,7 +296,7 @@ export const char_0Appearances: Record<number, SceneBullet[]> = {
   "34": [
     {
       "en": "Mentioned by Wei Pengcai, who notes he hasn't called on Ziyu recently; the Wang family is said to be arranging Ziyu's marriage in the coming spring.",
-      "zh": "韦朋才言未曾见子玉；王家传言春时拟为子玉议婚。"
+      "zh": "魏聘才言未曾见子玉；王家传言春时拟为子玉议婚。"
     }
   ],
   "35": [
@@ -320,7 +320,7 @@ export const char_0Appearances: Record<number, SceneBullet[]> = {
   "36": [
     {
       "en": "Qinyan wonders whether Wei Pengcai might be staying with Ziyu and resolves to pay Ziyu's household a visit.",
-      "zh": "琴言疑韦朋才或暂居梅家，遂决意往访。"
+      "zh": "琴言疑魏聘才或暂居梅家，遂决意往访。"
     },
     {
       "en": "Conversations confirm that Ziyu has withdrawn from social gatherings and is quietly awaiting his arranged marriage.",
@@ -358,7 +358,7 @@ export const char_0Appearances: Record<number, SceneBullet[]> = {
   "39": [
     {
       "en": "Becomes noticeably cold toward Wei Pengcai during a visit, troubled by jealousy over Pengcai's proximity to Qinyan.",
-      "zh": "韦朋才访时，子玉态度冷淡，因其与琴言之事而心生嫉意。"
+      "zh": "魏聘才访时，子玉态度冷淡，因其与琴言之事而心生嫉意。"
     },
     {
       "en": "Serves as an accompanying guest at Li Yuanmao's wedding celebration.",

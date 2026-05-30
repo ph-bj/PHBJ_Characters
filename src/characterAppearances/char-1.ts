@@ -6,7 +6,7 @@ export const char_1Appearances: Record<number, SceneBullet[]> = {
   "2": [
     {
       en: "Introduced as a gifted new opera performer named 琴官, fifteen years old, who has just arrived in Beijing — Wei Pengcai describes him to Ziyu as a sensation of exceptional beauty and talent.",
-      zh: "初入京城的新秀伶人琴官，年方十五，以天资绝伦的容貌与艺技惊动四座，由韦朋才之口道与子玉。",
+      zh: "初入京城的新秀伶人琴官，年方十五，以天资绝伦的容貌与艺技惊动四座，由魏聘才之口道与子玉。",
     },
   ],
   "3": [
@@ -78,7 +78,7 @@ export const char_1Appearances: Record<number, SceneBullet[]> = {
   "15": [
     {
       en: "Wei Pengcai visits Qinyan's residence and discusses Ziyu's feelings on his behalf.",
-      zh: "韦朋才往访琴言寓所，代为传述子玉之情意。",
+      zh: "魏聘才往访琴言寓所，代为传述子玉之情意。",
     },
     {
       en: "An arrangement is made through Ou Sulan for Qinyan and Ziyu to meet privately.",
@@ -122,7 +122,7 @@ export const char_1Appearances: Record<number, SceneBullet[]> = {
   "21": [
     {
       en: "Ziyu falls ill from lovesickness over Qinyan and is confined to bed; Wei Pengcai visits Qinyan's residence in Yingtao Lane to check on him.",
-      zh: "子玉相思成疾；韦朋才往樱桃巷琴言寓所探问。",
+      zh: "子玉相思成疾；魏聘才往樱桃巷琴言寓所探问。",
     },
     {
       en: "Qinyan is punished by his teacher after a dispute with the actor Changqing over the actress Xiufang.",
@@ -142,7 +142,7 @@ export const char_1Appearances: Record<number, SceneBullet[]> = {
   "24": [
     {
       en: "Wei Pengcai pays someone to publicly insult Qinyan out of spite; an apology follows.",
-      zh: "韦朋才怀恨，暗遣人当众侮辱琴言，事后悔过补礼。",
+      zh: "魏聘才怀恨，暗遣人当众侮辱琴言，事后悔过补礼。",
     },
     {
       en: "News of the Grand Canal outing with Ziyu and Sulan spreads throughout Beijing's social circles.",
