@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question10: Question = {
   id: 10,
   questionEn: "Summarize the storyline between Tian Chunhang and Su Huifang.",
   questionZh: "梳理一下田春航×苏蕙芳的故事线",

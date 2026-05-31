@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question07: Question = {
   id: 7,
   questionEn: "Does 'Pinhua Baojian' describe the story of Peking Opera? If not, what genre does it depict?",
   questionZh: "品花宝鉴描写的是京剧的故事吗？如果不是，那是什么剧种？",

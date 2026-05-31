@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question08: Question = {
   id: 8,
   questionEn: "What historical era is the story of Pinhua Baojian set in?",
   questionZh: "《品花宝鉴》里描写的故事是什么年代的？",

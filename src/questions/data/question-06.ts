@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question06: Question = {
   id: 6,
   questionEn: "What is the significance of discussing Pinhua Baojian today for envisioning future gay culture? Answer based on the entire book.",
   questionZh: "在当代重新谈论品花宝鉴对展望未来的男同性恋文化有什么意义吗？结合全书回答",

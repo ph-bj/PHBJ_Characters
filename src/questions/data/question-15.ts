@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question15: Question = {
   "id": 15,
   "questionEn": "Who are the main scholars (mingshi) in the novel?",
   "questionZh": "小说中的主要名士有哪些？",

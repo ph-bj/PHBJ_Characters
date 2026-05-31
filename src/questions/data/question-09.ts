@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question09: Question = {
   id: 9,
   questionEn: "What are the main drinking-game (酒令) scenes in Pinhua Baojian, and how are the rules and outcomes of each described?",
   questionZh: "《品花宝鉴》中有哪些主要的酒令场景？各场如何行令、参与者是谁、胜负如何？",

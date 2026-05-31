@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question11: Question = {
   id: 11,
   questionEn: "In which chapters of the entire book do Ziyu and Qinyan have meetings?",
   questionZh: "全书中有哪些章节子玉和琴言是有会面的？",

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question04: Question = {
   id: 4,
   questionEn: "How would the novel evaluate contemporary male homosexual relationships characterized by free physical and spiritual love/companionship?",
   questionZh: "小说会如何评价当代的男同性恋之间的自由的肉体和精神的恋爱和陪伴关系呢？",

@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question03: Question = {
   id: 3,
   questionEn: "Does the novel have a negative attitude towards male homosexuality?",
   questionZh: "小说对男性同性恋持负面态度吗？",

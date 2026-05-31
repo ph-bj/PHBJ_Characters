@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question13: Question = {
   id: 13,
   questionEn: "What drinking games (酒令) did Ziyu participate in across the chapters? What were the rules? Who were the participants? Who won and who lost?",
   questionZh: "子玉参加了哪些章节中的酒令游戏？游戏规则是怎么样的？参与者有哪些？谁胜出？谁输了？",

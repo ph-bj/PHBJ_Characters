@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question14: Question = {
   id: 14,
   questionEn: "What is Ziyu's story in each chapter? Note: Answer by referencing the full text of all chapters in this application and extracting all relevant paragraphs.",
   questionZh: "子玉在每一章里的故事是怎么样的？注意：结合这个应用中的所有章节全文回答，引用具体的段落，做到收集所有相关段落。",

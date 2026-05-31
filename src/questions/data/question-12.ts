@@ -1,6 +1,6 @@
 import type { Question } from '../types';
 
-export const question: Question = {
+export const question12: Question = {
   id: 12,
   questionEn: "List all paragraphs in Pinhua Baojian that depict playing drinking games.",
   questionZh: "列出《品花宝鉴》中所有描写玩酒令（行令、猜拳等）的段落。",
