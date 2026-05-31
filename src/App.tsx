@@ -242,6 +242,8 @@ const translationMap: Record<number, string[]> = {
 import { Character, Chapter } from './types';
 import NetworkGraph from './components/NetworkGraph';
 
+const ROLE_ORDER = ['performer', 'scholar', 'villain', 'female', 'official', 'servant', 'deceased', 'minor', 'Other'];
+
 const ROLE_ICONS: Record<string, any> = {
   scholar: Award,
   performer: Heart,
@@ -777,7 +779,11 @@ export default function App() {
     });
     return Array.from(seen.entries())
       .map(([key, label]) => ({ key, label }))
-      .sort((a, b) => a.key.localeCompare(b.key));
+      .sort((a, b) => {
+        const ia = ROLE_ORDER.indexOf(a.key);
+        const ib = ROLE_ORDER.indexOf(b.key);
+        return (ia === -1 ? ROLE_ORDER.length : ia) - (ib === -1 ? ROLE_ORDER.length : ib);
+      });
   }, [lang]);
 
   const mentionCountByCharacterId = useMemo(() => {
