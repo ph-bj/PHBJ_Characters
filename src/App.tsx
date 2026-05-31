@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState, useMemo } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   BarChart, 
@@ -525,6 +525,123 @@ function LanguageSwitch({
   );
 }
 
+type NavSection = {
+  id: string;
+  label: string;
+  icon: typeof Home;
+};
+
+function NavMenuDropdown({
+  lang,
+  sections,
+  onScrollToSection,
+  onOpenContents,
+  onOpenChapter,
+}: {
+  lang: 'en' | 'zh';
+  sections: NavSection[];
+  onScrollToSection: (id: string) => void;
+  onOpenContents: () => void;
+  onOpenChapter: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const handlePointerDown = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+
+    document.addEventListener('mousedown', handlePointerDown);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [open]);
+
+  const navigate = (action: () => void) => {
+    setOpen(false);
+    action();
+  };
+
+  return (
+    <div ref={containerRef} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        className="flex items-center gap-1.5 px-3 py-[7px] bg-black/5 rounded-sm border border-[#d4c5a9] text-[#5d5048] hover:bg-black/5 transition-all"
+        aria-expanded={open}
+        aria-haspopup="menu"
+        aria-label={lang === 'zh' ? '打开菜单' : 'Open menu'}
+      >
+        <Menu size={14} />
+        <span className="text-[10px] font-bold uppercase tracking-widest">{lang === 'zh' ? '菜单' : 'Menu'}</span>
+        <ChevronDown size={12} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.15 }}
+            role="menu"
+            className="absolute right-0 top-[calc(100%+0.375rem)] z-50 w-64 max-h-[min(70vh,28rem)] overflow-y-auto parchment rounded-sm border-double border-4 border-[#d4c5a9] shadow-xl p-3"
+          >
+            <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-2 px-1">
+              {lang === 'zh' ? '快速前往' : 'Go To'}
+            </p>
+            <div className="grid grid-cols-1 gap-1 mb-3">
+              {sections.map(({ id, label, icon: Icon }) => (
+                <button
+                  key={id}
+                  type="button"
+                  role="menuitem"
+                  onClick={() => navigate(() => onScrollToSection(id))}
+                  className="w-full text-left rounded-sm border border-[#d4c5a9]/70 bg-white/15 hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all px-3 py-2 flex items-center gap-2.5"
+                >
+                  <Icon size={15} className="text-[#8b4513] shrink-0" />
+                  <span className="text-[11px] font-bold uppercase tracking-wide text-[#2c2420] leading-tight">{label}</span>
+                </button>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-2 gap-1.5 pt-2 border-t border-[#d4c5a9]">
+              <button
+                type="button"
+                role="menuitem"
+                onClick={() => navigate(onOpenContents)}
+                className="min-h-10 rounded-sm bg-[#8b4513] text-[#f4ecd8] px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
+              >
+                <Book size={13} />
+                {lang === 'zh' ? '目录' : 'Contents'}
+              </button>
+              <button
+                type="button"
+                role="menuitem"
+                onClick={() => navigate(onOpenChapter)}
+                className="min-h-10 rounded-sm border border-[#8b4513]/50 text-[#8b4513] bg-[#8b4513]/5 px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
+              >
+                <BookOpen size={13} />
+                {lang === 'zh' ? '第一回' : 'Ch. 1'}
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
@@ -1017,7 +1134,17 @@ export default function App() {
               </span>
             </h1>
           </div>
-          <div className="flex-1 flex justify-center sm:justify-end">
+          <div className="hidden md:flex flex-1 justify-end items-center gap-2">
+            <NavMenuDropdown
+              lang={lang}
+              sections={mobileMenuSections}
+              onScrollToSection={scrollToSection}
+              onOpenContents={openContents}
+              onOpenChapter={() => {
+                const firstChapter = chapters.find((chapter) => chapter.id === 1);
+                if (firstChapter) setSelectedChapter(firstChapter);
+              }}
+            />
             <LanguageSwitch lang={lang} setLang={setLang} />
           </div>
         </header>
@@ -1513,13 +1640,13 @@ export default function App() {
                 </button>
               </div>
             </div>
-            <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-2 overflow-x-visible md:overflow-x-auto w-full pb-1 md:pb-2 no-scrollbar border-t border-[#d4c5a9] pt-4">
+            <div className="flex flex-wrap gap-2 sm:gap-2.5 w-full pb-1 border-t border-[#d4c5a9] pt-4">
               <button
                 onClick={() => setSelectedRole(null)}
-                className={`px-3 sm:px-4 py-2.5 rounded-sm text-[11px] md:text-[10px] font-bold uppercase tracking-wider md:tracking-widest transition-all border whitespace-nowrap min-h-10 ${
+                className={`px-3.5 sm:px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all border whitespace-nowrap min-h-11 touch-manipulation ${
                   !selectedRole 
                     ? 'bg-[#2c2420] text-[#f4ecd8] border-[#2c2420]' 
-                    : 'bg-white/10 text-[#5d5048] border-[#d4c5a9] hover:border-[#8b4513]/30'
+                    : 'bg-white/10 text-[#5d5048] border-[#d4c5a9] hover:border-[#8b4513]/30 active:opacity-80'
                 }`}
               >
                 {t.allRecords}
@@ -1528,7 +1655,7 @@ export default function App() {
                 <button
                   key={key}
                   onClick={() => setSelectedRole(key)}
-                  className={`px-3 sm:px-4 py-2.5 rounded-sm text-[11px] md:text-[10px] font-bold uppercase tracking-wider md:tracking-widest transition-all border whitespace-nowrap font-hans min-h-10 ${
+                  className={`px-3.5 sm:px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all border whitespace-nowrap font-hans min-h-11 touch-manipulation active:opacity-80 ${
                     selectedRole === key
                       ? (ROLE_CHIP_ACTIVE[key] ?? ROLE_CHIP_ACTIVE.Other)
                       : (ROLE_CHIP_IDLE[key] ?? ROLE_CHIP_IDLE.Other) + ' hover:opacity-75'
@@ -1772,13 +1899,6 @@ export default function App() {
                     <X size={18} />
                   </button>
                 </div>
-              </div>
-
-              <div className="flex items-center justify-between gap-3 mb-4 pb-4 border-b border-[#d4c5a9]">
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#5d5048] font-bold">
-                  {lang === 'zh' ? '语言' : 'Language'}
-                </span>
-                <LanguageSwitch lang={lang} setLang={setLang} />
               </div>
 
               <div className="grid grid-cols-2 gap-2 mb-4">
