@@ -2197,19 +2197,23 @@ function LacunaeModal({
                   {renderSnippet(entry.snippet, entry.symbol)}
                 </p>
 
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] uppercase tracking-widest text-[#5d5048] font-bold">{lang === 'zh' ? '推测' : 'Inferred'}</span>
-                    <span className="text-3xl leading-none font-serif text-[#2c2420]">{entry.inferredCharacter}</span>
-                  </div>
-                  <span className={`text-[10px] font-bold uppercase tracking-widest border rounded-sm px-2 py-1 ${confidenceTone[entry.confidence]}`}>
-                    {lang === 'zh' ? confidenceLabel[entry.confidence].zh : confidenceLabel[entry.confidence].en}
-                  </span>
-                </div>
+                {entry.confidence === 'certain' && (
+                  <>
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] uppercase tracking-widest text-[#5d5048] font-bold">{lang === 'zh' ? '推断字' : 'Inferred'}</span>
+                        <span className="text-3xl leading-none font-serif text-[#2c2420]">{entry.inferredCharacter}</span>
+                      </div>
+                      <span className={`text-[10px] font-bold uppercase tracking-widest border rounded-sm px-2 py-1 ${confidenceTone[entry.confidence]}`}>
+                        {lang === 'zh' ? confidenceLabel[entry.confidence].zh : confidenceLabel[entry.confidence].en}
+                      </span>
+                    </div>
 
-                <p className="text-[11px] leading-relaxed text-[#4a3f38] font-sans">
-                  {entry.note}
-                </p>
+                    <p className="text-[11px] leading-relaxed text-[#4a3f38] font-sans">
+                      {entry.note}
+                    </p>
+                  </>
+                )}
               </div>
             ))
           )}
