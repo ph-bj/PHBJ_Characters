@@ -534,7 +534,7 @@ export default function App() {
   const [selectedLocation, setSelectedLocation] = useState<NovelLocationWithChapters | null>(null);
   const [selectedWork, setSelectedWork] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<'role' | 'appearance'>('appearance');
-  const [lang, setLang] = useState<'en' | 'zh'>('en');
+  const [lang, setLang] = useState<'en' | 'zh'>('zh');
   const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(null);
   const [selectedQuestion, setSelectedQuestion] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
