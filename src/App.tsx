@@ -1640,13 +1640,13 @@ export default function App() {
                 </button>
               </div>
             </div>
-            <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-2 overflow-x-visible md:overflow-x-auto w-full pb-1 md:pb-2 no-scrollbar border-t border-[#d4c5a9] pt-4">
+            <div className="flex flex-wrap gap-2 sm:gap-2.5 w-full pb-1 border-t border-[#d4c5a9] pt-4">
               <button
                 onClick={() => setSelectedRole(null)}
-                className={`px-3 sm:px-4 py-2.5 rounded-sm text-[11px] md:text-[10px] font-bold uppercase tracking-wider md:tracking-widest transition-all border whitespace-nowrap min-h-10 ${
+                className={`px-3.5 sm:px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all border whitespace-nowrap min-h-11 touch-manipulation ${
                   !selectedRole 
                     ? 'bg-[#2c2420] text-[#f4ecd8] border-[#2c2420]' 
-                    : 'bg-white/10 text-[#5d5048] border-[#d4c5a9] hover:border-[#8b4513]/30'
+                    : 'bg-white/10 text-[#5d5048] border-[#d4c5a9] hover:border-[#8b4513]/30 active:opacity-80'
                 }`}
               >
                 {t.allRecords}
@@ -1655,7 +1655,7 @@ export default function App() {
                 <button
                   key={key}
                   onClick={() => setSelectedRole(key)}
-                  className={`px-3 sm:px-4 py-2.5 rounded-sm text-[11px] md:text-[10px] font-bold uppercase tracking-wider md:tracking-widest transition-all border whitespace-nowrap font-hans min-h-10 ${
+                  className={`px-3.5 sm:px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all border whitespace-nowrap font-hans min-h-11 touch-manipulation active:opacity-80 ${
                     selectedRole === key
                       ? (ROLE_CHIP_ACTIVE[key] ?? ROLE_CHIP_ACTIVE.Other)
                       : (ROLE_CHIP_IDLE[key] ?? ROLE_CHIP_IDLE.Other) + ' hover:opacity-75'
