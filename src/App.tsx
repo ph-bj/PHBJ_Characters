@@ -1134,19 +1134,17 @@ export default function App() {
               </span>
             </h1>
           </div>
-          <div className="flex-1 flex justify-center sm:justify-end items-center gap-2">
-            <div className="hidden md:block">
-              <NavMenuDropdown
-                lang={lang}
-                sections={mobileMenuSections}
-                onScrollToSection={scrollToSection}
-                onOpenContents={openContents}
-                onOpenChapter={() => {
-                  const firstChapter = chapters.find((chapter) => chapter.id === 1);
-                  if (firstChapter) setSelectedChapter(firstChapter);
-                }}
-              />
-            </div>
+          <div className="hidden md:flex flex-1 justify-end items-center gap-2">
+            <NavMenuDropdown
+              lang={lang}
+              sections={mobileMenuSections}
+              onScrollToSection={scrollToSection}
+              onOpenContents={openContents}
+              onOpenChapter={() => {
+                const firstChapter = chapters.find((chapter) => chapter.id === 1);
+                if (firstChapter) setSelectedChapter(firstChapter);
+              }}
+            />
             <LanguageSwitch lang={lang} setLang={setLang} />
           </div>
         </header>
@@ -1901,13 +1899,6 @@ export default function App() {
                     <X size={18} />
                   </button>
                 </div>
-              </div>
-
-              <div className="flex items-center justify-between gap-3 mb-4 pb-4 border-b border-[#d4c5a9]">
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#5d5048] font-bold">
-                  {lang === 'zh' ? '语言' : 'Language'}
-                </span>
-                <LanguageSwitch lang={lang} setLang={setLang} />
               </div>
 
               <div className="grid grid-cols-2 gap-2 mb-4">
