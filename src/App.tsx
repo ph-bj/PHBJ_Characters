@@ -323,7 +323,7 @@ function stripDiacritics(s: string): string {
   return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
-type Segment = string | { token: string; char: Character };
+type Segment = string | { token: string; char: Character; chipLabel: string };
 type LacunaConfidence = 'certain' | 'probable' | 'speculative';
 
 type LacunaEntry = {
@@ -407,24 +407,46 @@ function isPersonNameContext(text: string, start: number, end: number): boolean 
   return false;
 }
 
-function removeTrailingSurname(text: string, char: Character, token: string): string {
+function getChineseShortFormTokens(char: Character): string[] {
   const chineseName = char.name.split(' ')[0];
   const givenName = chineseName.length === 3 ? chineseName.slice(1) : null;
+  const aliasTokens =
+    char.alias !== '—'
+      ? char.alias.split('/').flatMap((part) => extractChineseTokens(part.trim()))
+      : [];
+  return [...new Set([...(givenName ? [givenName] : []), ...aliasTokens])].filter(
+    (t) => t.length >= 2 && t !== chineseName && !GENERIC_HONORIFICS.has(t),
+  );
+}
 
-  if (givenName && token === givenName && text.endsWith(chineseName[0])) {
-    return text.slice(0, -chineseName[0].length);
+function removeTrailingSurname(
+  text: string,
+  char: Character,
+  token: string,
+): { text: string; chipLabel?: string } {
+  const chineseName = char.name.split(' ')[0];
+  const surname = chineseName[0];
+
+  if (/[\u4e00-\u9fff]/.test(token)) {
+    const shortForms = getChineseShortFormTokens(char);
+    if (shortForms.includes(token) && text.endsWith(surname)) {
+      return { text: text.slice(0, -surname.length), chipLabel: surname + token };
+    }
+    return { text };
   }
 
   const pinyinPart = char.name.slice(chineseName.length).trim();
-  if (!pinyinPart || /[\u4e00-\u9fff]/.test(token)) return text;
+  if (!pinyinPart) return { text };
 
   const plainParts = stripDiacritics(pinyinPart).split(/\s+/).filter(Boolean);
-  const surname = plainParts[0];
+  const pinyinSurname = plainParts[0];
   const remainingNameParts = plainParts.slice(1);
   const englishAliases = getEnglishAliasTokens(char);
-  if (!surname || (!remainingNameParts.includes(token) && !englishAliases.includes(token))) return text;
+  if (!pinyinSurname || (!remainingNameParts.includes(token) && !englishAliases.includes(token))) {
+    return { text };
+  }
 
-  return text.replace(new RegExp(`\\b${surname}\\s+$`, 'i'), '');
+  return { text: text.replace(new RegExp(`\\b${pinyinSurname}\\s+$`, 'i'), '') };
 }
 
 function segmentText(text: string, tokenMap: [string, Character][]): Segment[] {
@@ -441,10 +463,13 @@ function segmentText(text: string, tokenMap: [string, Character][]): Segment[] {
         // Context-sensitive tokens: only chip if context confirms a person name
         if (CONTEXT_SENSITIVE_TOKENS.has(token) && !isPersonNameContext(text, cursor, afterPos)) continue;
         const previous = segments[segments.length - 1];
+        let chipLabel = token;
         if (typeof previous === 'string') {
-          segments[segments.length - 1] = removeTrailingSurname(previous, char, token);
+          const trimmed = removeTrailingSurname(previous, char, token);
+          segments[segments.length - 1] = trimmed.text;
+          if (trimmed.chipLabel) chipLabel = trimmed.chipLabel;
         }
-        segments.push({ token, char });
+        segments.push({ token, char, chipLabel });
         cursor += token.length;
         matched = true;
         break;
@@ -2593,14 +2618,12 @@ function ChapterReader({
     for (const char of characters) {
       // Chinese tokens: full name + given-name shortform + aliases
       const chineseName = char.name.split(' ')[0];
-      // For 3-char names (surname + 2-char given name), also register the 2-char given name
-      // e.g. "梅子玉" → also register "子玉" since text routinely uses the given name alone
-      const givenName = chineseName.length === 3 ? chineseName.slice(1) : null;
-      const aliasTokens: string[] =
-        char.alias !== '—'
-          ? char.alias.split('/').flatMap((part) => extractChineseTokens(part.trim()))
-          : [];
-      const candidates = [chineseName, ...(givenName ? [givenName] : []), ...aliasTokens];
+      const shortForms = getChineseShortFormTokens(char);
+      const surname = chineseName[0];
+      const compositeTokens = shortForms
+        .filter((sf) => !sf.startsWith(surname))
+        .map((sf) => surname + sf);
+      const candidates = [chineseName, ...shortForms, ...compositeTokens];
       const zhTokens = [...new Set(candidates)]
         .filter((t) => t.length >= 2 && !GENERIC_HONORIFICS.has(t));
       for (const t of zhTokens) entries.push([t, char]);
@@ -2670,7 +2693,7 @@ function ChapterReader({
         const chineseName = seg.char.name.split(' ')[0];
         const isChineseToken = /[一-鿿]/.test(seg.token);
         chipLabel = isChineseToken
-          ? chineseName
+          ? seg.chipLabel
           : seg.char.name.slice(chineseName.length).trim();
       }
       return (
