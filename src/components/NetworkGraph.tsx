@@ -4,6 +4,8 @@ import * as d3 from 'd3';
 import { Maximize, Minimize } from 'lucide-react';
 import { Character, Relationship } from '../types';
 
+const ROLE_ORDER = ['performer', 'scholar', 'villain', 'female', 'official', 'servant', 'deceased', 'minor'];
+
 const ROLE_COLORS: Record<string, string> = {
   scholar: '#355070',
   performer: '#8c3b3b',
@@ -428,7 +430,10 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       </div>
       <div className="absolute top-4 right-4 z-10 bg-[#f4ecd8]/80 p-2 rounded border border-[#d4c5a9] backdrop-blur-sm max-w-[120px] md:max-w-[160px] lg:max-w-none pointer-events-none">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-3 gap-y-1">
-          {Object.entries(ROLE_LABELS).map(([role, labels]) => (
+          {ROLE_ORDER.map((role) => {
+            const labels = ROLE_LABELS[role];
+            if (!labels) return null;
+            return (
             <div key={role} className="flex items-center gap-2">
               <div 
                 className="w-2 h-2 sm:w-3 sm:h-3 rounded-full border"
@@ -441,7 +446,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                 {lang === 'en' ? labels.en : labels.zh}
               </span>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
       <button
