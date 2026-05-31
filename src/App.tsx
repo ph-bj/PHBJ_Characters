@@ -27,6 +27,7 @@ import {
   Briefcase,
   Activity,
   SortAsc,
+  BarChart2,
   Clock,
   ChevronUp,
   ChevronDown,
@@ -675,7 +676,7 @@ export default function App() {
   const [selectedGarden, setSelectedGarden] = useState<Garden | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<NovelLocationWithChapters | null>(null);
   const [selectedWork, setSelectedWork] = useState<string | null>(null);
-  const [sortBy, setSortBy] = useState<'role' | 'appearance'>('appearance');
+  const [sortBy, setSortBy] = useState<'role' | 'appearance' | 'mentions'>('appearance');
   const [lang, setLang] = useState<'en' | 'zh'>('zh');
   const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(null);
   const [selectedQuestion, setSelectedQuestion] = useState<number | null>(null);
@@ -728,6 +729,7 @@ export default function App() {
       searchPlaceholder: "Search the archives...",
       chronology: "Chronology",
       roleSort: "By Role",
+      mentionSort: "By Mentions",
       allRecords: "All Records",
       noRecords: "No records found in the archive.",
       alias: "Alias",
@@ -753,6 +755,7 @@ export default function App() {
       searchPlaceholder: "搜索档案...",
       chronology: "出场顺序",
       roleSort: "按角色",
+      mentionSort: "按提及",
       allRecords: "全部记录",
       noRecords: "档案中未找到记录。",
       alias: "别名",
@@ -777,6 +780,14 @@ export default function App() {
       .sort((a, b) => a.key.localeCompare(b.key));
   }, [lang]);
 
+  const mentionCountByCharacterId = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const char of characters) {
+      map.set(char.id, getCharacterTotalMentions(char));
+    }
+    return map;
+  }, []);
+
   const filteredCharacters = useMemo(() => {
     const filtered = characters.filter(char => {
       const matchesSearch = 
@@ -798,9 +809,12 @@ export default function App() {
         const roleB = lang === 'zh' ? b.roleZh : b.role;
         return roleA.localeCompare(roleB);
       }
+      if (sortBy === 'mentions') {
+        return (mentionCountByCharacterId.get(b.id) ?? 0) - (mentionCountByCharacterId.get(a.id) ?? 0);
+      }
       return a.chapterNum - b.chapterNum;
     });
-  }, [searchQuery, selectedRole, sortBy]);
+  }, [searchQuery, selectedRole, sortBy, lang, mentionCountByCharacterId]);
 
   // Calculate Stats
   const stats = useMemo(() => {
@@ -1663,6 +1677,15 @@ export default function App() {
                   <SortAsc size={12} />
                   {t.roleSort}
                 </button>
+                <button
+                  onClick={() => setSortBy('mentions')}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${
+                    sortBy === 'mentions' ? 'bg-[#8b4513] text-[#f4ecd8]' : 'text-[#5d5048] hover:bg-black/5'
+                  }`}
+                >
+                  <BarChart2 size={12} />
+                  {t.mentionSort}
+                </button>
               </div>
             </div>
             <div className="flex flex-wrap gap-2 sm:gap-2.5 w-full pb-1 border-t border-[#d4c5a9] pt-4">
@@ -1706,6 +1729,7 @@ export default function App() {
                   onClick={() => setSelectedCharacter(char)}
                   lang={lang}
                   lockMotion={hasOpenOverlay}
+                  mentionCount={sortBy === 'mentions' ? mentionCountByCharacterId.get(char.id) : undefined}
                 />
               ))}
             </AnimatePresence>
@@ -2850,7 +2874,7 @@ function ChapterReader({
   );
 }
 
-function CharacterCard({ character, isActive, onClick, lang, lockMotion = false }: { character: Character; isActive: boolean; onClick: () => void; lang: 'en' | 'zh'; lockMotion?: boolean; key?: string }) {
+function CharacterCard({ character, isActive, onClick, lang, lockMotion = false, mentionCount }: { character: Character; isActive: boolean; onClick: () => void; lang: 'en' | 'zh'; lockMotion?: boolean; mentionCount?: number; key?: string }) {
   const tintClass = ROLE_TINTS[character.role] || ROLE_TINTS.Other;
   const textClass = ROLE_TEXT_COLORS[character.role] || ROLE_TEXT_COLORS.Other;
   const accentColor = ROLE_ACCENTS[character.role] || ROLE_ACCENTS.Other;
@@ -2899,12 +2923,41 @@ function CharacterCard({ character, isActive, onClick, lang, lockMotion = false 
         <span className="text-[9px] sm:text-[10px] text-[#5d5048] uppercase tracking-widest font-hans">
           {lang === 'en' ? 'Age' : '年龄'}: {character.age}
         </span>
+        {mentionCount !== undefined && (
+          <span className="text-[9px] sm:text-[10px] text-[#8b4513] uppercase tracking-widest font-bold font-hans">
+            {lang === 'en' ? `${mentionCount} mentions` : `${mentionCount} 次提及`}
+          </span>
+        )}
       </div>
     </motion.div>
   );
 }
 
 const GENERIC_HONORIFICS = new Set(['夫人', '公子', '先生', '老爷', '太太', '小姐', '姑娘', '奶奶', '大人', '将军', '夫君']);
+
+function getCharacterMentionTokens(character: Character): string[] {
+  const chineseName = character.name.split(' ')[0];
+  const givenName = chineseName.length > 2 ? chineseName.slice(-2) : '';
+  const aliases = character.alias !== '—'
+    ? character.alias.split(/[/\s，、]+/).filter(Boolean)
+    : [];
+  return [...new Set([chineseName, givenName, ...aliases])].filter(t => t.length >= 2 && !GENERIC_HONORIFICS.has(t));
+}
+
+function countMentionsInText(text: string, tokens: string[]): number {
+  return tokens.reduce((sum, token) => {
+    let n = 0, pos = 0;
+    while ((pos = text.indexOf(token, pos)) !== -1) { n++; pos++; }
+    return sum + n;
+  }, 0);
+}
+
+function getCharacterTotalMentions(character: Character): number {
+  const tokens = getCharacterMentionTokens(character);
+  return chapters
+    .filter(ch => ch.id >= 1)
+    .reduce((total, ch) => total + countMentionsInText(ch.content, tokens), 0);
+}
 
 function CharacterDetail({ character, onClose, lang, onSelectChapter, elevated = false }: { character: Character; onClose: () => void; lang: 'en' | 'zh'; onSelectChapter: (chapter: (typeof chapters)[0]) => void; elevated?: boolean }) {
   const Icon = ROLE_ICONS[character.role] || Info;
@@ -2942,23 +2995,10 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter, elevated =
   }[lang];
 
   const mentionData = useMemo(() => {
-    const chineseName = character.name.split(' ')[0];
-    const givenName = chineseName.length > 2 ? chineseName.slice(-2) : '';
-    const aliases = character.alias !== '—'
-      ? character.alias.split(/[/\s，、]+/).filter(Boolean)
-      : [];
-    const tokens = [...new Set([chineseName, givenName, ...aliases])].filter(t => t.length >= 2 && !GENERIC_HONORIFICS.has(t));
-
+    const tokens = getCharacterMentionTokens(character);
     return chapters
       .filter(ch => ch.id >= 1)
-      .map(ch => {
-        const count = tokens.reduce((sum, token) => {
-          let n = 0, pos = 0;
-          while ((pos = ch.content.indexOf(token, pos)) !== -1) { n++; pos++; }
-          return sum + n;
-        }, 0);
-        return { ch: ch.id, count };
-      });
+      .map(ch => ({ ch: ch.id, count: countMentionsInText(ch.content, tokens) }));
   }, [character]);
 
   const mentionedChapters = mentionData.filter(d => d.count > 0);
