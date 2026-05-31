@@ -1,7 +1,7 @@
 import { Question } from '../types';
 
-export const question19: Question = {
-  id: 19,
+export const question20: Question = {
+  id: 20,
   questionEn:
     'What happened in Chapter 36, and why did Qinyan go home crying in Chapter 37?',
   questionZh:
