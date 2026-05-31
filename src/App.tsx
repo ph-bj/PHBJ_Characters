@@ -676,7 +676,7 @@ export default function App() {
   const [selectedGarden, setSelectedGarden] = useState<Garden | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<NovelLocationWithChapters | null>(null);
   const [selectedWork, setSelectedWork] = useState<string | null>(null);
-  const [sortBy, setSortBy] = useState<'role' | 'appearance' | 'mentions'>('appearance');
+  const [sortBy, setSortBy] = useState<'role' | 'appearance' | 'mentions'>('mentions');
   const [lang, setLang] = useState<'en' | 'zh'>('zh');
   const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(null);
   const [selectedQuestion, setSelectedQuestion] = useState<number | null>(null);
@@ -1660,6 +1660,15 @@ export default function App() {
               </div>
               <div className="flex gap-2 items-center bg-white/20 p-1 rounded-sm border border-[#d4c5a9]">
                 <button
+                  onClick={() => setSortBy('mentions')}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${
+                    sortBy === 'mentions' ? 'bg-[#8b4513] text-[#f4ecd8]' : 'text-[#5d5048] hover:bg-black/5'
+                  }`}
+                >
+                  <BarChart2 size={12} />
+                  {t.mentionSort}
+                </button>
+                <button
                   onClick={() => setSortBy('appearance')}
                   className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${
                     sortBy === 'appearance' ? 'bg-[#8b4513] text-[#f4ecd8]' : 'text-[#5d5048] hover:bg-black/5'
@@ -1676,15 +1685,6 @@ export default function App() {
                 >
                   <SortAsc size={12} />
                   {t.roleSort}
-                </button>
-                <button
-                  onClick={() => setSortBy('mentions')}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${
-                    sortBy === 'mentions' ? 'bg-[#8b4513] text-[#f4ecd8]' : 'text-[#5d5048] hover:bg-black/5'
-                  }`}
-                >
-                  <BarChart2 size={12} />
-                  {t.mentionSort}
                 </button>
               </div>
             </div>
