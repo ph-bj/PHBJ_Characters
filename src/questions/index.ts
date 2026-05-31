@@ -17,15 +17,13 @@ import { question as question15 } from './data/question-15';
 import { question as question16 } from './data/question-16';
 import { question as question17 } from './data/question-17';
 import { question18 } from './data/question-18';
-import { question20 } from './data/question-20';
 import { question19 } from './data/question-19';
+import { question20 } from './data/question-20';
 
 export type { Question } from './types';
 
 /** Sidebar display order. New entries: add `data/question-NN.ts`, import above, append here. */
 export const questions: Question[] = [
-  question08,
-  question09,
   question01,
   question02,
   question03,
@@ -33,6 +31,8 @@ export const questions: Question[] = [
   question05,
   question06,
   question07,
+  question08,
+  question09,
   question10,
   question11,
   question12,
@@ -42,6 +42,6 @@ export const questions: Question[] = [
   question16,
   question17,
   question18,
-  question20,
   question19,
+  question20,
 ];
