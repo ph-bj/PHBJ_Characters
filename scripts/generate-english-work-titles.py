@@ -11,9 +11,23 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TRANSLATIONS = ROOT / "src/chapterTranslations"
 CHINESE = TRANSLATIONS / "chinese"
+PREFACE_EN = ROOT / "src/prefaceTranslation.ts"
+PREFACE_ZH = CHINESE / "prefaceChinese.ts"
 WORKS_DATA = ROOT / "src/worksData.json"
 DATA_TS = ROOT / "src/data.ts"
 OUTPUT = ROOT / "src/englishWorkTitles.ts"
+WORK_ENGLISH_OUTPUT = ROOT / "src/workEnglishByChinese.ts"
+
+# Verified 序 zh/en paragraph alignments (exact English phrasing in translation).
+PREFACE_ZH_EN: dict[str, str] = {
+    "聊斋": "Liaozhai",
+    "红楼梦": "Dream of the Red Chamber",
+    "品花宝鉴": "Pinhua Baojian",
+    "梅花梦": "Dream of the Plum Blossom",
+    "搜神": "Soushen ji",
+    "述异": "Shuyi ji",
+    "红楼": "Dream of the Red Chamber",
+}
 
 FIXED_TITLES = [
     "Pinhua Baojian",
@@ -23,6 +37,12 @@ FIXED_TITLES = [
     "Classic of Poetry",
     "Book of Songs",
     "Guofeng",
+    # 序 (preface) — classics named without *…* markup
+    "Dream of the Red Chamber",
+    "Liaozhai",
+    "Dream of the Plum Blossom",
+    "Soushen ji",
+    "Shuyi ji",
 ]
 
 # Common English words / dialogue fragments that must never be work titles.
@@ -91,6 +111,8 @@ SINGLE_WORD_ALLOWLIST = frozenset(
         "Wangsi ji",
         "Xingshui ji",
         "earth-lamb",
+        "Liaozhai",
+        "Honglou",
     }
 )
 
@@ -240,17 +262,24 @@ def is_valid_english_work_title(title: str) -> bool:
     return True
 
 
-def collect_from_zh_en_pairs() -> set[str]:
-    """Only keep multi-word title-case phrases from paragraphs that cite Chinese works."""
-    titles: set[str] = set()
+def translation_file_pairs() -> list[tuple[Path, Path]]:
+    pairs: list[tuple[Path, Path]] = []
+    if PREFACE_EN.exists() and PREFACE_ZH.exists():
+        pairs.append((PREFACE_EN, PREFACE_ZH))
     for en_path in sorted(TRANSLATIONS.glob("chapterTranslations*.ts")):
         ch = re.search(r"chapterTranslations(\d+)\.ts$", en_path.name)
         if not ch:
             continue
-        num = ch.group(1)
-        zh_path = CHINESE / f"chapterChinese{num}.ts"
-        if not zh_path.exists():
-            continue
+        zh_path = CHINESE / f"chapterChinese{ch.group(1)}.ts"
+        if zh_path.exists():
+            pairs.append((en_path, zh_path))
+    return pairs
+
+
+def collect_from_zh_en_pairs() -> set[str]:
+    """Only keep multi-word title-case phrases from paragraphs that cite Chinese works."""
+    titles: set[str] = set()
+    for en_path, zh_path in translation_file_pairs():
         zh_paras = read_chapter_paragraphs(zh_path)
         en_paras = read_chapter_paragraphs(en_path)
         for zh_para, en_para in zip(zh_paras, en_paras):
@@ -275,14 +304,7 @@ def collect_from_zh_en_pairs() -> set[str]:
 def collect_from_performance_lists() -> set[str]:
     """Comma-separated opera titles in English (e.g. ch.1 'Magpie Bridge, ...')."""
     titles: set[str] = set()
-    for en_path in sorted(TRANSLATIONS.glob("chapterTranslations*.ts")):
-        ch = re.search(r"chapterTranslations(\d+)\.ts$", en_path.name)
-        if not ch:
-            continue
-        num = ch.group(1)
-        zh_path = CHINESE / f"chapterChinese{num}.ts"
-        if not zh_path.exists():
-            continue
+    for en_path, zh_path in translation_file_pairs():
         zh_paras = read_chapter_paragraphs(zh_path)
         en_paras = read_chapter_paragraphs(en_path)
         for zh_para, en_para in zip(zh_paras, en_paras):
@@ -303,7 +325,10 @@ def collect_from_performance_lists() -> set[str]:
 def collect_titles() -> list[str]:
     titles: set[str] = set(FIXED_TITLES)
 
-    for path in TRANSLATIONS.glob("chapterTranslations*.ts"):
+    translation_sources = [PREFACE_EN, *TRANSLATIONS.glob("chapterTranslations*.ts")]
+    for path in translation_sources:
+        if not path.exists():
+            continue
         for match in re.finditer(r"\*([^*\n]{2,80})\*", path.read_text()):
             title = match.group(1).strip()
             if is_valid_english_work_title(title):
@@ -315,7 +340,10 @@ def collect_titles() -> list[str]:
         if english and is_valid_english_work_title(english):
             titles.add(english)
 
-    for path in CHINESE.glob("chapterChinese*.ts"):
+    chinese_sources = [PREFACE_ZH, *CHINESE.glob("chapterChinese*.ts")]
+    for path in chinese_sources:
+        if not path.exists():
+            continue
         for match in re.finditer(r"《([^》\n]{1,40})》", path.read_text()):
             key = match.group(1)
             if key in data:
@@ -325,7 +353,82 @@ def collect_titles() -> list[str]:
 
     titles |= collect_from_zh_en_pairs()
     titles |= collect_from_performance_lists()
+    titles |= set(PREFACE_ZH_EN.values())
     return sorted(titles, key=len, reverse=True)
+
+
+def find_english_titles_in_text(en_para: str, candidates: list[str]) -> list[str]:
+    """Longest-first non-overlapping matches; preserve exact casing from translation."""
+    sorted_cands = sorted(set(candidates), key=len, reverse=True)
+    spans: list[tuple[int, int, str]] = []
+    lower = en_para.lower()
+    for cand in sorted_cands:
+        start = 0
+        needle = cand.lower()
+        while True:
+            idx = lower.find(needle, start)
+            if idx == -1:
+                break
+            end = idx + len(cand)
+            if not any(not (end <= s or idx >= e) for s, e, _ in spans):
+                spans.append((idx, end, en_para[idx:end]))
+            start = idx + len(needle)
+    spans.sort(key=lambda item: item[0])
+    return [text for _, _, text in spans]
+
+
+def collect_zh_en_work_map(all_english_titles: set[str]) -> dict[str, str]:
+    """Map Chinese 《…》 keys to exact English phrases used in aligned translations."""
+    data = json.loads(WORKS_DATA.read_text())
+    mapping: dict[str, str] = dict(PREFACE_ZH_EN)
+    candidates = list(all_english_titles)
+
+    for key, entry in data.items():
+        english = english_from_works_entry(entry)
+        if english and is_valid_english_work_title(english):
+            mapping.setdefault(key, english)
+
+    for _en_path, zh_path in translation_file_pairs():
+        zh_paras = read_chapter_paragraphs(zh_path)
+        en_paras = read_chapter_paragraphs(_en_path)
+        for zh_para, en_para in zip(zh_paras, en_paras):
+            keys = re.findall(r"《([^》]+)》", zh_para)
+            if not keys:
+                continue
+            unique_keys = list(dict.fromkeys(keys))
+            found = find_english_titles_in_text(en_para, candidates)
+
+            if len(unique_keys) == 1 and len(found) == 1:
+                mapping.setdefault(unique_keys[0], found[0])
+                continue
+
+            if len(unique_keys) == 2 and len(found) == 2 and re.search(r"\s+and\s+", en_para, re.I):
+                mapping.setdefault(unique_keys[0], found[0])
+                mapping.setdefault(unique_keys[1], found[1])
+                continue
+
+            poss = re.findall(
+                r"\w+'s\s+([A-Za-z][^,;]+?)(?:\s+or\s+|\s+and\s+|,|;|\.|$)",
+                en_para,
+            )
+            poss = [p.strip().rstrip(".") for p in poss if is_valid_english_work_title(p.strip().rstrip("."))]
+            if len(unique_keys) == len(poss) and len(poss) >= 2:
+                for zh_key, en_title in zip(unique_keys, poss):
+                    mapping.setdefault(zh_key, en_title)
+
+    return dict(sorted(mapping.items(), key=lambda item: item[0]))
+
+
+def write_work_english_by_chinese(mapping: dict[str, str]) -> None:
+    lines = [
+        "/** Chinese work keys → exact English phrasing in aligned translations. */",
+        "/** Generated by scripts/generate-english-work-titles.py */",
+        "export const WORK_ENGLISH_BY_CHINESE: Record<string, string> = {",
+    ]
+    for key, english in mapping.items():
+        lines.append(f"  {json.dumps(key)}: {json.dumps(english)},")
+    lines.extend(["} as const;", ""])
+    WORK_ENGLISH_OUTPUT.write_text("\n".join(lines))
 
 
 def write_ts(titles: list[str]) -> None:
@@ -350,7 +453,12 @@ def write_ts(titles: list[str]) -> None:
 def main() -> None:
     titles = collect_titles()
     write_ts(titles)
+    zh_en_map = collect_zh_en_work_map(set(titles))
+    write_work_english_by_chinese(zh_en_map)
     print(f"Wrote {len(titles)} titles to {OUTPUT.relative_to(ROOT)}")
+    print(
+        f"Wrote {len(zh_en_map)} zh→en mappings to {WORK_ENGLISH_OUTPUT.relative_to(ROOT)}"
+    )
 
 
 if __name__ == "__main__":
