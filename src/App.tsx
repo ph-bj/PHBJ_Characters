@@ -1,3 +1,4 @@
+import React from 'react';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
@@ -1871,7 +1872,7 @@ export default function App() {
                         : 'border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] hover:bg-[#d4c5a9]/40'
                     }`}
                   >
-                    {work}
+                    {lang === 'en' && WORK_ENGLISH_BY_CHINESE[workKey] ? WORK_ENGLISH_BY_CHINESE[workKey] : work}
                     {count > 1 && (
                       <span className={`ml-1 text-[9px] font-sans ${hasDetailedDescription ? 'text-[#5d5048]' : 'text-[#8b4513]'}`}>×{count}</span>
                     )}
@@ -2400,7 +2401,7 @@ function WorkModal({
           <div className="flex justify-between items-start">
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-[#2c2420] font-hans">
-                {lang === 'zh' ? `《${work}》` : work}
+                {lang === 'zh' ? `《${work}》` : (WORK_ENGLISH_BY_CHINESE[work] || work)}
               </h2>
             </div>
             <button
