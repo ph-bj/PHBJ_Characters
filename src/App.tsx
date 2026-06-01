@@ -12,7 +12,6 @@ import {
 } from 'recharts';
 import {
   Search,
-  Filter,
   X,
   User,
   MapPin,
@@ -1113,7 +1112,6 @@ export default function App() {
     { id: 'stats', label: lang === 'zh' ? '统计' : 'Statistics', icon: Activity },
     { id: 'works', label: lang === 'zh' ? '引书' : 'Works Cited', icon: Book },
     { id: 'locations', label: lang === 'zh' ? '地点' : 'Locations', icon: MapPin },
-    { id: 'ocr', label: lang === 'zh' ? '勘误' : 'OCR Corrections', icon: Filter },
     { id: 'lacunae', label: lang === 'zh' ? '缺文' : 'Lacunae', icon: Info },
     { id: 'questions', label: lang === 'zh' ? '问题' : 'Questions', icon: BookOpen },
   ];
@@ -1595,44 +1593,6 @@ export default function App() {
                   </button>
                 ))}
               </div>
-            </div>
-          </div>
-
-          {/* OCR Corrections Sidebar */}
-          <div id="ocr" className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
-            <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-4 font-bold border-b border-[#d4c5a9] pb-2">
-              {lang === 'zh' ? 'OCR 勘误' : 'OCR Corrections'}
-            </h2>
-            <div className="space-y-3">
-              {([
-                {
-                  chapter: 1,
-                  wrong: '日',
-                  correct: '曰',
-                  context: '一日情中和',
-                  corrected: '一曰情中和',
-                  note: lang === 'zh'
-                    ? '「日」（太阳/日期）误作「曰」（曰：说/称）——印刷体中形近易混'
-                    : '"日" (sun/day) misread as "曰" (to say/called) — visually similar in block print',
-                },
-              ] as const).map((c, i) => (
-                <div key={i} className="border border-[#d4c5a9]/60 rounded-sm p-3 bg-black/3 space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[9px] uppercase tracking-widest text-[#8b4513] font-bold">
-                      {lang === 'zh' ? `第${c.chapter}回` : `Ch. ${c.chapter}`}
-                    </span>
-                    <span className="text-[9px] text-emerald-700 font-bold uppercase tracking-wider">
-                      {lang === 'zh' ? '已更正' : 'Corrected'}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 text-[11px] font-hans">
-                    <span className="line-through text-rose-700/80 bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded-sm">{c.context}</span>
-                    <span className="text-[#5d5048]">→</span>
-                    <span className="text-emerald-800 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded-sm">{c.corrected}</span>
-                  </div>
-                  <p className="text-[9px] text-[#5d5048] leading-snug italic">{c.note}</p>
-                </div>
-              ))}
             </div>
           </div>
 
