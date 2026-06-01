@@ -1,10 +1,10 @@
-import chapterData from './src/chapterData.json' with { type: 'json' };
+import { chapters } from './src/chapters';
 import { chapterLacunae } from './src/lacunae';
 
 let allMatch = true;
 
 for (const cl of chapterLacunae) {
-  const chapter = chapterData.chapters.find(c => c.id === cl.chapterId);
+  const chapter = chapters.find(c => c.id === cl.chapterId);
   if (!chapter) {
     console.log(`Chapter ${cl.chapterId} not found`);
     allMatch = false;

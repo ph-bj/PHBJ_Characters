@@ -1,12 +1,20 @@
 import { Chapter } from './types';
-import chapterData from './chapterData.json';
+import chapterMeta from './chapterMeta.json';
+import { chapterChineseById, prefaceChinese } from './chapterTranslations/chinese';
 
-const { preface, chapters: rawChapters } = chapterData as {
-  preface: string;
-  chapters: { id: number; title: string; content: string }[];
+const { chapters: metaChapters } = chapterMeta as {
+  chapters: { id: number; title: string }[];
 };
 
+function joinParagraphs(paras: string[]): string {
+  return paras.join('\n\n');
+}
+
 export const chapters: Chapter[] = [
-  { id: 0, title: '序', content: preface },
-  ...rawChapters,
+  { id: 0, title: '序', content: joinParagraphs(prefaceChinese) },
+  ...metaChapters.map((ch) => ({
+    id: ch.id,
+    title: ch.title,
+    content: joinParagraphs(chapterChineseById[ch.id]),
+  })),
 ];
