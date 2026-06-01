@@ -367,6 +367,65 @@ function segmentText(text: string, tokenMap: [string, Character][]): Segment[] {
   return segments;
 }
 
+function countTextSearchMatches(text: string, query: string): number {
+  const trimmed = query.trim();
+  if (!trimmed || !text) return 0;
+  const qLower = trimmed.toLowerCase();
+  const textLower = text.toLowerCase();
+  let count = 0;
+  let pos = 0;
+  while ((pos = textLower.indexOf(qLower, pos)) !== -1) {
+    count++;
+    pos += trimmed.length;
+  }
+  return count;
+}
+
+function renderTextWithSearchHighlight(
+  text: string,
+  query: string,
+  activeIndex: number,
+  matchCounter: { current: number },
+): React.ReactNode {
+  const trimmed = query.trim();
+  if (!trimmed) return text;
+
+  const qLower = trimmed.toLowerCase();
+  const textLower = text.toLowerCase();
+  const nodes: React.ReactNode[] = [];
+  let pos = 0;
+
+  while (pos < text.length) {
+    const found = textLower.indexOf(qLower, pos);
+    if (found === -1) {
+      nodes.push(text.slice(pos));
+      break;
+    }
+    if (found > pos) nodes.push(text.slice(pos, found));
+    const matchText = text.slice(found, found + trimmed.length);
+    const idx = matchCounter.current++;
+    const isActive = idx === activeIndex;
+    nodes.push(
+      <mark
+        key={`chapter-search-${idx}`}
+        id={`chapter-search-${idx}`}
+        className={`px-0.5 rounded-sm ${
+          isActive
+            ? 'bg-[#8b4513]/35 ring-2 ring-[#8b4513]/50 text-[#2c2420]'
+            : 'bg-amber-300/70 text-[#2c2420]'
+        }`}
+      >
+        {matchText}
+      </mark>
+    );
+    pos = found + trimmed.length;
+  }
+
+  if (nodes.length === 0) return text;
+  if (nodes.length === 1) return nodes[0];
+  return nodes;
+}
+
 function getChapterMentionedCharacters(content: string): Character[] {
   const hitIds = new Set<string>();
   const hits: Character[] = [];
@@ -2507,6 +2566,10 @@ function ChapterReader({
   onSelectCharacter: (character: Character) => void;
   onSelectLacuna: () => void;
 }) {
+  const [chapterSearchQuery, setChapterSearchQuery] = useState('');
+  const [chapterSearchMatchIndex, setChapterSearchMatchIndex] = useState(0);
+  const chapterSearchMatchCounter = useRef(0);
+
   const chapterSummary = useMemo(
     () => chapterSummaries[chapter.id] ?? null,
     [chapter.id]
@@ -2555,6 +2618,68 @@ function ChapterReader({
     return entries;
   }, []);
 
+  const chapterSearchMatchCount = useMemo(() => {
+    const query = chapterSearchQuery.trim();
+    if (!query) return 0;
+
+    let total = 0;
+    const add = (text: string) => {
+      total += countTextSearchMatches(text, query);
+    };
+
+    if (chapterSummary) {
+      add(chapterSummary.en);
+      add(chapterSummary.zh);
+    }
+
+    if (chapter.id === -1) {
+      for (const line of chapter.content.split('\n')) add(line);
+      return total;
+    }
+
+    if (translationMap[chapter.id]) {
+      const paragraphs = chapter.content.split('\n\n');
+      const translations = translationMap[chapter.id];
+      for (let i = 0; i < paragraphs.length; i++) {
+        add(paragraphs[i]);
+        if (translations[i]) add(translations[i]);
+      }
+      return total;
+    }
+
+    add(chapter.content);
+    return total;
+  }, [chapter.id, chapter.content, chapterSummary, chapterSearchQuery]);
+
+  useEffect(() => {
+    setChapterSearchQuery('');
+    setChapterSearchMatchIndex(0);
+  }, [chapter.id]);
+
+  useEffect(() => {
+    setChapterSearchMatchIndex(0);
+  }, [chapterSearchQuery]);
+
+  useEffect(() => {
+    if (chapterSearchMatchCount === 0) return;
+    if (chapterSearchMatchIndex >= chapterSearchMatchCount) {
+      setChapterSearchMatchIndex(Math.max(0, chapterSearchMatchCount - 1));
+    }
+  }, [chapterSearchMatchCount, chapterSearchMatchIndex]);
+
+  useEffect(() => {
+    if (!chapterSearchQuery.trim() || chapterSearchMatchCount === 0) return;
+    const el = document.getElementById(`chapter-search-${chapterSearchMatchIndex}`);
+    el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, [chapterSearchMatchIndex, chapterSearchMatchCount, chapterSearchQuery, chapter.id]);
+
+  const goToAdjacentSearchMatch = (direction: 1 | -1) => {
+    if (chapterSearchMatchCount === 0) return;
+    setChapterSearchMatchIndex(
+      (prev) => (prev + direction + chapterSearchMatchCount) % chapterSearchMatchCount
+    );
+  };
+
   const renderAnnotated = (text: string, showBilingual = false) => {
     if (!text) return null;
     const tokenRegex =
@@ -2562,10 +2687,18 @@ function ChapterReader({
     const workRegex =
       /^《[^》\n]+》$|^\*(?!\s)[^*]+(?<!\s)\*$|^Pinhua Baojian$|^Yiqing Yishi$|^Flower Register$|^Catalogue of Flowers$|^Classic of Poetry$|^Book of Songs$|^Guofeng$/;
 
+    const highlightPlain = (plain: string) =>
+      renderTextWithSearchHighlight(
+        plain,
+        chapterSearchQuery,
+        chapterSearchMatchIndex,
+        chapterSearchMatchCounter
+      );
+
     return segmentText(text, tokenMap).map((seg, i) => {
       if (typeof seg === 'string') {
         const parts = seg.split(tokenRegex);
-        if (parts.length === 1) return seg;
+        if (parts.length === 1) return highlightPlain(seg);
 
         return parts.map((part, j) => {
           if (!part) return null;
@@ -2591,7 +2724,11 @@ function ChapterReader({
             );
           }
 
-          return part;
+          return (
+            <span key={`${i}-${j}`}>
+              {highlightPlain(part)}
+            </span>
+          );
         });
       }
 
@@ -2618,6 +2755,8 @@ function ChapterReader({
     });
   };
 
+  chapterSearchMatchCounter.current = 0;
+
   return (
     <div className="fixed inset-0 z-50 flex items-stretch justify-stretch p-0 sm:items-center sm:justify-center sm:p-4">
       <motion.div
@@ -2634,19 +2773,76 @@ function ChapterReader({
         exit={{ opacity: 0, scale: 0.95 }}
         className="relative w-full max-w-none h-[100dvh] max-h-[100dvh] sm:max-w-5xl md:max-w-6xl sm:h-[90dvh] sm:max-h-[90dvh] parchment rounded-none sm:rounded-sm overflow-hidden shadow-2xl border-0 sm:border-4 border-double border-[#d4c5a9] flex flex-col"
       >
-        <div className="p-4 sm:p-6 border-b border-[#d4c5a9] flex items-center justify-between bg-[#f4ecd8]">
-          <div className="flex items-center gap-3">
-            <Book className="text-[#8b4513]" size={20} />
-            <h2 className="text-lg sm:text-xl font-bold text-[#2c2420] font-hans line-clamp-1">
-              {chapter.title}
-            </h2>
+        <div className="p-4 sm:p-6 border-b border-[#d4c5a9] bg-[#f4ecd8] space-y-3 shrink-0">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0 flex-1">
+              <Book className="text-[#8b4513] shrink-0" size={20} />
+              <h2 className="text-lg sm:text-xl font-bold text-[#2c2420] font-hans line-clamp-1">
+                {chapter.title}
+              </h2>
+            </div>
+            <button
+              onClick={onClose}
+              className="p-2 hover:bg-black/5 rounded-full transition-colors text-[#2c2420] shrink-0"
+              aria-label={lang === 'zh' ? '关闭' : 'Close'}
+            >
+              <X size={20} />
+            </button>
           </div>
-          <button 
-            onClick={onClose}
-            className="p-2 hover:bg-black/5 rounded-full transition-colors text-[#2c2420]"
-          >
-            <X size={20} />
-          </button>
+          <div className="flex items-center gap-2">
+            <div className="relative flex-1 min-w-0">
+              <Search
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#5d5048] pointer-events-none"
+                size={14}
+              />
+              <input
+                type="search"
+                value={chapterSearchQuery}
+                onChange={(e) => setChapterSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    goToAdjacentSearchMatch(e.shiftKey ? -1 : 1);
+                  }
+                  if (e.key === 'Escape') {
+                    setChapterSearchQuery('');
+                  }
+                }}
+                placeholder={lang === 'zh' ? '搜索本章…' : 'Search in chapter…'}
+                className="w-full pl-8 pr-3 py-1.5 text-sm bg-[#faf6ee] border border-[#d4c5a9] rounded-sm text-[#2c2420] placeholder:text-[#5d5048]/70 focus:outline-none focus:ring-1 focus:ring-[#8b4513]/40 font-hans"
+                aria-label={lang === 'zh' ? '搜索本章' : 'Search in chapter'}
+              />
+            </div>
+            {chapterSearchQuery.trim() && (
+              <div className="flex items-center gap-1 shrink-0">
+                <span className="text-[10px] tabular-nums text-[#5d5048] font-sans min-w-[2.5rem] text-center">
+                  {chapterSearchMatchCount > 0
+                    ? `${chapterSearchMatchIndex + 1}/${chapterSearchMatchCount}`
+                    : lang === 'zh'
+                      ? '无'
+                      : '0'}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => goToAdjacentSearchMatch(-1)}
+                  disabled={chapterSearchMatchCount === 0}
+                  className="p-1.5 rounded-sm border border-[#d4c5a9] text-[#5d5048] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
+                  aria-label={lang === 'zh' ? '上一处' : 'Previous match'}
+                >
+                  <ChevronUp size={14} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goToAdjacentSearchMatch(1)}
+                  disabled={chapterSearchMatchCount === 0}
+                  className="p-1.5 rounded-sm border border-[#d4c5a9] text-[#5d5048] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
+                  aria-label={lang === 'zh' ? '下一处' : 'Next match'}
+                >
+                  <ChevronDown size={14} />
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
         <div data-overlay-scroll="true" className="flex-1 min-h-0 overflow-y-auto px-5 py-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:p-12 font-serif text-[#2c2420] leading-loose selection:bg-[#8b4513]/20 scrollbar-thin">
@@ -2706,7 +2902,14 @@ function ChapterReader({
               <div className="space-y-5">
                 {chapter.content.split('\n').map((line, i) => (
                   <div key={i} className="border-b border-[#d4c5a9]/50 pb-4">
-                    <p className="text-base font-hans text-[#2c2420] leading-snug">{line}</p>
+                    <p className="text-base font-hans text-[#2c2420] leading-snug">
+                      {renderTextWithSearchHighlight(
+                        line,
+                        chapterSearchQuery,
+                        chapterSearchMatchIndex,
+                        chapterSearchMatchCounter
+                      )}
+                    </p>
                     {chapterTitleTranslations[i + 1] != null && chapterTitleTranslations[i + 1] !== '' && (
                       <p className="text-[12px] italic text-[#5d5048] mt-1 leading-snug">{chapterTitleTranslations[i + 1]}</p>
                     )}
