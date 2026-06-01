@@ -432,6 +432,10 @@ const CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX =
 const CHAPTER_ANNOTATION_WORK_TOKEN_TEST_REGEX =
   /^《[^》\n]+》$|^\*(?!\s)[^*]+(?<!\s)\*$|^Pinhua Baojian$|^Yiqing Yishi$|^Flower Register$|^Catalogue of Flowers$|^Classic of Poetry$|^Book of Songs$|^Guofeng$/;
 
+function isChineseWorkAnnotationToken(part: string): boolean {
+  return /^《[^》\n]+》$/.test(part);
+}
+
 function getSegmentChipLabel(
   seg: { token: string; char: Character; chipLabel: string },
   showBilingual: boolean,
@@ -2781,7 +2785,10 @@ function ChapterReader({
 
           if (CHAPTER_ANNOTATION_WORK_TOKEN_TEST_REGEX.test(part)) {
             return (
-              <span key={`${i}-${j}`} className="glowing-work">
+              <span
+                key={`${i}-${j}`}
+                className={`glowing-work${isChineseWorkAnnotationToken(part) ? '' : ' italic'}`}
+              >
                 {highlightPlain(part)}
               </span>
             );
