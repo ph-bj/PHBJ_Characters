@@ -426,6 +426,54 @@ function renderTextWithSearchHighlight(
   return nodes;
 }
 
+const CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX =
+  /(▉|□|《[^》\n]+》|\*(?!\s)[^*]+(?<!\s)\*|\bPinhua Baojian\b|\bYiqing Yishi\b|\bFlower Register\b|\bCatalogue of Flowers\b|\bClassic of Poetry\b|\bBook of Songs\b|\bGuofeng\b)/;
+
+const CHAPTER_ANNOTATION_WORK_TOKEN_TEST_REGEX =
+  /^《[^》\n]+》$|^\*(?!\s)[^*]+(?<!\s)\*$|^Pinhua Baojian$|^Yiqing Yishi$|^Flower Register$|^Catalogue of Flowers$|^Classic of Poetry$|^Book of Songs$|^Guofeng$/;
+
+function getSegmentChipLabel(
+  seg: { token: string; char: Character; chipLabel: string },
+  showBilingual: boolean,
+): string {
+  if (showBilingual) return seg.char.name;
+  const chineseName = seg.char.name.split(' ')[0];
+  const isChineseToken = /[一-鿿]/.test(seg.token);
+  return isChineseToken
+    ? seg.chipLabel
+    : seg.char.name.slice(chineseName.length).trim();
+}
+
+function countSearchMatchesInRenderedText(
+  text: string,
+  query: string,
+  tokenMap: [string, Character][],
+  showBilingual = false,
+): number {
+  const trimmed = query.trim();
+  if (!trimmed || !text) return 0;
+
+  let total = 0;
+  const add = (segment: string) => {
+    total += countTextSearchMatches(segment, trimmed);
+  };
+
+  for (const seg of segmentText(text, tokenMap)) {
+    if (typeof seg === 'string') {
+      for (const part of seg.split(CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX)) {
+        if (!part || part === '▉' || part === '□' || CHAPTER_ANNOTATION_WORK_TOKEN_TEST_REGEX.test(part)) {
+          continue;
+        }
+        add(part);
+      }
+    } else {
+      add(getSegmentChipLabel(seg, showBilingual));
+    }
+  }
+
+  return total;
+}
+
 function getChapterMentionedCharacters(content: string): Character[] {
   const hitIds = new Set<string>();
   const hits: Character[] = [];
@@ -2635,17 +2683,20 @@ function ChapterReader({
     if (!query) return 0;
 
     let total = 0;
-    const add = (text: string) => {
+    const addRendered = (text: string, showBilingual = false) => {
+      total += countSearchMatchesInRenderedText(text, query, tokenMap, showBilingual);
+    };
+    const addPlain = (text: string) => {
       total += countTextSearchMatches(text, query);
     };
 
     if (chapterSummary) {
-      add(chapterSummary.en);
-      add(chapterSummary.zh);
+      addRendered(chapterSummary.en);
+      addRendered(chapterSummary.zh);
     }
 
     if (chapter.id === -1) {
-      for (const line of chapter.content.split('\n')) add(line);
+      for (const line of chapter.content.split('\n')) addPlain(line);
       return total;
     }
 
@@ -2653,15 +2704,15 @@ function ChapterReader({
       const paragraphs = chapter.content.split('\n\n');
       const translations = translationMap[chapter.id];
       for (let i = 0; i < paragraphs.length; i++) {
-        add(paragraphs[i]);
-        if (translations[i]) add(translations[i]);
+        addRendered(paragraphs[i]);
+        if (translations[i]) addRendered(translations[i]);
       }
       return total;
     }
 
-    add(chapter.content);
+    addRendered(chapter.content);
     return total;
-  }, [chapter.id, chapter.content, chapterSummary, chapterSearchQuery]);
+  }, [chapter.id, chapter.content, chapterSummary, chapterSearchQuery, tokenMap]);
 
   useEffect(() => {
     clearChapterSearch();
@@ -2689,10 +2740,6 @@ function ChapterReader({
 
   const renderAnnotated = (text: string, showBilingual = false) => {
     if (!text) return null;
-    const tokenRegex =
-      /(▉|□|《[^》\n]+》|\*(?!\s)[^*]+(?<!\s)\*|\bPinhua Baojian\b|\bYiqing Yishi\b|\bFlower Register\b|\bCatalogue of Flowers\b|\bClassic of Poetry\b|\bBook of Songs\b|\bGuofeng\b)/g;
-    const workRegex =
-      /^《[^》\n]+》$|^\*(?!\s)[^*]+(?<!\s)\*$|^Pinhua Baojian$|^Yiqing Yishi$|^Flower Register$|^Catalogue of Flowers$|^Classic of Poetry$|^Book of Songs$|^Guofeng$/;
 
     const highlightPlain = (plain: string) =>
       renderTextWithSearchHighlight(
@@ -2704,7 +2751,7 @@ function ChapterReader({
 
     return segmentText(text, tokenMap).map((seg, i) => {
       if (typeof seg === 'string') {
-        const parts = seg.split(tokenRegex);
+        const parts = seg.split(CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX);
         if (parts.length === 1) return highlightPlain(seg);
 
         return parts.map((part, j) => {
@@ -2723,10 +2770,10 @@ function ChapterReader({
             );
           }
 
-          if (workRegex.test(part)) {
+          if (CHAPTER_ANNOTATION_WORK_TOKEN_TEST_REGEX.test(part)) {
             return (
               <span key={`${i}-${j}`} className="glowing-work">
-                {part}
+                {highlightPlain(part)}
               </span>
             );
           }
@@ -2740,23 +2787,14 @@ function ChapterReader({
       }
 
       const roleChipClass = ROLE_CHIP_IDLE[seg.char.role] ?? ROLE_CHIP_IDLE.Other;
-      let chipLabel: string;
-      if (showBilingual) {
-        chipLabel = seg.char.name;
-      } else {
-        const chineseName = seg.char.name.split(' ')[0];
-        const isChineseToken = /[一-鿿]/.test(seg.token);
-        chipLabel = isChineseToken
-          ? seg.chipLabel
-          : seg.char.name.slice(chineseName.length).trim();
-      }
+      const chipLabel = getSegmentChipLabel(seg, showBilingual);
       return (
         <button
           key={i}
           onClick={() => onSelectCharacter(seg.char)}
           className={`inline-flex items-center rounded-sm border px-1 py-[1px] mx-[1px] align-baseline cursor-pointer transition-all hover:brightness-95 ${roleChipClass}`}
         >
-          {chipLabel}
+          {highlightPlain(chipLabel)}
         </button>
       );
     });
