@@ -126,20 +126,62 @@ def english_from_works_entry(entry: dict) -> str | None:
     match = re.match(r"^(The [^(]+)\s*\(", desc)
     if match:
         return match.group(1).strip()
+    match = re.match(r"^[A-Za-z]+\s+\(([^)]+)\)\s+is\b", desc)
+    if match and re.match(r"^The ", match.group(1)):
+        return match.group(1).strip()
     return None
+
+
+PERFORMANCE_LIST_RE = re.compile(
+    r"(?:"
+    r"performances?\s+in|"
+    r"Often\s+performs?|"
+    r"In\s+performing|"
+    r"performs\s+include|"
+    r"other\s+performances,\s+such\s+as|"
+    r"especially\s+celebrated\s+is"
+    r")\s+(.+?)"
+    r"(?:"
+    r"\s+and\s+similar|\s+and\s+others|,\s+and\s+others|,\s+carry|\s+truly\s+show|,\s+he\s+wears|,\s+with\s+color|"
+    r"\.(?:\s|$)|\s*$"
+    r")",
+    re.IGNORECASE,
+)
+
+# Trailing list when a paragraph breaks mid-enumeration (e.g. "His Slaying the Tiger, ...").
+PERFORMANCE_TAIL_RE = re.compile(
+    r"\bHis\s+((?:[A-Z][^,]+,\s*)+)$",
+)
+
+
+def split_performance_titles(chunk: str) -> list[str]:
+    chunk = re.sub(r"\s+and\s+similar\s+(?:pieces?|scenes?).*$", "", chunk, flags=re.I)
+    chunk = re.sub(r"\s+and\s+others.*$", "", chunk, flags=re.I)
+    parts = re.split(r",\s*|\s+and\s+", chunk)
+    out: list[str] = []
+    for part in parts:
+        title = part.strip().rstrip(".,;:!?")
+        if title.lower().startswith("and "):
+            title = title[4:].strip()
+        if title:
+            out.append(title)
+    return out
+
+
+CHAPTER_STRING_RE = re.compile(
+    r"'((?:[^'\\]|\\.)*)'|\"((?:[^\"\\]|\\.)*)\"",
+)
 
 
 def read_chapter_paragraphs(path: Path) -> list[str]:
     text = path.read_text()
-    block_match = re.search(r"\d+:\s*\[([\s\S]*?)\n\s*\]", text)
-    if not block_match:
-        block_match = re.search(r":\s*string\[\]\s*=\s*\[([\s\S]*?)\n\s*\]", text)
+    block_match = re.search(r":\s*string\[\]\s*=\s*\[([\s\S]*?)\n\s*\]", text)
     if not block_match:
         return []
     block = block_match.group(1)
     paras: list[str] = []
-    for match in re.finditer(r'"((?:[^"\\]|\\.)*)"', block):
-        raw = match.group(1)
+    for match in CHAPTER_STRING_RE.finditer(block):
+        raw = match.group(1) or match.group(2)
         para = (
             raw.replace("\\n", "\n")
             .replace('\\"', '"')
@@ -230,6 +272,34 @@ def collect_from_zh_en_pairs() -> set[str]:
     return titles
 
 
+def collect_from_performance_lists() -> set[str]:
+    """Comma-separated opera titles in English (e.g. ch.1 'Magpie Bridge, ...')."""
+    titles: set[str] = set()
+    for en_path in sorted(TRANSLATIONS.glob("chapterTranslations*.ts")):
+        ch = re.search(r"chapterTranslations(\d+)\.ts$", en_path.name)
+        if not ch:
+            continue
+        num = ch.group(1)
+        zh_path = CHINESE / f"chapterChinese{num}.ts"
+        if not zh_path.exists():
+            continue
+        zh_paras = read_chapter_paragraphs(zh_path)
+        en_paras = read_chapter_paragraphs(en_path)
+        for zh_para, en_para in zip(zh_paras, en_paras):
+            if "《" not in zh_para:
+                continue
+            for match in PERFORMANCE_LIST_RE.finditer(en_para):
+                for title in split_performance_titles(match.group(1)):
+                    if is_valid_english_work_title(title):
+                        titles.add(title)
+            tail = PERFORMANCE_TAIL_RE.search(en_para)
+            if tail:
+                for title in split_performance_titles(tail.group(1)):
+                    if is_valid_english_work_title(title):
+                        titles.add(title)
+    return titles
+
+
 def collect_titles() -> list[str]:
     titles: set[str] = set(FIXED_TITLES)
 
@@ -254,6 +324,7 @@ def collect_titles() -> list[str]:
                     titles.add(english)
 
     titles |= collect_from_zh_en_pairs()
+    titles |= collect_from_performance_lists()
     return sorted(titles, key=len, reverse=True)
 
 
