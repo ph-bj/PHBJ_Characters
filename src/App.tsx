@@ -49,50 +49,29 @@ import { chapterLacunae } from './lacunae';
 import { questions } from './questions';
 import { QuestionAnswer } from './QuestionAnswer';
 import worksDataJson from './worksData.json';
-import { ENGLISH_WORK_TITLES, ENGLISH_WORK_TITLE_SET } from './englishWorkTitles';
-import { WORK_ENGLISH_BY_CHINESE } from './workEnglishByChinese';
+import {
+  ENGLISH_WORK_TITLES,
+  ENGLISH_WORK_TITLE_SET,
+  WORK_ENGLISH_BY_CHINESE,
+} from './englishWorkTitles';
 const worksData: Record<string, { descZh: string, descEn: string, contextZh: string, contextEn: string, chapters?: number[] }> = worksDataJson;
 
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-const ENGLISH_WORK_TITLE_BY_LOWER = new Map(
-  ENGLISH_WORK_TITLES.map((title) => [title.toLowerCase(), title]),
+const ENGLISH_WORK_SPLIT_PATTERN = ENGLISH_WORK_TITLES.map(escapeRegExp).join('|');
+
+const CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX = new RegExp(
+  ENGLISH_WORK_SPLIT_PATTERN.length > 0
+    ? `(▉|□|《[^》\\n]+》|\\*(?!\\s)[^*]+(?<!\\s)\\*|${ENGLISH_WORK_SPLIT_PATTERN})`
+    : `(▉|□|《[^》\\n]+》|\\*(?!\\s)[^*]+(?<!\\s)\\*)`,
+  'gi',
 );
 
-function resolveEnglishWorkTitle(part: string): string | null {
-  if (ENGLISH_WORK_TITLE_SET.has(part)) return part;
-  return ENGLISH_WORK_TITLE_BY_LOWER.get(part.toLowerCase()) ?? null;
-}
-
-function buildChapterAnnotationSplitRegex(extraEnglishTitles: string[] = []): RegExp {
-  const merged = [...new Set([...extraEnglishTitles, ...ENGLISH_WORK_TITLES])].sort(
-    (a, b) => b.length - a.length,
-  );
-  const englishPattern = merged.map(escapeRegExp).join('|');
-  return new RegExp(
-    englishPattern.length > 0
-      ? `(▉|□|《[^》\\n]+》|\\*(?!\\s)[^*]+(?<!\\s)\\*|${englishPattern})`
-      : `(▉|□|《[^》\\n]+》|\\*(?!\\s)[^*]+(?<!\\s)\\*)`,
-    'gi',
-  );
-}
-
-const CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX = buildChapterAnnotationSplitRegex();
-
-function getEnglishWorkTitlesForChineseParagraph(zhParagraph: string): string[] {
-  const titles: string[] = [];
-  const seen = new Set<string>();
-  for (const match of zhParagraph.matchAll(/《([^》\n]+)》/g)) {
-    const en = WORK_ENGLISH_BY_CHINESE[match[1]];
-    if (en && !seen.has(en.toLowerCase())) {
-      seen.add(en.toLowerCase());
-      titles.push(en);
-    }
-  }
-  return titles;
-}
+const ENGLISH_WORK_TITLE_LOWERCASE = new Set(
+  ENGLISH_WORK_TITLES.map((title) => title.toLowerCase()),
+);
 
 /** English line under each title in the 目录 view; keyed by chapter id (optional). */
 const chapterTitleTranslations: Partial<Record<number, string>> = {
@@ -470,13 +449,14 @@ function renderTextWithSearchHighlight(
   return nodes;
 }
 
-function isWorkAnnotationToken(part: string, extraEnglishTitles: string[] = []): boolean {
+function isWorkAnnotationToken(part: string): boolean {
   if (part === '▉' || part === '□') return false;
   if (/^《[^》\n]+》$/.test(part)) return true;
   if (/^\*(?!\s)[^*]+(?<!\s)\*$/.test(part)) return true;
-  if (resolveEnglishWorkTitle(part)) return true;
-  const lower = part.toLowerCase();
-  return extraEnglishTitles.some((title) => title.toLowerCase() === lower);
+  return (
+    ENGLISH_WORK_TITLE_SET.has(part) ||
+    ENGLISH_WORK_TITLE_LOWERCASE.has(part.toLowerCase())
+  );
 }
 
 function isChineseWorkAnnotationToken(part: string): boolean {
@@ -2825,20 +2805,8 @@ function ChapterReader({
     );
   };
 
-  const renderAnnotated = (
-    text: string,
-    showBilingual = false,
-    options?: { zhSourceParagraph?: string },
-  ) => {
+  const renderAnnotated = (text: string, showBilingual = false) => {
     if (!text) return null;
-
-    const paragraphEnglishTitles = options?.zhSourceParagraph
-      ? getEnglishWorkTitlesForChineseParagraph(options.zhSourceParagraph)
-      : [];
-    const splitRegex =
-      paragraphEnglishTitles.length > 0
-        ? buildChapterAnnotationSplitRegex(paragraphEnglishTitles)
-        : CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX;
 
     const highlightPlain = (plain: string) =>
       renderTextWithSearchHighlight(
@@ -2850,7 +2818,7 @@ function ChapterReader({
 
     return segmentText(text, tokenMap).map((seg, i) => {
       if (typeof seg === 'string') {
-        const parts = seg.split(splitRegex);
+        const parts = seg.split(CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX);
         if (parts.length === 1) return highlightPlain(seg);
 
         return parts.map((part, j) => {
@@ -2869,7 +2837,7 @@ function ChapterReader({
             );
           }
 
-          if (isWorkAnnotationToken(part, paragraphEnglishTitles)) {
+          if (isWorkAnnotationToken(part)) {
             const displayText = /^\*(?!\s)[^*]+(?<!\s)\*$/.test(part)
               ? part.slice(1, -1)
               : part;
@@ -3090,9 +3058,7 @@ function ChapterReader({
                     <p className="text-base font-hans text-[#2c2420] leading-relaxed">{renderAnnotated(para)}</p>
                     {translationMap[chapter.id][i] && (
                       <p className="text-sm sm:text-base text-[#4a3f38] mt-3 leading-7 font-sans whitespace-pre-line">
-                        {renderAnnotated(translationMap[chapter.id][i], false, {
-                          zhSourceParagraph: para,
-                        })}
+                        {renderAnnotated(translationMap[chapter.id][i])}
                       </p>
                     )}
                   </div>
