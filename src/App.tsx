@@ -35,6 +35,7 @@ import {
   Leaf,
   Home,
   Menu,
+  Network,
 } from 'lucide-react';
 import { characters, relationships, identityLinksById } from './data';
 import { chapters } from './chapters';
@@ -1102,6 +1103,11 @@ export default function App() {
 
   const mobileSections = [
     { id: 'overview', label: lang === 'zh' ? '总览' : 'Overview', icon: Home },
+    {
+      id: 'network',
+      label: lang === 'zh' ? '关系网络' : 'Network',
+      icon: Network,
+    },
     { id: 'characters', label: lang === 'zh' ? '人物' : 'Characters', icon: Users },
     { id: 'chapters', label: lang === 'zh' ? '章节' : 'Chapters', icon: BookOpen },
     { id: 'gardens', label: lang === 'zh' ? '园林' : 'Gardens', icon: Leaf },
