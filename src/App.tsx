@@ -48,7 +48,15 @@ import { chapterLacunae } from './lacunae';
 import { questions } from './questions';
 import { QuestionAnswer } from './QuestionAnswer';
 import worksDataJson from './worksData.json';
+import { ENGLISH_WORK_TITLES, ENGLISH_WORK_TITLE_SET } from './englishWorkTitles';
 const worksData: Record<string, { descZh: string, descEn: string, contextZh: string, contextEn: string, chapters?: number[] }> = worksDataJson;
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+const ENGLISH_WORK_TITLE_SPLIT_PATTERN =
+  ENGLISH_WORK_TITLES.map(escapeRegExp).join('|');
 
 /** English line under each title in the 目录 view; keyed by chapter id (optional). */
 const chapterTitleTranslations: Partial<Record<number, string>> = {
@@ -426,11 +434,18 @@ function renderTextWithSearchHighlight(
   return nodes;
 }
 
-const CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX =
-  /(▉|□|《[^》\n]+》|\*(?!\s)[^*]+(?<!\s)\*|\bPinhua Baojian\b|\bYiqing Yishi\b|\bFlower Register\b|\bCatalogue of Flowers\b|\bClassic of Poetry\b|\bBook of Songs\b|\bGuofeng\b)/;
+const CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX = new RegExp(
+  ENGLISH_WORK_TITLE_SPLIT_PATTERN.length > 0
+    ? `(▉|□|《[^》\\n]+》|\\*(?!\\s)[^*]+(?<!\\s)\\*|${ENGLISH_WORK_TITLE_SPLIT_PATTERN})`
+    : `(▉|□|《[^》\\n]+》|\\*(?!\\s)[^*]+(?<!\\s)\\*)`,
+);
 
-const CHAPTER_ANNOTATION_WORK_TOKEN_TEST_REGEX =
-  /^《[^》\n]+》$|^\*(?!\s)[^*]+(?<!\s)\*$|^Pinhua Baojian$|^Yiqing Yishi$|^Flower Register$|^Catalogue of Flowers$|^Classic of Poetry$|^Book of Songs$|^Guofeng$/;
+function isWorkAnnotationToken(part: string): boolean {
+  if (part === '▉' || part === '□') return false;
+  if (/^《[^》\n]+》$/.test(part)) return true;
+  if (/^\*(?!\s)[^*]+(?<!\s)\*$/.test(part)) return true;
+  return ENGLISH_WORK_TITLE_SET.has(part);
+}
 
 function isChineseWorkAnnotationToken(part: string): boolean {
   return /^《[^》\n]+》$/.test(part);
@@ -465,7 +480,7 @@ function countSearchMatchesInRenderedText(
   for (const seg of segmentText(text, tokenMap)) {
     if (typeof seg === 'string') {
       for (const part of seg.split(CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX)) {
-        if (!part || part === '▉' || part === '□' || CHAPTER_ANNOTATION_WORK_TOKEN_TEST_REGEX.test(part)) {
+        if (!part || isWorkAnnotationToken(part)) {
           continue;
         }
         add(part);
@@ -2783,13 +2798,16 @@ function ChapterReader({
             );
           }
 
-          if (CHAPTER_ANNOTATION_WORK_TOKEN_TEST_REGEX.test(part)) {
+          if (isWorkAnnotationToken(part)) {
+            const displayText = /^\*(?!\s)[^*]+(?<!\s)\*$/.test(part)
+              ? part.slice(1, -1)
+              : part;
             return (
               <span
                 key={`${i}-${j}`}
                 className={`glowing-work${isChineseWorkAnnotationToken(part) ? '' : ' italic'}`}
               >
-                {highlightPlain(part)}
+                {highlightPlain(displayText)}
               </span>
             );
           }
