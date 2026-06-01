@@ -561,114 +561,107 @@ type NavSection = {
   icon: typeof Home;
 };
 
-function NavMenuDropdown({
+function NavMenuPanel({
   lang,
   sections,
   onScrollToSection,
   onOpenContents,
   onOpenChapter,
+  onClose,
+  layout,
 }: {
   lang: 'en' | 'zh';
   sections: NavSection[];
   onScrollToSection: (id: string) => void;
   onOpenContents: () => void;
   onOpenChapter: () => void;
+  onClose: () => void;
+  layout: 'dropdown' | 'expanded';
 }) {
-  const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-
-    const handlePointerDown = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    };
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpen(false);
-    };
-
-    document.addEventListener('mousedown', handlePointerDown);
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('mousedown', handlePointerDown);
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [open]);
-
   const navigate = (action: () => void) => {
-    setOpen(false);
+    onClose();
     action();
   };
 
+  const sectionGridClass =
+    layout === 'expanded'
+      ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-1.5 mb-3'
+      : 'grid grid-cols-1 gap-1 mb-3';
+
   return (
-    <div ref={containerRef} className="relative">
-      <button
-        type="button"
-        onClick={() => setOpen((value) => !value)}
-        className="flex items-center gap-1.5 px-3 py-[7px] bg-black/5 rounded-sm border border-[#d4c5a9] text-[#5d5048] hover:bg-black/5 transition-all"
-        aria-expanded={open}
-        aria-haspopup="menu"
-        aria-label={lang === 'zh' ? '打开菜单' : 'Open menu'}
-      >
-        <Menu size={14} />
-        <span className="text-[10px] font-bold uppercase tracking-widest">{lang === 'zh' ? '菜单' : 'Menu'}</span>
-        <ChevronDown size={12} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
-      </button>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -4 }}
-            transition={{ duration: 0.15 }}
-            role="menu"
-            className="absolute right-0 top-[calc(100%+0.375rem)] z-50 w-64 max-h-[min(70vh,28rem)] overflow-y-auto parchment rounded-sm border-double border-4 border-[#d4c5a9] shadow-xl p-3"
+    <>
+      <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-2 px-1">
+        {lang === 'zh' ? '快速前往' : 'Go To'}
+      </p>
+      <div className={sectionGridClass}>
+        {sections.map(({ id, label, icon: Icon }) => (
+          <button
+            key={id}
+            type="button"
+            role="menuitem"
+            onClick={() => navigate(() => onScrollToSection(id))}
+            className="w-full text-left rounded-sm border border-[#d4c5a9]/70 bg-white/15 hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all px-3 py-2 flex items-center gap-2.5 min-w-0"
           >
-            <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-2 px-1">
-              {lang === 'zh' ? '快速前往' : 'Go To'}
-            </p>
-            <div className="grid grid-cols-1 gap-1 mb-3">
-              {sections.map(({ id, label, icon: Icon }) => (
-                <button
-                  key={id}
-                  type="button"
-                  role="menuitem"
-                  onClick={() => navigate(() => onScrollToSection(id))}
-                  className="w-full text-left rounded-sm border border-[#d4c5a9]/70 bg-white/15 hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all px-3 py-2 flex items-center gap-2.5"
-                >
-                  <Icon size={15} className="text-[#8b4513] shrink-0" />
-                  <span className="text-[11px] font-bold uppercase tracking-wide text-[#2c2420] leading-tight">{label}</span>
-                </button>
-              ))}
-            </div>
+            <Icon size={15} className="text-[#8b4513] shrink-0" />
+            <span className="text-[11px] font-bold uppercase tracking-wide text-[#2c2420] leading-tight truncate">{label}</span>
+          </button>
+        ))}
+      </div>
 
-            <div className="grid grid-cols-2 gap-1.5 pt-2 border-t border-[#d4c5a9]">
-              <button
-                type="button"
-                role="menuitem"
-                onClick={() => navigate(onOpenContents)}
-                className="min-h-10 rounded-sm bg-[#8b4513] text-[#f4ecd8] px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
-              >
-                <Book size={13} />
-                {lang === 'zh' ? '目录' : 'Contents'}
-              </button>
-              <button
-                type="button"
-                role="menuitem"
-                onClick={() => navigate(onOpenChapter)}
-                className="min-h-10 rounded-sm border border-[#8b4513]/50 text-[#8b4513] bg-[#8b4513]/5 px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
-              >
-                <BookOpen size={13} />
-                {lang === 'zh' ? '第一回' : 'Ch. 1'}
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-1.5 pt-2 border-t border-[#d4c5a9]">
+        <button
+          type="button"
+          role="menuitem"
+          onClick={() => navigate(onOpenContents)}
+          className="min-h-10 rounded-sm bg-[#8b4513] text-[#f4ecd8] px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
+        >
+          <Book size={13} />
+          {lang === 'zh' ? '目录' : 'Contents'}
+        </button>
+        <button
+          type="button"
+          role="menuitem"
+          onClick={() => navigate(onOpenChapter)}
+          className="min-h-10 rounded-sm border border-[#8b4513]/50 text-[#8b4513] bg-[#8b4513]/5 px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
+        >
+          <BookOpen size={13} />
+          {lang === 'zh' ? '第一回' : 'Ch. 1'}
+        </button>
+      </div>
+    </>
+  );
+}
+
+function NavMenuDropdown({
+  lang,
+  sections,
+  onScrollToSection,
+  onOpenContents,
+  onOpenChapter,
+  open,
+  onOpenChange,
+}: {
+  lang: 'en' | 'zh';
+  sections: NavSection[];
+  onScrollToSection: (id: string) => void;
+  onOpenContents: () => void;
+  onOpenChapter: () => void;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={() => onOpenChange(!open)}
+      className="flex items-center gap-1.5 px-3 py-[7px] bg-black/5 rounded-sm border border-[#d4c5a9] text-[#5d5048] hover:bg-black/5 transition-all"
+      aria-expanded={open}
+      aria-haspopup="menu"
+      aria-label={lang === 'zh' ? '打开菜单' : 'Open menu'}
+    >
+      <Menu size={14} />
+      <span className="text-[10px] font-bold uppercase tracking-widest">{lang === 'zh' ? '菜单' : 'Menu'}</span>
+      <ChevronDown size={12} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
+    </button>
   );
 }
 
@@ -685,6 +678,8 @@ export default function App() {
   const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(null);
   const [selectedQuestion, setSelectedQuestion] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [headerMenuOpen, setHeaderMenuOpen] = useState(false);
+  const headerNavRef = useRef<HTMLElement>(null);
   const [networkGraphFullscreen, setNetworkGraphFullscreen] = useState(false);
 
   const lacunaChapterNumbers = useMemo(
@@ -1030,12 +1025,13 @@ export default function App() {
   };
 
   const scrollToSection = (id: string) => {
-    if (!mobileMenuOpen) {
+    if (!mobileMenuOpen && !headerMenuOpen) {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
     }
 
     setMobileMenuOpen(false);
+    setHeaderMenuOpen(false);
     window.setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 0);
@@ -1044,6 +1040,7 @@ export default function App() {
   const openContents = () => {
     setSelectedChapter({ id: -1, title: '目录', content: chapters.filter(c => c.id > 0).map(c => c.title).join('\n') });
     setMobileMenuOpen(false);
+    setHeaderMenuOpen(false);
   };
 
   const mobileSections = [
@@ -1073,6 +1070,26 @@ export default function App() {
     selectedQuestion !== null
   );
   const hasOpenOverlay = hasOpenModal || mobileMenuOpen;
+
+  useEffect(() => {
+    if (!headerMenuOpen) return;
+
+    const handlePointerDown = (event: MouseEvent) => {
+      if (headerNavRef.current && !headerNavRef.current.contains(event.target as Node)) {
+        setHeaderMenuOpen(false);
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setHeaderMenuOpen(false);
+    };
+
+    document.addEventListener('mousedown', handlePointerDown);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [headerMenuOpen]);
 
   useLayoutEffect(() => {
     if (!hasOpenOverlay) return;
@@ -1168,31 +1185,65 @@ export default function App() {
     <div className="min-h-screen font-serif text-[#2c2420] selection:bg-amber-900/20">
       {/* Header */}
       <div id="overview" className="max-w-[1800px] mx-auto w-full px-2 sm:px-5 md:px-4 lg:px-5 scroll-mt-24 md:sticky md:top-0 md:z-30 md:bg-[#e5dcc3]/95 md:backdrop-blur-sm">
-        <header className="parchment mt-2 sm:mt-5 mb-2 px-4 sm:px-8 md:px-6 lg:px-10 py-4 md:py-3 lg:py-4 md:min-h-[4.5rem] lg:min-h-[6rem] flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4 rounded-sm border-double border-4 border-[#d4c5a9]">
-          <div className="hidden sm:block flex-1" />
-          <div className="flex flex-col items-center text-center gap-0.5 sm:gap-1 flex-1">
-            <h1 className="flex flex-col items-center gap-0.5 sm:gap-1 leading-tight">
-              <span className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold tracking-tight text-[#2c2420]">
-                {t.titleEn}
-              </span>
-              <span className="text-base sm:text-lg md:text-lg lg:text-xl font-bold font-hans tracking-wide text-[#5d5048]">
-                {t.titleZh}
-              </span>
-            </h1>
+        <header
+          ref={headerNavRef}
+          className={`parchment mt-2 sm:mt-5 mb-2 px-4 sm:px-8 md:px-6 lg:px-10 py-4 md:py-3 lg:py-4 md:min-h-[4.5rem] lg:min-h-[6rem] flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4 rounded-sm border-double border-4 border-[#d4c5a9] ${headerMenuOpen ? 'md:flex-col md:items-stretch' : ''}`}
+        >
+          <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4 shrink-0">
+            <div className="hidden sm:block flex-1" />
+            <div className="flex flex-col items-center text-center gap-0.5 sm:gap-1 flex-1">
+              <h1 className="flex flex-col items-center gap-0.5 sm:gap-1 leading-tight">
+                <span className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold tracking-tight text-[#2c2420]">
+                  {t.titleEn}
+                </span>
+                <span className="text-base sm:text-lg md:text-lg lg:text-xl font-bold font-hans tracking-wide text-[#5d5048]">
+                  {t.titleZh}
+                </span>
+              </h1>
+            </div>
+            <div className="hidden md:flex flex-1 justify-end items-center gap-2">
+              <NavMenuDropdown
+                lang={lang}
+                sections={mobileMenuSections}
+                onScrollToSection={scrollToSection}
+                onOpenContents={openContents}
+                onOpenChapter={() => {
+                  const firstChapter = chapters.find((chapter) => chapter.id === 1);
+                  if (firstChapter) setSelectedChapter(firstChapter);
+                }}
+                open={headerMenuOpen}
+                onOpenChange={setHeaderMenuOpen}
+              />
+              <LanguageSwitch lang={lang} setLang={setLang} />
+            </div>
           </div>
-          <div className="hidden md:flex flex-1 justify-end items-center gap-2">
-            <NavMenuDropdown
-              lang={lang}
-              sections={mobileMenuSections}
-              onScrollToSection={scrollToSection}
-              onOpenContents={openContents}
-              onOpenChapter={() => {
-                const firstChapter = chapters.find((chapter) => chapter.id === 1);
-                if (firstChapter) setSelectedChapter(firstChapter);
-              }}
-            />
-            <LanguageSwitch lang={lang} setLang={setLang} />
-          </div>
+
+          <AnimatePresence>
+            {headerMenuOpen && (
+              <motion.div
+                key="header-nav-panel"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.15 }}
+                role="menu"
+                className="hidden md:block w-full overflow-hidden border-t border-[#d4c5a9] pt-3 mt-1"
+              >
+                <NavMenuPanel
+                  lang={lang}
+                  sections={mobileMenuSections}
+                  onScrollToSection={scrollToSection}
+                  onOpenContents={openContents}
+                  onOpenChapter={() => {
+                    const firstChapter = chapters.find((chapter) => chapter.id === 1);
+                    if (firstChapter) setSelectedChapter(firstChapter);
+                  }}
+                  onClose={() => setHeaderMenuOpen(false)}
+                  layout="expanded"
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </header>
       </div>
 
