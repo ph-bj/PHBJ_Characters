@@ -1114,7 +1114,6 @@ export default function App() {
       bodyStyle.paddingRight = `${scrollbarWidth}px`;
     }
     bodyStyle.overflow = 'hidden';
-    bodyStyle.touchAction = 'none';
     bodyStyle.overscrollBehavior = 'none';
     htmlStyle.overflow = 'hidden';
     htmlStyle.position = 'fixed';
@@ -1903,13 +1902,16 @@ export default function App() {
       {/* Mobile Navigation Sheet */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 z-50 flex items-end sm:items-center sm:justify-center sm:p-6">
+          <div
+            className="md:hidden fixed inset-0 z-50 flex items-end sm:items-center sm:justify-center sm:p-6"
+            onClick={() => setMobileMenuOpen(false)}
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setMobileMenuOpen(false)}
-              className="absolute inset-0 bg-black/45 backdrop-blur-sm"
+              aria-hidden
+              className="absolute inset-0 z-0 bg-black/45 backdrop-blur-sm pointer-events-none"
             />
             <motion.div
               initial={{ y: '100%' }}
@@ -1917,7 +1919,8 @@ export default function App() {
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 260 }}
               data-overlay-scroll="true"
-              className="relative w-full sm:max-w-lg sm:max-h-[85vh] sm:rounded-sm max-h-[86vh] overflow-y-auto parchment rounded-t-sm sm:rounded-sm border-t-4 sm:border-4 border-x-4 border-double border-[#d4c5a9] shadow-2xl p-4 sm:p-5"
+              onClick={(e) => e.stopPropagation()}
+              className="relative z-10 w-full sm:max-w-lg sm:max-h-[85vh] sm:rounded-sm max-h-[86vh] overflow-y-auto parchment rounded-t-sm sm:rounded-sm border-t-4 sm:border-4 border-x-4 border-double border-[#d4c5a9] shadow-2xl p-4 sm:p-5"
             >
               <div className="flex items-center justify-between gap-3 border-b border-[#d4c5a9] pb-3 mb-4">
                 <div>
@@ -2144,19 +2147,21 @@ function LacunaeModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="absolute inset-0 bg-black/55 backdrop-blur-sm"
+        aria-hidden
+        className="absolute inset-0 z-0 bg-black/55 backdrop-blur-sm pointer-events-none"
       />
 
       <motion.div
         initial={{ opacity: 0, y: 30, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.98 }}
-        className="relative w-full max-w-3xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[#d4c5a9] shadow-2xl flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+        className="relative z-10 w-full max-w-3xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[#d4c5a9] shadow-2xl flex flex-col"
       >
         <div className="p-4 sm:p-5 border-b border-[#d4c5a9] bg-[#f4ecd8] flex items-center justify-between">
           <div>
@@ -2225,19 +2230,21 @@ function QuestionsModal({
   if (!question) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="absolute inset-0 bg-black/55 backdrop-blur-sm"
+        aria-hidden
+        className="absolute inset-0 z-0 bg-black/55 backdrop-blur-sm pointer-events-none"
       />
 
       <motion.div
         initial={{ opacity: 0, y: 30, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.98 }}
-        className="relative w-full max-w-3xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[#d4c5a9] shadow-2xl flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+        className="relative z-10 w-full max-w-3xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[#d4c5a9] shadow-2xl flex flex-col"
       >
         <div className="p-4 sm:p-5 border-b border-[#d4c5a9] bg-[#f4ecd8] flex items-center justify-between">
           <div>
@@ -2323,19 +2330,20 @@ function WorkModal({
   if (!data) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        onClick={onClose}
-        className="absolute inset-0 bg-[#2c2420]/80 backdrop-blur-sm"
+        aria-hidden
+        className="absolute inset-0 z-0 bg-[#2c2420]/80 backdrop-blur-sm pointer-events-none"
       />
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="relative w-full max-w-2xl max-h-[85vh] bg-[#f4ecd8] rounded-sm shadow-2xl border-4 border-double border-[#8b4513] flex flex-col overflow-hidden parchment"
+        onClick={(e) => e.stopPropagation()}
+        className="relative z-10 w-full max-w-2xl max-h-[85vh] bg-[#f4ecd8] rounded-sm shadow-2xl border-4 border-double border-[#8b4513] flex flex-col overflow-hidden parchment"
       >
         <div className="flex-none p-4 sm:p-6 border-b border-[#d4c5a9]">
           <div className="flex justify-between items-start">
@@ -2353,7 +2361,7 @@ function WorkModal({
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 custom-scrollbar" id="workmodal-scroll-area">
+        <div data-overlay-scroll="true" className="flex-1 overflow-y-auto p-4 sm:p-6 custom-scrollbar" id="workmodal-scroll-area">
           <div className="space-y-6">
             <section>
               <h3 className="text-sm font-bold text-[#8b4513] uppercase tracking-wider mb-2 font-sans flex items-center gap-2">
@@ -2491,20 +2499,21 @@ function LocationDetail({
   }, [location.chapterIds, location.searchTokens]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        onClick={onClose}
-        className="absolute inset-0 bg-black/55 backdrop-blur-sm"
+        aria-hidden
+        className="absolute inset-0 z-0 bg-black/55 backdrop-blur-sm pointer-events-none"
       />
 
       <motion.div
         initial={{ opacity: 0, y: 20, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.98 }}
-        className="relative w-full max-w-xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[#d4c5a9] shadow-2xl flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+        className="relative z-10 w-full max-w-xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[#d4c5a9] shadow-2xl flex flex-col"
       >
         <div className="p-4 sm:p-5 border-b border-[#d4c5a9] bg-[#f4ecd8] flex items-center justify-between">
           <div>
@@ -2803,20 +2812,24 @@ function ChapterReader({
   chapterSearchMatchCounter.current = 0;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-stretch justify-stretch p-0 sm:items-center sm:justify-center sm:p-4">
+    <div
+      className="fixed inset-0 z-50 flex items-stretch justify-stretch p-0 sm:items-center sm:justify-center sm:p-4"
+      onClick={onClose}
+    >
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        onClick={onClose}
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        aria-hidden
+        className="absolute inset-0 z-0 bg-black/60 backdrop-blur-sm pointer-events-none"
       />
       
       <motion.div
         initial={{ opacity: 0, y: 50, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="relative w-full max-w-none h-[100dvh] max-h-[100dvh] sm:max-w-5xl md:max-w-6xl sm:h-[90dvh] sm:max-h-[90dvh] parchment rounded-none sm:rounded-sm overflow-hidden shadow-2xl border-0 sm:border-4 border-double border-[#d4c5a9] flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+        className="relative z-10 w-full max-w-none h-[100dvh] max-h-[100dvh] sm:max-w-5xl md:max-w-6xl sm:h-[90dvh] sm:max-h-[90dvh] parchment rounded-none sm:rounded-sm overflow-hidden shadow-2xl border-0 sm:border-4 border-double border-[#d4c5a9] flex flex-col"
       >
         <div className="p-4 sm:p-6 border-b border-[#d4c5a9] bg-[#f4ecd8] space-y-3 shrink-0">
           <div className="flex items-center justify-between gap-3">
@@ -2965,9 +2978,19 @@ function ChapterReader({
                 ))}
               </div>
             ) : translationMap[chapter.id] ? (
-              <div className="space-y-8">
+              <div className="space-y-8 pl-7 sm:pl-0">
                 {chapter.content.split('\n\n').map((para, i) => (
-                  <div key={i} className="border-b border-[#d4c5a9]/40 pb-6 last:border-0">
+                  <div
+                    key={i}
+                    className="relative border-b border-[#d4c5a9]/40 pb-6 last:border-0 sm:pl-0"
+                  >
+                    <span
+                      className="absolute left-0 sm:-left-10 md:-left-12 top-0 w-6 sm:w-8 text-[10px] tabular-nums text-[#5d5048]/55 text-right leading-relaxed select-none font-sans"
+                      aria-hidden
+                      title={lang === 'zh' ? `第 ${i + 1} 段` : `Paragraph ${i + 1}`}
+                    >
+                      {i + 1}
+                    </span>
                     <p className="text-base font-hans text-[#2c2420] leading-relaxed">{renderAnnotated(para)}</p>
                     {translationMap[chapter.id][i] && (
                       <p className="text-sm sm:text-base text-[#4a3f38] mt-3 leading-7 font-sans whitespace-pre-line">{renderAnnotated(translationMap[chapter.id][i])}</p>
@@ -3194,20 +3217,24 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter, elevated =
   }, [activeScenes, lang]);
 
   return (
-    <div className={`fixed inset-0 flex items-center justify-center p-4 ${elevated ? 'z-[110]' : 'z-50'}`}>
+    <div
+      className={`fixed inset-0 flex items-center justify-center p-4 ${elevated ? 'z-[110]' : 'z-50'}`}
+      onClick={onClose}
+    >
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        onClick={onClose}
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        aria-hidden
+        className="absolute inset-0 z-0 bg-black/40 backdrop-blur-sm pointer-events-none"
       />
       
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className={`relative w-[95%] sm:w-full max-w-2xl md:max-w-3xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] my-4 sm:my-0 flex flex-col`}
+        onClick={(e) => e.stopPropagation()}
+        className={`relative z-10 w-[95%] sm:w-full max-w-2xl md:max-w-3xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] my-4 sm:my-0 flex flex-col`}
       >
         <div className="relative shrink-0 px-4 sm:px-6 pt-4 sm:pt-5 pb-3 border-b border-[#d4c5a9]/50 bg-[#f4ecd8]">
           <code
@@ -3535,20 +3562,21 @@ function GardenDetail({
   const accentColor = garden.accentColor;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        onClick={onClose}
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        aria-hidden
+        className="absolute inset-0 z-0 bg-black/40 backdrop-blur-sm pointer-events-none"
       />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="relative w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] my-4 sm:my-0 flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+        className="relative z-10 w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] my-4 sm:my-0 flex flex-col"
       >
         <button
           onClick={onClose}

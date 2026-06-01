@@ -24,10 +24,28 @@ body {
 }
 
 .parchment {
+  position: relative;
   background-color: var(--paper-bg);
-  background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
   border: 1px solid var(--paper-border);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1), inset 0 0 40px rgba(139, 69, 19, 0.05);
+  isolation: isolate;
+}
+
+/* Texture behind content; pointer-events-none so touches reach selectable text on iPad */
+.parchment::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+  border-radius: inherit;
+}
+
+[data-overlay-scroll="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+  touch-action: pan-y;
 }
 
 .ink-border {
