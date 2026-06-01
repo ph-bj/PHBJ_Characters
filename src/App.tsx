@@ -2566,9 +2566,21 @@ function ChapterReader({
   onSelectCharacter: (character: Character) => void;
   onSelectLacuna: () => void;
 }) {
+  const [chapterSearchInput, setChapterSearchInput] = useState('');
   const [chapterSearchQuery, setChapterSearchQuery] = useState('');
   const [chapterSearchMatchIndex, setChapterSearchMatchIndex] = useState(0);
   const chapterSearchMatchCounter = useRef(0);
+
+  const runChapterSearch = () => {
+    setChapterSearchQuery(chapterSearchInput.trim());
+    setChapterSearchMatchIndex(0);
+  };
+
+  const clearChapterSearch = () => {
+    setChapterSearchInput('');
+    setChapterSearchQuery('');
+    setChapterSearchMatchIndex(0);
+  };
 
   const chapterSummary = useMemo(
     () => chapterSummaries[chapter.id] ?? null,
@@ -2652,13 +2664,8 @@ function ChapterReader({
   }, [chapter.id, chapter.content, chapterSummary, chapterSearchQuery]);
 
   useEffect(() => {
-    setChapterSearchQuery('');
-    setChapterSearchMatchIndex(0);
+    clearChapterSearch();
   }, [chapter.id]);
-
-  useEffect(() => {
-    setChapterSearchMatchIndex(0);
-  }, [chapterSearchQuery]);
 
   useEffect(() => {
     if (chapterSearchMatchCount === 0) return;
@@ -2790,29 +2797,32 @@ function ChapterReader({
             </button>
           </div>
           <div className="flex items-center gap-2">
-            <div className="relative flex-1 min-w-0">
-              <Search
-                className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#5d5048] pointer-events-none"
-                size={14}
-              />
-              <input
-                type="search"
-                value={chapterSearchQuery}
-                onChange={(e) => setChapterSearchQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    e.preventDefault();
-                    goToAdjacentSearchMatch(e.shiftKey ? -1 : 1);
-                  }
-                  if (e.key === 'Escape') {
-                    setChapterSearchQuery('');
-                  }
-                }}
-                placeholder={lang === 'zh' ? '搜索本章…' : 'Search in chapter…'}
-                className="w-full pl-8 pr-3 py-1.5 text-sm bg-[#faf6ee] border border-[#d4c5a9] rounded-sm text-[#2c2420] placeholder:text-[#5d5048]/70 focus:outline-none focus:ring-1 focus:ring-[#8b4513]/40 font-hans"
-                aria-label={lang === 'zh' ? '搜索本章' : 'Search in chapter'}
-              />
-            </div>
+            <input
+              type="text"
+              value={chapterSearchInput}
+              onChange={(e) => setChapterSearchInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  runChapterSearch();
+                }
+                if (e.key === 'Escape') {
+                  clearChapterSearch();
+                }
+              }}
+              placeholder={lang === 'zh' ? '搜索本章…' : 'Search in chapter…'}
+              className="flex-1 min-w-0 px-3 py-1.5 text-sm bg-[#faf6ee] border border-[#d4c5a9] rounded-sm text-[#2c2420] placeholder:text-[#5d5048]/70 focus:outline-none focus:ring-1 focus:ring-[#8b4513]/40 font-hans"
+              aria-label={lang === 'zh' ? '搜索本章' : 'Search in chapter'}
+            />
+            <button
+              type="button"
+              onClick={runChapterSearch}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[#8b4513]/40 bg-[#8b4513]/10 text-[#8b4513] hover:bg-[#8b4513]/20 transition-colors shrink-0 text-[11px] font-bold uppercase tracking-wider"
+              aria-label={lang === 'zh' ? '搜索' : 'Search'}
+            >
+              <Search size={14} />
+              <span className="hidden sm:inline font-sans">{lang === 'zh' ? '搜索' : 'Search'}</span>
+            </button>
             {chapterSearchQuery.trim() && (
               <div className="flex items-center gap-1 shrink-0">
                 <span className="text-[10px] tabular-nums text-[#5d5048] font-sans min-w-[2.5rem] text-center">
