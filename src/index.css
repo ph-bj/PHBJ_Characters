@@ -17,7 +17,7 @@
 body {
   background-color: #e5dcc3;
   background-image: 
-    url("https://www.transparenttextures.com/patterns/parchment.png"),
+    url("./assets/patterns/parchment.png"),
     radial-gradient(circle at center, #f4ecd8 0%, #e5dcc3 100%);
   color: var(--ink-main);
   font-family: var(--font-serif);
@@ -38,7 +38,7 @@ body {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+  background-image: url("./assets/patterns/parchment.png");
   border-radius: inherit;
 }
 
