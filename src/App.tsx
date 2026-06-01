@@ -585,7 +585,7 @@ function NavMenuDropdown({
     if (!trigger) return;
 
     const rect = trigger.getBoundingClientRect();
-    const width = window.matchMedia('(min-width: 768px)').matches ? 320 : 288;
+    const width = window.matchMedia('(min-width: 768px)').matches ? 480 : 288;
     const left = Math.min(Math.max(8, rect.right - width), window.innerWidth - width - 8);
 
     setMenuPosition({
@@ -660,27 +660,27 @@ function NavMenuDropdown({
           <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-2 px-1">
             {lang === 'zh' ? '快速前往' : 'Go To'}
           </p>
-          <div className="grid grid-cols-1 gap-1 mb-3">
+          <div className="grid grid-cols-3 gap-1.5 mb-3">
             {sections.map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
                 type="button"
                 role="menuitem"
                 onClick={() => navigate(() => onScrollToSection(id))}
-                className="w-full text-left rounded-sm border border-[#d4c5a9]/70 bg-white/15 hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all px-3 py-2 flex items-center gap-2.5 min-w-0"
+                className="w-full rounded-sm border border-[#d4c5a9]/70 bg-white/15 hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all px-2 py-2 flex flex-col items-center justify-center gap-1 min-w-0 text-center"
               >
                 <Icon size={15} className="text-[#8b4513] shrink-0" />
-                <span className="text-[11px] font-bold uppercase tracking-wide text-[#2c2420] leading-tight truncate">{label}</span>
+                <span className="text-[10px] font-bold uppercase tracking-wide text-[#2c2420] leading-tight line-clamp-2">{label}</span>
               </button>
             ))}
           </div>
 
-          <div className="grid grid-cols-2 gap-1.5 pt-2 border-t border-[#d4c5a9]">
+          <div className="grid grid-cols-3 gap-1.5 pt-2 border-t border-[#d4c5a9]">
             <button
               type="button"
               role="menuitem"
               onClick={() => navigate(onOpenContents)}
-              className="min-h-10 rounded-sm bg-[#8b4513] text-[#f4ecd8] px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
+              className="col-span-2 min-h-10 rounded-sm bg-[#8b4513] text-[#f4ecd8] px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
             >
               <Book size={13} />
               {lang === 'zh' ? '目录' : 'Contents'}
