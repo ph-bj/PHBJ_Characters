@@ -1628,7 +1628,9 @@ export default function App() {
                   >
                     <Leaf size={10} className="text-[#4d6a3a]/50 group-hover:text-[#4d6a3a] shrink-0" />
                     <div className="min-w-0">
-                      <span className="text-[12px] font-hans font-bold text-[#2c2420] block leading-tight">{g.name}</span>
+                      <span className="text-[12px] font-hans font-bold text-[#2c2420] block leading-tight">
+                        {lang === 'zh' ? g.name : g.nameEn}
+                      </span>
                       <span className="text-[9px] text-[#5d5048] leading-tight">{lang === 'zh' ? g.location : g.locationEn}</span>
                     </div>
                   </button>
@@ -1646,7 +1648,7 @@ export default function App() {
                     onClick={() => setSelectedGarden(g)}
                     className="text-[10px] px-2 py-1 rounded-sm border border-[#d4c5a9]/60 hover:border-[#8b4513]/40 bg-white/20 hover:bg-[#8b4513]/5 text-[#5d5048] hover:text-[#8b4513] transition-all font-hans leading-tight"
                   >
-                    {g.name}
+                    {lang === 'zh' ? g.name : g.nameEn}
                   </button>
                 ))}
               </div>
@@ -1662,7 +1664,7 @@ export default function App() {
                     onClick={() => setSelectedGarden(g)}
                     className="text-[10px] px-2 py-1 rounded-sm border border-[#d4c5a9]/60 hover:border-[#8b4513]/40 bg-white/20 hover:bg-[#8b4513]/5 text-[#5d5048] hover:text-[#8b4513] transition-all font-hans leading-tight"
                   >
-                    {g.name}
+                    {lang === 'zh' ? g.name : g.nameEn}
                   </button>
                 ))}
               </div>
@@ -3755,12 +3757,16 @@ function GardenDetail({
                     onClick={() => onSelectGarden(parent)}
                     className="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm border border-[#d4c5a9] text-[#5d5048] hover:text-[#8b4513] hover:border-[#8b4513]/40 transition-colors"
                   >
-                    ↑ {parent.name}
+                    ↑ {lang === 'zh' ? parent.name : parent.nameEn}
                   </button>
                 )}
               </div>
-              <h2 className="text-3xl font-bold text-[#2c2420] font-hans leading-tight">{garden.name}</h2>
-              <p className="text-sm text-[#5d5048] mt-0.5 italic">{garden.pinyin} · {garden.nameEn}</p>
+              <h2 className="text-3xl font-bold text-[#2c2420] font-hans leading-tight">
+                {lang === 'zh' ? garden.name : garden.nameEn}
+              </h2>
+              <p className="text-sm text-[#5d5048] mt-0.5 italic">
+                {lang === 'zh' ? `${garden.pinyin} · ${garden.nameEn}` : garden.pinyin}
+              </p>
             </div>
           </div>
 
@@ -3790,10 +3796,14 @@ function GardenDetail({
               {lang === 'zh' ? '园林志 · 英文' : 'Garden Record · English'}
             </p>
             <p className="text-[12px] leading-relaxed text-[#2c2420]">{garden.description}</p>
-            <p className="text-[9px] font-bold uppercase tracking-widest text-[#5d5048] border-b border-[#d4c5a9] pb-2 mt-2">
-              园林志 · 中文
-            </p>
-            <p className="text-[12px] leading-relaxed text-[#2c2420] font-hans">{garden.descriptionZh}</p>
+            {lang === 'zh' && (
+              <>
+                <p className="text-[9px] font-bold uppercase tracking-widest text-[#5d5048] border-b border-[#d4c5a9] pb-2 mt-2">
+                  园林志 · 中文
+                </p>
+                <p className="text-[12px] leading-relaxed text-[#2c2420] font-hans">{garden.descriptionZh}</p>
+              </>
+            )}
           </div>
 
           {/* Sub-locations */}
@@ -3810,7 +3820,7 @@ function GardenDetail({
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[#d4c5a9]/60 hover:border-[#8b4513]/40 hover:bg-[#8b4513]/5 text-[#2c2420] hover:text-[#8b4513] transition-all text-[11px] font-hans"
                   >
                     <Home size={10} className="shrink-0" />
-                    {child.name}
+                    {lang === 'zh' ? child.name : child.nameEn}
                     <span className="text-[9px] text-[#5d5048]">· {child.pinyin}</span>
                   </button>
                 ))}
