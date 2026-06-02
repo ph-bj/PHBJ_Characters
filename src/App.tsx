@@ -464,6 +464,37 @@ function isChineseWorkAnnotationToken(part: string): boolean {
   return /^《[^》\n]+》$/.test(part);
 }
 
+const CHINESE_WORK_BY_ENGLISH_LOWER: Record<string, string> = Object.fromEntries(
+  Object.entries(WORK_ENGLISH_BY_CHINESE).map(([zh, en]) => [en.toLowerCase(), zh]),
+);
+
+function workKeyFromAnnotationToken(part: string): string | null {
+  const bookMatch = part.match(/^《([^》\n]+)》$/);
+  if (bookMatch) return bookMatch[1];
+
+  const starMatch = part.match(/^\*(?!\s)([^*]+)(?<!\s)\*$/);
+  if (starMatch) {
+    const inner = starMatch[1];
+    if (/[一-鿿]/.test(inner)) {
+      return inner.replace(/《|》/g, '');
+    }
+    return CHINESE_WORK_BY_ENGLISH_LOWER[inner.toLowerCase()] ?? inner;
+  }
+
+  if (
+    ENGLISH_WORK_TITLE_SET.has(part) ||
+    ENGLISH_WORK_TITLE_LOWERCASE.has(part.toLowerCase())
+  ) {
+    return CHINESE_WORK_BY_ENGLISH_LOWER[part.toLowerCase()] ?? null;
+  }
+
+  return null;
+}
+
+function chapterWorkAnchorId(chapterId: number, workKey: string): string {
+  return `chapter-work-${chapterId}-${encodeURIComponent(workKey)}`;
+}
+
 function getSegmentChipLabel(
   seg: { token: string; char: Character; chipLabel: string },
   showBilingual: boolean,
@@ -2679,6 +2710,7 @@ function ChapterReader({
   const [chapterSearchQuery, setChapterSearchQuery] = useState('');
   const [chapterSearchMatchIndex, setChapterSearchMatchIndex] = useState(0);
   const chapterSearchMatchCounter = useRef(0);
+  const chapterWorkAnchorIdsRef = useRef<Map<string, string>>(new Map());
 
   const runChapterSearch = () => {
     setChapterSearchQuery(chapterSearchInput.trim());
@@ -2708,11 +2740,17 @@ function ChapterReader({
     return unique.map((zhTagged) => {
       const key = zhTagged.replace(/《|》/g, '');
       return {
+        key,
         zh: zhTagged,
         en: WORK_ENGLISH_BY_CHINESE[key] ?? zhTagged,
       };
     });
   }, [chapter.id, chapter.content]);
+
+  const scrollToChapterWork = (workKey: string) => {
+    const id = chapterWorkAnchorIdsRef.current.get(workKey);
+    document.getElementById(id ?? '')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
 
   const tokenMap = useMemo<[string, Character][]>(() => {
     const entries: [string, Character][] = [];
@@ -2842,9 +2880,16 @@ function ChapterReader({
             const displayText = /^\*(?!\s)[^*]+(?<!\s)\*$/.test(part)
               ? part.slice(1, -1)
               : part;
+            const workKey = workKeyFromAnnotationToken(part);
+            let anchorId: string | undefined;
+            if (workKey && !chapterWorkAnchorIdsRef.current.has(workKey)) {
+              anchorId = chapterWorkAnchorId(chapter.id, workKey);
+              chapterWorkAnchorIdsRef.current.set(workKey, anchorId);
+            }
             return (
               <span
                 key={`${i}-${j}`}
+                id={anchorId}
                 className={`glowing-work${isChineseWorkAnnotationToken(part) ? '' : ' italic'}`}
               >
                 {highlightPlain(displayText)}
@@ -2875,6 +2920,7 @@ function ChapterReader({
   };
 
   chapterSearchMatchCounter.current = 0;
+  chapterWorkAnchorIdsRef.current = new Map();
 
   return (
     <div
@@ -3077,12 +3123,15 @@ function ChapterReader({
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {chapterCitedWorks.map((work) => (
-                    <span
+                    <button
                       key={work.zh}
-                      className="px-2 py-1 text-[11px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] font-hans"
+                      type="button"
+                      onClick={() => scrollToChapterWork(work.key)}
+                      title={lang === 'zh' ? '跳至文中引用处' : 'Jump to mention in chapter'}
+                      className="px-2 py-1 text-[11px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] font-hans cursor-pointer transition-colors hover:bg-[#d4c5a9]/50 hover:border-[#8b4513]/40"
                     >
                       {lang === 'en' ? work.en : work.zh}
-                    </span>
+                    </button>
                   ))}
                 </div>
               </div>
