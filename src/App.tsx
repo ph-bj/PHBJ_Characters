@@ -1352,7 +1352,7 @@ export default function App() {
                           onClick={() => setSelectedCharacter(c)}
                           className="text-[9px] px-1.5 py-0.5 bg-black/5 hover:bg-[#8b4513]/15 text-[#5d5048] hover:text-[#8b4513] rounded-sm transition-colors font-sans leading-tight"
                         >
-                          {c.name.split(' ')[0]}
+                          {lang === 'en' ? c.name.split(' ').slice(1).join(' ') || c.name : c.name.split(' ')[0]}
                         </button>
                       ))}
                     </div>
