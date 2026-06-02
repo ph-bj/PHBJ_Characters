@@ -29,6 +29,24 @@ const ROLE_LABELS: Record<string, { en: string, zh: string }> = {
   deceased: { en: 'Deceased', zh: '已故' }
 };
 
+function getChineseName(fullName: string): string {
+  const match = fullName.match(/^[\u3400-\u9fff（）·・、，。？！《》「」『』“”‘’\s]+/);
+  return match ? match[0].trim() : fullName;
+}
+
+function getEnglishOrRomanizedName(fullName: string): string {
+  const chineseName = getChineseName(fullName);
+  const remainder = fullName.slice(chineseName.length).trim();
+  return remainder || fullName;
+}
+
+function getNodeLabel(fullName: string, lang: 'en' | 'zh'): string {
+  const display = lang === 'zh' ? getChineseName(fullName) : getEnglishOrRomanizedName(fullName);
+  if (lang === 'en') return display;
+  // Keep Chinese labels compact in the graph.
+  return display.split(/\s+/)[0] || display;
+}
+
 interface NetworkGraphProps {
   characters: Character[];
   relationships: Relationship[];
@@ -279,7 +297,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .attr("font-size", "9px")
       .attr("font-weight", "bold")
       .attr("fill", (d: any) => ROLE_COLORS[d.role] || ROLE_COLORS.Other)
-      .text((d: any) => d.name.split(' ')[0]);
+      .text((d: any) => getNodeLabel(d.name, lang));
 
     const getNodeId = (endpoint: any) =>
       typeof endpoint === 'string' ? endpoint : endpoint?.id;
