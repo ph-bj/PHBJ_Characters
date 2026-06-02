@@ -243,9 +243,13 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .data(links)
       .join("text")
       .attr("font-size", "8px")
+      .attr("font-weight", "700")
       .attr("fill", "#5d5048")
       .attr("text-anchor", "middle")
-      .attr("dy", -5)
+      .attr("dy", -8)
+      .attr("paint-order", "stroke")
+      .attr("stroke", "#f4ecd8")
+      .attr("stroke-width", 1.5)
       .text((d: any) => lang === 'zh' ? d.typeZh : d.type);
 
     const node = g.append("g")
