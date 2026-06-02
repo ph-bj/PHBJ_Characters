@@ -1966,7 +1966,7 @@ export default function App() {
                         title={lang === 'zh' ? `${location.name}` : location.nameEn}
                       >
                         <p className="text-[11px] font-bold text-[#2c2420] font-hans leading-tight group-hover:text-[#8b4513] transition-colors whitespace-nowrap">
-                          {location.name}
+                          {lang === 'zh' ? location.name : location.nameEn}
                         </p>
                       </button>
                     ))}
