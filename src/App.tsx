@@ -140,6 +140,20 @@ const chapterTitleTranslations: Partial<Record<number, string>> = {
 
 const translationMap = chapterTranslationsById;
 import { Character, Chapter } from './types';
+
+function getChapterReaderTitle(chapter: Chapter, lang: 'en' | 'zh'): string {
+  if (lang === 'zh') return chapter.title;
+  if (chapter.id === -1) return 'Table of Contents';
+  if (chapter.id === 0) return 'Preface';
+  const en = chapterTitleTranslations[chapter.id];
+  return en ? `Ch. ${chapter.id} — ${en}` : `Ch. ${chapter.id} — ${chapter.title}`;
+}
+
+function getChapterReaderSubtitle(chapter: Chapter, lang: 'en' | 'zh'): string | null {
+  if (chapter.id <= 0) return lang === 'en' ? chapter.title : null;
+  if (lang === 'en') return chapter.title;
+  return chapterTitleTranslations[chapter.id] ?? null;
+}
 import NetworkGraph from './components/NetworkGraph';
 
 const ROLE_ORDER = ['performer', 'scholar', 'villain', 'female', 'official', 'servant', 'deceased', 'minor', 'Other'];
@@ -2972,8 +2986,8 @@ function ChapterReader({
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-3 min-w-0 flex-1">
               <Book className="text-[#8b4513] shrink-0" size={20} />
-              <h2 className="text-lg sm:text-xl font-bold text-[#2c2420] font-hans line-clamp-1">
-                {chapter.title}
+              <h2 className={`text-lg sm:text-xl font-bold text-[#2c2420] line-clamp-2 ${lang === 'en' ? 'font-sans' : 'font-hans'}`}>
+                {getChapterReaderTitle(chapter, lang)}
               </h2>
             </div>
             <button
@@ -3047,10 +3061,12 @@ function ChapterReader({
           <div className="max-w-2xl mx-auto space-y-6">
             <div className="text-center mb-12">
               <div className="w-16 h-1 bg-[#8b4513]/20 mx-auto mb-6" />
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 font-hans">{chapter.title}</h3>
-              {chapter.id > 0 && chapterTitleTranslations[chapter.id] && (
-                <p className="text-sm sm:text-base text-[#4a3f38] max-w-3xl mx-auto leading-relaxed font-sans">
-                  {chapterTitleTranslations[chapter.id]}
+              <h3 className={`text-2xl sm:text-3xl font-bold mb-4 max-w-3xl mx-auto leading-relaxed ${lang === 'en' ? 'font-sans' : 'font-hans'}`}>
+                {getChapterReaderTitle(chapter, lang)}
+              </h3>
+              {getChapterReaderSubtitle(chapter, lang) && (
+                <p className={`text-sm sm:text-base text-[#4a3f38] max-w-3xl mx-auto leading-relaxed mb-4 ${lang === 'en' ? 'font-hans' : 'font-sans'}`}>
+                  {getChapterReaderSubtitle(chapter, lang)}
                 </p>
               )}
               <div className="text-[10px] uppercase tracking-[0.5em] text-[#5d5048] opacity-60">
