@@ -3122,17 +3122,25 @@ function ChapterReader({
                   {lang === 'en' ? 'Cited Books / Works' : '本回引书与作品'}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {chapterCitedWorks.map((work) => (
-                    <button
-                      key={work.zh}
-                      type="button"
-                      onClick={() => scrollToChapterWork(work.key)}
-                      title={lang === 'zh' ? '跳至文中引用处' : 'Jump to mention in chapter'}
-                      className="px-2 py-1 text-[11px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] font-hans cursor-pointer transition-colors hover:bg-[#d4c5a9]/50 hover:border-[#8b4513]/40"
-                    >
-                      {lang === 'en' ? work.en : work.zh}
-                    </button>
-                  ))}
+                  {chapterCitedWorks.map((work) => {
+                    const englishTitle = WORK_ENGLISH_BY_CHINESE[work.key];
+                    return (
+                      <button
+                        key={work.zh}
+                        type="button"
+                        onClick={() => scrollToChapterWork(work.key)}
+                        title={lang === 'zh' ? '跳至文中引用处' : 'Jump to mention in chapter'}
+                        className="flex flex-col items-start gap-0.5 px-2.5 py-1.5 text-left rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] cursor-pointer transition-colors hover:bg-[#d4c5a9]/50 hover:border-[#8b4513]/40"
+                      >
+                        <span className="text-[11px] font-hans leading-tight">{work.zh}</span>
+                        {englishTitle && (
+                          <span className="text-[10px] font-sans italic leading-tight text-[#5d5048]">
+                            {englishTitle}
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             )}
