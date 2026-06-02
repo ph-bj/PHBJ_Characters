@@ -576,6 +576,16 @@ export const ENGLISH_WORK_TITLES = [
 
 export const ENGLISH_WORK_TITLE_SET = new Set<string>(ENGLISH_WORK_TITLES);
 
+/**
+ * Documented false positives when English titles are matched as bare substrings.
+ * Chapter English uses isolated match `(?<!\w)title(?!\w)` (longest titles first).
+ */
+export const ENGLISH_WORK_WRONG_SUBSTRING_MATCHES = [
+  { title: 'Odes', exampleWord: 'modesty', note: 'Ch.1: "humble modesty" must not highlight 雅' },
+  { title: 'Odes', exampleWord: 'modestly', note: 'Ch.59 and elsewhere' },
+  { title: 'Odes', exampleWord: 'false modesty', note: 'Ch.60' },
+] as const;
+
 /** Exact English phrasing in aligned translations, keyed by 《…》 inner text. */
 export const WORK_ENGLISH_BY_CHINESE: Record<string, string> = {
   "哀江头": "Lament on the Riverbank",

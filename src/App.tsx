@@ -61,7 +61,15 @@ function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-const ENGLISH_WORK_SPLIT_PATTERN = ENGLISH_WORK_TITLES.map(escapeRegExp).join('|');
+/** Isolated ASCII match so short titles (e.g. "Odes") do not match inside English words ("modesty"). */
+function englishWorkTitleRegexFragment(title: string): string {
+  return `(?<!\\w)${escapeRegExp(title)}(?!\\w)`;
+}
+
+const ENGLISH_WORK_SPLIT_PATTERN = [...ENGLISH_WORK_TITLES]
+  .sort((a, b) => b.length - a.length)
+  .map(englishWorkTitleRegexFragment)
+  .join('|');
 
 const CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX = new RegExp(
   ENGLISH_WORK_SPLIT_PATTERN.length > 0
