@@ -3144,11 +3144,24 @@ function ChapterReader({
                     >
                       {i + 1}
                     </span>
-                    <p className="text-base font-hans text-[#2c2420] leading-relaxed">{renderAnnotated(para)}</p>
-                    {translationMap[chapter.id][i] && (
-                      <p className="text-sm sm:text-base text-[#4a3f38] mt-3 leading-7 font-sans whitespace-pre-line">
-                        {renderAnnotated(translationMap[chapter.id][i])}
-                      </p>
+                    {lang === 'en' && translationMap[chapter.id][i] ? (
+                      <>
+                        <p className="text-sm sm:text-base text-[#4a3f38] leading-7 font-sans whitespace-pre-line">
+                          {renderAnnotated(translationMap[chapter.id][i])}
+                        </p>
+                        <p className="text-base font-hans text-[#2c2420] leading-relaxed mt-3">
+                          {renderAnnotated(para)}
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-base font-hans text-[#2c2420] leading-relaxed">{renderAnnotated(para)}</p>
+                        {translationMap[chapter.id][i] && (
+                          <p className="text-sm sm:text-base text-[#4a3f38] mt-3 leading-7 font-sans whitespace-pre-line">
+                            {renderAnnotated(translationMap[chapter.id][i])}
+                          </p>
+                        )}
+                      </>
                     )}
                   </div>
                 ))}
