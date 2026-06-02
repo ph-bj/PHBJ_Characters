@@ -454,7 +454,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       data-network-graph="true"
       className={
         isFullscreen
-          ? "fixed inset-0 z-[100] w-full h-[100dvh] max-h-[100dvh] parchment overflow-hidden pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]"
+          ? "!fixed inset-0 z-[100] w-full h-[100dvh] max-h-[100dvh] parchment overflow-hidden pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]"
           : "w-full h-[400px] sm:h-[520px] md:h-[580px] lg:h-[650px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative"
       }
     >
