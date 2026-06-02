@@ -29,19 +29,35 @@ const ROLE_LABELS: Record<string, { en: string, zh: string }> = {
   deceased: { en: 'Deceased', zh: '已故' }
 };
 
+const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
+  'char-87': 'Madam Lu (Wang household)',
+  'char-96': 'Madam Lu (Sun household)',
+  'char-99': 'Miss Wang',
+  'char-108': 'Page Boy',
+  'char-109': 'Maidservant (Gatekeeper)',
+  'char-110': 'Household Maid (Clothing)',
+  'char-111': 'Young Maid (Ziyu Study)',
+  'char-116': 'Escort Matron (Ba household)',
+  'char-117': 'Nursemaid (Ba Laifeng)',
+  'char-118': 'Attendant (Fu household)',
+  'char-120': 'Retinue (Hua household, ~20-30 people)',
+};
+
 function getChineseName(fullName: string): string {
   const match = fullName.match(/^[\u3400-\u9fff（）·・、，。？！《》「」『』“”‘’\s]+/);
   return match ? match[0].trim() : fullName;
 }
 
-function getEnglishOrRomanizedName(fullName: string): string {
+function getEnglishOrRomanizedName(id: string, fullName: string): string {
   const chineseName = getChineseName(fullName);
   const remainder = fullName.slice(chineseName.length).trim();
-  return remainder || fullName;
+  return remainder || ENGLISH_CHARACTER_NAME_FALLBACKS[id] || fullName;
 }
 
-function getNodeLabel(fullName: string, lang: 'en' | 'zh'): string {
-  const display = lang === 'zh' ? getChineseName(fullName) : getEnglishOrRomanizedName(fullName);
+function getNodeLabel(node: { id: string; name: string }, lang: 'en' | 'zh'): string {
+  const display = lang === 'zh'
+    ? getChineseName(node.name)
+    : getEnglishOrRomanizedName(node.id, node.name);
   if (lang === 'en') return display;
   // Keep Chinese labels compact in the graph.
   return display.split(/\s+/)[0] || display;
@@ -301,7 +317,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .attr("font-size", "9px")
       .attr("font-weight", "bold")
       .attr("fill", (d: any) => ROLE_COLORS[d.role] || ROLE_COLORS.Other)
-      .text((d: any) => getNodeLabel(d.name, lang));
+      .text((d: any) => getNodeLabel(d, lang));
 
     const getNodeId = (endpoint: any) =>
       typeof endpoint === 'string' ? endpoint : endpoint?.id;
