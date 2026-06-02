@@ -507,6 +507,30 @@ function getSegmentChipLabel(
     : seg.char.name.slice(chineseName.length).trim();
 }
 
+const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
+  'char-87': 'Madam Lu (Wang household)',
+  'char-96': 'Madam Lu (Sun household)',
+  'char-99': 'Miss Wang',
+  'char-108': 'Page Boy',
+  'char-109': 'Maidservant (Gatekeeper)',
+  'char-110': 'Household Maid (Clothing)',
+  'char-111': 'Young Maid (Ziyu Study)',
+  'char-116': 'Escort Matron (Ba household)',
+  'char-117': 'Nursemaid (Ba Laifeng)',
+  'char-118': 'Attendant (Fu household)',
+  'char-120': 'Retinue (Hua household, ~20-30 people)',
+};
+
+function getCharacterNameForLanguage(character: Character, lang: 'en' | 'zh'): string {
+  const chineseName = character.name.split(' ')[0];
+  if (lang === 'zh') return chineseName;
+
+  const pinyinOrEnglishName = character.name.slice(chineseName.length).trim();
+  if (pinyinOrEnglishName) return pinyinOrEnglishName;
+
+  return ENGLISH_CHARACTER_NAME_FALLBACKS[character.id] || character.name;
+}
+
 function countSearchMatchesInRenderedText(
   text: string,
   query: string,
@@ -1352,7 +1376,7 @@ export default function App() {
                           onClick={() => setSelectedCharacter(c)}
                           className="text-[9px] px-1.5 py-0.5 bg-black/5 hover:bg-[#8b4513]/15 text-[#5d5048] hover:text-[#8b4513] rounded-sm transition-colors font-sans leading-tight"
                         >
-                          {lang === 'en' ? c.name.split(' ').slice(1).join(' ') || c.name : c.name.split(' ')[0]}
+                          {getCharacterNameForLanguage(c, lang)}
                         </button>
                       ))}
                     </div>
@@ -1384,7 +1408,7 @@ export default function App() {
                           onClick={() => setSelectedCharacter(c)}
                           className="text-[9px] px-1.5 py-0.5 bg-black/5 hover:bg-[#8b4513]/15 text-[#5d5048] hover:text-[#8b4513] rounded-sm transition-colors font-sans leading-tight"
                         >
-                          {c.name.split(' ')[0]}
+                          {getCharacterNameForLanguage(c, lang)}
                         </button>
                       ))}
                     </div>
