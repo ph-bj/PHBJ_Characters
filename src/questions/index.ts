@@ -27,6 +27,7 @@ import { question24 } from "./data/question-24";
 import { question25 } from "./data/question-25";
 import { question26 } from "./data/question-26";
 import { question27 } from "./data/question-27";
+import { question28 } from "./data/question-28";
 
 export type { Question } from "./types";
 
@@ -59,4 +60,5 @@ export const questions: Question[] = [
   question25,
   question26,
   question27,
+  question28,
 ];
