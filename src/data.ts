@@ -82,7 +82,6 @@ char-80	白姨奶奶 Bái Yínǎinai	—	—	—	minor	ch.3	Fu Lun's other quarr
 char-81	阿呆 Ā Dāi	—	—	—	minor	ch.23	Simple-minded victim who is cruelly harmed by Xi Shiyi's men in ch.23	愚笨的受害者；第23回遭奚十一手下残害。
 char-82	劣幕 Liè Mù	—	—	—	minor	ch.23	Corrupt private secretary encountered riding the night-soil cart; describes his dissolute schemes (ch.23)	腐败的幕友；出现在粪车上；描述其放荡阴谋。
 char-83	苗先生 Miáo Xiānsheng	—	—	—	minor	ch.42	Su Huifang's widowed aunt/guardian's male advisor; extorts money for Suifang's redemption in ch.42	苏蕙芳婶母的谋士；在赎身时敲诈钱财。
-char-84	何三 Hé Sān	—	—	—	minor	ch.18	Dissolute patron type in ch.18; teaches tricks to exploit performers	放荡的赞助人；教授剥削伶人的技巧。
 char-85	王大夫 Wáng Dàfū	—	—	—	minor	ch.4	Doctor who treats Sun Lianggong when the Sun household couple have a fight; mentioned by Sihui in ch.4	医生；在孙亮功夫妇吵架后为其诊治。
 char-86	颜夫人 Yán Fūrén	—	44	Jinling	female	ch.1	Wife of Mei Shixie; moral guardian of the novel; arranges Ziyu's betrothal to Wang Qionghua	梅士燮之妻；小说中的道德守护者；安排子玉与王琼华的婚事。
 char-87	陆氏夫人（王家）	—	40	—	female	ch.1	Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu	王文辉继室；王恂继母；孙家陆夫人之妹。
