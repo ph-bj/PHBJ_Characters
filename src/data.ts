@@ -80,7 +80,6 @@ char-78	华夫人 Huá Fūrén	—	—	—	minor	ch.5	"Hua Guangsu's beautiful w
 char-79	青姨奶奶 Qīng Yínǎinai	—	—	—	minor	ch.3	One of Fu Lun's two quarrelling concubines; fights with Bai Yinainai; mentioned by Rong Guan	富伦的姨太太；与白姨奶奶争吵。
 char-80	白姨奶奶 Bái Yínǎinai	—	—	—	minor	ch.3	Fu Lun's other quarrelling concubine; fights with Qing Yinainai; mentioned by Rong Guan	富伦的另一位姨太太；与青姨奶奶争吵。
 char-81	阿呆 Ā Dāi	—	—	—	minor	ch.23	Simple-minded victim who is cruelly harmed by Xi Shiyi's men in ch.23	愚笨的受害者；第23回遭奚十一手下残害。
-char-82	劣幕 Liè Mù	—	—	—	minor	ch.23	Corrupt private secretary encountered riding the night-soil cart; describes his dissolute schemes (ch.23)	腐败的幕友；出现在粪车上；描述其放荡阴谋。
 char-83	苗先生 Miáo Xiānsheng	—	—	—	minor	ch.42	Su Huifang's widowed aunt/guardian's male advisor; extorts money for Suifang's redemption in ch.42	苏蕙芳婶母的谋士；在赎身时敲诈钱财。
 char-84	何三 Hé Sān	—	—	—	minor	ch.18	Dissolute patron type in ch.18; teaches tricks to exploit performers	放荡的赞助人；教授剥削伶人的技巧。
 char-85	王大夫 Wáng Dàfū	—	—	—	minor	ch.4	Doctor who treats Sun Lianggong when the Sun household couple have a fight; mentioned by Sihui in ch.4	医生；在孙亮功夫妇吵架后为其诊治。
