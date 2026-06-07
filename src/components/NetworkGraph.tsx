@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import * as d3 from 'd3';
 import { Maximize, Minimize } from 'lucide-react';
@@ -26,7 +26,8 @@ const ROLE_LABELS: Record<string, { en: string, zh: string }> = {
   minor: { en: 'Minor', zh: '配角' },
   female: { en: 'Female', zh: '女性' },
   servant: { en: 'Servant', zh: '仆从' },
-  deceased: { en: 'Deceased', zh: '已故' }
+  deceased: { en: 'Deceased', zh: '已故' },
+  Other: { en: 'Other', zh: '其他' },
 };
 
 const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
@@ -75,6 +76,41 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [hiddenRoles, setHiddenRoles] = useState<Set<string>>(() => new Set());
+
+  const availableRoles = useMemo(() => {
+    const seen = new Set<string>();
+    characters.forEach((c) => seen.add(c.role));
+    const ordered = ROLE_ORDER.filter((role) => seen.has(role));
+    const extras = [...seen].filter((role) => !ROLE_ORDER.includes(role));
+    return [...ordered, ...extras];
+  }, [characters]);
+
+  const filteredCharacters = useMemo(
+    () => characters.filter((c) => !hiddenRoles.has(c.role)),
+    [characters, hiddenRoles]
+  );
+
+  const filteredRelationships = useMemo(() => {
+    const visibleIds = new Set(filteredCharacters.map((c) => c.id));
+    return relationships.filter((r) => visibleIds.has(r.source) && visibleIds.has(r.target));
+  }, [relationships, filteredCharacters]);
+
+  const toggleRoleFilter = (role: string) => {
+    setHiddenRoles((prev) => {
+      const next = new Set(prev);
+      if (next.has(role)) {
+        next.delete(role);
+        return next;
+      }
+      const remainingCount = characters.filter((c) => c.role !== role && !next.has(c.role)).length;
+      if (remainingCount === 0) return prev;
+      next.add(role);
+      return next;
+    });
+  };
+
+  const showAllRoles = () => setHiddenRoles(new Set());
 
   useEffect(() => {
     onFullscreenChange?.(isFullscreen);
@@ -171,8 +207,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     let { width, height } = container.getBoundingClientRect();
     const nodeRadius = 25;
 
-    const nodes = characters.map(c => ({ ...c }));
-    const links = relationships.map(r => ({ ...r }));
+    const nodes = filteredCharacters.map(c => ({ ...c }));
+    const links = filteredRelationships.map(r => ({ ...r }));
 
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove();
@@ -455,7 +491,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       window.visualViewport?.removeEventListener('resize', onVisualViewportChange);
       window.visualViewport?.removeEventListener('scroll', onVisualViewportChange);
     };
-  }, [characters, relationships, lang, isFullscreen, onNodeClick]);
+  }, [filteredCharacters, filteredRelationships, lang, isFullscreen, onNodeClick]);
 
   const toggleFullscreen = () => setIsFullscreen((current) => !current);
 
@@ -475,28 +511,55 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         </h3>
         <p className="text-[10px] text-[#5d5048] italic">
           {lang === 'en'
-            ? 'Drag nodes to explore · Double-click to open profile'
-            : '拖动节点探索关系 · 双击打开人物详情'}
+            ? 'Drag nodes · Double-click profile · Click legend to filter'
+            : '拖动节点 · 双击打开详情 · 点击图例筛选角色'}
         </p>
       </div>
-      <div className="absolute top-4 right-4 z-10 bg-[#f4ecd8]/80 p-2 rounded border border-[#d4c5a9] backdrop-blur-sm max-w-[120px] md:max-w-[160px] lg:max-w-none pointer-events-none">
+      <div className="absolute top-4 right-4 z-10 bg-[#f4ecd8]/90 p-2 rounded border border-[#d4c5a9] backdrop-blur-sm max-w-[120px] md:max-w-[160px] lg:max-w-none">
+        {hiddenRoles.size > 0 && (
+          <button
+            type="button"
+            onClick={showAllRoles}
+            className="mb-1.5 w-full text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[#8b4513] hover:text-[#2c2420] transition-colors touch-manipulation"
+          >
+            {lang === 'en' ? 'Show all' : '显示全部'}
+          </button>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-3 gap-y-1">
-          {ROLE_ORDER.map((role) => {
+          {availableRoles.map((role) => {
             const labels = ROLE_LABELS[role];
-            if (!labels) return null;
+            const isVisible = !hiddenRoles.has(role);
+            const color = ROLE_COLORS[role] || ROLE_COLORS.Other;
             return (
-            <div key={role} className="flex items-center gap-2">
-              <div 
-                className="w-2 h-2 sm:w-3 sm:h-3 rounded-full border"
-                style={{ 
-                  backgroundColor: `${ROLE_COLORS[role]}22`,
-                  borderColor: ROLE_COLORS[role]
-                }}
-              />
-              <span className="text-[8px] sm:text-[10px] font-medium text-[#5d5048] truncate">
-                {lang === 'en' ? labels.en : labels.zh}
-              </span>
-            </div>
+              <button
+                key={role}
+                type="button"
+                onClick={() => toggleRoleFilter(role)}
+                aria-pressed={isVisible}
+                title={
+                  isVisible
+                    ? (lang === 'en' ? `Hide ${labels?.en ?? role}` : `隐藏${labels?.zh ?? role}`)
+                    : (lang === 'en' ? `Show ${labels?.en ?? role}` : `显示${labels?.zh ?? role}`)
+                }
+                className={`flex items-center gap-2 text-left rounded px-0.5 py-0.5 transition-all touch-manipulation ${
+                  isVisible ? 'opacity-100' : 'opacity-35'
+                } hover:opacity-100`}
+              >
+                <div
+                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full border shrink-0 ${isVisible ? '' : 'border-dashed'}`}
+                  style={{
+                    backgroundColor: isVisible ? `${color}22` : 'transparent',
+                    borderColor: color,
+                  }}
+                />
+                <span
+                  className={`text-[8px] sm:text-[10px] font-medium truncate ${
+                    isVisible ? 'text-[#5d5048]' : 'text-[#5d5048]/60 line-through'
+                  }`}
+                >
+                  {lang === 'en' ? (labels?.en ?? role) : (labels?.zh ?? role)}
+                </span>
+              </button>
             );
           })}
         </div>
