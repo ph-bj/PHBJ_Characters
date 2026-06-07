@@ -311,22 +311,46 @@ const baseRelationships: Relationship[] = [
 ];
 
 const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
-  const [id, name, alias, age, originRaw, role, chapter, description, descriptionZh] = line.split('\t');
+  const [id, nameRaw, alias, age, originRaw, roleRaw, chapter, description, descriptionZh] = line.split('\t');
   const origin = originRaw?.trim().replace(/^"(.*)"$/, '$1') || '—';
+  const name = nameRaw?.trim() || 'Unknown';
+  const role = roleRaw?.trim() || 'Other';
+
+  let isFemale = false;
+  if (role === 'female') {
+    isFemale = true;
+  }
+  const femaleIndicators = ["夫人", "氏", "奶奶", "姐", "娘", "姑", "婆", "姑娘", "母", "妻", "媳妇", "丫鬟", "女"];
+  for (const fem of femaleIndicators) {
+    if (name.includes(fem)) {
+      isFemale = true;
+    }
+  }
+  const specificFemales = ["苏浣香", "浣兰", "吴紫烟", "蓉华", "王琼华", "佩秋", "卓天香", "红雪", "红香", "花珠", "画珠", "明珠", "荷珠", "蕊珠"];
+  for (const femName of specificFemales) {
+    if (name.includes(femName)) {
+      isFemale = true;
+    }
+  }
+
+  const gender = isFemale ? 'Female' : 'Male';
+  const genderZh = isFemale ? '女' : '男';
   
   return {
     id: id?.trim() || 'unknown',
-    name: name?.trim() || 'Unknown',
+    name,
     alias: alias?.trim() || '—',
     age: age?.trim() || '—',
     origin,
     originZh: ORIGIN_MAP[origin] || origin,
-    role: role?.trim() || 'Other',
-    roleZh: ROLE_MAP[role?.trim() || 'Other'] || role?.trim() || '其他',
+    role,
+    roleZh: ROLE_MAP[role] || role || '其他',
     chapter: chapter?.trim() || '—',
     chapterNum: parseInt(chapter?.match(/\d+/)?.[0] || '999'),
     description: description?.trim() || '',
-    descriptionZh: descriptionZh?.trim() || ''
+    descriptionZh: descriptionZh?.trim() || '',
+    gender,
+    genderZh
   };
 });
 
