@@ -11,6 +11,8 @@ export interface Character {
   chapterNum: number;
   description: string;
   descriptionZh: string;
+  gender: string;
+  genderZh: string;
 }
 
 export interface Relationship {

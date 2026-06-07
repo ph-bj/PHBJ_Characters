@@ -3270,6 +3270,9 @@ function CharacterCard({ character, isActive, onClick, lang, lockMotion = false,
         <span className="text-[9px] sm:text-[10px] text-[#5d5048] uppercase tracking-widest font-hans">
           {lang === 'en' ? 'Age' : '年龄'}: {character.age}
         </span>
+        <span className="text-[9px] sm:text-[10px] text-[#5d5048] uppercase tracking-widest font-hans">
+          {lang === 'en' ? character.gender : character.genderZh}
+        </span>
         {mentionCount !== undefined && (
           <span className="text-[9px] sm:text-[10px] text-[#8b4513] uppercase tracking-widest font-bold font-hans">
             {lang === 'en' ? `${mentionCount} mentions` : `${mentionCount} 次提及`}
@@ -3319,6 +3322,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter, elevated =
       mentions: (count: number) => `mention${count !== 1 ? 's' : ''}`,
       readChapter: "Read Chapter",
       origin: "Origin",
+      gender: "Gender",
       firstEntry: "First Entry",
       historicalRecord: "Historical Record",
       dossier: "Dossier",
@@ -3332,6 +3336,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter, elevated =
       mentions: (count: number) => `次提及`,
       readChapter: "阅读全回",
       origin: "籍贯",
+      gender: "性别",
       firstEntry: "首次登场",
       historicalRecord: "历史记录",
       dossier: "档案",
@@ -3458,7 +3463,7 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter, elevated =
             </div>
           </div>
 
-          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-12">
+          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mb-8 sm:mb-12">
             <div className="space-y-1.5">
               <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#5d5048] font-hans">{t.alias}</p>
               {character.alias === '—' ? (
@@ -3476,6 +3481,13 @@ function CharacterDetail({ character, onClose, lang, onSelectChapter, elevated =
               <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[#2c2420] font-hans">
                 <MapPin size={14} className="sm:w-4 sm:h-4" style={{ color: accentColor }} />
                 <span>{lang === 'zh' ? character.originZh : character.origin}</span>
+              </div>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#5d5048] font-hans">{t.gender}</p>
+              <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[#2c2420] font-hans">
+                <User size={14} className="sm:w-4 sm:h-4" style={{ color: accentColor }} />
+                <span>{lang === 'zh' ? character.genderZh : character.gender}</span>
               </div>
             </div>
             <div className="space-y-1">
