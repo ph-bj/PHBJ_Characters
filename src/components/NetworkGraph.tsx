@@ -187,7 +187,14 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     const DOUBLE_TAP_MS = 400;
     const TAP_MOVE_THRESHOLD = 12;
 
-    const activateNode = (event: any, d: any) => {
+    const selectNode = (event: any, d: any) => {
+      if (event.defaultPrevented) return;
+      event.stopPropagation();
+      lockedNodeId = d.id;
+      applyHoverStyles(d.id);
+    };
+
+    const handleTouchTap = (event: any, d: any) => {
       if (event.defaultPrevented) return;
       event.stopPropagation();
 
@@ -201,8 +208,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
       lastTapTime = now;
       lastTapNodeId = d.id;
-      lockedNodeId = d.id;
-      applyHoverStyles(d.id);
+      selectNode(event, d);
     };
 
     const simulation = d3.forceSimulation(nodes as any)
@@ -283,16 +289,21 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         tapStart = null;
         if (moved > TAP_MOVE_THRESHOLD) return;
         lastTouchPointerUpTime = Date.now();
-        activateNode(event, d);
+        handleTouchTap(event, d);
       })
       .on("click", (event, d: any) => {
         if (event.pointerType === 'touch') {
           // pointerup handles most touch taps; click is a fallback (e.g. iOS fullscreen).
           if (Date.now() - lastTouchPointerUpTime < 500) return;
-          activateNode(event, d);
+          handleTouchTap(event, d);
           return;
         }
-        activateNode(event, d);
+        selectNode(event, d);
+      })
+      .on("dblclick", (event, d: any) => {
+        if (event.defaultPrevented) return;
+        event.stopPropagation();
+        onNodeClick(d);
       })
       .call(d3.drag()
         .clickDistance(TAP_MOVE_THRESHOLD)
@@ -463,7 +474,9 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           {lang === 'en' ? 'Character Network' : '人物关系图谱'}
         </h3>
         <p className="text-[10px] text-[#5d5048] italic">
-          {lang === 'en' ? 'Drag nodes to explore relationships' : '拖动节点探索人物关系'}
+          {lang === 'en'
+            ? 'Drag nodes to explore · Double-click to open profile'
+            : '拖动节点探索关系 · 双击打开人物详情'}
         </p>
       </div>
       <div className="absolute top-4 right-4 z-10 bg-[#f4ecd8]/80 p-2 rounded border border-[#d4c5a9] backdrop-blur-sm max-w-[120px] md:max-w-[160px] lg:max-w-none pointer-events-none">
