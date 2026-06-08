@@ -91,7 +91,7 @@ char-91	袁夫人 Yuán Fūrén	—	23	—	female	ch.5	Xu Ziyun's wife; née Yua
 char-92	郑氏 Zhèng Shì	—	—	—	female	ch.1	Yan Zhuang's wife; fasted to death after his death; honoured for chastity; Yan Zhongqing's mother	颜庄之妻；绝食殉夫；贞节受表彰；颜仲清之母。
 char-93	苏蕙芳婶母 Sū Fūrén	—	—	—	female	ch.43	Su Huifang's widowed aunt/guardian; deceived by Suifang in ch.43 to allow her redemption	苏蕙芳的婶母；第43回被蕙芳欺骗以允许其赎身。
 char-94	许三姐 Xǔ Sānjiě	—	—	—	female	ch.49	Recognizes a lost brother unexpectedly; family reunion subplot in ch.49	意外认出失散的弟弟；家庭团圆情节。
-char-95	林氏 Lín Shì	—	—	—	female	ch.50	Courtesan married by Wei Pincai in ch.50 after he helps revise opera texts	妓女；魏聘才改写剧本后娶其为妻。
+char-95	玉天仙 Yù Tiānxiān	—	27	—	female	ch.18	Courtesan married by Wei Pincai in ch.50 after he helps revise opera texts	妓女；魏聘才改写剧本后娶其为妻。
 char-96	陆氏夫人（孙家）	—	39	—	female	ch.6	Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu	孙亮功继室；嫉妒霸道；王家陆夫人之姐。
 char-97	沈芸姑 Shěn Yúngū	—	—	—	female	ch.6	Sun Sihui's wife; née Shen; intelligent but miserable in marriage	孙嗣徽之妻；聪明但婚姻不幸。
 char-98	巴来风 Bā Láifēng	—	~17	—	female	ch.6	Sun Siyuan's wife; née Ba; beautiful and fierce; physically overpowers husband on wedding night	孙嗣元之妻；美丽凶悍；新婚之夜制服丈夫。
