@@ -303,19 +303,16 @@ const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
 };
 
 function getEnglishAliasTokens(character: Character): string[] {
-  const aliases: string[] = [];
-  if (character.id === 'char-91') {
-    aliases.push('Mrs. Yuan', 'Mrs Yuan');
-  }
-
-  if (character.alias !== '—') {
-    const chineseAliases = character.alias
-      .split('/')
-      .flatMap((part) => extractChineseTokens(part.trim()));
-    aliases.push(...chineseAliases.flatMap((alias) => ENGLISH_ALIAS_TOKENS[alias] ?? []));
-  }
-
-  return [...new Set(aliases)];
+  if (character.alias === '—') return [];
+  const parts = character.alias.split('/').map((p) => p.trim());
+  const chineseAliases = parts.flatMap((part) => extractChineseTokens(part));
+  const englishAliases = parts.filter((part) => /[A-Za-z]/.test(part));
+  return [
+    ...new Set([
+      ...chineseAliases.flatMap((alias) => ENGLISH_ALIAS_TOKENS[alias] ?? []),
+      ...englishAliases,
+    ]),
+  ];
 }
 
 /**
