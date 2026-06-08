@@ -87,7 +87,7 @@ char-87	陆氏夫人（王家）	—	40	—	female	ch.1	Wang Wenhui's second wif
 char-88	孙氏 Sūn Shì	—	—	—	female	ch.1	Wang Xun's wife; daughter of Sun Lianggong	王恂之妻；孙亮功之女。
 char-89	蓉华 Rónghuá	—	—	—	female	ch.1	Yan Zhongqing's wife; Wang Wenhui's daughter; sister of Wang Qionghua	颜仲清之妻；王文辉之女；王琼华之姐。
 char-90	王琼华 Wáng Qiónghúa	—	16	—	female	ch.1	Wang Wenhui's second daughter; shy; scratches Ziyu's poem; eventually betrothed and married to Ziyu	王文辉次女；害羞；涂抹子玉的诗；最终嫁给子玉。
-char-91	袁夫人 Yuán Fūrén	—	23	—	female	ch.5	Xu Ziyun's wife; née Yuan; daughter of Yunnan governor; beautiful and virtuous	徐子云之妻；云南巡抚之女；美丽贤德。
+char-91	袁夫人 Yuán Fūrén	Mrs. Yuan / Mrs Yuan	23	—	female	ch.5	Xu Ziyun's wife; née Yuan; daughter of Yunnan governor; beautiful and virtuous	徐子云之妻；云南巡抚之女；美丽贤德。
 char-92	郑氏 Zhèng Shì	—	—	—	female	ch.1	Yan Zhuang's wife; fasted to death after his death; honoured for chastity; Yan Zhongqing's mother	颜庄之妻；绝食殉夫；贞节受表彰；颜仲清之母。
 char-94	许三姐 Xǔ Sānjiě	—	—	—	female	ch.49	Recognizes a lost brother unexpectedly; family reunion subplot in ch.49	意外认出失散的弟弟；家庭团圆情节。
 char-95	玉天仙 Yù Tiānxiān	—	27	—	female	ch.18	Courtesan married by Wei Pincai in ch.50 after he helps revise opera texts	妓女；魏聘才改写剧本后娶其为妻。
