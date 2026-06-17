@@ -4038,6 +4038,10 @@ const GENERIC_HONORIFICS = new Set([
   "夫君",
 ]);
 
+function sortMentionTokensByLength(tokens: string[]): string[] {
+  return [...tokens].sort((a, b) => b.length - a.length);
+}
+
 function getCharacterMentionTokens(character: Character): string[] {
   const chineseName = character.name.split(" ")[0];
   const givenName = chineseName.length > 2 ? chineseName.slice(-2) : "";
@@ -4045,21 +4049,50 @@ function getCharacterMentionTokens(character: Character): string[] {
     character.alias !== "—"
       ? character.alias.split(/[/\s，、]+/).filter(Boolean)
       : [];
-  return [...new Set([chineseName, givenName, ...aliases])].filter(
-    (t) => t.length >= 2 && !GENERIC_HONORIFICS.has(t),
+  return sortMentionTokensByLength(
+    [...new Set([chineseName, givenName, ...aliases])].filter(
+      (t) => t.length >= 2 && !GENERIC_HONORIFICS.has(t),
+    ),
   );
 }
 
+/** Scan left-to-right, matching the longest token at each position. */
 function countMentionsInText(text: string, tokens: string[]): number {
-  return tokens.reduce((sum, token) => {
-    let n = 0,
-      pos = 0;
-    while ((pos = text.indexOf(token, pos)) !== -1) {
-      n++;
-      pos++;
+  const sorted = sortMentionTokensByLength(tokens);
+  let count = 0;
+  let pos = 0;
+  while (pos < text.length) {
+    let matched = false;
+    for (const token of sorted) {
+      if (text.startsWith(token, pos)) {
+        count++;
+        pos += token.length;
+        matched = true;
+        break;
+      }
     }
-    return sum + n;
-  }, 0);
+    if (!matched) pos++;
+  }
+  return count;
+}
+
+function findMentionPositionsInText(text: string, tokens: string[]): number[] {
+  const sorted = sortMentionTokensByLength(tokens);
+  const positions: number[] = [];
+  let pos = 0;
+  while (pos < text.length) {
+    let matched = false;
+    for (const token of sorted) {
+      if (text.startsWith(token, pos)) {
+        positions.push(pos);
+        pos += token.length;
+        matched = true;
+        break;
+      }
+    }
+    if (!matched) pos++;
+  }
+  return positions;
 }
 
 function getCharacterTotalMentions(character: Character): number {
@@ -4139,25 +4172,8 @@ function CharacterDetail({
     const ch = chapters.find((c) => c.id === activeChapter);
     if (!ch) return null;
 
-    const chineseName = character.name.split(" ")[0];
-    const givenName = chineseName.length > 2 ? chineseName.slice(-2) : "";
-    const aliases =
-      character.alias !== "—"
-        ? character.alias.split(/[/\s，、]+/).filter(Boolean)
-        : [];
-    const tokens = [...new Set([chineseName, givenName, ...aliases])].filter(
-      (t) => t.length >= 2 && !GENERIC_HONORIFICS.has(t),
-    );
-
-    const positions: number[] = [];
-    for (const token of tokens) {
-      let pos = 0;
-      while ((pos = ch.content.indexOf(token, pos)) !== -1) {
-        positions.push(pos);
-        pos++;
-      }
-    }
-    positions.sort((a, b) => a - b);
+    const tokens = getCharacterMentionTokens(character);
+    const positions = findMentionPositionsInText(ch.content, tokens);
 
     const snippets: string[] = [];
     let clusterStart = -1,
