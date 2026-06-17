@@ -15,7 +15,12 @@ export const char_141Appearances: Record<number, SceneBullet[]> = {
       zh: "房间正中悬挂着屈本立题写的“宜春阁”匾额。",
     },
   ],
-  37: [],
+  37: [
+    {
+      en: "Huifang meets an impressive old scholar identified by Ziyun and Ziyu as Qu Daosheng, the former teacher of Qianzhou. Ziyu recalls reading his brilliant letters, while Cixian praises his high character, pure poetry, and playful literary collections.",
+      zh: "蕙芳遇见一位气度不凡的老名士，被子云和子玉认出是前舟的业师屈道生。子玉回想起曾读过他见解卓越的书信，而次贤则称赞他格调纯正、才华出众，且有充满游戏笔墨的著述。",
+    },
+  ],
   38: [
     {
       en: "Qu Daoweng spends the day conversing with the group, and later cheerfully writes personalized poems on fans for the four performers.",
@@ -32,14 +37,24 @@ export const char_141Appearances: Record<number, SceneBullet[]> = {
       zh: "在讨论关于衰老的感悟时，萧次贤开玩笑地将干荔枝比作屈道翁，认为它虽失去青春，但仍是上品。",
     },
   ],
-  45: [],
+  45: [
+    {
+      en: "Qu Daosheng attends a spirit-writing session at Ziyun's garden. During the session, the immortal planchette reveals that Qinyan was Daosheng's daughter in a past life. Deeply moved, the childless Daosheng agrees to adopt Qinyan as his son, renaming him Qu Qinxian.",
+      zh: "屈道生在子云的园中参加扶乩降仙。仙乩揭示琴言前世竟是道翁的女公子。年老无子的道翁大为感动，在众人的撮合下收琴言为义子，并为其改名屈勤先（号琴仙）。",
+    },
+  ],
   46: [
     {
       en: "Qu Daoweng moves into Yiyuan Garden with Qinxian, acting as his strict but caring tutor, though he eventually finds his own carefree lifestyle constrained by his student's intense dedication to studying.",
       zh: "屈道翁搬入怡园与琴仙同住，悉心教导他读书写字；然而琴仙闭门苦读的刻苦劲头，反而让向来潇洒的道翁感到有些被拘束。",
     },
   ],
-  47: [],
+  47: [
+    {
+      en: "Qu Daosheng writes a preface for Yiyuan and pens sixteen screen panels with his calligraphy. Having been appointed assistant prefect of Nanchang, he prepares to depart the capital with Qinxian.",
+      zh: "屈道翁为怡园撰写了一篇序文，并用真行字写了十六扇屏风。他已被选任为南昌府通判，准备不日带着琴仙一同离京赴任。",
+    },
+  ],
   48: [
     {
       en: "Qu Daoweng is appointed as the assistant prefect of Nanchang and prepares to depart, attending various farewell banquets held in his honor.",
@@ -56,7 +71,12 @@ export const char_141Appearances: Record<number, SceneBullet[]> = {
       zh: "苏侯惋惜地表示，屈道翁虽是孝廉方正之士，但因官职太低，无法保举他参加宏词科考试。",
     },
   ],
-  50: [],
+  50: [
+    {
+      en: "In a retrospective conversation, the scholars mention how Qu Daosheng recently departed for Nanchang with Qinxian, requiring Ziyu to part tearfully from Qinxian at the farewell pavilion.",
+      zh: "名士们在交谈中回想起屈道翁带着琴仙离京赴任南昌的情景，提到子玉在皇华亭送别琴仙时难掩悲痛的模样。",
+    },
+  ],
   53: [
     {
       en: "Xu Ziyun happily receives a package of letters sent by Qu Daoweng from Nanjing, which includes correspondence from Qinxian updating them on their journey.",
