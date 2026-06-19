@@ -1,3 +1,24 @@
+import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { BarChart, Bar, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { BookOpen, Info, MapPin, User, X } from "lucide-react";
+import { chapters } from "../chapters";
+import { chapterSummaries } from "../chapterSummaries";
+import {
+  getCharacterSceneBullets,
+  type SceneBullet,
+} from "../characterAppearances";
+import type { Character } from "../types";
+import {
+  ROLE_ACCENTS,
+  ROLE_ICONS,
+  ROLE_TEXT_COLORS,
+  ROLE_TINTS,
+  countMentionsInText,
+  findMentionPositionsInText,
+  getCharacterMentionTokens,
+} from "../utils";
+
 export function CharacterDetail({
   character,
   onClose,

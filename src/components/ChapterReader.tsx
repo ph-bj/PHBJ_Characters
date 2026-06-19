@@ -1,3 +1,34 @@
+import { useEffect, useMemo, useRef, useState } from "react";
+import { motion } from "motion/react";
+import { Book, ChevronDown, ChevronUp, Search, X } from "lucide-react";
+import { characters } from "../data";
+import { chapters } from "../chapters";
+import { chapterSummaries } from "../chapterSummaries";
+import { WORK_ENGLISH_BY_CHINESE } from "../englishWorkTitles";
+import type { Character, Chapter } from "../types";
+import {
+  CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX,
+  GENERIC_HONORIFICS,
+  ROLE_CHIP_IDLE,
+  chapterTitleTranslations,
+  chapterWorkAnchorId,
+  countSearchMatchesInRenderedText,
+  countTextSearchMatches,
+  getChapterMentionedCharacters,
+  getChapterReaderSubtitle,
+  getChapterReaderTitle,
+  getChineseShortFormTokens,
+  getEnglishAliasTokens,
+  getSegmentChipLabel,
+  isChineseWorkAnnotationToken,
+  isWorkAnnotationToken,
+  renderTextWithSearchHighlight,
+  segmentText,
+  stripDiacritics,
+  translationMap,
+  workKeyFromAnnotationToken,
+} from "../utils";
+
 export function ChapterReader({
   chapter,
   onClose,
@@ -42,7 +73,7 @@ export function ChapterReader({
   const chapterCitedWorks = useMemo(() => {
     if (chapter.id < 0) return [];
     const matches = chapter.content.match(/《[^》\n]{1,40}》/g) ?? [];
-    const unique = Array.from(new Set(matches.map((m) => m.trim())));
+    const unique = Array.from(new Set(matches.map((m) => m.trim()))) as string[];
     return unique.map((zhTagged) => {
       const key = zhTagged.replace(/《|》/g, "");
       return {

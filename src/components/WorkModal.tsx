@@ -1,3 +1,10 @@
+import { useMemo } from "react";
+import { motion } from "motion/react";
+import { Book, Info, X } from "lucide-react";
+import { chapters } from "../chapters";
+import { WORK_ENGLISH_BY_CHINESE } from "../englishWorkTitles";
+import { worksData } from "../utils";
+
 export function WorkModal({
   work,
   lang,

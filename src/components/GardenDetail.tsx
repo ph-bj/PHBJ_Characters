@@ -1,3 +1,10 @@
+import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { BookOpen, Home, Leaf, X } from "lucide-react";
+import { chapters } from "../chapters";
+import { getGardenById, type Garden } from "../gardens";
+import type { Chapter } from "../types";
+
 export function GardenDetail({
   garden,
   onClose,

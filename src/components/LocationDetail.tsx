@@ -1,3 +1,10 @@
+import { useMemo } from "react";
+import { motion } from "motion/react";
+import { X } from "lucide-react";
+import { chapters } from "../chapters";
+import { locationTypeLabels } from "../locations";
+import type { NovelLocationWithChapters } from "../utils";
+
 export function LocationDetail({
   location,
   lang,

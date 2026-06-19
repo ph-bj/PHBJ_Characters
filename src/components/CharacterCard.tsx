@@ -1,3 +1,7 @@
+import { motion } from "motion/react";
+import type { Character } from "../types";
+import { ROLE_ACCENTS, ROLE_TEXT_COLORS, ROLE_TINTS } from "../utils";
+
 export function CharacterCard({
   character,
   isActive,

@@ -1,3 +1,7 @@
+import { motion } from "motion/react";
+import { X } from "lucide-react";
+import type { LacunaConfidence, LacunaEntry } from "../utils";
+
 export function LacunaeModal({
   chapterId,
   entries,

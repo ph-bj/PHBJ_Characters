@@ -1,3 +1,15 @@
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
+import { AnimatePresence, motion } from "motion/react";
+import { Book, BookOpen, ChevronDown, Menu } from "lucide-react";
+import type { NavSection } from "../utils";
+
 export function NavMenuDropdown({
   lang,
   sections,

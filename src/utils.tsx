@@ -383,6 +383,87 @@ export function isPersonNameContext(
   return false;
 }
 
+export const GENERIC_HONORIFICS = new Set([
+  "夫人",
+  "公子",
+  "先生",
+  "老爷",
+  "太太",
+  "小姐",
+  "姑娘",
+  "奶奶",
+  "大人",
+  "将军",
+  "夫君",
+]);
+
+function sortMentionTokensByLength(tokens: string[]): string[] {
+  return [...tokens].sort((a, b) => b.length - a.length);
+}
+
+export function getCharacterMentionTokens(character: Character): string[] {
+  const chineseName = character.name.split(" ")[0];
+  const givenName = chineseName.length > 2 ? chineseName.slice(-2) : "";
+  const aliases =
+    character.alias !== "—"
+      ? character.alias.split(/[/\s，、]+/).filter(Boolean)
+      : [];
+  return sortMentionTokensByLength(
+    [...new Set([chineseName, givenName, ...aliases])].filter(
+      (t) => t.length >= 2 && !GENERIC_HONORIFICS.has(t),
+    ),
+  );
+}
+
+/** Scan left-to-right, matching the longest token at each position. */
+export function countMentionsInText(text: string, tokens: string[]): number {
+  const sorted = sortMentionTokensByLength(tokens);
+  let count = 0;
+  let pos = 0;
+  while (pos < text.length) {
+    let matched = false;
+    for (const token of sorted) {
+      if (text.startsWith(token, pos)) {
+        count++;
+        pos += token.length;
+        matched = true;
+        break;
+      }
+    }
+    if (!matched) pos++;
+  }
+  return count;
+}
+
+export function findMentionPositionsInText(
+  text: string,
+  tokens: string[],
+): number[] {
+  const sorted = sortMentionTokensByLength(tokens);
+  const positions: number[] = [];
+  let pos = 0;
+  while (pos < text.length) {
+    let matched = false;
+    for (const token of sorted) {
+      if (text.startsWith(token, pos)) {
+        positions.push(pos);
+        pos += token.length;
+        matched = true;
+        break;
+      }
+    }
+    if (!matched) pos++;
+  }
+  return positions;
+}
+
+export function getCharacterTotalMentions(character: Character): number {
+  const tokens = getCharacterMentionTokens(character);
+  return chapters
+    .filter((ch) => ch.id >= 1)
+    .reduce((total, ch) => total + countMentionsInText(ch.content, tokens), 0);
+}
+
 export function getChineseShortFormTokens(char: Character): string[] {
   const chineseName = char.name.split(" ")[0];
   const givenName = chineseName.length === 3 ? chineseName.slice(1) : null;

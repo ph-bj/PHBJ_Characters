@@ -1,3 +1,8 @@
+import { motion } from "motion/react";
+import { X } from "lucide-react";
+import { QuestionAnswer } from "../QuestionAnswer";
+import { questions } from "../questions";
+
 export function QuestionsModal({
   questionId,
   onClose,
