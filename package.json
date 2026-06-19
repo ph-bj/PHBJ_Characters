@@ -10,7 +10,7 @@
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "deploy": "npm run build && rm -rf /Users/tcz/Documents/GitHub/ph-bj.github.io/assets && cp dist/index.html /Users/tcz/Documents/GitHub/ph-bj.github.io/index.html && cp -r dist/assets /Users/tcz/Documents/GitHub/ph-bj.github.io/assets && git -C /Users/tcz/Documents/GitHub/ph-bj.github.io add index.html assets/ && git -C /Users/tcz/Documents/GitHub/ph-bj.github.io commit -m 'Deploy latest build' && git -C /Users/tcz/Documents/GitHub/ph-bj.github.io push",
-    "deploy-windows": "npm run build && rm -rf C:/Users/tc/Documents/GitTower/ph-bj.github.io/assets && cp dist/index.html C:/Users/tc/Documents/GitTower/ph-bj.github.io/index.html && cp -r dist/assets C:/Users/tc/Documents/GitTower/ph-bj.github.io/assets && git -C C:/Users/tc/Documents/GitTower/ph-bj.github.io add index.html assets/ && git -C C:/Users/tc/Documents/GitTower/ph-bj.github.io commit -m 'Deploy latest build' && git -C C:/Users/tc/Documents/GitTower/ph-bj.github.io push"
+    "deploy:win": "node scripts/deploy-win.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.90.0",
