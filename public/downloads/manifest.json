@@ -1,0 +1,365 @@
+{
+  "preface": "00-preface.txt",
+  "chapters": [
+    {
+      "id": 1,
+      "titleZh": "第一回 史南湘制谱选名花 梅子玉闻香惊绝艳",
+      "titleEn": "Chapter 1 — Shi Nanxiang compiles a floral register of celebrated beauties; Mei Ziyu, catching their fragrance, is stunned by peerless allure.",
+      "filename": "01.txt"
+    },
+    {
+      "id": 2,
+      "titleZh": "第二回 魏聘才途中夸遇美 王桂保席上乱飞花",
+      "titleEn": "Chapter 2 — Wei Pincai boasts of encounters with beauties along the road; Wang Guibao sends flowers flying in riot at the feast.",
+      "filename": "02.txt"
+    },
+    {
+      "id": 3,
+      "titleZh": "第三回 卖烟壶老王索诈 砸菜碗小旦撒娇",
+      "titleEn": "Chapter 3 — Old Wang the snuff-bottle seller attempts extortion; a young dan shatters dishes in coquettish protest.",
+      "filename": "03.txt"
+    },
+    {
+      "id": 4,
+      "titleZh": "第四回 三名士雪窗分咏 一少年粉壁题词",
+      "titleEn": "Chapter 4 — Three scholars compose by a snowy window; a young man inscribes a lyric on a powder-white wall.",
+      "filename": "04.txt"
+    },
+    {
+      "id": 5,
+      "titleZh": "第五回 袁宝珠引进杜琴言 富三爷细述华公子",
+      "titleEn": "Chapter 5 — Yuan Baozhu introduces Du Qinyan; Third Master Fu gives a detailed account of Lord Hua.",
+      "filename": "05.txt"
+    },
+    {
+      "id": 6,
+      "titleZh": "第六回 颜夫人快订良姻 梅公子初观色界",
+      "titleEn": "Chapter 6 — Madam Yan swiftly settles an excellent marriage match; Young Master Mei first surveys the realm of beauty.",
+      "filename": "06.txt"
+    },
+    {
+      "id": 7,
+      "titleZh": "第七回 颜仲清最工一字对 史南湘独出五言诗",
+      "titleEn": "Chapter 7 — Yan Zhongqing excels at one-character antitheses; Shi Nanxiang uniquely produces five-character verse.",
+      "filename": "07.txt"
+    },
+    {
+      "id": 8,
+      "titleZh": "第八回 偷复偷戏园失银两 乐中乐酒馆闹皮杯",
+      "titleEn": "Chapter 8 — Theater thieves steal silver yet again; amid merriment at the wine shop, disorder erupts.",
+      "filename": "08.txt"
+    },
+    {
+      "id": 9,
+      "titleZh": "第九回 月夕灯宵万花齐放 珠情琴思一面缘悭",
+      "titleEn": "Chapter 9 — At moonlit Lantern Night, flowers blaze in full bloom; amid pearl-like passion and qin-like yearning, one meeting is missed.",
+      "filename": "09.txt"
+    },
+    {
+      "id": 10,
+      "titleZh": "第十回 春梦婆娑情长情短 花枝约略疑假疑真",
+      "titleEn": "Chapter 10 — Spring dreams swirl between long and short affections; floral figures appear half-true, half-doubtful.",
+      "filename": "10.txt"
+    },
+    {
+      "id": 11,
+      "titleZh": "第十一回 三佳人妙语翻新 交婢女戏言受责",
+      "titleEn": "Chapter 11 — Three beauties turn language into fresh brilliance; maidservants are rebuked over playful talk.",
+      "filename": "11.txt"
+    },
+    {
+      "id": 12,
+      "titleZh": "第十二回 颜仲清婆心侠气 田春航傲骨痴情",
+      "titleEn": "Chapter 12 — Yan Zhongqing's chivalrous heart reveals elder compassion; Tian Chunhang's proud bones expose obsessive devotion.",
+      "filename": "12.txt"
+    },
+    {
+      "id": 13,
+      "titleZh": "第十三回 两心巧印巨眼深情 一味歪缠淫魔色鬼",
+      "titleEn": "Chapter 13 — Two hearts secretly imprint deep feeling; lustful demons and lecherous ghosts continue crooked entanglements.",
+      "filename": "13.txt"
+    },
+    {
+      "id": 14,
+      "titleZh": "第十四回 古诵七言琴声复奏 字搜四子酒令新翻",
+      "titleEn": "Chapter 14 — Ancient heptasyllabics are recited as qin melodies return; a drinking game is innovated from four selected characters.",
+      "filename": "14.txt"
+    },
+    {
+      "id": 15,
+      "titleZh": "第十五回 老学士奉命出差 佳公子闲情访素",
+      "titleEn": "Chapter 15 — The old scholar is appointed to official duty away from home; the noble young master idly seeks his beloved.",
+      "filename": "15.txt"
+    },
+    {
+      "id": 16,
+      "titleZh": "第十六回 魏聘才初进华公府 梅子玉再访杜琴言",
+      "titleEn": "Chapter 16 — Wei Pincai first enters Lord Hua's mansion; Mei Ziyu again visits Du Qinyan.",
+      "filename": "16.txt"
+    },
+    {
+      "id": 17,
+      "titleZh": "第十七回 祝芳年琼筵集词客 评花谱国色冠群香",
+      "titleEn": "Chapter 17 — At Zhu Fangnian's banquet, poets gather in splendor; in the floral register, supreme beauty crowns all fragrance.",
+      "filename": "17.txt"
+    },
+    {
+      "id": 18,
+      "titleZh": "第十八回 狎客楼中教蔑片 妖娼门口唱杨枝",
+      "titleEn": "Chapter 18 — In a pleasure house, tricks are taught for exploiting performers; at a courtesan's door, willow songs are sung.",
+      "filename": "18.txt"
+    },
+    {
+      "id": 19,
+      "titleZh": "第十九回 春述淫邪奸谋藏木桶 逞智慧妙语骗金箍",
+      "titleEn": "Chapter 19 — Lewd plots and treachery hide within the wooden barrel; clever speech and quick wit deceive for gain.",
+      "filename": "19.txt"
+    },
+    {
+      "id": 20,
+      "titleZh": "第二十回 夺锦标龙舟竞渡 闷酒令鸳侣传觞",
+      "titleEn": "Chapter 20 — Dragon boats race for the championship; paired lovers pass cups through a playful wine game.",
+      "filename": "20.txt"
+    },
+    {
+      "id": 21,
+      "titleZh": "第二十一回 造谣言徒遭冷眼 问衷曲暗泣同心",
+      "titleEn": "Chapter 21 — Rumor-making wins only cold contempt; true feelings are confessed in hidden tears.",
+      "filename": "21.txt"
+    },
+    {
+      "id": 22,
+      "titleZh": "第二十二回 遇灾星素琴双痛哭 逛运河梅杜再联情",
+      "titleEn": "Chapter 22 — Under an unlucky star, plain hearts weep in double grief; touring the canal, Mei and Du renew their bond.",
+      "filename": "22.txt"
+    },
+    {
+      "id": 23,
+      "titleZh": "第二十三回 裹草帘阿呆遭毒手 坐粪车劣幕述淫心",
+      "titleEn": "Chapter 23 — A-Dai is attacked by poisoners under a grass mat; riding a night-soil cart, a vile secretary reveals depraved intent.",
+      "filename": "23.txt"
+    },
+    {
+      "id": 24,
+      "titleZh": "第二十四回 说新闻传来新戏 定情品跳出情关",
+      "titleEn": "Chapter 24 — News of a new opera spreads; in fixing terms of affection, one leaps free from emotional bondage.",
+      "filename": "24.txt"
+    },
+    {
+      "id": 25,
+      "titleZh": "第二十五回  水榭风廓花能解语 清歌妙舞玉自生香",
+      "titleEn": "Chapter 25 — At waterside pavilions and wind galleries, flowers seem to speak; clear songs and subtle dances let jade-like grace arise.",
+      "filename": "25.txt"
+    },
+    {
+      "id": 26,
+      "titleZh": "第二十六回 进谗言聘才酬宿怨 重国色华府购名花",
+      "titleEn": "Chapter 26 — Slander is advanced to satisfy old grudges; valuing beauty above all, Lord Hua purchases celebrated performers.",
+      "filename": "26.txt"
+    },
+    {
+      "id": 27,
+      "titleZh": "第二十七回 奚正绅大闹秋水堂 杜琴言避祸华公府",
+      "titleEn": "Chapter 27 — Xi Zhengshen makes a violent disturbance at Qiushui Hall; Du Qinyan seeks refuge in Lord Hua's mansion.",
+      "filename": "27.txt"
+    },
+    {
+      "id": 28,
+      "titleZh": "第二十八回 生离别隐语寄牵牛 昧天良贪心学扁马",
+      "titleEn": "Chapter 28 — At parting, hidden words are sent through the Morning Glory; blinded by greed, one learns petty and crooked tricks.",
+      "filename": "28.txt"
+    },
+    {
+      "id": 29,
+      "titleZh": "第二十九回 缺月重圆真情独笑 群珠紧守离恨谁怜",
+      "titleEn": "Chapter 29 — A broken moon rounds again and true feeling smiles alone; in strict seclusion among pearls, who can pity divided longing?",
+      "filename": "29.txt"
+    },
+    {
+      "id": 30,
+      "titleZh": "第三十回 赏灯月开宴品群花 试容装上台呈艳曲",
+      "titleEn": "Chapter 30 — Under moonlit lanterns, a banquet appraises the flowers; in trial costume and makeup, a brilliant stage piece is presented.",
+      "filename": "30.txt"
+    },
+    {
+      "id": 31,
+      "titleZh": "第三十一回 解余酲群花留夜月 萦旧感名士唱秋坟",
+      "titleEn": "Chapter 31 — After drink, the flowers keep the night moon in lingering company; old sorrow returns as scholars sing of autumn graves.",
+      "filename": "31.txt"
+    },
+    {
+      "id": 32,
+      "titleZh": "第三十二回 众名士萧斋等报捷 老司官冷署判呈词",
+      "titleEn": "Chapter 32 — In Xiao's studio, celebrated men await examination news; in a cold yamen office, a minor official adjudicates petitions.",
+      "filename": "32.txt"
+    },
+    {
+      "id": 33,
+      "titleZh": "第三十三回 寄家书梅学使训子 馈赆仪华公子辞宾",
+      "titleEn": "Chapter 33 — Inspector Mei sends a family letter instructing his son; Young Master Hua bids farewell and dismisses his guests.",
+      "filename": "33.txt"
+    },
+    {
+      "id": 34,
+      "titleZh": "第三十四回 还宿债李元茂借钱 闹元宵魏聘才被窃",
+      "titleEn": "Chapter 34 — To repay debts, Li Yuanmao borrows money; during Lantern festivities, Wei Pincai is robbed.",
+      "filename": "34.txt"
+    },
+    {
+      "id": 35,
+      "titleZh": "第三十五回 集葩经飞花生并蒂 裁艳曲红豆掷相思",
+      "titleEn": "Chapter 35 — In collecting floral classics, twin blossoms arise from one stem; in crafting lyric airs, red beans cast lovesick longing.",
+      "filename": "35.txt"
+    },
+    {
+      "id": 36,
+      "titleZh": "第三十六回 小谈心众口骂珊枝 中奸计奋身碎玉镯",
+      "titleEn": "Chapter 36 — In intimate talk, all mouths curse Shanzhi; amid treacherous scheming, a jade bracelet is smashed in anger.",
+      "filename": "36.txt"
+    },
+    {
+      "id": 37,
+      "titleZh": "第三十七回 行小令一字化为三 对戏名二言增至四",
+      "titleEn": "Chapter 37 — In a minor game, one character transforms into three; in theater-title antiphony, two words expand into four.",
+      "filename": "37.txt"
+    },
+    {
+      "id": 38,
+      "titleZh": "第三八回 论真赝注释神禹碑 数灾祥驳翻太乙数",
+      "titleEn": "Chapter 38 — On authenticity and forgery, annotations debate the Divine Yu stele; on omen counting, Taiyi numerology is refuted.",
+      "filename": "38.txt"
+    },
+    {
+      "id": 39,
+      "titleZh": "第三十九回 闹新房灵机生雅谑 装假发白首变红颜",
+      "titleEn": "Chapter 39 — In wedding-chamber revelry, quick wit yields elegant jokes; with false hair arranged, white locks become youthful color.",
+      "filename": "39.txt"
+    },
+    {
+      "id": 40,
+      "titleZh": "第四十回 奚老土淫毒成天阉 潘其观恶报作风臀",
+      "titleEn": "Chapter 40 — Xi the rustic libertine is poisoned by lust and rendered a eunuch; Pan Qiguan receives retribution through a degrading affliction.",
+      "filename": "40.txt"
+    },
+    {
+      "id": 41,
+      "titleZh": "第四一回 惜芳春蝴蝶皆成梦 按艳拍鸳鸯不羡仙",
+      "titleEn": "Chapter 41 — Cherishing spring, all butterflies turn to dreams; beating erotic rhythms, paired mandarin ducks envy no immortals.",
+      "filename": "41.txt"
+    },
+    {
+      "id": 42,
+      "titleZh": "第四二回 索养赡师娘勒价 打茶围幕友破财",
+      "titleEn": "Chapter 42 — A guardian extorts support fees at inflated rates; in tea-house rounds, a parasite loses his money.",
+      "filename": "42.txt"
+    },
+    {
+      "id": 43,
+      "titleZh": "第四三回 苏蕙芳慧心瞒寡妇 徐子云重价赎琴言",
+      "titleEn": "Chapter 43 — Su Huifang uses keen wit to outmaneuver the widow; Xu Ziyun redeems Qinyan at great expense.",
+      "filename": "43.txt"
+    },
+    {
+      "id": 44,
+      "titleZh": "第四四回 听谣言三家人起衅 见恶札两公子绝交",
+      "titleEn": "Chapter 44 — Listening to rumors, three households erupt in conflict; seeing vicious letters, two young masters sever ties.",
+      "filename": "44.txt"
+    },
+    {
+      "id": 45,
+      "titleZh": "第四五回 佳公子踏月访情人 美玉郎扶乩认义父",
+      "titleEn": "Chapter 45 — A noble youth visits his beloved by moonlight; the jade-like gentleman receives spirit-writing and recognizes an adoptive father.",
+      "filename": "45.txt"
+    },
+    {
+      "id": 46,
+      "titleZh": "第四六回 众英才分题联集锦 老名士制序笔生花",
+      "titleEn": "Chapter 46 — Talented men divide topics and compose linked brilliance; an elder master writes a preface and lets his brush bloom with flowers.",
+      "filename": "46.txt"
+    },
+    {
+      "id": 47,
+      "titleZh": "第四七回 奚十一奇方修肾 潘其观忍辱医臀",
+      "titleEn": "Chapter 47 — Xi Eleven seeks a bizarre remedy to strengthen his kidneys; Pan Qiguan endures humiliation while treating his injured backside.",
+      "filename": "47.txt"
+    },
+    {
+      "id": 48,
+      "titleZh": "第四八回 木兰艇吟出断肠词 皇华亭痛洒离情泪",
+      "titleEn": "Chapter 48 — On a magnolia boat, a heartbroken lyric is sung; at Huanghua Pavilion, tears are shed in painful farewell.",
+      "filename": "48.txt"
+    },
+    {
+      "id": 49,
+      "titleZh": "第四九回 爱中慕田状元求婚 意外情许三姐认弟",
+      "titleEn": "Chapter 49 — Moved by love, Scholar Tian seeks marriage as top laureate; by chance affection, Third Sister Xu recognizes her lost brother.",
+      "filename": "49.txt"
+    },
+    {
+      "id": 50,
+      "titleZh": "第五十回 改戏文林春喜正谱 娶妓女魏聘才收场",
+      "titleEn": "Chapter 50 — Lin Chunxi revises opera texts into proper form; Wei Pincai's story closes with his marriage to a courtesan.",
+      "filename": "50.txt"
+    },
+    {
+      "id": 51,
+      "titleZh": "第五一回 闹缝穷隔墙听戏 舒积忿同室操戈",
+      "titleEn": "Chapter 51 — In poverty and frustration, people eavesdrop on opera through walls; pent-up resentment breaks into open conflict indoors.",
+      "filename": "51.txt"
+    },
+    {
+      "id": 52,
+      "titleZh": "第五二回 群公子花园贺喜 众佳人绣阁陪新",
+      "titleEn": "Chapter 52 — Young masters celebrate in the garden; beautiful ladies accompany the newlyweds in embroidered chambers.",
+      "filename": "52.txt"
+    },
+    {
+      "id": 53,
+      "titleZh": "第五三回 桃花扇题曲定芳情 燕子矶痴魂惊幻梦",
+      "titleEn": "Chapter 53 — By inscribing songs on a peach-blossom fan, fragrant affection is sealed; at Swallow Bluff, an infatuated soul is shocked by a phantom dream.",
+      "filename": "53.txt"
+    },
+    {
+      "id": 54,
+      "titleZh": "第五四回 才子词科登翰苑 佳人绣阁论唐诗",
+      "titleEn": "Chapter 54 — A talented scholar enters the Hanlin through lyric examination; in the ladies' chamber, beauties discuss Tang poetry.",
+      "filename": "54.txt"
+    },
+    {
+      "id": 55,
+      "titleZh": "第五五回 凤凰山下谒骚坛 翡翠巢边寻旧冢",
+      "titleEn": "Chapter 55 — At Phoenix Mountain they pay respects to a literary altar; beside Emerald Nest they seek an old tomb.",
+      "filename": "55.txt"
+    },
+    {
+      "id": 56,
+      "titleZh": "第五六回 屈方正成神托梦 侯太史假义恤孤",
+      "titleEn": "Chapter 56 — Qu Fangzheng appears in a dream after becoming a god; Historian Hou feigns righteousness in aiding an orphan.",
+      "filename": "56.txt"
+    },
+    {
+      "id": 57,
+      "titleZh": "第五七回 袁绮香酒令戏群芳 王琼华诗牌作盟主",
+      "titleEn": "Chapter 57 — Yuan Qixiang leads drinking-game banter among beauties; Wang Qionghua becomes alliance leader through poetry cards.",
+      "filename": "57.txt"
+    },
+    {
+      "id": 58,
+      "titleZh": "第五八回 奚十一主仆遭恶报 潘其观夫妇闹淫魔",
+      "titleEn": "Chapter 58 — Xi Eleven and his servant suffer karmic retribution; Pan Qiguan and his wife descend into obscene turmoil.",
+      "filename": "58.txt"
+    },
+    {
+      "id": 59,
+      "titleZh": "第五九回 梅侍郎独建屈公祠 屈少君重返都门地",
+      "titleEn": "Chapter 59 — Vice-Minister Mei independently builds the Qu shrine; Young Master Qu returns to the capital.",
+      "filename": "59.txt"
+    },
+    {
+      "id": 60,
+      "titleZh": "第六十回 金吉甫归结品花鉴 袁宝珠领袖祝文星",
+      "titleEn": "Chapter 60 — Jin Jifu brings Pinhua Baojian to its conclusion; Yuan Baozhu leads the invocation honoring the literary stars.",
+      "filename": "60.txt"
+    }
+  ]
+}

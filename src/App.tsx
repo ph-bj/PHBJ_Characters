@@ -44,6 +44,7 @@ import {
   Home,
   Menu,
   Network,
+  Download,
 } from "lucide-react";
 import { characters, relationships, identityLinksById } from "./data";
 import { chapters } from "./chapters";
@@ -484,6 +485,9 @@ export default function App() {
     URL.revokeObjectURL(url);
   };
 
+  const chapterTxtFilename = (id: number) =>
+    id === 0 ? "00-preface.txt" : `${String(id).padStart(2, "0")}.txt`;
+
   const downloadChinese = () => {
     const text = chapters
       .map((ch) => `${ch.title}\n\n${ch.content}`)
@@ -628,6 +632,11 @@ export default function App() {
       id: "locations",
       label: lang === "zh" ? "地点" : "Locations",
       icon: MapPin,
+    },
+    {
+      id: "downloads",
+      label: lang === "zh" ? "下载" : "Download",
+      icon: Download,
     },
     { id: "lacunae", label: lang === "zh" ? "缺文" : "Lacunae", icon: Info },
     {
@@ -1521,41 +1530,6 @@ export default function App() {
                   : "《品花宝鉴》，亦作《怡情佚史》、《群花宝鉴》，清代陈森所著的一部描写狎优风气的长篇小说，共60回。陈森是常州人，科举常年不得意，40岁后放弃科举。他寓居北京时常与优伶交往，为日后的创作积累了素材。"}
               </p>
             </div>
-            <div className="flex flex-col gap-1.5 mb-4 pb-4 border-b border-[#d4c5a9]">
-              <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-1">
-                {lang === "en" ? "Download" : "下载"}
-              </p>
-              <button
-                onClick={downloadChinese}
-                className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]"
-              >
-                {lang === "en" ? "↓ Chinese text (.txt)" : "↓ 中文全文 (.txt)"}
-              </button>
-              <button
-                onClick={downloadEnglish}
-                className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]"
-              >
-                {lang === "en"
-                  ? "↓ English translation (.txt)"
-                  : "↓ 英文译文 (.txt)"}
-              </button>
-              <button
-                onClick={downloadInterleaved}
-                className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]"
-              >
-                {lang === "en"
-                  ? "↓ Bilingual interleaved (.txt)"
-                  : "↓ 中英对照 (.txt)"}
-              </button>
-              <button
-                onClick={downloadJSON}
-                className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]"
-              >
-                {lang === "en"
-                  ? "↓ Bilingual interleaved (.json)"
-                  : "↓ 中英对照 (.json)"}
-              </button>
-            </div>
             <div className="flex flex-col gap-1.5">
               <button
                 onClick={() =>
@@ -1701,6 +1675,114 @@ export default function App() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Downloads */}
+          <div
+            id="downloads"
+            className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24"
+          >
+            <div className="flex items-baseline justify-between border-b border-[#d4c5a9] pb-2 mb-4">
+              <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] font-bold flex items-center gap-2">
+                <Download size={12} className="text-[#8b4513]" />
+                {lang === "zh" ? "下载" : "Download"}
+              </h2>
+              <span className="text-[10px] text-[#8b4513] font-sans font-bold">
+                61 {lang === "zh" ? "章" : "chapters"}
+              </span>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-1">
+                {lang === "en" ? "Full text" : "全文"}
+              </p>
+              <button
+                onClick={downloadChinese}
+                className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]"
+              >
+                {lang === "en" ? "↓ Chinese text (.txt)" : "↓ 中文全文 (.txt)"}
+              </button>
+              <button
+                onClick={downloadEnglish}
+                className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]"
+              >
+                {lang === "en"
+                  ? "↓ English translation (.txt)"
+                  : "↓ 英文译文 (.txt)"}
+              </button>
+              <button
+                onClick={downloadInterleaved}
+                className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]"
+              >
+                {lang === "en"
+                  ? "↓ Bilingual interleaved (.txt)"
+                  : "↓ 中英对照 (.txt)"}
+              </button>
+              <button
+                onClick={downloadJSON}
+                className="text-left px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]"
+              >
+                {lang === "en"
+                  ? "↓ Bilingual interleaved (.json)"
+                  : "↓ 中英对照 (.json)"}
+              </button>
+            </div>
+            <div className="mt-4 pt-4 border-t border-[#d4c5a9] flex flex-col gap-1.5">
+              <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-1">
+                {lang === "en" ? "By chapter" : "分章下载"}
+              </p>
+              <details className="group">
+                <summary className="cursor-pointer list-none px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]">
+                  {lang === "en"
+                    ? "↓ Chinese by chapter (.txt)"
+                    : "↓ 分章中文 (.txt)"}
+                </summary>
+                <div className="mt-1 max-h-48 overflow-y-auto flex flex-col gap-0.5 pl-1">
+                  {chapters.map((ch) => (
+                    <a
+                      key={`zh-${ch.id}`}
+                      href={`/downloads/chinese/${chapterTxtFilename(ch.id)}`}
+                      download
+                      title={ch.title}
+                      className="text-left px-2 py-1 rounded-sm hover:bg-[#8b4513]/8 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513] font-hans truncate"
+                    >
+                      {ch.id === 0
+                        ? lang === "en"
+                          ? "00 Preface"
+                          : "00 序"
+                        : `${String(ch.id).padStart(2, "0")} ${ch.title.replace(/^第.+? /, "")}`}
+                    </a>
+                  ))}
+                </div>
+              </details>
+              <details className="group">
+                <summary className="cursor-pointer list-none px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]">
+                  {lang === "en"
+                    ? "↓ English by chapter (.txt)"
+                    : "↓ 分章英文 (.txt)"}
+                </summary>
+                <div className="mt-1 max-h-48 overflow-y-auto flex flex-col gap-0.5 pl-1">
+                  {chapters.map((ch) => {
+                    const enTitle =
+                      ch.id === 0
+                        ? "Preface"
+                        : chapterTitleTranslations[ch.id] || ch.title;
+                    return (
+                      <a
+                        key={`en-${ch.id}`}
+                        href={`/downloads/english/${chapterTxtFilename(ch.id)}`}
+                        download
+                        title={enTitle}
+                        className="text-left px-2 py-1 rounded-sm hover:bg-[#8b4513]/8 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513] truncate"
+                      >
+                        {ch.id === 0
+                          ? "00 Preface"
+                          : `${String(ch.id).padStart(2, "0")} ${enTitle}`}
+                      </a>
+                    );
+                  })}
+                </div>
+              </details>
             </div>
           </div>
         </aside>
