@@ -1727,41 +1727,33 @@ export default function App() {
                   : "↓ 中英对照 (.json)"}
               </button>
             </div>
-            <div className="mt-4 pt-4 border-t border-[#d4c5a9] flex flex-col gap-1.5">
-              <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-1">
+            <div className="mt-4 pt-4 border-t border-[#d4c5a9] space-y-3">
+              <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold">
                 {lang === "en" ? "By chapter" : "分章下载"}
               </p>
-              <details className="group">
-                <summary className="cursor-pointer list-none px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]">
-                  {lang === "en"
-                    ? "↓ Chinese by chapter (.txt)"
-                    : "↓ 分章中文 (.txt)"}
-                </summary>
-                <div className="mt-1 max-h-48 overflow-y-auto flex flex-col gap-0.5 pl-1">
+              <div>
+                <p className="text-[9px] text-[#8b4513] font-bold mb-1.5 font-hans">
+                  {lang === "en" ? "Chinese (.txt)" : "中文 (.txt)"}
+                </p>
+                <div className="flex flex-wrap gap-1">
                   {chapters.map((ch) => (
                     <a
                       key={`zh-${ch.id}`}
                       href={`/downloads/chinese/${chapterTxtFilename(ch.id)}`}
                       download
                       title={ch.title}
-                      className="text-left px-2 py-1 rounded-sm hover:bg-[#8b4513]/8 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513] font-hans truncate"
+                      className="min-w-[1.75rem] px-1.5 py-0.5 text-center text-[9px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] hover:bg-[#8b4513]/10 hover:border-[#8b4513]/40 hover:text-[#8b4513] transition-colors font-hans font-bold"
                     >
-                      {ch.id === 0
-                        ? lang === "en"
-                          ? "00 Preface"
-                          : "00 序"
-                        : `${String(ch.id).padStart(2, "0")} ${ch.title.replace(/^第.+? /, "")}`}
+                      {ch.id === 0 ? "序" : ch.id}
                     </a>
                   ))}
                 </div>
-              </details>
-              <details className="group">
-                <summary className="cursor-pointer list-none px-2 py-1.5 rounded-sm border border-[#d4c5a9] hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513]">
-                  {lang === "en"
-                    ? "↓ English by chapter (.txt)"
-                    : "↓ 分章英文 (.txt)"}
-                </summary>
-                <div className="mt-1 max-h-48 overflow-y-auto flex flex-col gap-0.5 pl-1">
+              </div>
+              <div>
+                <p className="text-[9px] text-[#8b4513] font-bold mb-1.5">
+                  {lang === "en" ? "English (.txt)" : "英文 (.txt)"}
+                </p>
+                <div className="flex flex-wrap gap-1">
                   {chapters.map((ch) => {
                     const enTitle =
                       ch.id === 0
@@ -1773,16 +1765,14 @@ export default function App() {
                         href={`/downloads/english/${chapterTxtFilename(ch.id)}`}
                         download
                         title={enTitle}
-                        className="text-left px-2 py-1 rounded-sm hover:bg-[#8b4513]/8 transition-all text-[10px] text-[#5d5048] hover:text-[#8b4513] truncate"
+                        className="min-w-[1.75rem] px-1.5 py-0.5 text-center text-[9px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] hover:bg-[#8b4513]/10 hover:border-[#8b4513]/40 hover:text-[#8b4513] transition-colors font-sans font-bold"
                       >
-                        {ch.id === 0
-                          ? "00 Preface"
-                          : `${String(ch.id).padStart(2, "0")} ${enTitle}`}
+                        {ch.id === 0 ? "0" : ch.id}
                       </a>
                     );
                   })}
                 </div>
-              </details>
+              </div>
             </div>
           </div>
         </aside>
