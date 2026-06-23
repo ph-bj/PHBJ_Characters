@@ -21,8 +21,10 @@ export interface MapLocationData {
 
 interface MapMarker {
   id: string;
-  x: number;
-  y: number;
+  baseX: number;
+  baseY: number;
+  offsetX: number;
+  offsetY: number;
   location: MapLocationData;
 }
 
@@ -88,6 +90,12 @@ function groupNearbyLocations(
   return groups;
 }
 
+function markerOffsetRetention(zoomK: number, baseZoomK: number, maxZoomK: number): number {
+  if (zoomK <= baseZoomK) return 1;
+  if (zoomK >= maxZoomK) return 0;
+  return 1 - (zoomK - baseZoomK) / (maxZoomK - baseZoomK);
+}
+
 function layoutMapMarkers(
   mapData: MapLocationData[],
   projection: d3.GeoProjection,
@@ -112,8 +120,10 @@ function layoutMapMarkers(
       const node = group[0];
       markers.push({
         id: node.id,
-        x: node.x,
-        y: node.y,
+        baseX: node.x,
+        baseY: node.y,
+        offsetX: 0,
+        offsetY: 0,
         location: node.location,
       });
       continue;
@@ -126,11 +136,13 @@ function layoutMapMarkers(
     );
 
     sorted.forEach((node, index) => {
-      const offset = spiralOffset(index, SPIRAL_SPACING_PX);
+      const spiral = spiralOffset(index, SPIRAL_SPACING_PX);
       markers.push({
         id: node.id,
-        x: centroidX + offset.x,
-        y: centroidY + offset.y,
+        baseX: node.x,
+        baseY: node.y,
+        offsetX: centroidX + spiral.x - node.x,
+        offsetY: centroidY + spiral.y - node.y,
         location: node.location,
       });
     });
@@ -373,7 +385,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
     };
 
     const initialTransform = fitPointsTransform(
-      markers.map((marker) => [marker.x, marker.y]),
+      markers.map((marker) => [marker.baseX, marker.baseY]),
       48,
     );
 
@@ -391,10 +403,17 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
 
     const markerLayer = g.append('g').attr('class', 'marker-layer');
 
-    const applyMarkerScale = (scale: number) => {
+    const maxZoomK = 12;
+
+    const updateMarkerTransforms = (scale: number) => {
       const inverse = 1 / scale;
+      const retention = markerOffsetRetention(scale, initialTransform.k, maxZoomK);
       markerLayer.selectAll<SVGGElement, MapMarker>('g.marker')
-        .attr('transform', (marker) => `translate(${marker.x},${marker.y}) scale(${inverse})`);
+        .attr('transform', (marker) => {
+          const x = marker.baseX + marker.offsetX * retention;
+          const y = marker.baseY + marker.offsetY * retention;
+          return `translate(${x},${y}) scale(${inverse})`;
+        });
     };
 
     const updateTooltipPosition = (event: PointerEvent) => {
@@ -410,7 +429,6 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .enter()
       .append('g')
       .attr('class', 'marker')
-      .attr('transform', (d) => `translate(${d.x},${d.y})`)
       .style('cursor', 'pointer');
 
     markerGroups.append('circle')
@@ -473,16 +491,16 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       });
 
     const zoom = d3.zoom<SVGSVGElement, unknown>()
-      .scaleExtent([1, 12])
+      .scaleExtent([1, maxZoomK])
       .translateExtent([[-width * 1.5, -height * 1.5], [width * 2.5, height * 2.5]])
       .on('zoom', (event) => {
         g.attr('transform', event.transform);
-        applyMarkerScale(event.transform.k);
+        updateMarkerTransforms(event.transform.k);
       });
 
     svg.call(zoom);
     svg.call(zoom.transform, initialTransform);
-    applyMarkerScale(initialTransform.k);
+    updateMarkerTransforms(initialTransform.k);
   }, [mapData, lang, locationType]);
 
   if (mapData.length === 0) {
