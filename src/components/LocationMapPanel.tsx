@@ -19,12 +19,11 @@ export interface MapLocationData {
   firstChapterId?: number | null;
 }
 
-interface MapCluster {
+interface MapMarker {
   id: string;
   x: number;
   y: number;
-  locations: MapLocationData[];
-  totalCount: number;
+  location: MapLocationData;
 }
 
 interface LocationMapPanelProps {
@@ -34,54 +33,102 @@ interface LocationMapPanelProps {
   locationType: LocationType;
 }
 
-const CLUSTER_RADIUS_PX = 20;
+const MARKER_RADIUS_PX = 3;
+const MARKER_HIT_RADIUS_PX = 8;
+const PROXIMITY_RADIUS_PX = 18;
+const SPIRAL_SPACING_PX = MARKER_RADIUS_PX * 2 + 2;
+const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
 
-function clusterMapLocations(
-  mapData: MapLocationData[],
-  projection: d3.GeoProjection,
+function spiralOffset(index: number, spacing: number): { x: number; y: number } {
+  if (index === 0) return { x: 0, y: 0 };
+  const radius = spacing * Math.sqrt(index);
+  const angle = index * GOLDEN_ANGLE;
+  return {
+    x: radius * Math.cos(angle),
+    y: radius * Math.sin(angle),
+  };
+}
+
+function groupNearbyLocations(
+  nodes: { id: string; x: number; y: number; count: number; label: string }[],
   radiusPx: number,
-): MapCluster[] {
-  const nodes = mapData.map((d) => {
-    const projected = projection(d.coords) as [number, number];
-    return { d, x: projected[0], y: projected[1] };
-  });
-
+) {
   const sorted = [...nodes].sort(
-    (a, b) => b.d.count - a.d.count || b.d.origin.localeCompare(a.d.origin),
+    (a, b) => b.count - a.count || a.label.localeCompare(b.label),
   );
 
-  const clusters: MapCluster[] = [];
+  const groups: typeof nodes[] = [];
   const assigned = new Set<string>();
 
   for (const node of sorted) {
-    if (assigned.has(node.d.id)) continue;
+    if (assigned.has(node.id)) continue;
 
-    const members = [node.d];
-    assigned.add(node.d.id);
+    const members = [node];
+    assigned.add(node.id);
 
     for (const other of nodes) {
-      if (assigned.has(other.d.id)) continue;
+      if (assigned.has(other.id)) continue;
       if (Math.hypot(node.x - other.x, node.y - other.y) <= radiusPx) {
-        members.push(other.d);
-        assigned.add(other.d.id);
+        members.push(other);
+        assigned.add(other.id);
       }
     }
 
-    members.sort((a, b) => b.count - a.count || a.origin.localeCompare(b.origin));
+    groups.push(members);
+  }
 
-    const xs = members.map((m) => (projection(m.coords) as [number, number])[0]);
-    const ys = members.map((m) => (projection(m.coords) as [number, number])[1]);
+  return groups;
+}
 
-    clusters.push({
-      id: members.map((m) => m.id).join('|'),
-      x: xs.reduce((sum, val) => sum + val, 0) / xs.length,
-      y: ys.reduce((sum, val) => sum + val, 0) / ys.length,
-      locations: members,
-      totalCount: members.reduce((sum, m) => sum + m.count, 0),
+function layoutMapMarkers(
+  mapData: MapLocationData[],
+  projection: d3.GeoProjection,
+): MapMarker[] {
+  const nodes = mapData.map((location) => {
+    const projected = projection(location.coords) as [number, number];
+    return {
+      id: location.id,
+      x: projected[0],
+      y: projected[1],
+      count: location.count,
+      label: location.origin,
+      location,
+    };
+  });
+
+  const groups = groupNearbyLocations(nodes, PROXIMITY_RADIUS_PX);
+  const markers: MapMarker[] = [];
+
+  for (const group of groups) {
+    if (group.length === 1) {
+      const node = group[0];
+      markers.push({
+        id: node.id,
+        x: node.x,
+        y: node.y,
+        location: node.location,
+      });
+      continue;
+    }
+
+    const centroidX = group.reduce((sum, node) => sum + node.x, 0) / group.length;
+    const centroidY = group.reduce((sum, node) => sum + node.y, 0) / group.length;
+    const sorted = [...group].sort(
+      (a, b) => b.location.count - a.location.count || a.location.origin.localeCompare(b.location.origin),
+    );
+
+    sorted.forEach((node, index) => {
+      const offset = spiralOffset(index, SPIRAL_SPACING_PX);
+      markers.push({
+        id: node.id,
+        x: centroidX + offset.x,
+        y: centroidY + offset.y,
+        location: node.location,
+      });
     });
   }
 
-  return clusters;
+  return markers;
 }
 
 function formatChapterList(chapterIds: number[], lang: 'en' | 'zh') {
@@ -289,9 +336,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
 
     const path = d3.geoPath().projection(projection);
 
-    const projectedPoints = mapData.map(
-      (d) => projection(d.coords) as [number, number],
-    );
+    const markers = layoutMapMarkers(mapData, projection);
 
     const fitPointsTransform = (
       points: [number, number][],
@@ -321,7 +366,10 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
         .translate(-midX, -midY);
     };
 
-    const initialTransform = fitPointsTransform(projectedPoints, 48);
+    const initialTransform = fitPointsTransform(
+      markers.map((marker) => [marker.x, marker.y]),
+      48,
+    );
 
     const zoom = d3.zoom<SVGSVGElement, unknown>()
       .scaleExtent([1, 12])
@@ -345,12 +393,6 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .attr('stroke-width', 1)
       .style('pointer-events', 'none');
 
-    const clusters = clusterMapLocations(mapData, projection, CLUSTER_RADIUS_PX);
-
-    const sizeScale = d3.scaleSqrt()
-      .domain([1, d3.max(clusters, (c) => c.locations.length) || 1])
-      .range([5, 16]);
-
     const markerLayer = g.append('g').attr('class', 'marker-layer');
 
     const updateTooltipPosition = (event: PointerEvent) => {
@@ -361,42 +403,42 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       }));
     };
 
-    const clusterGroups = markerLayer.selectAll<SVGGElement, MapCluster>('g.cluster')
-      .data(clusters)
+    const markerGroups = markerLayer.selectAll<SVGGElement, MapMarker>('g.marker')
+      .data(markers, (d) => d.id)
       .enter()
       .append('g')
-      .attr('class', 'cluster')
+      .attr('class', 'marker')
       .attr('transform', (d) => `translate(${d.x},${d.y})`)
       .style('cursor', 'pointer');
 
-    clusterGroups.append('circle')
+    markerGroups.append('circle')
       .attr('class', 'hit-area')
-      .attr('r', (d) => Math.max(sizeScale(d.locations.length) + 8, 14))
+      .attr('r', MARKER_HIT_RADIUS_PX)
       .attr('fill', 'transparent')
       .attr('stroke', 'none');
 
-    clusterGroups.append('circle')
-      .attr('class', 'marker')
-      .attr('r', (d) => sizeScale(d.locations.length))
+    markerGroups.append('circle')
+      .attr('class', 'marker-dot')
+      .attr('r', MARKER_RADIUS_PX)
       .attr('fill', locationColors[locationType])
       .attr('fill-opacity', 0.65)
       .attr('stroke', '#5d5048')
-      .attr('stroke-width', (d) => (d.locations.length > 1 ? 2 : 1))
+      .attr('stroke-width', 1)
       .style('pointer-events', 'none');
 
-    clusterGroups
-      .on('pointerenter', (event, cluster) => {
-        clusterGroups.classed('is-hovered', false);
+    markerGroups
+      .on('pointerenter', (event, marker) => {
+        markerGroups.classed('is-hovered', false);
         d3.select(event.currentTarget).classed('is-hovered', true);
-        d3.select(event.currentTarget).select('.marker')
+        d3.select(event.currentTarget).select('.marker-dot')
           .attr('fill-opacity', 0.9)
-          .attr('stroke-width', 2.5);
+          .attr('stroke-width', 2);
 
         setTooltipRef.current({
           visible: true,
           x: event.clientX,
           y: event.clientY,
-          locations: cluster.locations,
+          locations: [marker.location],
         });
       })
       .on('pointermove', (event) => {
@@ -404,9 +446,9 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       })
       .on('pointerleave', (event) => {
         d3.select(event.currentTarget).classed('is-hovered', false);
-        d3.select(event.currentTarget).select('.marker')
+        d3.select(event.currentTarget).select('.marker-dot')
           .attr('fill-opacity', 0.65)
-          .attr('stroke-width', (d: MapCluster) => (d.locations.length > 1 ? 2 : 1));
+          .attr('stroke-width', 1);
         setTooltipRef.current((prev) => ({ ...prev, visible: false }));
       });
   }, [mapData, lang, locationType]);
