@@ -84,7 +84,7 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
           id: origin,
           origin,
           originZh: data.originZh,
-          type: 'city',
+          type: 'place',
           count: data.count,
           chars: data.chars,
           coords,
@@ -110,12 +110,12 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
   );
 
   const [activeType, setActiveType] = useState<LocationType>(
-    () => activeTypes[0] ?? 'region',
+    () => activeTypes[0] ?? 'site',
   );
 
   const resolvedActiveType = activeTypes.includes(activeType)
     ? activeType
-    : activeTypes[0] ?? 'region';
+    : activeTypes[0] ?? 'site';
 
   const totalLocations = activeTypes.reduce(
     (sum, type) => sum + mapDataByType[type].length,

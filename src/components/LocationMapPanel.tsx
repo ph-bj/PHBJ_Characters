@@ -33,16 +33,16 @@ interface LocationMapPanelProps {
   locationType: LocationType;
 }
 
-const MARKER_RADIUS_PX = 3;
-const MARKER_HIT_RADIUS_PX = 8;
-const MARKER_LABEL_FONT_SIZE_PX = 6;
-const PROXIMITY_RADIUS_PX = 18;
-const SPIRAL_SPACING_PX = MARKER_RADIUS_PX * 2 + 2;
+const MARKER_RADIUS_PX = 5;
+const MARKER_HIT_RADIUS_PX = 12;
+const MARKER_LABEL_FONT_SIZE_PX = 9;
+const PROXIMITY_RADIUS_PX = 22;
+const SPIRAL_SPACING_PX = MARKER_RADIUS_PX * 2 + 4;
 const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
 
 function formatMapLabel(location: MapLocationData, lang: 'en' | 'zh'): string {
   const name = lang === 'zh' ? (location.originZh || location.origin) : location.origin;
-  const maxLen = lang === 'zh' ? 5 : 10;
+  const maxLen = lang === 'zh' ? 6 : 12;
   if (name.length <= maxLen) return name;
   return `${name.slice(0, maxLen - 1)}…`;
 }
@@ -379,16 +379,6 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       48,
     );
 
-    const zoom = d3.zoom<SVGSVGElement, unknown>()
-      .scaleExtent([1, 12])
-      .translateExtent([[-width * 1.5, -height * 1.5], [width * 2.5, height * 2.5]])
-      .on('zoom', (event) => {
-        g.attr('transform', event.transform);
-      });
-
-    svg.call(zoom);
-    svg.call(zoom.transform, initialTransform);
-
     g.append('g')
       .attr('class', 'map-layer')
       .selectAll('path')
@@ -402,6 +392,12 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .style('pointer-events', 'none');
 
     const markerLayer = g.append('g').attr('class', 'marker-layer');
+
+    const applyMarkerScale = (scale: number) => {
+      const inverse = 1 / scale;
+      markerLayer.selectAll<SVGGElement, MapMarker>('g.marker')
+        .attr('transform', (marker) => `translate(${marker.x},${marker.y}) scale(${inverse})`);
+    };
 
     const updateTooltipPosition = (event: PointerEvent) => {
       setTooltipRef.current((prev) => ({
@@ -477,6 +473,18 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
           .attr('font-weight', 400);
         setTooltipRef.current((prev) => ({ ...prev, visible: false }));
       });
+
+    const zoom = d3.zoom<SVGSVGElement, unknown>()
+      .scaleExtent([1, 12])
+      .translateExtent([[-width * 1.5, -height * 1.5], [width * 2.5, height * 2.5]])
+      .on('zoom', (event) => {
+        g.attr('transform', event.transform);
+        applyMarkerScale(event.transform.k);
+      });
+
+    svg.call(zoom);
+    svg.call(zoom.transform, initialTransform);
+    applyMarkerScale(initialTransform.k);
   }, [mapData, lang, locationType]);
 
   if (mapData.length === 0) {
