@@ -83,6 +83,7 @@ import { QuestionsModal } from "./components/QuestionsModal";
 import { WorkModal } from "./components/WorkModal";
 import { LocationDetail } from "./components/LocationDetail";
 import { ChapterReader } from "./components/ChapterReader";
+import { HometownMap } from "./components/HometownMap";
 import { CharacterCard } from "./components/CharacterCard";
 import { CharacterDetail } from "./components/CharacterDetail";
 import { GardenDetail } from "./components/GardenDetail";
@@ -1508,6 +1509,7 @@ export default function App() {
               <p className="text-[#5d5048] italic font-hans">{t.noRecords}</p>
             </div>
           )}
+          <HometownMap characters={filteredCharacters} lang={lang} />
         </section>
 
         {/* Right Sidebar - Chapters */}
