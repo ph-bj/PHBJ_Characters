@@ -125,10 +125,6 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
 
     svg.call(zoom);
 
-    // Filter geometry to only include China and nearby for context, or just render it
-    // Topojson countries 110m has id 156 for China
-    const chinaFeature = geoData.features.find((f: any) => f.id === "156" || f.properties?.name === "China");
-
     const projection = d3.geoMercator()
       .center([110, 32]) // Focus on eastern/central China
       .scale(width * 0.9)
@@ -142,16 +138,108 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
       .enter()
       .append("path")
       .attr("d", path as any)
-      .attr("fill", (d: any) => (d.id === "156" || d.properties?.name === "China") ? "#f4ecd8" : "#e5dcc3")
+      .attr("fill", "#e5dcc3")
       .attr("stroke", "#d4c5a9")
       .attr("stroke-width", 1);
 
     // Rivers/Waterways would be nice, but we just have countries.
 
-    // Draw cities as bubbles
     const sizeScale = d3.scaleSqrt()
       .domain([0, d3.max(mapData, (d: MapLocationData) => d.count) || 1])
       .range([3, 15]);
+
+    // City labels — priority placement with collision avoidance
+    const fontSize = 10;
+    const labelPadding = 3;
+    const typePriority: Record<string, number> = {
+      region: 50, province: 40, city: 30, county: 20,
+      residence: 10, garden: 8, gardenFeature: 6, temple: 6,
+      scenicSite: 6, waterway: 5, mountain: 5, street: 4, venue: 4,
+    };
+
+    type LabelPlacement = MapLocationData & {
+      anchorX: number;
+      anchorY: number;
+      x: number;
+      y: number;
+      text: string;
+      width: number;
+      height: number;
+      priority: number;
+    };
+
+    const labelPlacements: LabelPlacement[] = mapData.map((d) => {
+      const projected = projection(d.coords as [number, number]);
+      const px = projected?.[0] ?? 0;
+      const py = projected?.[1] ?? 0;
+      const r = d.count > 0 ? sizeScale(d.count) : 3;
+      const text = lang === 'zh' ? (d.originZh || d.origin) : d.origin;
+      return {
+        ...d,
+        anchorX: px,
+        anchorY: py - r - 2,
+        x: px,
+        y: py - r - 2,
+        text,
+        width: 0,
+        height: fontSize + labelPadding * 2,
+        priority: d.count * 100 + (typePriority[d.type] ?? 1),
+      };
+    });
+
+    const measureLayer = g.append('g').attr('visibility', 'hidden');
+    labelPlacements.forEach((p) => {
+      const node = measureLayer.append('text')
+        .text(p.text)
+        .attr('font-size', `${fontSize}px`)
+        .attr('font-weight', 'bold')
+        .node() as SVGTextElement;
+      const bbox = node.getBBox();
+      p.width = bbox.width + labelPadding * 2;
+      p.height = bbox.height + labelPadding * 2;
+    });
+    measureLayer.remove();
+
+    labelPlacements.sort((a, b) => b.priority - a.priority);
+
+    const labelOverlaps = (
+      a: LabelPlacement,
+      ax: number,
+      ay: number,
+      b: LabelPlacement,
+      bx: number,
+      by: number,
+    ) => Math.abs(ax - bx) < (a.width + b.width) / 2
+      && Math.abs(ay - by) < (a.height + b.height) / 2;
+
+    const labelOffsets: [number, number][] = [
+      [0, 0], [0, -14], [18, -10], [-18, -10],
+      [24, 0], [-24, 0], [18, 12], [-18, 12], [0, 14],
+      [32, -16], [-32, -16], [32, 14], [-32, 14],
+    ];
+
+    const visibleLabels: LabelPlacement[] = [];
+    const visibleIds = new Set<string>();
+    for (const placement of labelPlacements) {
+      for (const [dx, dy] of labelOffsets) {
+        const x = placement.anchorX + dx;
+        const y = placement.anchorY + dy;
+        const collides = visibleLabels.some((placed) =>
+          labelOverlaps(placement, x, y, placed, placed.x, placed.y),
+        );
+        if (!collides) {
+          placement.x = x;
+          placement.y = y;
+          visibleLabels.push(placement);
+          visibleIds.add(placement.id);
+          break;
+        }
+      }
+    }
+
+    const secondaryLabels = labelPlacements.filter((p) => !visibleIds.has(p.id));
+
+    let hoverLabelsLayer: d3.Selection<SVGGElement, unknown, null, undefined>;
 
     g.selectAll<SVGCircleElement, MapLocationData>("circle").data(mapData)
       .enter()
@@ -169,9 +257,13 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
           .attr("fill-opacity", 0.9)
           .attr("stroke-width", 2);
 
+        if (!visibleIds.has(d.id)) {
+          hoverLabelsLayer.selectAll('text')
+            .attr('opacity', (label: LabelPlacement) => label.id === d.id ? 1 : 0);
+        }
+
         const [x, y] = d3.pointer(event, document.body);
 
-        // Show up to 5 character names
         const names = d.chars.slice(0, 5).map(c => lang === 'zh' ? c.name.split(' ')[0] : c.name.split(' ')[1] || c.name.split(' ')[0]).join(', ');
         const nameText = d.chars.length > 5 ? `${names} +${d.chars.length - 5}` : names;
 
@@ -194,26 +286,60 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
         d3.select(event.currentTarget)
           .attr("fill-opacity", 0.6)
           .attr("stroke-width", 1);
+        hoverLabelsLayer.selectAll('text').attr('opacity', 0);
         setTooltip(prev => ({ ...prev, visible: false }));
       });
 
-    // City labels
-    g.selectAll<SVGTextElement, MapLocationData>("text").data(mapData)
-      .enter()
-      .append("text")
-      .attr("x", (d: MapLocationData) => (projection(d.coords as [number, number])?.[0] || 0))
-      .attr("y", (d: MapLocationData) => (projection(d.coords as [number, number])?.[1] || 0) - sizeScale(d.count) - 2)
-      .text((d: MapLocationData) => lang === 'zh' ? (d.originZh || d.origin) : d.origin)
-      .attr("text-anchor", "middle")
-      .attr("font-size", "10px")
-      .attr("fill", "#2c2420")
-      .attr("font-weight", "bold")
-      .style("pointer-events", "none")
-      // Adding a subtle stroke for readability against background
-      .attr("paint-order", "stroke")
-      .attr("stroke", "#f4ecd8")
-      .attr("stroke-width", 2);
+    const labelsLayer = g.append('g').attr('class', 'map-labels');
 
+    labelsLayer.selectAll('line')
+      .data(visibleLabels.filter((p) => Math.hypot(p.x - p.anchorX, p.y - p.anchorY) > 3))
+      .enter()
+      .append('line')
+      .attr('x1', (d) => d.anchorX)
+      .attr('y1', (d) => d.anchorY)
+      .attr('x2', (d) => d.x)
+      .attr('y2', (d) => d.y)
+      .attr('stroke', '#8b7355')
+      .attr('stroke-width', 0.75)
+      .attr('stroke-opacity', 0.6);
+
+    labelsLayer.selectAll('text')
+      .data(visibleLabels)
+      .enter()
+      .append('text')
+      .attr('x', (d) => d.x)
+      .attr('y', (d) => d.y)
+      .text((d) => d.text)
+      .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'middle')
+      .attr('font-size', `${fontSize}px`)
+      .attr('fill', '#2c2420')
+      .attr('font-weight', 'bold')
+      .style('pointer-events', 'none')
+      .attr('paint-order', 'stroke')
+      .attr('stroke', '#f4ecd8')
+      .attr('stroke-width', 2);
+
+    hoverLabelsLayer = g.append('g').attr('class', 'hover-labels');
+
+    hoverLabelsLayer.selectAll('text')
+      .data(secondaryLabels)
+      .enter()
+      .append('text')
+      .attr('x', (d) => d.anchorX)
+      .attr('y', (d) => d.anchorY)
+      .text((d) => d.text)
+      .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'middle')
+      .attr('font-size', `${fontSize}px`)
+      .attr('fill', '#2c2420')
+      .attr('font-weight', 'bold')
+      .attr('opacity', 0)
+      .style('pointer-events', 'none')
+      .attr('paint-order', 'stroke')
+      .attr('stroke', '#f4ecd8')
+      .attr('stroke-width', 2);
   }, [mapData, lang]);
 
   return (
