@@ -156,11 +156,9 @@ function formatChapterList(chapterIds: number[], lang: 'en' | 'zh') {
 
 function formatCharacterNames(chars: Character[], lang: 'en' | 'zh') {
   if (chars.length === 0) return '';
-  const names = chars
-    .slice(0, 5)
+  return chars
     .map((c) => (lang === 'zh' ? c.name.split(' ')[0] : c.name.split(' ')[1] || c.name.split(' ')[0]))
-    .join(', ');
-  return chars.length > 5 ? `${names} +${chars.length - 5}` : names;
+    .join(lang === 'zh' ? '、' : ', ');
 }
 
 function LocationTooltipSection({
@@ -245,7 +243,7 @@ function LocationTooltipSection({
       )}
 
       {names && (
-        <p className="text-[10px] opacity-80">
+        <p className="text-[10px] opacity-80 leading-relaxed">
           <span className="text-amber-200/60 uppercase tracking-wider text-[9px] block mb-0.5">
             {lang === 'zh' ? '相关人物' : 'Characters'}
           </span>
