@@ -167,3 +167,20 @@ export const novelLocations: NovelLocation[] = [
   { id: 'venue-liubu', name: '礼部', nameEn: 'Ministry of Rites', type: 'venue', typeZh: '场馆', searchTokens: ['礼部'] },
   { id: 'venue-fuyin', name: '府尹', nameEn: 'Prefectural Office', type: 'venue', typeZh: '场馆', searchTokens: ['府尹'] },
 ];
+
+
+export const locationColors: Record<LocationType, string> = {
+  region: "#1f77b4",
+  province: "#ff7f0e",
+  city: "#2ca02c",
+  county: "#d62728",
+  residence: "#9467bd",
+  garden: "#8c564b",
+  gardenFeature: "#e377c2",
+  temple: "#7f7f7f",
+  scenicSite: "#bcbd22",
+  waterway: "#17becf",
+  mountain: "#393b79",
+  street: "#8c6d31",
+  venue: "#843c39"
+};
