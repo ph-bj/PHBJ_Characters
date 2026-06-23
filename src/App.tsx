@@ -106,7 +106,7 @@ export default function App() {
   const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(
     null,
   );
-  const [selectedQuestion, setSelectedQuestion] = useState<number | null>(null);
+  const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [networkGraphFullscreen, setNetworkGraphFullscreen] = useState(false);
 
@@ -1364,8 +1364,8 @@ export default function App() {
             <div className="space-y-2">
               {questions.map((q) => (
                 <button
-                  key={q.id}
-                  onClick={() => setSelectedQuestion(q.id)}
+                  key={q.slug}
+                  onClick={() => setSelectedQuestion(q.slug)}
                   className="w-full text-left p-3 rounded-sm border border-[#d4c5a9]/40 bg-black/5 hover:bg-amber-700/10 hover:border-amber-700/40 transition-colors cursor-pointer"
                 >
                   <p className="text-[11px] font-bold text-[#2c2420] leading-relaxed">
@@ -2006,7 +2006,7 @@ export default function App() {
       <AnimatePresence>
         {selectedQuestion !== null && (
           <QuestionsModal
-            questionId={selectedQuestion}
+            questionSlug={selectedQuestion}
             onClose={() => setSelectedQuestion(null)}
             lang={lang}
           />

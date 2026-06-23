@@ -4,15 +4,15 @@ import { QuestionAnswer } from "../QuestionAnswer";
 import { questions } from "../questions";
 
 export function QuestionsModal({
-  questionId,
+  questionSlug,
   onClose,
   lang,
 }: {
-  questionId: number;
+  questionSlug: string;
   onClose: () => void;
   lang: "en" | "zh";
 }) {
-  const question = questions.find((q) => q.id === questionId);
+  const question = questions.find((q) => q.slug === questionSlug);
   if (!question) return null;
 
   return (
