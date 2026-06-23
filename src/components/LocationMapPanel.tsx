@@ -35,9 +35,17 @@ interface LocationMapPanelProps {
 
 const MARKER_RADIUS_PX = 3;
 const MARKER_HIT_RADIUS_PX = 8;
+const MARKER_LABEL_FONT_SIZE_PX = 6;
 const PROXIMITY_RADIUS_PX = 18;
 const SPIRAL_SPACING_PX = MARKER_RADIUS_PX * 2 + 2;
 const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
+
+function formatMapLabel(location: MapLocationData, lang: 'en' | 'zh'): string {
+  const name = lang === 'zh' ? (location.originZh || location.origin) : location.origin;
+  const maxLen = lang === 'zh' ? 5 : 10;
+  if (name.length <= maxLen) return name;
+  return `${name.slice(0, maxLen - 1)}…`;
+}
 
 function spiralOffset(index: number, spacing: number): { x: number; y: number } {
   if (index === 0) return { x: 0, y: 0 };
@@ -426,6 +434,18 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .attr('stroke-width', 1)
       .style('pointer-events', 'none');
 
+    markerGroups.append('text')
+      .attr('class', `marker-label${lang === 'zh' ? ' font-hans' : ''}`)
+      .attr('y', MARKER_RADIUS_PX + MARKER_LABEL_FONT_SIZE_PX + 1)
+      .attr('text-anchor', 'middle')
+      .attr('font-size', MARKER_LABEL_FONT_SIZE_PX)
+      .attr('fill', '#5d5048')
+      .attr('stroke', '#f4ecd8')
+      .attr('stroke-width', 0.75)
+      .attr('paint-order', 'stroke')
+      .style('pointer-events', 'none')
+      .text((marker) => formatMapLabel(marker.location, lang));
+
     markerGroups
       .on('pointerenter', (event, marker) => {
         markerGroups.classed('is-hovered', false);
@@ -433,6 +453,9 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
         d3.select(event.currentTarget).select('.marker-dot')
           .attr('fill-opacity', 0.9)
           .attr('stroke-width', 2);
+        d3.select(event.currentTarget).select('.marker-label')
+          .attr('fill', '#2c2420')
+          .attr('font-weight', 600);
 
         setTooltipRef.current({
           visible: true,
@@ -449,6 +472,9 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
         d3.select(event.currentTarget).select('.marker-dot')
           .attr('fill-opacity', 0.65)
           .attr('stroke-width', 1);
+        d3.select(event.currentTarget).select('.marker-label')
+          .attr('fill', '#5d5048')
+          .attr('font-weight', 400);
         setTooltipRef.current((prev) => ({ ...prev, visible: false }));
       });
   }, [mapData, lang, locationType]);
