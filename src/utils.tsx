@@ -300,6 +300,44 @@ export type LacunaEntry = {
 };
 export type NovelLocationWithChapters = NovelLocation & { chapterIds: number[] };
 
+export function getLocationChapterIds(location: NovelLocation): number[] {
+  return chapters
+    .filter((ch) => ch.id >= 1)
+    .filter((chapter) =>
+      location.searchTokens.some((token) => chapter.content.includes(token)),
+    )
+    .map((chapter) => chapter.id);
+}
+
+export function getLocationFirstSnippet(location: NovelLocation): string | null {
+  const chapterIds = getLocationChapterIds(location);
+  if (chapterIds.length === 0) return null;
+
+  const chapter = chapters.find((ch) => ch.id === chapterIds[0]);
+  if (!chapter) return null;
+
+  let earliest = chapter.content.length;
+  let matchEnd = 0;
+  for (const token of location.searchTokens) {
+    const pos = chapter.content.indexOf(token);
+    if (pos !== -1 && pos < earliest) {
+      earliest = pos;
+      matchEnd = pos + token.length;
+    }
+  }
+  if (earliest === chapter.content.length) return null;
+
+  return chapter.content.slice(
+    Math.max(0, earliest - 60),
+    Math.min(chapter.content.length, matchEnd + 60),
+  );
+}
+
+export function getLocationFirstChapterId(location: NovelLocation): number | null {
+  const chapterIds = getLocationChapterIds(location);
+  return chapterIds[0] ?? null;
+}
+
 // Tokens that are also common Chinese nouns — require context confirmation before
 // being rendered as a name chip. Add any token here that causes false positives.
 export const CONTEXT_SENSITIVE_TOKENS = new Set(["菊花"]);
