@@ -96,6 +96,43 @@ function markerOffsetRetention(zoomK: number, baseZoomK: number, maxZoomK: numbe
   return 1 - (zoomK - baseZoomK) / (maxZoomK - baseZoomK);
 }
 
+function getMarkerDisplayPosition(
+  marker: MapMarker,
+  zoomK: number,
+  baseZoomK: number,
+  maxZoomK: number,
+) {
+  const retention = markerOffsetRetention(zoomK, baseZoomK, maxZoomK);
+  return {
+    x: marker.baseX + marker.offsetX * retention,
+    y: marker.baseY + marker.offsetY * retention,
+    retention,
+  };
+}
+
+function getLeaderLineEndpoints(
+  marker: MapMarker,
+  displayX: number,
+  displayY: number,
+  zoomK: number,
+) {
+  const dx = marker.baseX - displayX;
+  const dy = marker.baseY - displayY;
+  const len = Math.hypot(dx, dy);
+  if (len < 0.01) return null;
+
+  const inset = MARKER_RADIUS_PX / zoomK;
+  const ux = dx / len;
+  const uy = dy / len;
+
+  return {
+    x1: displayX + ux * inset,
+    y1: displayY + uy * inset,
+    x2: marker.baseX - ux * inset,
+    y2: marker.baseY - uy * inset,
+  };
+}
+
 function layoutMapMarkers(
   mapData: MapLocationData[],
   projection: d3.GeoProjection,
@@ -401,17 +438,37 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .attr('stroke-width', 1)
       .style('pointer-events', 'none');
 
+    const leaderLayer = g.append('g').attr('class', 'leader-layer');
+
     const markerLayer = g.append('g').attr('class', 'marker-layer');
 
     const maxZoomK = 12;
 
     const updateMarkerTransforms = (scale: number) => {
       const inverse = 1 / scale;
-      const retention = markerOffsetRetention(scale, initialTransform.k, maxZoomK);
+      const lineWidth = 1 / scale;
+
+      leaderLayer.selectAll<SVGLineElement, MapMarker>('line.marker-leader')
+        .each(function (marker) {
+          const { x, y } = getMarkerDisplayPosition(marker, scale, initialTransform.k, maxZoomK);
+          const endpoints = getLeaderLineEndpoints(marker, x, y, scale);
+          const line = d3.select(this);
+          if (!endpoints) {
+            line.style('display', 'none');
+            return;
+          }
+          line
+            .style('display', null)
+            .attr('x1', endpoints.x1)
+            .attr('y1', endpoints.y1)
+            .attr('x2', endpoints.x2)
+            .attr('y2', endpoints.y2)
+            .attr('stroke-width', lineWidth);
+        });
+
       markerLayer.selectAll<SVGGElement, MapMarker>('g.marker')
         .attr('transform', (marker) => {
-          const x = marker.baseX + marker.offsetX * retention;
-          const y = marker.baseY + marker.offsetY * retention;
+          const { x, y } = getMarkerDisplayPosition(marker, scale, initialTransform.k, maxZoomK);
           return `translate(${x},${y}) scale(${inverse})`;
         });
     };
@@ -423,6 +480,15 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
         y: event.clientY,
       }));
     };
+
+    leaderLayer.selectAll<SVGLineElement, MapMarker>('line.marker-leader')
+      .data(markers, (d) => d.id)
+      .enter()
+      .append('line')
+      .attr('class', 'marker-leader')
+      .attr('stroke', '#5d5048')
+      .attr('stroke-opacity', 0.45)
+      .style('pointer-events', 'none');
 
     const markerGroups = markerLayer.selectAll<SVGGElement, MapMarker>('g.marker')
       .data(markers, (d) => d.id)
@@ -436,6 +502,13 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .attr('r', MARKER_HIT_RADIUS_PX)
       .attr('fill', 'transparent')
       .attr('stroke', 'none');
+
+    markerGroups.append('circle')
+      .attr('class', 'marker-bg')
+      .attr('r', MARKER_RADIUS_PX + 1)
+      .attr('fill', '#e5dcc3')
+      .attr('stroke', 'none')
+      .style('pointer-events', 'none');
 
     markerGroups.append('circle')
       .attr('class', 'marker-dot')
