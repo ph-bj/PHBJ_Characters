@@ -452,6 +452,8 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .attr('stroke-width', 1)
       .style('pointer-events', 'none');
 
+    const leaderLayer = g.append('g').attr('class', 'leader-layer');
+
     const capitalStarLayer = g.append('g').attr('class', 'capital-star-layer');
     const capitalStar = capitalStarLayer.append('g')
       .attr('class', 'capital-star')
@@ -475,8 +477,6 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .attr('paint-order', 'stroke')
       .style('pointer-events', 'none')
       .text(lang === 'zh' ? '京师' : 'Beijing');
-
-    const leaderLayer = g.append('g').attr('class', 'leader-layer');
 
     const markerLayer = g.append('g').attr('class', 'marker-layer');
 
