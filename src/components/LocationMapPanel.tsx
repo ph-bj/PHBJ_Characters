@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 import { Character } from '../types';
 import { locationColors, locationTypeLabels, LocationType } from '../locations';
 import geoData from '../assets/countries.geo.json';
+import coordinates from '../assets/coordinates.json';
 
 export interface MapLocationData {
   id: string;
@@ -41,6 +42,18 @@ const MARKER_LABEL_FONT_SIZE_PX = 9;
 const PROXIMITY_RADIUS_PX = 22;
 const SPIRAL_SPACING_PX = MARKER_RADIUS_PX * 2 + 4;
 const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
+const BEIJING_COORDS = (coordinates as any).Beijing as [number, number];
+const CAPITAL_STAR_RADIUS_PX = 3.5;
+
+function capitalStarPath(outerRadius: number, innerRatio = 0.42): string {
+  let d = '';
+  for (let i = 0; i < 10; i++) {
+    const angle = -Math.PI / 2 + (i * Math.PI) / 5;
+    const r = i % 2 === 0 ? outerRadius : outerRadius * innerRatio;
+    d += `${i === 0 ? 'M' : 'L'}${(r * Math.cos(angle)).toFixed(2)},${(r * Math.sin(angle)).toFixed(2)}`;
+  }
+  return `${d}Z`;
+}
 
 function formatMapLabel(location: MapLocationData, lang: 'en' | 'zh'): string {
   const name = lang === 'zh' ? (location.originZh || location.origin) : location.origin;
@@ -391,6 +404,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
 
     const path = d3.geoPath().projection(projection);
 
+    const beijingProjected = projection(BEIJING_COORDS) as [number, number];
     const markers = layoutMapMarkers(mapData, projection);
 
     const fitPointsTransform = (
@@ -438,6 +452,31 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .attr('stroke-width', 1)
       .style('pointer-events', 'none');
 
+    const capitalStarLayer = g.append('g').attr('class', 'capital-star-layer');
+    const capitalStar = capitalStarLayer.append('g')
+      .attr('class', 'capital-star')
+      .attr('transform', `translate(${beijingProjected[0]},${beijingProjected[1]})`);
+
+    capitalStar.append('path')
+      .attr('d', capitalStarPath(CAPITAL_STAR_RADIUS_PX))
+      .attr('fill', '#c9a227')
+      .attr('fill-opacity', 0.9)
+      .attr('stroke', '#5d5048')
+      .attr('stroke-width', 0.75)
+      .style('pointer-events', 'none');
+
+    capitalStar.append('text')
+      .attr('class', `capital-star-label${lang === 'zh' ? ' font-hans' : ''}`)
+      .attr('y', CAPITAL_STAR_RADIUS_PX + MARKER_LABEL_FONT_SIZE_PX + 1)
+      .attr('text-anchor', 'middle')
+      .attr('font-size', MARKER_LABEL_FONT_SIZE_PX)
+      .attr('fill', '#5d5048')
+      .attr('stroke', '#f4ecd8')
+      .attr('stroke-width', 0.75)
+      .attr('paint-order', 'stroke')
+      .style('pointer-events', 'none')
+      .text(lang === 'zh' ? '京师' : 'Beijing');
+
     const leaderLayer = g.append('g').attr('class', 'leader-layer');
 
     const markerLayer = g.append('g').attr('class', 'marker-layer');
@@ -447,6 +486,9 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
     const updateMarkerTransforms = (scale: number) => {
       const inverse = 1 / scale;
       const lineWidth = 1 / scale;
+
+      capitalStarLayer.select('g.capital-star')
+        .attr('transform', `translate(${beijingProjected[0]},${beijingProjected[1]}) scale(${inverse})`);
 
       leaderLayer.selectAll<SVGLineElement, MapMarker>('line.marker-leader')
         .each(function (marker) {
