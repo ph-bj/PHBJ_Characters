@@ -43,7 +43,7 @@ const PROXIMITY_RADIUS_PX = 22;
 const SPIRAL_SPACING_PX = MARKER_RADIUS_PX * 2 + 4;
 const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
 const BEIJING_COORDS = (coordinates as any).Beijing as [number, number];
-const CAPITAL_STAR_RADIUS_PX = 3.5;
+const CAPITAL_STAR_RADIUS_PX = 10;
 
 function capitalStarPath(outerRadius: number, innerRatio = 0.42): string {
   let d = '';
@@ -460,7 +460,6 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
     capitalStar.append('path')
       .attr('d', capitalStarPath(CAPITAL_STAR_RADIUS_PX))
       .attr('fill', '#c9a227')
-      .attr('fill-opacity', 0.9)
       .attr('stroke', '#5d5048')
       .attr('stroke-width', 0.75)
       .style('pointer-events', 'none');
