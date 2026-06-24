@@ -173,7 +173,7 @@ function layoutMapMarkers(
     );
 
     sorted.forEach((node, index) => {
-      const spiral = spiralOffset(index, SPIRAL_SPACING_PX);
+      const spiral = spiralOffset(index + 1, SPIRAL_SPACING_PX);
       markers.push({
         id: node.id,
         baseX: node.x,
