@@ -2,7 +2,7 @@ import { execSync } from 'child_process';
 import { cpSync, existsSync, rmSync } from 'fs';
 import { join } from 'path';
 
-const TARGET = 'C:/Users/tc/Documents/GitTower/ph-bj.github.io';
+const TARGET = 'E:/projects/ph-bj.github.io'; // Update this path to your target directory
 
 console.log('Building...');
 execSync('npm run build', { stdio: 'inherit', shell: true });
