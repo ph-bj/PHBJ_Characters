@@ -1,7 +1,8 @@
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
+import { fileURLToPath } from 'url';
 
-const ROOT = new URL('..', import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
 function parseBracketArray(text, startIdx) {
   let i = startIdx;

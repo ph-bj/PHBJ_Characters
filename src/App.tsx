@@ -1788,7 +1788,7 @@ export default function App() {
       </footer>
 
       {/* Floating Scroll Buttons */}
-      <div className="hidden md:flex fixed bottom-6 right-6 flex-col gap-2 z-40">
+      <div className="fixed bottom-6 right-6 flex flex-col gap-2 z-40">
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
