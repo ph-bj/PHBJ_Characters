@@ -45,6 +45,7 @@ import {
   Menu,
   Network,
   Download,
+  Map as MapIcon,
 } from "lucide-react";
 import { characters, relationships, identityLinksById } from "./data";
 import { chapters } from "./chapters";
@@ -633,6 +634,11 @@ export default function App() {
       id: "locations",
       label: lang === "zh" ? "地点" : "Locations",
       icon: MapPin,
+    },
+    {
+      id: "hometown-map",
+      label: lang === "zh" ? "分布地图" : "Distribution Map",
+      icon: MapIcon,
     },
     {
       id: "downloads",
