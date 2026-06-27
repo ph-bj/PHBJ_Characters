@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
 import * as d3 from 'd3';
+import { X } from 'lucide-react';
 import { Character } from '../types';
 import { locationColors, locationTypeLabels, LocationType } from '../locations';
 import geoData from '../assets/countries.geo.json';
@@ -73,7 +73,7 @@ function spiralOffset(index: number, spacing: number): { x: number; y: number } 
 }
 
 function groupNearbyLocations(
-  nodes: { id: string; x: number; y: number; count: number; label: string }[],
+  nodes: { id: string; x: number; y: number; count: number; label: string; location: MapLocationData }[],
   radiusPx: number,
 ) {
   const sorted = [...nodes].sort(
@@ -316,46 +316,46 @@ function LocationTooltipSection({
   );
 }
 
-function MapClusterTooltip({
+function LocationInfoPanel({
   lang,
-  tooltip,
+  locations,
+  onClose,
 }: {
   lang: 'en' | 'zh';
-  tooltip: {
-    x: number;
-    y: number;
-    locations: MapLocationData[];
-  };
+  locations: MapLocationData[];
+  onClose: () => void;
 }) {
-  const { locations } = tooltip;
   const isCluster = locations.length > 1;
 
   return (
-    <div
-      className="fixed z-[200] pointer-events-none bg-[#2c2420] text-[#f4ecd8] px-3 py-2.5 rounded shadow-lg border border-[#5d5048] max-w-[min(340px,calc(100vw-24px))] max-h-[min(70vh,480px)] overflow-y-auto"
-      style={{
-        left: tooltip.x,
-        top: tooltip.y - 8,
-        transform: 'translate(-50%, -100%)',
-      }}
-    >
+    <div className="mt-2 bg-[#2c2420] text-[#f4ecd8] p-4 rounded shadow-sm border border-[#5d5048] relative">
+      <button
+        onClick={onClose}
+        className="absolute top-2 right-2 p-1 text-[#f4ecd8]/60 hover:text-[#f4ecd8] hover:bg-[#5d5048]/30 rounded transition-colors"
+        aria-label="Close"
+      >
+        <X size={16} />
+      </button>
+
       {isCluster && (
-        <p className="text-[10px] uppercase tracking-wider text-amber-200/70 mb-2 pb-1.5 border-b border-[#5d5048]">
+        <p className="text-xs uppercase tracking-wider text-amber-200/70 mb-3 pb-2 border-b border-[#5d5048]">
           {lang === 'zh'
             ? `${locations.length} 个邻近地点`
             : `${locations.length} nearby locations`}
         </p>
       )}
 
-      {locations.map((location, index) => (
-        <div key={location.id}>
-          <LocationTooltipSection
-            location={location}
-            lang={lang}
-            showDivider={index > 0}
-          />
-        </div>
-      ))}
+      <div className="flex flex-col gap-4">
+        {locations.map((location, index) => (
+          <div key={location.id}>
+            <LocationTooltipSection
+              location={location}
+              lang={lang}
+              showDivider={index > 0}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -363,19 +363,7 @@ function MapClusterTooltip({
 export function LocationMapPanel({ mapData, lang, title, locationType }: LocationMapPanelProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const setTooltipRef = useRef<typeof setTooltipState>(null!);
-  const [tooltip, setTooltipState] = useState<{
-    visible: boolean;
-    x: number;
-    y: number;
-    locations: MapLocationData[];
-  }>({
-    visible: false,
-    x: 0,
-    y: 0,
-    locations: [],
-  });
-  setTooltipRef.current = setTooltipState;
+  const [selectedLocations, setSelectedLocations] = useState<MapLocationData[]>([]);
 
   useEffect(() => {
     if (!svgRef.current || !containerRef.current || mapData.length === 0) return;
@@ -514,14 +502,6 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
         });
     };
 
-    const updateTooltipPosition = (event: PointerEvent) => {
-      setTooltipRef.current((prev) => ({
-        ...prev,
-        x: event.clientX,
-        y: event.clientY,
-      }));
-    };
-
     leaderLayer.selectAll<SVGLineElement, MapMarker>('line.marker-leader')
       .data(markers, (d) => d.id)
       .enter()
@@ -572,37 +552,26 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .style('pointer-events', 'none')
       .text((marker) => formatMapLabel(marker.location, lang));
 
-    markerGroups
-      .on('pointerenter', (event, marker) => {
-        markerGroups.classed('is-hovered', false);
-        d3.select(event.currentTarget).classed('is-hovered', true);
-        d3.select(event.currentTarget).select('.marker-dot')
-          .attr('fill-opacity', 0.9)
-          .attr('stroke-width', 2);
-        d3.select(event.currentTarget).select('.marker-label')
-          .attr('fill', '#2c2420')
-          .attr('font-weight', 600);
+    markerGroups.on('click', (event, marker) => {
+      markerGroups.classed('is-selected', false);
+      markerGroups.select('.marker-dot')
+        .attr('fill-opacity', 0.65)
+        .attr('stroke-width', 1);
+      markerGroups.select('.marker-label')
+        .attr('fill', '#5d5048')
+        .attr('font-weight', 400);
 
-        setTooltipRef.current({
-          visible: true,
-          x: event.clientX,
-          y: event.clientY,
-          locations: [marker.location],
-        });
-      })
-      .on('pointermove', (event) => {
-        updateTooltipPosition(event);
-      })
-      .on('pointerleave', (event) => {
-        d3.select(event.currentTarget).classed('is-hovered', false);
-        d3.select(event.currentTarget).select('.marker-dot')
-          .attr('fill-opacity', 0.65)
-          .attr('stroke-width', 1);
-        d3.select(event.currentTarget).select('.marker-label')
-          .attr('fill', '#5d5048')
-          .attr('font-weight', 400);
-        setTooltipRef.current((prev) => ({ ...prev, visible: false }));
-      });
+      const target = d3.select(event.currentTarget);
+      target.classed('is-selected', true);
+      target.select('.marker-dot')
+        .attr('fill-opacity', 0.9)
+        .attr('stroke-width', 2);
+      target.select('.marker-label')
+        .attr('fill', '#2c2420')
+        .attr('font-weight', 600);
+
+      setSelectedLocations([marker.location]);
+    });
 
     const zoom = d3.zoom<SVGSVGElement, unknown>()
       .scaleExtent([1, maxZoomK])
@@ -648,13 +617,26 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
         <svg ref={svgRef} className="w-full h-full" />
 
         <div className="absolute bottom-2 left-2 text-[9px] text-[#5d5048] opacity-70 pointer-events-none">
-          {lang === 'zh' ? '悬停圆点查看详情，滚动缩放' : 'Hover dots for details, scroll to zoom'}
+          {lang === 'zh' ? '点击圆点查看详情，滚动缩放' : 'Click dots for details, scroll to zoom'}
         </div>
       </div>
 
-      {tooltip.visible && tooltip.locations.length > 0 && createPortal(
-        <MapClusterTooltip lang={lang} tooltip={tooltip} />,
-        document.body,
+      {selectedLocations.length > 0 && (
+        <LocationInfoPanel
+          lang={lang}
+          locations={selectedLocations}
+          onClose={() => {
+            setSelectedLocations([]);
+            const svg = d3.select(svgRef.current);
+            svg.selectAll('.marker').classed('is-selected', false);
+            svg.selectAll('.marker-dot')
+              .attr('fill-opacity', 0.65)
+              .attr('stroke-width', 1);
+            svg.selectAll('.marker-label')
+              .attr('fill', '#5d5048')
+              .attr('font-weight', 400);
+          }}
+        />
       )}
     </div>
   );
