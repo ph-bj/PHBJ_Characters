@@ -9,7 +9,7 @@ type Block =
 
 function renderInline(text: string): ReactNode[] {
   const parts: ReactNode[] = [];
-  const re = /(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g;
+  const re = /(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`|\[[^\]]+\]\([^)]+\))/g;
   let last = 0;
   let match: RegExpExecArray | null;
   let key = 0;
@@ -30,6 +30,15 @@ function renderInline(text: string): ReactNode[] {
         <em key={key++} className="italic text-[#4a3f38]">
           {token.slice(1, -1)}
         </em>
+      );
+    } else if (token.startsWith('[')) {
+      const closingBracket = token.indexOf(']');
+      const linkText = token.slice(1, closingBracket);
+      const linkUrl = token.slice(closingBracket + 2, -1);
+      parts.push(
+        <a key={key++} href={linkUrl} target="_blank" rel="noopener noreferrer" className="text-[#8b4513] underline hover:opacity-80 transition-opacity">
+          {linkText}
+        </a>
       );
     } else {
       parts.push(
