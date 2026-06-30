@@ -159,17 +159,17 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
               onClick={() => setActiveType(type)}
               className={`w-full min-h-[45px] px-2 py-1.5 rounded-sm border text-[14px] sm:text-[14px] leading-tight text-center transition-all flex flex-col items-center justify-center gap-1 ${
                 isActive
-                  ? 'bg-[#ad5c16] text-[#fbf8f3] border-[#ad5c16] shadow-sm'
-                  : 'bg-[#eed8c1]/90 text-[#6f3d1b] border-[#d2a679] hover:bg-[#e6c29e] hover:border-[#b5651d]'
+                  ? 'bg-[#8b4513] text-[#f4ecd8] border-[#8b4513] shadow-sm'
+                  : 'bg-[#f4ecd8]/80 text-[#5d5048] border-[#d4c5a9] hover:bg-[#f4ecd8] hover:text-[#2c2420] hover:border-[#8b4513]/50'
               }`}
             >
               <div className="flex items-center justify-center gap-1.5 font-semibold">
-                {Icon && <Icon size={14} className={isActive ? "text-[#fbf8f3]" : "text-[#ad5c16]"} />}
+                {Icon && <Icon size={14} className={isActive ? "text-[#f4ecd8]" : "text-[#8b4513]"} />}
                 <span>
                   {lang === 'zh' ? label.zh : label.en}
                 </span>
               </div>
-              <span className={`block text-[11px] ${isActive ? 'text-[#eed8c1]/90' : 'text-[#6f3d1b]/60'}`}>
+              <span className={`block text-[11px] ${isActive ? 'text-[#f4ecd8]/80' : 'text-[#5d5048]/60'}`}>
                 {count} {lang === 'zh' ? '处' : 'pts'}
               </span>
             </button>

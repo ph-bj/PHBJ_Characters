@@ -238,22 +238,22 @@ function LocationTooltipSection({
   const names = formatCharacterNames(location.chars, lang);
 
   return (
-    <div className={showDivider ? 'border-t border-[#5d5048]/60 pt-2 mt-2' : ''}>
+    <div className={showDivider ? 'border-t border-[#d4c5a9]/60 pt-3 mt-3' : ''}>
       <div className="flex items-center gap-2 mb-1">
         <span
-          className="w-2.5 h-2.5 rounded-full border border-[#f4ecd8] shadow-sm shrink-0"
+          className="w-2.5 h-2.5 rounded-full border border-[#5d5048]/30 shadow-sm shrink-0"
           style={{ backgroundColor: locationColors[location.type as LocationType] || '#8b4513' }}
         />
-        <p className="font-bold text-sm leading-tight">
+        <p className="font-bold text-sm leading-tight text-[#2c2420]">
           {lang === 'zh' ? (location.originZh || location.origin) : location.origin}
         </p>
       </div>
 
       {lang === 'en' && location.originZh && location.originZh !== location.origin && (
-        <p className="text-[12px] text-amber-200/70 mb-1 font-hans">{location.originZh}</p>
+        <p className="text-[12px] text-[#8b4513] mb-1 font-hans">{location.originZh}</p>
       )}
 
-      <p className="text-[12px] text-amber-200/80 mb-1.5">
+      <p className="text-[12px] text-[#5d5048] mb-1.5 font-medium">
         {lang === 'zh'
           ? locationTypeLabels[location.type as LocationType]?.zh || location.type
           : locationTypeLabels[location.type as LocationType]?.en || location.type}
@@ -265,8 +265,8 @@ function LocationTooltipSection({
       </p>
 
       {altNames.length > 0 && (
-        <p className="text-[12px] text-[#f4ecd8]/75 mb-1.5 leading-relaxed">
-          <span className="text-amber-200/60 uppercase tracking-wider text-[11px] block mb-0.5">
+        <p className="text-[12px] text-[#2c2420]/80 mb-2 leading-relaxed">
+          <span className="text-[#8b4513]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
             {lang === 'zh' ? '书中称谓' : 'In the text'}
           </span>
           {altNames.join(' / ')}
@@ -274,8 +274,8 @@ function LocationTooltipSection({
       )}
 
       {(location.chapterIds?.length ?? 0) > 0 && (
-        <p className="text-[12px] text-[#f4ecd8]/85 mb-1.5 leading-relaxed">
-          <span className="text-amber-200/60 uppercase tracking-wider text-[11px] block mb-0.5">
+        <p className="text-[12px] text-[#2c2420]/90 mb-2 leading-relaxed">
+          <span className="text-[#8b4513]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
             {lang === 'zh' ? '出现回目' : 'Chapter appearances'}
           </span>
           {formatChapterList(location.chapterIds ?? [], lang)}
@@ -283,8 +283,8 @@ function LocationTooltipSection({
       )}
 
       {location.firstSnippet && (location.searchTokens?.length ?? 0) > 0 && (
-        <p className="text-[12px] leading-relaxed font-hans text-[#f4ecd8]/90 mb-1.5">
-          <span className="text-amber-200/60 uppercase tracking-wider text-[11px] block mb-0.5">
+        <p className="text-[12px] leading-relaxed font-hans text-[#2c2420]/90 mb-2">
+          <span className="text-[#8b4513]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
             {lang === 'zh'
               ? `书中摘录${location.firstChapterId ? `（第${location.firstChapterId}回）` : ''}`
               : `From the novel${location.firstChapterId ? ` (Ch.${location.firstChapterId})` : ''}`}
@@ -296,7 +296,7 @@ function LocationTooltipSection({
               .join('|')})`),
           ).map((part, i) =>
             (location.searchTokens ?? []).includes(part) ? (
-              <mark key={i} className="bg-amber-300/80 text-[#2c2420] px-0.5 rounded-sm">{part}</mark>
+              <mark key={i} className="bg-amber-200 text-[#2c2420] px-0.5 rounded-sm ring-1 ring-amber-300/40">{part}</mark>
             ) : (
               <span key={i}>{part}</span>
             ),
@@ -305,8 +305,8 @@ function LocationTooltipSection({
       )}
 
       {names && (
-        <p className="text-[12px] opacity-80 leading-relaxed">
-          <span className="text-amber-200/60 uppercase tracking-wider text-[11px] block mb-0.5">
+        <p className="text-[12px] text-[#2c2420]/80 leading-relaxed">
+          <span className="text-[#8b4513]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
             {lang === 'zh' ? '相关人物' : 'Characters'}
           </span>
           {names}
@@ -328,17 +328,17 @@ function LocationInfoPanel({
   const isCluster = locations.length > 1;
 
   return (
-    <div className="mt-2 bg-[#2c2420] text-[#f4ecd8] p-4 rounded shadow-sm border border-[#5d5048] relative">
+    <div className="mt-2 bg-[#f4ecd8] text-[#2c2420] p-4 rounded shadow-md border border-[#d4c5a9] relative parchment">
       <button
         onClick={onClose}
-        className="absolute top-2 right-2 p-1 rounded transition-colors bg-[#ad5c16] hover:bg-[#b5651d] text-[#fbf8f3] border border-[#ad5c16] shadow-sm flex items-center justify-center"
+        className="absolute top-2 right-2 p-1 rounded transition-colors bg-[#8b4513] hover:bg-[#a0522d] text-[#f4ecd8] border border-[#8b4513] shadow-sm flex items-center justify-center cursor-pointer"
         aria-label="Close"
       >
         <X size={16} />
       </button>
 
       {isCluster && (
-        <p className="text-xs uppercase tracking-wider text-amber-200/70 mb-3 pb-2 border-b border-[#5d5048]">
+        <p className="text-xs uppercase tracking-wider text-[#8b4513] mb-3 pb-2 border-b border-[#d4c5a9]/60 font-semibold">
           {lang === 'zh'
             ? `${locations.length} 个邻近地点`
             : `${locations.length} nearby locations`}
@@ -435,7 +435,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .enter()
       .append('path')
       .attr('d', path as any)
-      .attr('fill', '#e5dcc3')
+      .attr('fill', '#f4ecd8')
       .attr('stroke', '#d4c5a9')
       .attr('stroke-width', 1)
       .style('pointer-events', 'none');
