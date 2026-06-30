@@ -38,7 +38,7 @@ interface LocationMapPanelProps {
 
 const MARKER_RADIUS_PX = 5;
 const MARKER_HIT_RADIUS_PX = 12;
-const MARKER_LABEL_FONT_SIZE_PX = 9;
+const MARKER_LABEL_FONT_SIZE_PX = 12;
 const PROXIMITY_RADIUS_PX = 22;
 const SPIRAL_SPACING_PX = MARKER_RADIUS_PX * 2 + 4;
 const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
@@ -250,10 +250,10 @@ function LocationTooltipSection({
       </div>
 
       {lang === 'en' && location.originZh && location.originZh !== location.origin && (
-        <p className="text-[10px] text-amber-200/70 mb-1 font-hans">{location.originZh}</p>
+        <p className="text-[12px] text-amber-200/70 mb-1 font-hans">{location.originZh}</p>
       )}
 
-      <p className="text-[10px] text-amber-200/80 mb-1.5">
+      <p className="text-[12px] text-amber-200/80 mb-1.5">
         {lang === 'zh'
           ? locationTypeLabels[location.type as LocationType]?.zh || location.type
           : locationTypeLabels[location.type as LocationType]?.en || location.type}
@@ -265,8 +265,8 @@ function LocationTooltipSection({
       </p>
 
       {altNames.length > 0 && (
-        <p className="text-[10px] text-[#f4ecd8]/75 mb-1.5 leading-relaxed">
-          <span className="text-amber-200/60 uppercase tracking-wider text-[9px] block mb-0.5">
+        <p className="text-[12px] text-[#f4ecd8]/75 mb-1.5 leading-relaxed">
+          <span className="text-amber-200/60 uppercase tracking-wider text-[11px] block mb-0.5">
             {lang === 'zh' ? '书中称谓' : 'In the text'}
           </span>
           {altNames.join(' / ')}
@@ -274,8 +274,8 @@ function LocationTooltipSection({
       )}
 
       {(location.chapterIds?.length ?? 0) > 0 && (
-        <p className="text-[10px] text-[#f4ecd8]/85 mb-1.5 leading-relaxed">
-          <span className="text-amber-200/60 uppercase tracking-wider text-[9px] block mb-0.5">
+        <p className="text-[12px] text-[#f4ecd8]/85 mb-1.5 leading-relaxed">
+          <span className="text-amber-200/60 uppercase tracking-wider text-[11px] block mb-0.5">
             {lang === 'zh' ? '出现回目' : 'Chapter appearances'}
           </span>
           {formatChapterList(location.chapterIds ?? [], lang)}
@@ -283,8 +283,8 @@ function LocationTooltipSection({
       )}
 
       {location.firstSnippet && (location.searchTokens?.length ?? 0) > 0 && (
-        <p className="text-[10px] leading-relaxed font-hans text-[#f4ecd8]/90 mb-1.5">
-          <span className="text-amber-200/60 uppercase tracking-wider text-[9px] block mb-0.5">
+        <p className="text-[12px] leading-relaxed font-hans text-[#f4ecd8]/90 mb-1.5">
+          <span className="text-amber-200/60 uppercase tracking-wider text-[11px] block mb-0.5">
             {lang === 'zh'
               ? `书中摘录${location.firstChapterId ? `（第${location.firstChapterId}回）` : ''}`
               : `From the novel${location.firstChapterId ? ` (Ch.${location.firstChapterId})` : ''}`}
@@ -305,8 +305,8 @@ function LocationTooltipSection({
       )}
 
       {names && (
-        <p className="text-[10px] opacity-80 leading-relaxed">
-          <span className="text-amber-200/60 uppercase tracking-wider text-[9px] block mb-0.5">
+        <p className="text-[12px] opacity-80 leading-relaxed">
+          <span className="text-amber-200/60 uppercase tracking-wider text-[11px] block mb-0.5">
             {lang === 'zh' ? '相关人物' : 'Characters'}
           </span>
           {names}
@@ -604,7 +604,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
         <h3 className="text-[11px] uppercase tracking-[0.15em] text-[#5d5048] font-bold">
           {title}
         </h3>
-        <span className="text-[10px] text-[#5d5048] italic ml-auto">
+        <span className="text-[12px] text-[#5d5048] italic ml-auto">
           {lang === 'zh' ? `${mapData.length} 个地点` : `${mapData.length} locations`}
         </span>
       </div>
