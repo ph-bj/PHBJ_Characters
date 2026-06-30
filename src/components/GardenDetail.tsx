@@ -291,17 +291,16 @@ export function GardenDetail({
                   onClick={() =>
                     setActiveChapter((prev) => (prev === d.ch ? null : d.ch))
                   }
-                  className={`text-[10px] px-2.5 py-1 rounded-sm border font-bold transition-all ${
-                    activeChapter === d.ch
+                  className={`text-[10px] px-2.5 py-1 rounded-sm border font-bold transition-all ${activeChapter === d.ch
                       ? "text-[#f4ecd8] border-transparent"
                       : "border-[#d4c5a9] text-[#5d5048] hover:border-[#8b4513]/40 hover:text-[#8b4513]"
-                  }`}
+                    }`}
                   style={
                     activeChapter === d.ch
                       ? {
-                          backgroundColor: accentColor,
-                          borderColor: accentColor,
-                        }
+                        backgroundColor: accentColor,
+                        borderColor: accentColor,
+                      }
                       : {}
                   }
                 >
@@ -410,8 +409,7 @@ export function GardenDetail({
         </div>
 
         <div className="bg-[#d4c5a9]/20 p-4 text-[#5d5048] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[#d4c5a9] font-hans shrink-0">
-          Pinhua baojian Database 品花宝鉴数据库
-        </div>
+          Precious Vibe 品花宝境</div>
       </motion.div>
     </div>
   );

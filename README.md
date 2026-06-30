@@ -1,4 +1,4 @@
-# Pinhua baojian Database 品花宝鉴数据库
+# Precious Vibe 品花宝境
 
 An interactive React/Vite character and chapter database for *Pinhua Baojian* (`品花宝鉴`), including:
 

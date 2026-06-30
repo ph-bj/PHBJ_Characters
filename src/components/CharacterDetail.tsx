@@ -378,11 +378,10 @@ export function CharacterDetail({
                         setActiveChapter(activeChapter === ch ? null : ch)
                       }
                       title={`${t.chapterAbbr}${lang === "zh" ? ` ${ch} 回` : ch}: ${count} ${t.mentions(count)}`}
-                      className={`px-2 py-0.5 text-[10px] font-bold border transition-colors rounded-sm font-hans ${
-                        activeChapter === ch
+                      className={`px-2 py-0.5 text-[10px] font-bold border transition-colors rounded-sm font-hans ${activeChapter === ch
                           ? "bg-[#8b4513] text-[#f4ecd8] border-[#8b4513]"
                           : "border-[#8b4513]/40 text-[#8b4513] hover:bg-[#8b4513]/10"
-                      }`}
+                        }`}
                     >
                       {t.chapterAbbr}
                       {lang === "zh" ? ` ${ch} 回` : ch}
@@ -509,7 +508,7 @@ export function CharacterDetail({
         </div>
 
         <div className="bg-[#d4c5a9]/20 p-4 text-[#5d5048] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[#d4c5a9] font-hans shrink-0">
-          Pinhua baojian Database 品花宝鉴数据库
+          Precious Vibe 品花宝境
         </div>
       </motion.div>
     </div>

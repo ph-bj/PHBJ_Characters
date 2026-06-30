@@ -148,8 +148,8 @@ export default function App() {
 
   const t = {
     en: {
-      titleEn: "Pinhua baojian Database",
-      titleZh: "品花宝鉴数据库",
+      titleEn: "Precious Vibe",
+      titleZh: "品花宝境",
       chapterAbbr: "Ch.",
       mentions: (count: number) => `mention${count !== 1 ? "s" : ""}`,
       noTextExcerpts: "No text excerpts found.",
@@ -174,8 +174,8 @@ export default function App() {
       readChapter: "Read Chapter",
     },
     zh: {
-      titleEn: "Pinhua baojian Database",
-      titleZh: "品花宝鉴数据库",
+      titleEn: "Precious Vibe",
+      titleZh: "品花宝境",
       chapterAbbr: "第",
       mentions: (count: number) => `次提及`,
       noTextExcerpts: "无文本摘录。",
@@ -313,15 +313,15 @@ export default function App() {
         })),
       ...(unknownOriginChars.length > 0
         ? [
-            {
-              name: "Unknown",
-              count: unknownOriginChars.length,
-              chars: unknownOriginChars,
-              percentage: Math.round(
-                (unknownOriginChars.length / maxOriginCount) * 100,
-              ),
-            },
-          ]
+          {
+            name: "Unknown",
+            count: unknownOriginChars.length,
+            chars: unknownOriginChars,
+            percentage: Math.round(
+              (unknownOriginChars.length / maxOriginCount) * 100,
+            ),
+          },
+        ]
         : []),
     ];
 
@@ -347,15 +347,15 @@ export default function App() {
       })),
       ...(unknownAgeChars.length > 0
         ? [
-            {
-              group: "?",
-              count: unknownAgeChars.length,
-              chars: unknownAgeChars,
-              percentage: Math.round(
-                (unknownAgeChars.length / maxAgeCount) * 100,
-              ),
-            },
-          ]
+          {
+            group: "?",
+            count: unknownAgeChars.length,
+            chars: unknownAgeChars,
+            percentage: Math.round(
+              (unknownAgeChars.length / maxAgeCount) * 100,
+            ),
+          },
+        ]
         : []),
     ];
 
@@ -937,7 +937,7 @@ export default function App() {
                       <span className="capitalize truncate pr-2 font-hans">
                         {lang === "zh"
                           ? characters.find((c) => c.role === stat.name)
-                              ?.roleZh || stat.name
+                            ?.roleZh || stat.name
                           : stat.name}
                       </span>
                       <span className="text-[#5d5048] flex-shrink-0">
@@ -1115,11 +1115,10 @@ export default function App() {
                       <button
                         key={key}
                         onClick={() => setChapterSortMode(key)}
-                        className={`text-[8px] px-1.5 py-1 rounded-sm border uppercase tracking-widest font-bold transition-all ${
-                          chapterSortMode === key
-                            ? "bg-[#8b4513] text-[#f4ecd8] border-[#8b4513]"
-                            : "border-[#d4c5a9] text-[#5d5048] hover:border-[#8b4513]/40 hover:text-[#8b4513]"
-                        }`}
+                        className={`text-[8px] px-1.5 py-1 rounded-sm border uppercase tracking-widest font-bold transition-all ${chapterSortMode === key
+                          ? "bg-[#8b4513] text-[#f4ecd8] border-[#8b4513]"
+                          : "border-[#d4c5a9] text-[#5d5048] hover:border-[#8b4513]/40 hover:text-[#8b4513]"
+                          }`}
                       >
                         {lang === "zh" ? labelZh : labelEn}
                       </button>
@@ -1333,11 +1332,10 @@ export default function App() {
                           : () => setActiveLacunaChapter(chapterNumber)
                       }
                       aria-disabled={isDisabled}
-                      className={`text-center text-[10px] font-bold px-1.5 py-1.5 rounded-sm border transition-colors ${
-                        isDisabled
-                          ? "border-[#d4c5a9]/25 bg-black/5 text-[#5d5048]/45 cursor-default"
-                          : "border-[#d4c5a9]/40 text-[#2c2420] hover:bg-amber-700/10 hover:border-amber-700/40 cursor-pointer"
-                      }`}
+                      className={`text-center text-[10px] font-bold px-1.5 py-1.5 rounded-sm border transition-colors ${isDisabled
+                        ? "border-[#d4c5a9]/25 bg-black/5 text-[#5d5048]/45 cursor-default"
+                        : "border-[#d4c5a9]/40 text-[#2c2420] hover:bg-amber-700/10 hover:border-amber-700/40 cursor-pointer"
+                        }`}
                       title={
                         isDisabled
                           ? `Chapter ${chapterNumber} (no lacunae)`
@@ -1424,33 +1422,30 @@ export default function App() {
               <div className="flex gap-2 items-center bg-white/20 p-1 rounded-sm border border-[#d4c5a9]">
                 <button
                   onClick={() => setSortBy("mentions")}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${
-                    sortBy === "mentions"
-                      ? "bg-[#8b4513] text-[#f4ecd8]"
-                      : "text-[#5d5048] hover:bg-black/5"
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${sortBy === "mentions"
+                    ? "bg-[#8b4513] text-[#f4ecd8]"
+                    : "text-[#5d5048] hover:bg-black/5"
+                    }`}
                 >
                   <BarChart2 size={12} />
                   {t.mentionSort}
                 </button>
                 <button
                   onClick={() => setSortBy("appearance")}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${
-                    sortBy === "appearance"
-                      ? "bg-[#8b4513] text-[#f4ecd8]"
-                      : "text-[#5d5048] hover:bg-black/5"
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${sortBy === "appearance"
+                    ? "bg-[#8b4513] text-[#f4ecd8]"
+                    : "text-[#5d5048] hover:bg-black/5"
+                    }`}
                 >
                   <Clock size={12} />
                   {t.chronology}
                 </button>
                 <button
                   onClick={() => setSortBy("role")}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${
-                    sortBy === "role"
-                      ? "bg-[#8b4513] text-[#f4ecd8]"
-                      : "text-[#5d5048] hover:bg-black/5"
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${sortBy === "role"
+                    ? "bg-[#8b4513] text-[#f4ecd8]"
+                    : "text-[#5d5048] hover:bg-black/5"
+                    }`}
                 >
                   <SortAsc size={12} />
                   {t.roleSort}
@@ -1460,11 +1455,10 @@ export default function App() {
             <div className="flex flex-wrap gap-2 sm:gap-2.5 w-full pb-1 border-t border-[#d4c5a9] pt-4">
               <button
                 onClick={() => setSelectedRole(null)}
-                className={`px-3.5 sm:px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all border whitespace-nowrap min-h-11 touch-manipulation ${
-                  !selectedRole
-                    ? "bg-[#2c2420] text-[#f4ecd8] border-[#2c2420]"
-                    : "bg-white/10 text-[#5d5048] border-[#d4c5a9] hover:border-[#8b4513]/30 active:opacity-80"
-                }`}
+                className={`px-3.5 sm:px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all border whitespace-nowrap min-h-11 touch-manipulation ${!selectedRole
+                  ? "bg-[#2c2420] text-[#f4ecd8] border-[#2c2420]"
+                  : "bg-white/10 text-[#5d5048] border-[#d4c5a9] hover:border-[#8b4513]/30 active:opacity-80"
+                  }`}
               >
                 {t.allRecords}
               </button>
@@ -1472,12 +1466,11 @@ export default function App() {
                 <button
                   key={key}
                   onClick={() => setSelectedRole(key)}
-                  className={`px-3.5 sm:px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all border whitespace-nowrap font-hans min-h-11 touch-manipulation active:opacity-80 ${
-                    selectedRole === key
-                      ? (ROLE_CHIP_ACTIVE[key] ?? ROLE_CHIP_ACTIVE.Other)
-                      : (ROLE_CHIP_IDLE[key] ?? ROLE_CHIP_IDLE.Other) +
-                        " hover:opacity-75"
-                  }`}
+                  className={`px-3.5 sm:px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all border whitespace-nowrap font-hans min-h-11 touch-manipulation active:opacity-80 ${selectedRole === key
+                    ? (ROLE_CHIP_ACTIVE[key] ?? ROLE_CHIP_ACTIVE.Other)
+                    : (ROLE_CHIP_IDLE[key] ?? ROLE_CHIP_IDLE.Other) +
+                    " hover:opacity-75"
+                    }`}
                 >
                   {label}
                 </button>
@@ -1614,11 +1607,10 @@ export default function App() {
                     key={work}
                     onClick={() => setSelectedWork(workKey)}
                     title={`${count} ${lang === "zh" ? "回" : count === 1 ? "chapter" : "chapters"}`}
-                    className={`px-2 py-0.5 text-[10px] rounded-sm font-hans cursor-pointer transition-colors ${
-                      hasDetailedDescription
-                        ? "border-2 border-[#8b4513] bg-[#e8dcc4] text-[#8b4513] font-bold shadow-sm hover:bg-[#d4c5a9]"
-                        : "border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] hover:bg-[#d4c5a9]/40"
-                    }`}
+                    className={`px-2 py-0.5 text-[10px] rounded-sm font-hans cursor-pointer transition-colors ${hasDetailedDescription
+                      ? "border-2 border-[#8b4513] bg-[#e8dcc4] text-[#8b4513] font-bold shadow-sm hover:bg-[#d4c5a9]"
+                      : "border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] hover:bg-[#d4c5a9]/40"
+                      }`}
                   >
                     {lang === "en" && WORK_ENGLISH_BY_CHINESE[workKey]
                       ? WORK_ENGLISH_BY_CHINESE[workKey]
@@ -1788,7 +1780,7 @@ export default function App() {
 
       <footer className="max-w-[1800px] mx-auto px-2 sm:px-5 pb-8 text-center">
         <p className="text-xs text-[#5d5048]">
-          Pinhua baojian Database 品花宝鉴数据库 is authored by TengChao Zhou in
+          Precious Vibe 品花宝境 is authored by TengChao Zhou in
           2026 with the help of AI technologies.
         </p>
       </footer>

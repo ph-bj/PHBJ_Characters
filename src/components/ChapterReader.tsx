@@ -397,7 +397,7 @@ export function ChapterReader({
                 </p>
               )}
               <div className="text-[10px] uppercase tracking-[0.5em] text-[#5d5048] opacity-60">
-                Pinhua baojian Database 品花宝鉴数据库
+                Precious Vibe 品花宝境
               </div>
             </div>
             {chapterSummary && (
@@ -435,9 +435,8 @@ export function ChapterReader({
                     <button
                       key={character.id}
                       onClick={() => onSelectCharacter(character)}
-                      className={`px-2 py-1 text-[11px] rounded-sm border transition-colors font-hans hover:brightness-95 ${
-                        ROLE_CHIP_IDLE[character.role] ?? ROLE_CHIP_IDLE.Other
-                      }`}
+                      className={`px-2 py-1 text-[11px] rounded-sm border transition-colors font-hans hover:brightness-95 ${ROLE_CHIP_IDLE[character.role] ?? ROLE_CHIP_IDLE.Other
+                        }`}
                     >
                       {character.name}
                     </button>
@@ -552,7 +551,7 @@ export function ChapterReader({
         </div>
 
         <div className="bg-[#d4c5a9]/20 p-4 text-[#5d5048] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[#d4c5a9] font-hans shrink-0">
-          Pinhua baojian Database 品花宝鉴数据库
+          Precious Vibe 品花宝境
         </div>
       </motion.div>
     </div>
