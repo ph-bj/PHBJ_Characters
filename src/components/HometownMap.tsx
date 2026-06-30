@@ -128,10 +128,10 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
       id="hometown-map"
     >
       <div className="flex items-baseline justify-between border-b border-[#d4c5a9] pb-2 mb-4">
-        <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] font-bold">
+        <h2 className="text-sm uppercase tracking-[0.2em] text-[#5d5048] font-bold">
           {lang === 'zh' ? '全书地点与人物分布图' : 'Locations & Character Hometowns'}
         </h2>
-        <span className="text-[10px] text-[#5d5048] italic">
+        <span className="text-[14px] text-[#5d5048] italic">
           {lang === 'zh' ? `${totalLocations} 个地点` : `${totalLocations} locations`}
         </span>
       </div>
@@ -147,7 +147,7 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
               key={type}
               type="button"
               onClick={() => setActiveType(type)}
-              className={`w-full min-h-[40px] px-2 py-2 sm:py-1.5 rounded-sm border text-[10px] sm:text-[10px] leading-tight text-center transition-colors ${
+              className={`w-full min-h-[40px] px-2 py-2 sm:py-1.5 rounded-sm border text-[14px] sm:text-[14px] leading-tight text-center transition-colors ${
                 isActive
                   ? 'bg-[#2c2420] text-[#f4ecd8] border-[#2c2420]'
                   : 'bg-[#f4ecd8]/80 text-[#5d5048] border-[#d4c5a9] hover:bg-[#f4ecd8] active:bg-[#f4ecd8]'
@@ -156,7 +156,7 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
               <span className="block">
                 {lang === 'zh' ? label.zh : label.en}
               </span>
-              <span className={`block text-[9px] mt-0.5 ${isActive ? 'text-amber-200/80' : 'opacity-60'}`}>
+              <span className={`block text-[12px] mt-0.5 ${isActive ? 'text-amber-200/80' : 'opacity-60'}`}>
                 {count} {lang === 'zh' ? '处' : 'pts'}
               </span>
             </button>
