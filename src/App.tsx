@@ -766,7 +766,7 @@ export default function App() {
   }, [hasOpenOverlay]);
 
   return (
-    <div className="min-h-screen font-serif text-[#2c2420] selection:bg-amber-900/20">
+    <div className="min-h-screen font-sans text-[var(--ink-main)] selection:bg-amber-900/20">
       {/* Header */}
       <div
         id="overview"

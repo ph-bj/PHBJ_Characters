@@ -379,7 +379,7 @@ export function ChapterReader({
 
         <div
           data-overlay-scroll="true"
-          className="flex-1 min-h-0 overflow-y-auto px-5 py-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:p-12 font-serif text-[#2c2420] leading-loose selection:bg-[#8b4513]/20 scrollbar-thin"
+          className="flex-1 min-h-0 overflow-y-auto px-5 py-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:p-12 font-serif text-[var(--ink-main)] leading-loose selection:bg-[#8b4513]/20 scrollbar-thin"
         >
           <div className="max-w-2xl mx-auto space-y-6">
             <div className="text-center mb-12">
