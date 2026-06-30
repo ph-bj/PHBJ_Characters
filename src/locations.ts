@@ -134,8 +134,8 @@ export const novelLocations: NovelLocation[] = [
 ];
 
 export const locationColors: Record<LocationType, string> = {
-  place: '#2ca02c',
-  garden: '#8c564b',
-  site: '#9467bd',
-  landscape: '#17becf',
+  place: '#5d5048', // ink-dim
+  garden: '#8b4513', // accent
+  site: '#2c2420', // ink-main
+  landscape: '#d4c5a9', // paper-border
 };
