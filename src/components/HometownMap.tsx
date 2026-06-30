@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { MapPin, Trees, Home, Mountain } from 'lucide-react';
 import { Character } from '../types';
 import coordinates from '../assets/coordinates.json';
 import {
@@ -13,6 +14,13 @@ import {
   getLocationFirstChapterId,
   getLocationFirstSnippet,
 } from '../utils';
+
+const typeIcons: Record<LocationType, React.ComponentType<{ size?: number; className?: string }>> = {
+  place: MapPin,
+  garden: Trees,
+  site: Home,
+  landscape: Mountain,
+};
 
 function bookInfoForLocation(loc: (typeof novelLocations)[number]) {
   return {
@@ -142,21 +150,26 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
           const count = mapDataByType[type].length;
           const isActive = resolvedActiveType === type;
 
+          const Icon = typeIcons[type];
+
           return (
             <button
               key={type}
               type="button"
               onClick={() => setActiveType(type)}
-              className={`w-full min-h-[40px] px-2 py-2 sm:py-1.5 rounded-sm border text-[14px] sm:text-[14px] leading-tight text-center transition-colors ${
+              className={`w-full min-h-[45px] px-2 py-1.5 rounded-sm border text-[14px] sm:text-[14px] leading-tight text-center transition-all flex flex-col items-center justify-center gap-1 ${
                 isActive
-                  ? 'bg-[#2c2420] text-[#f4ecd8] border-[#2c2420]'
-                  : 'bg-[#f4ecd8]/80 text-[#5d5048] border-[#d4c5a9] hover:bg-[#f4ecd8] active:bg-[#f4ecd8]'
+                  ? 'bg-[#ad5c16] text-[#fbf8f3] border-[#ad5c16] shadow-sm'
+                  : 'bg-[#eed8c1]/90 text-[#6f3d1b] border-[#d2a679] hover:bg-[#e6c29e] hover:border-[#b5651d]'
               }`}
             >
-              <span className="block">
-                {lang === 'zh' ? label.zh : label.en}
-              </span>
-              <span className={`block text-[12px] mt-0.5 ${isActive ? 'text-amber-200/80' : 'opacity-60'}`}>
+              <div className="flex items-center justify-center gap-1.5 font-semibold">
+                {Icon && <Icon size={14} className={isActive ? "text-[#fbf8f3]" : "text-[#ad5c16]"} />}
+                <span>
+                  {lang === 'zh' ? label.zh : label.en}
+                </span>
+              </div>
+              <span className={`block text-[11px] ${isActive ? 'text-[#eed8c1]/90' : 'text-[#6f3d1b]/60'}`}>
                 {count} {lang === 'zh' ? '处' : 'pts'}
               </span>
             </button>

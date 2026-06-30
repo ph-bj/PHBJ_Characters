@@ -331,7 +331,7 @@ function LocationInfoPanel({
     <div className="mt-2 bg-[#2c2420] text-[#f4ecd8] p-4 rounded shadow-sm border border-[#5d5048] relative">
       <button
         onClick={onClose}
-        className="absolute top-2 right-2 p-1 text-[#f4ecd8]/60 hover:text-[#f4ecd8] hover:bg-[#5d5048]/30 rounded transition-colors"
+        className="absolute top-2 right-2 p-1 rounded transition-colors bg-[#ad5c16] hover:bg-[#b5651d] text-[#fbf8f3] border border-[#ad5c16] shadow-sm flex items-center justify-center"
         aria-label="Close"
       >
         <X size={16} />
