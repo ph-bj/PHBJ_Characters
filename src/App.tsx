@@ -1383,6 +1383,117 @@ export default function App() {
 
         {/* Content Area */}
         <section className="flex flex-col gap-4 md:gap-5 order-1 md:order-2 min-w-0">
+
+          {/* About Section */}
+          <div id="about" className="parchment p-5 sm:p-8 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
+            <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-4 font-bold border-b border-[#d4c5a9] pb-2">
+              {lang === "en" ? "About Precious Vibe" : "关于品花宝境"}
+            </h2>
+            <p className="text-sm text-[#3a2e28] leading-relaxed mb-6 font-hans">
+              {lang === "en"
+                ? "Precious Vibe (品花宝境) is an interactive scholarly database for Pinhua Baojian (品花鉴), a classic Qing-dynasty Chinese novel. It brings together annotated chapter reading, character profiles, relationship mapping, place data, and literary citations into a single integrated research tool."
+                : "品花宝境是针对清代经典小说《品花宝鉴》打造的交互式学术数据库，将注释章节阅读、人物档案、人物关系图谱、地点数据及文学引用整合为一体，服务于研究与阅读。"}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {/* Feature: Chapter Reader */}
+              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
+                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
+                  <BookOpen size={13} className="text-[#8b4513]" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                    {lang === "en" ? "Chapter Reader" : "章节阅读"}
+                  </p>
+                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
+                    {lang === "en"
+                      ? "Read all 60 chapters in Chinese with aligned English translations and scene-level annotations."
+                      : "阅读全部六十回原文，并附英文对照翻译与场景注释。"}
+                  </p>
+                </div>
+              </div>
+              {/* Feature: Character Database */}
+              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
+                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
+                  <Users size={13} className="text-[#8b4513]" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                    {lang === "en" ? "Character Database" : "人物数据库"}
+                  </p>
+                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
+                    {lang === "en"
+                      ? `Profiles for all ${characters.length} characters, with roles, aliases, chapter appearances, and mention counts.`
+                      : `收录全部 ${characters.length} 位人物的角色、别名、登场章回及提及次数。`}
+                  </p>
+                </div>
+              </div>
+              {/* Feature: Relationship Network */}
+              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
+                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
+                  <Network size={13} className="text-[#8b4513]" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                    {lang === "en" ? "Relationship Network" : "人物关系网络"}
+                  </p>
+                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
+                    {lang === "en"
+                      ? "Interactive D3 force graph visualising social bonds, rivalries, and family ties across the cast."
+                      : "基于 D3 力导向图，可视化展示全书人物的社交关系、对立关系与家族纽带。"}
+                  </p>
+                </div>
+              </div>
+              {/* Feature: Gardens & Locations */}
+              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
+                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
+                  <Leaf size={13} className="text-[#8b4513]" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                    {lang === "en" ? "Gardens & Locations" : "园林与地点"}
+                  </p>
+                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
+                    {lang === "en"
+                      ? "Browse the novel's named gardens, residences, and districts, each linked to the chapters in which they appear."
+                      : "浏览小说中的名园、宅邸与街区，每处均关联其出现的章回。"}
+                  </p>
+                </div>
+              </div>
+              {/* Feature: Literary Citations */}
+              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
+                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
+                  <Book size={13} className="text-[#8b4513]" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                    {lang === "en" ? "Literary Citations" : "文学引用"}
+                  </p>
+                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
+                    {lang === "en"
+                      ? "Every allusion to classical poetry and drama is linked to its source work, with context snippets."
+                      : "书中每处诗词典故均附来源及上下文片段，便于溯源考证。"}
+                  </p>
+                </div>
+              </div>
+              {/* Feature: Lacunae Tracker */}
+              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
+                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
+                  <Activity size={13} className="text-[#8b4513]" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                    {lang === "en" ? "Lacunae Tracker" : "缺失记录"}
+                  </p>
+                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
+                    {lang === "en"
+                      ? "Tracks gaps in the surviving text — chapters, scenes, or details lost to manuscript history."
+                      : "追踪传世文本中的缺失——包括因版本流传而失落的章回、场景与细节。"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Network Graph Section */}
           <div id="network" className="scroll-mt-24">
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">
