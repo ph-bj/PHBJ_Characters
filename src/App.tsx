@@ -1391,7 +1391,7 @@ export default function App() {
             </h2>
             <p className="text-sm text-[#3a2e28] leading-relaxed mb-6 font-hans">
               {lang === "en"
-                ? "Precious Vibe (品花宝境) is an interactive scholarly database for Pinhua Baojian (品花鉴), a classic Qing-dynasty Chinese novel. It brings together annotated chapter reading, character profiles, relationship mapping, place data, and literary citations into a single integrated research tool."
+                ? "Precious Vibe (品花宝境) is an interactive scholarly database for Pinhua Baojian (品花宝鉴), a classic Qing-dynasty Chinese novel. It brings together annotated chapter reading, character profiles, relationship mapping, place data, and literary citations into a single integrated research tool."
                 : "品花宝境是针对清代经典小说《品花宝鉴》打造的交互式学术数据库，将注释章节阅读、人物档案、人物关系图谱、地点数据及文学引用整合为一体，服务于研究与阅读。"}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
