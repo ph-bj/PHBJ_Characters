@@ -1475,19 +1475,19 @@ export default function App() {
                   </p>
                 </div>
               </div>
-              {/* Feature: Lacunae Tracker */}
+              {/* Feature: Hometown Map */}
               <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
                 <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
-                  <Activity size={13} className="text-[#8b4513]" />
+                  <MapIcon size={13} className="text-[#8b4513]" />
                 </div>
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
-                    {lang === "en" ? "Lacunae Tracker" : "缺失记录"}
+                    {lang === "en" ? "Hometown Map" : "籍贯地图"}
                   </p>
                   <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
                     {lang === "en"
-                      ? "Tracks gaps in the surviving text — chapters, scenes, or details lost to manuscript history."
-                      : "追踪传世文本中的缺失——包括因版本流传而失落的章回、场景与细节。"}
+                      ? "A geographic map pinpointing each character's hometown, revealing the regional spread of the novel's cast."
+                      : "地理地图标注每位人物的籍贯，直观呈现全书人物的地域分布。"}
                   </p>
                 </div>
               </div>
