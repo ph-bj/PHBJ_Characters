@@ -8,8 +8,21 @@ export const GardenStroll: React.FC = () => {
   return (
     <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center">
       <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '130px' }}>
+        <defs>
+          <linearGradient id="gardenWash" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#2c2420" stopOpacity="0.02" />
+            <stop offset="70%" stopColor="#2c2420" stopOpacity="0.07" />
+            <stop offset="100%" stopColor="#2c2420" stopOpacity="0.15" />
+          </linearGradient>
+          <linearGradient id="gardenHills" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#2c2420" stopOpacity="0.03" />
+            <stop offset="50%" stopColor="#2c2420" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#2c2420" stopOpacity="0.03" />
+          </linearGradient>
+        </defs>
         <rect x="3" y="3" width="274" height="144" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="1" />
-        <rect x="6" y="6" width="268" height="138" fill="none" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+        <rect x="6" y="6" width="268" height="138" fill="url(#gardenWash)" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+        <path d="M6 110 Q80 80, 160 105 Q220 90, 274 115 L274 144 L6 144 Z" fill="url(#gardenHills)" stroke="none" opacity="0.4" />
         <path d="M60 105 Q100 70, 140 105" fill="none" stroke="#2c2420" strokeWidth="1.5" />
         <path d="M65 105 Q100 75, 135 105" fill="none" stroke="#2c2420" strokeWidth="0.6" />
         <line x1="75" y1="95" x2="75" y2="90" stroke="#2c2420" strokeWidth="0.5" />

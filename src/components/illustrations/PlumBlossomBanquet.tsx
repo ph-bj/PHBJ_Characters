@@ -13,9 +13,19 @@ export const PlumBlossomBanquet: React.FC = () => {
             <stop offset="0%" stopColor="#2c2420" stopOpacity="0.03" />
             <stop offset="100%" stopColor="#2c2420" stopOpacity="0.08" />
           </linearGradient>
+          <linearGradient id="banquetHills" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stopColor="#2c2420" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#2c2420" stopOpacity="0.01" />
+          </linearGradient>
+          <radialGradient id="banquetMoon" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#2c2420" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#2c2420" stopOpacity="0" />
+          </radialGradient>
         </defs>
         <rect x="3" y="3" width="274" height="154" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="1" />
-        <rect x="6" y="6" width="268" height="148" fill="none" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+        <rect x="6" y="6" width="268" height="148" fill="url(#bqWash)" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+        <circle cx="210" cy="35" r="25" fill="url(#banquetMoon)" stroke="none" />
+        <path d="M6 120 Q70 90, 140 115 Q200 95, 274 125 L274 154 L6 154 Z" fill="url(#banquetHills)" stroke="none" opacity="0.5" />
         <ellipse cx="140" cy="110" rx="42" ry="14" fill="none" stroke="#2c2420" strokeWidth="1.2" />
         <line x1="110" y1="118" x2="108" y2="140" stroke="#2c2420" strokeWidth="0.8" />
         <line x1="170" y1="118" x2="172" y2="140" stroke="#2c2420" strokeWidth="0.8" />

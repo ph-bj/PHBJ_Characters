@@ -8,8 +8,20 @@ export const OperaNight: React.FC = () => {
   return (
     <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center">
       <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '130px' }}>
+        <defs>
+          <linearGradient id="operaWash" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#2c2420" stopOpacity="0.02" />
+            <stop offset="60%" stopColor="#2c2420" stopOpacity="0.06" />
+            <stop offset="100%" stopColor="#2c2420" stopOpacity="0.14" />
+          </linearGradient>
+          <radialGradient id="stageLight" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stopColor="#2c2420" stopOpacity="0.01" />
+            <stop offset="100%" stopColor="#2c2420" stopOpacity="0.1" />
+          </radialGradient>
+        </defs>
         <rect x="3" y="3" width="274" height="144" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="1" />
-        <rect x="6" y="6" width="268" height="138" fill="none" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+        <rect x="6" y="6" width="268" height="138" fill="url(#operaWash)" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+        <ellipse cx="140" cy="55" rx="55" ry="35" fill="url(#stageLight)" stroke="none" opacity="0.4" />
         <path d="M50 95 L230 95 L240 105 L40 105 Z" fill="none" stroke="#2c2420" strokeWidth="1.2" />
         <line x1="50" y1="95" x2="50" y2="105" stroke="#2c2420" strokeWidth="0.6" />
         <line x1="230" y1="95" x2="230" y2="105" stroke="#2c2420" strokeWidth="0.6" />

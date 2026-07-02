@@ -8,8 +8,21 @@ export const ScholarStudy: React.FC = () => {
   return (
     <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center mt-5 mb-5">
       <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '130px' }}>
+        <defs>
+          <linearGradient id="studyWash" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#2c2420" stopOpacity="0.01" />
+            <stop offset="50%" stopColor="#2c2420" stopOpacity="0.05" />
+            <stop offset="100%" stopColor="#2c2420" stopOpacity="0.12" />
+          </linearGradient>
+          <linearGradient id="hillWash" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#2c2420" stopOpacity="0.03" />
+            <stop offset="50%" stopColor="#2c2420" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#2c2420" stopOpacity="0.03" />
+          </linearGradient>
+        </defs>
         <rect x="3" y="3" width="274" height="144" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="1" />
-        <rect x="6" y="6" width="268" height="138" fill="none" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+        <rect x="6" y="6" width="268" height="138" fill="url(#studyWash)" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+        <path d="M6 100 Q80 70, 150 95 Q200 80, 274 110 L274 144 L6 144 Z" fill="url(#hillWash)" stroke="none" opacity="0.4" />
         <path d="M80 85 L200 85 L205 90 L75 90 Z" fill="none" stroke="#2c2420" strokeWidth="1" />
         <line x1="85" y1="90" x2="85" y2="120" stroke="#2c2420" strokeWidth="0.8" />
         <line x1="195" y1="90" x2="195" y2="120" stroke="#2c2420" strokeWidth="0.8" />
