@@ -1394,104 +1394,92 @@ export default function App() {
                 ? "Precious Vibe (品花宝境) is an interactive scholarly database for Pinhua Baojian (品花宝鉴), a classic Qing-dynasty Chinese novel. It brings together annotated chapter reading, character profiles, relationship mapping, place data, and literary citations into a single integrated research tool."
                 : "品花宝境是针对清代经典小说《品花宝鉴》打造的交互式学术数据库，将注释章节阅读、人物档案、人物关系图谱、地点数据及文学引用整合为一体，服务于研究与阅读。"}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {/* Feature: Chapter Reader */}
-              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
-                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
-                  <BookOpen size={13} className="text-[#8b4513]" />
-                </div>
+            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+              {/* Chapter Reader */}
+              <div className="flex gap-3 items-baseline py-2.5 border-t border-[#d4c5a9]/60 first:border-t-0">
+                <BookOpen size={12} className="text-[#8b4513] shrink-0 translate-y-[1px]" />
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                  <dt className="inline text-[11px] font-bold text-[#5d5048] uppercase tracking-wider mr-1">
                     {lang === "en" ? "Chapter Reader" : "章节阅读"}
-                  </p>
-                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
-                    {lang === "en"
+                  </dt>
+                  <dd className="inline text-[11px] text-[#3a2e28]/75 leading-snug">
+                    — {lang === "en"
                       ? "Read all 60 chapters in Chinese with aligned English translations and scene-level annotations."
                       : "阅读全部六十回原文，并附英文对照翻译与场景注释。"}
-                  </p>
+                  </dd>
                 </div>
               </div>
-              {/* Feature: Character Database */}
-              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
-                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
-                  <Users size={13} className="text-[#8b4513]" />
-                </div>
+              {/* Character Database */}
+              <div className="flex gap-3 items-baseline py-2.5 border-t border-[#d4c5a9]/60 sm:first:border-t-0">
+                <Users size={12} className="text-[#8b4513] shrink-0 translate-y-[1px]" />
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                  <dt className="inline text-[11px] font-bold text-[#5d5048] uppercase tracking-wider mr-1">
                     {lang === "en" ? "Character Database" : "人物数据库"}
-                  </p>
-                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
-                    {lang === "en"
+                  </dt>
+                  <dd className="inline text-[11px] text-[#3a2e28]/75 leading-snug">
+                    — {lang === "en"
                       ? `Profiles for all ${characters.length} characters, with roles, aliases, chapter appearances, and mention counts.`
                       : `收录全部 ${characters.length} 位人物的角色、别名、登场章回及提及次数。`}
-                  </p>
+                  </dd>
                 </div>
               </div>
-              {/* Feature: Relationship Network */}
-              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
-                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
-                  <Network size={13} className="text-[#8b4513]" />
-                </div>
+              {/* Relationship Network */}
+              <div className="flex gap-3 items-baseline py-2.5 border-t border-[#d4c5a9]/60">
+                <Network size={12} className="text-[#8b4513] shrink-0 translate-y-[1px]" />
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                  <dt className="inline text-[11px] font-bold text-[#5d5048] uppercase tracking-wider mr-1">
                     {lang === "en" ? "Relationship Network" : "人物关系网络"}
-                  </p>
-                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
-                    {lang === "en"
-                      ? "Interactive D3 force graph visualising social bonds, rivalries, and family ties across the cast."
-                      : "基于 D3 力导向图，可视化展示全书人物的社交关系、对立关系与家族纽带。"}
-                  </p>
+                  </dt>
+                  <dd className="inline text-[11px] text-[#3a2e28]/75 leading-snug">
+                    — {lang === "en"
+                      ? "Interactive force graph visualising social bonds, rivalries, and family ties across the cast."
+                      : "互动力导向图，可视化展示全书人物的社交、对立与家族关系。"}
+                  </dd>
                 </div>
               </div>
-              {/* Feature: Gardens & Locations */}
-              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
-                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
-                  <Leaf size={13} className="text-[#8b4513]" />
-                </div>
+              {/* Gardens & Locations */}
+              <div className="flex gap-3 items-baseline py-2.5 border-t border-[#d4c5a9]/60">
+                <Leaf size={12} className="text-[#8b4513] shrink-0 translate-y-[1px]" />
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                  <dt className="inline text-[11px] font-bold text-[#5d5048] uppercase tracking-wider mr-1">
                     {lang === "en" ? "Gardens & Locations" : "园林与地点"}
-                  </p>
-                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
-                    {lang === "en"
-                      ? "Browse the novel's named gardens, residences, and districts, each linked to the chapters in which they appear."
-                      : "浏览小说中的名园、宅邸与街区，每处均关联其出现的章回。"}
-                  </p>
+                  </dt>
+                  <dd className="inline text-[11px] text-[#3a2e28]/75 leading-snug">
+                    — {lang === "en"
+                      ? "Named gardens, residences, and districts, each linked to the chapters where they appear."
+                      : "小说中的名园、宅邸与街区，每处均关联其出现的章回。"}
+                  </dd>
                 </div>
               </div>
-              {/* Feature: Literary Citations */}
-              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
-                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
-                  <Book size={13} className="text-[#8b4513]" />
-                </div>
+              {/* Literary Citations */}
+              <div className="flex gap-3 items-baseline py-2.5 border-t border-[#d4c5a9]/60">
+                <Book size={12} className="text-[#8b4513] shrink-0 translate-y-[1px]" />
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                  <dt className="inline text-[11px] font-bold text-[#5d5048] uppercase tracking-wider mr-1">
                     {lang === "en" ? "Literary Citations" : "文学引用"}
-                  </p>
-                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
-                    {lang === "en"
-                      ? "Every allusion to classical poetry and drama is linked to its source work, with context snippets."
+                  </dt>
+                  <dd className="inline text-[11px] text-[#3a2e28]/75 leading-snug">
+                    — {lang === "en"
+                      ? "Every allusion to classical poetry and drama linked to its source work, with context snippets."
                       : "书中每处诗词典故均附来源及上下文片段，便于溯源考证。"}
-                  </p>
+                  </dd>
                 </div>
               </div>
-              {/* Feature: Hometown Map */}
-              <div className="flex gap-3 items-start p-3 rounded-sm bg-black/5 border border-[#d4c5a9]/50 hover:bg-amber-700/8 transition-colors">
-                <div className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-[#8b4513]/15 flex items-center justify-center">
-                  <MapIcon size={13} className="text-[#8b4513]" />
-                </div>
+              {/* Hometown Map */}
+              <div className="flex gap-3 items-baseline py-2.5 border-t border-[#d4c5a9]/60">
+                <MapIcon size={12} className="text-[#8b4513] shrink-0 translate-y-[1px]" />
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#5d5048] mb-0.5">
+                  <dt className="inline text-[11px] font-bold text-[#5d5048] uppercase tracking-wider mr-1">
                     {lang === "en" ? "Hometown Map" : "籍贯地图"}
-                  </p>
-                  <p className="text-[11px] text-[#3a2e28]/80 leading-snug">
-                    {lang === "en"
-                      ? "A geographic map pinpointing each character's hometown, revealing the regional spread of the novel's cast."
+                  </dt>
+                  <dd className="inline text-[11px] text-[#3a2e28]/75 leading-snug">
+                    — {lang === "en"
+                      ? "A geographic map pinpointing each character's hometown, revealing the regional spread of the cast."
                       : "地理地图标注每位人物的籍贯，直观呈现全书人物的地域分布。"}
-                  </p>
+                  </dd>
                 </div>
               </div>
-            </div>
+            </dl>
           </div>
 
           {/* Network Graph Section */}
