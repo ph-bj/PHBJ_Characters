@@ -75,6 +75,11 @@ import {
 import type { Character, Chapter } from "./types";
 import NetworkGraph from "./components/NetworkGraph";
 import { parseHash, formatHash, type DeepLink } from "./permalink";
+import {
+  categorizeWork,
+  WORK_CATEGORY_LABELS,
+  WORK_CATEGORY_ORDER,
+} from "./workCategories";
 import { CiteButton } from "./components/CiteButton";
 
 import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, NavSection } from "./utils";
@@ -447,6 +452,23 @@ export default function App() {
       });
     return Array.from(workMap.entries()).sort((a, b) => b[1] - a[1]);
   }, []);
+
+  const worksCitedByCategory = useMemo(() => {
+    const groups = new Map<string, Array<[string, number]>>();
+    for (const entry of allWorksCited) {
+      const category = categorizeWork(entry[0].replace(/《|》/g, ""));
+      const list = groups.get(category);
+      if (list) list.push(entry);
+      else groups.set(category, [entry]);
+    }
+    return WORK_CATEGORY_ORDER.filter((category) => groups.has(category)).map(
+      (category) => ({
+        category,
+        label: WORK_CATEGORY_LABELS[category],
+        works: groups.get(category)!,
+      }),
+    );
+  }, [allWorksCited]);
 
   const locationsByType = useMemo(() => {
     const chapterList = chapters.filter((ch) => ch.id >= 1);
@@ -1797,35 +1819,54 @@ export default function App() {
                 {allWorksCited.length} {lang === "zh" ? "部" : "unique"}
               </span>
             </div>
-            <div className="flex flex-wrap gap-1.5">
-              {allWorksCited.map(([work, count]) => {
-                const workKey = work.replace(/《|》/g, "");
-                const hasDetailedDescription =
-                  worksData[workKey]?.descEn !==
-                  "A literary work, opera scene, or book cited in Pinhua Baojian.";
-                return (
-                  <button
-                    key={work}
-                    onClick={() => setSelectedWork(workKey)}
-                    title={`${count} ${lang === "zh" ? "回" : count === 1 ? "chapter" : "chapters"}`}
-                    className={`px-2 py-0.5 text-[10px] rounded-sm font-hans cursor-pointer transition-colors ${hasDetailedDescription
-                      ? "border-2 border-[#8b4513] bg-[#e8dcc4] text-[#8b4513] font-bold shadow-sm hover:bg-[#d4c5a9]"
-                      : "border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] hover:bg-[#d4c5a9]/40"
-                      }`}
-                  >
-                    {lang === "en" && WORK_ENGLISH_BY_CHINESE[workKey]
-                      ? WORK_ENGLISH_BY_CHINESE[workKey]
-                      : work}
-                    {count > 1 && (
-                      <span
-                        className={`ml-1 text-[9px] font-sans ${hasDetailedDescription ? "text-[#5d5048]" : "text-[#8b4513]"}`}
-                      >
-                        ×{count}
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
+            <p className="text-[10px] text-[#5d5048] italic mb-4">
+              {lang === "zh"
+                ? "分组根据作品描述自动推断；未注明者多为演出散出。"
+                : "Groups are inferred from work descriptions; unannotated titles are mostly performed scenes."}
+            </p>
+            <div className="space-y-5">
+              {worksCitedByCategory.map(({ category, label, works }) => (
+                <div key={category}>
+                  <div className="flex items-center justify-between gap-3 mb-2">
+                    <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold">
+                      {lang === "zh" ? label.zh : label.en}
+                    </p>
+                    <span className="text-[9px] text-[#8b4513] font-sans font-bold">
+                      {works.length}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {works.map(([work, count]) => {
+                      const workKey = work.replace(/《|》/g, "");
+                      const hasDetailedDescription =
+                        worksData[workKey]?.descEn !==
+                        "A literary work, opera scene, or book cited in Pinhua Baojian.";
+                      return (
+                        <button
+                          key={work}
+                          onClick={() => setSelectedWork(workKey)}
+                          title={`${count} ${lang === "zh" ? "回" : count === 1 ? "chapter" : "chapters"}`}
+                          className={`px-2 py-0.5 text-[10px] rounded-sm font-hans cursor-pointer transition-colors ${hasDetailedDescription
+                            ? "border-2 border-[#8b4513] bg-[#e8dcc4] text-[#8b4513] font-bold shadow-sm hover:bg-[#d4c5a9]"
+                            : "border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#2c2420] hover:bg-[#d4c5a9]/40"
+                            }`}
+                        >
+                          {lang === "en" && WORK_ENGLISH_BY_CHINESE[workKey]
+                            ? WORK_ENGLISH_BY_CHINESE[workKey]
+                            : work}
+                          {count > 1 && (
+                            <span
+                              className={`ml-1 text-[9px] font-sans ${hasDetailedDescription ? "text-[#5d5048]" : "text-[#8b4513]"}`}
+                            >
+                              ×{count}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
