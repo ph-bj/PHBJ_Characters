@@ -1740,6 +1740,170 @@ export default function App() {
             id="chapters"
             className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24"
           >
+            {/* Chinese Garden with Figure - Line Drawing */}
+            <svg
+              viewBox="0 0 400 280"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-full mb-4"
+              style={{ maxHeight: '220px' }}
+            >
+              {/* Background frame */}
+              <rect x="5" y="5" width="390" height="270" fill="none" stroke="#2c2420" strokeWidth="1.5" rx="4" />
+
+              {/* Moon / Sun circle in sky */}
+              <circle cx="320" cy="55" r="22" fill="none" stroke="#2c2420" strokeWidth="1.2" />
+              <circle cx="316" cy="52" r="18" fill="none" stroke="#2c2420" strokeWidth="0.6" strokeDasharray="2,3" />
+
+              {/* Distant mountains */}
+              <path d="M10 140 Q60 80, 110 130 Q140 100, 180 135 Q210 95, 260 130 Q300 85, 350 125 Q370 110, 395 140" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M10 145 Q80 110, 140 140 Q190 115, 240 140 Q280 120, 330 138 Q360 125, 395 145" fill="none" stroke="#2c2420" strokeWidth="0.7" strokeDasharray="3,2" />
+
+              {/* Chinese pavilion (亭) */}
+              <path d="M40 175 L80 150 L120 175" fill="none" stroke="#2c2420" strokeWidth="1.5" />
+              <path d="M45 175 L80 155 L115 175" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              {/* Pavilion roof upturned corners */}
+              <path d="M38 176 Q35 172, 30 170" fill="none" stroke="#2c2420" strokeWidth="1.2" />
+              <path d="M122 176 Q125 172, 130 170" fill="none" stroke="#2c2420" strokeWidth="1.2" />
+              {/* Pavilion pillars */}
+              <line x1="55" y1="175" x2="55" y2="210" stroke="#2c2420" strokeWidth="1.2" />
+              <line x1="105" y1="175" x2="105" y2="210" stroke="#2c2420" strokeWidth="1.2" />
+              {/* Pavilion base/platform */}
+              <path d="M45 210 L115 210 L120 215 L40 215 Z" fill="none" stroke="#2c2420" strokeWidth="1" />
+              {/* Pavilion railing */}
+              <line x1="55" y1="195" x2="105" y2="195" stroke="#2c2420" strokeWidth="0.8" />
+              <line x1="65" y1="195" x2="65" y2="210" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="80" y1="195" x2="80" y2="210" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="95" y1="195" x2="95" y2="210" stroke="#2c2420" strokeWidth="0.6" />
+
+              {/* Moon gate (圆门) */}
+              <circle cx="175" cy="210" r="30" fill="none" stroke="#2c2420" strokeWidth="1.5" />
+              {/* Gate wall */}
+              <line x1="145" y1="180" x2="145" y2="245" stroke="#2c2420" strokeWidth="1.5" />
+              <line x1="205" y1="180" x2="205" y2="245" stroke="#2c2420" strokeWidth="1.5" />
+              <line x1="130" y1="180" x2="145" y2="180" stroke="#2c2420" strokeWidth="1.5" />
+              <line x1="205" y1="180" x2="220" y2="180" stroke="#2c2420" strokeWidth="1.5" />
+              <line x1="130" y1="180" x2="130" y2="245" stroke="#2c2420" strokeWidth="1" />
+              <line x1="220" y1="180" x2="220" y2="245" stroke="#2c2420" strokeWidth="1" />
+              {/* Wall texture */}
+              <line x1="133" y1="195" x2="143" y2="195" stroke="#2c2420" strokeWidth="0.4" />
+              <line x1="133" y1="210" x2="143" y2="210" stroke="#2c2420" strokeWidth="0.4" />
+              <line x1="133" y1="225" x2="143" y2="225" stroke="#2c2420" strokeWidth="0.4" />
+              <line x1="207" y1="195" x2="218" y2="195" stroke="#2c2420" strokeWidth="0.4" />
+              <line x1="207" y1="210" x2="218" y2="210" stroke="#2c2420" strokeWidth="0.4" />
+              <line x1="207" y1="225" x2="218" y2="225" stroke="#2c2420" strokeWidth="0.4" />
+
+              {/* Muscular male figure standing inside moon gate */}
+              {/* Head */}
+              <circle cx="175" cy="192" r="6" fill="none" stroke="#2c2420" strokeWidth="1.2" />
+              {/* Hair bun (traditional) */}
+              <path d="M172 186 Q175 182, 178 186" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <line x1="175" y1="183" x2="175" y2="186" stroke="#2c2420" strokeWidth="0.8" />
+              {/* Neck */}
+              <line x1="175" y1="198" x2="175" y2="201" stroke="#2c2420" strokeWidth="1" />
+              {/* Shoulders - broad for muscular build */}
+              <path d="M163 204 Q168 200, 175 201 Q182 200, 187 204" fill="none" stroke="#2c2420" strokeWidth="1.2" />
+              {/* Torso - V-taper muscular */}
+              <line x1="163" y1="204" x2="167" y2="228" stroke="#2c2420" strokeWidth="1.1" />
+              <line x1="187" y1="204" x2="183" y2="228" stroke="#2c2420" strokeWidth="1.1" />
+              {/* Chest muscles */}
+              <path d="M167 207 Q172 210, 175 208 Q178 210, 183 207" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              {/* Abs definition */}
+              <line x1="175" y1="210" x2="175" y2="226" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M170 214 Q175 215, 180 214" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M170 218 Q175 219, 180 218" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M170 222 Q175 223, 180 222" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              {/* Waist / hip line */}
+              <path d="M167 228 Q175 230, 183 228" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              {/* Arms - muscular */}
+              {/* Left arm */}
+              <path d="M163 204 Q158 210, 155 218" fill="none" stroke="#2c2420" strokeWidth="1.1" />
+              <path d="M155 218 Q154 222, 156 226" fill="none" stroke="#2c2420" strokeWidth="1" />
+              {/* Left arm muscle bulge */}
+              <path d="M160 208 Q157 212, 158 216" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              {/* Right arm */}
+              <path d="M187 204 Q192 210, 195 218" fill="none" stroke="#2c2420" strokeWidth="1.1" />
+              <path d="M195 218 Q196 222, 194 226" fill="none" stroke="#2c2420" strokeWidth="1" />
+              {/* Right arm muscle bulge */}
+              <path d="M190 208 Q193 212, 192 216" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              {/* Legs */}
+              <line x1="170" y1="228" x2="168" y2="240" stroke="#2c2420" strokeWidth="1.1" />
+              <line x1="180" y1="228" x2="182" y2="240" stroke="#2c2420" strokeWidth="1.1" />
+              {/* Thigh muscle definition */}
+              <path d="M171 230 Q170 234, 169 238" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M179 230 Q180 234, 181 238" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+
+              {/* Bamboo cluster (right side) */}
+              {/* Bamboo stalks */}
+              <line x1="300" y1="150" x2="300" y2="250" stroke="#2c2420" strokeWidth="1.2" />
+              <line x1="310" y1="155" x2="310" y2="250" stroke="#2c2420" strokeWidth="1" />
+              <line x1="295" y1="160" x2="295" y2="250" stroke="#2c2420" strokeWidth="0.8" />
+              {/* Bamboo nodes */}
+              <line x1="298" y1="175" x2="302" y2="175" stroke="#2c2420" strokeWidth="1.5" />
+              <line x1="298" y1="200" x2="302" y2="200" stroke="#2c2420" strokeWidth="1.5" />
+              <line x1="298" y1="225" x2="302" y2="225" stroke="#2c2420" strokeWidth="1.5" />
+              <line x1="308" y1="185" x2="312" y2="185" stroke="#2c2420" strokeWidth="1.2" />
+              <line x1="308" y1="210" x2="312" y2="210" stroke="#2c2420" strokeWidth="1.2" />
+              <line x1="308" y1="235" x2="312" y2="235" stroke="#2c2420" strokeWidth="1.2" />
+              {/* Bamboo leaves */}
+              <path d="M300 150 Q285 145, 275 150" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M300 150 Q290 140, 278 138" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M300 150 Q310 142, 320 145" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M310 155 Q320 148, 330 150" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <path d="M310 155 Q318 150, 325 142" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <path d="M295 160 Q282 155, 270 158" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <path d="M295 160 Q285 152, 272 148" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              {/* More leaves at middle nodes */}
+              <path d="M300 175 Q288 170, 278 173" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <path d="M300 175 Q312 170, 322 172" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <path d="M310 185 Q322 180, 332 183" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+
+              {/* Garden rocks (太湖石) */}
+              <path d="M240 240 Q235 225, 245 218 Q250 210, 260 215 Q268 208, 275 218 Q282 222, 278 235 Q270 248, 255 250 Q242 248, 240 240" fill="none" stroke="#2c2420" strokeWidth="1.2" />
+              {/* Rock holes */}
+              <ellipse cx="252" cy="225" rx="4" ry="5" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <ellipse cx="265" cy="230" rx="3" ry="3" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              {/* Rock texture */}
+              <path d="M245 230 Q248 228, 250 232" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M268 220 Q272 222, 270 226" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+
+              {/* Small rocks */}
+              <path d="M340 240 Q338 232, 345 228 Q352 230, 355 238 Q350 245, 342 243 Z" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+
+              {/* Willow branches (top right) */}
+              <path d="M380 20 Q360 40, 350 80 Q345 100, 350 120" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M375 25 Q358 50, 355 90 Q352 110, 358 130" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <path d="M385 30 Q365 55, 360 85" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              {/* Willow leaves */}
+              <path d="M360 60 Q355 58, 350 62" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M355 80 Q350 78, 347 82" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M358 100 Q352 98, 350 102" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+
+              {/* Plum blossom branch (top left) */}
+              <path d="M15 30 Q35 45, 60 50 Q80 52, 95 48" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M50 50 Q55 38, 65 35" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              {/* Blossoms */}
+              <circle cx="60" cy="48" r="4" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <circle cx="60" cy="48" r="1.5" fill="#2c2420" />
+              <circle cx="75" cy="50" r="3.5" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <circle cx="75" cy="50" r="1.2" fill="#2c2420" />
+              <circle cx="90" cy="46" r="3" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <circle cx="90" cy="46" r="1" fill="#2c2420" />
+              <circle cx="65" cy="35" r="3" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <circle cx="65" cy="35" r="1" fill="#2c2420" />
+
+              {/* Water / pond at bottom */}
+              <path d="M10 255 Q50 250, 100 255 Q150 260, 200 255 Q250 250, 300 255 Q350 260, 395 255" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <path d="M30 260 Q70 257, 120 260 Q170 263, 220 260 Q270 257, 320 260 Q360 263, 390 260" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+
+              {/* Stepping stones / path */}
+              <ellipse cx="125" cy="235" rx="8" ry="3" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <ellipse cx="140" cy="242" rx="7" ry="2.5" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+
+              {/* Cloud wisps */}
+              <path d="M150 50 Q160 42, 175 45 Q185 40, 195 47 Q205 42, 215 48" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <path d="M230 65 Q240 58, 250 62 Q258 57, 268 63" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+            </svg>
+
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">
               {t.chapters}
             </h2>
