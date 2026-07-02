@@ -29,6 +29,7 @@ import {
   workKeyFromAnnotationToken,
 } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
+import { ChapterScene } from "./illustrations/ChapterScene";
 
 export function ChapterReader({
   chapter,
@@ -451,6 +452,7 @@ export function ChapterReader({
                 </div>
               </div>
             )}
+            {chapter.id >= 1 && <ChapterScene chapterId={chapter.id} />}
             {chapter.id === -1 ? (
               <div className="space-y-5">
                 {chapter.content.split("\n").map((line, i) => (
