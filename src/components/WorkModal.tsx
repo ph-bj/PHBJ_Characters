@@ -8,7 +8,7 @@ import { getCharactersNearWork } from "../intertexts";
 import { getWorkSceneLinks } from "../workLinks";
 import { characters } from "../data";
 import type { Character } from "../types";
-import { CiteButton } from "./CiteButton";
+import { PermalinkButton } from "./PermalinkButton";
 
 export function WorkModal({
   work,
@@ -118,15 +118,8 @@ export function WorkModal({
                   : WORK_ENGLISH_BY_CHINESE[work] || work}
               </h2>
             </div>
-            <div className="flex items-center gap-1.5">
-              <CiteButton
-                lang={lang}
-                itemTitle={
-                  lang === "zh"
-                    ? `《${work}》`
-                    : WORK_ENGLISH_BY_CHINESE[work] || `《${work}》`
-                }
-              />
+            <div className="flex items-center gap-1.5 shrink-0">
+              <PermalinkButton lang={lang} link={{ kind: "work", key: work }} />
               <button
                 onClick={onClose}
                 className="p-2 -mr-2 text-[#8b4513]/60 hover:text-[#8b4513] hover:bg-[#d4c5a9]/20 rounded-full transition-colors"

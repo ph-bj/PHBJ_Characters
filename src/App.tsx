@@ -152,6 +152,7 @@ export default function App() {
     en: {
       titleEn: "Precious Vibe",
       titleZh: "品花宝境",
+      siteSubtitle: "Pinhua baojian's Vibe Literature",
       chapterAbbr: "Ch.",
       mentions: (count: number) => `mention${count !== 1 ? "s" : ""}`,
       noTextExcerpts: "No text excerpts found.",
@@ -178,6 +179,7 @@ export default function App() {
     zh: {
       titleEn: "Precious Vibe",
       titleZh: "品花宝境",
+      siteSubtitle: "《品花宝鉴》之境文学",
       chapterAbbr: "第",
       mentions: (count: number) => `次提及`,
       noTextExcerpts: "无文本摘录。",
@@ -878,6 +880,11 @@ export default function App() {
                 {t.titleZh}
               </span>
             </h1>
+            <p
+              className={`text-[10px] sm:text-[11px] italic text-[#8b4513] tracking-wide ${lang === "zh" ? "font-hans" : ""}`}
+            >
+              {t.siteSubtitle}
+            </p>
           </div>
           <div className="hidden md:flex flex-1 justify-end items-center gap-2">
             <NavMenuDropdown

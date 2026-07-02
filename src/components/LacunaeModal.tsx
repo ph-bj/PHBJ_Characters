@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { X } from "lucide-react";
 import type { LacunaConfidence, LacunaEntry } from "../utils";
+import { PermalinkButton } from "./PermalinkButton";
 
 export function LacunaeModal({
   chapterId,
@@ -89,13 +90,19 @@ export function LacunaeModal({
               {lang === "zh" ? `第 ${chapterId} 回` : `Chapter ${chapterId}`}
             </h3>
           </div>
-          <button
-            onClick={onClose}
-            className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#2c2420]"
-            aria-label="Close lacunae modal"
-          >
-            <X size={20} />
-          </button>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <PermalinkButton
+              lang={lang}
+              link={{ kind: "lacunae", chapter: chapterId }}
+            />
+            <button
+              onClick={onClose}
+              className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#2c2420]"
+              aria-label="Close lacunae modal"
+            >
+              <X size={20} />
+            </button>
+          </div>
         </div>
 
         <div

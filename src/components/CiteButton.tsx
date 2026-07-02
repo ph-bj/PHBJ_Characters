@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Check, Copy, Quote } from 'lucide-react';
 import { buildCitations } from '../permalink';
 
-async function copyText(text: string): Promise<boolean> {
+export async function copyText(text: string): Promise<boolean> {
   try {
     await navigator.clipboard.writeText(text);
     return true;
@@ -26,17 +26,14 @@ async function copyText(text: string): Promise<boolean> {
 
 /**
  * "Cite this" button with a popover offering MLA and Chicago citations for
- * the current permalink. `itemTitle` names the cited page (character,
- * chapter, work…); omit it to cite the whole project.
+ * the project as a whole.
  */
 export function CiteButton({
   lang,
-  itemTitle,
   align = 'right',
   direction = 'down',
 }: {
   lang: 'en' | 'zh';
-  itemTitle?: string;
   align?: 'left' | 'right';
   direction?: 'down' | 'up';
 }) {
@@ -68,8 +65,8 @@ export function CiteButton({
     return () => clearTimeout(timer);
   }, [copied]);
 
-  // Built at render time while open, so the URL reflects the current permalink hash.
-  const citations = open ? buildCitations(window.location.href, itemTitle) : null;
+  // Built at render time while open, so the access date is current.
+  const citations = open ? buildCitations() : null;
 
   const entries = citations
     ? [
@@ -87,7 +84,7 @@ export function CiteButton({
           setOpen((v) => !v);
         }}
         aria-expanded={open}
-        title={lang === 'zh' ? '引用此页' : 'Cite this page'}
+        title={lang === 'zh' ? '引用本站' : 'Cite this site'}
         className="flex items-center gap-1.5 px-2 py-1.5 rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#5d5048] hover:bg-[#8b4513]/10 hover:text-[#8b4513] transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation"
       >
         <Quote size={12} />

@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { X } from "lucide-react";
 import { QuestionAnswer } from "../QuestionAnswer";
 import { questions } from "../questions";
+import { PermalinkButton } from "./PermalinkButton";
 
 export function QuestionsModal({
   questionSlug,
@@ -44,13 +45,19 @@ export function QuestionsModal({
               {lang === "zh" ? question.questionZh : question.questionEn}
             </h3>
           </div>
-          <button
-            onClick={onClose}
-            className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#2c2420]"
-            aria-label="Close questions modal"
-          >
-            <X size={20} />
-          </button>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <PermalinkButton
+              lang={lang}
+              link={{ kind: "question", slug: questionSlug }}
+            />
+            <button
+              onClick={onClose}
+              className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#2c2420]"
+              aria-label="Close questions modal"
+            >
+              <X size={20} />
+            </button>
+          </div>
         </div>
 
         <div

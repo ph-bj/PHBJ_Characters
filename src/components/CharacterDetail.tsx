@@ -18,7 +18,7 @@ import {
   findMentionPositionsInText,
   getCharacterMentionTokens,
 } from "../utils";
-import { CiteButton } from "./CiteButton";
+import { PermalinkButton } from "./PermalinkButton";
 import { getWorksNearCharacter } from "../intertexts";
 import { WORK_ENGLISH_BY_CHINESE } from "../englishWorkTitles";
 import { worksData } from "../utils";
@@ -184,7 +184,10 @@ export function CharacterDetail({
             {character.id}
           </code>
           <div className="absolute top-3 right-12 sm:top-4 sm:right-14">
-            <CiteButton lang={lang} itemTitle={character.name} />
+            <PermalinkButton
+              lang={lang}
+              link={{ kind: "character", id: character.id }}
+            />
           </div>
           <button
             onClick={onClose}

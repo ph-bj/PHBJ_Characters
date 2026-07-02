@@ -28,7 +28,7 @@ import {
   translationMap,
   workKeyFromAnnotationToken,
 } from "../utils";
-import { CiteButton } from "./CiteButton";
+import { PermalinkButton } from "./PermalinkButton";
 
 export function ChapterReader({
   chapter,
@@ -310,9 +310,9 @@ export function ChapterReader({
               </h2>
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
-              <CiteButton
+              <PermalinkButton
                 lang={lang}
-                itemTitle={getChapterReaderTitle(chapter, lang)}
+                link={{ kind: "chapter", id: chapter.id }}
               />
               <button
                 onClick={onClose}

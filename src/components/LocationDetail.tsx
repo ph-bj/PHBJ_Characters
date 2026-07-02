@@ -4,6 +4,7 @@ import { X } from "lucide-react";
 import { chapters } from "../chapters";
 import { locationTypeLabels } from "../locations";
 import type { NovelLocationWithChapters } from "../utils";
+import { PermalinkButton } from "./PermalinkButton";
 
 export function LocationDetail({
   location,
@@ -100,13 +101,19 @@ export function LocationDetail({
               {location.name}
             </h3>
           </div>
-          <button
-            onClick={onClose}
-            className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#2c2420]"
-            aria-label="Close location modal"
-          >
-            <X size={20} />
-          </button>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <PermalinkButton
+              lang={lang}
+              link={{ kind: "location", id: location.id }}
+            />
+            <button
+              onClick={onClose}
+              className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#2c2420]"
+              aria-label="Close location modal"
+            >
+              <X size={20} />
+            </button>
+          </div>
         </div>
 
         <div

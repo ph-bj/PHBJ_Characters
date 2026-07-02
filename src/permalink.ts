@@ -52,10 +52,15 @@ export function parseHash(hash: string): DeepLink | null {
   }
 }
 
-const SITE_TITLE = 'Precious Vibe 品花宝境: A Digital Companion to Pinhua Baojian';
+const SITE_TITLE = "Precious Vibe 品花宝境: Pinhua baojian's Vibe Literature";
+const SITE_URL = 'https://ph-bj.github.io';
 const SITE_YEAR = '2026';
-const AUTHOR_MLA = 'Zhou, TengChao';
-const AUTHOR_CHICAGO = 'Zhou, TengChao';
+const AUTHOR = 'Zhou, TengChao';
+
+/** Permanent URL on the published site for a deep-linkable page. */
+export function buildPermalink(link: DeepLink): string {
+  return `${SITE_URL}/${formatHash(link)}`;
+}
 
 export interface Citations {
   mla: string;
@@ -64,22 +69,11 @@ export interface Citations {
 
 /**
  * Plain-text MLA (9th ed.) and Chicago (17th ed., bibliography style)
- * citations. `itemTitle` cites a page within the site (a character, chapter,
- * work, etc.); omit it to cite the project as a whole.
+ * citations for the project as a whole, using the published site URL.
  */
-export function buildCitations(url: string, itemTitle?: string): Citations {
-  const now = new Date();
-  const mlaDate = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-  const chicagoDate = now.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
-  const item = itemTitle?.trim();
-
-  const mla = item
-    ? `${AUTHOR_MLA}. "${item}." ${SITE_TITLE}, ${SITE_YEAR}, ${url}. Accessed ${mlaDate}.`
-    : `${AUTHOR_MLA}. ${SITE_TITLE}. ${SITE_YEAR}, ${url}. Accessed ${mlaDate}.`;
-
-  const chicago = item
-    ? `${AUTHOR_CHICAGO}. "${item}." ${SITE_TITLE}. ${SITE_YEAR}. Accessed ${chicagoDate}. ${url}.`
-    : `${AUTHOR_CHICAGO}. ${SITE_TITLE}. ${SITE_YEAR}. Accessed ${chicagoDate}. ${url}.`;
+export function buildCitations(): Citations {
+  const mla = `${AUTHOR}. ${SITE_TITLE}. ${SITE_YEAR}, ${SITE_URL}.`;
+  const chicago = `${AUTHOR}. ${SITE_TITLE}. ${SITE_YEAR}. ${SITE_URL}.`;
 
   return { mla, chicago };
 }
