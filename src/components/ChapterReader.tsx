@@ -28,6 +28,7 @@ import {
   translationMap,
   workKeyFromAnnotationToken,
 } from "../utils";
+import { CiteButton } from "./CiteButton";
 
 export function ChapterReader({
   chapter,
@@ -308,13 +309,19 @@ export function ChapterReader({
                 {getChapterReaderTitle(chapter, lang)}
               </h2>
             </div>
-            <button
-              onClick={onClose}
-              className="p-2 hover:bg-black/5 rounded-full transition-colors text-[#2c2420] shrink-0"
-              aria-label={lang === "zh" ? "关闭" : "Close"}
-            >
-              <X size={20} />
-            </button>
+            <div className="flex items-center gap-1.5 shrink-0">
+              <CiteButton
+                lang={lang}
+                itemTitle={getChapterReaderTitle(chapter, lang)}
+              />
+              <button
+                onClick={onClose}
+                className="p-2 hover:bg-black/5 rounded-full transition-colors text-[#2c2420] shrink-0"
+                aria-label={lang === "zh" ? "关闭" : "Close"}
+              >
+                <X size={20} />
+              </button>
+            </div>
           </div>
           <div className="flex items-center gap-2">
             <input

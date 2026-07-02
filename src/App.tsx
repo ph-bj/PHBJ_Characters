@@ -74,6 +74,8 @@ import {
 } from "./englishWorkTitles";
 import type { Character, Chapter } from "./types";
 import NetworkGraph from "./components/NetworkGraph";
+import { parseHash, formatHash, type DeepLink } from "./permalink";
+import { CiteButton } from "./components/CiteButton";
 
 import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, NavSection } from "./utils";
 
@@ -472,6 +474,99 @@ export default function App() {
       }))
       .filter((group) => group.locations.length > 0);
   }, []);
+
+  // --- Permalinks: keep the URL hash in sync with the open panel, and open
+  // --- the right panel when a deep link is pasted or navigated to.
+  const applyDeepLink = useCallback(
+    (link: DeepLink) => {
+      switch (link.kind) {
+        case "character": {
+          const character = characters.find((c) => c.id === link.id);
+          if (character) setSelectedCharacter(character);
+          break;
+        }
+        case "chapter": {
+          const chapter = chapters.find((c) => c.id === link.id);
+          if (chapter) setSelectedChapter(chapter);
+          break;
+        }
+        case "garden": {
+          const garden = getGardenById(link.id);
+          if (garden) setSelectedGarden(garden);
+          break;
+        }
+        case "location": {
+          for (const group of locationsByType) {
+            const location = group.locations.find((l) => l.id === link.id);
+            if (location) {
+              setSelectedLocation(location);
+              break;
+            }
+          }
+          break;
+        }
+        case "work": {
+          if (worksData[link.key]) setSelectedWork(link.key);
+          break;
+        }
+        case "question": {
+          if (questions.some((q) => q.slug === link.slug)) {
+            setSelectedQuestion(link.slug);
+          }
+          break;
+        }
+        case "lacunae": {
+          setActiveLacunaChapter(link.chapter);
+          break;
+        }
+      }
+    },
+    [locationsByType],
+  );
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const link = parseHash(window.location.hash);
+      if (link) applyDeepLink(link);
+    };
+    onHashChange();
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [applyDeepLink]);
+
+  // Panels can stack (e.g. a character opened from within a chapter); the
+  // hash reflects the most specific one so "Cite this page" stays accurate.
+  const currentDeepLink: DeepLink | null = useMemo(() => {
+    // Order mirrors modal stacking (later-rendered modals sit on top).
+    if (selectedQuestion) return { kind: "question", slug: selectedQuestion };
+    if (activeLacunaChapter !== null)
+      return { kind: "lacunae", chapter: activeLacunaChapter };
+    if (selectedLocation) return { kind: "location", id: selectedLocation.id };
+    if (selectedWork) return { kind: "work", key: selectedWork };
+    if (selectedGarden) return { kind: "garden", id: selectedGarden.id };
+    if (selectedCharacter) return { kind: "character", id: selectedCharacter.id };
+    if (selectedChapter) return { kind: "chapter", id: selectedChapter.id };
+    return null;
+  }, [
+    selectedCharacter,
+    selectedWork,
+    selectedGarden,
+    selectedLocation,
+    selectedQuestion,
+    activeLacunaChapter,
+    selectedChapter,
+  ]);
+
+  useEffect(() => {
+    const target = formatHash(currentDeepLink);
+    if (window.location.hash === target) return;
+    // replaceState avoids polluting history and does not refire hashchange.
+    history.replaceState(
+      null,
+      "",
+      window.location.pathname + window.location.search + target,
+    );
+  }, [currentDeepLink]);
 
   const [chapterSortMode, setChapterSortMode] = useState<
     "longest" | "shortest" | "chapter" | "talkative" | "works"
@@ -1882,6 +1977,9 @@ export default function App() {
           Precious Vibe 品花宝境 is authored by TengChao Zhou in
           2026 with the help of AI technologies.
         </p>
+        <div className="mt-3 flex justify-center">
+          <CiteButton lang={lang} direction="up" />
+        </div>
       </footer>
 
       {/* Floating Scroll Buttons */}
@@ -2047,6 +2145,7 @@ export default function App() {
             onClose={() => setSelectedCharacter(null)}
             lang={lang}
             onSelectChapter={setSelectedChapter}
+            onSelectWork={setSelectedWork}
             elevated={networkGraphFullscreen}
           />
         )}
@@ -2072,6 +2171,12 @@ export default function App() {
             work={selectedWork}
             lang={lang}
             onClose={() => setSelectedWork(null)}
+            onSelectCharacter={(character) => {
+              // The work modal stacks above the character modal, so close it
+              // when navigating to a character.
+              setSelectedWork(null);
+              setSelectedCharacter(character);
+            }}
           />
         )}
       </AnimatePresence>

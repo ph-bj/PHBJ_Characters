@@ -3,6 +3,11 @@ import { createPortal } from 'react-dom';
 import * as d3 from 'd3';
 import { Maximize, Minimize } from 'lucide-react';
 import { Character, Relationship } from '../types';
+import { getCoOccurrenceEdges } from '../cooccurrence';
+
+type GraphMode = 'curated' | 'cooccurrence';
+
+const CO_OCCURRENCE_THRESHOLDS = [3, 5, 8, 15];
 
 const ROLE_ORDER = ['performer', 'scholar', 'villain', 'female', 'official', 'servant', 'deceased', 'minor'];
 
@@ -77,6 +82,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [hiddenRoles, setHiddenRoles] = useState<Set<string>>(() => new Set());
+  const [mode, setMode] = useState<GraphMode>('curated');
+  const [minShared, setMinShared] = useState(5);
 
   const availableRoles = useMemo(() => {
     const seen = new Set<string>();
@@ -95,6 +102,26 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     const visibleIds = new Set(filteredCharacters.map((c) => c.id));
     return relationships.filter((r) => visibleIds.has(r.source) && visibleIds.has(r.target));
   }, [relationships, filteredCharacters]);
+
+  const filteredCoEdges = useMemo(() => {
+    if (mode !== 'cooccurrence') return [];
+    const visibleIds = new Set(filteredCharacters.map((c) => c.id));
+    return getCoOccurrenceEdges().filter(
+      (e) => e.weight >= minShared && visibleIds.has(e.source) && visibleIds.has(e.target)
+    );
+  }, [mode, minShared, filteredCharacters]);
+
+  // In co-occurrence mode, characters with no shared chapter above the
+  // threshold would float unanchored — drop them from the view instead.
+  const graphCharacters = useMemo(() => {
+    if (mode !== 'cooccurrence') return filteredCharacters;
+    const connectedIds = new Set<string>();
+    filteredCoEdges.forEach((e) => {
+      connectedIds.add(e.source);
+      connectedIds.add(e.target);
+    });
+    return filteredCharacters.filter((c) => connectedIds.has(c.id));
+  }, [mode, filteredCharacters, filteredCoEdges]);
 
   const toggleRoleFilter = (role: string) => {
     setHiddenRoles((prev) => {
@@ -207,8 +234,23 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     let { width, height } = container.getBoundingClientRect();
     const nodeRadius = 25;
 
-    const nodes = filteredCharacters.map(c => ({ ...c }));
-    const links = filteredRelationships.map(r => ({ ...r }));
+    const nodes = graphCharacters.map(c => ({ ...c }));
+    const links: any[] = mode === 'cooccurrence'
+      ? filteredCoEdges.map(e => ({ ...e, chapters: [...e.chapters] }))
+      : filteredRelationships.map(r => ({ ...r }));
+
+    const maxWeight = mode === 'cooccurrence'
+      ? Math.max(minShared, d3.max(links, (d: any) => d.weight as number) ?? minShared)
+      : 1;
+    const weightWidth = d3.scaleSqrt().domain([minShared, Math.max(minShared + 1, maxWeight)]).range([1, 5.5]);
+    const baseLinkWidth = (d: any) => (mode === 'cooccurrence' ? weightWidth(d.weight) : 1.5);
+    const baseLinkOpacity = mode === 'cooccurrence' ? 0.22 : 0.3;
+    const linkLabel = (d: any) => {
+      if (mode === 'cooccurrence') {
+        return lang === 'zh' ? `${d.weight}回` : `${d.weight} ch`;
+      }
+      return lang === 'zh' ? d.typeZh : d.type;
+    };
 
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove();
@@ -293,9 +335,19 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .data(links)
       .join("line")
       .attr("stroke", "#8b4513")
-      .attr("stroke-opacity", 0.3)
-      .attr("stroke-width", 1.5);
+      .attr("stroke-opacity", baseLinkOpacity)
+      .attr("stroke-width", baseLinkWidth);
 
+    if (mode === 'cooccurrence') {
+      link.append("title")
+        .text((d: any) => {
+          const list = d.chapters.join(', ');
+          return lang === 'zh' ? `同回出现：第 ${list} 回` : `Shared chapters: ${list}`;
+        });
+    }
+
+    // Co-occurrence edges are too numerous to label all at once; their
+    // weight labels appear only when a node is hovered/selected.
     const linkText = g.append("g")
       .selectAll("text")
       .data(links)
@@ -308,7 +360,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .attr("paint-order", "stroke")
       .attr("stroke", "#f4ecd8")
       .attr("stroke-width", 1.5)
-      .text((d: any) => lang === 'zh' ? d.typeZh : d.type);
+      .style("opacity", mode === 'cooccurrence' ? 0 : 1)
+      .text(linkLabel);
 
     const node = g.append("g")
       .selectAll("g")
@@ -373,10 +426,10 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       node
         .style("opacity", 1);
       link
-        .attr("stroke-opacity", 0.3)
-        .attr("stroke-width", 1.5);
+        .attr("stroke-opacity", baseLinkOpacity)
+        .attr("stroke-width", baseLinkWidth);
       linkText
-        .style("opacity", 1);
+        .style("opacity", mode === 'cooccurrence' ? 0 : 1);
     };
 
     const applyHoverStyles = (hoveredId: string) => {
@@ -400,17 +453,15 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           const targetId = getNodeId(d.target);
           return sourceId === hoveredId || targetId === hoveredId ? 0.95 : 0.08;
         })
-        .attr("stroke-width", (d: any) => {
-          const sourceId = getNodeId(d.source);
-          const targetId = getNodeId(d.target);
-          return sourceId === hoveredId || targetId === hoveredId ? 1 : 1;
-        });
+        .attr("stroke-width", baseLinkWidth);
 
       linkText
         .style("opacity", (d: any) => {
           const sourceId = getNodeId(d.source);
           const targetId = getNodeId(d.target);
-          return sourceId === hoveredId || targetId === hoveredId ? 1 : 0.1;
+          const connected = sourceId === hoveredId || targetId === hoveredId;
+          if (mode === 'cooccurrence') return connected ? 1 : 0;
+          return connected ? 1 : 0.1;
         });
     };
 
@@ -491,7 +542,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       window.visualViewport?.removeEventListener('resize', onVisualViewportChange);
       window.visualViewport?.removeEventListener('scroll', onVisualViewportChange);
     };
-  }, [filteredCharacters, filteredRelationships, lang, isFullscreen, onNodeClick]);
+  }, [graphCharacters, filteredRelationships, filteredCoEdges, mode, minShared, lang, isFullscreen, onNodeClick]);
 
   const toggleFullscreen = () => setIsFullscreen((current) => !current);
 
@@ -505,15 +556,60 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           : "w-full h-[400px] sm:h-[520px] md:h-[580px] lg:h-[650px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative"
       }
     >
-      <div className="absolute top-4 left-4 z-10 pointer-events-none">
+      <div className="absolute top-4 left-4 z-10 pointer-events-none max-w-[55%]">
         <h3 className="text-xs font-bold uppercase tracking-widest text-[#8b4513]">
           {lang === 'en' ? 'Character Network' : '人物关系图谱'}
         </h3>
         <p className="text-[10px] text-[#5d5048] italic">
-          {lang === 'en'
-            ? 'Drag nodes · Double-click profile · Click legend to filter'
-            : '拖动节点 · 双击打开详情 · 点击图例筛选角色'}
+          {mode === 'curated'
+            ? (lang === 'en'
+              ? 'Drag nodes · Double-click profile · Click legend to filter'
+              : '拖动节点 · 双击打开详情 · 点击图例筛选角色')
+            : (lang === 'en'
+              ? 'Edge = shared chapters · Thicker = more chapters together'
+              : '连线=同回出现 · 线越粗共现回数越多')}
         </p>
+        <div className="pointer-events-auto mt-2 inline-flex items-center gap-1 bg-[#f4ecd8]/90 border border-[#d4c5a9] rounded-sm p-0.5 backdrop-blur-sm">
+          {(['curated', 'cooccurrence'] as GraphMode[]).map((m) => (
+            <button
+              key={m}
+              type="button"
+              onClick={() => setMode(m)}
+              aria-pressed={mode === m}
+              className={`px-2 py-1 text-[9px] font-bold uppercase tracking-wider rounded-sm transition-colors touch-manipulation ${
+                mode === m
+                  ? 'bg-[#8b4513] text-[#f4ecd8]'
+                  : 'text-[#5d5048] hover:bg-black/5'
+              }`}
+            >
+              {m === 'curated'
+                ? (lang === 'en' ? 'Curated ties' : '标注关系')
+                : (lang === 'en' ? 'Co-occurrence' : '同回共现')}
+            </button>
+          ))}
+        </div>
+        {mode === 'cooccurrence' && (
+          <div className="pointer-events-auto mt-1.5 flex items-center gap-1">
+            <span className="text-[9px] font-bold uppercase tracking-wider text-[#5d5048]">
+              {lang === 'en' ? 'Min shared' : '共现回数'}
+            </span>
+            {CO_OCCURRENCE_THRESHOLDS.map((threshold) => (
+              <button
+                key={threshold}
+                type="button"
+                onClick={() => setMinShared(threshold)}
+                aria-pressed={minShared === threshold}
+                className={`px-1.5 py-0.5 text-[9px] font-bold rounded-sm border transition-colors touch-manipulation ${
+                  minShared === threshold
+                    ? 'bg-[#8b4513] text-[#f4ecd8] border-[#8b4513]'
+                    : 'text-[#5d5048] border-[#d4c5a9] bg-[#f4ecd8]/90 hover:bg-black/5'
+                }`}
+              >
+                ≥{threshold}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
       <div className="absolute top-4 right-4 z-10 bg-[#f4ecd8]/90 p-2 rounded border border-[#d4c5a9] backdrop-blur-sm max-w-[120px] md:max-w-[160px] lg:max-w-none">
         {hiddenRoles.size > 0 && (

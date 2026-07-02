@@ -1,20 +1,41 @@
 import { useMemo } from "react";
 import { motion } from "motion/react";
-import { Book, Info, X } from "lucide-react";
+import { Book, Info, Users, X } from "lucide-react";
 import { chapters } from "../chapters";
 import { WORK_ENGLISH_BY_CHINESE } from "../englishWorkTitles";
-import { worksData } from "../utils";
+import { getCharacterNameForLanguage, worksData } from "../utils";
+import { getCharactersNearWork } from "../intertexts";
+import { getWorkSceneLinks } from "../workLinks";
+import { characters } from "../data";
+import type { Character } from "../types";
+import { CiteButton } from "./CiteButton";
 
 export function WorkModal({
   work,
   lang,
   onClose,
+  onSelectCharacter,
 }: {
   work: string;
   lang: "en" | "zh";
   onClose: () => void;
+  onSelectCharacter?: (character: Character) => void;
 }) {
   const data = worksData[work];
+
+  const characterLinks = useMemo(
+    () => getCharactersNearWork(work, data?.chapters ?? []),
+    [work, data?.chapters],
+  );
+
+  const sceneLinks = useMemo(() => {
+    return getWorkSceneLinks(work)
+      .map((link) => ({
+        ...link,
+        character: characters.find((c) => c.id === link.characterId),
+      }))
+      .filter((link) => link.character);
+  }, [work]);
 
   const workTokenRegex = useMemo(() => {
     // We can just construct a RegExp from a literal instead of string concatenation inside the app
@@ -97,12 +118,22 @@ export function WorkModal({
                   : WORK_ENGLISH_BY_CHINESE[work] || work}
               </h2>
             </div>
-            <button
-              onClick={onClose}
-              className="p-2 -mr-2 text-[#8b4513]/60 hover:text-[#8b4513] hover:bg-[#d4c5a9]/20 rounded-full transition-colors"
-            >
-              <X size={20} />
-            </button>
+            <div className="flex items-center gap-1.5">
+              <CiteButton
+                lang={lang}
+                itemTitle={
+                  lang === "zh"
+                    ? `《${work}》`
+                    : WORK_ENGLISH_BY_CHINESE[work] || `《${work}》`
+                }
+              />
+              <button
+                onClick={onClose}
+                className="p-2 -mr-2 text-[#8b4513]/60 hover:text-[#8b4513] hover:bg-[#d4c5a9]/20 rounded-full transition-colors"
+              >
+                <X size={20} />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -139,6 +170,83 @@ export function WorkModal({
                       </span>
                     ))}
                   </div>
+                </div>
+              </section>
+            )}
+
+            {characterLinks.length > 0 && (
+              <section>
+                <h3 className="text-sm font-bold text-[#8b4513] uppercase tracking-wider mb-1 font-sans flex items-center gap-2">
+                  <Users className="w-4 h-4" />
+                  {lang === "zh" ? "关联人物" : "Linked Characters"}
+                </h3>
+                <p className="text-[10px] text-[#5d5048] italic mb-2">
+                  {lang === "zh"
+                    ? "根据正文自动推算：该作品被引用时于附近文字提及的人物。"
+                    : "Computed from the text: characters mentioned near citations of this work."}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {characterLinks.map(({ character, chapters: chapterIds, hits }) => (
+                    <button
+                      key={character.id}
+                      type="button"
+                      onClick={() => onSelectCharacter?.(character)}
+                      disabled={!onSelectCharacter}
+                      title={
+                        lang === "zh"
+                          ? `第 ${chapterIds.join("、")} 回`
+                          : `Chapter${chapterIds.length > 1 ? "s" : ""} ${chapterIds.join(", ")}`
+                      }
+                      className="px-2 py-0.5 text-[11px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/70 text-[#2c2420] font-hans hover:bg-[#8b4513]/10 hover:border-[#8b4513]/40 transition-colors disabled:pointer-events-none"
+                    >
+                      {getCharacterNameForLanguage(character, lang)}
+                      {hits > 1 && (
+                        <span className="ml-1 text-[9px] font-sans text-[#8b4513]">
+                          ×{hits}
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {sceneLinks.length > 0 && (
+              <section>
+                <h3 className="text-sm font-bold text-[#8b4513] uppercase tracking-wider mb-1 font-sans flex items-center gap-2">
+                  <Book className="w-4 h-4" />
+                  {lang === "zh" ? "场景笔记" : "Scene Notes"}
+                </h3>
+                <p className="text-[10px] text-[#5d5048] italic mb-2">
+                  {lang === "zh"
+                    ? "编者场景摘记中直接涉及此作品之处。"
+                    : "Curated scene summaries that invoke this work directly."}
+                </p>
+                <div className="space-y-2">
+                  {sceneLinks.map((link, idx) => (
+                    <div
+                      key={`${link.characterId}-${link.chapter}-${idx}`}
+                      className="border border-[#d4c5a9]/70 rounded-sm p-2 bg-[#f4ecd8]/60"
+                    >
+                      <p className="text-[10px] font-bold text-[#8b4513] mb-1">
+                        <button
+                          type="button"
+                          onClick={() => onSelectCharacter?.(link.character!)}
+                          disabled={!onSelectCharacter}
+                          className="underline decoration-dotted underline-offset-2 hover:text-[#2c2420] transition-colors disabled:pointer-events-none disabled:no-underline"
+                        >
+                          {getCharacterNameForLanguage(link.character!, lang)}
+                        </button>
+                        {" · "}
+                        {lang === "zh"
+                          ? `第 ${link.chapter} 回`
+                          : `Chapter ${link.chapter}`}
+                      </p>
+                      <p className="text-[11px] leading-relaxed font-hans text-[#2c2420]">
+                        {lang === "zh" ? link.bullet.zh : link.bullet.en}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </section>
             )}
