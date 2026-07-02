@@ -21,11 +21,31 @@ export const PlumBlossomBanquet: React.FC = () => {
             <stop offset="0%" stopColor="#2c2420" stopOpacity="0.08" />
             <stop offset="100%" stopColor="#2c2420" stopOpacity="0" />
           </radialGradient>
+          {/* Brush wobble for hand-painted line quality */}
+          <filter id="bqBrush" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="5" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
+          </filter>
+          {/* Ink bleed for the background hill wash */}
+          <filter id="bqBleed" x="-15%" y="-15%" width="130%" height="130%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="9" result="noise" />
+            <feDisplacementMap in="blur" in2="noise" scale="7" />
+          </filter>
+          {/* Pale rouge for plum blossoms (淡彩) */}
+          <radialGradient id="bqPlumTint" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#b4494e" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="#b4494e" stopOpacity="0.08" />
+          </radialGradient>
         </defs>
         <rect x="3" y="3" width="274" height="154" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="1" />
         <rect x="6" y="6" width="268" height="148" fill="url(#bqWash)" stroke="#2c2420" strokeWidth="1.2" rx="2" />
         <circle cx="210" cy="35" r="25" fill="url(#banquetMoon)" stroke="none" />
-        <path d="M6 120 Q70 90, 140 115 Q200 95, 274 125 L274 154 L6 154 Z" fill="url(#banquetHills)" stroke="none" opacity="0.5" />
+        {/* Bled hill wash - soft feathered edge like wet ink */}
+        <g filter="url(#bqBleed)">
+          <path d="M6 120 Q70 90, 140 115 Q200 95, 274 125 L274 154 L6 154 Z" fill="url(#banquetHills)" stroke="none" opacity="0.7" />
+        </g>
+        <g filter="url(#bqBrush)">
         <ellipse cx="140" cy="110" rx="42" ry="14" fill="none" stroke="#2c2420" strokeWidth="1.2" />
         <line x1="110" y1="118" x2="108" y2="140" stroke="#2c2420" strokeWidth="0.8" />
         <line x1="170" y1="118" x2="172" y2="140" stroke="#2c2420" strokeWidth="0.8" />
@@ -64,6 +84,11 @@ export const PlumBlossomBanquet: React.FC = () => {
         <path d="M155 78 L155 82 Q156 80, 157 82" fill="none" stroke="#2c2420" strokeWidth="0.6" />
         <path d="M10 15 Q30 22, 55 20 Q75 18, 90 22" fill="none" stroke="#2c2420" strokeWidth="1" />
         <path d="M45 20 Q50 12, 58 10" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+        {/* Rouge washes under the blossoms */}
+        <circle cx="55" cy="18" r="4.5" fill="url(#bqPlumTint)" stroke="none" />
+        <circle cx="72" cy="19" r="4" fill="url(#bqPlumTint)" stroke="none" />
+        <circle cx="38" cy="21" r="3.5" fill="url(#bqPlumTint)" stroke="none" />
+        <circle cx="58" cy="10" r="3.5" fill="url(#bqPlumTint)" stroke="none" />
         <circle cx="55" cy="18" r="3.5" fill="none" stroke="#2c2420" strokeWidth="0.6" />
         <circle cx="55" cy="18" r="1.2" fill="#2c2420" />
         <circle cx="72" cy="19" r="3" fill="none" stroke="#2c2420" strokeWidth="0.6" />
@@ -81,6 +106,12 @@ export const PlumBlossomBanquet: React.FC = () => {
         <line x1="230" y1="35" x2="260" y2="35" stroke="#2c2420" strokeWidth="0.4" />
         <circle cx="252" cy="25" r="5" fill="none" stroke="#2c2420" strokeWidth="0.5" />
         <path d="M10 145 Q70 140, 140 143 Q210 146, 270 142" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+        {/* Drifting petals (落花) */}
+        <ellipse cx="100" cy="38" rx="1.6" ry="1" fill="#b4494e" opacity="0.3" transform="rotate(-25 100 38)" />
+        <ellipse cx="115" cy="52" rx="1.4" ry="0.9" fill="#b4494e" opacity="0.25" transform="rotate(15 115 52)" />
+        <ellipse cx="82" cy="60" rx="1.3" ry="0.8" fill="#b4494e" opacity="0.22" transform="rotate(-40 82 60)" />
+        <ellipse cx="128" cy="30" rx="1.2" ry="0.8" fill="#b4494e" opacity="0.2" transform="rotate(30 128 30)" />
+        </g>
         <rect x="248" y="130" width="14" height="14" fill="none" stroke="#8b2500" strokeWidth="1" rx="0.5" />
         <text x="255" y="141" textAnchor="middle" fill="#8b2500" fontSize="7" fontFamily="serif" fontWeight="bold">宴</text>
       </svg>

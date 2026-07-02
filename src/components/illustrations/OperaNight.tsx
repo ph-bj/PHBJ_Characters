@@ -18,10 +18,24 @@ export const OperaNight: React.FC = () => {
             <stop offset="0%" stopColor="#2c2420" stopOpacity="0.01" />
             <stop offset="100%" stopColor="#2c2420" stopOpacity="0.1" />
           </radialGradient>
+          {/* Brush wobble for hand-painted line quality */}
+          <filter id="onBrush" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="4" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
+          </filter>
+          {/* Warm lantern glow (灯彩) */}
+          <radialGradient id="onLantern" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#8b2500" stopOpacity="0.35" />
+            <stop offset="70%" stopColor="#8b2500" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#8b2500" stopOpacity="0" />
+          </radialGradient>
         </defs>
         <rect x="3" y="3" width="274" height="144" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="1" />
         <rect x="6" y="6" width="268" height="138" fill="url(#operaWash)" stroke="#2c2420" strokeWidth="1.2" rx="2" />
         <ellipse cx="140" cy="55" rx="55" ry="35" fill="url(#stageLight)" stroke="none" opacity="0.4" />
+        <g filter="url(#onBrush)">
+        {/* Stage floor ink wash */}
+        <path d="M50 95 L230 95 L240 105 L40 105 Z" fill="#2c2420" opacity="0.1" />
         <path d="M50 95 L230 95 L240 105 L40 105 Z" fill="none" stroke="#2c2420" strokeWidth="1.2" />
         <line x1="50" y1="95" x2="50" y2="105" stroke="#2c2420" strokeWidth="0.6" />
         <line x1="230" y1="95" x2="230" y2="105" stroke="#2c2420" strokeWidth="0.6" />
@@ -68,10 +82,20 @@ export const OperaNight: React.FC = () => {
         <circle cx="200" cy="118" r="3.5" fill="none" stroke="#2c2420" strokeWidth="0.7" />
         <path d="M198 115 Q200 113, 202 115" fill="none" stroke="#2c2420" strokeWidth="0.5" />
         <path d="M196 124 Q200 128, 204 124" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+        {/* Hanging lanterns with warm red glow */}
+        <circle cx="80" cy="27" r="11" fill="url(#onLantern)" stroke="none" />
         <line x1="80" y1="10" x2="80" y2="22" stroke="#2c2420" strokeWidth="0.4" />
-        <ellipse cx="80" cy="27" rx="4" ry="6" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+        <ellipse cx="80" cy="27" rx="4" ry="6" fill="#8b2500" fillOpacity="0.25" stroke="#2c2420" strokeWidth="0.5" />
+        <line x1="78" y1="33" x2="78" y2="36" stroke="#8b2500" strokeWidth="0.4" opacity="0.6" />
+        <line x1="80" y1="33" x2="80" y2="37" stroke="#8b2500" strokeWidth="0.4" opacity="0.6" />
+        <line x1="82" y1="33" x2="82" y2="36" stroke="#8b2500" strokeWidth="0.4" opacity="0.6" />
+        <circle cx="200" cy="27" r="11" fill="url(#onLantern)" stroke="none" />
         <line x1="200" y1="10" x2="200" y2="22" stroke="#2c2420" strokeWidth="0.4" />
-        <ellipse cx="200" cy="27" rx="4" ry="6" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+        <ellipse cx="200" cy="27" rx="4" ry="6" fill="#8b2500" fillOpacity="0.25" stroke="#2c2420" strokeWidth="0.5" />
+        <line x1="198" y1="33" x2="198" y2="36" stroke="#8b2500" strokeWidth="0.4" opacity="0.6" />
+        <line x1="200" y1="33" x2="200" y2="37" stroke="#8b2500" strokeWidth="0.4" opacity="0.6" />
+        <line x1="202" y1="33" x2="202" y2="36" stroke="#8b2500" strokeWidth="0.4" opacity="0.6" />
+        </g>
         <rect x="248" y="118" width="14" height="14" fill="none" stroke="#8b2500" strokeWidth="1" rx="0.5" />
         <text x="255" y="129" textAnchor="middle" fill="#8b2500" fontSize="7" fontFamily="serif" fontWeight="bold">戏</text>
       </svg>
