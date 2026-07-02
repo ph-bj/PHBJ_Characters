@@ -2,12 +2,13 @@ import React from 'react';
 
 export const MainInkLandscape: React.FC = () => {
   return (
-    <svg
-      viewBox="0 0 520 400"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-full mb-4"
-      style={{ maxHeight: '320px' }}
-    >
+    <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center">
+      <svg
+        viewBox="0 0 520 400"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full"
+        style={{ maxHeight: '320px' }}
+      >
       {/* ===== DEFS: Ink wash gradients & filters for 水墨画 style ===== */}
       <defs>
         {/* Ink wash gradient for mountains */}
@@ -462,6 +463,7 @@ export const MainInkLandscape: React.FC = () => {
       <path d="M180 95 Q185 88, 190 92 Q195 86, 200 92" fill="none" stroke="#2c2420" strokeWidth="0.5" />
       <path d="M200 88 Q204 82, 208 86 Q212 80, 216 86" fill="none" stroke="#2c2420" strokeWidth="0.4" />
       <path d="M160 100 Q164 94, 168 98 Q172 93, 176 98" fill="none" stroke="#2c2420" strokeWidth="0.4" />
-    </svg>
+      </svg>
+    </div>
   );
 };

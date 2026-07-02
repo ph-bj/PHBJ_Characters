@@ -1748,12 +1748,11 @@ export default function App() {
 
         {/* Right Sidebar - Chapters */}
         <aside className="order-3 md:col-span-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-5 h-fit lg:col-span-1 lg:self-start">
+          <MainInkLandscape />
           <div
             id="chapters"
             className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24"
           >
-            <MainInkLandscape />
-
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">
               {t.chapters}
             </h2>
