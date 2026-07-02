@@ -32,17 +32,54 @@ export const MainInkLandscape: React.FC = () => {
           <stop offset="0%" stopColor="#2c2420" stopOpacity="0.04" />
           <stop offset="100%" stopColor="#2c2420" stopOpacity="0.12" />
         </linearGradient>
-        {/* Ink splatter filter for brush texture */}
+        {/* Brush wobble - makes strokes waver like a hand-held brush */}
         <filter id="inkTexture" x="-5%" y="-5%" width="110%" height="110%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="7" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
         </filter>
+        {/* Ink bleed - soft feathered edges like wet ink on rice paper (洇墨) */}
+        <filter id="mlBleed" x="-15%" y="-15%" width="130%" height="130%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="3" result="noise" />
+          <feDisplacementMap in="blur" in2="noise" scale="9" />
+        </filter>
+        {/* Heavier bleed for the farthest mountain wash */}
+        <filter id="mlBleedFar" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="11" result="noise" />
+          <feDisplacementMap in="blur" in2="noise" scale="12" />
+        </filter>
+        {/* Pale plum-blossom tint (淡彩) */}
+        <radialGradient id="mlPlumTint" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#b4494e" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#b4494e" stopOpacity="0.08" />
+        </radialGradient>
       </defs>
 
       {/* ===== BACKGROUND ===== */}
       {/* Outer frame - double border like traditional scroll */}
       <rect x="3" y="3" width="514" height="394" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="2" />
       <rect x="8" y="8" width="504" height="384" fill="none" stroke="#2c2420" strokeWidth="1.8" rx="3" />
+
+      {/* ===== LAYERED INK WASHES (墨分五色) - bled tonal masses behind the linework ===== */}
+      {/* Farthest range - palest wash, heavily bled */}
+      <g filter="url(#mlBleedFar)">
+        <path d="M12 172 Q50 102, 100 157 Q130 122, 175 152 Q210 102, 270 147 Q310 92, 370 142 Q410 107, 460 137 Q480 122, 515 167 L515 185 L12 185 Z" fill="#2c2420" opacity="0.14" />
+      </g>
+      {/* Mid range - bled washes hugging the actual ridge lines */}
+      <g filter="url(#mlBleed)">
+        <path d="M12 170 Q50 100, 100 155 Q130 120, 175 150 Q210 100, 270 145 Q310 90, 370 140 Q410 105, 460 135 Q480 120, 515 165" fill="#2c2420" opacity="0.16" />
+        <path d="M12 180 Q90 140, 160 175 Q220 145, 280 172 Q340 150, 400 168 Q440 155, 515 178" fill="#2c2420" opacity="0.09" />
+        {/* Pine canopy wash */}
+        <ellipse cx="45" cy="62" rx="24" ry="12" fill="#2c2420" opacity="0.1" />
+        {/* Bamboo grove wash */}
+        <ellipse cx="404" cy="205" rx="34" ry="22" fill="#2c2420" opacity="0.08" />
+        {/* Bank shadow along the pond edge */}
+        <path d="M12 322 Q150 314, 300 320 Q420 324, 508 318 L508 334 L12 334 Z" fill="#2c2420" opacity="0.12" />
+      </g>
+
+      {/* All linework passes through the brush-wobble filter for a hand-painted feel */}
+      <g filter="url(#inkTexture)">
 
       {/* ===== MOON with halo ===== */}
       <circle cx="420" cy="65" r="40" fill="url(#moonHalo)" />
@@ -75,7 +112,14 @@ export const MainInkLandscape: React.FC = () => {
       <path d="M12 25 Q40 42, 75 48 Q105 50, 130 45 Q145 42, 155 38" fill="none" stroke="#2c2420" strokeWidth="1.5" />
       <path d="M55 48 Q62 32, 78 28" fill="none" stroke="#2c2420" strokeWidth="1" />
       <path d="M100 47 Q108 38, 118 35" fill="none" stroke="#2c2420" strokeWidth="0.8" />
-      {/* Blossoms - 5 petal style */}
+      {/* Blossoms - 5 petal style, with a pale rouge wash (淡彩) */}
+      <circle cx="72" cy="46" r="6" fill="url(#mlPlumTint)" stroke="none" />
+      <circle cx="92" cy="48" r="5.5" fill="url(#mlPlumTint)" stroke="none" />
+      <circle cx="112" cy="44" r="5" fill="url(#mlPlumTint)" stroke="none" />
+      <circle cx="78" cy="28" r="4.5" fill="url(#mlPlumTint)" stroke="none" />
+      <circle cx="130" cy="43" r="4.5" fill="url(#mlPlumTint)" stroke="none" />
+      <circle cx="150" cy="38" r="4" fill="url(#mlPlumTint)" stroke="none" />
+      <circle cx="118" cy="35" r="4" fill="url(#mlPlumTint)" stroke="none" />
       <circle cx="72" cy="46" r="5" fill="none" stroke="#2c2420" strokeWidth="0.9" />
       <circle cx="72" cy="46" r="2" fill="#2c2420" />
       <circle cx="92" cy="48" r="4.5" fill="none" stroke="#2c2420" strokeWidth="0.9" />
@@ -105,6 +149,8 @@ export const MainInkLandscape: React.FC = () => {
       <path d="M480 75 Q474 72, 468 76" fill="none" stroke="#2c2420" strokeWidth="0.3" />
 
       {/* ===== CHINESE PAVILION (亭) ===== */}
+      {/* Roof ink mass - graded wash between the two roof lines */}
+      <path d="M30 210 L80 178 L130 210 L124 210 L80 183 L36 210 Z" fill="#2c2420" opacity="0.45" />
       {/* Main roof */}
       <path d="M30 210 L80 178 L130 210" fill="none" stroke="#2c2420" strokeWidth="2" />
       <path d="M36 210 L80 183 L124 210" fill="none" stroke="#2c2420" strokeWidth="0.9" />
@@ -167,6 +213,8 @@ export const MainInkLandscape: React.FC = () => {
       <path d="M80 260 Q82 264, 82 268" fill="none" stroke="#2c2420" strokeWidth="0.3" />
 
       {/* ===== MOON GATE (圆门) ===== */}
+      {/* Wall wash - light ink tone on the masonry */}
+      <path d="M158 217 L272 217 L272 298 L253 298 L253 255 A38 38 0 0 0 177 255 L177 298 L158 298 Z" fill="#2c2420" opacity="0.08" />
       <circle cx="215" cy="255" r="38" fill="none" stroke="#2c2420" strokeWidth="2" />
       {/* Gate walls */}
       <line x1="177" y1="217" x2="177" y2="298" stroke="#2c2420" strokeWidth="2" />
@@ -298,23 +346,23 @@ export const MainInkLandscape: React.FC = () => {
       <line x1="391" y1="225" x2="395" y2="225" stroke="#2c2420" strokeWidth="1.2" />
       <line x1="391" y1="260" x2="395" y2="260" stroke="#2c2420" strokeWidth="1.2" />
       <line x1="391" y1="295" x2="395" y2="295" stroke="#2c2420" strokeWidth="1.2" />
-      {/* Bamboo leaves (竹叶) - pointed brush strokes */}
-      <path d="M400 180 Q382 174, 370 180" fill="none" stroke="#2c2420" strokeWidth="1" />
-      <path d="M400 180 Q388 168, 372 165" fill="none" stroke="#2c2420" strokeWidth="1" />
-      <path d="M400 180 Q412 170, 425 174" fill="none" stroke="#2c2420" strokeWidth="0.9" />
-      <path d="M412 185 Q425 177, 438 180" fill="none" stroke="#2c2420" strokeWidth="0.8" />
-      <path d="M412 185 Q422 178, 432 168" fill="none" stroke="#2c2420" strokeWidth="0.8" />
-      <path d="M393 190 Q378 184, 365 188" fill="none" stroke="#2c2420" strokeWidth="0.8" />
-      <path d="M393 190 Q380 180, 368 176" fill="none" stroke="#2c2420" strokeWidth="0.8" />
-      <path d="M420 195 Q432 188, 442 192" fill="none" stroke="#2c2420" strokeWidth="0.7" />
-      {/* Mid-level leaves */}
-      <path d="M400 210 Q386 204, 374 208" fill="none" stroke="#2c2420" strokeWidth="0.7" />
-      <path d="M400 210 Q414 204, 426 208" fill="none" stroke="#2c2420" strokeWidth="0.7" />
-      <path d="M412 220 Q426 214, 438 218" fill="none" stroke="#2c2420" strokeWidth="0.6" />
-      <path d="M393 225 Q380 220, 368 224" fill="none" stroke="#2c2420" strokeWidth="0.6" />
-      {/* Lower leaves */}
-      <path d="M400 240 Q388 235, 376 238" fill="none" stroke="#2c2420" strokeWidth="0.5" />
-      <path d="M412 250 Q424 245, 434 248" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+      {/* Bamboo leaves (竹叶) - each leaf a single pressed brush stroke: filled, tapered, varied ink tone */}
+      <path d="M400 180 Q384 172, 370 180 Q384 176.5, 400 182 Z" fill="#2c2420" opacity="0.85" />
+      <path d="M400 180 Q388 166, 372 165 Q386 171, 400 182 Z" fill="#2c2420" opacity="0.7" />
+      <path d="M400 180 Q412 168, 425 174 Q412 173, 400 182 Z" fill="#2c2420" opacity="0.8" />
+      <path d="M412 185 Q426 175, 438 180 Q425 180, 412 187 Z" fill="#2c2420" opacity="0.65" />
+      <path d="M412 185 Q423 176, 432 168 Q421 180, 413 187 Z" fill="#2c2420" opacity="0.75" />
+      <path d="M393 190 Q378 182, 365 188 Q379 186.5, 393 192 Z" fill="#2c2420" opacity="0.7" />
+      <path d="M393 190 Q381 178, 368 176 Q380 184, 393 192 Z" fill="#2c2420" opacity="0.55" />
+      <path d="M420 195 Q432 186, 442 192 Q431 191, 420 197 Z" fill="#2c2420" opacity="0.6" />
+      {/* Mid-level leaves - lighter ink, receding */}
+      <path d="M400 210 Q387 202, 374 208 Q387 206.5, 400 212 Z" fill="#2c2420" opacity="0.5" />
+      <path d="M400 210 Q413 202, 426 208 Q413 206.5, 400 212 Z" fill="#2c2420" opacity="0.55" />
+      <path d="M412 220 Q425 212, 438 218 Q425 216.5, 412 222 Z" fill="#2c2420" opacity="0.45" />
+      <path d="M393 225 Q381 218, 368 224 Q381 222.5, 393 227 Z" fill="#2c2420" opacity="0.4" />
+      {/* Lower leaves - palest, dissolving into mist */}
+      <path d="M400 240 Q389 233, 376 238 Q389 237, 400 242 Z" fill="#2c2420" opacity="0.32" />
+      <path d="M412 250 Q423 243, 434 248 Q423 247, 412 252 Z" fill="#2c2420" opacity="0.28" />
 
       {/* ===== FIGURE 4: Man meditating by bamboo (竹林打坐) ===== */}
       {/* Head */}
@@ -369,10 +417,16 @@ export const MainInkLandscape: React.FC = () => {
       <line x1="120" y1="341" x2="120" y2="349" stroke="#2c2420" strokeWidth="0.3" />
       <ellipse cx="380" cy="348" rx="8" ry="3" fill="none" stroke="#2c2420" strokeWidth="0.5" />
       <line x1="380" y1="345" x2="380" y2="351" stroke="#2c2420" strokeWidth="0.3" />
-      {/* Lotus bud */}
+      {/* Lotus bud - tipped with plum rouge */}
       <line x1="150" y1="340" x2="150" y2="330" stroke="#2c2420" strokeWidth="0.5" />
+      <path d="M147 330 Q150 324, 153 330 Q150 332, 147 330 Z" fill="url(#mlPlumTint)" stroke="none" />
       <path d="M147 330 Q150 324, 153 330" fill="none" stroke="#2c2420" strokeWidth="0.6" />
       <path d="M148 331 Q150 326, 152 331" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+      {/* Moon reflection (水中月) - broken shimmer below the moon */}
+      <path d="M408 352 Q420 349, 432 352" fill="none" stroke="#2c2420" strokeWidth="0.5" opacity="0.4" />
+      <path d="M412 358 Q420 355.5, 428 358" fill="none" stroke="#2c2420" strokeWidth="0.4" opacity="0.32" />
+      <path d="M415 364 Q420 362.5, 425 364" fill="none" stroke="#2c2420" strokeWidth="0.35" opacity="0.25" />
+      <path d="M410 370 Q420 368, 430 370" fill="none" stroke="#2c2420" strokeWidth="0.3" opacity="0.18" />
 
       {/* ===== FIGURE 5: Man bathing in pond (沐浴) ===== */}
       {/* Head and upper body above water */}
@@ -451,6 +505,13 @@ export const MainInkLandscape: React.FC = () => {
       <path d="M490 322 Q493 317, 495 322" fill="none" stroke="#2c2420" strokeWidth="0.3" />
       <path d="M370 318 Q372 313, 375 318" fill="none" stroke="#2c2420" strokeWidth="0.3" />
 
+      {/* ===== FLYING BIRDS (飞鸟) ===== */}
+      <path d="M180 95 Q185 88, 190 92 Q195 86, 200 92" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+      <path d="M200 88 Q204 82, 208 86 Q212 80, 216 86" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+      <path d="M160 100 Q164 94, 168 98 Q172 93, 176 98" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+
+      </g>
+
       {/* ===== RED SEAL STAMP (印章) ===== */}
       <rect x="475" y="352" width="22" height="22" fill="none" stroke="#8b2500" strokeWidth="1.5" rx="1" />
       <text x="486" y="367" textAnchor="middle" fill="#8b2500" fontSize="10" fontFamily="serif" fontWeight="bold">品</text>
@@ -458,11 +519,6 @@ export const MainInkLandscape: React.FC = () => {
       {/* ===== CALLIGRAPHY TITLE (题字) ===== */}
       <text x="488" y="200" textAnchor="middle" fill="#2c2420" fontSize="14" fontFamily="serif" writingMode="vertical-rl" opacity="0.7">品花宝鉴</text>
       <text x="502" y="200" textAnchor="middle" fill="#2c2420" fontSize="7" fontFamily="serif" writingMode="vertical-rl" opacity="0.5">陈森</text>
-
-      {/* ===== FLYING BIRDS (飞鸟) ===== */}
-      <path d="M180 95 Q185 88, 190 92 Q195 86, 200 92" fill="none" stroke="#2c2420" strokeWidth="0.5" />
-      <path d="M200 88 Q204 82, 208 86 Q212 80, 216 86" fill="none" stroke="#2c2420" strokeWidth="0.4" />
-      <path d="M160 100 Q164 94, 168 98 Q172 93, 176 98" fill="none" stroke="#2c2420" strokeWidth="0.4" />
       </svg>
     </div>
   );

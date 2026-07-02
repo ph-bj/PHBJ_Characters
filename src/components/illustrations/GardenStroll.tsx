@@ -19,10 +19,34 @@ export const GardenStroll: React.FC = () => {
             <stop offset="50%" stopColor="#2c2420" stopOpacity="0.12" />
             <stop offset="100%" stopColor="#2c2420" stopOpacity="0.03" />
           </linearGradient>
+          {/* Brush wobble for hand-painted line quality */}
+          <filter id="gsBrush" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="8" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
+          </filter>
+          {/* Ink bleed for background washes */}
+          <filter id="gsBleed" x="-15%" y="-15%" width="130%" height="130%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="12" result="noise" />
+            <feDisplacementMap in="blur" in2="noise" scale="7" />
+          </filter>
+          {/* Pale rouge for garden flowers (淡彩) */}
+          <radialGradient id="gsFlowerTint" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#b4494e" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#b4494e" stopOpacity="0.06" />
+          </radialGradient>
         </defs>
         <rect x="3" y="3" width="274" height="144" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="1" />
         <rect x="6" y="6" width="268" height="138" fill="url(#gardenWash)" stroke="#2c2420" strokeWidth="1.2" rx="2" />
-        <path d="M6 110 Q80 80, 160 105 Q220 90, 274 115 L274 144 L6 144 Z" fill="url(#gardenHills)" stroke="none" opacity="0.4" />
+        {/* Bled background washes - hills, willow canopy, rockery shadow */}
+        <g filter="url(#gsBleed)">
+          <path d="M6 110 Q80 80, 160 105 Q220 90, 274 115 L274 144 L6 144 Z" fill="url(#gardenHills)" stroke="none" opacity="0.6" />
+          <ellipse cx="27" cy="42" rx="20" ry="26" fill="#2c2420" opacity="0.08" />
+          <path d="M190 90 Q198 60, 215 58 Q228 60, 232 75 L215 92 Z" fill="#2c2420" opacity="0.07" />
+        </g>
+        <g filter="url(#gsBrush)">
+        {/* Bridge arch ink wash */}
+        <path d="M60 105 Q100 70, 140 105 L135 105 Q100 75, 65 105 Z" fill="#2c2420" opacity="0.25" />
         <path d="M60 105 Q100 70, 140 105" fill="none" stroke="#2c2420" strokeWidth="1.5" />
         <path d="M65 105 Q100 75, 135 105" fill="none" stroke="#2c2420" strokeWidth="0.6" />
         <line x1="75" y1="95" x2="75" y2="90" stroke="#2c2420" strokeWidth="0.5" />
@@ -64,6 +88,9 @@ export const GardenStroll: React.FC = () => {
         <path d="M93 108 Q95 103, 97 108" fill="none" stroke="#2c2420" strokeWidth="0.5" />
         <path d="M200 85 Q195 70, 200 60 Q205 50, 210 55" fill="none" stroke="#2c2420" strokeWidth="0.8" />
         <path d="M200 60 Q210 55, 220 60" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+        {/* Rouge washes under the flowers */}
+        <circle cx="210" cy="52" r="7" fill="url(#gsFlowerTint)" stroke="none" />
+        <circle cx="220" cy="58" r="5.5" fill="url(#gsFlowerTint)" stroke="none" />
         <circle cx="210" cy="52" r="6" fill="none" stroke="#2c2420" strokeWidth="0.7" />
         <circle cx="210" cy="52" r="3" fill="none" stroke="#2c2420" strokeWidth="0.4" />
         <circle cx="210" cy="52" r="1" fill="#2c2420" />
@@ -83,6 +110,11 @@ export const GardenStroll: React.FC = () => {
         <path d="M10 130 Q70 125, 140 128 Q210 131, 270 127" fill="none" stroke="#2c2420" strokeWidth="0.4" />
         <path d="M180 100 Q182 95, 184 100" fill="none" stroke="#2c2420" strokeWidth="0.3" />
         <path d="M210 95 Q212 90, 214 95" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+        {/* Drifting petals (落花) */}
+        <ellipse cx="155" cy="60" rx="1.4" ry="0.9" fill="#b4494e" opacity="0.25" transform="rotate(-20 155 60)" />
+        <ellipse cx="170" cy="75" rx="1.2" ry="0.8" fill="#b4494e" opacity="0.2" transform="rotate(25 170 75)" />
+        <ellipse cx="195" cy="42" rx="1.2" ry="0.8" fill="#b4494e" opacity="0.22" transform="rotate(-35 195 42)" />
+        </g>
         <rect x="250" y="118" width="14" height="14" fill="none" stroke="#8b2500" strokeWidth="1" rx="0.5" />
         <text x="257" y="129" textAnchor="middle" fill="#8b2500" fontSize="7" fontFamily="serif" fontWeight="bold">园</text>
       </svg>
