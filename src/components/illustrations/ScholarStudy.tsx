@@ -71,10 +71,15 @@ export const ScholarStudy: React.FC = () => {
         <path d="M130 62 Q135 59, 140 60 Q145 59, 150 62" fill="none" stroke="#2c2420" strokeWidth="1.1" />
         <line x1="130" y1="62" x2="133" y2="82" stroke="#2c2420" strokeWidth="1" />
         <line x1="150" y1="62" x2="147" y2="82" stroke="#2c2420" strokeWidth="1" />
-        <path d="M134 66 Q137 68, 140 67 Q143 68, 146 66" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+        {/* Chest muscles (胸肌) */}
+        <path d="M133.5 66 Q137 68.5, 140 67 Q143 68.5, 146.5 66" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+        <path d="M134.5 69.5 Q137 71, 139.5 69.5" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M140.5 69.5 Q143 71, 145.5 69.5" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        {/* Abs (腹肌) */}
         <line x1="140" y1="68" x2="140" y2="80" stroke="#2c2420" strokeWidth="0.4" />
-        <path d="M136 71 Q140 72, 144 71" fill="none" stroke="#2c2420" strokeWidth="0.3" />
-        <path d="M136 75 Q140 76, 144 75" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+        <path d="M136 72.5 Q140 73.5, 144 72.5" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M136 75.5 Q140 76.5, 144 75.5" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M136.5 78.5 Q140 79.5, 143.5 78.5" fill="none" stroke="#2c2420" strokeWidth="0.3" />
         <path d="M130 62 Q124 68, 120 75" fill="none" stroke="#2c2420" strokeWidth="1" />
         <path d="M120 75 Q118 78, 118 80" fill="none" stroke="#2c2420" strokeWidth="0.8" />
         <path d="M150 62 Q156 68, 160 75" fill="none" stroke="#2c2420" strokeWidth="1" />

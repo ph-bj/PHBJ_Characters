@@ -60,7 +60,14 @@ export const PlumBlossomBanquet: React.FC = () => {
         <path d="M87 92 Q91 89, 95 90 Q99 89, 103 92" fill="none" stroke="#2c2420" strokeWidth="1" />
         <line x1="87" y1="92" x2="89" y2="108" stroke="#2c2420" strokeWidth="1" />
         <line x1="103" y1="92" x2="101" y2="108" stroke="#2c2420" strokeWidth="1" />
-        <path d="M90 96 Q93 98, 95 96 Q97 98, 100 96" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+        {/* Chest muscles (胸肌) */}
+        <path d="M89 96 Q92 98.5, 95 96.5 Q98 98.5, 101 96" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+        <path d="M89.5 99 Q92 100.5, 94.5 99" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M95.5 99 Q98 100.5, 100.5 99" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        {/* Abs (腹肌) */}
+        <line x1="95" y1="97" x2="95" y2="106" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M91 101.5 Q95 102.5, 99 101.5" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+        <path d="M91.5 104.5 Q95 105.5, 98.5 104.5" fill="none" stroke="#2c2420" strokeWidth="0.3" />
         <path d="M87 92 Q82 86, 80 80" fill="none" stroke="#2c2420" strokeWidth="1" />
         <ellipse cx="79" cy="79" rx="2" ry="1" fill="none" stroke="#2c2420" strokeWidth="0.5" />
         <path d="M103 92 Q108 96, 112 100" fill="none" stroke="#2c2420" strokeWidth="0.9" />
@@ -70,7 +77,14 @@ export const PlumBlossomBanquet: React.FC = () => {
         <path d="M177 92 Q181 89, 185 90 Q189 89, 193 92" fill="none" stroke="#2c2420" strokeWidth="1" />
         <line x1="177" y1="92" x2="179" y2="108" stroke="#2c2420" strokeWidth="1" />
         <line x1="193" y1="92" x2="191" y2="108" stroke="#2c2420" strokeWidth="1" />
-        <path d="M180 96 Q183 98, 185 96 Q187 98, 190 96" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+        {/* Chest muscles (胸肌) */}
+        <path d="M179 96 Q182 98.5, 185 96.5 Q188 98.5, 191 96" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+        <path d="M179.5 99 Q182 100.5, 184.5 99" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M185.5 99 Q188 100.5, 190.5 99" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        {/* Abs (腹肌) */}
+        <line x1="185" y1="97" x2="185" y2="106" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M181 101.5 Q185 102.5, 189 101.5" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+        <path d="M181.5 104.5 Q185 105.5, 188.5 104.5" fill="none" stroke="#2c2420" strokeWidth="0.3" />
         <path d="M177 92 Q172 96, 168 100" fill="none" stroke="#2c2420" strokeWidth="0.9" />
         <path d="M193 92 Q198 88, 202 84" fill="none" stroke="#2c2420" strokeWidth="1" />
         <circle cx="140" cy="58" r="4.5" fill="none" stroke="#2c2420" strokeWidth="1" />
@@ -79,7 +93,15 @@ export const PlumBlossomBanquet: React.FC = () => {
         <path d="M132 67 Q136 64, 140 65 Q144 64, 148 67" fill="none" stroke="#2c2420" strokeWidth="1" />
         <line x1="132" y1="67" x2="134" y2="90" stroke="#2c2420" strokeWidth="0.9" />
         <line x1="148" y1="67" x2="146" y2="90" stroke="#2c2420" strokeWidth="0.9" />
-        <path d="M135 71 Q138 73, 140 71 Q142 73, 145 71" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+        {/* Chest muscles (胸肌) */}
+        <path d="M134 71 Q137 73.5, 140 71.5 Q143 73.5, 146 71" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+        <path d="M134.5 74.5 Q137 76, 139.5 74.5" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M140.5 74.5 Q143 76, 145.5 74.5" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        {/* Abs (腹肌) */}
+        <line x1="140" y1="72.5" x2="140" y2="87" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M135.5 78 Q140 79, 144.5 78" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+        <path d="M135.5 81.5 Q140 82.5, 144.5 81.5" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+        <path d="M136 85 Q140 86, 144 85" fill="none" stroke="#2c2420" strokeWidth="0.3" />
         <path d="M148 67 Q153 72, 155 78" fill="none" stroke="#2c2420" strokeWidth="0.9" />
         <path d="M155 78 L155 82 Q156 80, 157 82" fill="none" stroke="#2c2420" strokeWidth="0.6" />
         <path d="M10 15 Q30 22, 55 20 Q75 18, 90 22" fill="none" stroke="#2c2420" strokeWidth="1" />

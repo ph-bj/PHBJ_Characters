@@ -56,8 +56,15 @@ export const OperaNight: React.FC = () => {
         <path d="M130 62 Q135 59, 140 60 Q145 59, 150 62" fill="none" stroke="#2c2420" strokeWidth="1" />
         <path d="M130 62 Q128 75, 126 90" fill="none" stroke="#2c2420" strokeWidth="1" />
         <path d="M150 62 Q152 75, 154 90" fill="none" stroke="#2c2420" strokeWidth="1" />
-        <path d="M133 70 Q140 73, 147 70" fill="none" stroke="#2c2420" strokeWidth="0.4" />
-        <path d="M131 78 Q140 82, 149 78" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+        {/* Chest muscles (胸肌) */}
+        <path d="M132 67 Q136 70, 140 68 Q144 70, 148 67" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+        <path d="M133 71 Q136 72.5, 139 71" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M141 71 Q144 72.5, 147 71" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        {/* Abs (腹肌) */}
+        <line x1="140" y1="72" x2="140" y2="87" stroke="#2c2420" strokeWidth="0.4" />
+        <path d="M134 76 Q140 77.5, 146 76" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M133.5 80 Q140 81.5, 146.5 80" fill="none" stroke="#2c2420" strokeWidth="0.35" />
+        <path d="M134 84 Q140 85.5, 146 84" fill="none" stroke="#2c2420" strokeWidth="0.35" />
         <path d="M130 62 Q120 58, 108 55 Q100 54, 95 58" fill="none" stroke="#2c2420" strokeWidth="0.8" />
         <path d="M95 58 Q90 62, 88 65" fill="none" stroke="#2c2420" strokeWidth="0.5" />
         <path d="M150 62 Q160 58, 172 55 Q180 54, 185 58" fill="none" stroke="#2c2420" strokeWidth="0.8" />
@@ -68,6 +75,11 @@ export const OperaNight: React.FC = () => {
         <path d="M66 79 Q69 77, 72 78 Q75 77, 78 79" fill="none" stroke="#2c2420" strokeWidth="0.8" />
         <line x1="66" y1="79" x2="67" y2="92" stroke="#2c2420" strokeWidth="0.7" />
         <line x1="78" y1="79" x2="77" y2="92" stroke="#2c2420" strokeWidth="0.7" />
+        {/* Chest and abs */}
+        <path d="M68 82.5 Q70 84.5, 72 83 Q74 84.5, 76 82.5" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+        <line x1="72" y1="84" x2="72" y2="90" stroke="#2c2420" strokeWidth="0.3" />
+        <path d="M69 86.5 Q72 87.5, 75 86.5" fill="none" stroke="#2c2420" strokeWidth="0.25" />
+        <path d="M69.5 89 Q72 90, 74.5 89" fill="none" stroke="#2c2420" strokeWidth="0.25" />
         <ellipse cx="82" cy="82" rx="3" ry="6" fill="none" stroke="#2c2420" strokeWidth="0.6" transform="rotate(-15 82 82)" />
         <line x1="82" y1="76" x2="82" y2="88" stroke="#2c2420" strokeWidth="0.3" />
         <circle cx="80" cy="118" r="3.5" fill="none" stroke="#2c2420" strokeWidth="0.7" />
