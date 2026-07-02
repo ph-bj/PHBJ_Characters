@@ -1351,6 +1351,77 @@ export default function App() {
             })()}
           </div>
 
+          {/* === Illustration: Garden Stroll 游园图 (Ch.15 Spring Outing) === */}
+          <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center">
+            <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '130px' }}>
+              <rect x="3" y="3" width="274" height="144" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="1" />
+              <rect x="6" y="6" width="268" height="138" fill="none" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+              <path d="M60 105 Q100 70, 140 105" fill="none" stroke="#2c2420" strokeWidth="1.5" />
+              <path d="M65 105 Q100 75, 135 105" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="75" y1="95" x2="75" y2="90" stroke="#2c2420" strokeWidth="0.5" />
+              <line x1="90" y1="86" x2="90" y2="81" stroke="#2c2420" strokeWidth="0.5" />
+              <line x1="100" y1="83" x2="100" y2="78" stroke="#2c2420" strokeWidth="0.5" />
+              <line x1="110" y1="86" x2="110" y2="81" stroke="#2c2420" strokeWidth="0.5" />
+              <line x1="125" y1="95" x2="125" y2="90" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M75 90 Q90 78, 100 78 Q110 78, 125 90" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <circle cx="88" cy="72" r="4" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M86 68 Q88 65, 90 68" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <line x1="88" y1="76" x2="88" y2="77.5" stroke="#2c2420" strokeWidth="0.7" />
+              <path d="M82 80 Q85 77.5, 88 78 Q91 77.5, 94 80" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <line x1="82" y1="80" x2="83" y2="88" stroke="#2c2420" strokeWidth="0.9" />
+              <line x1="94" y1="80" x2="93" y2="88" stroke="#2c2420" strokeWidth="0.9" />
+              <path d="M84 82 Q86 84, 88 83 Q90 84, 92 82" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M82 80 Q76 76, 72 72" fill="none" stroke="#2c2420" strokeWidth="0.9" />
+              <path d="M94 80 Q98 82, 100 84" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <circle cx="112" cy="74" r="4" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M110 70 Q112 67, 114 70" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <line x1="112" y1="78" x2="112" y2="79.5" stroke="#2c2420" strokeWidth="0.7" />
+              <path d="M106 82 Q109 79.5, 112 80 Q115 79.5, 118 82" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <line x1="106" y1="82" x2="107" y2="90" stroke="#2c2420" strokeWidth="0.9" />
+              <line x1="118" y1="82" x2="117" y2="90" stroke="#2c2420" strokeWidth="0.9" />
+              <path d="M108 84 Q110 86, 112 85 Q114 86, 116 84" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M106 82 Q102 84, 100 87" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M118 82 Q122 84, 124 87" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M25 10 Q28 30, 26 55 Q24 70, 28 90" fill="none" stroke="#2c2420" strokeWidth="1.2" />
+              <path d="M26 35 Q18 45, 15 60" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M27 45 Q20 55, 18 68" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M26 30 Q34 40, 36 55" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M27 40 Q35 50, 38 62" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M20 50 Q16 48, 13 52" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M18 60 Q14 58, 12 62" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M34 45 Q38 43, 40 47" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M40 115 Q70 110, 100 115 Q130 120, 160 115" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <ellipse cx="75" cy="118" rx="6" ry="2.5" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <ellipse cx="120" cy="116" rx="5" ry="2" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <line x1="95" y1="115" x2="95" y2="108" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M93 108 Q95 103, 97 108" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M200 85 Q195 70, 200 60 Q205 50, 210 55" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M200 60 Q210 55, 220 60" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <circle cx="210" cy="52" r="6" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <circle cx="210" cy="52" r="3" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <circle cx="210" cy="52" r="1" fill="#2c2420" />
+              <circle cx="220" cy="58" r="4.5" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <circle cx="220" cy="58" r="2" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <circle cx="220" cy="58" r="0.8" fill="#2c2420" />
+              <path d="M195 68 Q190 65, 188 70" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M205 65 Q210 62, 215 66" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <line x1="240" y1="35" x2="240" y2="75" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M232 45 L240 38 L248 45" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <path d="M234 55 L240 50 L246 55" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M235 65 L240 60 L245 65" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M231 45 Q229 43, 228 41" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M249 45 Q251 43, 252 41" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M170 25 Q173 20, 176 23 Q179 18, 182 23" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M185 20 Q187 16, 189 19 Q191 15, 193 19" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M10 130 Q70 125, 140 128 Q210 131, 270 127" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M180 100 Q182 95, 184 100" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M210 95 Q212 90, 214 95" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <rect x="250" y="118" width="14" height="14" fill="none" stroke="#8b2500" strokeWidth="1" rx="0.5" />
+              <text x="257" y="129" textAnchor="middle" fill="#8b2500" fontSize="7" fontFamily="serif" fontWeight="bold">园</text>
+            </svg>
+            <p className="text-[9px] text-[#5d5048] italic mt-1 font-hans">{lang === 'zh' ? '第十五回 · 携手游园赏春光' : 'Ch. 15 · A Spring Outing, Arm in Arm Through the Garden'}</p>
+          </div>
+
           {/* Gardens Section */}
           <div
             id="gardens"
@@ -1481,6 +1552,67 @@ export default function App() {
             </div>
           </div>
 
+          {/* === Illustration: Theater Performance 戏台图 (Ch.7 Opera Night) === */}
+          <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center">
+            <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '130px' }}>
+              <rect x="3" y="3" width="274" height="144" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="1" />
+              <rect x="6" y="6" width="268" height="138" fill="none" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+              <path d="M50 95 L230 95 L240 105 L40 105 Z" fill="none" stroke="#2c2420" strokeWidth="1.2" />
+              <line x1="50" y1="95" x2="50" y2="105" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="230" y1="95" x2="230" y2="105" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="90" y1="96" x2="85" y2="104" stroke="#2c2420" strokeWidth="0.3" />
+              <line x1="140" y1="96" x2="135" y2="104" stroke="#2c2420" strokeWidth="0.3" />
+              <line x1="190" y1="96" x2="185" y2="104" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M55 25 Q140 18, 225 25" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M55 25 L55 95" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M225 25 L225 95" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M55 25 Q60 35, 65 30 Q70 25, 75 32" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M225 25 Q220 35, 215 30 Q210 25, 205 32" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M55 25 Q140 15, 225 25" fill="none" stroke="#2c2420" strokeWidth="0.5" strokeDasharray="2,2" />
+              <circle cx="140" cy="52" r="5" fill="none" stroke="#2c2420" strokeWidth="1.1" />
+              <path d="M135 47 Q137 42, 140 44 Q143 42, 145 47" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M137 43 Q140 39, 143 43" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="140" y1="39" x2="140" y2="42" stroke="#2c2420" strokeWidth="0.5" />
+              <line x1="140" y1="57" x2="140" y2="59" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M130 62 Q135 59, 140 60 Q145 59, 150 62" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M130 62 Q128 75, 126 90" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M150 62 Q152 75, 154 90" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M133 70 Q140 73, 147 70" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M131 78 Q140 82, 149 78" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M130 62 Q120 58, 108 55 Q100 54, 95 58" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M95 58 Q90 62, 88 65" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M150 62 Q160 58, 172 55 Q180 54, 185 58" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M185 58 Q190 62, 192 65" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <circle cx="72" cy="72" r="4" fill="none" stroke="#2c2420" strokeWidth="0.9" />
+              <path d="M70 68 Q72 66, 74 68" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="72" y1="76" x2="72" y2="77" stroke="#2c2420" strokeWidth="0.6" />
+              <path d="M66 79 Q69 77, 72 78 Q75 77, 78 79" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <line x1="66" y1="79" x2="67" y2="92" stroke="#2c2420" strokeWidth="0.7" />
+              <line x1="78" y1="79" x2="77" y2="92" stroke="#2c2420" strokeWidth="0.7" />
+              <ellipse cx="82" cy="82" rx="3" ry="6" fill="none" stroke="#2c2420" strokeWidth="0.6" transform="rotate(-15 82 82)" />
+              <line x1="82" y1="76" x2="82" y2="88" stroke="#2c2420" strokeWidth="0.3" />
+              <circle cx="80" cy="118" r="3.5" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <path d="M78 115 Q80 113, 82 115" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M76 124 Q80 128, 84 124" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <circle cx="110" cy="120" r="3.5" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <path d="M108 117 Q110 115, 112 117" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M106 126 Q110 130, 114 126" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <circle cx="170" cy="120" r="3.5" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <path d="M168 117 Q170 115, 172 117" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M166 126 Q170 130, 174 126" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <circle cx="200" cy="118" r="3.5" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <path d="M198 115 Q200 113, 202 115" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M196 124 Q200 128, 204 124" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <line x1="80" y1="10" x2="80" y2="22" stroke="#2c2420" strokeWidth="0.4" />
+              <ellipse cx="80" cy="27" rx="4" ry="6" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <line x1="200" y1="10" x2="200" y2="22" stroke="#2c2420" strokeWidth="0.4" />
+              <ellipse cx="200" cy="27" rx="4" ry="6" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <rect x="248" y="118" width="14" height="14" fill="none" stroke="#8b2500" strokeWidth="1" rx="0.5" />
+              <text x="255" y="129" textAnchor="middle" fill="#8b2500" fontSize="7" fontFamily="serif" fontWeight="bold">戏</text>
+            </svg>
+            <p className="text-[9px] text-[#5d5048] italic mt-1 font-hans">{lang === 'zh' ? '第七回 · 梨园妙音惊满座' : 'Ch. 7 · A Dazzling Opera Stuns the Hall'}</p>
+          </div>
+
           {/* Questions Sidebar */}
           <div
             id="questions"
@@ -1604,6 +1736,78 @@ export default function App() {
                 </div>
               </div>
             </dl>
+          </div>
+
+          {/* === Illustration: Banquet Scene 宴饮图 (Ch.4 Plum Blossom Banquet) === */}
+          <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center">
+            <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '140px' }}>
+              <defs>
+                <linearGradient id="bqWash" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#2c2420" stopOpacity="0.03" />
+                  <stop offset="100%" stopColor="#2c2420" stopOpacity="0.08" />
+                </linearGradient>
+              </defs>
+              <rect x="3" y="3" width="274" height="154" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="1" />
+              <rect x="6" y="6" width="268" height="148" fill="none" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+              <ellipse cx="140" cy="110" rx="42" ry="14" fill="none" stroke="#2c2420" strokeWidth="1.2" />
+              <line x1="110" y1="118" x2="108" y2="140" stroke="#2c2420" strokeWidth="0.8" />
+              <line x1="170" y1="118" x2="172" y2="140" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M128 104 L128 100 Q130 96, 132 100 L132 104" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <path d="M145 103 L145 98 Q148 94, 151 98 L151 103" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <ellipse cx="140" cy="106" rx="3" ry="1.5" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <ellipse cx="122" cy="107" rx="2" ry="1" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <ellipse cx="158" cy="107" rx="2" ry="1" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <circle cx="95" cy="82" r="5" fill="none" stroke="#2c2420" strokeWidth="1.1" />
+              <path d="M92 77 Q95 74, 98 77" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <line x1="95" y1="87" x2="95" y2="89" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M87 92 Q91 89, 95 90 Q99 89, 103 92" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <line x1="87" y1="92" x2="89" y2="108" stroke="#2c2420" strokeWidth="1" />
+              <line x1="103" y1="92" x2="101" y2="108" stroke="#2c2420" strokeWidth="1" />
+              <path d="M90 96 Q93 98, 95 96 Q97 98, 100 96" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M87 92 Q82 86, 80 80" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <ellipse cx="79" cy="79" rx="2" ry="1" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M103 92 Q108 96, 112 100" fill="none" stroke="#2c2420" strokeWidth="0.9" />
+              <circle cx="185" cy="82" r="5" fill="none" stroke="#2c2420" strokeWidth="1.1" />
+              <path d="M182 77 Q185 74, 188 77" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <line x1="185" y1="87" x2="185" y2="89" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M177 92 Q181 89, 185 90 Q189 89, 193 92" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <line x1="177" y1="92" x2="179" y2="108" stroke="#2c2420" strokeWidth="1" />
+              <line x1="193" y1="92" x2="191" y2="108" stroke="#2c2420" strokeWidth="1" />
+              <path d="M180 96 Q183 98, 185 96 Q187 98, 190 96" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M177 92 Q172 96, 168 100" fill="none" stroke="#2c2420" strokeWidth="0.9" />
+              <path d="M193 92 Q198 88, 202 84" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <circle cx="140" cy="58" r="4.5" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M137 54 Q140 51, 143 54" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+              <line x1="140" y1="62.5" x2="140" y2="64" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M132 67 Q136 64, 140 65 Q144 64, 148 67" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <line x1="132" y1="67" x2="134" y2="90" stroke="#2c2420" strokeWidth="0.9" />
+              <line x1="148" y1="67" x2="146" y2="90" stroke="#2c2420" strokeWidth="0.9" />
+              <path d="M135 71 Q138 73, 140 71 Q142 73, 145 71" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M148 67 Q153 72, 155 78" fill="none" stroke="#2c2420" strokeWidth="0.9" />
+              <path d="M155 78 L155 82 Q156 80, 157 82" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <path d="M10 15 Q30 22, 55 20 Q75 18, 90 22" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M45 20 Q50 12, 58 10" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <circle cx="55" cy="18" r="3.5" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <circle cx="55" cy="18" r="1.2" fill="#2c2420" />
+              <circle cx="72" cy="19" r="3" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <circle cx="72" cy="19" r="1" fill="#2c2420" />
+              <circle cx="38" cy="21" r="2.5" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <circle cx="38" cy="21" r="0.8" fill="#2c2420" />
+              <circle cx="58" cy="10" r="2.5" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <circle cx="58" cy="10" r="0.8" fill="#2c2420" />
+              <line x1="220" y1="10" x2="220" y2="28" stroke="#2c2420" strokeWidth="0.5" />
+              <ellipse cx="220" cy="36" rx="7" ry="10" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <line x1="213" y1="36" x2="227" y2="36" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M216 46 Q220 50, 224 46" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <rect x="230" y="15" width="30" height="40" fill="none" stroke="#2c2420" strokeWidth="0.8" rx="1" />
+              <line x1="245" y1="15" x2="245" y2="55" stroke="#2c2420" strokeWidth="0.4" />
+              <line x1="230" y1="35" x2="260" y2="35" stroke="#2c2420" strokeWidth="0.4" />
+              <circle cx="252" cy="25" r="5" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M10 145 Q70 140, 140 143 Q210 146, 270 142" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <rect x="248" y="130" width="14" height="14" fill="none" stroke="#8b2500" strokeWidth="1" rx="0.5" />
+              <text x="255" y="141" textAnchor="middle" fill="#8b2500" fontSize="7" fontFamily="serif" fontWeight="bold">宴</text>
+            </svg>
+            <p className="text-[9px] text-[#5d5048] italic mt-1 font-hans">{lang === 'zh' ? '第四回 · 梅花宴上品花评' : 'Ch. 4 · Judging Flowers at the Plum Blossom Banquet'}</p>
           </div>
 
           {/* Network Graph Section */}
@@ -2381,6 +2585,74 @@ export default function App() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* === Illustration: Scholar's Study 书斋图 (Ch.1 Arrival in Beijing) === */}
+          <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center mt-5 mb-5">
+            <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '130px' }}>
+              <rect x="3" y="3" width="274" height="144" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="1" />
+              <rect x="6" y="6" width="268" height="138" fill="none" stroke="#2c2420" strokeWidth="1.2" rx="2" />
+              <path d="M80 85 L200 85 L205 90 L75 90 Z" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <line x1="85" y1="90" x2="85" y2="120" stroke="#2c2420" strokeWidth="0.8" />
+              <line x1="195" y1="90" x2="195" y2="120" stroke="#2c2420" strokeWidth="0.8" />
+              <line x1="85" y1="110" x2="195" y2="110" stroke="#2c2420" strokeWidth="0.4" />
+              <rect x="170" y="76" width="18" height="9" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="170" y1="79" x2="188" y2="79" stroke="#2c2420" strokeWidth="0.3" />
+              <line x1="170" y1="82" x2="188" y2="82" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M120 82 Q130 78, 140 82" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <path d="M140 82 Q150 78, 160 82" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="140" y1="78" x2="140" y2="85" stroke="#2c2420" strokeWidth="0.3" />
+              <line x1="125" y1="80" x2="137" y2="80" stroke="#2c2420" strokeWidth="0.2" />
+              <line x1="143" y1="80" x2="155" y2="80" stroke="#2c2420" strokeWidth="0.2" />
+              <ellipse cx="100" cy="82" rx="5" ry="3" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="92" y1="78" x2="108" y2="78" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M92 78 Q90 76, 89 78" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <circle cx="140" cy="52" r="5.5" fill="none" stroke="#2c2420" strokeWidth="1.1" />
+              <path d="M137 47 Q140 43, 143 47" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <line x1="140" y1="44" x2="140" y2="47" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="140" y1="57.5" x2="140" y2="59" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M130 62 Q135 59, 140 60 Q145 59, 150 62" fill="none" stroke="#2c2420" strokeWidth="1.1" />
+              <line x1="130" y1="62" x2="133" y2="82" stroke="#2c2420" strokeWidth="1" />
+              <line x1="150" y1="62" x2="147" y2="82" stroke="#2c2420" strokeWidth="1" />
+              <path d="M134 66 Q137 68, 140 67 Q143 68, 146 66" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <line x1="140" y1="68" x2="140" y2="80" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M136 71 Q140 72, 144 71" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M136 75 Q140 76, 144 75" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M130 62 Q124 68, 120 75" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M120 75 Q118 78, 118 80" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <path d="M150 62 Q156 68, 160 75" fill="none" stroke="#2c2420" strokeWidth="1" />
+              <path d="M160 75 Q162 78, 162 80" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <rect x="220" y="30" width="40" height="60" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+              <line x1="220" y1="45" x2="260" y2="45" stroke="#2c2420" strokeWidth="0.4" />
+              <line x1="220" y1="60" x2="260" y2="60" stroke="#2c2420" strokeWidth="0.4" />
+              <line x1="220" y1="75" x2="260" y2="75" stroke="#2c2420" strokeWidth="0.4" />
+              <rect x="223" y="32" width="3" height="12" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <rect x="227" y="33" width="3" height="11" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <rect x="231" y="32" width="4" height="12" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <rect x="236" y="34" width="3" height="10" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <rect x="224" y="47" width="3" height="12" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <rect x="228" y="48" width="4" height="11" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <rect x="233" y="47" width="3" height="12" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <circle cx="250" cy="52" r="3" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <line x1="250" y1="49" x2="250" y2="55" stroke="#2c2420" strokeWidth="0.3" />
+              <rect x="25" y="20" width="22" height="50" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <line x1="36" y1="15" x2="36" y2="20" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M28 45 Q33 32, 38 40 Q42 30, 44 45" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M58 78 Q60 72, 62 78" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+              <ellipse cx="60" cy="79" rx="4" ry="2" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+              <path d="M60 72 Q58 66, 60 60 Q62 54, 60 48" fill="none" stroke="#2c2420" strokeWidth="0.3" opacity="0.5" />
+              <path d="M60 70 Q63 64, 62 58" fill="none" stroke="#2c2420" strokeWidth="0.25" opacity="0.4" />
+              <rect x="15" y="75" width="30" height="30" fill="none" stroke="#2c2420" strokeWidth="0.7" rx="1" />
+              <line x1="30" y1="75" x2="30" y2="105" stroke="#2c2420" strokeWidth="0.3" />
+              <line x1="15" y1="90" x2="45" y2="90" stroke="#2c2420" strokeWidth="0.3" />
+              <line x1="25" y1="78" x2="25" y2="102" stroke="#2c2420" strokeWidth="0.4" />
+              <path d="M25 82 Q20 80, 18 83" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M25 90 Q30 88, 33 91" fill="none" stroke="#2c2420" strokeWidth="0.3" />
+              <path d="M10 130 Q140 126, 270 130" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+              <rect x="248" y="118" width="14" height="14" fill="none" stroke="#8b2500" strokeWidth="1" rx="0.5" />
+              <text x="255" y="129" textAnchor="middle" fill="#8b2500" fontSize="7" fontFamily="serif" fontWeight="bold">书</text>
+            </svg>
+            <p className="text-[9px] text-[#5d5048] italic mt-1 font-hans">{lang === 'zh' ? '第一回 · 梅子玉初入京华' : 'Ch. 1 · Mei Ziyu Arrives in the Capital'}</p>
           </div>
 
           {/* Downloads */}
