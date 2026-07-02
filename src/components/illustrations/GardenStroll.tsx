@@ -4,7 +4,7 @@ interface IllustrationProps {
   lang: 'zh' | 'en';
 }
 
-export const GardenStroll: React.FC<IllustrationProps> = ({ lang }) => {
+export const GardenStroll: React.FC = () => {
   return (
     <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center">
       <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '130px' }}>
@@ -73,9 +73,6 @@ export const GardenStroll: React.FC<IllustrationProps> = ({ lang }) => {
         <rect x="250" y="118" width="14" height="14" fill="none" stroke="#8b2500" strokeWidth="1" rx="0.5" />
         <text x="257" y="129" textAnchor="middle" fill="#8b2500" fontSize="7" fontFamily="serif" fontWeight="bold">园</text>
       </svg>
-      <p className="text-[9px] text-[#5d5048] italic mt-1 font-hans">
-        {lang === 'zh' ? '第十五回 · 携手游园赏春光' : 'Ch. 15 · A Spring Outing, Arm in Arm Through the Garden'}
-      </p>
     </div>
   );
 };

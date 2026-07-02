@@ -4,7 +4,7 @@ interface IllustrationProps {
   lang: 'zh' | 'en';
 }
 
-export const ScholarStudy: React.FC<IllustrationProps> = ({ lang }) => {
+export const ScholarStudy: React.FC = () => {
   return (
     <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center mt-5 mb-5">
       <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '130px' }}>
@@ -70,9 +70,6 @@ export const ScholarStudy: React.FC<IllustrationProps> = ({ lang }) => {
         <rect x="248" y="118" width="14" height="14" fill="none" stroke="#8b2500" strokeWidth="1" rx="0.5" />
         <text x="255" y="129" textAnchor="middle" fill="#8b2500" fontSize="7" fontFamily="serif" fontWeight="bold">书</text>
       </svg>
-      <p className="text-[9px] text-[#5d5048] italic mt-1 font-hans">
-        {lang === 'zh' ? '第一回 · 梅子玉初入京华' : 'Ch. 1 · Mei Ziyu Arrives in the Capital'}
-      </p>
     </div>
   );
 };

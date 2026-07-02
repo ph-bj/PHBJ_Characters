@@ -967,7 +967,7 @@ export default function App() {
       <main className="max-w-[1800px] mx-auto p-2 sm:p-4 md:p-4 lg:p-5 grid grid-cols-1 md:grid-cols-[minmax(200px,240px)_1fr] lg:grid-cols-[240px_1fr_260px] xl:grid-cols-[280px_1fr_300px] gap-4 md:gap-5 lg:gap-6">
         {/* Left Sidebar */}
         <aside className="flex flex-col gap-4 md:gap-5 h-fit order-2 md:order-1 md:self-start">
-          <PlumBlossomBanquet lang={lang} />
+          <PlumBlossomBanquet />
           <div
             id="stats"
             className="parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm flex flex-col gap-6 md:gap-8 lg:gap-10 border-double border-4 border-[#d4c5a9] scroll-mt-24"
@@ -1357,7 +1357,7 @@ export default function App() {
             })()}
           </div>
 
-          <GardenStroll lang={lang} />
+          <GardenStroll />
 
           {/* Gardens Section */}
           <div
@@ -1489,7 +1489,7 @@ export default function App() {
             </div>
           </div>
 
-          <OperaNight lang={lang} />
+          <OperaNight />
 
           {/* Questions Sidebar */}
           <div
@@ -1934,7 +1934,7 @@ export default function App() {
             </div>
           </div>
 
-          <ScholarStudy lang={lang} />
+          <ScholarStudy />
 
           {/* Downloads */}
           <div
