@@ -61,7 +61,11 @@ export const GardenStroll: React.FC = () => {
         <path d="M82 80 Q85 77.5, 88 78 Q91 77.5, 94 80" fill="none" stroke="#2c2420" strokeWidth="1" />
         <line x1="82" y1="80" x2="83" y2="88" stroke="#2c2420" strokeWidth="0.9" />
         <line x1="94" y1="80" x2="93" y2="88" stroke="#2c2420" strokeWidth="0.9" />
-        <path d="M84 82 Q86 84, 88 83 Q90 84, 92 82" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+        {/* Chest and abs */}
+        <path d="M83.5 82 Q86 84.2, 88 83 Q90 84.2, 92.5 82" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+        <line x1="88" y1="83.5" x2="88" y2="87.5" stroke="#2c2420" strokeWidth="0.3" />
+        <path d="M85 85 Q88 85.8, 91 85" fill="none" stroke="#2c2420" strokeWidth="0.25" />
+        <path d="M85.5 86.8 Q88 87.5, 90.5 86.8" fill="none" stroke="#2c2420" strokeWidth="0.25" />
         <path d="M82 80 Q76 76, 72 72" fill="none" stroke="#2c2420" strokeWidth="0.9" />
         <path d="M94 80 Q98 82, 100 84" fill="none" stroke="#2c2420" strokeWidth="0.8" />
         <circle cx="112" cy="74" r="4" fill="none" stroke="#2c2420" strokeWidth="1" />
@@ -70,7 +74,11 @@ export const GardenStroll: React.FC = () => {
         <path d="M106 82 Q109 79.5, 112 80 Q115 79.5, 118 82" fill="none" stroke="#2c2420" strokeWidth="1" />
         <line x1="106" y1="82" x2="107" y2="90" stroke="#2c2420" strokeWidth="0.9" />
         <line x1="118" y1="82" x2="117" y2="90" stroke="#2c2420" strokeWidth="0.9" />
-        <path d="M108 84 Q110 86, 112 85 Q114 86, 116 84" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+        {/* Chest and abs */}
+        <path d="M107.5 84 Q110 86.2, 112 85 Q114 86.2, 116.5 84" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+        <line x1="112" y1="85.5" x2="112" y2="89.5" stroke="#2c2420" strokeWidth="0.3" />
+        <path d="M109 87 Q112 87.8, 115 87" fill="none" stroke="#2c2420" strokeWidth="0.25" />
+        <path d="M109.5 88.8 Q112 89.5, 114.5 88.8" fill="none" stroke="#2c2420" strokeWidth="0.25" />
         <path d="M106 82 Q102 84, 100 87" fill="none" stroke="#2c2420" strokeWidth="0.8" />
         <path d="M118 82 Q122 84, 124 87" fill="none" stroke="#2c2420" strokeWidth="0.8" />
         <path d="M25 10 Q28 30, 26 55 Q24 70, 28 90" fill="none" stroke="#2c2420" strokeWidth="1.2" />
