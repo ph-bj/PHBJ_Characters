@@ -2208,7 +2208,6 @@ export default function App() {
             onClose={() => setSelectedCharacter(null)}
             lang={lang}
             onSelectChapter={setSelectedChapter}
-            onSelectWork={setSelectedWork}
             elevated={networkGraphFullscreen}
           />
         )}
