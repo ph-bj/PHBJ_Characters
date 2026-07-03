@@ -106,8 +106,12 @@ import { ScholarStudy } from "./components/illustrations/ScholarStudy";
 import { MainInkLandscape } from "./components/illustrations/MainInkLandscape";
 
 export default function App() {
-  const tcZPHBJGitHubIoVersion = "1.0"; // handle github.io failures
+  const tcZPHBJGitHubIoVersion = __BUILD_VERSION__; // handle github.io failures
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    console.log(`tcZPHBJGitHubIoVersion: ${tcZPHBJGitHubIoVersion}`);
+  }, [tcZPHBJGitHubIoVersion]);
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
     null,
