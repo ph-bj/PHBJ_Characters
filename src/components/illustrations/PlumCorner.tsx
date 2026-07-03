@@ -18,10 +18,10 @@ export const PlumCorner: React.FC = () => (
     <defs>
       {/* Radial gradient for the plum/apricot fruit: a glowing blush over jade green */}
       <radialGradient id="plumGradient" cx="35%" cy="30%" r="70%">
-        <stop offset="0%" stopColor="#fffcf0" stopOpacity="0.95" />
-        <stop offset="30%" stopColor="#f4cb6c" stopOpacity="0.9" />
-        <stop offset="70%" stopColor="#e79c5d" stopOpacity="0.95" />
-        <stop offset="100%" stopColor="#8fa882" stopOpacity="0.95" />
+        <stop offset="0%" stopColor="#e8efb8" stopOpacity="0.95" />
+        <stop offset="30%" stopColor="#c5d66a" stopOpacity="0.92" />
+        <stop offset="65%" stopColor="#8db34a" stopOpacity="0.95" />
+        <stop offset="100%" stopColor="#5c7a3a" stopOpacity="0.95" />
       </radialGradient>
       
       {/* Gradient for the leaf */}
