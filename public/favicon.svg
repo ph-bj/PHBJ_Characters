@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#2d2d2d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Main plum fruit body -->
+  <ellipse cx="30" cy="34" rx="18" ry="20" stroke="#2d2d2d" fill="none"/>
+  <!-- Characteristic plum crease/seam line -->
+  <path d="M30 14 Q26 28 28 54" stroke="#2d2d2d" fill="none" stroke-width="1.2"/>
+  <!-- Subtle highlight curve -->
+  <path d="M20 22 Q18 30 20 40" stroke="#2d2d2d" fill="none" stroke-width="0.8" opacity="0.5"/>
+  <!-- Small stem -->
+  <path d="M30 14 Q32 8 36 5" stroke="#2d2d2d" fill="none" stroke-width="1.5"/>
+  <!-- Small leaf -->
+  <path d="M36 5 Q44 6 48 12 Q42 10 36 5 Z" stroke="#2d2d2d" fill="none" stroke-width="1.2"/>
+  <!-- Leaf vein -->
+  <path d="M38 7 Q43 9 46 11" stroke="#2d2d2d" fill="none" stroke-width="0.7" opacity="0.6"/>
+</svg>
