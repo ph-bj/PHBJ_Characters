@@ -36,10 +36,10 @@ interface LocationMapPanelProps {
   locationType: LocationType;
 }
 
-const MARKER_RADIUS_PX = 5;
-const MARKER_HIT_RADIUS_PX = 12;
+const MARKER_RADIUS_PX = 9;
+const MARKER_HIT_RADIUS_PX = 14;
 const MARKER_LABEL_FONT_SIZE_PX = 12;
-const PROXIMITY_RADIUS_PX = 22;
+const PROXIMITY_RADIUS_PX = 26;
 const SPIRAL_SPACING_PX = MARKER_RADIUS_PX * 2 + 4;
 const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
 const BEIJING_COORDS = (coordinates as any).Beijing as [number, number];
@@ -60,6 +60,55 @@ function formatMapLabel(location: MapLocationData, lang: 'en' | 'zh'): string {
   const maxLen = lang === 'zh' ? 6 : 12;
   if (name.length <= maxLen) return name;
   return `${name.slice(0, maxLen - 1)}…`;
+}
+
+function getLocationIconPath(location: MapLocationData): string {
+  const name = location.originZh || location.origin;
+  if (!name) return 'M 0 6 L -3 1 A 4 4 0 1 1 3 1 Z M 0 -5 L 0 -1 M -2 -3 L 2 -3 M 0 -3 A 2 2 0 1 0 0 -2.99';
+
+  // 1. Mountain (山) - Layered peaks
+  if (name.includes('山')) {
+    return 'M -7 5 Q -4 -2 -2 -5 Q 0 -1 2 -3 Q 5 1 7 5 Z M -3 0 L -3 5 M 3 1 L 3 5 M -1 -2 L -1 5';
+  }
+
+  // 2. Water / River / Canal / Lake (河/湖/江/川/溪/水/湾/矶/塘) - Curling waves
+  if (name.includes('河') || name.includes('湖') || name.includes('江') || name.includes('川') || name.includes('溪') || name.includes('水') || name.includes('湾') || name.includes('矶') || name.includes('塘')) {
+    return 'M -7 -1 C -4 -4 -3 2 0 -1 C 3 -4 4 2 7 -1 M -7 2 C -4 -1 -3 5 0 2 C 3 -1 4 5 7 2';
+  }
+
+  // 3. Temple / Shrine (寺/庙/祠/观) - Pagoda
+  if (name.includes('寺') || name.includes('庙') || name.includes('祠') || name.includes('观')) {
+    return 'M -5 6 L 5 6 M -4 6 L -4 3 L 4 3 L 4 6 M -6 3 Q -4 2 -3 -1 L 3 -1 Q 4 2 6 3 M -2 -1 L -2 -4 L 2 -4 L 2 -1 M -4 -4 Q -2 -5 -1 -7 L 1 -7 Q 2 -5 4 -4 M 0 -7 L 0 -9';
+  }
+
+  // 4. Garden / Forest / Plantations (园/圃/林/草/梅/海棠/花) - Weeping willow
+  if (name.includes('园') || name.includes('圃') || name.includes('林') || name.includes('草') || name.includes('梅') || name.includes('海棠') || name.includes('花')) {
+    return 'M 0 6 L 0 2 Q 0 -4 4 -6 Q 2 -4 1 -3 Q 3 -1 1 0 Q 3 2 0 3 M 0 2 Q -2 -2 -5 -3 Q -3 -1 -2 0 Q -4 2 -1 3';
+  }
+
+  // 5. Building / House / Mansion (宅/府/家/楼/阁/堂/馆/舍/轩/院/庄/署/司/部) - Grand courtyard
+  if (name.includes('宅') || name.includes('府') || name.includes('家') || name.includes('楼') || name.includes('阁') || name.includes('堂') || name.includes('馆') || name.includes('舍') || name.includes('轩') || name.includes('院') || name.includes('庄') || name.includes('署') || name.includes('司') || name.includes('部')) {
+    return 'M -7 6 L 7 6 M -5 6 L -5 2 L 5 2 L 5 6 M -2 6 L -2 2 M 2 6 L 2 2 M -8 2 Q -5 0 -4 -2 L 4 -2 Q 5 0 8 2 M -3 -2 L -3 -5 L 3 -5 L 3 -2 M -5 -5 Q -3 -6 -1 -8 L 1 -8 Q 3 -6 5 -5';
+  }
+
+  // 6. Street / Lane / Bridge (街/巷/里/路/关/门/桥) - Arched bridge
+  if (name.includes('街') || name.includes('巷') || name.includes('里') || name.includes('路') || name.includes('关') || name.includes('门') || name.includes('桥')) {
+    return 'M -8 4 L -5 4 Q 0 -4 5 4 L 8 4 M -5 4 L -5 6 M 5 4 L 5 6 M -3 2 L -3 5 M 3 2 L 3 5 M 0 1 L 0 4 M -8 6 L 8 6';
+  }
+
+  // Default by location category / type
+  if (location.type === 'garden') {
+    return 'M 0 6 L 0 2 Q 0 -4 4 -6 Q 2 -4 1 -3 Q 3 -1 1 0 Q 3 2 0 3 M 0 2 Q -2 -2 -5 -3 Q -3 -1 -2 0 Q -4 2 -1 3';
+  }
+  if (location.type === 'landscape') {
+    return 'M -7 5 Q -4 -2 -2 -5 Q 0 -1 2 -3 Q 5 1 7 5 Z M -3 0 L -3 5 M 3 1 L 3 5 M -1 -2 L -1 5';
+  }
+  if (location.type === 'site') {
+    return 'M -7 6 L 7 6 M -5 6 L -5 2 L 5 2 L 5 6 M -2 6 L -2 2 M 2 6 L 2 2 M -8 2 Q -5 0 -4 -2 L 4 -2 Q 5 0 8 2 M -3 -2 L -3 -5 L 3 -5 L 3 -2 M -5 -5 Q -3 -6 -1 -8 L 1 -8 Q 3 -6 5 -5';
+  }
+
+  // Map Pin for default places (cities/provinces/origins)
+  return 'M 0 6 L -3 1 A 4 4 0 1 1 3 1 Z M 0 -5 L 0 -1 M -2 -3 L 2 -3 M 0 -3 A 2 2 0 1 0 0 -2.99';
 }
 
 function spiralOffset(index: number, spacing: number): { x: number; y: number } {
@@ -524,25 +573,29 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .attr('fill', 'transparent')
       .attr('stroke', 'none');
 
-    markerGroups.append('circle')
-      .attr('class', 'marker-bg')
-      .attr('r', MARKER_RADIUS_PX + 1)
-      .attr('fill', 'var(--body-bg)')
-      .attr('stroke', 'none')
+    markerGroups.append('path')
+      .attr('class', 'marker-symbol-halo')
+      .attr('d', (marker) => getLocationIconPath(marker.location))
+      .attr('fill', 'none')
+      .attr('stroke', 'var(--body-bg)')
+      .attr('stroke-width', 3.5)
+      .attr('stroke-linecap', 'round')
+      .attr('stroke-linejoin', 'round')
       .style('pointer-events', 'none');
 
-    markerGroups.append('circle')
-      .attr('class', 'marker-dot')
-      .attr('r', MARKER_RADIUS_PX)
-      .attr('fill', locationColors[locationType])
-      .attr('fill-opacity', 0.65)
-      .attr('stroke', 'var(--ink-dim-text)')
-      .attr('stroke-width', 1)
+    markerGroups.append('path')
+      .attr('class', 'marker-symbol')
+      .attr('d', (marker) => getLocationIconPath(marker.location))
+      .attr('fill', 'none')
+      .attr('stroke', locationColors[locationType])
+      .attr('stroke-width', 1.5)
+      .attr('stroke-linecap', 'round')
+      .attr('stroke-linejoin', 'round')
       .style('pointer-events', 'none');
 
     markerGroups.append('text')
       .attr('class', `marker-label${lang === 'zh' ? ' font-hans' : ''}`)
-      .attr('y', MARKER_RADIUS_PX + MARKER_LABEL_FONT_SIZE_PX + 1)
+      .attr('y', MARKER_RADIUS_PX + MARKER_LABEL_FONT_SIZE_PX + 2)
       .attr('text-anchor', 'middle')
       .attr('font-size', MARKER_LABEL_FONT_SIZE_PX)
       .attr('fill', 'var(--ink-dim-text)')
@@ -554,18 +607,16 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
 
     markerGroups.on('click', (event, marker) => {
       markerGroups.classed('is-selected', false);
-      markerGroups.select('.marker-dot')
-        .attr('fill-opacity', 0.65)
-        .attr('stroke-width', 1);
+      markerGroups.select('.marker-symbol')
+        .attr('stroke-width', 1.5);
       markerGroups.select('.marker-label')
         .attr('fill', 'var(--ink-dim-text)')
         .attr('font-weight', 400);
 
       const target = d3.select(event.currentTarget);
       target.classed('is-selected', true);
-      target.select('.marker-dot')
-        .attr('fill-opacity', 0.9)
-        .attr('stroke-width', 2);
+      target.select('.marker-symbol')
+        .attr('stroke-width', 2.5);
       target.select('.marker-label')
         .attr('fill', 'var(--ink-title)')
         .attr('font-weight', 600);
@@ -629,9 +680,8 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
             setSelectedLocations([]);
             const svg = d3.select(svgRef.current);
             svg.selectAll('.marker').classed('is-selected', false);
-            svg.selectAll('.marker-dot')
-              .attr('fill-opacity', 0.65)
-              .attr('stroke-width', 1);
+            svg.selectAll('.marker-symbol')
+              .attr('stroke-width', 1.5);
             svg.selectAll('.marker-label')
               .attr('fill', 'var(--ink-dim-text)')
               .attr('font-weight', 400);
