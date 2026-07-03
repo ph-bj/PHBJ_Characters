@@ -19,23 +19,18 @@ import {
   getCharacterMentionTokens,
 } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
-import { getWorksNearCharacter } from "../intertexts";
-import { WORK_ENGLISH_BY_CHINESE } from "../englishWorkTitles";
-import { worksData } from "../utils";
 
 export function CharacterDetail({
   character,
   onClose,
   lang,
   onSelectChapter,
-  onSelectWork,
   elevated = false,
 }: {
   character: Character;
   onClose: () => void;
   lang: "en" | "zh";
   onSelectChapter: (chapter: (typeof chapters)[0]) => void;
-  onSelectWork?: (workKey: string) => void;
   elevated?: boolean;
 }) {
   const Icon = ROLE_ICONS[character.role] || Info;
@@ -86,16 +81,6 @@ export function CharacterDetail({
 
   const mentionedChapters = mentionData.filter((d) => d.count > 0);
   const maxCount = Math.max(...mentionData.map((d) => d.count), 1);
-
-  const workLinks = useMemo(
-    () => getWorksNearCharacter(character),
-    [character],
-  );
-  const [showAllWorks, setShowAllWorks] = useState(false);
-  const WORK_LINK_PREVIEW_COUNT = 24;
-  const visibleWorkLinks = showAllWorks
-    ? workLinks
-    : workLinks.slice(0, WORK_LINK_PREVIEW_COUNT);
 
   const [activeChapter, setActiveChapter] = useState<number | null>(null);
 
@@ -527,66 +512,6 @@ export function CharacterDetail({
               </div>
             </div>
           </div>
-
-          {workLinks.length > 0 && (
-            <div className="mt-8 sm:mt-10 border-t-2 border-[#d4c5a9] pt-6">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-1">
-                {lang === "zh" ? "剧目与典籍" : "Repertoire & Allusions"}
-              </p>
-              <p className="text-[10px] text-[#5d5048] italic mb-3">
-                {lang === "zh"
-                  ? "根据正文自动推算：在此人物提及处附近引用的作品。"
-                  : "Computed from the text: works cited near this character's mentions."}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {visibleWorkLinks.map(({ work, chapters: chapterIds, hits }) => {
-                  const clickable = Boolean(onSelectWork && worksData[work]);
-                  return (
-                    <button
-                      key={work}
-                      type="button"
-                      onClick={() => onSelectWork?.(work)}
-                      disabled={!clickable}
-                      title={
-                        lang === "zh"
-                          ? `第 ${chapterIds.join("、")} 回`
-                          : `Chapter${chapterIds.length > 1 ? "s" : ""} ${chapterIds.join(", ")}`
-                      }
-                      className={`px-2 py-0.5 text-[11px] rounded-sm border font-hans transition-colors ${
-                        clickable
-                          ? "border-[#8b4513]/40 bg-[#f4ecd8]/70 text-[#8b4513] hover:bg-[#8b4513]/10"
-                          : "border-[#d4c5a9] bg-[#f4ecd8]/50 text-[#2c2420] pointer-events-none"
-                      }`}
-                    >
-                      {lang === "en" && WORK_ENGLISH_BY_CHINESE[work]
-                        ? WORK_ENGLISH_BY_CHINESE[work]
-                        : `《${work}》`}
-                      {hits > 1 && (
-                        <span className="ml-1 text-[9px] font-sans text-[#5d5048]">
-                          ×{hits}
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-                {workLinks.length > WORK_LINK_PREVIEW_COUNT && (
-                  <button
-                    type="button"
-                    onClick={() => setShowAllWorks((v) => !v)}
-                    className="px-2 py-0.5 text-[11px] rounded-sm border border-dashed border-[#8b4513]/50 text-[#8b4513] hover:bg-[#8b4513]/10 transition-colors font-sans font-bold"
-                  >
-                    {showAllWorks
-                      ? lang === "zh"
-                        ? "收起"
-                        : "Show fewer"
-                      : lang === "zh"
-                        ? `+${workLinks.length - WORK_LINK_PREVIEW_COUNT} 更多`
-                        : `+${workLinks.length - WORK_LINK_PREVIEW_COUNT} more`}
-                  </button>
-                )}
-              </div>
-            </div>
-          )}
         </div>
 
         <div className="bg-[#d4c5a9]/20 p-4 text-[#5d5048] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[#d4c5a9] font-hans shrink-0">

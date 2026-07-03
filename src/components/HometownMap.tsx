@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { MapPin, Trees, Home, Mountain } from 'lucide-react';
 import { Character } from '../types';
 import coordinates from '../assets/coordinates.json';
