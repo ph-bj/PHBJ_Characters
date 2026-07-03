@@ -106,6 +106,7 @@ import { ScholarStudy } from "./components/illustrations/ScholarStudy";
 import { MainInkLandscape } from "./components/illustrations/MainInkLandscape";
 
 export default function App() {
+  const tcZPHBJGitHubIoVersion = "1.0"; // handle github.io failures
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(
