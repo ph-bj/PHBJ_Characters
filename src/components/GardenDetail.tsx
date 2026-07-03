@@ -130,14 +130,14 @@ export function GardenDetail({
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[#d4c5a9] my-4 sm:my-0 flex flex-col"
+        className="relative z-10 w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[var(--paper-border)] my-4 sm:my-0 flex flex-col"
       >
         <div className="absolute top-4 right-14 sm:top-6 sm:right-16 z-10">
           <PermalinkButton lang={lang} link={{ kind: "garden", id: garden.id }} />
         </div>
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 hover:bg-black/5 rounded-full transition-colors z-10 text-[#2c2420]"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 hover:bg-black/5 rounded-full transition-colors z-10 text-[var(--ink-title)]"
         >
           <X size={20} />
         </button>
@@ -172,16 +172,16 @@ export function GardenDetail({
                 {parent && (
                   <button
                     onClick={() => onSelectGarden(parent)}
-                    className="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm border border-[#d4c5a9] text-[#5d5048] hover:text-[#8b4513] hover:border-[#8b4513]/40 transition-colors"
+                    className="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm border border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors"
                   >
                     ↑ {lang === "zh" ? parent.name : parent.nameEn}
                   </button>
                 )}
               </div>
-              <h2 className="text-3xl font-bold text-[#2c2420] font-hans leading-tight">
+              <h2 className="text-3xl font-bold text-[var(--ink-title)] font-hans leading-tight">
                 {lang === "zh" ? garden.name : garden.nameEn}
               </h2>
-              <p className="text-sm text-[#5d5048] mt-0.5 italic">
+              <p className="text-sm text-[var(--ink-dim-text)] mt-0.5 italic">
                 {lang === "zh"
                   ? `${garden.pinyin} · ${garden.nameEn}`
                   : garden.pinyin}
@@ -191,19 +191,19 @@ export function GardenDetail({
 
           {/* Metadata */}
           <div className="grid grid-cols-2 gap-3 text-[11px]">
-            <div className="bg-black/3 border border-[#d4c5a9]/60 rounded-sm p-3">
-              <p className="text-[9px] uppercase tracking-widest text-[#5d5048] mb-1 font-bold">
+            <div className="bg-black/3 border border-[var(--paper-border)]/60 rounded-sm p-3">
+              <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-1 font-bold">
                 {lang === "zh" ? "园主 / 相关人物" : "Owner / Associated"}
               </p>
-              <p className="font-hans text-[#2c2420] font-semibold">
+              <p className="font-hans text-[var(--ink-title)] font-semibold">
                 {lang === "zh" ? garden.owner : garden.ownerEn}
               </p>
             </div>
-            <div className="bg-black/3 border border-[#d4c5a9]/60 rounded-sm p-3">
-              <p className="text-[9px] uppercase tracking-widest text-[#5d5048] mb-1 font-bold">
+            <div className="bg-black/3 border border-[var(--paper-border)]/60 rounded-sm p-3">
+              <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-1 font-bold">
                 {lang === "zh" ? "位置" : "Location"}
               </p>
-              <p className="font-hans text-[#2c2420] font-semibold">
+              <p className="font-hans text-[var(--ink-title)] font-semibold">
                 {lang === "zh" ? garden.location : garden.locationEn}
               </p>
             </div>
@@ -211,18 +211,18 @@ export function GardenDetail({
 
           {/* Description */}
           <div className="flex flex-col gap-3">
-            <p className="text-[9px] font-bold uppercase tracking-widest text-[#5d5048] border-b border-[#d4c5a9] pb-2">
+            <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2">
               {lang === "zh" ? "园林志 · 英文" : "Garden Record · English"}
             </p>
-            <p className="text-[12px] leading-relaxed text-[#2c2420]">
+            <p className="text-[12px] leading-relaxed text-[var(--ink-title)]">
               {garden.description}
             </p>
             {lang === "zh" && (
               <>
-                <p className="text-[9px] font-bold uppercase tracking-widest text-[#5d5048] border-b border-[#d4c5a9] pb-2 mt-2">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2 mt-2">
                   园林志 · 中文
                 </p>
-                <p className="text-[12px] leading-relaxed text-[#2c2420] font-hans">
+                <p className="text-[12px] leading-relaxed text-[var(--ink-title)] font-hans">
                   {garden.descriptionZh}
                 </p>
               </>
@@ -232,7 +232,7 @@ export function GardenDetail({
           {/* Sub-locations */}
           {children.length > 0 && (
             <div>
-              <p className="text-[9px] font-bold uppercase tracking-widest text-[#5d5048] border-b border-[#d4c5a9] pb-2 mb-3">
+              <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2 mb-3">
                 {lang === "zh" ? "园中胜景" : "Notable Sub-Locations"}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -240,11 +240,11 @@ export function GardenDetail({
                   <button
                     key={child.id}
                     onClick={() => onSelectGarden(child)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[#d4c5a9]/60 hover:border-[#8b4513]/40 hover:bg-[#8b4513]/5 text-[#2c2420] hover:text-[#8b4513] transition-all text-[11px] font-hans"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[var(--paper-border)]/60 hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/5 text-[var(--ink-title)] hover:text-[var(--accent)] transition-all text-[11px] font-hans"
                   >
                     <Home size={10} className="shrink-0" />
                     {lang === "zh" ? child.name : child.nameEn}
-                    <span className="text-[9px] text-[#5d5048]">
+                    <span className="text-[9px] text-[var(--ink-dim-text)]">
                       · {child.pinyin}
                     </span>
                   </button>
@@ -255,7 +255,7 @@ export function GardenDetail({
 
           {/* Chapter Appearances */}
           <div>
-            <p className="text-[9px] font-bold uppercase tracking-widest text-[#5d5048] border-b border-[#d4c5a9] pb-2 mb-3 flex items-center gap-2">
+            <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2 mb-3 flex items-center gap-2">
               <BookOpen size={10} />
               {lang === "zh"
                 ? `章回出现 · 共${mentionedChapters.length}回`
@@ -277,7 +277,7 @@ export function GardenDetail({
                         ? activeChapter === d.ch
                           ? accentColor
                           : accentColor + "70"
-                        : "#d4c5a960",
+                        : "var(--paper-border)60",
                   }}
                   title={`${t.chapterAbbr}${lang === "zh" ? ` ${d.ch} 回` : d.ch}: ${d.count} ${t.mentions(d.count)}`}
                   onClick={() => {
@@ -296,8 +296,8 @@ export function GardenDetail({
                     setActiveChapter((prev) => (prev === d.ch ? null : d.ch))
                   }
                   className={`text-[10px] px-2.5 py-1 rounded-sm border font-bold transition-all ${activeChapter === d.ch
-                      ? "text-[#f4ecd8] border-transparent"
-                      : "border-[#d4c5a9] text-[#5d5048] hover:border-[#8b4513]/40 hover:text-[#8b4513]"
+                      ? "text-[var(--paper-bg)] border-transparent"
+                      : "border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)]"
                     }`}
                   style={
                     activeChapter === d.ch
@@ -322,9 +322,9 @@ export function GardenDetail({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.15 }}
-                  className="mt-4 border border-[#d4c5a9] rounded-sm overflow-hidden"
+                  className="mt-4 border border-[var(--paper-border)] rounded-sm overflow-hidden"
                 >
-                  <div className="flex items-center justify-between px-4 py-2.5 bg-black/3 border-b border-[#d4c5a9]">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-black/3 border-b border-[var(--paper-border)]">
                     <div>
                       <span
                         className="text-[10px] font-bold uppercase tracking-widest font-hans"
@@ -333,7 +333,7 @@ export function GardenDetail({
                         {t.chapterAbbr}
                         {lang === "zh" ? ` ${activeChapter} 回` : activeChapter}
                       </span>
-                      <span className="text-[10px] text-[#5d5048] ml-2 font-hans">
+                      <span className="text-[10px] text-[var(--ink-dim-text)] ml-2 font-hans">
                         {chapters.find((c) => c.id === activeChapter)?.title}
                       </span>
                     </div>
@@ -345,13 +345,13 @@ export function GardenDetail({
                           );
                           if (ch) onSelectChapter(ch);
                         }}
-                        className="text-[9px] px-2 py-1 rounded-sm border text-[#5d5048] border-[#d4c5a9] hover:bg-[#8b4513]/10 hover:text-[#8b4513] transition-colors uppercase tracking-widest font-bold"
+                        className="text-[9px] px-2 py-1 rounded-sm border text-[var(--ink-dim-text)] border-[var(--paper-border)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors uppercase tracking-widest font-bold"
                       >
                         {t.readChapter}
                       </button>
                       <button
                         onClick={() => setActiveChapter(null)}
-                        className="text-[#5d5048] hover:text-[#2c2420]"
+                        className="text-[var(--ink-dim-text)] hover:text-[var(--ink-title)]"
                       >
                         <X size={12} />
                       </button>
@@ -362,7 +362,7 @@ export function GardenDetail({
                     className="p-4 space-y-3 max-h-80 overflow-y-auto"
                   >
                     {activeSnippets.snippets.length === 0 ? (
-                      <p className="text-[11px] italic text-[#5d5048] font-hans">
+                      <p className="text-[11px] italic text-[var(--ink-dim-text)] font-hans">
                         {lang === "zh"
                           ? "无文本摘录。"
                           : "No text excerpts found."}
@@ -381,7 +381,7 @@ export function GardenDetail({
                             className="bg-black/5 rounded-sm px-3 py-2 border-l-2"
                             style={{ borderColor: accentColor + "50" }}
                           >
-                            <p className="text-[11px] leading-relaxed text-[#2c2420] font-hans">
+                            <p className="text-[11px] leading-relaxed text-[var(--ink-title)] font-hans">
                               …
                               {parts.map((part, j) =>
                                 activeSnippets.tokens.includes(part) ? (
@@ -412,7 +412,7 @@ export function GardenDetail({
           </div>
         </div>
 
-        <div className="bg-[#d4c5a9]/20 p-4 text-[#5d5048] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[#d4c5a9] font-hans shrink-0">
+        <div className="bg-[var(--paper-border)]/20 p-4 text-[var(--ink-dim-text)] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[var(--paper-border)] font-hans shrink-0">
           Precious Vibe 品花宝境</div>
       </motion.div>
     </div>

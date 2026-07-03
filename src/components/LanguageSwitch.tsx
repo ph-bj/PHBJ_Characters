@@ -11,7 +11,7 @@ export function LanguageSwitch({
 }) {
   return (
     <div
-      className={`flex bg-black/5 p-1 rounded-sm border border-[#d4c5a9] ${className}`}
+      className={`flex bg-black/5 p-1 rounded-sm border border-[var(--paper-border)] ${className}`}
       role="group"
       aria-label={lang === "zh" ? "语言" : "Language"}
     >
@@ -20,8 +20,8 @@ export function LanguageSwitch({
         onClick={() => setLang("en")}
         className={`${compact ? "px-1.5 py-1 text-[8px]" : "px-3 py-1 text-[10px]"} font-bold uppercase tracking-widest transition-all rounded-sm ${
           lang === "en"
-            ? "bg-[#8b4513] text-[#f4ecd8]"
-            : "text-[#5d5048] hover:bg-black/5"
+            ? "bg-[var(--accent)] text-[var(--paper-bg)]"
+            : "text-[var(--ink-dim-text)] hover:bg-black/5"
         }`}
       >
         EN
@@ -31,8 +31,8 @@ export function LanguageSwitch({
         onClick={() => setLang("zh")}
         className={`${compact ? "px-1.5 py-1 text-[8px]" : "px-3 py-1 text-[10px]"} font-bold uppercase tracking-widest transition-all rounded-sm font-hans ${
           lang === "zh"
-            ? "bg-[#8b4513] text-[#f4ecd8]"
-            : "text-[#5d5048] hover:bg-black/5"
+            ? "bg-[var(--accent)] text-[var(--paper-bg)]"
+            : "text-[var(--ink-dim-text)] hover:bg-black/5"
         }`}
       >
         {compact ? "中" : "中文"}

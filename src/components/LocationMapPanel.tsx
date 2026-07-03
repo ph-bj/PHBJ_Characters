@@ -238,22 +238,22 @@ function LocationTooltipSection({
   const names = formatCharacterNames(location.chars, lang);
 
   return (
-    <div className={showDivider ? 'border-t border-[#d4c5a9]/60 pt-3 mt-3' : ''}>
+    <div className={showDivider ? 'border-t border-[var(--paper-border)]/60 pt-3 mt-3' : ''}>
       <div className="flex items-center gap-2 mb-1">
         <span
-          className="w-2.5 h-2.5 rounded-full border border-[#5d5048]/30 shadow-sm shrink-0"
-          style={{ backgroundColor: locationColors[location.type as LocationType] || '#8b4513' }}
+          className="w-2.5 h-2.5 rounded-full border border-[var(--ink-dim-text)]/30 shadow-sm shrink-0"
+          style={{ backgroundColor: locationColors[location.type as LocationType] || 'var(--accent)' }}
         />
-        <p className="font-bold text-sm leading-tight text-[#2c2420]">
+        <p className="font-bold text-sm leading-tight text-[var(--ink-title)]">
           {lang === 'zh' ? (location.originZh || location.origin) : location.origin}
         </p>
       </div>
 
       {lang === 'en' && location.originZh && location.originZh !== location.origin && (
-        <p className="text-[12px] text-[#8b4513] mb-1 font-hans">{location.originZh}</p>
+        <p className="text-[12px] text-[var(--accent)] mb-1 font-hans">{location.originZh}</p>
       )}
 
-      <p className="text-[12px] text-[#5d5048] mb-1.5 font-medium">
+      <p className="text-[12px] text-[var(--ink-dim-text)] mb-1.5 font-medium">
         {lang === 'zh'
           ? locationTypeLabels[location.type as LocationType]?.zh || location.type
           : locationTypeLabels[location.type as LocationType]?.en || location.type}
@@ -265,8 +265,8 @@ function LocationTooltipSection({
       </p>
 
       {altNames.length > 0 && (
-        <p className="text-[12px] text-[#2c2420]/80 mb-2 leading-relaxed">
-          <span className="text-[#8b4513]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
+        <p className="text-[12px] text-[var(--ink-title)]/80 mb-2 leading-relaxed">
+          <span className="text-[var(--accent)]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
             {lang === 'zh' ? '书中称谓' : 'In the text'}
           </span>
           {altNames.join(' / ')}
@@ -274,8 +274,8 @@ function LocationTooltipSection({
       )}
 
       {(location.chapterIds?.length ?? 0) > 0 && (
-        <p className="text-[12px] text-[#2c2420]/90 mb-2 leading-relaxed">
-          <span className="text-[#8b4513]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
+        <p className="text-[12px] text-[var(--ink-title)]/90 mb-2 leading-relaxed">
+          <span className="text-[var(--accent)]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
             {lang === 'zh' ? '出现回目' : 'Chapter appearances'}
           </span>
           {formatChapterList(location.chapterIds ?? [], lang)}
@@ -283,8 +283,8 @@ function LocationTooltipSection({
       )}
 
       {location.firstSnippet && (location.searchTokens?.length ?? 0) > 0 && (
-        <p className="text-[12px] leading-relaxed font-hans text-[#2c2420]/90 mb-2">
-          <span className="text-[#8b4513]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
+        <p className="text-[12px] leading-relaxed font-hans text-[var(--ink-title)]/90 mb-2">
+          <span className="text-[var(--accent)]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
             {lang === 'zh'
               ? `书中摘录${location.firstChapterId ? `（第${location.firstChapterId}回）` : ''}`
               : `From the novel${location.firstChapterId ? ` (Ch.${location.firstChapterId})` : ''}`}
@@ -296,7 +296,7 @@ function LocationTooltipSection({
               .join('|')})`),
           ).map((part, i) =>
             (location.searchTokens ?? []).includes(part) ? (
-              <mark key={i} className="bg-amber-200 text-[#2c2420] px-0.5 rounded-sm ring-1 ring-amber-300/40">{part}</mark>
+              <mark key={i} className="bg-amber-200 text-[var(--ink-title)] px-0.5 rounded-sm ring-1 ring-amber-300/40">{part}</mark>
             ) : (
               <span key={i}>{part}</span>
             ),
@@ -305,8 +305,8 @@ function LocationTooltipSection({
       )}
 
       {names && (
-        <p className="text-[12px] text-[#2c2420]/80 leading-relaxed">
-          <span className="text-[#8b4513]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
+        <p className="text-[12px] text-[var(--ink-title)]/80 leading-relaxed">
+          <span className="text-[var(--accent)]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
             {lang === 'zh' ? '相关人物' : 'Characters'}
           </span>
           {names}
@@ -328,17 +328,17 @@ function LocationInfoPanel({
   const isCluster = locations.length > 1;
 
   return (
-    <div className="mt-2 bg-[#f4ecd8] text-[#2c2420] p-4 rounded shadow-md border border-[#d4c5a9] relative parchment">
+    <div className="mt-2 bg-[var(--paper-bg)] text-[var(--ink-title)] p-4 rounded shadow-md border border-[var(--paper-border)] relative parchment">
       <button
         onClick={onClose}
-        className="absolute top-2 right-2 p-1 rounded transition-colors bg-[#8b4513] hover:bg-[#a0522d] text-[#f4ecd8] border border-[#8b4513] shadow-sm flex items-center justify-center cursor-pointer"
+        className="absolute top-2 right-2 p-1 rounded transition-colors bg-[var(--accent)] hover:bg-[#a0522d] text-[var(--paper-bg)] border border-[var(--accent)] shadow-sm flex items-center justify-center cursor-pointer"
         aria-label="Close"
       >
         <X size={16} />
       </button>
 
       {isCluster && (
-        <p className="text-xs uppercase tracking-wider text-[#8b4513] mb-3 pb-2 border-b border-[#d4c5a9]/60 font-semibold">
+        <p className="text-xs uppercase tracking-wider text-[var(--accent)] mb-3 pb-2 border-b border-[var(--paper-border)]/60 font-semibold">
           {lang === 'zh'
             ? `${locations.length} 个邻近地点`
             : `${locations.length} nearby locations`}
@@ -435,8 +435,8 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .enter()
       .append('path')
       .attr('d', path as any)
-      .attr('fill', '#f4ecd8')
-      .attr('stroke', '#d4c5a9')
+      .attr('fill', 'var(--paper-bg)')
+      .attr('stroke', 'var(--paper-border)')
       .attr('stroke-width', 1)
       .style('pointer-events', 'none');
 
@@ -450,7 +450,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
     capitalStar.append('path')
       .attr('d', capitalStarPath(CAPITAL_STAR_RADIUS_PX))
       .attr('fill', '#c9a227')
-      .attr('stroke', '#5d5048')
+      .attr('stroke', 'var(--ink-dim-text)')
       .attr('stroke-width', 0.75)
       .style('pointer-events', 'none');
 
@@ -459,8 +459,8 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .attr('y', CAPITAL_STAR_RADIUS_PX + MARKER_LABEL_FONT_SIZE_PX + 1)
       .attr('text-anchor', 'middle')
       .attr('font-size', MARKER_LABEL_FONT_SIZE_PX)
-      .attr('fill', '#5d5048')
-      .attr('stroke', '#f4ecd8')
+      .attr('fill', 'var(--ink-dim-text)')
+      .attr('stroke', 'var(--paper-bg)')
       .attr('stroke-width', 0.75)
       .attr('paint-order', 'stroke')
       .style('pointer-events', 'none')
@@ -507,7 +507,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .enter()
       .append('line')
       .attr('class', 'marker-leader')
-      .attr('stroke', '#5d5048')
+      .attr('stroke', 'var(--ink-dim-text)')
       .attr('stroke-opacity', 0.45)
       .style('pointer-events', 'none');
 
@@ -527,7 +527,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
     markerGroups.append('circle')
       .attr('class', 'marker-bg')
       .attr('r', MARKER_RADIUS_PX + 1)
-      .attr('fill', '#e5dcc3')
+      .attr('fill', 'var(--body-bg)')
       .attr('stroke', 'none')
       .style('pointer-events', 'none');
 
@@ -536,7 +536,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .attr('r', MARKER_RADIUS_PX)
       .attr('fill', locationColors[locationType])
       .attr('fill-opacity', 0.65)
-      .attr('stroke', '#5d5048')
+      .attr('stroke', 'var(--ink-dim-text)')
       .attr('stroke-width', 1)
       .style('pointer-events', 'none');
 
@@ -545,8 +545,8 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .attr('y', MARKER_RADIUS_PX + MARKER_LABEL_FONT_SIZE_PX + 1)
       .attr('text-anchor', 'middle')
       .attr('font-size', MARKER_LABEL_FONT_SIZE_PX)
-      .attr('fill', '#5d5048')
-      .attr('stroke', '#f4ecd8')
+      .attr('fill', 'var(--ink-dim-text)')
+      .attr('stroke', 'var(--paper-bg)')
       .attr('stroke-width', 0.75)
       .attr('paint-order', 'stroke')
       .style('pointer-events', 'none')
@@ -558,7 +558,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
         .attr('fill-opacity', 0.65)
         .attr('stroke-width', 1);
       markerGroups.select('.marker-label')
-        .attr('fill', '#5d5048')
+        .attr('fill', 'var(--ink-dim-text)')
         .attr('font-weight', 400);
 
       const target = d3.select(event.currentTarget);
@@ -567,7 +567,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
         .attr('fill-opacity', 0.9)
         .attr('stroke-width', 2);
       target.select('.marker-label')
-        .attr('fill', '#2c2420')
+        .attr('fill', 'var(--ink-title)')
         .attr('font-weight', 600);
 
       setSelectedLocations([marker.location]);
@@ -588,7 +588,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
 
   if (mapData.length === 0) {
     return (
-      <div className="rounded border border-[#d4c5a9]/50 bg-[#e5dcc3]/50 p-8 text-center text-sm text-[#5d5048] italic">
+      <div className="rounded border border-[var(--paper-border)]/50 bg-[var(--body-bg)]/50 p-8 text-center text-sm text-[var(--ink-dim-text)] italic">
         {lang === 'zh' ? '此类别暂无地点' : 'No locations in this category'}
       </div>
     );
@@ -598,25 +598,25 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
     <div>
       <div className="flex items-center gap-2 mb-2">
         <span
-          className="w-3 h-3 rounded-full border border-[#5d5048] opacity-80 shrink-0"
+          className="w-3 h-3 rounded-full border border-[var(--ink-dim-text)] opacity-80 shrink-0"
           style={{ backgroundColor: locationColors[locationType] }}
         />
-        <h3 className="text-[11px] uppercase tracking-[0.15em] text-[#5d5048] font-bold">
+        <h3 className="text-[11px] uppercase tracking-[0.15em] text-[var(--ink-dim-text)] font-bold">
           {title}
         </h3>
-        <span className="text-[12px] text-[#5d5048] italic ml-auto">
+        <span className="text-[12px] text-[var(--ink-dim-text)] italic ml-auto">
           {lang === 'zh' ? `${mapData.length} 个地点` : `${mapData.length} locations`}
         </span>
       </div>
 
       <div
         ref={containerRef}
-        className="w-full relative overflow-hidden rounded border border-[#d4c5a9]/50 bg-[#e5dcc3]"
+        className="w-full relative overflow-hidden rounded border border-[var(--paper-border)]/50 bg-[var(--body-bg)]"
         style={{ aspectRatio: '4/3', maxHeight: '420px' }}
       >
         <svg ref={svgRef} className="w-full h-full" />
 
-        <div className="absolute bottom-2 left-2 text-[9px] text-[#5d5048] opacity-70 pointer-events-none">
+        <div className="absolute bottom-2 left-2 text-[9px] text-[var(--ink-dim-text)] opacity-70 pointer-events-none">
           {lang === 'zh' ? '点击圆点查看详情，滚动缩放' : 'Click dots for details, scroll to zoom'}
         </div>
       </div>
@@ -633,7 +633,7 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
               .attr('fill-opacity', 0.65)
               .attr('stroke-width', 1);
             svg.selectAll('.marker-label')
-              .attr('fill', '#5d5048')
+              .attr('fill', 'var(--ink-dim-text)')
               .attr('font-weight', 400);
           }}
         />

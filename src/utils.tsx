@@ -267,15 +267,15 @@ export const ROLE_CHIP_IDLE: Record<string, string> = {
 };
 
 export const ROLE_CHIP_ACTIVE: Record<string, string> = {
-  scholar: "bg-[#355070] border-[#355070] text-[#f4ecd8]",
-  performer: "bg-[#8c3b3b] border-[#8c3b3b] text-[#f4ecd8]",
-  official: "bg-[#8a6a2f] border-[#8a6a2f] text-[#f4ecd8]",
-  villain: "bg-[#3f2f2f] border-[#3f2f2f] text-[#f4ecd8]",
-  minor: "bg-[#3f6b63] border-[#3f6b63] text-[#f4ecd8]",
-  female: "bg-[#6b4a7d] border-[#6b4a7d] text-[#f4ecd8]",
-  servant: "bg-[#4d6a3a] border-[#4d6a3a] text-[#f4ecd8]",
-  deceased: "bg-[#5b5f67] border-[#5b5f67] text-[#f4ecd8]",
-  Other: "bg-[#7a5c43] border-[#7a5c43] text-[#f4ecd8]",
+  scholar: "bg-[#355070] border-[#355070] text-[var(--paper-bg)]",
+  performer: "bg-[#8c3b3b] border-[#8c3b3b] text-[var(--paper-bg)]",
+  official: "bg-[#8a6a2f] border-[#8a6a2f] text-[var(--paper-bg)]",
+  villain: "bg-[#3f2f2f] border-[#3f2f2f] text-[var(--paper-bg)]",
+  minor: "bg-[#3f6b63] border-[#3f6b63] text-[var(--paper-bg)]",
+  female: "bg-[#6b4a7d] border-[#6b4a7d] text-[var(--paper-bg)]",
+  servant: "bg-[#4d6a3a] border-[#4d6a3a] text-[var(--paper-bg)]",
+  deceased: "bg-[#5b5f67] border-[#5b5f67] text-[var(--paper-bg)]",
+  Other: "bg-[#7a5c43] border-[#7a5c43] text-[var(--paper-bg)]",
 };
 
 export function extractChineseTokens(text: string): string[] {
@@ -648,8 +648,8 @@ export function renderTextWithSearchHighlight(
         id={`chapter-search-${idx}`}
         className={`px-0.5 rounded-sm ${
           isActive
-            ? "bg-[#8b4513]/35 ring-2 ring-[#8b4513]/50 text-[#2c2420]"
-            : "bg-amber-300/70 text-[#2c2420]"
+            ? "bg-[var(--accent)]/35 ring-2 ring-[var(--accent)]/50 text-[var(--ink-title)]"
+            : "bg-amber-300/70 text-[var(--ink-title)]"
         }`}
       >
         {matchText}
@@ -821,7 +821,7 @@ export function LanguageSwitch({
 }) {
   return (
     <div
-      className={`flex bg-black/5 p-1 rounded-sm border border-[#d4c5a9] ${className}`}
+      className={`flex bg-black/5 p-1 rounded-sm border border-[var(--paper-border)] ${className}`}
       role="group"
       aria-label={lang === "zh" ? "语言" : "Language"}
     >
@@ -830,8 +830,8 @@ export function LanguageSwitch({
         onClick={() => setLang("en")}
         className={`${compact ? "px-1.5 py-1 text-[8px]" : "px-3 py-1 text-[10px]"} font-bold uppercase tracking-widest transition-all rounded-sm ${
           lang === "en"
-            ? "bg-[#8b4513] text-[#f4ecd8]"
-            : "text-[#5d5048] hover:bg-black/5"
+            ? "bg-[var(--accent)] text-[var(--paper-bg)]"
+            : "text-[var(--ink-dim-text)] hover:bg-black/5"
         }`}
       >
         EN
@@ -841,8 +841,8 @@ export function LanguageSwitch({
         onClick={() => setLang("zh")}
         className={`${compact ? "px-1.5 py-1 text-[8px]" : "px-3 py-1 text-[10px]"} font-bold uppercase tracking-widest transition-all rounded-sm font-hans ${
           lang === "zh"
-            ? "bg-[#8b4513] text-[#f4ecd8]"
-            : "text-[#5d5048] hover:bg-black/5"
+            ? "bg-[var(--accent)] text-[var(--paper-bg)]"
+            : "text-[var(--ink-dim-text)] hover:bg-black/5"
         }`}
       >
         {compact ? "中" : "中文"}
@@ -961,9 +961,9 @@ export function NavMenuDropdown({
             width: menuPosition.width,
             zIndex: 60,
           }}
-          className="max-h-[min(70vh,28rem)] overflow-y-auto parchment rounded-sm border-double border-4 border-[#d4c5a9] shadow-xl p-3"
+          className="max-h-[min(70vh,28rem)] overflow-y-auto parchment rounded-sm border-double border-4 border-[var(--paper-border)] shadow-xl p-3"
         >
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[#5d5048] font-bold mb-2 px-1">
+          <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold mb-2 px-1">
             {lang === "zh" ? "快速前往" : "Go To"}
           </p>
           <div className="grid grid-cols-3 gap-1.5 mb-3">
@@ -973,22 +973,22 @@ export function NavMenuDropdown({
                 type="button"
                 role="menuitem"
                 onClick={() => navigate(() => onScrollToSection(id))}
-                className="w-full rounded-sm border border-[#d4c5a9]/70 bg-white/15 hover:bg-[#8b4513]/8 hover:border-[#8b4513]/40 transition-all px-2 py-2 flex flex-col items-center justify-center gap-1 min-w-0 text-center"
+                className="w-full rounded-sm border border-[var(--paper-border)]/70 bg-white/15 hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all px-2 py-2 flex flex-col items-center justify-center gap-1 min-w-0 text-center"
               >
-                <Icon size={15} className="text-[#8b4513] shrink-0" />
-                <span className="text-[10px] font-bold uppercase tracking-wide text-[#2c2420] leading-tight line-clamp-2">
+                <Icon size={15} className="text-[var(--accent)] shrink-0" />
+                <span className="text-[10px] font-bold uppercase tracking-wide text-[var(--ink-title)] leading-tight line-clamp-2">
                   {label}
                 </span>
               </button>
             ))}
           </div>
 
-          <div className="grid grid-cols-3 gap-1.5 pt-2 border-t border-[#d4c5a9]">
+          <div className="grid grid-cols-3 gap-1.5 pt-2 border-t border-[var(--paper-border)]">
             <button
               type="button"
               role="menuitem"
               onClick={() => navigate(onOpenContents)}
-              className="col-span-2 min-h-10 rounded-sm bg-[#8b4513] text-[#f4ecd8] px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
+              className="col-span-2 min-h-10 rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
             >
               <Book size={13} />
               {lang === "zh" ? "目录" : "Contents"}
@@ -997,7 +997,7 @@ export function NavMenuDropdown({
               type="button"
               role="menuitem"
               onClick={() => navigate(onOpenChapter)}
-              className="min-h-10 rounded-sm border border-[#8b4513]/50 text-[#8b4513] bg-[#8b4513]/5 px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
+              className="min-h-10 rounded-sm border border-[var(--accent)]/50 text-[var(--accent)] bg-[var(--accent)]/5 px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
             >
               <BookOpen size={13} />
               {lang === "zh" ? "第一回" : "Ch. 1"}
@@ -1021,7 +1021,7 @@ export function NavMenuDropdown({
           updateMenuPosition();
           setOpen(true);
         }}
-        className="flex items-center gap-1.5 px-3 py-[7px] bg-black/5 rounded-sm border border-[#d4c5a9] text-[#5d5048] hover:bg-black/5 transition-all"
+        className="flex items-center gap-1.5 px-3 py-[7px] bg-black/5 rounded-sm border border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:bg-black/5 transition-all"
         aria-expanded={open}
         aria-haspopup="menu"
         aria-label={lang === "zh" ? "打开菜单" : "Open menu"}

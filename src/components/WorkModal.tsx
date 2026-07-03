@@ -96,19 +96,19 @@ export function WorkModal({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         aria-hidden
-        className="absolute inset-0 z-0 bg-[#2c2420]/80 backdrop-blur-sm pointer-events-none"
+        className="absolute inset-0 z-0 bg-[var(--ink-title)]/80 backdrop-blur-sm pointer-events-none"
       />
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-2xl max-h-[85vh] bg-[#f4ecd8] rounded-sm shadow-2xl border-4 border-double border-[#8b4513] flex flex-col overflow-hidden parchment"
+        className="relative z-10 w-full max-w-2xl max-h-[85vh] bg-[var(--paper-bg)] rounded-sm shadow-2xl border-4 border-double border-[var(--accent)] flex flex-col overflow-hidden parchment"
       >
-        <div className="flex-none p-4 sm:p-6 border-b border-[#d4c5a9]">
+        <div className="flex-none p-4 sm:p-6 border-b border-[var(--paper-border)]">
           <div className="flex justify-between items-start">
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-[#2c2420] font-hans">
+              <h2 className="text-xl sm:text-2xl font-bold text-[var(--ink-title)] font-hans">
                 {lang === "zh"
                   ? `《${work}》`
                   : WORK_ENGLISH_BY_CHINESE[work] || work}
@@ -118,7 +118,7 @@ export function WorkModal({
               <PermalinkButton lang={lang} link={{ kind: "work", key: work }} />
               <button
                 onClick={onClose}
-                className="p-2 -mr-2 text-[#8b4513]/60 hover:text-[#8b4513] hover:bg-[#d4c5a9]/20 rounded-full transition-colors"
+                className="p-2 -mr-2 text-[var(--accent)]/60 hover:text-[var(--accent)] hover:bg-[var(--paper-border)]/20 rounded-full transition-colors"
               >
                 <X size={20} />
               </button>
@@ -133,18 +133,18 @@ export function WorkModal({
         >
           <div className="space-y-6">
             <section>
-              <h3 className="text-sm font-bold text-[#8b4513] uppercase tracking-wider mb-2 font-sans flex items-center gap-2">
+              <h3 className="text-sm font-bold text-[var(--accent)] uppercase tracking-wider mb-2 font-sans flex items-center gap-2">
                 <Book className="w-4 h-4" />
                 {lang === "zh" ? "简介" : "Description"}
               </h3>
-              <p className="text-sm sm:text-base text-[#2c2420]/90 leading-relaxed font-hans whitespace-pre-wrap">
+              <p className="text-sm sm:text-base text-[var(--ink-title)]/90 leading-relaxed font-hans whitespace-pre-wrap">
                 {lang === "zh" ? data.descZh : data.descEn}
               </p>
             </section>
 
             {data.chapters && data.chapters.length > 0 && (
               <section>
-                <h3 className="text-sm font-bold text-[#8b4513] uppercase tracking-wider mb-2 font-sans flex items-center gap-2">
+                <h3 className="text-sm font-bold text-[var(--accent)] uppercase tracking-wider mb-2 font-sans flex items-center gap-2">
                   <Info className="w-4 h-4" />
                   {lang === "zh" ? "出现章节" : "Appears in Chapters"}
                 </h3>
@@ -153,7 +153,7 @@ export function WorkModal({
                     {data.chapters.map((ch) => (
                       <span
                         key={ch}
-                        className="px-2 py-0.5 text-[10px] rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/50 text-[#5d5048] font-sans"
+                        className="px-2 py-0.5 text-[10px] rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/50 text-[var(--ink-dim-text)] font-sans"
                       >
                         {lang === "zh" ? `第${ch}回` : `Chapter ${ch}`}
                       </span>
@@ -166,11 +166,11 @@ export function WorkModal({
 
             {sceneLinks.length > 0 && (
               <section>
-                <h3 className="text-sm font-bold text-[#8b4513] uppercase tracking-wider mb-1 font-sans flex items-center gap-2">
+                <h3 className="text-sm font-bold text-[var(--accent)] uppercase tracking-wider mb-1 font-sans flex items-center gap-2">
                   <Book className="w-4 h-4" />
                   {lang === "zh" ? "场景笔记" : "Scene Notes"}
                 </h3>
-                <p className="text-[10px] text-[#5d5048] italic mb-2">
+                <p className="text-[10px] text-[var(--ink-dim-text)] italic mb-2">
                   {lang === "zh"
                     ? "编者场景摘记中直接涉及此作品之处。"
                     : "Curated scene summaries that invoke this work directly."}
@@ -179,14 +179,14 @@ export function WorkModal({
                   {sceneLinks.map((link, idx) => (
                     <div
                       key={`${link.characterId}-${link.chapter}-${idx}`}
-                      className="border border-[#d4c5a9]/70 rounded-sm p-2 bg-[#f4ecd8]/60"
+                      className="border border-[var(--paper-border)]/70 rounded-sm p-2 bg-[var(--paper-bg)]/60"
                     >
-                      <p className="text-[10px] font-bold text-[#8b4513] mb-1">
+                      <p className="text-[10px] font-bold text-[var(--accent)] mb-1">
                         <button
                           type="button"
                           onClick={() => onSelectCharacter?.(link.character!)}
                           disabled={!onSelectCharacter}
-                          className="underline decoration-dotted underline-offset-2 hover:text-[#2c2420] transition-colors disabled:pointer-events-none disabled:no-underline"
+                          className="underline decoration-dotted underline-offset-2 hover:text-[var(--ink-title)] transition-colors disabled:pointer-events-none disabled:no-underline"
                         >
                           {getCharacterNameForLanguage(link.character!, lang)}
                         </button>
@@ -195,7 +195,7 @@ export function WorkModal({
                           ? `第 ${link.chapter} 回`
                           : `Chapter ${link.chapter}`}
                       </p>
-                      <p className="text-[11px] leading-relaxed font-hans text-[#2c2420]">
+                      <p className="text-[11px] leading-relaxed font-hans text-[var(--ink-title)]">
                         {lang === "zh" ? link.bullet.zh : link.bullet.en}
                       </p>
                     </div>
@@ -206,8 +206,8 @@ export function WorkModal({
 
             {workMentions.length > 0 && (
               <section>
-                <div className="border border-[#d4c5a9] rounded-sm p-3 bg-black/5 space-y-3">
-                  <p className="text-[10px] uppercase tracking-widest font-bold text-[#5d5048]">
+                <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5 space-y-3">
+                  <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)]">
                     {lang === "zh"
                       ? "章节提及与上下文"
                       : "Mentions with Context"}
@@ -216,16 +216,16 @@ export function WorkModal({
                     {workMentions.map(({ chapterId, snippets }) => (
                       <div
                         key={chapterId}
-                        className="border border-[#d4c5a9]/70 rounded-sm p-2 bg-[#f4ecd8]/60"
+                        className="border border-[var(--paper-border)]/70 rounded-sm p-2 bg-[var(--paper-bg)]/60"
                       >
-                        <p className="text-[10px] font-bold text-[#8b4513] mb-1">
+                        <p className="text-[10px] font-bold text-[var(--accent)] mb-1">
                           {lang === "zh"
                             ? `第 ${chapterId} 回`
                             : `Chapter ${chapterId}`}{" "}
                           ({snippets.length})
                         </p>
                         {snippets.length === 0 ? (
-                          <p className="text-[11px] text-[#5d5048] italic">
+                          <p className="text-[11px] text-[var(--ink-dim-text)] italic">
                             {lang === "zh"
                               ? "无上下文摘录。"
                               : "No surrounding snippet found."}
@@ -235,7 +235,7 @@ export function WorkModal({
                             {snippets.map((snippet, idx) => (
                               <p
                                 key={`${chapterId}-${idx}`}
-                                className="text-[11px] leading-relaxed font-hans text-[#2c2420]"
+                                className="text-[11px] leading-relaxed font-hans text-[var(--ink-title)]"
                               >
                                 …
                                 {(workTokenRegex
@@ -246,7 +246,7 @@ export function WorkModal({
                                   return isMatch ? (
                                     <mark
                                       key={`${chapterId}-${idx}-${partIdx}`}
-                                      className="bg-amber-300/70 text-[#2c2420] px-0.5 rounded-sm"
+                                      className="bg-amber-300/70 text-[var(--ink-title)] px-0.5 rounded-sm"
                                     >
                                       {part}
                                     </mark>

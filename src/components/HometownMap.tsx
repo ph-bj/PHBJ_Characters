@@ -132,14 +132,14 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
 
   return (
     <div
-      className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] mt-6 scroll-mt-24"
+      className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] mt-6 scroll-mt-24"
       id="hometown-map"
     >
-      <div className="flex items-baseline justify-between border-b border-[#d4c5a9] pb-2 mb-4">
-        <h2 className="text-sm uppercase tracking-[0.2em] text-[#5d5048] font-bold">
+      <div className="flex items-baseline justify-between border-b border-[var(--paper-border)] pb-2 mb-4">
+        <h2 className="text-sm uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
           {lang === 'zh' ? '全书地点与人物分布图' : 'Locations & Character Hometowns'}
         </h2>
-        <span className="text-[14px] text-[#5d5048] italic">
+        <span className="text-[14px] text-[var(--ink-dim-text)] italic">
           {lang === 'zh' ? `${totalLocations} 个地点` : `${totalLocations} locations`}
         </span>
       </div>
@@ -159,17 +159,17 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
               onClick={() => setActiveType(type)}
               className={`w-full min-h-[45px] px-2 py-1.5 rounded-sm border text-[14px] sm:text-[14px] leading-tight text-center transition-all flex flex-col items-center justify-center gap-1 ${
                 isActive
-                  ? 'bg-[#8b4513] text-[#f4ecd8] border-[#8b4513] shadow-sm'
-                  : 'bg-[#f4ecd8]/80 text-[#5d5048] border-[#d4c5a9] hover:bg-[#f4ecd8] hover:text-[#2c2420] hover:border-[#8b4513]/50'
+                  ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)] shadow-sm'
+                  : 'bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] border-[var(--paper-border)] hover:bg-[var(--paper-bg)] hover:text-[var(--ink-title)] hover:border-[var(--accent)]/50'
               }`}
             >
               <div className="flex items-center justify-center gap-1.5 font-semibold">
-                {Icon && <Icon size={14} className={isActive ? "text-[#f4ecd8]" : "text-[#8b4513]"} />}
+                {Icon && <Icon size={14} className={isActive ? "text-[var(--paper-bg)]" : "text-[var(--accent)]"} />}
                 <span>
                   {lang === 'zh' ? label.zh : label.en}
                 </span>
               </div>
-              <span className={`block text-[11px] ${isActive ? 'text-[#f4ecd8]/80' : 'text-[#5d5048]/60'}`}>
+              <span className={`block text-[11px] ${isActive ? 'text-[var(--paper-bg)]/80' : 'text-[var(--ink-dim-text)]/60'}`}>
                 {count} {lang === 'zh' ? '处' : 'pts'}
               </span>
             </button>
@@ -189,7 +189,7 @@ export function HometownMap({ characters, lang }: HometownMapProps) {
           />
         </div>
       ) : (
-        <div className="rounded border border-[#d4c5a9]/50 bg-[#e5dcc3]/50 p-8 text-center text-sm text-[#5d5048] italic">
+        <div className="rounded border border-[var(--paper-border)]/50 bg-[var(--body-bg)]/50 p-8 text-center text-sm text-[var(--ink-dim-text)] italic">
           {lang === 'zh' ? '暂无地点数据' : 'No location data available'}
         </div>
       )}

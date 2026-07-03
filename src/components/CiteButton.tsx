@@ -90,7 +90,7 @@ export function CiteButton({
         }}
         aria-expanded={open}
         title={lang === 'zh' ? '引用本站' : 'Cite this site'}
-        className="flex items-center gap-1.5 px-2 py-1.5 rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#5d5048] hover:bg-[#8b4513]/10 hover:text-[#8b4513] transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation"
+        className="flex items-center gap-1.5 px-2 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation"
       >
         <Quote size={12} />
         <span>{lang === 'zh' ? '引用' : 'Cite'}</span>
@@ -98,14 +98,14 @@ export function CiteButton({
       {open && (
         <div
           onClick={(event) => event.stopPropagation()}
-          className={`absolute z-[130] w-[min(88vw,400px)] parchment border-2 border-[#d4c5a9] rounded-sm shadow-xl p-3 space-y-3 text-left ${
+          className={`absolute z-[130] w-[min(88vw,400px)] parchment border-2 border-[var(--paper-border)] rounded-sm shadow-xl p-3 space-y-3 text-left ${
             direction === 'down' ? 'top-full mt-2' : 'bottom-full mb-2'
           } ${align === 'right' ? 'right-0' : 'left-0'}`}
         >
           {entries.map(({ style, text }) => (
             <div key={style}>
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#8b4513]">
+                <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--accent)]">
                   {style}
                 </span>
                 <button
@@ -113,7 +113,7 @@ export function CiteButton({
                   onClick={async () => {
                     if (await copyText(text)) setCopied(style);
                   }}
-                  className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-[#5d5048] hover:text-[#8b4513] transition-colors touch-manipulation"
+                  className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-[var(--ink-dim-text)] hover:text-[var(--accent)] transition-colors touch-manipulation"
                 >
                   {copied === style ? <Check size={11} /> : <Copy size={11} />}
                   {copied === style
@@ -121,7 +121,7 @@ export function CiteButton({
                     : (lang === 'zh' ? '复制' : 'Copy')}
                 </button>
               </div>
-              <p className="text-[11px] leading-snug text-[#2c2420] select-all break-words">
+              <p className="text-[11px] leading-snug text-[var(--ink-title)] select-all break-words">
                 {text}
               </p>
             </div>

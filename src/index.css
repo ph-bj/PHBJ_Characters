@@ -7,19 +7,43 @@
   --font-sans: "Inter", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+/* ── Parchment theme (warm brown) ── */
 :root {
+  --body-bg: #e5dcc3;
+  --body-bg-gradient-center: #f4ecd8;
   --paper-bg: #f4ecd8;
   --paper-border: #d4c5a9;
   --ink-main: #140d0b;
   --ink-dim: #3a2e28;
+  --ink-title: #2c2420;
+  --ink-dim-text: #5d5048;
   --accent: #8b4513;
+  --accent-glow: rgba(139, 69, 19, 0.6);
+  --accent-glow-light: rgba(139, 69, 19, 0.4);
+  --accent-inset: rgba(139, 69, 19, 0.05);
+}
+
+/* ── 青梅 theme (jade-green) ── */
+[data-theme="plum"] {
+  --body-bg: #e2eacc;
+  --body-bg-gradient-center: #eef3dc;
+  --paper-bg: #f2f5e4;
+  --paper-border: #c0cf9a;
+  --ink-main: #1a2612;
+  --ink-dim: #2e3d24;
+  --ink-title: #2a3520;
+  --ink-dim-text: #4a5d3a;
+  --accent: #5c7a3a;
+  --accent-glow: rgba(92, 122, 58, 0.6);
+  --accent-glow-light: rgba(92, 122, 58, 0.4);
+  --accent-inset: rgba(92, 122, 58, 0.05);
 }
 
 body {
-  background-color: #e5dcc3;
+  background-color: var(--body-bg);
   background-image: 
     url("./assets/patterns/parchment.png"),
-    radial-gradient(circle at center, #f4ecd8 0%, #e5dcc3 100%);
+    radial-gradient(circle at center, var(--body-bg-gradient-center) 0%, var(--body-bg) 100%);
   color: var(--ink-main);
   font-family: var(--font-sans);
 }
@@ -28,7 +52,7 @@ body {
   position: relative;
   background-color: var(--paper-bg);
   border: 1px solid var(--paper-border);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1), inset 0 0 40px rgba(139, 69, 19, 0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1), inset 0 0 40px var(--accent-inset);
   isolation: isolate;
 }
 
@@ -63,7 +87,7 @@ body {
 
 .glowing-work {
   color: var(--accent);
-  text-shadow: 0 0 8px rgba(139, 69, 19, 0.6), 0 0 12px rgba(139, 69, 19, 0.4);
+  text-shadow: 0 0 8px var(--accent-glow), 0 0 12px var(--accent-glow-light);
   font-weight: 700;
 }
 

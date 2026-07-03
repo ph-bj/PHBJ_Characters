@@ -21,7 +21,7 @@ function renderInline(text: string): ReactNode[] {
     const token = match[0];
     if (token.startsWith('**')) {
       parts.push(
-        <strong key={key++} className="font-bold text-[#2c2420]">
+        <strong key={key++} className="font-bold text-[var(--ink-title)]">
           {token.slice(2, -2)}
         </strong>
       );
@@ -36,13 +36,13 @@ function renderInline(text: string): ReactNode[] {
       const linkText = token.slice(1, closingBracket);
       const linkUrl = token.slice(closingBracket + 2, -1);
       parts.push(
-        <a key={key++} href={linkUrl} target="_blank" rel="noopener noreferrer" className="text-[#8b4513] underline hover:opacity-80 transition-opacity">
+        <a key={key++} href={linkUrl} target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] underline hover:opacity-80 transition-opacity">
           {linkText}
         </a>
       );
     } else {
       parts.push(
-        <code key={key++} className="text-[12px] px-1 py-0.5 rounded-sm bg-[#d4c5a9]/40 text-[#5d5048]">
+        <code key={key++} className="text-[12px] px-1 py-0.5 rounded-sm bg-[var(--paper-border)]/40 text-[var(--ink-dim-text)]">
           {token.slice(1, -1)}
         </code>
       );
@@ -167,27 +167,27 @@ export function QuestionAnswer({ content }: { content: string }) {
   const blocks = parseBlocks(content);
 
   return (
-    <article className="question-answer space-y-4 text-sm sm:text-base text-[#2c2420] leading-relaxed font-hans">
+    <article className="question-answer space-y-4 text-sm sm:text-base text-[var(--ink-title)] leading-relaxed font-hans">
       {blocks.map((block, idx) => {
         switch (block.type) {
           case 'h3':
             return (
               <h3
                 key={idx}
-                className="text-base sm:text-lg font-bold text-[#8b4513] border-b border-[#d4c5a9] pb-2 pt-1 first:pt-0"
+                className="text-base sm:text-lg font-bold text-[var(--accent)] border-b border-[var(--paper-border)] pb-2 pt-1 first:pt-0"
               >
                 {renderInline(block.text)}
               </h3>
             );
           case 'p':
             return (
-              <p key={idx} className="text-[#2c2420]/95 leading-relaxed">
+              <p key={idx} className="text-[var(--ink-title)]/95 leading-relaxed">
                 {renderInline(block.text)}
               </p>
             );
           case 'ul':
             return (
-              <ul key={idx} className="list-disc pl-5 sm:pl-6 space-y-2 marker:text-[#8b4513]/70">
+              <ul key={idx} className="list-disc pl-5 sm:pl-6 space-y-2 marker:text-[var(--accent)]/70">
                 {block.items.map((item, j) => (
                   <li
                     key={j}
@@ -203,7 +203,7 @@ export function QuestionAnswer({ content }: { content: string }) {
             );
           case 'ol':
             return (
-              <ol key={idx} className="list-decimal pl-5 sm:pl-6 space-y-2 marker:text-[#8b4513]/70 marker:font-bold">
+              <ol key={idx} className="list-decimal pl-5 sm:pl-6 space-y-2 marker:text-[var(--accent)]/70 marker:font-bold">
                 {block.items.map((item, j) => (
                   <li key={j} className="leading-relaxed pl-1">
                     {renderInline(item)}
@@ -215,7 +215,7 @@ export function QuestionAnswer({ content }: { content: string }) {
             return (
               <blockquote
                 key={idx}
-                className="border-l-4 border-[#8b4513]/35 bg-[#f4ecd8]/80 pl-4 pr-3 py-3 rounded-r-sm italic text-[#4a3f38] text-[13px] sm:text-sm leading-relaxed shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]"
+                className="border-l-4 border-[var(--accent)]/35 bg-[var(--paper-bg)]/80 pl-4 pr-3 py-3 rounded-r-sm italic text-[#4a3f38] text-[13px] sm:text-sm leading-relaxed shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]"
               >
                 {block.lines.map((line, j) => (
                   <p key={j} className={j > 0 ? 'mt-2' : undefined}>

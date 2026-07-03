@@ -335,7 +335,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .selectAll("line")
       .data(links)
       .join("line")
-      .attr("stroke", "#8b4513")
+      .attr("stroke", "var(--accent)")
       .attr("stroke-opacity", baseLinkOpacity)
       .attr("stroke-width", baseLinkWidth);
 
@@ -355,11 +355,11 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .join("text")
       .attr("font-size", "8px")
       .attr("font-weight", "700")
-      .attr("fill", "#5d5048")
+      .attr("fill", "var(--ink-dim-text)")
       .attr("text-anchor", "middle")
       .attr("dy", -8)
       .attr("paint-order", "stroke")
-      .attr("stroke", "#f4ecd8")
+      .attr("stroke", "var(--paper-bg)")
       .attr("stroke-width", 1.5)
       .style("opacity", mode === 'cooccurrence' ? 0 : 1)
       .text(linkLabel);
@@ -404,7 +404,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     // Opaque background circle to hide lines behind the node
     node.append("circle")
       .attr("r", nodeRadius)
-      .attr("fill", "#f4ecd8");
+      .attr("fill", "var(--paper-bg)");
 
     node.append("circle")
       .attr("r", nodeRadius)
@@ -554,14 +554,14 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       className={
         isFullscreen
           ? "!fixed inset-0 z-[100] w-full h-[100dvh] max-h-[100dvh] parchment overflow-hidden pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)]"
-          : "w-full h-[400px] sm:h-[520px] md:h-[580px] lg:h-[650px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative"
+          : "w-full h-[400px] sm:h-[520px] md:h-[580px] lg:h-[650px] xl:h-[800px] parchment border-4 border-double border-[var(--paper-border)] rounded-sm overflow-hidden relative"
       }
     >
       <div className="absolute top-4 left-4 z-10 pointer-events-none max-w-[55%]">
-        <h3 className="text-xs font-bold uppercase tracking-widest text-[#8b4513]">
+        <h3 className="text-xs font-bold uppercase tracking-widest text-[var(--accent)]">
           {lang === 'en' ? 'Character Network' : '人物关系图谱'}
         </h3>
-        <p className="text-[10px] text-[#5d5048] italic">
+        <p className="text-[10px] text-[var(--ink-dim-text)] italic">
           {mode === 'curated'
             ? (lang === 'en'
               ? 'Drag nodes · Double-click profile · Click legend to filter'
@@ -570,7 +570,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
               ? 'Edge = shared chapters · Thicker = more chapters together'
               : '连线=同回出现 · 线越粗共现回数越多')}
         </p>
-        <div className="pointer-events-auto mt-2 inline-flex items-center gap-1 bg-[#f4ecd8]/90 border border-[#d4c5a9] rounded-sm p-0.5 backdrop-blur-sm">
+        <div className="pointer-events-auto mt-2 inline-flex items-center gap-1 bg-[var(--paper-bg)]/90 border border-[var(--paper-border)] rounded-sm p-0.5 backdrop-blur-sm">
           {(['curated', 'cooccurrence'] as GraphMode[]).map((m) => (
             <button
               key={m}
@@ -579,8 +579,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
               aria-pressed={mode === m}
               className={`px-2 py-1 text-[9px] font-bold uppercase tracking-wider rounded-sm transition-colors touch-manipulation ${
                 mode === m
-                  ? 'bg-[#8b4513] text-[#f4ecd8]'
-                  : 'text-[#5d5048] hover:bg-black/5'
+                  ? 'bg-[var(--accent)] text-[var(--paper-bg)]'
+                  : 'text-[var(--ink-dim-text)] hover:bg-black/5'
               }`}
             >
               {m === 'curated'
@@ -591,7 +591,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         </div>
         {mode === 'cooccurrence' && (
           <div className="pointer-events-auto mt-1.5 flex items-center gap-1">
-            <span className="text-[9px] font-bold uppercase tracking-wider text-[#5d5048]">
+            <span className="text-[9px] font-bold uppercase tracking-wider text-[var(--ink-dim-text)]">
               {lang === 'en' ? 'Min shared' : '共现回数'}
             </span>
             {CO_OCCURRENCE_THRESHOLDS.map((threshold) => (
@@ -602,8 +602,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                 aria-pressed={minShared === threshold}
                 className={`px-1.5 py-0.5 text-[9px] font-bold rounded-sm border transition-colors touch-manipulation ${
                   minShared === threshold
-                    ? 'bg-[#8b4513] text-[#f4ecd8] border-[#8b4513]'
-                    : 'text-[#5d5048] border-[#d4c5a9] bg-[#f4ecd8]/90 hover:bg-black/5'
+                    ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
+                    : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
                 }`}
               >
                 ≥{threshold}
@@ -612,12 +612,12 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           </div>
         )}
       </div>
-      <div className="absolute top-4 right-4 z-10 bg-[#f4ecd8]/90 p-2 rounded border border-[#d4c5a9] backdrop-blur-sm max-w-[120px] md:max-w-[160px] lg:max-w-none">
+      <div className="absolute top-4 right-4 z-10 bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm max-w-[120px] md:max-w-[160px] lg:max-w-none">
         {hiddenRoles.size > 0 && (
           <button
             type="button"
             onClick={showAllRoles}
-            className="mb-1.5 w-full text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[#8b4513] hover:text-[#2c2420] transition-colors touch-manipulation"
+            className="mb-1.5 w-full text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation"
           >
             {lang === 'en' ? 'Show all' : '显示全部'}
           </button>
@@ -651,7 +651,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                 />
                 <span
                   className={`text-[8px] sm:text-[10px] font-medium truncate ${
-                    isVisible ? 'text-[#5d5048]' : 'text-[#5d5048]/60 line-through'
+                    isVisible ? 'text-[var(--ink-dim-text)]' : 'text-[var(--ink-dim-text)]/60 line-through'
                   }`}
                 >
                   {lang === 'en' ? (labels?.en ?? role) : (labels?.zh ?? role)}
@@ -667,7 +667,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           event.stopPropagation();
           toggleFullscreen();
         }}
-        className="absolute bottom-4 right-4 z-20 p-2.5 bg-[#f4ecd8] hover:bg-[#d4c5a9] border border-[#8b4513]/30 rounded-full shadow-md transition-colors text-[#5d5048] touch-manipulation"
+        className="absolute bottom-4 right-4 z-20 p-2.5 bg-[var(--paper-bg)] hover:bg-[var(--paper-border)] border border-[var(--accent)]/30 rounded-full shadow-md transition-colors text-[var(--ink-dim-text)] touch-manipulation"
         style={{ bottom: 'max(1rem, env(safe-area-inset-bottom))', right: 'max(1rem, env(safe-area-inset-right))' }}
         title={isFullscreen ? (lang === 'en' ? 'Exit Fullscreen' : '退出全屏') : (lang === 'en' ? 'Fullscreen' : '全屏')}
         aria-label={isFullscreen ? (lang === 'en' ? 'Exit Fullscreen' : '退出全屏') : (lang === 'en' ? 'Fullscreen' : '全屏')}
@@ -685,7 +685,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     return (
       <>
         <div
-          className="w-full h-[400px] sm:h-[520px] md:h-[580px] lg:h-[650px] xl:h-[800px] parchment border-4 border-double border-[#d4c5a9] rounded-sm overflow-hidden relative opacity-40"
+          className="w-full h-[400px] sm:h-[520px] md:h-[580px] lg:h-[650px] xl:h-[800px] parchment border-4 border-double border-[var(--paper-border)] rounded-sm overflow-hidden relative opacity-40"
           aria-hidden="true"
         />
         {createPortal(graphMarkup, document.body)}

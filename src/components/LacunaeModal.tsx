@@ -53,7 +53,7 @@ export function LacunaeModal({
     return (
       <>
         {snippet.slice(0, idx)}
-        <mark className="bg-amber-300/70 text-[#2c2420] px-1 rounded-sm">
+        <mark className="bg-amber-300/70 text-[var(--ink-title)] px-1 rounded-sm">
           {symbol}
         </mark>
         {snippet.slice(idx + symbol.length)}
@@ -79,14 +79,14 @@ export function LacunaeModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.98 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-3xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[#d4c5a9] shadow-2xl flex flex-col"
+        className="relative z-10 w-full max-w-3xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[var(--paper-border)] shadow-2xl flex flex-col"
       >
-        <div className="p-4 sm:p-5 border-b border-[#d4c5a9] bg-[#f4ecd8] flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] flex items-center justify-between">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#5d5048]">
+            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[var(--ink-dim-text)]">
               {lang === "zh" ? "缺文" : "Lacunae"}
             </p>
-            <h3 className="text-lg font-bold text-[#2c2420]">
+            <h3 className="text-lg font-bold text-[var(--ink-title)]">
               {lang === "zh" ? `第 ${chapterId} 回` : `Chapter ${chapterId}`}
             </h3>
           </div>
@@ -97,7 +97,7 @@ export function LacunaeModal({
             />
             <button
               onClick={onClose}
-              className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#2c2420]"
+              className="p-2 rounded-full hover:bg-black/5 transition-colors text-[var(--ink-title)]"
               aria-label="Close lacunae modal"
             >
               <X size={20} />
@@ -110,8 +110,8 @@ export function LacunaeModal({
           className="p-5 sm:p-6 overflow-y-auto space-y-4"
         >
           {entries.length === 0 ? (
-            <div className="border border-[#d4c5a9] rounded-sm p-5 bg-black/5">
-              <p className="text-[12px] text-[#5d5048] italic">
+            <div className="border border-[var(--paper-border)] rounded-sm p-5 bg-black/5">
+              <p className="text-[12px] text-[var(--ink-dim-text)] italic">
                 {lang === "zh"
                   ? "此回暂无缺文勘误记录。"
                   : "No lacunae annotations are available for this chapter yet."}
@@ -121,9 +121,9 @@ export function LacunaeModal({
             entries.map((entry, idx) => (
               <div
                 key={`${entry.chapterId}-${idx}`}
-                className="border border-[#d4c5a9] rounded-sm p-4 bg-black/5 space-y-3"
+                className="border border-[var(--paper-border)] rounded-sm p-4 bg-black/5 space-y-3"
               >
-                <p className="text-[14px] font-hans text-[#2c2420] leading-relaxed">
+                <p className="text-[14px] font-hans text-[var(--ink-title)] leading-relaxed">
                   {renderSnippet(entry.snippet, entry.symbol)}
                 </p>
 
@@ -131,10 +131,10 @@ export function LacunaeModal({
                   <>
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] uppercase tracking-widest text-[#5d5048] font-bold">
+                        <span className="text-[10px] uppercase tracking-widest text-[var(--ink-dim-text)] font-bold">
                           {lang === "zh" ? "推断字" : "Inferred"}
                         </span>
-                        <span className="text-3xl leading-none font-serif text-[#2c2420]">
+                        <span className="text-3xl leading-none font-serif text-[var(--ink-title)]">
                           {entry.inferredCharacter}
                         </span>
                       </div>

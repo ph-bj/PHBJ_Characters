@@ -27,7 +27,7 @@ export function PermalinkButton({
         if (await copyText(buildPermalink(link))) setCopied(true);
       }}
       title={lang === 'zh' ? '复制永久链接' : 'Copy permanent link'}
-      className="flex items-center gap-1.5 px-2 py-1.5 rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/80 text-[#5d5048] hover:bg-[#8b4513]/10 hover:text-[#8b4513] transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0"
+      className="flex items-center gap-1.5 px-2 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0"
     >
       {copied ? <Check size={12} /> : <LinkIcon size={12} />}
       <span>

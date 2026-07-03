@@ -34,14 +34,14 @@ export function QuestionsModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.98 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-3xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[#d4c5a9] shadow-2xl flex flex-col"
+        className="relative z-10 w-full max-w-3xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[var(--paper-border)] shadow-2xl flex flex-col"
       >
-        <div className="p-4 sm:p-5 border-b border-[#d4c5a9] bg-[#f4ecd8] flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] flex items-center justify-between">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#5d5048]">
+            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[var(--ink-dim-text)]">
               {lang === "zh" ? "问题" : "Question"}
             </p>
-            <h3 className="text-lg font-bold text-[#2c2420]">
+            <h3 className="text-lg font-bold text-[var(--ink-title)]">
               {lang === "zh" ? question.questionZh : question.questionEn}
             </h3>
           </div>
@@ -52,7 +52,7 @@ export function QuestionsModal({
             />
             <button
               onClick={onClose}
-              className="p-2 rounded-full hover:bg-black/5 transition-colors text-[#2c2420]"
+              className="p-2 rounded-full hover:bg-black/5 transition-colors text-[var(--ink-title)]"
               aria-label="Close questions modal"
             >
               <X size={20} />
@@ -64,7 +64,7 @@ export function QuestionsModal({
           data-overlay-scroll="true"
           className="p-5 sm:p-6 overflow-y-auto space-y-4"
         >
-          <div className="border border-[#d4c5a9] rounded-sm p-5 sm:p-6 bg-black/5">
+          <div className="border border-[var(--paper-border)] rounded-sm p-5 sm:p-6 bg-black/5">
             <QuestionAnswer
               content={lang === "zh" ? question.answerZh : question.answerEn}
             />
