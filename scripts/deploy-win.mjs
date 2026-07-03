@@ -11,12 +11,18 @@ const assetsTarget = join(TARGET, 'assets');
 if (existsSync(assetsTarget)) {
   rmSync(assetsTarget, { recursive: true, force: true });
 }
+const downloadsTarget = join(TARGET, 'downloads');
+if (existsSync(downloadsTarget)) {
+  rmSync(downloadsTarget, { recursive: true, force: true });
+}
 
 cpSync('dist/index.html', join(TARGET, 'index.html'));
+cpSync('dist/favicon.svg', join(TARGET, 'favicon.svg'));
 cpSync('dist/assets', assetsTarget, { recursive: true });
+cpSync('dist/downloads', downloadsTarget, { recursive: true });
 
 console.log('Committing and pushing...');
-execSync(`git -C "${TARGET}" add index.html assets/`, { stdio: 'inherit', shell: true });
+execSync(`git -C "${TARGET}" add index.html favicon.svg assets/ downloads/`, { stdio: 'inherit', shell: true });
 
 const hasChanges = execSync(`git -C "${TARGET}" diff --cached --name-only`, {
   encoding: 'utf8',
