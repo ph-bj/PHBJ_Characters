@@ -67,15 +67,6 @@ export const PlumCorner: React.FC = () => (
         stroke={INK}
         strokeWidth="0.6"
       />
-      {/* Cleft Line */}
-      <path
-        d="M 0 -3 C -0.7 0.5, -0.7 4, 0 8"
-        fill="none"
-        stroke={INK}
-        strokeWidth="0.35"
-        strokeDasharray="1 0.7"
-        opacity="0.6"
-      />
     </g>
   </svg>
 );
