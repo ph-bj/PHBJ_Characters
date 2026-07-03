@@ -90,7 +90,10 @@ import { LacunaeModal } from "./components/LacunaeModal";
 import { QuestionsModal } from "./components/QuestionsModal";
 import { WorkModal } from "./components/WorkModal";
 import { LocationDetail } from "./components/LocationDetail";
-import { ChapterReader } from "./components/ChapterReader";
+import {
+  ChapterReader,
+  readLastReadingPosition,
+} from "./components/ChapterReader";
 import { HometownMap } from "./components/HometownMap";
 import { CharacterCard } from "./components/CharacterCard";
 import { CharacterDetail } from "./components/CharacterDetail";
@@ -788,6 +791,78 @@ export default function App() {
   );
   const hasOpenOverlay = hasOpenModal || mobileMenuOpen;
 
+  // True while a modal is stacked above the chapter reader, so the reader's
+  // own keyboard shortcuts stay quiet.
+  const readerObscured = Boolean(
+    selectedCharacter ||
+    selectedGarden ||
+    selectedLocation ||
+    selectedWork ||
+    activeLacunaChapter !== null ||
+    selectedQuestion !== null,
+  );
+
+  const [lastReadPosition, setLastReadPosition] = useState(() =>
+    readLastReadingPosition(),
+  );
+  useEffect(() => {
+    if (selectedChapter === null) setLastReadPosition(readLastReadingPosition());
+  }, [selectedChapter]);
+  const continueReadingChapter = lastReadPosition
+    ? chapters.find((c) => c.id === lastReadPosition.id) ?? null
+    : null;
+
+  // Escape closes the topmost open overlay (popovers handle Escape themselves
+  // and call preventDefault, so they win over this handler).
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape" || event.defaultPrevented) return;
+      const target = event.target as HTMLElement | null;
+      if (
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
+      const closeTopmost = (): boolean => {
+        if (selectedWork) {
+          setSelectedWork(null);
+        } else if (activeLacunaChapter !== null) {
+          setActiveLacunaChapter(null);
+        } else if (selectedQuestion !== null) {
+          setSelectedQuestion(null);
+        } else if (selectedCharacter) {
+          setSelectedCharacter(null);
+        } else if (selectedGarden) {
+          setSelectedGarden(null);
+        } else if (selectedLocation) {
+          setSelectedLocation(null);
+        } else if (selectedChapter) {
+          setSelectedChapter(null);
+        } else if (mobileMenuOpen) {
+          setMobileMenuOpen(false);
+        } else {
+          return false;
+        }
+        return true;
+      };
+      if (closeTopmost()) event.preventDefault();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [
+    selectedWork,
+    activeLacunaChapter,
+    selectedQuestion,
+    selectedCharacter,
+    selectedGarden,
+    selectedLocation,
+    selectedChapter,
+    mobileMenuOpen,
+  ]);
+
   useLayoutEffect(() => {
     if (!hasOpenOverlay) return;
 
@@ -1224,6 +1299,28 @@ export default function App() {
                       );
                     })}
                   </div>
+
+                  {continueReadingChapter && (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedChapter(continueReadingChapter)}
+                      className="w-full mb-3 flex items-center gap-2 px-2.5 py-2 rounded-sm border border-[#8b4513]/40 bg-[#8b4513]/8 hover:bg-[#8b4513]/15 transition-colors text-left"
+                    >
+                      <BookOpen size={14} className="text-[#8b4513] shrink-0" />
+                      <span className="min-w-0">
+                        <span className="block text-[8px] uppercase tracking-widest text-[#8b4513] font-bold">
+                          {lang === "zh" ? "继续阅读" : "Continue reading"}
+                        </span>
+                        <span className="block text-[11px] font-hans text-[#2c2420] truncate">
+                          {continueReadingChapter.id === 0
+                            ? lang === "zh"
+                              ? "序"
+                              : "Preface"
+                            : continueReadingChapter.title}
+                        </span>
+                      </span>
+                    </button>
+                  )}
 
                   {/* Sort controls */}
                   <div className="grid grid-cols-2 gap-1 mb-3">
@@ -2201,7 +2298,9 @@ export default function App() {
             onClose={() => setSelectedChapter(null)}
             lang={lang}
             onSelectCharacter={(character) => setSelectedCharacter(character)}
+            onSelectChapter={setSelectedChapter}
             onSelectLacuna={() => setActiveLacunaChapter(selectedChapter.id)}
+            keysSuspended={readerObscured}
           />
         )}
       </AnimatePresence>

@@ -1,6 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { Book, ChevronDown, ChevronUp, Search, X } from "lucide-react";
+import {
+  ArrowUp,
+  Book,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  Search,
+  X,
+} from "lucide-react";
 import { characters } from "../data";
 import { chapters } from "../chapters";
 import { chapterSummaries } from "../chapterSummaries";
@@ -31,24 +40,176 @@ import {
 import { PermalinkButton } from "./PermalinkButton";
 import { ChapterScene } from "./illustrations/ChapterScene";
 
+export const READER_LAST_POSITION_KEY = "phbj-reader-last-position";
+const READER_FONT_SCALE_KEY = "phbj-reader-font-scale";
+const READER_FONT_SCALES = [0.85, 1, 1.15, 1.3, 1.5];
+const DEFAULT_FONT_SCALE_INDEX = 1;
+
+export function readLastReadingPosition(): { id: number; top: number } | null {
+  try {
+    const raw = localStorage.getItem(READER_LAST_POSITION_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { id?: unknown; top?: unknown };
+    if (typeof parsed?.id === "number" && typeof parsed?.top === "number") {
+      return { id: parsed.id, top: parsed.top };
+    }
+  } catch {
+    // Ignore unreadable storage; treated as "no saved position".
+  }
+  return null;
+}
+
 export function ChapterReader({
   chapter,
   onClose,
   lang,
   onSelectCharacter,
+  onSelectChapter,
   onSelectLacuna,
+  keysSuspended = false,
 }: {
   chapter: Chapter;
   onClose: () => void;
   lang: "en" | "zh";
   onSelectCharacter: (character: Character) => void;
+  onSelectChapter: (chapter: Chapter) => void;
   onSelectLacuna: () => void;
+  /** True while another modal is stacked above the reader. */
+  keysSuspended?: boolean;
 }) {
   const [chapterSearchInput, setChapterSearchInput] = useState("");
   const [chapterSearchQuery, setChapterSearchQuery] = useState("");
   const [chapterSearchMatchIndex, setChapterSearchMatchIndex] = useState(0);
   const chapterSearchMatchCounter = useRef(0);
   const chapterWorkAnchorIdsRef = useRef<Map<string, string>>(new Map());
+  const contentScrollRef = useRef<HTMLDivElement | null>(null);
+  const progressBarRef = useRef<HTMLDivElement | null>(null);
+  const savePositionTimer = useRef<number | null>(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [fontScaleIndex, setFontScaleIndex] = useState(() => {
+    try {
+      const raw = localStorage.getItem(READER_FONT_SCALE_KEY);
+      const stored = raw === null ? NaN : Number(raw);
+      if (
+        Number.isInteger(stored) &&
+        stored >= 0 &&
+        stored < READER_FONT_SCALES.length
+      ) {
+        return stored;
+      }
+    } catch {
+      // Fall through to the default scale.
+    }
+    return DEFAULT_FONT_SCALE_INDEX;
+  });
+
+  const adjustFontScale = (delta: 1 | -1) => {
+    setFontScaleIndex((prev) => {
+      const next = Math.min(
+        READER_FONT_SCALES.length - 1,
+        Math.max(0, prev + delta),
+      );
+      try {
+        localStorage.setItem(READER_FONT_SCALE_KEY, String(next));
+      } catch {
+        // Storage unavailable; the size still applies for this session.
+      }
+      return next;
+    });
+  };
+
+  const chapterIndex = chapters.findIndex((c) => c.id === chapter.id);
+  const prevChapter = chapterIndex > 0 ? chapters[chapterIndex - 1] : null;
+  const nextChapter =
+    chapterIndex >= 0 && chapterIndex < chapters.length - 1
+      ? chapters[chapterIndex + 1]
+      : null;
+
+  const chapterNavLabel = (target: Chapter) => {
+    if (target.id === 0) return lang === "zh" ? "序" : "Preface";
+    return lang === "zh" ? `第${target.id}回` : `Ch. ${target.id}`;
+  };
+
+  // Progress bar and saved position are updated via refs / debounced storage
+  // writes so scrolling never re-renders the (expensive) annotated text.
+  const handleContentScroll = () => {
+    const el = contentScrollRef.current;
+    if (!el) return;
+    const max = el.scrollHeight - el.clientHeight;
+    const ratio = max > 0 ? Math.min(1, el.scrollTop / max) : 0;
+    if (progressBarRef.current) {
+      progressBarRef.current.style.width = `${ratio * 100}%`;
+    }
+    setShowBackToTop(el.scrollTop > 600);
+    if (chapter.id >= 0) {
+      if (savePositionTimer.current !== null) {
+        window.clearTimeout(savePositionTimer.current);
+      }
+      savePositionTimer.current = window.setTimeout(() => {
+        try {
+          localStorage.setItem(
+            READER_LAST_POSITION_KEY,
+            JSON.stringify({ id: chapter.id, top: el.scrollTop }),
+          );
+        } catch {
+          // Storage unavailable; resume-reading simply won't persist.
+        }
+      }, 250);
+    }
+  };
+
+  useEffect(() => {
+    const el = contentScrollRef.current;
+    if (!el) return;
+    const saved = readLastReadingPosition();
+    const top = saved && saved.id === chapter.id ? saved.top : 0;
+    el.scrollTop = top;
+    if (chapter.id >= 0) {
+      try {
+        localStorage.setItem(
+          READER_LAST_POSITION_KEY,
+          JSON.stringify({ id: chapter.id, top }),
+        );
+      } catch {
+        // Storage unavailable; resume-reading simply won't persist.
+      }
+    }
+    handleContentScroll();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chapter.id]);
+
+  useEffect(
+    () => () => {
+      if (savePositionTimer.current !== null) {
+        window.clearTimeout(savePositionTimer.current);
+      }
+    },
+    [],
+  );
+
+  useEffect(() => {
+    if (keysSuspended) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
+      if (e.key === "ArrowLeft" && prevChapter) {
+        e.preventDefault();
+        onSelectChapter(prevChapter);
+      } else if (e.key === "ArrowRight" && nextChapter) {
+        e.preventDefault();
+        onSelectChapter(nextChapter);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [keysSuspended, prevChapter, nextChapter, onSelectChapter]);
 
   const runChapterSearch = () => {
     setChapterSearchQuery(chapterSearchInput.trim());
@@ -353,6 +514,29 @@ export function ChapterReader({
                 {lang === "zh" ? "搜索" : "Search"}
               </span>
             </button>
+            <div className="flex items-center shrink-0 rounded-sm border border-[#d4c5a9] overflow-hidden">
+              <button
+                type="button"
+                onClick={() => adjustFontScale(-1)}
+                disabled={fontScaleIndex === 0}
+                className="px-2 py-1.5 text-[11px] font-bold font-sans text-[#5d5048] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
+                aria-label={lang === "zh" ? "缩小字号" : "Decrease text size"}
+                title={lang === "zh" ? "缩小字号" : "Decrease text size"}
+              >
+                A−
+              </button>
+              <div className="w-px self-stretch bg-[#d4c5a9]" aria-hidden />
+              <button
+                type="button"
+                onClick={() => adjustFontScale(1)}
+                disabled={fontScaleIndex === READER_FONT_SCALES.length - 1}
+                className="px-2 py-1.5 text-[11px] font-bold font-sans text-[#5d5048] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
+                aria-label={lang === "zh" ? "放大字号" : "Increase text size"}
+                title={lang === "zh" ? "放大字号" : "Increase text size"}
+              >
+                A+
+              </button>
+            </div>
             {chapterSearchQuery.trim() && (
               <div className="flex items-center gap-1 shrink-0">
                 <span className="text-[10px] tabular-nums text-[#5d5048] font-sans min-w-[2.5rem] text-center">
@@ -385,11 +569,23 @@ export function ChapterReader({
           </div>
         </div>
 
+        <div className="h-[3px] bg-[#8b4513]/10 shrink-0" aria-hidden>
+          <div
+            ref={progressBarRef}
+            className="h-full w-0 bg-[#8b4513]/60"
+          />
+        </div>
+
         <div
+          ref={contentScrollRef}
+          onScroll={handleContentScroll}
           data-overlay-scroll="true"
           className="flex-1 min-h-0 overflow-y-auto px-5 py-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:p-12 font-serif text-[var(--ink-main)] leading-loose selection:bg-[#8b4513]/20 scrollbar-thin"
         >
-          <div className="max-w-2xl mx-auto space-y-6">
+          <div
+            className="max-w-2xl mx-auto space-y-6"
+            style={{ fontSize: `${READER_FONT_SCALES[fontScaleIndex]}rem` }}
+          >
             <div className="text-center mb-12">
               <div className="w-16 h-1 bg-[#8b4513]/20 mx-auto mb-6" />
               <h3
@@ -417,7 +613,7 @@ export function ChapterReader({
                   <p className="text-[11px] font-bold text-[#2c2420]">
                     {lang === "zh" ? "英文" : "English"}
                   </p>
-                  <p className="text-sm sm:text-base text-[#4a3f38] leading-relaxed font-sans whitespace-pre-line">
+                  <p className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-relaxed font-sans whitespace-pre-line">
                     {renderAnnotated(chapterSummary.en)}
                   </p>
                 </div>
@@ -425,7 +621,7 @@ export function ChapterReader({
                   <p className="text-[11px] font-bold text-[#2c2420]">
                     {lang === "zh" ? "中文" : "Chinese"}
                   </p>
-                  <p className="text-[12px] text-[#2c2420] font-hans leading-relaxed whitespace-pre-line">
+                  <p className="text-[0.8em] text-[#2c2420] font-hans leading-relaxed whitespace-pre-line">
                     {renderAnnotated(chapterSummary.zh)}
                   </p>
                 </div>
@@ -455,24 +651,44 @@ export function ChapterReader({
             {chapter.id >= 1 && <ChapterScene chapterId={chapter.id} />}
             {chapter.id === -1 ? (
               <div className="space-y-5">
-                {chapter.content.split("\n").map((line, i) => (
-                  <div key={i} className="border-b border-[#d4c5a9]/50 pb-4">
-                    <p className="text-base font-hans text-[#2c2420] leading-snug">
-                      {renderTextWithSearchHighlight(
-                        line,
-                        chapterSearchQuery,
-                        chapterSearchMatchIndex,
-                        chapterSearchMatchCounter,
-                      )}
-                    </p>
-                    {chapterTitleTranslations[i + 1] != null &&
-                      chapterTitleTranslations[i + 1] !== "" && (
-                        <p className="text-[12px] italic text-[#5d5048] mt-1 leading-snug">
-                          {chapterTitleTranslations[i + 1]}
+                {chapter.content.split("\n").map((line, i) => {
+                  const targetChapter =
+                    chapters.find((c) => c.id === i + 1) ?? null;
+                  return (
+                    <div key={i} className="border-b border-[#d4c5a9]/50 pb-4">
+                      <button
+                        type="button"
+                        disabled={!targetChapter}
+                        onClick={() =>
+                          targetChapter && onSelectChapter(targetChapter)
+                        }
+                        title={
+                          targetChapter
+                            ? lang === "zh"
+                              ? "打开本回"
+                              : "Open this chapter"
+                            : undefined
+                        }
+                        className="w-full text-left group cursor-pointer disabled:cursor-default"
+                      >
+                        <p className="text-[1em] font-hans text-[#2c2420] leading-snug transition-colors group-hover:text-[#8b4513]">
+                          {renderTextWithSearchHighlight(
+                            line,
+                            chapterSearchQuery,
+                            chapterSearchMatchIndex,
+                            chapterSearchMatchCounter,
+                          )}
                         </p>
-                      )}
-                  </div>
-                ))}
+                        {chapterTitleTranslations[i + 1] != null &&
+                          chapterTitleTranslations[i + 1] !== "" && (
+                            <p className="text-[0.75em] italic text-[#5d5048] mt-1 leading-snug">
+                              {chapterTitleTranslations[i + 1]}
+                            </p>
+                          )}
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
             ) : translationMap[chapter.id] ? (
               <div className="space-y-8 pl-7 sm:pl-0">
@@ -492,20 +708,20 @@ export function ChapterReader({
                     </span>
                     {lang === "en" && translationMap[chapter.id][i] ? (
                       <>
-                        <p className="text-sm sm:text-base text-[#4a3f38] leading-7 font-sans whitespace-pre-line">
+                        <p className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
                           {renderAnnotated(translationMap[chapter.id][i])}
                         </p>
-                        <p className="text-base font-hans text-[#2c2420] leading-relaxed mt-3">
+                        <p className="text-[1em] font-hans text-[#2c2420] leading-relaxed mt-3">
                           {renderAnnotated(para)}
                         </p>
                       </>
                     ) : (
                       <>
-                        <p className="text-base font-hans text-[#2c2420] leading-relaxed">
+                        <p className="text-[1em] font-hans text-[#2c2420] leading-relaxed">
                           {renderAnnotated(para)}
                         </p>
                         {translationMap[chapter.id][i] && (
-                          <p className="text-sm sm:text-base text-[#4a3f38] mt-3 leading-7 font-sans whitespace-pre-line">
+                          <p className="text-[0.875em] sm:text-[1em] text-[#4a3f38] mt-3 leading-[1.75] font-sans whitespace-pre-line">
                             {renderAnnotated(translationMap[chapter.id][i])}
                           </p>
                         )}
@@ -515,7 +731,7 @@ export function ChapterReader({
                 ))}
               </div>
             ) : (
-              <div className="whitespace-pre-wrap text-base sm:text-lg italic font-hans first-letter:text-4xl first-letter:font-bold first-letter:mr-1 first-letter:float-left">
+              <div className="whitespace-pre-wrap text-[1em] sm:text-[1.125em] italic font-hans first-letter:text-4xl first-letter:font-bold first-letter:mr-1 first-letter:float-left">
                 {renderAnnotated(chapter.content)}
               </div>
             )}
@@ -559,8 +775,50 @@ export function ChapterReader({
           </div>
         </div>
 
-        <div className="bg-[#d4c5a9]/20 p-4 text-[#5d5048] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[#d4c5a9] font-hans shrink-0">
-          Precious Vibe 品花宝境
+        {showBackToTop && (
+          <button
+            type="button"
+            onClick={() =>
+              contentScrollRef.current?.scrollTo({ top: 0, behavior: "smooth" })
+            }
+            className="absolute bottom-16 right-4 sm:right-6 z-20 p-2.5 rounded-full border border-[#d4c5a9] bg-[#f4ecd8]/95 text-[#8b4513] shadow-md hover:bg-[#8b4513] hover:text-[#f4ecd8] transition-colors"
+            aria-label={lang === "zh" ? "回到顶部" : "Back to top"}
+            title={lang === "zh" ? "回到顶部" : "Back to top"}
+          >
+            <ArrowUp size={16} />
+          </button>
+        )}
+
+        <div className="bg-[#d4c5a9]/20 border-t border-[#d4c5a9] shrink-0 px-3 sm:px-4 py-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] flex items-center justify-between gap-3">
+          {prevChapter ? (
+            <button
+              type="button"
+              onClick={() => onSelectChapter(prevChapter)}
+              title={getChapterReaderTitle(prevChapter, lang)}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/60 text-[11px] font-bold font-hans text-[#5d5048] hover:text-[#8b4513] hover:border-[#8b4513]/40 transition-colors shrink-0"
+            >
+              <ChevronLeft size={14} />
+              <span>{chapterNavLabel(prevChapter)}</span>
+            </button>
+          ) : (
+            <span aria-hidden className="w-16 shrink-0" />
+          )}
+          <div className="min-w-0 truncate text-[#5d5048] text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.5em] text-center font-hans">
+            Precious Vibe 品花宝境
+          </div>
+          {nextChapter ? (
+            <button
+              type="button"
+              onClick={() => onSelectChapter(nextChapter)}
+              title={getChapterReaderTitle(nextChapter, lang)}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[#d4c5a9] bg-[#f4ecd8]/60 text-[11px] font-bold font-hans text-[#5d5048] hover:text-[#8b4513] hover:border-[#8b4513]/40 transition-colors shrink-0"
+            >
+              <span>{chapterNavLabel(nextChapter)}</span>
+              <ChevronRight size={14} />
+            </button>
+          ) : (
+            <span aria-hidden className="w-16 shrink-0" />
+          )}
         </div>
       </motion.div>
     </div>

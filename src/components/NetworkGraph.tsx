@@ -218,7 +218,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     if (!isFullscreen) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+      // Skip when another overlay already consumed this Escape press.
+      if (event.key === 'Escape' && !event.defaultPrevented) {
         setIsFullscreen(false);
       }
     };

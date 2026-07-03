@@ -78,7 +78,11 @@ export function NavMenuDropdown({
       setOpen(false);
     };
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        // Claim the key so the app-level Escape handler doesn't also react.
+        event.preventDefault();
+        setOpen(false);
+      }
     };
 
     document.addEventListener("mousedown", handlePointerDown);

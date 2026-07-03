@@ -49,7 +49,12 @@ export function CiteButton({
       }
     };
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpen(false);
+      if (event.key === 'Escape') {
+        // Claim the key so the app-level Escape handler doesn't also close
+        // the modal underneath this popover.
+        event.preventDefault();
+        setOpen(false);
+      }
     };
     document.addEventListener('pointerdown', onPointerDown);
     document.addEventListener('keydown', onKeyDown);
