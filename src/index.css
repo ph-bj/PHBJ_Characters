@@ -21,6 +21,10 @@
   --accent-glow: rgba(139, 69, 19, 0.6);
   --accent-glow-light: rgba(139, 69, 19, 0.4);
   --accent-inset: rgba(139, 69, 19, 0.05);
+  --legend-place: #a0522d;
+  --legend-garden: #cd853f;
+  --legend-site: #8b4513;
+  --legend-landscape: #d2b48c;
 }
 
 /* ── 青梅 theme (jade-green) ── */
@@ -37,6 +41,10 @@
   --accent-glow: rgba(92, 122, 58, 0.6);
   --accent-glow-light: rgba(92, 122, 58, 0.4);
   --accent-inset: rgba(92, 122, 58, 0.05);
+  --legend-place: #5c7a3a;
+  --legend-garden: #8db34a;
+  --legend-site: #4a5d3a;
+  --legend-landscape: #c5d66a;
 }
 
 body {
