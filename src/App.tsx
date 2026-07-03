@@ -100,7 +100,6 @@ import { OperaNight } from "./components/illustrations/OperaNight";
 import { PlumBlossomBanquet } from "./components/illustrations/PlumBlossomBanquet";
 import { ScholarStudy } from "./components/illustrations/ScholarStudy";
 import { MainInkLandscape } from "./components/illustrations/MainInkLandscape";
-import { PlumCorner } from "./components/illustrations/PlumCorner";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -973,7 +972,6 @@ export default function App() {
             id="stats"
             className="relative parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm flex flex-col gap-6 md:gap-8 lg:gap-10 border-double border-4 border-[#d4c5a9] scroll-mt-24"
           >
-            <PlumCorner />
             <div>
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">
                 {t.hometown}
@@ -1366,7 +1364,6 @@ export default function App() {
             id="gardens"
             className="relative parchment p-4 sm:p-8 rounded-sm flex flex-col gap-5 border-double border-4 border-[#d4c5a9] scroll-mt-24"
           >
-            <PlumCorner />
             <div>
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-1 font-bold border-b border-[#d4c5a9] pb-2 flex items-center gap-2">
                 <Leaf size={11} className="text-[#4d6a3a]" />
@@ -1450,7 +1447,6 @@ export default function App() {
             id="lacunae"
             className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24"
           >
-            <PlumCorner />
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-4 font-bold border-b border-[#d4c5a9] pb-2">
               {lang === "zh" ? "缺文" : "Lacunae"}
             </h2>
@@ -1500,7 +1496,6 @@ export default function App() {
             id="questions"
             className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24"
           >
-            <PlumCorner />
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-4 font-bold border-b border-[#d4c5a9] pb-2">
               {lang === "zh" ? "问题" : "Questions"}
             </h2>
@@ -1525,7 +1520,6 @@ export default function App() {
 
           {/* About Section */}
           <div id="about" className="relative parchment p-5 sm:p-8 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24">
-            <PlumCorner />
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-4 font-bold border-b border-[#d4c5a9] pb-2">
               {lang === "en" ? "About Precious Vibe" : "关于品花宝境"}
             </h2>
@@ -1646,7 +1640,6 @@ export default function App() {
             id="characters"
             className="relative parchment p-4 sm:p-6 rounded-sm flex flex-col gap-4 sm:gap-6 border-double border-4 border-[#d4c5a9] scroll-mt-24"
           >
-            <PlumCorner />
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <div className="relative flex-1 w-full">
                 <Search
@@ -1760,7 +1753,6 @@ export default function App() {
             id="chapters"
             className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24"
           >
-            <PlumCorner />
             <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] mb-6 font-bold border-b border-[#d4c5a9] pb-2">
               {t.chapters}
             </h2>
@@ -1832,7 +1824,6 @@ export default function App() {
             id="works"
             className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24"
           >
-            <PlumCorner />
             <div className="flex items-baseline justify-between border-b border-[#d4c5a9] pb-2 mb-4">
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] font-bold">
                 {lang === "zh" ? "引书与作品" : "Works Cited"}
@@ -1897,7 +1888,6 @@ export default function App() {
             id="locations"
             className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24"
           >
-            <PlumCorner />
             <div className="flex items-baseline justify-between border-b border-[#d4c5a9] pb-2 mb-4">
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] font-bold flex items-center gap-2">
                 <MapPin size={12} className="text-[#8b4513]" />
@@ -1950,7 +1940,6 @@ export default function App() {
             id="downloads"
             className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[#d4c5a9] scroll-mt-24"
           >
-            <PlumCorner />
             <div className="flex items-baseline justify-between border-b border-[#d4c5a9] pb-2 mb-4">
               <h2 className="text-xs uppercase tracking-[0.2em] text-[#5d5048] font-bold flex items-center gap-2">
                 <Download size={12} className="text-[#8b4513]" />

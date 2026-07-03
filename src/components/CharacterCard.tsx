@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import type { Character } from "../types";
 import { ROLE_ACCENTS, ROLE_TEXT_COLORS, ROLE_TINTS } from "../utils";
+import { PlumCorner } from "./illustrations/PlumCorner";
 
 export function CharacterCard({
   character,
@@ -35,6 +36,7 @@ export function CharacterCard({
       }`}
       style={{ borderLeftColor: accentColor }}
     >
+      {character.id === "char-0" && <PlumCorner />}
       <span className="absolute top-4 right-4 text-[9px] sm:text-[10px] font-serif italic opacity-40">
         {character.chapter}
       </span>
