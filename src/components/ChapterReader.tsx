@@ -472,6 +472,25 @@ export function ChapterReader({
               </h2>
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
+              {chapter.id !== -1 && (
+                <button
+                  onClick={() =>
+                    onSelectChapter({
+                      id: -1,
+                      title: "目录",
+                      content: chapters
+                        .filter((c) => c.id > 0)
+                        .map((c) => c.title)
+                        .join("\n"),
+                    })
+                  }
+                  className="p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)] shrink-0"
+                  title={lang === "zh" ? "目录" : "Contents"}
+                  aria-label={lang === "zh" ? "目录" : "Contents"}
+                >
+                  <Book size={20} />
+                </button>
+              )}
               <PermalinkButton
                 lang={lang}
                 link={{ kind: "chapter", id: chapter.id }}
@@ -803,9 +822,30 @@ export function ChapterReader({
           ) : (
             <span aria-hidden className="w-16 shrink-0" />
           )}
-          <div className="min-w-0 truncate text-[var(--ink-dim-text)] text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.5em] text-center font-hans">
-            Precious Vibe 品花宝境
-          </div>
+          {chapter.id !== -1 ? (
+            <button
+              type="button"
+              onClick={() =>
+                onSelectChapter({
+                  id: -1,
+                  title: "目录",
+                  content: chapters
+                    .filter((c) => c.id > 0)
+                    .map((c) => c.title)
+                    .join("\n"),
+                })
+              }
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-[11px] font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0 cursor-pointer"
+              title={lang === "zh" ? "返回目录" : "Back to Contents"}
+            >
+              <Book size={14} />
+              <span>{lang === "zh" ? "目录" : "Contents"}</span>
+            </button>
+          ) : (
+            <div className="min-w-0 truncate text-[var(--ink-dim-text)] text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.5em] text-center font-hans">
+              Precious Vibe 品花宝境
+            </div>
+          )}
           {nextChapter ? (
             <button
               type="button"
