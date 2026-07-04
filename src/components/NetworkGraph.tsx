@@ -11,18 +11,6 @@ const CO_OCCURRENCE_THRESHOLDS = [3, 5, 8, 15];
 
 const ROLE_ORDER = ['performer', 'scholar', 'villain', 'female', 'official', 'servant', 'deceased', 'minor'];
 
-const ROLE_COLORS: Record<string, string> = {
-  scholar: '#355070',
-  performer: '#8c3b3b',
-  official: '#8a6a2f',
-  villain: '#3f2f2f',
-  minor: '#3f6b63',
-  female: '#6b4a7d',
-  servant: '#4d6a3a',
-  deceased: '#5b5f67',
-  Other: '#7a5c43'
-};
-
 const ROLE_LABELS: Record<string, { en: string, zh: string }> = {
   scholar: { en: 'Scholar', zh: '名士' },
   performer: { en: 'Performer', zh: '伶人' },
@@ -33,6 +21,16 @@ const ROLE_LABELS: Record<string, { en: string, zh: string }> = {
   servant: { en: 'Servant', zh: '仆从' },
   deceased: { en: 'Deceased', zh: '已故' },
   Other: { en: 'Other', zh: '其他' },
+};
+
+const getRoleColorVar = (role: string) => {
+  const key = ROLE_LABELS[role] ? role : 'Other';
+  return `var(--role-${key})`;
+};
+
+const getRoleBgColorVar = (role: string) => {
+  const key = ROLE_LABELS[role] ? role : 'Other';
+  return `var(--role-${key}-bg)`;
 };
 
 const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
@@ -408,8 +406,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
     node.append("circle")
       .attr("r", nodeRadius)
-      .attr("fill", (d: any) => `${ROLE_COLORS[d.role] || ROLE_COLORS.Other}22`) // 22 is ~13% opacity for parchment feel
-      .attr("stroke", (d: any) => ROLE_COLORS[d.role] || ROLE_COLORS.Other)
+      .attr("fill", (d: any) => getRoleBgColorVar(d.role))
+      .attr("stroke", (d: any) => getRoleColorVar(d.role))
       .attr("stroke-width", 1.5);
 
     node.append("text")
@@ -417,7 +415,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .attr("dy", ".35em")
       .attr("font-size", "9px")
       .attr("font-weight", "bold")
-      .attr("fill", (d: any) => ROLE_COLORS[d.role] || ROLE_COLORS.Other)
+      .attr("fill", (d: any) => getRoleColorVar(d.role))
       .text((d: any) => getNodeLabel(d, lang));
 
     const getNodeId = (endpoint: any) =>
@@ -626,7 +624,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           {availableRoles.map((role) => {
             const labels = ROLE_LABELS[role];
             const isVisible = !hiddenRoles.has(role);
-            const color = ROLE_COLORS[role] || ROLE_COLORS.Other;
+            const colorVar = getRoleColorVar(role);
+            const bgColorVar = getRoleBgColorVar(role);
             return (
               <button
                 key={role}
@@ -645,8 +644,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                 <div
                   className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full border shrink-0 ${isVisible ? '' : 'border-dashed'}`}
                   style={{
-                    backgroundColor: isVisible ? `${color}22` : 'transparent',
-                    borderColor: color,
+                    backgroundColor: isVisible ? bgColorVar : 'transparent',
+                    borderColor: colorVar,
                   }}
                 />
                 <span

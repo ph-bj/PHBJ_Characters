@@ -25,6 +25,26 @@
   --legend-garden: #cd853f;
   --legend-site: #8b4513;
   --legend-landscape: #d2b48c;
+
+  /* Network Graph Role Colors */
+  --role-scholar: #355070;
+  --role-scholar-bg: rgba(53, 80, 112, 0.13);
+  --role-performer: #8c3b3b;
+  --role-performer-bg: rgba(140, 59, 59, 0.13);
+  --role-official: #8a6a2f;
+  --role-official-bg: rgba(138, 106, 47, 0.13);
+  --role-villain: #3f2f2f;
+  --role-villain-bg: rgba(63, 47, 47, 0.13);
+  --role-minor: #3f6b63;
+  --role-minor-bg: rgba(63, 107, 99, 0.13);
+  --role-female: #6b4a7d;
+  --role-female-bg: rgba(107, 74, 125, 0.13);
+  --role-servant: #4d6a3a;
+  --role-servant-bg: rgba(77, 106, 58, 0.13);
+  --role-deceased: #5b5f67;
+  --role-deceased-bg: rgba(91, 95, 103, 0.13);
+  --role-Other: #7a5c43;
+  --role-Other-bg: rgba(122, 92, 67, 0.13);
 }
 
 /* ── 青梅 theme (jade-green) ── */
@@ -45,6 +65,26 @@
   --legend-garden: #8db34a;
   --legend-site: #4a5d3a;
   --legend-landscape: #c5d66a;
+
+  /* Network Graph Role Colors (Jade Plum Harmony) */
+  --role-scholar: #2b4f6e;
+  --role-scholar-bg: rgba(43, 79, 110, 0.13);
+  --role-performer: #8c3b4a;
+  --role-performer-bg: rgba(140, 59, 74, 0.13);
+  --role-official: #705933;
+  --role-official-bg: rgba(112, 89, 51, 0.13);
+  --role-villain: #353c30;
+  --role-villain-bg: rgba(53, 60, 48, 0.13);
+  --role-minor: #507c72;
+  --role-minor-bg: rgba(80, 124, 114, 0.13);
+  --role-female: #7c5980;
+  --role-female-bg: rgba(124, 89, 128, 0.13);
+  --role-servant: #536e40;
+  --role-servant-bg: rgba(83, 110, 64, 0.13);
+  --role-deceased: #6a7368;
+  --role-deceased-bg: rgba(106, 115, 104, 0.13);
+  --role-Other: #7f6854;
+  --role-Other-bg: rgba(127, 104, 84, 0.13);
 }
 
 body {
