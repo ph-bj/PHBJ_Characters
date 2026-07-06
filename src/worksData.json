@@ -663,8 +663,8 @@
     ]
   },
   "图书集成": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即《古今图书集成》，清代官修大型类书，陈梦雷主持编纂、蒋廷锡奉敕校订，雍正四年（1726）以铜活字排印，共一万卷，为中国现存规模最大的类书。小说中王胡子欲以三千两将一部转卖给徐子云。",
+    "descEn": "The Gujin Tushu Jicheng (Complete Collection of Illustrations and Writings from Antiquity to the Present), the vast Qing imperial encyclopedia compiled under Chen Mengléi and printed with bronze movable type in 1726, totaling 10,000 juan. In the novel Old Wang tries to sell a set to Xu Ziyun for 3,000 taels.",
     "contextZh": "在小说第45回中被引用，例如：“...奈王胡子要候子云回来，消些东西。还有一部《图书集成》，这部书是个难消的，心上要想求子云买这部...”。",
     "contextEn": "Cited in chapter 45 of the novel.",
     "chapters": [
@@ -673,8 +673,8 @@
     ]
   },
   "怡情佚史": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第一回自述的本书别名：作者称此书六十卷，\"名曰《品花宝鉴》，又曰《怡情佚史》\"，即《品花宝鉴》自身的又名。",
+    "descEn": "An alternate title of Pinhua Baojian itself: chapter 1 states the sixty-juan work is \"called Pinhua Baojian, also called Yiqing Yishi (A Leisure History of Pleasing Sentiments).\"",
     "contextZh": "在小说第1回中被引用，例如：“...于书，共成六十卷，名曰《品花宝鉴》，又曰《怡情佚史》。书中有宾有主，不即不离，藕断丝连，花浓...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -682,8 +682,8 @@
     ]
   },
   "鹊桥": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清洪昇《长生殿》（1688年定稿）\"密誓\"一出的前半，演七夕牛郎织女鹊桥相会、唐明皇与杨贵妃长生殿盟誓事，常与《密誓》连称。",
+    "descEn": "A kunqu highlight from Hong Sheng's The Palace of Everlasting Life (Changsheng Dian, 1688): the Magpie Bridge meeting of the Weaver Maid and Cowherd on Double Seventh night, prelude to the lovers' vow scene \"Secret Oath.\"",
     "contextZh": "在小说第1回中被引用，例如：“...。姑苏人。隶联锦部。善丹青，娴吟咏。其演《鹊桥》、《密誓》、《惊梦》、《寻梦》等出，艳夺...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -700,8 +700,8 @@
     ]
   },
   "亭会": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明徐复祚传奇《红梨记》（万历年间），演书生赵汝州与妓女谢素秋月夜亭中相会事，为小生、旦脚经典对儿戏。",
+    "descEn": "A kunqu scene from Xu Fuzuo's Ming chuanqi The Red Pear (Honglí Ji, Wanli era): scholar Zhao Ruzhou's moonlit pavilion tryst with the courtesan Xie Suqiu.",
     "contextZh": "在小说第1回中被引用，例如：“...其演《瑶台》、《盘秋》、《亭会》诸戏，真见香心如诉，娇韵欲流。吴绛仙秀色...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -709,8 +709,8 @@
     ]
   },
   "秋江": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子，出自明高濂传奇《玉簪记》（约万历初年），演道姑陈妙常雇舟追赶赴试情人潘必正、秋江舟中相别事，昆曲亦称《追舟》。",
+    "descEn": "A famous scene from Gao Lian's The Jade Hairpin (Yuzan Ji, early Wanli era): the young nun Chen Miaochang hires a boat to chase her departing lover Pan Bizheng down the autumn river.",
     "contextZh": "在小说第1回中被引用，例如：“...香一界，几欲使神仙堕刼矣。其余《琴挑》、《秋江》诸戏，情韵如生，亦非他人所能。而香心婉婉...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -718,8 +718,8 @@
     ]
   },
   "海棠": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "指苏轼咏海棠之诗。小说所引\"嫣然一笑竹篱间，桃李漫山总粗俗\"出自苏轼谪居黄州时所作《寓居定惠院之东，杂花满山，有海棠一株》（1080年）。",
+    "descEn": "Su Shi's crabapple poem: the quoted lines \"One radiant smile among the bamboo fence; peach and plum over the hills seem coarse\" come from his 1080 Huangzhou poem on a solitary crabapple by Dinghui Monastery.",
     "contextZh": "在小说第1回中被引用，例如：“...咏，工丝竹，围碁、马吊，皆精绝一时。东坡《海棠》诗云：「嫣然一笑竹篱间，桃李漫山总粗俗。...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -727,8 +727,8 @@
     ]
   },
   "折柳阳关": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明汤显祖传奇《紫钗记》（约1587年），演李益赴玉门关外任，霍小玉灞桥折柳、阳关送别事，是旦脚哀艳缠绵的代表剧目。",
+    "descEn": "The kunqu scene \"Snapping the Willow at Yang Pass\" from Tang Xianzu's The Purple Hairpin (Zichai Ji, c. 1587): Huo Xiaoyu's heartbroken farewell to Li Yi as he departs for the frontier.",
     "contextZh": "在小说第1回中被引用，例如：“...柔旖旎中，自具不可夺之志，真殊艳也。其演《折柳阳关》一出，名噪京师。见其婉转娇柔，哀情艳思，...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -754,8 +754,8 @@
     ]
   },
   "藏舟": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清初苏州派朱佐朝传奇《渔家乐》，演渔家女邬飞霞舟中藏匿避祸的简人同（清河王刘蒜），二人订情事。",
+    "descEn": "A kunqu scene from Zhu Zuochao's early-Qing chuanqi The Fisherman's Joy (Yujia Le): the fisher-girl Wu Feixia hides the fugitive prince in her boat, and the two pledge their love.",
     "contextZh": "在小说第1回中被引用，例如：“...，已恨黄衫剑容，不能杀却此负情郎也。再演《藏舟》、《草地》、《寄扇》等戏，情思皆足动人。...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -772,8 +772,8 @@
     ]
   },
   "寄扇": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清孔尚任传奇《桃花扇》（1699年成书），演李香君血溅诗扇、杨龙友点染成桃花，托苏昆生寄扇与侯方域事。",
+    "descEn": "The scene \"Sending the Fan\" from Kong Shangren's The Peach Blossom Fan (Taohua Shan, 1699): Li Xiangjun's blood-spattered fan, painted into peach blossoms, is sent to her lover Hou Fangyu.",
     "contextZh": "在小说第1回中被引用，例如：“...杀却此负情郎也。再演《藏舟》、《草地》、《寄扇》等戏，情思皆足动人。真琼树朝朝，金莲步步...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -781,8 +781,8 @@
     ]
   },
   "阳关": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即《阳关曲》（《阳关三叠》），据唐王维《送元二使安西》\"西出阳关无故人\"谱成的送别歌曲，唐宋以来传唱不衰，亦为琴歌名曲。",
+    "descEn": "The Yangguan Song (\"Three Refrains on the Yang Pass\"), the classic parting song set to Wang Wei's Tang quatrain \"Seeing Yuan Er Off to Anxi,\" long sung at farewells and preserved as a qin song.",
     "contextZh": "在小说第1回中被引用，例如：“...动人最是《阳关》曲，听得征夫恨不堪。...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -790,8 +790,8 @@
     ]
   },
   "双红记": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "明代传奇，合演唐人小说中红线盗盒（袁郊《红线传》）与昆仑奴负红绡（裴铏《昆仑奴》）两段侠女侠奴故事，因两主角名皆有\"红\"字得名，昆班常演其《盗盒》等出。",
+    "descEn": "A Ming chuanqi weaving together two Tang tales of \"red\" heroines: Hongxian stealing the golden casket and the Kunlun slave rescuing Hongxiao; kunqu troupes staged excerpts such as \"Stealing the Casket.\"",
     "contextZh": "在小说第1回中被引用，例如：“...其演《双红记》、《盗令》、《青门》诸出，梳乌蛮譬，贯金...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -808,8 +808,8 @@
     ]
   },
   "刺虎": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清初传奇《铁冠图》（作者不详），演明亡之际宫女费贞娥假扮公主，洞房中刺杀闯将\"一只虎\"李固（李过）后自尽事，为刺杀旦名剧。",
+    "descEn": "The kunqu scene \"Stabbing the Tiger\" from the early-Qing chuanqi The Iron Crown (Tieguan Tu): palace maid Fei Zhen'e, posing as a princess, assassinates the rebel general \"One Tiger\" on their wedding night.",
     "contextZh": "在小说第1回中被引用，例如：“...剑，如荼如火，如锦如云，真红线后身也。其《刺虎》、《盗令》、《杀舟》诸戏，侠情一往，如见...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -817,8 +817,8 @@
     ]
   },
   "渔阳三挝": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "鼓曲名，用东汉祢衡典：祢衡为曹操击鼓，裸身奏《渔阳掺挝》以示折辱权贵（见《后汉书·祢衡传》），后世以\"渔阳三挝\"称慷慨激越的鼓声。",
+    "descEn": "The \"Yuyang Drum Roll,\" alluding to the Han scholar Mi Heng, who drummed the defiant Yuyang cadence before Cao Cao; the phrase came to denote a stirring, rebellious drum performance.",
     "contextZh": "在小说第1回中被引用，例如：“...光之际，得此君一往，如听李三郎击羯鼓，作《渔阳三挝》，渊渊乎顷刻间见万花齐放也。为之诗曰：...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -826,8 +826,8 @@
     ]
   },
   "讨钗": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明传奇《钗钏记》（旧题月榭主人撰），演丫鬟芸香为小姐史碧桃向皇甫家索讨钗钏信物事，与《相约》《相骂》为一系贴旦做工戏。",
+    "descEn": "A kunqu scene from the Ming chuanqi The Hairpin and Bracelet (Chaichuan Ji): the maid Yunxiang goes to demand the return of her mistress's betrothal hairpin, companion scene to \"The Tryst\" and \"The Quarrel.\"",
     "contextZh": "在小说第1回中被引用，例如：“...酣，真令潘骑省心醉欲死矣。又演《相约》、《讨钗》、《拷艳》诸小出，如娇鸟弄晴，横波修熏，...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -835,8 +835,8 @@
     ]
   },
   "拷艳": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明末袁于令传奇《西楼记》，演池同挟怨拷逼妓女穆素徽、素徽坚贞不屈事，又称《拷姬》。",
+    "descEn": "A kunqu scene from Yuan Yuling's late-Ming chuanqi The Western Bower (Xilou Ji): the courtesan Mu Suhui is beaten to force her submission but remains faithful to her lover.",
     "contextZh": "在小说第1回中被引用，例如：“...骑省心醉欲死矣。又演《相约》、《讨钗》、《拷艳》诸小出，如娇鸟弄晴，横波修熏，观者堵立数...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -844,8 +844,8 @@
     ]
   },
   "寄子": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明梁辰鱼传奇《浣纱记》（约嘉靖末年），演伍子胥知吴国将亡，出使齐国时将幼子寄托鲍牧、父子泣别事，为老生名剧。",
+    "descEn": "The kunqu scene \"Entrusting the Son\" from Liang Chenyu's Washing Silk (Huansha Ji, c. 1560s): Wu Zixu, foreseeing Wu's fall, tearfully entrusts his young son to Bao Mu in Qi.",
     "contextZh": "在小说第1回中被引用，例如：“...年，已精于声律，兼通文墨，生旦并作。所演《寄子》、《储谏》、《回猎》、《断机》、《番儿》...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -907,8 +907,8 @@
     ]
   },
   "幽怪": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "指唐牛僧孺志怪小说集《玄怪录》（宋人避讳改题《幽怪录》），与《搜神记》同为志怪代表，小说中以\"《搜神》之记、《幽怪》之书\"泛称奇闻异录。",
+    "descEn": "The Records of the Mysterious and Strange (Xuanguai Lu, retitled Youguai Lu under Song taboo), Niu Sengru's Tang collection of anomaly tales, paired in the novel with the Soushen Ji as archetypal books of marvels.",
     "contextZh": "在小说第1回中被引用，例如：“...不知天地间有此数人，譬如读《搜神》之记，《幽怪》之书。...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -934,8 +934,8 @@
     ]
   },
   "后汉书": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "南朝宋范晔撰纪传体断代史，记东汉一代史事，二十四史之一。小说引其中尚书令陆闳\"姿容如玉\"、光武帝叹\"南方多佳人\"事，证\"佳人\"可称男子。",
+    "descEn": "The Book of the Later Han by Fan Ye (Liu-Song dynasty), the standard history of the Eastern Han; the novel cites Emperor Guangwu's praise of the jade-fair Lu Hong to show \"jiaren\" (beauty) could describe men.",
     "contextZh": "在小说第1回中被引用，例如：“...佳人之永都兮。』注云：『佳人，指怀王。』《后汉书》尚书令陆闳，姿容如玉。光武叹曰：『南方多...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -943,8 +943,8 @@
     ]
   },
   "晋史": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即唐房玄龄等奉敕修《晋书》（648年成书），记两晋史事。小说引陶侃谓部将王贡\"卿本佳人，何为从贼\"语。",
+    "descEn": "The Book of Jin (Jinshu), the Tang official history of the Jin dynasty completed in 648; the novel quotes Tao Kan's line to a wayward officer, \"You were a fine man—why follow rebels?\"",
     "contextZh": "在小说第1回中被引用，例如：“...闳，姿容如玉。光武叹曰：『南方多佳人。』《晋史》陶侃击杜弢，谓其部将王贡曰：『卿本佳人，...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -952,8 +952,8 @@
     ]
   },
   "璇玑图": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "前秦窦滔妻苏蕙所织回文诗图，八百余字纵横反复皆可成诗，苏氏叹\"非我佳人，莫之能解\"，为回文诗之祖，事见《晋书·列女传》。",
+    "descEn": "The Xuanji Tu palindrome poem woven by Su Hui (Former Qin dynasty) for her husband Dou Tao: over 800 characters readable in every direction, famously \"intelligible only to my beloved.\"",
     "contextZh": "在小说第1回中被引用，例如：“...女子称男子为佳人者，如苻秦时窦滔妻苏蕙作《璇玑图》，读者不能尽通。苏氏叹曰：『非我佳人，莫...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -970,8 +970,8 @@
     ]
   },
   "古文观止": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清康熙三十四年（1695）吴楚材、吴调侯叔侄编选的古文选本，收先秦至明代文章二百二十二篇，为最流行的古文启蒙读本。小说中孙嗣徽误记陶渊明《归去来兮辞》出处闹了笑话。",
+    "descEn": "The Guwen Guanzhi (Finest of Ancient Prose, 1695), the ubiquitous anthology of 222 classical prose pieces compiled by Wu Chucai and Wu Diaohou; in the novel a dullard bungles a Tao Yuanming quotation from it.",
     "contextZh": "在小说第2回中被引用，例如：“...若自其口出。这句『鸟倦飞而知还』，是出在《古文观止》上的。若说鸟不可以比人，那《大学》上为什...”。",
     "contextEn": "Cited in chapter 2 of the novel.",
     "chapters": [
@@ -979,8 +979,8 @@
     ]
   },
   "大学": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "儒家经典，原为《礼记》一篇，经宋程颐、朱熹表彰并作《大学章句》，与《中庸》《论语》《孟子》并为\"四书\"，首言\"大学之道，在明明德\"。",
+    "descEn": "The Great Learning (Daxue), originally a chapter of the Book of Rites elevated by Zhu Xi as one of the Four Books, opening with \"The way of great learning lies in illuminating bright virtue.\"",
     "contextZh": "在小说第2回中被引用，例如：“...在《古文观止》上的。若说鸟不可以比人，那《大学》上为什么说『可以人而不如鸟乎』呢？」仲清...”。",
     "contextEn": "Cited in chapter 2 of the novel.",
     "chapters": [
@@ -988,8 +988,8 @@
     ]
   },
   "无双谱": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清康熙年间金古良绘、朱圭镌刻的人物版画谱（约1690年），图写项羽、苏武、陶潜等四十位\"举世无双\"的历史人物并系以乐府题赞。小说借\"可入《无双谱》\"讥孙氏兄弟相貌奇特。",
+    "descEn": "The Wushuang Pu (Portraits of Peerless Figures, c. 1690), Jin Guliang's woodblock album of forty incomparable historical characters; the novel jokes that the grotesque Sun brothers deserve a place in it.",
     "contextZh": "在小说第2回中被引用，例如：“...闲谈。王恂道：「我们这两位舅兄，真可入得《无双谱》的。」仲清道：「为什么同胞兄妹丝毫不像？...”。",
     "contextEn": "Cited in chapter 2 of the novel.",
     "chapters": [
@@ -1006,8 +1006,8 @@
     ]
   },
   "缀白裘": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清乾隆年间钱德苍增辑的戏曲选集（1763—1774年陆续刊行），选录当时昆曲及花部乱弹流行折子戏四百余出，是研究清中叶舞台演出的第一手资料。",
+    "descEn": "The Zhuibai Qiu (Patchwork White Fur Cloak, 1763–1774), Qian Decang's anthology of over 400 kunqu and regional opera scenes as actually staged, a key record of the mid-Qing repertoire.",
     "contextZh": "在小说第3回中被引用，例如：“...翻，像品题小旦的。再拿几本看时，是不全的《缀白裘》。聘才道：「这两本书是自己的么？想来音律...”。",
     "contextEn": "Cited in chapter 3 of the novel.",
     "chapters": [
@@ -1015,8 +1015,8 @@
     ]
   },
   "雪赋": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "南朝宋谢惠连所作骈赋名篇，假托梁孝王兔园之会，命司马相如作赋咏雪，铺陈雪景而归于人生感慨，与谢庄《月赋》齐名。",
+    "descEn": "The Rhapsody on Snow by Xie Huilian (Liu-Song dynasty), a celebrated fu imagining Sima Xiangru composing on snow at Prince Xiao of Liang's park, paired in fame with Xie Zhuang's Rhapsody on the Moon.",
     "contextZh": "在小说第4回中被引用，例如：“...是其祖文穆公手笔。子玉无聊，翻出谢惠连的《雪赋》阅看。...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1024,8 +1024,8 @@
     ]
   },
   "雪窗八咏": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的诗题：第四回王恂寄给梅子玉的诗笺标题，王恂咏《雪塔》《雪屏》《雪山》《雪灯》、颜仲清咏《雪狮》《雪猫》《雪罗汉》《雪美人》各四首，合为雪窗八咏。",
+    "descEn": "An in-novel poem series: the \"Eight Snow-Window Songs\" on Wang Xun's letter to Mei Ziyu in chapter 4—four snow topics each by Wang Xun and Yan Zhongqing.",
     "contextZh": "在小说第4回中被引用，例如：“...了道：「好工致的尺牍！」再看诗笺上，写着《雪窗八咏》。...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1033,8 +1033,8 @@
     ]
   },
   "雪塔": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回王恂《雪窗八咏》四题之首，子玉评其\"起句破空而来，尤为超脱\"。",
+    "descEn": "An in-novel poem topic (\"Snow Pagoda\"), one of Wang Xun's four snow poems in chapter 4, judged the best of his set by Mei Ziyu.",
     "contextZh": "在小说第4回中被引用，例如：“...子玉看了道：「好诗。这四首之中，自然以《雪塔》为第一，《雪屏》第二，《雪山》次之，《雪...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1042,8 +1042,8 @@
     ]
   },
   "雪屏": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回王恂《雪窗八咏》四题之二（咏雪堆屏风）。",
+    "descEn": "An in-novel poem topic (\"Snow Screen\"), the second of Wang Xun's four snow poems in chapter 4.",
     "contextZh": "在小说第4回中被引用，例如：“...好诗。这四首之中，自然以《雪塔》为第一，《雪屏》第二，《雪山》次之，《雪灯》又次之。再看...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1051,8 +1051,8 @@
     ]
   },
   "雪山": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回王恂《雪窗八咏》四题之一，子玉称其起句超脱。",
+    "descEn": "An in-novel poem topic (\"Snow Mountain\") from Wang Xun's snow series in chapter 4.",
     "contextZh": "在小说第4回中被引用，例如：“...中，自然以《雪塔》为第一，《雪屏》第二，《雪山》次之，《雪灯》又次之。再看仲清的诗是：...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1060,8 +1060,8 @@
     ]
   },
   "雪灯": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回王恂《雪窗八咏》四题之末。",
+    "descEn": "An in-novel poem topic (\"Snow Lantern\"), the last of Wang Xun's four snow poems in chapter 4.",
     "contextZh": "在小说第4回中被引用，例如：“...塔》为第一，《雪屏》第二，《雪山》次之，《雪灯》又次之。再看仲清的诗是：...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1069,8 +1069,8 @@
     ]
   },
   "雪狮": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回颜仲清所咏四题之首（咏雪堆狮子），子玉称其\"用典举重若轻，楼金错彩\"。",
+    "descEn": "An in-novel poem topic (\"Snow Lion\") by Yan Zhongqing in chapter 4, praised for wearing its erudition lightly.",
     "contextZh": "在小说第4回中被引用，例如：“...子玉想道：《雪狮》此题却不好做，看他用典举重若轻，雅与题称...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1078,8 +1078,8 @@
     ]
   },
   "雪罗汉": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回颜仲清所咏（咏雪堆罗汉），子玉评为\"吐属清芬，莲花满庭\"。",
+    "descEn": "An in-novel poem topic (\"Snow Arhat\") by Yan Zhongqing in chapter 4, praised for its pure diction.",
     "contextZh": "在小说第4回中被引用，例如：“...更好，第三联调侃不少。」再看下去，题目是《雪罗汉》、《雪美人》。子玉想了一想，题目比前六个...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1087,8 +1087,8 @@
     ]
   },
   "雪美人": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回颜仲清所咏（咏雪堆美人），子玉评为\"双管齐下，玉茗风流\"。",
+    "descEn": "An in-novel poem topic (\"Snow Beauty\") by Yan Zhongqing in chapter 4.",
     "contextZh": "在小说第4回中被引用，例如：“...调侃不少。」再看下去，题目是《雪罗汉》、《雪美人》。子玉想了一想，题目比前六个更加枯寂，却...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1096,8 +1096,8 @@
     ]
   },
   "雪猫": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回颜仲清所咏（咏雪堆狸猫），子玉评为\"琢玉雕琼\"。",
+    "descEn": "An in-novel poem topic (\"Snow Cat\") by Yan Zhongqing in chapter 4, praised as \"carved jade.\"",
     "contextZh": "在小说第4回中被引用，例如：“...几遍，觉得仲清这几首，《雪狮》楼金错彩，《雪猫》琢玉雕琼，《雪罗汉》吐属清芬，莲花满庭，...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1105,8 +1105,8 @@
     ]
   },
   "咏雪": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的诗题：第四回李元茂在梅宅所作咏雪诗（魏聘才代凑曲文成句），请子玉修改，闹出集曲为诗的笑话。",
+    "descEn": "An in-novel poem: Li Yuanmao's clumsy \"Ode to Snow\" in chapter 4, patched together from opera lyrics by Wei Pincai.",
     "contextZh": "在小说第4回中被引用，例如：“...不好，你替我改改。」子玉接来看时，题目是《咏雪》，诗是：...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1114,8 +1114,8 @@
     ]
   },
   "江天雪": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清代传奇剧目，小说中魏聘才称其咏雪曲文\"舞向梅梢片片\"出自此剧《走雪》一出；剧本今已罕传。",
+    "descEn": "A Qing chuanqi play, now little known; in the novel Wei Pincai cites snow-dance lyrics from its scene \"Walking through the Snow.\"",
     "contextZh": "在小说第4回中被引用，例如：“...聘才道：「那舞向梅梢片片，及蛾儿粉蝶，是《江天雪》的《走雪》上的。」子玉道：「下两句呢？」...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1123,8 +1123,8 @@
     ]
   },
   "走雪": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子，小说中称出自传奇《江天雪》；舞台上《走雪》一路剧目多演主仆风雪跋涉事（如后世京剧《南天门》曹福走雪山），以雪中身段见长。",
+    "descEn": "An opera scene of trudging through a snowstorm (the novel assigns it to the play Jiangtian Xue); such \"walking in snow\" scenes, like the later Nantianmen, showcase snow-buffeted movement.",
     "contextZh": "在小说第4回中被引用，例如：“...舞向梅梢片片，及蛾儿粉蝶，是《江天雪》的《走雪》上的。」子玉道：「下两句呢？」聘才道：「...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1132,8 +1132,8 @@
     ]
   },
   "占花魁": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清初李玉所作传奇，据《醒世恒言》\"卖油郎独占花魁\"改编，演卖油郎秦钟以诚心感动名妓花魁娘子莘瑶琴、终成眷属事，《受吐》《独占》为常演折子。",
+    "descEn": "Li Yu's early-Qing chuanqi The Oil Peddler Wins the Flower Queen, from the Xingshi Hengyan story: the humble oil seller Qin Zhong wins the courtesan Xin Yaoqin through sheer devotion.",
     "contextZh": "在小说第4回中被引用，例如：“...？」聘才道：「第三句是空的，未了一句，用《占花魁》上《独占》这一出戏，我就拉他来用做古曲。...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1141,8 +1141,8 @@
     ]
   },
   "雪意": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回梅子玉另拟《雪意》《雪影》《雪声》《雪色》四虚题以避窠臼，王恂最爱此首，称\"清新俊逸，庾鲍兼长\"。",
+    "descEn": "An in-novel poem topic (\"The Sense of Snow\"), one of four abstract snow themes Mei Ziyu sets himself in chapter 4; Wang Xun's favorite of the set.",
     "contextZh": "在小说第4回中被引用，例如：“...仲清等再看子玉的诗题是：《雪意》、《雪影》、《雪声》、《雪色》。仲清向王...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1150,8 +1150,8 @@
     ]
   },
   "雪影": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回梅子玉自拟四虚题之二。",
+    "descEn": "An in-novel poem topic (\"Snow Shadows\") from Mei Ziyu's four abstract snow themes in chapter 4.",
     "contextZh": "在小说第4回中被引用，例如：“...仲清等再看子玉的诗题是：《雪意》、《雪影》、《雪声》、《雪色》。仲清向王恂道：「这...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1159,8 +1159,8 @@
     ]
   },
   "雪声": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回梅子玉自拟四虚题之三。",
+    "descEn": "An in-novel poem topic (\"The Sound of Snow\") from Mei Ziyu's four abstract snow themes in chapter 4.",
     "contextZh": "在小说第4回中被引用，例如：“...等再看子玉的诗题是：《雪意》、《雪影》、《雪声》、《雪色》。仲清向王恂道：「这四个题目太...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1168,8 +1168,8 @@
     ]
   },
   "雪色": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中咏雪诗题之一，第四回梅子玉自拟四虚题之末，王恂称其清新俊逸。",
+    "descEn": "An in-novel poem topic (\"The Color of Snow\"), the last of Mei Ziyu's abstract snow themes in chapter 4.",
     "contextZh": "在小说第4回中被引用，例如：“...的诗题是：《雪意》、《雪影》、《雪声》、《雪色》。仲清向王恂道：「这四个题目太空，比我们...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1177,8 +1177,8 @@
     ]
   },
   "冰床": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的诗题：第四回怡园消寒会上徐子云所出七律题目（冰床为冬日冰上拖床），苏蕙芳所作考了第一。",
+    "descEn": "An in-novel poem topic (\"The Ice Sledge\") set at Yi Garden's winter gathering in chapter 4; Su Huifang's poem took first place.",
     "contextZh": "在小说第4回中被引用，例如：“...，或是局戏。今日度香要叫我们做诗，出了个《冰床》题目，各人做七律一首，教苏媚香考了第一。...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1186,8 +1186,8 @@
     ]
   },
   "浪淘沙": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "词牌名，本唐教坊曲，五代李煜以来为习用小令；小说第四回田湘帆（署\"湘帆醉笔\"）于酒楼粉壁题《浪淘沙》一阕，仲清等叹为才子之笔。",
+    "descEn": "A cipai (lyric tune) originating as a Tang court melody; in chapter 4 Tian Xiangfan scrawls a brilliant Langtaosha lyric on the wine-house wall, signed \"drunken brush of Xiangfan.\"",
     "contextZh": "在小说第4回中被引用，例如：“...墨渖淋漓，字体丰劲，一笔好草书，写了一首《浪淘沙》，其词曰：红日已西斜，笑看云霞。玉龙鳞散...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1195,8 +1195,8 @@
     ]
   },
   "十不闲": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清代流行于北京的民间曲艺\"十不闲\"（什不闲），一人操打多件打击乐器伴唱莲花落，庙会堂会常见；小说中华公子不屑听之。",
+    "descEn": "Shibuxian (\"Ten-Instruments-Never-Idle\"), a Qing Beijing street-performance genre in which one performer works a rack of percussion while singing lianhualao ballads.",
     "contextZh": "在小说第5回中被引用，例如：“...，就是随他性儿。那一日我原冒失些，我爱听《十不闲》，有个小顺儿是《十不闲》中的状元了，我想...”。",
     "contextEn": "Cited in chapter 5 of the novel.",
     "chapters": [
@@ -1204,8 +1204,8 @@
     ]
   },
   "三字经": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "宋以来最通行的蒙学读本，旧题南宋王应麟撰，三字一句韵语概述伦常、历史与读书次第；小说中借以取笑巴氏兄弟说话结巴如\"一部《三字经》\"。",
+    "descEn": "The Three Character Classic (Sanzi Jing), the standard primer attributed to Wang Yinglin (Southern Song), in rhymed three-character lines; the novel jokes that a stammerer sounds like reciting it.",
     "contextZh": "在小说第6回中被引用，例如：“...声嘻杂，嘻、嘻、嘻！出、出、出！不是一部《三字经》么？」巴霖道：「孙老二还有两门专经，你们...”。",
     "contextEn": "Cited in chapter 6 of the novel.",
     "chapters": [
@@ -1213,8 +1213,8 @@
     ]
   },
   "三醉": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明汤显祖《邯郸记》（1601年），演吕洞宾三醉岳阳楼、点度卢生前的游戏风尘事，常与《扫花》连演，为老生、外脚戏。",
+    "descEn": "The kunqu scene \"Thrice Drunk\" from Tang Xianzu's The Handan Dream (Handan Ji, 1601): the immortal Lü Dongbin's tipsy wanderings before converting Lu Sheng, often paired with \"Sweeping Petals.\"",
     "contextZh": "在小说第6回中被引用，例如：“...玉过来，与聘才同看，见头几出是《扫花》、《三醉》、《议剑》、《谒师》、《赏荷》，都已唱过...”。",
     "contextEn": "Cited in chapter 6 of the novel.",
     "chapters": [
@@ -1222,8 +1222,8 @@
     ]
   },
   "议剑": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明王济传奇《连环记》，演曹操与王允议借七宝刀谋刺董卓事，与《献剑》连演，为老生、净脚对儿戏。",
+    "descEn": "The kunqu scene \"Discussing the Sword\" from Wang Ji's Ming chuanqi The Interlocking Rings (Lianhuan Ji): Cao Cao plots with Wang Yun to borrow the jeweled blade and assassinate Dong Zhuo.",
     "contextZh": "在小说第6回中被引用，例如：“...聘才同看，见头几出是《扫花》、《三醉》、《议剑》、《谒师》、《赏荷》，都已唱过；以下是《...”。",
     "contextEn": "Cited in chapter 6 of the novel.",
     "chapters": [
@@ -1249,8 +1249,8 @@
     ]
   },
   "出猎": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自元末南戏《白兔记》，演咬脐郎出猎追赶白兔、井边邂逅生母李三娘事，与《回猎》连演。",
+    "descEn": "The kunqu scene \"Setting Out to Hunt\" from the late-Yuan southern play The White Hare (Baitu Ji): young Yaoqilang chases a white hare and unknowingly meets his long-lost mother at the well.",
     "contextZh": "在小说第6回中被引用，例如：“...《舞盘》、《偷诗》、《题曲》、《山门》、《出猎》、《回猎》、《游园惊梦》，末后是《明珠记...”。",
     "contextEn": "Cited in chapter 6 of the novel.",
     "chapters": [
@@ -1258,8 +1258,8 @@
     ]
   },
   "明珠记": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "明陆采所作传奇（约正德、嘉靖间），据唐薛调小说《无双传》改编，演王仙客与刘无双悲欢离合、义士古押衙仗义救人事。",
+    "descEn": "The Pearl (Mingzhu Ji), Lu Cai's Ming chuanqi based on the Tang tale of Wushuang: the lovers Wang Xianke and Liu Wushuang are reunited through the knight-errant Gu Yaya's daring rescue.",
     "contextZh": "在小说第6回中被引用，例如：“...《出猎》、《回猎》、《游园惊梦》，末后是《明珠记》上的《侠隐》，子玉悄悄的向聘才道：「戏倒...”。",
     "contextEn": "Cited in chapter 6 of the novel.",
     "chapters": [
@@ -1267,8 +1267,8 @@
     ]
   },
   "侠隐": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《明珠记》中一出，演侠士古押衙功成不受赏、飘然归隐事；小说第六回堂会以此戏压轴。",
+    "descEn": "The closing scene of The Pearl in which the knight-errant Gu Yaya refuses all reward and vanishes into reclusion; the finale of the theatrical program in chapter 6.",
     "contextZh": "在小说第6回中被引用，例如：“...猎》、《游园惊梦》，末后是《明珠记》上的《侠隐》，子玉悄悄的向聘才道：「戏倒罢了，只不晓...”。",
     "contextEn": "Cited in chapter 6 of the novel.",
     "chapters": [
@@ -1276,8 +1276,8 @@
     ]
   },
   "送襄垣王君归别墅": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐韩翃（大历十才子之一）的送别诗《送襄垣王君归南阳别墅》，小说第七回酒令引其\"三鸦水上一归人\"句作对。",
+    "descEn": "A farewell poem by the Tang poet Han Hong (\"Seeing Off Mr. Wang of Xiangyuan Back to His Nanyang Villa\"); its line \"one homebound man on Sanya waters\" is used in a drinking game in chapter 7.",
     "contextZh": "在小说第7回中被引用，例如：“...一归人，是韩□的诗。」文泽恍然道：「可是《送襄垣王君归别墅》的诗？我记性真坏极了，该打，该打！」南湘...”。",
     "contextEn": "Cited in chapter 7 of the novel.",
     "chapters": [
@@ -1285,8 +1285,8 @@
     ]
   },
   "传灯录": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即宋释道原《景德传灯录》（1004年上进），三十卷，记禅宗历代传法世系与机缘语录，为禅宗灯录之祖。小说引其中鸟雀于佛头放粪的公案作酒令谈资。",
+    "descEn": "The Jingde Record of the Transmission of the Lamp (1004), Daoyuan's thirty-juan genealogy of Chan masters and their sayings; the novel cites its koan about birds fouling the Buddha's head.",
     "contextZh": "在小说第7回中被引用，例如：“...」文泽道：「下五字呢？」仲清道：「这里有《传灯录》么？」文泽令那识字的书童，从外间书架上取...”。",
     "contextEn": "Cited in chapter 7 of the novel.",
     "chapters": [
@@ -1294,8 +1294,8 @@
     ]
   },
   "史氏外编": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的玩笑书名：第七回颜仲清杜撰\"朱毛入笠\"古典，托名出自《史氏外编》（影射史南湘），众人会意大笑，并非实有其书。",
+    "descEn": "A joke title invented in chapter 7: Yan Zhongqing attributes a spurious allusion to the nonexistent \"Outer Compilation of Mr. Shi,\" teasing Shi Nanxiang.",
     "contextZh": "在小说第7回中被引用，例如：“...。」文泽问道：「在什么书上？」仲清道：「《史氏外编》。」王恂、文泽才明白过来，复又笑声大作。...”。",
     "contextEn": "Cited in chapter 7 of the novel.",
     "chapters": [
@@ -1303,8 +1303,8 @@
     ]
   },
   "四子书": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即\"四书\"：《大学》《中庸》《论语》《孟子》，因传自曾子、子思、孔子、孟子四子得名，朱熹《四书章句集注》后成为科举取士的基本经典。",
+    "descEn": "The Four Books—Great Learning, Doctrine of the Mean, Analects, and Mencius—canonized by Zhu Xi's commentaries as the core of the civil-examination curriculum.",
     "contextZh": "在小说第7回中被引用，例如：“...又笑声大作。高品道：「你们混说乱道，难道《四子书》都记不得？这就是《孟子》所说一毛不拔、追...”。",
     "contextEn": "Cited in chapter 7 of the novel.",
     "chapters": [
@@ -1330,8 +1330,8 @@
     ]
   },
   "银钮丝": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即《银纽丝》，明清时调小曲曲牌，万历以来流行南北，多咏儿女私情；小说第八回保珠代李元茂清唱一枝。",
+    "descEn": "Yinniusi (\"Silver Chain-Stitch\"), a popular Ming-Qing folk tune for love ditties; in chapter 8 Baozhu sings one at the drinking party.",
     "contextZh": "在小说第8回中被引用，例如：“...的。」众人见他果是不会，保珠便代唱了一枝《银钮丝》。...”。",
     "contextEn": "Cited in chapter 8 of the novel.",
     "chapters": [
@@ -1339,8 +1339,8 @@
     ]
   },
   "马头调": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清乾嘉以来盛行北京的时调小曲曲种，因起于码头歌唱得名，多写市井儿女情态，《白雪遗音》所收甚多；小说第八回张仲雨席上唱之。",
+    "descEn": "Matoudiao (\"Wharf Tune\"), an urban popular song genre flourishing in Qianlong-Jiaqing Beijing, heavily represented in the Baixue Yiyin anthology; Zhang Zhongyu sings one in chapter 8.",
     "contextZh": "在小说第8回中被引用，例如：“...。仲雨道：「这不难。」饮了一杯酒，唱了个《马头调》，大家却赞声」好」。第二杯又系仲雨输了，...”。",
     "contextEn": "Cited in chapter 8 of the novel.",
     "chapters": [
@@ -1348,8 +1348,8 @@
     ]
   },
   "九连环": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清代流行时调小曲，以九连环玩具起兴咏情，南北传唱极广；小说第八回二喜输拳后唱了一枝。",
+    "descEn": "The Nine Linked Rings (Jiulianhuan), a widely sung Qing popular ditty using the ring puzzle as a love metaphor; Erxi sings it after losing at finger-guessing in chapter 8.",
     "contextZh": "在小说第8回中被引用，例如：“...，轮到聘才了。第一拳是二喜输了，唱了一枝《九连环》。...”。",
     "contextEn": "Cited in chapter 8 of the novel.",
     "chapters": [
@@ -1357,8 +1357,8 @@
     ]
   },
   "满江红": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "词牌名，双调九十三字，以岳飞\"怒发冲冠\"一阕最著；清代亦为时调俗曲习用之调。小说第八回保珠席上唱《满江红》。",
+    "descEn": "Manjianghong (\"The River All Red\"), the cipai made immortal by Yue Fei's defiant lyric, also a common tune in Qing popular song; Baozhu sings one in chapter 8.",
     "contextZh": "在小说第8回中被引用，例如：“...令完，保珠照样与元茂豁了一拳，保珠唱了个《满江红》。...”。",
     "contextEn": "Cited in chapter 8 of the novel.",
     "chapters": [
@@ -1366,8 +1366,8 @@
     ]
   },
   "施公案": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清代公案侠义小说与说书书目，演康熙朝清官施世纶（施公）断案及黄天霸等侠士效力故事，嘉庆三年（1798）已有刊本，茶馆书场盛行。",
+    "descEn": "The Cases of Judge Shi (Shi Gong An), a Qing court-case and gallant-hero cycle about the incorruptible Shi Shilun and the reformed outlaw Huang Tianba, in print by 1798 and a storytellers' staple.",
     "contextZh": "在小说第9回中被引用，例如：“...笑道：「不像。」又低低的叫道：「庾香，那《施公案》有什么好看，你尽望着那几对灯。」子玉回转...”。",
     "contextEn": "Cited in chapter 9 of the novel.",
     "chapters": [
@@ -1375,8 +1375,8 @@
     ]
   },
   "子夜": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即乐府《子夜歌》，晋代吴声歌曲，相传为名子夜的女子所造，多写儿女哀乐之情，《乐府诗集》收于清商曲辞。",
+    "descEn": "The Ziye (Midnight) Songs, Jin-dynasty Wu-region yuefu lyrics attributed to a singing girl named Ziye, intimate songs of love and sorrow.",
     "contextZh": "在小说第9回中被引用，例如：“...『记得儿家朝复暮，秦淮几折绕香津。』准是《子夜》与《金陵曲》。」仲清道：「第二联下旬『月...”。",
     "contextEn": "Cited in chapter 9 of the novel.",
     "chapters": [
@@ -1384,8 +1384,8 @@
     ]
   },
   "金陵曲": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "乐府旧题一类的金陵歌曲名，咏六朝故都秦淮风月；小说第九回灯谜\"记得儿家朝复暮，秦淮几折绕香津\"以之为谜底。",
+    "descEn": "Jinling Song, a yuefu-style title evoking the old southern capital and the Qinhuai pleasure quarters; a lantern-riddle answer in chapter 9.",
     "contextZh": "在小说第9回中被引用，例如：“...朝复暮，秦淮几折绕香津。』准是《子夜》与《金陵曲》。」仲清道：「第二联下旬『月影偏嫌暗风尘...”。",
     "contextEn": "Cited in chapter 9 of the novel.",
     "chapters": [
@@ -1393,8 +1393,8 @@
     ]
   },
   "夜黄": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "古乐府曲题，属清商曲辞西曲歌，古辞\"湖中百种鸟，半雌半是雄\"以双鸟起兴咏婚嫁疑惧；小说灯谜以之为谜底。",
+    "descEn": "Yehuang, an old yuefu title among the Western Songs, whose verse of paired lake birds (\"half hen, half drake\") figures in the novel's lantern riddles.",
     "contextZh": "在小说第9回中被引用，例如：“...仲清道：「第二联下旬『月影偏嫌暗风尘』是《夜黄》，那上句『雨丝莫遣催花片』不知是什么？」...”。",
     "contextEn": "Cited in chapter 9 of the novel.",
     "chapters": [
@@ -1402,8 +1402,8 @@
     ]
   },
   "休洗红": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "古乐府曲题，古辞\"休洗红，洗多红色浅\"借洗衣咏红颜易老、恩情易减，唐李贺亦有同题之作。",
+    "descEn": "Xiu Xi Hong (\"Wash the Red No More\"), an old yuefu song—\"wash red too often and the red grows pale\"—on fading beauty and favor; Li He wrote a famous imitation.",
     "contextZh": "在小说第9回中被引用，例如：“...文泽道：「或者是《休洗红》。那第三联是『长夜迢遥闻断漏，中年陶写漫...”。",
     "contextEn": "Cited in chapter 9 of the novel.",
     "chapters": [
@@ -1411,8 +1411,8 @@
     ]
   },
   "五更钟": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "古乐府式曲题，以五更递转咏长夜相思，明清民歌时调中习见；小说第九回灯谜以之为谜底。",
+    "descEn": "Wugeng Zhong (\"The Fifth-Watch Bell\"), a song title on longing through the night's five watches, common in Ming-Qing popular song; a riddle answer in chapter 9.",
     "contextZh": "在小说第9回中被引用，例如：“...『长夜迢遥闻断漏，中年陶写漫劳神。』必是《五更钟》、《莫愁乐》。」王恂道：...”。",
     "contextEn": "Cited in chapter 9 of the novel.",
     "chapters": [
@@ -1420,8 +1420,8 @@
     ]
   },
   "莫愁乐": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "古乐府曲题，属西曲歌，咏石城歌女莫愁，\"莫愁在何处，莫愁石城西\"，后世以莫愁为善歌少女的通称。",
+    "descEn": "Mochou Songs, old yuefu Western Songs about the singing girl Mochou of Stone City, whose name became a byword for carefree beauty.",
     "contextZh": "在小说第9回中被引用，例如：“...断漏，中年陶写漫劳神。』必是《五更钟》、《莫愁乐》。」王恂道：...”。",
     "contextEn": "Cited in chapter 9 of the novel.",
     "chapters": [
@@ -1429,8 +1429,8 @@
     ]
   },
   "乌生八九子": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "汉乐府相和歌辞名篇（《乌生》），写乌鸦生八九子而遭弹射之祸，以禽鸟命运寓人生无常。",
+    "descEn": "The Han yuefu ballad \"The Crow Bears Eight or Nine Chicks\" (Wu Sheng), in which a crow's brood meets the slingshot—a parable of life's precariousness.",
     "contextZh": "在小说第9回中被引用，例如：“...「第七句『鸦儿卅六双飞稳』不消说是《乌生八九子》了。」仲清道：「末句『应向章台送远人』，...”。",
     "contextEn": "Cited in chapter 9 of the novel.",
     "chapters": [
@@ -1438,8 +1438,8 @@
     ]
   },
   "折杨柳": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "乐府横吹曲旧题，六朝以来咏折柳赠别、征人怀远，唐人拟作极多；小说灯谜\"应向章台送远人\"即打此题。",
+    "descEn": "Zhe Yangliu (\"Snapping the Willow\"), the old yuefu frontier-song title on willow-breaking farewells, endlessly imitated by Tang poets; a riddle answer in chapter 9.",
     "contextZh": "在小说第9回中被引用，例如：“...仲清道：「末句『应向章台送远人』，大约是《折杨柳》。就是第五条『降生辰巳之年』，打《诗经》...”。",
     "contextEn": "Cited in chapter 9 of the novel.",
     "chapters": [
@@ -1465,8 +1465,8 @@
     ]
   },
   "时宪书": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清代官颁历书，顺治二年（1645）行《时宪历》，因避乾隆帝弘历讳称《时宪书》，载节气、宜忌等，为家家必备；小说酒令用其中语句。",
+    "descEn": "The Shixian Almanac, the official Qing calendar (issued from 1645, renamed \"book\" to avoid the Qianlong emperor's name), listing solar terms and auspicious days; quoted in the novel's drinking games.",
     "contextZh": "在小说第11回中被引用，例如：“...第三句用骨牌名，第四句用曲牌名，第五句用《时宪书》，凭人自己检用，便容易了。我们如今六个骰...”。",
     "contextEn": "Cited in chapter 11 of the novel.",
     "chapters": [
@@ -1474,8 +1474,8 @@
     ]
   },
   "续西厢": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "明清间续补《西厢记》之作的统称（如查继佐、周公鲁等皆有续作），多为崔张故事补写团圆或翻案；小说酒令中引其曲文。",
+    "descEn": "Sequels to the Western Chamber Romance written in the Ming-Qing period (by Zha Jizuo, Zhou Gonglu and others), extending or revising the Cui-Zhang story; quoted in a drinking game.",
     "contextZh": "在小说第11回中被引用，例如：“...这句《续西厢》更用得有趣。再要看兰妹的。想必更好，定是...”。",
     "contextEn": "Cited in chapter 11 of the novel.",
     "chapters": [
@@ -1483,8 +1483,8 @@
     ]
   },
   "灯月词": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的作品：第十一回袁夫人述王琼华元宵席上顷刻成《灯月词》七八百字，\"光怪陆离，绝像太白复生\"，见其闺阁诗才。",
+    "descEn": "An in-novel composition: the \"Lantern Moon Lyric\" of seven-odd hundred characters that Wang Qionghua dashes off at a Lantern Festival banquet, praised as worthy of a reborn Li Bai.",
     "contextZh": "在小说第11回中被引用，例如：“...前日请他们姐妹来看灯，他在席上就成了一首《灯月词》，顷刻之间洋洋洒洒七八百宇。光怪陆离，骇...”。",
     "contextEn": "Cited in chapter 11 of the novel.",
     "chapters": [
@@ -1492,8 +1492,8 @@
     ]
   },
   "长河修禊": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的诗题：苏蕙芳（媚香）嘱诸名士唱和的《长河修禊》七律六章，田春航在蕙芳斋中见诸人和韵诗屏，心生敬意。",
+    "descEn": "An in-novel poem set: six regulated verses on \"The Purification Rite on the Long River\" that Su Huifang asked the literati to match; Tian Chunhang admires the inscribed set in chapter 13.",
     "contextZh": "在小说第13回中被引用，例如：“...像是几首和韵七律诗。再看上款，是媚香嘱和《长河修禊》七律六章原韵，春航心里更加起敬。想道：...”。",
     "contextEn": "Cited in chapter 13 of the novel.",
     "chapters": [
@@ -1501,8 +1501,8 @@
     ]
   },
   "燕台旅稿": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的诗稿：田春航客居京师的诗集，蕙芳在其书案上翻见，内有《恼公》诗等数十页，半真半行书。",
+    "descEn": "An in-novel manuscript: \"Draft Poems of a Sojourner at Yantai,\" Tian Chunhang's notebook of poems written in the capital, which Huifang leafs through in chapter 14.",
     "contextZh": "在小说第14回中被引用，例如：“...本诗稿，半真半行的字，有数十页，面上题着《燕台旅稿》。蕙芳随手一揭，见是一首七言古诗，题是《...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1510,8 +1510,8 @@
     ]
   },
   "恼公": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐李贺诗题《恼公》，长篇咏艳情之作，铺写美人妆饰情态，词采秾丽；小说中田春航仿其题作诗，蕙芳低吟。",
+    "descEn": "Naogong (\"Teasing the Gentleman\"), Li He's long, densely ornamented poem on a beauty's toilette and moods; Tian Chunhang writes in its manner in chapter 14.",
     "contextZh": "在小说第14回中被引用，例如：“...》。蕙芳随手一揭，见是一首七言古诗，题是《恼公》诗，便低低的念起来道：...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1519,8 +1519,8 @@
     ]
   },
   "艺文序": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "指《新唐书·文艺传序》（宋欧阳修、宋祁修《新唐书》），中有\"唐文章无虑三变\"之论；小说中田春航用其语入诗。",
+    "descEn": "The preface to the \"Literary Men\" chapters of the New Tang History, source of the dictum that Tang literature underwent three transformations; quoted in Chunhang's poem.",
     "contextZh": "在小说第14回中被引用，例如：“...三变，可是说你变了心么？」春航道：「是用《艺文序》上：『唐文章无虑三变』的一句。」蕙芳看着...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1528,8 +1528,8 @@
     ]
   },
   "罗敷陌上桑": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "汉乐府名篇《陌上桑》，写采桑女秦罗敷严辞拒绝使君调戏、盛夸夫婿的故事，\"日出东南隅\"一曲千古传诵。",
+    "descEn": "The Han yuefu classic \"Mulberry Lane\" (Moshang Sang), in which the silk-picker Qin Luofu wittily rebuffs a governor's advances by extolling her husband.",
     "contextZh": "在小说第14回中被引用，例如：“...筝、杨妃笛实在借对得工巧。上句自然是用的《罗敷陌上桑》了。这杨纪笛，我记得张祜诗『小窗静院无人...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1537,8 +1537,8 @@
     ]
   },
   "贵妃外传": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "指宋乐史《杨太真外传》，采撷唐人载记敷写杨贵妃始末轶事，为杨妃故事最详的传记小说；小说中蕙芳引其宁王玉笛事。",
+    "descEn": "The Unofficial Biography of Consort Yang (Yang Taizhen Waizhuan) by Yue Shi of the Song, the fullest anecdotal life of Yang Guifei; Huifang cites its jade-flute episode.",
     "contextZh": "在小说第14回中被引用，例如：“...窗静院无人见，闲把宁王玉笛吹』；又曾看过《贵妃外传》：...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1546,8 +1546,8 @@
     ]
   },
   "集异记": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐薛用弱撰志怪传奇集，多记开元天宝间异闻，\"旗亭画壁\"王之涣故事即出此书；小说中春航引明皇幸蜀、红桃歌《凉州》事。",
+    "descEn": "The Ji Yi Ji (Collected Records of the Strange) by Xue Yongruo of the Tang, famous for High-Tang anecdotes like the \"wineshop wall\" contest; Chunhang cites its tale of the emperor in Shu.",
     "contextZh": "在小说第14回中被引用，例如：“...可算得，但搭不上『宫人愁倚』四字。我是用《集异记》上，帝至蜀，月夜登楼，故贵纪侍者红桃，歌...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1555,8 +1555,8 @@
     ]
   },
   "凉州曲": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐教坊大曲《凉州》，开元中西凉府都督郭知运所进边地乐曲，王翰\"葡萄美酒\"即其歌辞一体；杨贵妃亦善此曲。",
+    "descEn": "The Liangzhou Melody, a great Tang court suite of frontier origin presented from the western garrisons, to which Wang Han's \"grape wine\" quatrain was sung.",
     "contextZh": "在小说第14回中被引用，例如：“...至蜀，月夜登楼，故贵纪侍者红桃，歌妃所制《凉州曲》，上御贵纪玉笛倚之，吹罢相视掩泣的事。」...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1564,8 +1564,8 @@
     ]
   },
   "陈抟得道仙翁": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "琴曲小调名，小说第十四回田春航调弦时先弹的几个小操之一，咏五代隐士陈抟高卧华山得道事。",
+    "descEn": "A short qin piece on the Daoist sage Chen Tuan attaining immortality, played by Tian Chunhang while tuning in chapter 14.",
     "contextZh": "在小说第14回中被引用，例如：“...按十勾三。散挑三，中指按十勾一。弹了几个《陈抟得道仙翁》。又点了些泛音，弹起《结客少年场》这套琴...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1573,8 +1573,8 @@
     ]
   },
   "结客少年场": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "乐府旧题《结客少年场行》，咏少年游侠结交报仇之事，曹植、李白皆有拟作；小说中春航以此题弹琴一套。",
+    "descEn": "The old yuefu title \"Young Blades of the Gallant Quarter\" (Jieke Shaonian Chang), on youthful knights-errant, imitated by Cao Zhi and Li Bai; Chunhang plays a qin suite on it.",
     "contextZh": "在小说第14回中被引用，例如：“...几个《陈抟得道仙翁》。又点了些泛音，弹起《结客少年场》这套琴来。从四弦九徽上泛起，勾二挑六，勾...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1582,8 +1582,8 @@
     ]
   },
   "胡笳十八拍": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "古琴名曲，托名东汉蔡文姬作，十八段自述没身匈奴、别子归汉之痛，唐刘商拟其辞，为琴曲中悲怨绝唱。",
+    "descEn": "The Eighteen Beats of the Nomad Flute, the great qin cycle attributed to Cai Wenji, lamenting her captivity among the Xiongnu and the parting from her sons.",
     "contextZh": "在小说第14回中被引用，例如：“...这一次罢。」惹得蕙芳倒笑了。蕙芳要春航弹《胡笳十八拍》，又要弹《洞天春晓》，说道：「这两套我听...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1591,8 +1591,8 @@
     ]
   },
   "洞天春晓": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "古琴大曲，明《西麓堂琴统》等谱录传之，写仙家洞天春昼清和之境，节奏舒缓绵长；小说中蕙芳称萧静宜弹此曲最好。",
+    "descEn": "Spring Dawn over the Grotto Heaven (Dongtian Chunxiao), a long serene qin composition preserved in Ming handbooks, evoking daybreak in an immortals' realm.",
     "contextZh": "在小说第14回中被引用，例如：“...笑了。蕙芳要春航弹《胡笳十八拍》，又要弹《洞天春晓》，说道：「这两套我听萧静宜弹得最好，他并...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1600,8 +1600,8 @@
     ]
   },
   "胡筋十八拍": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即《胡笳十八拍》（\"筋\"为\"笳\"之形讹），托名蔡文姬的古琴悲曲十八段。",
+    "descEn": "A variant writing of the Eighteen Beats of the Nomad Flute (Hujia Shibapai), Cai Wenji's qin lament.",
     "contextZh": "在小说第14回中被引用，例如：“...航道：「《洞天春晓》这套琴却好，但太长。《胡筋十八拍》没有什么意思，于本意不大很合，不如弹一套...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1609,8 +1609,8 @@
     ]
   },
   "水仙操": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "古琴曲，相传伯牙学琴于成连，移情沧海而悟得此操，写海水汹涌、山林杳冥之思；小说中田春航为蕙芳弹此曲十二段。",
+    "descEn": "The Water Immortal (Shuixian Cao), the qin piece Boya was said to have realized by the surging sea; Chunhang plays its twelve sections for Huifang in chapter 14.",
     "contextZh": "在小说第14回中被引用，例如：“...没有什么意思，于本意不大很合，不如弹一套《水仙操》罢。」又停了一会，再和好了弦，清清冷冷的...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1618,8 +1618,8 @@
     ]
   },
   "燕台花选": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的花谱：即史南湘品题京师名旦所制的《花选》，因作序题咏而被高品戏称\"竹君序那《燕台花选》，这些小旦便为公门桃李\"。",
+    "descEn": "The in-novel \"Yantai Flower Register,\" Shi Nanxiang's ranked register of the capital's boy actors, teased by Gao Pin as making the dan performers his \"protégés.\"",
     "contextZh": "在小说第14回中被引用，例如：“...怎么说？我倒不明白。」高品道：「竹君序那《燕台花选》，这些小旦，便为公门桃李，兔丝、马勃尽是...”。",
     "contextEn": "Cited in chapter 14 of the novel.",
     "chapters": [
@@ -1627,8 +1627,8 @@
     ]
   },
   "定情": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清洪昇《长生殿》第二出《定情》，演唐明皇册立杨玉环为贵妃、金钗钿盒定情事。",
+    "descEn": "The kunqu scene \"Pledging Love\" from The Palace of Everlasting Life: Emperor Minghuang installs Yang Yuhuan as Precious Consort, sealing their love with hairpin and inlaid box.",
     "contextZh": "在小说第15回中被引用，例如：“...旦，被庚香独占去子。他们还在怡园唱了一出《定情》。」文泽道：「那个叫杜玉侬？我们怎么也没...”。",
     "contextEn": "Cited in chapter 15 of the novel.",
     "chapters": [
@@ -1636,8 +1636,8 @@
     ]
   },
   "木兰花慢": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "词牌名，双调一百零一字，柳永、辛弃疾皆有名作；小说中史南湘曾以此调题素兰画兰，素兰自称最爱此词。",
+    "descEn": "Mulanhua Man (\"Magnolia Blossoms, Slow\"), a 101-character cipai favored by Liu Yong and Xin Qiji; Shi Nanxiang inscribed one on Sulan's orchid painting.",
     "contextZh": "在小说第15回中被引用，例如：“...素兰对着南湘道：「我最爱你题我的画兰那首《木兰花慢》词。」南湘道：「你填的词，近来也好得多了...”。",
     "contextEn": "Cited in chapter 15 of the novel.",
     "chapters": [
@@ -1645,8 +1645,8 @@
     ]
   },
   "油葫芦": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "北曲曲牌名，属仙吕宫，元杂剧套数常用；小说第十五回子云拟酒令，以曲牌《油葫芦》对\"推倒油瓶盖\"。",
+    "descEn": "Youhulu (\"Oil Gourd\"), a northern qupai in the Xianlü mode, standard in Yuan drama suites; used as a wordplay answer in Ziyun's drinking game.",
     "contextZh": "在小说第15回中被引用，例如：“...：「《诗经》上『瓶之罄矣』好用，曲牌名用《油葫芦》。」次贤道：「《西厢》呢，用那一句？」子...”。",
     "contextEn": "Cited in chapter 15 of the novel.",
     "chapters": [
@@ -1654,8 +1654,8 @@
     ]
   },
   "丁娘十索": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "隋代乐妓丁六娘所作《十索》组诗（\"从郎索花烛\"\"从郎索衣带\"等），每首以向情郎索物为题，后成歌曲名；小说联句中用为香艳典故。",
+    "descEn": "The \"Ten Demands of Miss Ding,\" playful verses by the Sui singer Ding Liuniang, each asking her lover for a token; later a song title and a stock amorous allusion.",
     "contextZh": "在小说第17回中被引用，例如：“...莲社。红氍毹上艳情多。」子云接道：「惯唱《丁娘十索》歌。葑菲彩无遗下体。」高品道：「妙、妙！...”。",
     "contextEn": "Cited in chapter 17 of the novel.",
     "chapters": [
@@ -1663,8 +1663,8 @@
     ]
   },
   "十种曲": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即清李渔《笠翁十种曲》，李渔（1611—1680）所作《风筝误》《怜香伴》《蜃中楼》等十部传奇的合刻，以关目新巧、宾白流利著称。",
+    "descEn": "The Ten Plays of Liweng, the collected chuanqi of Li Yu (1611–1680)—including The Kite's Mistake—famed for ingenious plotting and fluent dialogue.",
     "contextZh": "在小说第18回中被引用，例如：“...是学不来，一个是前贤陈眉公，一个就是做那《十种曲》的李笠翁。这两个人学问是数一数二的，命运...”。",
     "contextEn": "Cited in chapter 18 of the novel.",
     "chapters": [
@@ -1672,8 +1672,8 @@
     ]
   },
   "昭君怨": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "乐府旧题及琵琶曲名，咏王昭君远嫁匈奴之怨，历代拟作甚多；小说第十八回白菊花在门首弹琵琶一套《昭君怨》引人围观。",
+    "descEn": "The Lament of Zhaojun, an old yuefu and pipa title on Wang Zhaojun's exile among the Xiongnu; in chapter 18 the courtesan White Chrysanthemum draws a crowd playing it.",
     "contextZh": "在小说第18回中被引用，例如：“...个小儿，捧上一面琵琶，那人接了，弹了一套《昭君怨》，便惹得门口看的人益发多了。...”。",
     "contextEn": "Cited in chapter 18 of the novel.",
     "chapters": [
@@ -1681,8 +1681,8 @@
     ]
   },
   "天台山赋": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即东晋孙绰《游天台山赋》，铺写天台山胜境的骈赋名篇，孙绰自诩\"掷地当作金石声\"；小说引其\"赤城霞起而建标\"句状怡园小赤城榴花。",
+    "descEn": "Sun Chuo's Rhapsody on Roaming Mount Tiantai (Eastern Jin), the famous fu its author boasted would \"ring like metal and stone if thrown to the ground\"; its \"rosy Chicheng cliffs\" line names a garden spot in chapter 20.",
     "contextZh": "在小说第20回中被引用，例如：“...，间有几种黄白及玛瑙等色，相间而开。正是《天台山赋》上的「赤城霞起而建标」，所以叫做小赤城。...”。",
     "contextEn": "Cited in chapter 20 of the novel.",
     "chapters": [
@@ -1690,8 +1690,8 @@
     ]
   },
   "寿阳点额图": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "画题，用南朝宋寿阳公主典：公主卧含章殿檐下，梅花落额成五出之花，拂之不去，遂有\"梅花妆\"；小说中怡园卧室悬此图，配\"心抱冰壶秋月\"一联。",
+    "descEn": "A painting subject from the tale of Princess Shouyang, on whose forehead a plum blossom fell and left the mark that began \"plum-blossom makeup\"; such a scroll hangs in the Yi Garden bedroom in chapter 21.",
     "contextZh": "在小说第21回中被引用，例如：“...毯子，也是绿隐隐的。上面是炕，中间挂一幅《寿阳点额图》。旁有一联是：「心抱冰壶秋月，人依纸帐梅...”。",
     "contextEn": "Cited in chapter 21 of the novel.",
     "chapters": [
@@ -1699,8 +1699,8 @@
     ]
   },
   "补天石": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清初毛声山（毛纶，评《琵琶记》为\"第七才子书\"者）拟出的戏曲题目总名：只题出《李陵返汉》《燕丹灭秦》等八九种翻案戏目而未作曲，意在为古人憾事\"补天\"。",
+    "descEn": "The Stone to Mend Heaven (Butian Shi): a list of wish-fulfilling play titles (Li Ling Returns to Han, Prince Dan Destroys Qin, etc.) proposed but never written by Mao Shengshan, the early-Qing commentator of the Pipa Ji.",
     "contextZh": "在小说第24回中被引用，例如：“...山，撰出了几个戏目，却没有作成曲，名叫作《补天石》。」...”。",
     "contextEn": "Cited in chapter 24 of the novel.",
     "chapters": [
@@ -1708,8 +1708,8 @@
     ]
   },
   "琵琶记": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "元末高明（则诚）所作南戏，约成于至正年间（14世纪中叶），演蔡伯喈赴试入赘相府、赵五娘糟糠自厌、罗裙包土葬公婆、千里寻夫事，被推为\"南戏之祖\"。",
+    "descEn": "The Lute (Pipa Ji) by Gao Ming (late Yuan, mid-14th century), the \"ancestor of southern drama\": Cai Bojie is detained in the capital while his wife Zhao Wuniang eats husks, buries his parents, and seeks him with her lute.",
     "contextZh": "在小说第24回中被引用，例如：“...清笑道：「口恶，此是毛声山哄人的，止于批《琵琶记》内题出这几个戏名是：《李陵返汉》、《燕丹...”。",
     "contextEn": "Cited in chapter 24 of the novel.",
     "chapters": [
@@ -1717,8 +1717,8 @@
     ]
   },
   "燕丹灭秦": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "毛声山《补天石》拟目之一：设想燕太子丹复仇灭秦的翻案戏，有目无曲；小说第二十四回诸人谈及。",
+    "descEn": "One of Mao Shengshan's unwritten \"Stone to Mend Heaven\" titles: an imagined play in which Prince Dan of Yan succeeds in destroying Qin.",
     "contextZh": "在小说第24回中被引用，例如：“...琶记》内题出这几个戏名是：《李陵返汉》、《燕丹灭秦》、《诸葛延年》、《明妃归汉》等事，共有八...”。",
     "contextEn": "Cited in chapter 24 of the novel.",
     "chapters": [
@@ -1726,8 +1726,8 @@
     ]
   },
   "诸葛延年": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "毛声山《补天石》拟目之一：设想诸葛亮禳星延寿、克成大业的翻案戏，有目无曲。",
+    "descEn": "Another unwritten \"Stone to Mend Heaven\" title: Zhuge Liang wins added years from the stars and completes his great cause.",
     "contextZh": "在小说第24回中被引用，例如：“...几个戏名是：《李陵返汉》、《燕丹灭秦》、《诸葛延年》、《明妃归汉》等事，共有八九种。」玉林道...”。",
     "contextEn": "Cited in chapter 24 of the novel.",
     "chapters": [
@@ -1735,8 +1735,8 @@
     ]
   },
   "明妃归汉": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "毛声山《补天石》拟目之一：设想王昭君得归汉朝的翻案戏，有目无曲。",
+    "descEn": "An unwritten \"Stone to Mend Heaven\" title: the exiled Wang Zhaojun is restored to Han.",
     "contextZh": "在小说第24回中被引用，例如：“...李陵返汉》、《燕丹灭秦》、《诸葛延年》、《明妃归汉》等事，共有八九种。」玉林道：「如今静宜又...”。",
     "contextEn": "Cited in chapter 24 of the novel.",
     "chapters": [
@@ -1744,8 +1744,8 @@
     ]
   },
   "金谷园绿珠投楼": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中萧次贤续《补天石》拟目所添四种之一，演石崇爱姬绿珠坠楼殉主事；第二十四回玉林述之。",
+    "descEn": "One of four play titles the character Xiao Cixian adds to Mao's list in the novel: Shi Chong's concubine Lüzhu leaping from the tower at Golden Valley.",
     "contextZh": "在小说第24回中被引用，例如：“...种。」玉林道：「如今静宜又添了四种是：「《金谷园绿珠投楼》、《马嵬驿杨妃随驾》、《李谪仙夜郎奉诏》...”。",
     "contextEn": "Cited in chapter 24 of the novel.",
     "chapters": [
@@ -1753,8 +1753,8 @@
     ]
   },
   "马嵬驿杨妃随驾": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中萧次贤所添翻案戏目之一：设想马嵬之变杨贵妃免死随驾，为\"普天下才子佳人吐气\"。",
+    "descEn": "Xiao Cixian's in-novel revisionist title: Consort Yang is spared at Mawei and follows the emperor onward.",
     "contextZh": "在小说第24回中被引用，例如：“...静宜又添了四种是：「《金谷园绿珠投楼》、《马嵬驿杨妃随驾》、《李谪仙夜郎奉诏》、《杜拾遗金殿承恩》...”。",
     "contextEn": "Cited in chapter 24 of the novel.",
     "chapters": [
@@ -1762,8 +1762,8 @@
     ]
   },
   "李谪仙夜郎奉诏": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中萧次贤所添翻案戏目之一：设想李白流放夜郎途中奉诏还朝、金殿受宠，第二十五回怡园即演出此戏（场上作《仪郎奉诏》）。",
+    "descEn": "Xiao Cixian's in-novel title: Li Bai, exiled toward Yelang, is recalled by imperial decree—staged at Yi Garden in chapter 25.",
     "contextZh": "在小说第24回中被引用，例如：“...《金谷园绿珠投楼》、《马嵬驿杨妃随驾》、《李谪仙夜郎奉诏》、《杜拾遗金殿承恩》，这四本戏更觉热闹，...”。",
     "contextEn": "Cited in chapter 24 of the novel.",
     "chapters": [
@@ -1771,8 +1771,8 @@
     ]
   },
   "杜拾遗金殿承恩": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中萧次贤所添翻案戏目之一：设想杜甫金殿承恩、才为世用，一雪潦倒之憾。",
+    "descEn": "Xiao Cixian's in-novel title: Du Fu at last receives imperial favor in the golden hall.",
     "contextZh": "在小说第24回中被引用，例如：“...《马嵬驿杨妃随驾》、《李谪仙夜郎奉诏》、《杜拾遗金殿承恩》，这四本戏更觉热闹，差不多要全部出场。」...”。",
     "contextEn": "Cited in chapter 24 of the novel.",
     "chapters": [
@@ -1780,8 +1780,8 @@
     ]
   },
   "唐书": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "指后晋刘昫《旧唐书》与宋欧阳修、宋祁《新唐书》，合称新旧《唐书》；小说中仲清辨\"洗儿\"秽事新旧《唐书》皆不载，为杨妃辨诬。",
+    "descEn": "The Old and New Tang Histories (by Liu Xu, and by Ouyang Xiu with Song Qi); Zhongqing notes neither records the scurrilous \"baby-washing\" tale, clearing Consort Yang's name.",
     "contextZh": "在小说第24回中被引用，例如：“...系道听途说，遂玷污宫闱。即洗儿一事，新旧《唐书》皆所不载，就见元微之轻薄之词有『金鸡帐下...”。",
     "contextEn": "Cited in chapter 24 of the novel.",
     "chapters": [
@@ -1789,8 +1789,8 @@
     ]
   },
   "贴翠令": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中所行的骰子酒令名：第二十四回桂保提议\"我们行那个《贴翠令》罢\"，以骰色行令佐酒。",
+    "descEn": "A dice drinking-game named in the novel (\"Applying the Kingfisher\"), proposed by Guibao at the small party in chapter 24.",
     "contextZh": "在小说第24回中被引用，例如：“...少又行不得什么令。」桂保道：「我们行那个《贴翠令》罢。」王恂道：「也好。」就叫拿出骰子来。...”。",
     "contextEn": "Cited in chapter 24 of the novel.",
     "chapters": [
@@ -1798,8 +1798,8 @@
     ]
   },
   "明妃入关": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中怡园八龄班开场所演新戏之一，即萧次贤翻案戏目《明妃归汉》的场上名目，与《李陵返汉》同为冲场戏。",
+    "descEn": "An in-novel performance: the staged version of the revisionist \"Mingfei Returns through the Pass,\" an opening piece at the Yi Garden banquet in chapter 25.",
     "contextZh": "在小说第25回中被引用，例如：“...冲场戏是《李陵返汉》、《明妃入关》。两出后即是《仪郎奉诏》，是正生戏，赐以...”。",
     "contextEn": "Cited in chapter 25 of the novel.",
     "chapters": [
@@ -1807,8 +1807,8 @@
     ]
   },
   "仪郎奉诏": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中怡园所演新戏，即翻案戏目《李谪仙夜郎奉诏》的场上正生戏，演李白奉诏还朝、赐御酒金花，\"把个李谪仙魂魄都做出来\"。",
+    "descEn": "The staged in-novel play of Li Bai recalled from exile, performed with such spirit that \"Li the Banished Immortal seemed to live again.\"",
     "contextZh": "在小说第25回中被引用，例如：“...是《李陵返汉》、《明妃入关》。两出后即是《仪郎奉诏》，是正生戏，赐以御酒金花，一路送迎祖钱，...”。",
     "contextEn": "Cited in chapter 25 of the novel.",
     "chapters": [
@@ -1816,8 +1816,8 @@
     ]
   },
   "杨妃入蜀": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中怡园所演新戏第二本，即《马嵬驿杨妃随驾》：国忠伏诛而贵妃免死，明皇携妃登峨嵋，吹玉笛、歌《清平》，仙女绕坛，场面极盛。",
+    "descEn": "The second in-novel new play: Consort Yang survives Mawei and ascends Emei with the emperor amid flutes, the Qingping song, and descending immortals.",
     "contextZh": "在小说第25回中被引用，例如：“...第二本是《杨妃入蜀》。先是国忠伏诛，陈元礼喻以君臣之义，六军...”。",
     "contextEn": "Cited in chapter 25 of the novel.",
     "chapters": [
@@ -1825,8 +1825,8 @@
     ]
   },
   "清平": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "指李白《清平调》三章，天宝初奉诏于沉香亭咏杨贵妃与名花，\"云想衣裳花想容\"即其首句；小说戏中杨妃登楼歌《清平》之章。",
+    "descEn": "Li Bai's three Qingping Diao stanzas, composed on imperial command for Consort Yang (\"Clouds recall her robes, flowers her face\"); sung by Yang in the in-novel play.",
     "contextZh": "在小说第25回中被引用，例如：“...。明皇幸峨嵋山与妃登楼，自吹玉笛，妃子歌《清平》之章，命宫人红桃作《回风》之舞，供奉李龟...”。",
     "contextEn": "Cited in chapter 25 of the novel.",
     "chapters": [
@@ -1834,8 +1834,8 @@
     ]
   },
   "回风": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "舞名，取回风流雪之姿：\"命宫人红桃作《回风》之舞\"，为小说新戏中杨妃登楼一场的插舞。",
+    "descEn": "The \"Whirling Wind\" dance performed by the palace maid Hongtao in the in-novel play, its name evoking snow spun on a returning wind.",
     "contextZh": "在小说第25回中被引用，例如：“...吹玉笛，妃子歌《清平》之章，命宫人红桃作《回风》之舞，供奉李龟年弹八琅之音，缥缈云端中，...”。",
     "contextEn": "Cited in chapter 25 of the novel.",
     "chapters": [
@@ -1843,8 +1843,8 @@
     ]
   },
   "群仙高会": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中八龄班临时敷演的一出群仙聚会戏，第二十五回宴上\"风光旖旎，态度生妍\"，大家喝采；后三十回又演《秦淮河看花大会》与之相类。",
+    "descEn": "An in-novel spectacle, \"Grand Assembly of the Immortals,\" improvised by the child troupe at the chapter 25 banquet to great applause.",
     "contextZh": "在小说第25回中被引用，例如：“...龄班得了示，即进戏房，打扮起来，做了一出《群仙高会》。也是风光旖旎，态度生妍，大家喝采不尽。...”。",
     "contextEn": "Cited in chapter 25 of the novel.",
     "chapters": [
@@ -1852,8 +1852,8 @@
     ]
   },
   "采莲歌": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "江南采莲歌谣的通称，源自汉乐府《江南》\"江南可采莲\"与梁武帝《江南弄·采莲曲》一脉；小说第二十五回怡园荷池中采莲人娇声唱和，如子夜清歌。",
+    "descEn": "Lotus-picking songs in the southern tradition descending from the Han yuefu \"Jiangnan\"; sung by the costumed lotus-pickers on the Yi Garden pond in chapter 25.",
     "contextZh": "在小说第25回中被引用，例如：“...班人在内打起丝竹十番。这些采莲人，便唱起《采莲歌》，娇声婉转，听之如子夜清歌，望之如湘君游...”。",
     "contextEn": "Cited in chapter 25 of the novel.",
     "chapters": [
@@ -1861,8 +1861,8 @@
     ]
   },
   "金缕": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "指唐曲《金缕衣》：\"劝君莫惜金缕衣，劝君惜取少年时\"，相传杜秋娘所唱劝惜春光之曲；小说中华公子请\"重歌《金缕》，再舞《霓裳》\"。",
+    "descEn": "The Tang song \"The Gold-Threaded Robe\" (\"Prize not the gold-threaded robe; prize the years of youth\"), associated with Du Qiuniang; young lord Hua calls for it at the banquet.",
     "contextZh": "在小说第25回中被引用，例如：“...的戏都没唱完，那出戏就去了半日。何不重歌《金缕》，再舞《霓裳》，把各人的才艺略见一斑，始...”。",
     "contextEn": "Cited in chapter 25 of the novel.",
     "chapters": [
@@ -1870,8 +1870,8 @@
     ]
   },
   "峨嵋山群仙": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中新戏《杨妃入蜀》的群仙出场一折，虽全部登场而\"未尽态度\"，华公子因命四旦另说得意之戏。",
+    "descEn": "The immortals' ensemble scene of the in-novel play \"Consort Yang Enters Shu,\" judged spectacular but not fully expressive by young lord Hua.",
     "contextZh": "在小说第25回中被引用，例如：“...、宝珠、素兰。华公子对着四旦说道：「方才《峨嵋山群仙》一出，虽全部出场，未尽态度。你们可将各人...”。",
     "contextEn": "Cited in chapter 25 of the novel.",
     "chapters": [
@@ -1879,8 +1879,8 @@
     ]
   },
   "秦淮河看花大会": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的应景群戏：第三十回宝珠、蕙芳、素兰等九旦凑成十人，即席串演《秦淮河看花大会》，幽闲妖冶各极其致，众人喝采放赏。",
+    "descEn": "An in-novel ensemble piece, \"The Flower-Viewing Fair on the Qinhuai,\" improvised by ten dan actors in chapter 30, each in a different mode of charm.",
     "contextZh": "在小说第30回中被引用，例如：“...，春喜、琪官等九个，又凑上一个，作了一出《秦淮河看花大会》，有幽闲的，有妖冶的，有静婉的，有风流的...”。",
     "contextEn": "Cited in chapter 30 of the novel.",
     "chapters": [
@@ -1888,8 +1888,8 @@
     ]
   },
   "龙图公案": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "明清公案小说与说唱书目，演宋龙图阁直学士包拯断案故事，明万历间已有百回刊本，茶肆书场盛行；小说第三十回杂耍艺人说了一回《龙图公案》。",
+    "descEn": "The Cases of Judge Bao (Longtu Gong'an), the Ming-Qing cycle of Judge Bao courtroom tales in print by the Wanli era; a storyteller performs an episode in chapter 30.",
     "contextZh": "在小说第30回中被引用，例如：“...，说了好些笑话，作了一回像声，又说了一回《龙图公案》。次贤等不甚喜听，便与群旦猜枚行令，彼此...”。",
     "contextEn": "Cited in chapter 30 of the novel.",
     "chapters": [
@@ -1897,8 +1897,8 @@
     ]
   },
   "活捉": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明许自昌传奇《水浒记》，演阎惜娇鬼魂夜至张文远（张三郎）书房，活捉情夫同赴阴司事，做工诡艳，为刺杀旦一路名剧。",
+    "descEn": "The kunqu scene \"Seized Alive\" from Xu Zichang's The Water Margin (Shuihu Ji): the ghost of Yan Xijiao returns to drag her faithless lover Zhang Wenyuan to the netherworld.",
     "contextZh": "在小说第30回中被引用，例如：“...别人串也好，偏偏大傻子死缠住了，要与他唱《活捉》。本来戏名就不吉利，大傻生得又呆又笨，种...”。",
     "contextEn": "Cited in chapter 30 of the novel.",
     "chapters": [
@@ -1933,8 +1933,8 @@
     ]
   },
   "挑帘": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子，演《水浒传》潘金莲叉帘失手打着西门庆、王婆撮合的\"挑帘\"一节，昆曲出于明沈璟《义侠记》一系，花部亦盛演《挑帘裁衣》。",
+    "descEn": "The \"Raising the Curtain\" scene from the Pan Jinlian story (her curtain pole strikes Ximen Qing), staged in kunqu via Shen Jing's The Righteous Knight and widely in regional opera.",
     "contextZh": "在小说第30回中被引用，例如：“...我会的是：《前诱》、《后诱》、《反诳》、《挑帘》、《裁衣》等戏。」聘才笑道：「也不对，竟...”。",
     "contextEn": "Cited in chapter 30 of the novel.",
     "chapters": [
@@ -1942,8 +1942,8 @@
     ]
   },
   "裁衣": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子，演潘金莲在王婆房中为西门庆裁衣、二人成奸一节，与《挑帘》连演，属风情做工戏。",
+    "descEn": "The \"Cutting the Garment\" scene, sequel to \"Raising the Curtain\": Pan Jinlian sews in Dame Wang's room as Ximen Qing presses his suit.",
     "contextZh": "在小说第30回中被引用，例如：“...《前诱》、《后诱》、《反诳》、《挑帘》、《裁衣》等戏。」聘才笑道：「也不对，竟唱不来。」...”。",
     "contextEn": "Cited in chapter 30 of the novel.",
     "chapters": [
@@ -1951,8 +1951,8 @@
     ]
   },
   "平沙落雁": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "古琴名曲，明末《古音正宗》（1634）初刊，写秋高气爽、雁阵盘旋落沙之景，恬淡悠远，为流传最广的琴曲之一；小说中杜琴言会弹此曲。",
+    "descEn": "Wild Geese Alighting on the Sandbar (Pingsha Luoyan), the beloved qin piece first printed in 1634, painting geese wheeling down to an autumn shoal; Du Qinyan's specialty in the novel.",
     "contextZh": "在小说第31回中被引用，例如：“...是长于吹笙的。可惜玉侬又病了，他倒会一套《平沙落雁》。」华公子便命叫他起来，又吩咐珊枝拿了琵...”。",
     "contextEn": "Cited in chapter 31 of the novel.",
     "chapters": [
@@ -1960,8 +1960,8 @@
     ]
   },
   "平沙": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即古琴曲《平沙落雁》的简称；第三十一回琴言心绪不佳，\"生生涩涩的弹了一套《平沙》\"。",
+    "descEn": "Short for Pingsha Luoyan (Wild Geese Alighting on the Sandbar); Qinyan plays it haltingly, heart elsewhere, in chapter 31.",
     "contextZh": "在小说第31回中被引用，例如：“...来心神不佳，而且手生，生生涩涩的弹了一套《平沙》。...”。",
     "contextEn": "Cited in chapter 31 of the novel.",
     "chapters": [
@@ -1969,8 +1969,8 @@
     ]
   },
   "一痕沙": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "词牌名（又作《一斛珠》别体相混者非；此调即《一痕沙》小令）；小说第三十一回玉林即席填《一痕沙》咏堂会盛集。",
+    "descEn": "Yihensha (\"A Trace on the Sand\"), a short cipai; Yulin fills one on the spot at the chapter 31 gathering.",
     "contextZh": "在小说第31回中被引用，例如：“...，及到此刻才放了心。再看玉林的填词，填的《一痕沙》小令，看词是：娇舞酣歌深院，绣幕锦屏香软...”。",
     "contextEn": "Cited in chapter 31 of the novel.",
     "chapters": [
@@ -1978,8 +1978,8 @@
     ]
   },
   "月儿高": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "传统琵琶大曲，写月升中天、万籁清光之景，明嘉靖《高和江东》琵琶谱已收，后《华秋苹琵琶谱》定型；小说第三十一回席上弹奏，\"指法如雨洒芭蕉\"。",
+    "descEn": "The Moon Rides High (Yue'er Gao), a classic pipa suite depicting the climbing moon, recorded in Ming lute tablature; played at the banquet in chapter 31.",
     "contextZh": "在小说第31回中被引用，例如：“...声应和。听得人人色舞眉飞，四肢愉快。弹了《月儿高》一套，大家也赞了一回。...”。",
     "contextEn": "Cited in chapter 31 of the novel.",
     "chapters": [
@@ -1987,8 +1987,8 @@
     ]
   },
   "香雪先生传": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的文章题目：苏蕙芳请史南湘为其业师\"香雪先生\"作传——其师本名士，不第焚弃笔砚而入梨园教曲，蕙芳感念师恩，集分金为之传世。",
+    "descEn": "An in-novel commission: the biography of \"Master Fragrant Snow,\" Su Huifang's late teacher—a failed literatus turned opera master—which Huifang asks Shi Nanxiang to write.",
     "contextZh": "在小说第31回中被引用，例如：“...说。」众人不解，都凑近来看时，题目写的是《香雪先生传》。蕙芳又叫跟班的拿进一个小包，解开一并送...”。",
     "contextEn": "Cited in chapter 31 of the novel.",
     "chapters": [
@@ -1996,8 +1996,8 @@
     ]
   },
   "香雪遗稿": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的遗集：蕙芳业师香雪先生的诗文遗稿两册，第三十一回蕙芳捧出请诸名士传阅刊刻，众人始知其师竟是名士出身。",
+    "descEn": "The in-novel \"Posthumous Papers of Master Fragrant Snow,\" two volumes of the dead teacher's poetry and prose that Huifang asks the literati to print.",
     "contextZh": "在小说第31回中被引用，例如：“...班的拿进一个小包，解开一并送上。诸人看是《香雪遗稿》，共两本，诗文并列。南湘一句一句的念出，...”。",
     "contextEn": "Cited in chapter 31 of the novel.",
     "chapters": [
@@ -2014,8 +2014,8 @@
     ]
   },
   "贺新凉": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即词牌《贺新郎》，双调一百十六字，苏轼\"乳燕飞华屋\"一阕后别名《贺新凉》，声情悲壮激越；第三十一回高品、南湘等锦秋墩联句即用此调。",
+    "descEn": "Hexinliang, the alternate name of the heroic 116-character cipai Hexinlang (\"Congratulating the Bridegroom\"); the friends compose a joint lyric to it atop Jinqiu Mound.",
     "contextZh": "在小说第31回中被引用，例如：“...你先起句。」高品道：「悲壮淋漓，莫如填首《贺新凉》，我得了起句在此。」即念道：世事君知否？...”。",
     "contextEn": "Cited in chapter 31 of the novel.",
     "chapters": [
@@ -2023,8 +2023,8 @@
     ]
   },
   "题名录": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "科举放榜后刊行的中式者名录（乡试题名录），载新科举人姓名、籍贯、名次；第三十二回高品捐监冒名事发，众人取《题名录》细看，果无其名。",
+    "descEn": "The published roster of successful examination candidates with names, native places and ranks; in chapter 32 the friends check it and confirm Gao Pin's name is absent.",
     "contextZh": "在小说第32回中被引用，例如：“...」高品气得发昏，说声：「呸！」那人便拿出《题名录》来，众人细细看了，果无高品在内。蕙芳笑道...”。",
     "contextEn": "Cited in chapter 32 of the novel.",
     "chapters": [
@@ -2032,8 +2032,8 @@
     ]
   },
   "金瓶梅": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "明代长篇世情小说，兰陵笑笑生作，约成书于万历年间（词话本有万历四十五年〔1617〕序），借《水浒》西门庆、潘金莲故事铺写市井家庭的欲望与败亡，为四大奇书之一。",
+    "descEn": "The Plum in the Golden Vase (Jin Ping Mei), the great Ming novel of manners by \"The Scoffing Scholar of Lanling\" (preface dated 1617), spun from the Ximen Qing–Pan Jinlian episode into a panorama of desire and ruin.",
     "contextZh": "在小说第34回中被引用，例如：“...书案，摆着两套小书。元茂看书套签子上写着《金瓶梅》。...”。",
     "contextEn": "Cited in chapter 34 of the novel.",
     "chapters": [
@@ -2041,8 +2041,8 @@
     ]
   },
   "苑中人日遇雪应制": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐赵彦昭的应制诗（《奉和人日清晖阁宴群臣遇雪应制》），咏人日宫苑遇雪之瑞；小说第三十五回飞花令中宝珠记得此诗首句。",
+    "descEn": "A court poem by Zhao Yanzhao of the Tang on snow falling during the Renri palace banquet; Baozhu recalls its opening line in the chapter 35 verse game.",
     "contextZh": "在小说第35回中被引用，例如：“...不知道是谁的。」宝珠道：「我记得是赵彦昭《苑中人日遇雪应制》。」漱芳道：「我就要飞二字了。」想了一想...”。",
     "contextEn": "Cited in chapter 35 of the novel.",
     "chapters": [
@@ -2068,8 +2068,8 @@
     ]
   },
   "美人梳头歌": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐李贺诗《美人梳头歌》，写晓窗美人栉发情态，\"西施晓梦绡帐寒\"起句，秾丽婉媚；小说行令中春航纠正王恂误记为温飞卿。",
+    "descEn": "Li He's \"Song of a Beauty Combing Her Hair,\" an opulent Tang poem of a woman at her dawn toilette; in the game Chunhang corrects Wang Xun's misattribution of it.",
     "contextZh": "在小说第35回中被引用，例如：“...落处无声腻』，不是『燕』字，且是李长吉的《美人梳头歌》，你又记错是温飞卿，该罚一杯。」王恂道：...”。",
     "contextEn": "Cited in chapter 35 of the novel.",
     "chapters": [
@@ -2077,8 +2077,8 @@
     ]
   },
   "送红线": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐冷朝阳诗《送红线》，咏侠女红线功成辞去：\"采菱歌怨木兰舟……还似洛妃乘雾去\"；小说第三十五回子玉行令引其句。",
+    "descEn": "Leng Chaoyang's Tang quatrain \"Seeing Off Hongxian,\" on the swordswoman's farewell (\"like the Luo goddess departing on mist\"); Ziyu quotes it in the drinking game.",
     "contextZh": "在小说第35回中被引用，例如：“...满贺了一杯。子玉得了，即道：「我用冷朝阳《送红线》诗一句，孟浩然《登襄城楼》一句，合着是：...”。",
     "contextEn": "Cited in chapter 35 of the novel.",
     "chapters": [
@@ -2104,8 +2104,8 @@
     ]
   },
   "偷曲": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清洪昇《长生殿》\"偷曲\"一出，演乐工李謩元宵夜倚宫墙偷记《霓裳》新谱事；小说行令中蕙芳念其曲文\"山入寒空月影横\"。",
+    "descEn": "The kunqu scene \"Stealing the Tune\" from The Palace of Everlasting Life: the flutist Li Mo eavesdrops by the palace wall to note down the new Rainbow Skirts score.",
     "contextZh": "在小说第35回中被引用，例如：“...又看蕙芳掷了一个么四，想了半刻工夫，念着《偷曲》上的两句道：「山入寒空月影横，阑干畔，有...”。",
     "contextEn": "Cited in chapter 35 of the novel.",
     "chapters": [
@@ -2113,8 +2113,8 @@
     ]
   },
   "采莲曲": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "乐府旧题，此处指唐温庭筠《采莲曲》，小说中子云集其\"绿萍金粟莲茎短\"等句入令。",
+    "descEn": "The old yuefu title \"Lotus-Picking Song,\" here Wen Tingyun's Tang version, whose lines Ziyun splices into the verse game.",
     "contextZh": "在小说第35回中被引用，例如：“...好，该贺个双杯。我也交卷了，我就用温飞卿《采莲曲》上的两句，凑起来是：绿萍金粟莲茎短，露重...”。",
     "contextEn": "Cited in chapter 35 of the novel.",
     "chapters": [
@@ -2122,8 +2122,8 @@
     ]
   },
   "窥浴": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清洪昇《长生殿》\"窥浴\"一出，演永新、念奴窥看杨妃华清赐浴，曲文\"两人合一副肠和胃\"即出此折；小说行令中素兰、漱芳皆引之。",
+    "descEn": "The kunqu scene \"Spying on the Bath\" from The Palace of Everlasting Life: palace maids peek at Consort Yang's bath at Huaqing; its lyrics are quoted twice in the chapter 35 game.",
     "contextZh": "在小说第35回中被引用，例如：“...少用些心。」素兰掷了一个重四，即想出一句《窥浴》上的曲文道：「两人合一付肠和胃。」仲清拍...”。",
     "contextEn": "Cited in chapter 35 of the novel.",
     "chapters": [
@@ -2131,8 +2131,8 @@
     ]
   },
   "忘死集": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的著作：屈道生（道翁）的游戏笔墨之一，与《醒睡集》并称，\"都是游戏之笔\"，书名奇崛，见其人风趣。",
+    "descEn": "An in-novel book: the \"Collection for Forgetting Death,\" one of the eccentric recluse Qu Daosheng's playful miscellanies, paired with the \"Collection to Wake the Sleeping.\"",
     "contextZh": "在小说第37回中被引用，例如：“...游戏。其著作之外，还有些零碎笔墨，一种名《忘死集》，一种名《醒睡集》，都是游戏之笔。」琴言...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2140,8 +2140,8 @@
     ]
   },
   "观画": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子名，第三十七回怡园戏目对句令中子云举以对《偷诗》，谓\"《观画》就可对《偷诗》，《偷诗》又可对《拾画》\"。",
+    "descEn": "An opera-scene title (\"Viewing the Painting\") cited in the chapter 37 title-matching game as a natural pair for \"Stealing the Poem.\"",
     "contextZh": "在小说第37回中被引用，例如：“...不易。」又说道：「我想戏目颇可作对，譬如《观画》就可对《偷诗》，《偷诗》又可对《拾画》等...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2149,8 +2149,8 @@
     ]
   },
   "拾画": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明汤显祖《牡丹亭》（1598年）\"拾画\"一出，演柳梦梅园中拾得杜丽娘自画像、对像呼唤事，与《叫画》连演，为巾生独角名剧。",
+    "descEn": "The kunqu scene \"Picking Up the Portrait\" from The Peony Pavilion (1598): Liu Mengmei finds Du Liniang's self-portrait in the ruined garden and calls to the painted beauty.",
     "contextZh": "在小说第37回中被引用，例如：“...如《观画》就可对《偷诗》，《偷诗》又可对《拾画》等类，倒也有趣。我们八个人分着四对，我给...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2158,8 +2158,8 @@
     ]
   },
   "教歌": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明传奇《绣襦记》（旧题徐霖作），演落魄的郑元和随乞丐学唱莲花落事，丑脚苏白当行，为昆丑名剧。",
+    "descEn": "The kunqu scene \"Teaching the Song\" from The Embroidered Jacket (Xiuru Ji): the destitute Zheng Yuanhe learns beggars' lianhualao chants, a classic clown showcase.",
     "contextZh": "在小说第37回中被引用，例如：“...。」即罚了蕙芳一杯。蕙芳想了一想，道：「《教歌》可以对么？」次贤道：「好。」于是都说一声...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2167,8 +2167,8 @@
     ]
   },
   "埋玉": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清洪昇《长生殿》\"埋玉\"一出，演马嵬兵变、杨贵妃自缢梨树、明皇掩面埋玉事，为全剧悲剧顶点。",
+    "descEn": "The kunqu scene \"Burying the Jade\" from The Palace of Everlasting Life: the Mawei mutiny forces Consort Yang's death beneath the pear tree—the tragedy's climax.",
     "contextZh": "在小说第37回中被引用，例如：“...：「应该。」即劝合席贺了一杯。蕙芳即出了《埋玉》，次贤对了《拾金》。王恂道：「这工稳极了...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2194,8 +2194,8 @@
     ]
   },
   "弹词": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清洪昇《长生殿》\"弹词\"一出，演乱后李龟年流落江南，弹琵琶唱\"一从鼙鼓起渔阳\"九转，追述天宝遗事，为老生唱功名剧。",
+    "descEn": "The kunqu scene \"The Ballad\" from The Palace of Everlasting Life: the old court musician Li Guinian, a refugee in the south, sings the fall of the Tang to his pipa.",
     "contextZh": "在小说第37回中被引用，例如：“...稳，贺了一杯。到了王恂、桂保了，王恂出了《弹词》，桂保对了《制谱》。次贤道：「我想这上对...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2203,8 +2203,8 @@
     ]
   },
   "偷鸡": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "武丑折子戏，演《水浒传》鼓上蚤时迁偷鸡惹祸事（本事见《水浒》时迁祝家店一节），跌扑身段与矮子功当行。",
+    "descEn": "The wuchou (acrobatic clown) scene \"Stealing the Chicken,\" from the Water Margin episode of Shi Qian the Flea-on-a-Drum, famed for its tumbling and crouching work.",
     "contextZh": "在小说第37回中被引用，例如：“...桂保谓王恂道：「我就出个新奇的与你对，是《偷鸡》。」王恂道：「我对《伏虎》。」大家赞道：...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2221,8 +2221,8 @@
     ]
   },
   "访鼠": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清初朱素臣传奇《十五贯》（《双熊梦》），演况钟假扮测字先生访察真凶娄阿鼠、机锋相试事，全名《访鼠测字》，丑与老生对儿名剧。",
+    "descEn": "The kunqu scene \"Tracking the Rat\" from Zhu Suchen's Fifteen Strings of Cash: Judge Kuang Zhong, posing as a fortune-teller, traps the murderer Lou the Rat.",
     "contextZh": "在小说第37回中被引用，例如：“...王恂道：「你这评论，真是毫发不爽，我改了《访鼠》罢。」次贤道：「这该贺了。」各人都贺一杯...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2239,8 +2239,8 @@
     ]
   },
   "借靴": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "花部丑角小戏，演穷酸刘二向悭吝的张三借靴赴宴，百般刁难、跪拜供奉方得靴的讽刺闹剧，梆子、京腔盛演。",
+    "descEn": "\"Borrowing the Boots,\" a regional-opera farce: the miser makes his shabby friend grovel absurdly before lending his boots—a satire on stinginess.",
     "contextZh": "在小说第37回中被引用，例如：“...杯。到了子玉，出的是《看袜》，琴言对的是《借靴》。大家说道：「这个对得好，要贺两杯。」蕙...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2248,8 +2248,8 @@
     ]
   },
   "醉妃": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子，演杨贵妃百花亭设宴候驾不至、独酌沉醉事，即后世《贵妃醉酒》（《百花亭》）所本，清中叶花部已盛演。",
+    "descEn": "\"The Drunken Consort\": Yang Guifei, stood up by the emperor at Hundred Flowers Pavilion, drinks alone—the piece behind the later classic The Drunken Beauty.",
     "contextZh": "在小说第37回中被引用，例如：“...琴言出了《醉妃》，子玉听得王恂的《伏虎》，就触着了，对了...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2320,8 +2320,8 @@
     ]
   },
   "打店": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "武戏折子，演《水浒传》武松发配途中夜宿十字坡，与孙二娘黑店恶斗事（十字坡打店），短打武生与武旦对儿戏。",
+    "descEn": "The combat scene \"Fighting at the Inn\": Wu Song battles the innkeeper Sun Erniang at Crossroads Slope—an acrobatic duel piece.",
     "contextZh": "在小说第37回中被引用，例如：“...子云出了《打店》，宝珠对了《逃关》。宝珠出了《抢娇》，子...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2347,8 +2347,8 @@
     ]
   },
   "杀惜": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明许自昌传奇《水浒记》，演宋江怒杀索要招文袋的阎惜娇事，与《活捉》同出一剧。",
+    "descEn": "The kunqu scene \"Killing Xijiao\" from The Water Margin (Shuihu Ji): Song Jiang slays the blackmailing Yan Xijiao—companion piece to \"Seized Alive.\"",
     "contextZh": "在小说第37回中被引用，例如：“...对了《逃关》。宝珠出了《抢娇》，子云对了《杀惜》。都为工稳，贺了一杯。王恂出了《草桥》，...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2356,8 +2356,8 @@
     ]
   },
   "草桥": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，即《西厢记》\"草桥店梦莺莺\"（南曲《南西厢·惊梦》），演张生赴考夜宿草桥店，梦莺莺追来相会，醒而惘然。",
+    "descEn": "The \"Straw Bridge\" scene from The Western Chamber Romance: lodging at Straw Bridge Inn, Student Zhang dreams Yingying has followed him, then wakes to emptiness.",
     "contextZh": "在小说第37回中被引用，例如：“...了《杀惜》。都为工稳，贺了一杯。王恂出了《草桥》，桂保对了《麻地》，忽又说道：「这地字还...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2428,8 +2428,8 @@
     ]
   },
   "哄丁": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清孔尚任《桃花扇》\"哄丁\"一出，演南京文庙丁祭时复社文人哄逐阉党余孽阮大铖事；小说中子玉借对《卸甲》。",
+    "descEn": "The kunqu scene \"Uproar at the Sacrifice\" from The Peach Blossom Fan: Restoration Society scholars hound the eunuch-faction playwright Ruan Dacheng from the Confucian rite.",
     "contextZh": "在小说第37回中被引用，例如：“...一回，没有新鲜的，偶想起《桃花扇》上有出《哄丁》，便把《哄丁》借对了，众人极口赞妙，各贺...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2437,8 +2437,8 @@
     ]
   },
   "饭店": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子名，第三十七回对戏令中次贤出《酒楼》……次贤出《饭店》，蕙芳对《茶房》，为席上戏目对句之一。",
+    "descEn": "An opera-scene title (\"The Inn\") posed by Cixian in the matching game and answered with \"The Teahouse.\"",
     "contextZh": "在小说第37回中被引用，例如：“...对了，众人极口赞妙，各贺了满杯。次贤出了《饭店》，蕙芳对了《茶房》。蕙芳出了《拔眉》，子...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2446,8 +2446,8 @@
     ]
   },
   "茶房": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子名，第三十七回蕙芳以之对次贤所出《饭店》。",
+    "descEn": "An opera-scene title (\"The Teahouse\"), Huifang's answer to \"The Inn\" in the game.",
     "contextZh": "在小说第37回中被引用，例如：“...，各贺了满杯。次贤出了《饭店》，蕙芳对了《茶房》。蕙芳出了《拔眉》，子云道：「这更难对了...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2518,8 +2518,8 @@
     ]
   },
   "花鼓": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "花部民间小戏《花鼓》（打花鼓），演凤阳夫妇背花鼓卖艺唱曲事，凤阳歌\"说凤阳，道凤阳\"传唱极广，清中叶昆班亦收此吹腔小戏。",
+    "descEn": "\"The Flower Drum,\" the popular skit of a Fengyang husband and wife singing for coppers with their drum—its Fengyang song known everywhere; absorbed even into kunqu troupes' repertoire.",
     "contextZh": "在小说第37回中被引用，例如：“...到了王恂，王恂出了《花鼓》。桂保想来想去，没有对，急得脸都红了。...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2527,8 +2527,8 @@
     ]
   },
   "雨铃": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "指《长生殿·闻铃》中唐明皇栈道雨夜闻铃、采声制《雨霖铃》曲之事（唐教坊曲《雨霖铃》即由此传说得名）；小说第三十七回桂保说\"只有《闻铃》上那个《雨铃》好对，却不是戏目\"。",
+    "descEn": "The \"Rain Bells\" of the Wenling scene in The Palace of Everlasting Life: mule-train bells in mountain rain that the grieving emperor wove into the melody Yulinling; Guibao notes it would pair perfectly but \"is not a play title.\"",
     "contextZh": "在小说第37回中被引用，例如：“...「不料这个倒没有对的。只有《闻铃》上那个《雨铃》好对，却不是戏目。《草桥》这桥字也不甚对...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2536,8 +2536,8 @@
     ]
   },
   "跪池": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明汪廷讷传奇《狮吼记》，演惧内的陈季常被妒妻柳氏罚跪池边、苏东坡解劝反遭抢白事，谐趣横生。",
+    "descEn": "The kunqu scene \"Kneeling by the Pond\" from Wang Tingne's The Lion's Roar: the henpecked Chen Jichang is made to kneel by the pond while Su Dongpo's mediation backfires.",
     "contextZh": "在小说第37回中被引用，例如：“...来，我喝一杯罢。」桂保喝了半杯酒，出了个《跪池》，王恂对了《投井》，大家说好，也贺了半杯...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2554,8 +2554,8 @@
     ]
   },
   "扫松": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自元末高明《琵琶记》\"扫松下书\"一出，演义仆张广才扫墓遇蔡伯喈差人下书、痛斥忘亲负义事，老生苍劲之作。",
+    "descEn": "The kunqu scene \"Sweeping the Pines\" from The Lute: the loyal old Zhang Guangcai, tending the parents' graves, berates the messenger of the neglectful son.",
     "contextZh": "在小说第37回中被引用，例如：“...生的，我看倒是对对易，出对难。」琴言对了《扫松》。子玉道：「我一对连我的上对都好了。」众...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2563,8 +2563,8 @@
     ]
   },
   "扫秦": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明传奇《精忠记》，演疯僧于灵隐寺扫地讥骂谋害岳飞的秦桧、地藏显圣事，借疯语骂尽奸邪。",
+    "descEn": "The kunqu scene \"Sweeping at Qin\" from The Loyal Heart (Jingzhong Ji): a mad monk sweeping at Lingyin Temple mocks and curses Qin Hui, Yue Fei's murderer.",
     "contextZh": "在小说第37回中被引用，例如：“...贺半杯。琴言道：「我就出个扫字的上对，是《扫秦》。」众人道：「这个难了。」子玉道：「这个...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2581,8 +2581,8 @@
     ]
   },
   "书馆": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自元末高明《琵琶记》\"书馆\"一出，演蔡伯喈书馆中见赵五娘所画公婆真容、夫妻相认事，与《描容》《扫松》同为该剧名折。",
+    "descEn": "The kunqu scene \"The Study\" from The Lute: Cai Bojie discovers his parents' portrait in his study and is reunited with Zhao Wuniang, who painted it.",
     "contextZh": "在小说第37回中被引用，例如：“...人，出个容易的。」出了《酒楼》，蕙芳对了《书馆》，便说道：「我也学玉侬的连环出法，我就用...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2599,8 +2599,8 @@
     ]
   },
   "追信": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明沈采传奇《千金记》，演萧何月下追回负气出走的韩信、荐为大将事，老生赶路唱做名剧。",
+    "descEn": "The kunqu scene \"Pursuing Han Xin\" from The Thousand Gold (Qianjin Ji): Xiao He gallops through the moonlit night to bring back the departing genius Han Xin.",
     "contextZh": "在小说第37回中被引用，例如：“...难我，我偏要对个好的。」因想了一会，对了《追信》。...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2626,8 +2626,8 @@
     ]
   },
   "离魂": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明汤显祖《牡丹亭》\"闹殇\"一出（俗称《离魂》），演杜丽娘中秋雨夜伤情而逝、魂离倩女事，唱做凄艳，为闺门旦重头戏。",
+    "descEn": "The kunqu scene \"The Departing Soul\" (Naoshang) from The Peony Pavilion: Du Liniang dies of longing on a rainy Mid-Autumn night, her soul slipping free.",
     "contextZh": "在小说第37回中被引用，例如：“...这对。」宝珠一想，果然有这个戏目，便对了《离魂》。子云点点头道：「对也对得好。」贺了半杯...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2635,8 +2635,8 @@
     ]
   },
   "吃糠": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自元末高明《琵琶记》\"糟糠自厌\"一出，演赵五娘荒年以糠秕充饥、被婆婆误疑藏私事，悲苦沉痛，为正旦唱功名剧。",
+    "descEn": "The kunqu scene \"Eating Husks\" from The Lute: in famine Zhao Wuniang secretly eats chaff so her in-laws may have the rice, only to be suspected of hoarding.",
     "contextZh": "在小说第37回中被引用，例如：“...头道：「对也对得好。」贺了半杯。宝珠出了《吃糠》，子云对了《泼粥》。...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2653,8 +2653,8 @@
     ]
   },
   "冥判": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明汤显祖《牡丹亭》\"冥判\"一出，演胡判官勘问杜丽娘魂魄、查花名册放其出枉死城随风游魂事，净脚花判当行。",
+    "descEn": "The kunqu scene \"Judgment in the Underworld\" from The Peony Pavilion: the infernal judge reviews Du Liniang's case and frees her soul to wander in search of her dream lover.",
     "contextZh": "在小说第37回中被引用，例如：“...到了王恂，出了个《冥判》。次贤道：「这不容易。这个判字半虚半实，...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2662,8 +2662,8 @@
     ]
   },
   "空谷香": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清蒋士铨（1725—1785）所作传奇，乾隆年间刊行，演义仆之女姚梦兰坚贞事顾赞侯为侧室、历尽磨难的故事，为蒋氏《藏园九种曲》之一。",
+    "descEn": "Fragrance of the Empty Valley (Konggu Xiang), a chuanqi by Jiang Shiquan (1725–1785), on the steadfast Yao Menglan's trials; one of his celebrated Nine Plays.",
     "contextZh": "在小说第37回中被引用，例如：“...，道：「有一个好对，就新些，却不是老戏。《空谷香》上有出《佛医》，我对《佛医》。」次贤道：...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2671,8 +2671,8 @@
     ]
   },
   "佛医": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清蒋士铨传奇《空谷香》（乾隆年间），小说中桂保即言\"《空谷香》上有出《佛医》\"，以对《冥判》。",
+    "descEn": "The scene \"The Buddha Physician\" from Jiang Shiquan's Qianlong-era chuanqi Fragrance of the Empty Valley, cited by Guibao in the title-matching game.",
     "contextZh": "在小说第37回中被引用，例如：“...对，就新些，却不是老戏。《空谷香》上有出《佛医》，我对《佛医》。」次贤道：「果然好，非但...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2680,8 +2680,8 @@
     ]
   },
   "惊丑": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明末阮大铖传奇《燕子笺》（约1642年），演鲜于佶冒名赴约、丑态毕露惊走佳人事，谑浪当行。",
+    "descEn": "The kunqu scene \"Startled by the Ugly Suitor\" from Ruan Dacheng's The Swallow Letter (c. 1642): the impostor Xianyu Ji's grotesque appearance routs the rendezvous.",
     "contextZh": "在小说第37回中被引用，例如：“...呢。」桂保道：「我想出一个难的来了，我出《惊丑》。」王恂想了一会道：「我有个好对，这四个...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2689,8 +2689,8 @@
     ]
   },
   "吓痴": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子名，第三十七回对戏令中王恂以之对《惊丑》，众人笑称\"真是黑沉沉的一样颜色\"。",
+    "descEn": "An opera-scene title (\"Scaring the Simpleton\") offered by Wang Xun as the pitch-perfect match for \"Startled by the Ugly Suitor\" in the game.",
     "contextZh": "在小说第37回中被引用，例如：“...起来，还是一样的颜色，你们要贺双杯。我对《吓痴》。」众人大笑道：「真是黑沉沉的一样颜色，...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2698,8 +2698,8 @@
     ]
   },
   "飞熊梦": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏目，用周文王夜梦飞熊、渭水访得姜太公之典（《封神》故事一系），小说第三十七回子玉出此三字对，琴言以《伏虎韬》对之。",
+    "descEn": "An opera title on King Wen's dream of a flying bear that led him to the sage Jiang Ziya at the Wei River; posed as a three-character challenge in the matching game.",
     "contextZh": "在小说第37回中被引用，例如：“...依了。子玉道：「我出个三字对罢。」遂出了《飞熊梦》。众人道：「三个字就难些，好对的也少得很...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2707,8 +2707,8 @@
     ]
   },
   "伏虎韬": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏目名，第三十七回琴言以此三字对子玉所出《飞熊梦》，取姜太公《六韬》与降虎之意相配。",
+    "descEn": "An opera title (\"The Tiger-Taming Strategy\") matched by Qinyan against \"Dream of the Flying Bear,\" playing on Jiang Ziya's Six Strategies.",
     "contextZh": "在小说第37回中被引用，例如：“...些，好对的也少得很。」琴言想了一会，对了《伏虎韬》。...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2716,8 +2716,8 @@
     ]
   },
   "卖子投渊": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子名（四字戏目），第三十七回琴言出此对，子玉以《思亲罢宴》对之，众人拍案称妙。",
+    "descEn": "A four-character opera title (\"Selling the Son, Leaping into the Abyss\") posed by Qinyan; Ziyu's answering title wins the table's applause.",
     "contextZh": "在小说第37回中被引用，例如：“...自然就难了，这一两个只怕还有。」便出了个《卖子投渊》。子玉也想了一会，对了个《思亲罢宴》，众...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2725,8 +2725,8 @@
     ]
   },
   "思亲罢宴": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子（《罢宴》），演宋寇准寿辰大张华宴，老乳母刘婆泣述其母当年寒微教子俭德，寇准感悟罢宴事，为老旦劝诫名剧。",
+    "descEn": "The scene \"Cancelling the Banquet\": at Kou Zhun's lavish birthday feast his old nurse recalls his mother's frugal virtue until he dismisses the banquet in shame.",
     "contextZh": "在小说第37回中被引用，例如：“...了个《卖子投渊》。子玉也想了一会，对了个《思亲罢宴》，众人拍案称妙。子云道：「情见乎词，庾香...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2734,8 +2734,8 @@
     ]
   },
   "大人先生论": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即三国魏阮籍《大人先生传》（小说称\"论\"），借虚拟的大人先生嘲讽拘礼君子\"何异虱之处裈中\"，为魏晋放达文字的代表。",
+    "descEn": "Ruan Ji's \"Biography of Master Great Man\" (3rd century), whose gibe that proper gentlemen are \"lice in the trousers of the world\" epitomizes Wei-Jin iconoclasm.",
     "contextZh": "在小说第38回中被引用，例如：“...未多。见于书史者也只有数条，大约要以阮籍《大人先生论》『君子之处域内，何异虱之处□中』为先了。...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2743,8 +2743,8 @@
     ]
   },
   "史记": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "西汉司马迁撰，中国第一部纪传体通史，上起黄帝下讫汉武，一百三十篇；小说引\"搏牛之虻，不可以破虮虱\"语。",
+    "descEn": "The Records of the Grand Historian (Shiji) by Sima Qian, China's first comprehensive history in 130 chapters; the novel quotes its gadfly-and-lice aphorism.",
     "contextZh": "在小说第38回中被引用，例如：“...何异虱之处□中』为先了。」南湘道：「还有《史记》『搏牛之虻，不可以破虮虱。』」道生道：「...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2752,8 +2752,8 @@
     ]
   },
   "商子": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即《商君书》，战国商鞅及其后学的法家著作，《汉书·艺文志》著录二十九篇，今存二十六篇；小说中屈道生引其\"虱官\"之说。",
+    "descEn": "The Book of Lord Shang (Shangzi), the Legalist treatise of Shang Yang's school; Qu Daosheng cites its notion of \"louse offices\" (parasitic virtues).",
     "contextZh": "在小说第38回中被引用，例如：“...，不可以破虮虱。』」道生道：「此二条尚在《商子》之后，古有虱官，见于《商子》。《汉书艺文...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2761,8 +2761,8 @@
     ]
   },
   "汉书艺文志": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "东汉班固《汉书》十志之一，据刘歆《七略》编成，为中国现存最早的图书目录，著录先秦西汉典籍六略三十八种。",
+    "descEn": "The bibliographic treatise of Ban Gu's History of the Han, China's earliest surviving book catalogue, based on Liu Xin's Seven Summaries.",
     "contextZh": "在小说第38回中被引用，例如：“...在《商子》之后，古有虱官，见于《商子》。《汉书艺文志》传《商君书》二十九篇，后来亡其三篇，只传...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2770,8 +2770,8 @@
     ]
   },
   "商君书": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "战国法家商鞅一派著作，《汉书·艺文志》载二十九篇，亡三篇，以仁义礼乐为\"虱官\"，主张耕战富国；小说第三十八回考据虱之典引之。",
+    "descEn": "The Book of Lord Shang, which brands humaneness and ritual as \"lice\" sapping the state and preaches agriculture and war; cited in the chapter 38 erudition contest.",
     "contextZh": "在小说第38回中被引用，例如：“...古有虱官，见于《商子》。《汉书艺文志》传《商君书》二十九篇，后来亡其三篇，只传二十六篇。内...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2779,8 +2779,8 @@
     ]
   },
   "衡岳碑": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即衡山岣嵝峰禹碑（岣嵝碑），相传夏禹治水所刻，七十七字奇古难识；宋嘉定中何致摹其文刻于岳麓，明杨慎等又有释文与翻刻，真伪聚讼千年。",
+    "descEn": "The Yu Tablet on Mount Heng's Goulou Peak: 77 archaic characters traditionally ascribed to Yu the Great, copied to Yuelu in the Song and endlessly recut and disputed since.",
     "contextZh": "在小说第38回中被引用，例如：“...本为最？」道生道：「古篆近人不甚讲究，如《衡岳碑》，相传七十七字，在衡岳密云峰。至宋嘉定中...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2788,8 +2788,8 @@
     ]
   },
   "铜盘铭": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "旧传周武王时铜盘铭文，金石书著录的上古铭辞（如\"左林右泉，后冈前道\"云云），后世多疑为伪托；小说中屈道生举以论古篆。",
+    "descEn": "The \"Bronze Basin Inscription\" attributed to King Wu of Zhou, an archaic epigraph recorded by antiquarians but widely suspected a later forgery; cited in the seal-script discussion.",
     "contextZh": "在小说第38回中被引用，例如：“...其次如周武王《铜盘铭》云：...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2797,8 +2797,8 @@
     ]
   },
   "左传": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《春秋左氏传》，旧题春秋末左丘明撰，编年记事详赡，为《春秋》三传之首、先秦叙事散文高峰；小说中引成王歧阳之搜证石鼓年代。",
+    "descEn": "The Zuo Tradition (Zuozhuan), the great narrative commentary on the Spring and Autumn Annals; cited to date the Stone Drums by King Cheng's hunt at Qiyang.",
     "contextZh": "在小说第38回中被引用，例如：“...卿谓宇文周时作，更为妄论。唯董、程二氏以《左传》成王有歧阳之搜证之，凿凿可据。以后则秦《...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2806,8 +2806,8 @@
     ]
   },
   "峄山铭": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "秦始皇二十八年（前219）东巡峄山刻石，李斯小篆颂秦德，原石早毁，今传宋淳化四年（993）郑文宝据徐铉摹本重刻的长安本。",
+    "descEn": "The First Emperor's Yishan inscription (219 BC) in Li Si's small seal script; the original perished, surviving through Zheng Wenbao's 993 recutting at Chang'an.",
     "contextZh": "在小说第38回中被引用，例如：“...》成王有歧阳之搜证之，凿凿可据。以后则秦《峄山铭》，为宋淳化中郑文宝刻，尚不失为古篆。汉隶...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2815,8 +2815,8 @@
     ]
   },
   "孔庙礼器碑": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "东汉《礼器碑》（永寿二年，156年），立于曲阜孔庙，记韩敕修饰孔庙、制造礼器事，笔画瘦劲波磔分明，历来推为汉隶第一。",
+    "descEn": "The Liqi Stele (AD 156) in the Qufu Confucius Temple, commemorating ritual vessels made by Han Chi; its sinewy strokes long ranked first among Han clerical scripts.",
     "contextZh": "在小说第38回中被引用，例如：“...郑文宝刻，尚不失为古篆。汉隶之最佳也，以《孔庙礼器碑》为第一，次则汉《曹景完碑》，一则神奇浑璞...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2824,8 +2824,8 @@
     ]
   },
   "曹景完碑": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即东汉《曹全碑》（中平二年，185年），碑主曹全字景完，记其为郃阳令政绩，明万历初出土，隶法秀润典丽，与《礼器》瘦劲一路并峙。",
+    "descEn": "The Cao Quan Stele (AD 185), honoring magistrate Cao Quan (courtesy name Jingwan); unearthed in the Wanli era, its supple elegance is the counterpoint to the austere Liqi Stele.",
     "contextZh": "在小说第38回中被引用，例如：“...之最佳也，以《孔庙礼器碑》为第一，次则汉《曹景完碑》，一则神奇浑璞，一则丰赡高华。至魏之《劝...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2833,8 +2833,8 @@
     ]
   },
   "劝进碑": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "三国魏《上尊号碑》（俗称劝进碑，220年），记群臣劝曹丕受汉禅即帝位事，传为梁鹄或钟繇书，隶法方严，与《受禅碑》并立许昌。",
+    "descEn": "The \"Urging Accession\" stele (AD 220) recording the officials' petition that Cao Pi accept the Han abdication; its severe clerical hand is paired with the Abdication Stele.",
     "contextZh": "在小说第38回中被引用，例如：“...碑》，一则神奇浑璞，一则丰赡高华。至魏之《劝进碑》、《受禅碑》、《祀孔子碑》，后魏鲁耶太守...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2842,8 +2842,8 @@
     ]
   },
   "受禅碑": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "三国魏《受禅表碑》（黄初元年，220年），记汉献帝禅位、曹丕受禅坛即位事，相传王朗文、梁鹄书、钟繇镌字，号\"三绝\"。",
+    "descEn": "The Abdication Stele (AD 220) commemorating Cao Pi's receipt of the Han throne, traditionally credited to three masters for text, calligraphy and engraving.",
     "contextZh": "在小说第38回中被引用，例如：“...奇浑璞，一则丰赡高华。至魏之《劝进碑》、《受禅碑》、《祀孔子碑》，后魏鲁耶太守《张君颂》、...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2851,8 +2851,8 @@
     ]
   },
   "祀孔子碑": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "三国魏《孔羡碑》（黄初元年，220年），记魏文帝封孔羡为宗圣侯、奉孔子祀事，立曲阜孔庙，隶书方峻雄强。",
+    "descEn": "The Kong Xian Stele (AD 220), recording the Wei enfeoffment of Confucius's heir to maintain the sage's sacrifices; its square, forceful clerical script stands in the Qufu temple.",
     "contextZh": "在小说第38回中被引用，例如：“...丰赡高华。至魏之《劝进碑》、《受禅碑》、《祀孔子碑》，后魏鲁耶太守《张君颂》、李仲璇《修孔子...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2860,8 +2860,8 @@
     ]
   },
   "张君颂": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即北魏《张猛龙碑》（正光三年，522年），全称《魏鲁郡太守张府君清颂碑》，颂鲁郡太守张猛龙兴学之德，方峻遒劲，为魏碑楷法第一名品。",
+    "descEn": "The Zhang Menglong Stele (AD 522), the \"pure eulogy\" for the governor of Lu who revived the schools—the most admired of all Northern Wei regular-script monuments.",
     "contextZh": "在小说第38回中被引用，例如：“...、《受禅碑》、《祀孔子碑》，后魏鲁耶太守《张君颂》、李仲璇《修孔子庙碑》等等，优劣互见。汉...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2869,8 +2869,8 @@
     ]
   },
   "修孔子庙碑": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "东魏李仲璇《修孔子庙碑》（兴和三年，541年），记重修曲阜孔庙事，楷隶相参、杂用篆意，书风奇崛。",
+    "descEn": "Li Zhongxuan's stele on the restoration of the Confucius Temple (AD 541), an eccentric Eastern Wei hand mixing regular, clerical and seal elements.",
     "contextZh": "在小说第38回中被引用，例如：“...孔子碑》，后魏鲁耶太守《张君颂》、李仲璇《修孔子庙碑》等等，优劣互见。汉隶已失，况其后乎。」仲...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2878,8 +2878,8 @@
     ]
   },
   "工部墓志": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐元稹为杜甫作的《唐故工部员外郎杜君墓系铭并序》，中谓\"诗人以来未有如子美者\"，且扬杜抑李，为杜甫身后定评之始。",
+    "descEn": "Yuan Zhen's epitaph for Du Fu (\"Vice-Director of the Board of Works\"), declaring no poet had ever equaled him—the founding document of Du Fu's posthumous supremacy.",
     "contextZh": "在小说第38回中被引用，例如：“...居四。元微之亦谓杜在李上，其优劣之意见于《工部墓志》。以太白天才，竟有不满人意处。韩昌黎则云...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2887,8 +2887,8 @@
     ]
   },
   "蜀道": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即李白《蜀道难》，乐府名篇，\"蜀道之难，难于上青天\"，极写蜀道奇险，贺知章读之叹为\"谪仙人\"。",
+    "descEn": "Li Bai's \"The Road to Shu Is Hard,\" the yuefu masterpiece whose crags and gorges made He Zhizhang hail its author as a \"banished immortal.\"",
     "contextZh": "在小说第38回中被引用，例如：“...白之诗，皆喜其天才横逸，有石破天惊之妙。《蜀道》、《天姥》诸篇，摹拟甚多，而我独爱其《乌...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2896,8 +2896,8 @@
     ]
   },
   "天姥": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即李白《梦游天姥吟留别》，记梦游天姥山仙境而醒悟\"安能摧眉折腰事权贵\"，为李白七古压卷之一。",
+    "descEn": "Li Bai's \"Dreaming of Mount Tianmu,\" the visionary farewell poem ending in his refusal to \"bow and scrape to the mighty.\"",
     "contextZh": "在小说第38回中被引用，例如：“...喜其天才横逸，有石破天惊之妙。《蜀道》、《天姥》诸篇，摹拟甚多，而我独爱其《乌栖曲》、《...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2905,8 +2905,8 @@
     ]
   },
   "乌栖曲": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "李白乐府《乌栖曲》，\"姑苏台上乌栖时，吴王宫里醉西施\"，借吴宫荒宴讽人主沉湎，贺知章叹其\"可以泣鬼神\"。",
+    "descEn": "Li Bai's yuefu \"Crows Roosting,\" on Xi Shi's drunken revels in the doomed Wu palace—verses said to move gods and ghosts to tears.",
     "contextZh": "在小说第38回中被引用，例如：“...道》、《天姥》诸篇，摹拟甚多，而我独爱其《乌栖曲》、《乌夜啼》等篇，如《乌栖曲》云：...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2914,8 +2914,8 @@
     ]
   },
   "乌夜啼": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "李白乐府《乌夜啼》，\"黄云城边乌欲栖\"，写机中织锦的思妇闻鸦怀远、停梭垂泪，为南朝清商旧题的唐人绝唱。",
+    "descEn": "Li Bai's \"Crows Crying in the Night\": a wife at her loom hears the roosting crows and drops her shuttle in tears for her absent man.",
     "contextZh": "在小说第38回中被引用，例如：“...》诸篇，摹拟甚多，而我独爱其《乌栖曲》、《乌夜啼》等篇，如《乌栖曲》云：...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2923,8 +2923,8 @@
     ]
   },
   "三都": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "西晋左思《三都赋》（蜀都、吴都、魏都），构思十年而成，豪贵竞相传写，\"洛阳纸贵\"之典即出于此。",
+    "descEn": "Zuo Si's Rhapsodies on the Three Capitals (Western Jin), ten years in the making and so avidly copied that \"paper grew dear in Luoyang.\"",
     "contextZh": "在小说第38回中被引用，例如：“...出，能传李、杜所未传。读《南山》等篇，而《三都》、《两京》不能专美于前。人既无其博奥，又...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2932,8 +2932,8 @@
     ]
   },
   "两京": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "东汉张衡《二京赋》（西京、东京），铺写长安、洛阳形胜风俗以讽奢靡，精思十年乃成，为汉大赋极轨。",
+    "descEn": "Zhang Heng's Rhapsodies on the Two Capitals (Eastern Han), the decade-long tour de force on Chang'an and Luoyang that crowned the Han epideictic fu.",
     "contextZh": "在小说第38回中被引用，例如：“...、杜所未传。读《南山》等篇，而《三都》、《两京》不能专美于前。人既无其博奥，又无其才力，...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2941,8 +2941,8 @@
     ]
   },
   "钧天": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "\"钧天广乐\"之典：天帝居所钧天的仙乐，《史记·赵世家》载赵简子梦游钧天闻广乐九奏；后以喻至高至美之乐。",
+    "descEn": "The \"music of Juntian,\" the celestial orchestra Zhao Jianzi heard in his dream-journey to heaven (Shiji)—a byword for sublime music beyond mortal cavil.",
     "contextZh": "在小说第38回中被引用，例如：“...目为文体，至有韵之文不可读之说。此何异听《钧天》之乐，而谓其音节未谐。特其五七言绝句及近...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2950,8 +2950,8 @@
     ]
   },
   "诗韵": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中指三国魏李登所撰韵书《声类》（十卷，以五声命字，为中国韵书之祖，今佚）；屈道生论韵学源流首举之。",
+    "descEn": "The rhyme book of Li Deng (3rd century Wei), the Shenglei—earliest of all Chinese rhyme dictionaries, now lost—cited first in Daosheng's survey of phonology.",
     "contextZh": "在小说第38回中被引用，例如：“...矣。韵有通转之分，且处魏晋而始，如李登之《诗韵》，吕静之《集韵》，齐周□作《四声切韵》，...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2959,8 +2959,8 @@
     ]
   },
   "集韵": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "韵书名，小说兼指两书：晋吕静仿李登所作《韵集》五卷（今佚），及宋丁度、宋祁等奉敕重修的《集韵》（1039年成书，收字五万三千余）。",
+    "descEn": "Rhyme dictionaries: Lü Jing's lost Jin-era Yunji and, chiefly, the Song imperial Jiyun of 1039 with its 53,000-plus characters, both cited in the phonology talk.",
     "contextZh": "在小说第38回中被引用，例如：“...，且处魏晋而始，如李登之《诗韵》，吕静之《集韵》，齐周□作《四声切韵》，梁沈约撰《四声》...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2968,8 +2968,8 @@
     ]
   },
   "四声切韵": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "南齐周颙所撰韵书（小说作\"齐周□\"），始以平上去入四声制韵，与沈约《四声谱》同开永明声律之学，原书久佚。",
+    "descEn": "Zhou Yong's Southern Qi rhyme book that first organized syllables by the four tones, twin fountainhead (with Shen Yue) of Chinese tonal prosody; long lost.",
     "contextZh": "在小说第38回中被引用，例如：“...李登之《诗韵》，吕静之《集韵》，齐周□作《四声切韵》，梁沈约撰《四声》一卷，而韵谱成。隋陆法...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2977,8 +2977,8 @@
     ]
   },
   "四声": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "梁沈约撰《四声谱》一卷，定平上去入之目，创\"四声八病\"之说，永明体声律自此而立，原书已佚。",
+    "descEn": "Shen Yue's Four Tones (Sisheng Pu), the Liang treatise that codified the four tones and the \"eight defects,\" founding regulated verse prosody; the book itself is lost.",
     "contextZh": "在小说第38回中被引用，例如：“...《集韵》，齐周□作《四声切韵》，梁沈约撰《四声》一卷，而韵谱成。隋陆法言、刘臻等，本沈约...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2986,8 +2986,8 @@
     ]
   },
   "广韵": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《大宋重修广韵》，宋陈彭年等奉敕于大中祥符元年（1008）据隋陆法言《切韵》系韵书增广而成，二百六韵、二万六千余字，为现存最完整的中古韵书。",
+    "descEn": "The Guangyun (1008), the Song expansion of the Qieyun tradition in 206 rhymes and some 26,000 characters—the fullest surviving record of Middle Chinese.",
     "contextZh": "在小说第38回中被引用，例如：“...韵谱成。隋陆法言、刘臻等，本沈约之旨又为《广韵》，唐郭知玄又为《切韵》，孙□又为《唐韵》...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -2995,8 +2995,8 @@
     ]
   },
   "切韵": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "隋陆法言编撰的韵书（601年成书），一百九十三韵，\"论南北是非、古今通塞\"而定音系，唐人递相增字加注（如郭知玄本），为后世韵书之祖。",
+    "descEn": "Lu Fayan's Qieyun (601), the foundational rhyme dictionary reconciling northern and southern pronunciations, repeatedly augmented by Tang editors such as Guo Zhixuan.",
     "contextZh": "在小说第38回中被引用，例如：“...等，本沈约之旨又为《广韵》，唐郭知玄又为《切韵》，孙□又为《唐韵》，丁度、宋祁为《集韵》...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3004,8 +3004,8 @@
     ]
   },
   "唐韵": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐孙愐增修《切韵》而成的韵书（约天宝十年，751年前后），增字加注、刊正异体，宋《广韵》即承其绪，原书仅存残卷。",
+    "descEn": "Sun Mian's Tangyun (c. 751), the Tang enlargement of the Qieyun that fed directly into the Song Guangyun; only fragments survive.",
     "contextZh": "在小说第38回中被引用，例如：“...《广韵》，唐郭知玄又为《切韵》，孙□又为《唐韵》，丁度、宋祁为《集韵》。景云已后，又有《...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3013,8 +3013,8 @@
     ]
   },
   "礼部韵": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即宋《礼部韵略》，景祐四年（1037）颁行的科举官韵，取《广韵》常用之字九千五百余，举子程文押韵悉遵之。",
+    "descEn": "The Libu Yunlüe (1037), the abridged official rhyme book of the Song Board of Rites—about 9,500 characters—binding on all examination verse.",
     "contextZh": "在小说第38回中被引用，例如：“...》，丁度、宋祁为《集韵》。景云已后，又有《礼部韵》，王宗道之《切韵》，吴棫之《韵补》，元阴...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3022,8 +3022,8 @@
     ]
   },
   "韵补": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "宋吴棫撰《韵补》五卷，搜采古书协韵以考古音通转，开古音学先河，朱熹《诗集传》叶音多本之。",
+    "descEn": "Wu Yu's Yunbu (Song), the five-juan pioneer study of archaic rhyming that founded Chinese historical phonology and guided Zhu Xi's Odes readings.",
     "contextZh": "在小说第38回中被引用，例如：“...又有《礼部韵》，王宗道之《切韵》，吴棫之《韵补》，元阴时夫之《韵府群玉》，其合韵、分韵，...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3031,8 +3031,8 @@
     ]
   },
   "韵府群玉": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "元阴时夫（阴幼遇）编《韵府群玉》二十卷，以一百六韵统摄典故词藻，为后世《佩文韵府》所本的检韵类书。",
+    "descEn": "The Yunfu Qunyu by Yin Shifu (Yuan), a twenty-juan phrase-thesaurus arranged under 106 rhymes, ancestor of the great Peiwen Yunfu.",
     "contextZh": "在小说第38回中被引用，例如：“...道之《切韵》，吴棫之《韵补》，元阴时夫之《韵府群玉》，其合韵、分韵，究以何韵为是？」...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3040,8 +3040,8 @@
     ]
   },
   "礼部韵略": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "此处指宋末平水刘渊《壬子新刊礼部韵略》（1252年），并二百六韵为一百七部，\"平水韵\"由此得名，为元明清作诗用韵的定制。",
+    "descEn": "The 1252 \"Pingshui\" recension of the official rhyme book by Liu Yuan, merging the rhymes into 107 classes—the Pingshui rhyme scheme used by poets ever after.",
     "contextZh": "在小说第38回中被引用，例如：“...较《礼部韵》增二千六百五十五字，刘平水之《礼部韵略》又增出四百六十三字，而古书尽变。说者谓韵...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3049,8 +3049,8 @@
     ]
   },
   "韵会": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "元黄公绍撰《古今韵会》（后熊忠删补为《古今韵会举要》，1297年），依平水韵而笺注博洽，增字万余，唯拘于七音三十六母为人所议。",
+    "descEn": "The Gujin Yunhui of Huang Gongshao (Yuan; abridged 1297), a copiously annotated rhyme book faulted only for its rigid 36-initial framework.",
     "contextZh": "在小说第38回中被引用，例如：“...一百余字，有去古雅而入讹俗者。又黄公绍之《韵会》分并依毛、刘韵而笺注颇博，增添一万二千六...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3058,8 +3058,8 @@
     ]
   },
   "韵学集成": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "明章黼撰《韵学集成》十三卷，校定四声、兼存古韵通转之迹，为明代韵学要籍；小说中屈道生举以证古今韵异。",
+    "descEn": "Zhang Fu's Ming treatise Yunxue Jicheng, collating the four tones while preserving traces of archaic rhyme mergers; Daosheng's closing authority on phonology.",
     "contextZh": "在小说第38回中被引用，例如：“...约之韵，但古韵之通，似较今韵为是。章黼之《韵学集成》校定四声，而古韵之通转亦可类推。请以《雅...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3067,8 +3067,8 @@
     ]
   },
   "雅": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《诗经》之《大雅》《小雅》，西周王朝正声雅乐的歌诗，与《风》《颂》并为诗经三体。",
+    "descEn": "The Ya (Court Odes) sections of the Book of Songs—the \"correct\" music of the Zhou royal court, greater and lesser.",
     "contextZh": "在小说第38回中被引用，例如：“...成》校定四声，而古韵之通转亦可类推。请以《雅》、《颂》、《离骚》古歌诗核之，古今通转之...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3076,8 +3076,8 @@
     ]
   },
   "颂": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《诗经》三颂（周颂、鲁颂、商颂），宗庙祭祀的乐歌，多西周初年典重之作。",
+    "descEn": "The Song (Hymns) of the Book of Songs: temple liturgies of Zhou, Lu and Shang for ancestral sacrifice.",
     "contextZh": "在小说第38回中被引用，例如：“...四声，而古韵之通转亦可类推。请以《雅》、《颂》、《离骚》古歌诗核之，古今通转之异可想见...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3085,8 +3085,8 @@
     ]
   },
   "易": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《周易》，六经之首，八卦重为六十四卦，系以卦爻辞，孔门传《十翼》；宋邵雍（康节）以数说《易》，小说中南湘谓其后数学无真传。",
+    "descEn": "The Book of Changes (Zhouyi), first of the classics, whose 64 hexagrams ground both moral philosophy and—through Shao Yong's numerology—the mantic arts debated in chapter 38.",
     "contextZh": "在小说第38回中被引用，例如：“...南湘道：「古人讲《易》言理不言数，今人讲《易》言数不言理。数竟...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3094,8 +3094,8 @@
     ]
   },
   "太乙肘后备捡": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "宋王湜撰《太乙肘后备检》三卷，太乙数推算之书，为阴阳二遁绘图一百四十四，以太乙考人君善恶、推阳九百六之数。",
+    "descEn": "Wang Shi's Song manual of Taiyi divination (Taiyi Zhouhou Beijian), three juan with 144 diagrams for casting the cosmic cycles of order and calamity.",
     "contextZh": "在小说第38回中被引用，例如：“...道生道：「宋南渡后，有王湜着《太乙肘后备捡》三卷，为阴阳二遁，绘图一百四十有四。以太...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3103,8 +3103,8 @@
     ]
   },
   "越绝书": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "记吴越争霸遗事的古书，旧题子贡或袁康、吴平所纂，杂史体，中有\"慧种生圣，痴种生狂；桂实生桂，桐实生桐\"之语，小说引以论种性。",
+    "descEn": "The Yuejue Shu, the ancient miscellany on Wu and Yue, source of the adage \"wise seed begets sages, foolish seed madmen; cassia begets cassia,\" quoted in the heredity debate.",
     "contextZh": "在小说第38回中被引用，例如：“...。我有一个极琐屑鄙俚之理要请教请教。我见《越绝书》有慧种生圣、痴种生狂、桂实生桂、桐实生桐...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3112,8 +3112,8 @@
     ]
   },
   "齐民要术": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "北魏贾思勰撰，中国现存最早最完整的农书（约成于533—544年间），十卷九十二篇；小说引其种梨\"一梨十子，唯二子生梨\"说造化不齐。",
+    "descEn": "The Qimin Yaoshu by Jia Sixie (Northern Wei, c. 540), China's earliest complete agricultural treatise; its pear-grafting odds are cited on nature's unevenness.",
     "contextZh": "在小说第38回中被引用，例如：“...道生笑道：「这个理倒有些难讲。然《齐民要术》内说种梨法，一梨十子，唯二子生梨，余皆为...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3121,8 +3121,8 @@
     ]
   },
   "禽经": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "旧题春秋师旷撰、晋张华注的鸟类小书，杂记禽鸟名品性状；小说引其\"鹳生三子，一为鹤\"语。",
+    "descEn": "The Qinjing (Classic of Birds), attributed to the blind music-master Shi Kuang with Zhang Hua's notes; cited for its line \"of three stork chicks, one is a crane.\"",
     "contextZh": "在小说第38回中被引用，例如：“...梨，余皆为杜。段氏曰：鹘生三子，一为鸱。《禽经》曰：鹳生三子，一为鹤。造化权舆，夏雀生鹑...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3139,8 +3139,8 @@
     ]
   },
   "硕人": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《诗经·卫风》名篇，咏卫庄公夫人庄姜之美，\"手如柔荑，肤如凝脂……巧笑倩兮，美目盼兮\"，为千古写美人之祖。",
+    "descEn": "The ode \"Shuoren\" from the Book of Songs, hymning Lady Zhuang Jiang—\"hands like soft rush-shoots, skin like congealed lard… dimpled smile, lucent glancing eyes\"—the fountainhead of all Chinese beauty description.",
     "contextZh": "在小说第38回中被引用，例如：“...人得体，又要人人合眼称妙者，莫如卫庄姜。《硕人》之诗，先曰：『硕人其颀，衣锦□衣。』这两...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3148,8 +3148,8 @@
     ]
   },
   "神女赋": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "战国宋玉赋，写楚襄王梦遇巫山神女、瑰姿玮态而终不可犯之事，与《高唐赋》相续，为后世咏神女艳遇之祖。",
+    "descEn": "Song Yu's Rhapsody on the Goddess: King Xiang's dream audience with the unattainable goddess of Mount Wu, ancestor of all divine-beauty literature.",
     "contextZh": "在小说第38回中被引用，例如：“...态之研，究未见眉目鼻口之位置何如也。宋玉《神女赋》未尝不想形容，但云：『其始来也，耀乎若白...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3157,8 +3157,8 @@
     ]
   },
   "洛神赋": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "三国魏曹植名赋（黄初三年，222年），写洛水之神宓妃\"翩若惊鸿，婉若游龙\"的绝世之姿与人神道殊之憾；小说中屈道生反嫌其以游龙比美人为不伦。",
+    "descEn": "Cao Zhi's Rhapsody on the Luo River Goddess (222), whose \"startled swan, gliding dragon\" remains the most famous of beauty similes—though the novel's pedant finds the dragon comparison absurd.",
     "contextZh": "在小说第38回中被引用，例如：“...犹可，而白日、屋梁，则比之不伦。而曹子建《洛神赋》复用其意，有『远而望之，皎若太阳升朝霞』...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3166,8 +3166,8 @@
     ]
   },
   "好色赋": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即宋玉《登徒子好色赋》，自辩不好色而铺写东家之子\"增之一分则太长，减之一分则太短\"的绝对之美，\"登徒子\"遂成好色代称。",
+    "descEn": "Song Yu's Rhapsody on the Lecher Dengtu, with its perfectly calibrated girl next door—\"one inch more were too tall, one inch less too short\"—that made Dengtu a byword for lust.",
     "contextZh": "在小说第38回中被引用，例如：“...游龙比美人，吾不知其何所见而然。再如宋玉《好色赋》云：『增之一分则太长，减之一分则太短。』...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3175,8 +3175,8 @@
     ]
   },
   "杂事秘辛": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《汉杂事秘辛》，托名汉人而实出明杨慎（升庵）伪撰的宫闱小说，写汉桓帝聘梁莹前遣女官吴姁入室\"量度\"莹身体之事，刻画细致，向称香艳奇文。",
+    "descEn": "The Han Secret Trivia (Za Shi Mi Xin), a pseudo-Han erotic curiosity actually forged by Yang Shen (Ming): the minute physical inspection of Liang Ying before her selection as empress.",
     "contextZh": "在小说第38回中被引用，例如：“...而令诸者目眩意移，其神情活现纸上，则莫如《杂事秘辛》之描写女莹身体，令人绝倒。你们细想：『女...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3184,8 +3184,8 @@
     ]
   },
   "秘辛": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即《汉杂事秘辛》之省称；小说中子玉据其\"约缣迫袜，收束微如禁中\"句，谓缠足似始于汉，不始于陈后主潘妃。",
+    "descEn": "Short for the Han Secret Trivia; Ziyu cites its bound-silk stockings line to push the origin of footbinding back before the Chen dynasty.",
     "contextZh": "在小说第38回中被引用，例如：“...道：「缠足之始，谓始于陈后主之潘贵妃，今《秘辛》之『约缣迫袜，收束微如禁中』，非缠足之始...”。",
     "contextEn": "Cited in chapter 38 of the novel.",
     "chapters": [
@@ -3193,8 +3193,8 @@
     ]
   },
   "玉台新咏序": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "南朝陈徐陵为所编诗集《玉台新咏》作的骈文序，绮错婉媚，为宫体骈文绝品；小说中华夫人曾绣此序，公子欲以配李香君桃花扇册页。",
+    "descEn": "Xu Ling's ornate preface to the New Songs from a Jade Terrace (6th century), the summit of palace-style parallel prose; Lady Hua has embroidered it, and her husband pairs it with a Peach Blossom Fan album leaf.",
     "contextZh": "在小说第41回中被引用，例如：“...还是李香君那个桃花扇的册页罢，再将你绣的《玉台新咏序》来配上更好。」华夫人笑道：「怎么配上这个...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3202,8 +3202,8 @@
     ]
   },
   "访翠": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清孔尚任《桃花扇》\"访翠\"一出，演侯方域访李香君于媚香楼、初会定情事；小说中华府十珠接唱此出曲文。",
+    "descEn": "The kunqu scene \"Visiting the Beauty\" from The Peach Blossom Fan: Hou Fangyu's first visit to Li Xiangjun's tower; the Hua household maids sing it in chapter 41.",
     "contextZh": "在小说第41回中被引用，例如：“...句子也少。你们十人接着唱那《桃花扇》上的《访翠》、《眠香》两出罢。」...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3211,8 +3211,8 @@
     ]
   },
   "眠香": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清孔尚任《桃花扇》\"眠香\"一出，演侯方域与李香君梳栊成礼、却奁明志事，与《访翠》连演。",
+    "descEn": "The kunqu scene \"Sleeping in Fragrance\" from The Peach Blossom Fan: Hou Fangyu and Li Xiangjun's union and the famous rejection of the tainted trousseau.",
     "contextZh": "在小说第41回中被引用，例如：“...你们十人接着唱那《桃花扇》上的《访翠》、《眠香》两出罢。」...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3220,8 +3220,8 @@
     ]
   },
   "缑山月": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "曲牌名，南曲牌子，取王子乔缑山乘鹤之典；小说第四十一回十珠所唱套曲中之一支。",
+    "descEn": "Goushanyue (\"Moon over Mount Gou\"), a southern qupai alluding to the crane-riding immortal Wangzi Qiao; one tune in the maids' suite in chapter 41.",
     "contextZh": "在小说第41回中被引用，例如：“...断人肠。怕催花信紧，风风雨雨，误了春光。《缑山月》...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3229,8 +3229,8 @@
     ]
   },
   "锦缠道": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "曲牌名（亦为词牌），南曲习用；小说第四十一回套曲中一支，曲文\"望平康，凤城东、千门绿杨\"写京华冶游风光。",
+    "descEn": "Jinchandao (\"Brocade-Wound Road\"), a southern tune (also a cipai); its stanza in chapter 41 paints the pleasure quarters east of the phoenix city.",
     "contextZh": "在小说第41回中被引用，例如：“...花忙，穿过了条条深巷。插一枝带露柳娇黄。《锦缠道》...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3238,8 +3238,8 @@
     ]
   },
   "玉茗堂四梦": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "明汤显祖四部传奇《牡丹亭》《紫钗记》《南柯记》《邯郸记》的合称（玉茗堂为其书斋名），又称\"临川四梦\"，为明曲最高成就。",
+    "descEn": "The Four Dreams of Yumingtang: Tang Xianzu's four chuanqi (Peony Pavilion, Purple Hairpin, Nanke, Handan), named for his studio—the summit of Ming drama.",
     "contextZh": "在小说第41回中被引用，例如：“...公子道：「这曲文实在好，可以追步《玉茗堂四梦》，真才子之笔。」夫人道：「以后唯《红雪楼...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3247,8 +3247,8 @@
     ]
   },
   "红雪楼九种": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即清蒋士铨《红雪楼九种曲》（《藏园九种曲》），乾隆间刊，收《空谷香》《香祖楼》《临川梦》等九部戏曲，时推为清代曲家第一。",
+    "descEn": "The Nine Plays of Red Snow Tower by Jiang Shiquan (Qianlong era), including Fragrance of the Empty Valley and The Dream of Linchuan—the most admired Qing dramatic corpus.",
     "contextZh": "在小说第41回中被引用，例如：“...堂四梦》，真才子之笔。」夫人道：「以后唯《红雪楼九种》可以匹敌，余皆不及。」只听明珠接着唱道：...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3256,8 +3256,8 @@
     ]
   },
   "朱奴剔银灯": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "南曲集曲牌名（合《朱奴儿》《剔银灯》二调而成）；小说第四十一回套曲中一支，华公子还挑出唱者漏了一句。",
+    "descEn": "Zhunu Ti Yindeng, a composite southern qupai splicing \"Zhunu'er\" with \"Trimming the Silver Lamp\"; young lord Hua catches the singer dropping a line of it.",
     "contextZh": "在小说第41回中被引用，例如：“...液浆。相当，竟飞来捧觞，密约在鞭蓉锦帐。《朱奴剔银灯》...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3265,8 +3265,8 @@
     ]
   },
   "雁过声": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "南曲曲牌名，属仙吕入双调，传奇套数习用；小说第四十一回掌珠所唱一支，唱时以帕结掷人打趣。",
+    "descEn": "Yanguosheng (\"The Sound of Passing Geese\"), a standard southern qupai; Zhangzhu sings it while flicking a knotted kerchief at her fellow maid.",
     "contextZh": "在小说第41回中被引用，例如：“...凤凰。海南异品风飘荡，要打着美人心上痒。《雁过声》...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3274,8 +3274,8 @@
     ]
   },
   "小桃红": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "曲牌名，南北曲皆有（北越调《小桃红》元人散曲习用）；小说第四十一回套曲中一支，曲文咏巫峰行云之想。",
+    "descEn": "Xiaotaohong (\"Little Peach Red\"), a qupai common to both northern and southern repertoires; its stanza in chapter 41 dreams of Wushan's amorous clouds.",
     "contextZh": "在小说第41回中被引用，例如：“...休成谎，良缘到手难推让，准备着身赴高唐。《小桃红》...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3283,8 +3283,8 @@
     ]
   },
   "临江仙": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "词牌名，双调六十字，唐教坊曲，杨慎\"滚滚长江东逝水\"即用此调；小说第四十一回套曲中一支，公子笑称当令白居易家樊素来唱。",
+    "descEn": "Linjiangxian (\"Immortal by the River\"), the famous sixty-character cipai; after its stanza young lord Hua quips that only Bai Juyi's singer Fansu could do it justice.",
     "contextZh": "在小说第41回中被引用，例如：“...今朝全把绣帘钩，不教金线柳，遮断木兰舟。《临江仙》...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3292,8 +3292,8 @@
     ]
   },
   "一枝花": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "曲牌名，北曲南吕宫套数首牌，元关汉卿《不伏老》套即以此开篇；小说第四十一回套曲中一支，咏当垆红袖。",
+    "descEn": "Yizhihua (\"A Spray of Blossom\"), the opening qupai of northern Nanlü suites, famous from Guan Hanqing's \"Refusing Old Age\"; here sung of the wine-shop beauty.",
     "contextZh": "在小说第41回中被引用，例如：“...香兽。这当垆红袖，太温柔，应与相如消受。《一枝花》...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3301,8 +3301,8 @@
     ]
   },
   "前腔": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "南曲术语：套数中沿用前支曲牌之调再唱一遍称\"前腔\"，传奇曲本习见；小说第四十一回套曲中两支《前腔》，有\"见惯司空也应羞\"妙句。",
+    "descEn": "Qianqiang (\"Same Tune as Before\"), the southern-drama rubric for repeating the preceding melody with new words; two such stanzas appear in the chapter 41 suite.",
     "contextZh": "在小说第41回中被引用，例如：“...影纱红透，见惯司空也应羞，破题儿真难就。《前腔》...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3310,8 +3310,8 @@
     ]
   },
   "节节高": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "曲牌名，南北曲皆有（北黄钟宫习用），亦为民间乐曲名；小说第四十一回套曲中一支，写春宵灯昏玳筵收。",
+    "descEn": "Jiejiegao (\"Higher Node by Node\"), a qupai found in both traditions; its stanza closes the banquet night as lamps gutter and the feast disperses.",
     "contextZh": "在小说第41回中被引用，例如：“...芙蓉扣。盼到灯昏玳筵收，宫壶滴尽莲花漏。《节节高》...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3319,8 +3319,8 @@
     ]
   },
   "尾声": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "南北曲套数的结束曲牌通称，总束全套文意；小说第四十一回十珠套曲以《尾声》\"秦淮烟月无新旧\"作结。",
+    "descEn": "Weisheng (\"Coda\"), the generic closing tune of a qupai suite; the maids' suite ends on its line \"Qinhuai's misty moon knows neither new nor old.\"",
     "contextZh": "在小说第41回中被引用，例如：“...《尾声》唱完，公子与夫人甚是欢喜，十珠齐齐站起。...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3328,8 +3328,8 @@
     ]
   },
   "元人百种曲": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即明臧懋循编《元曲选》（1615—1616年刊），选元杂剧一百种，为流传最广的元剧总集；小说中华公子谓元曲\"只可唱戏，断不可读\"，语涉偏激。",
+    "descEn": "The Hundred Yuan Plays (Yuanqu Xuan, 1615–16), Zang Maoxun's great anthology of Yuan drama; young lord Hua's dismissal of it as \"singable but unreadable\" is meant to show his hauteur.",
     "contextZh": "在小说第41回中被引用，例如：“...，觉柳梦梅有些粗气，自然不及丽娘。至于那《元人百种曲》只可唱戏，断不可读。若论文采词华，这些曲...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3337,8 +3337,8 @@
     ]
   },
   "赏花": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中华公子夫妇拟作的套曲名：拟多填几阕合成一套《赏花》，命十珠妆演；与拟名《祭花》者同属府中自制新曲。",
+    "descEn": "An in-novel suite: \"Enjoying the Flowers,\" the qu cycle young lord Hua proposes to complete with his wife for the ten maids to perform.",
     "contextZh": "在小说第41回中被引用，例如：“...道：「不唱罢，明日我们多填几阕，成了一套《赏花》。叫他们扮作你我，串他一出，叫做《祭花》...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3346,8 +3346,8 @@
     ]
   },
   "祭花": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中华公子戏拟的一出戏名：叫十珠扮演他夫妇《赏花》故事，\"叫做《祭花》何如\"，夫人以为没趣而罢。",
+    "descEn": "An in-novel jest: the playlet \"Sacrificing to the Flowers\" that lord Hua proposes the maids act out; Lady Hua vetoes it as tasteless.",
     "contextZh": "在小说第41回中被引用，例如：“...《赏花》。叫他们扮作你我，串他一出，叫做《祭花》何如？」夫人道：「这倒没趣味，串出来也像...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -3355,8 +3355,8 @@
     ]
   },
   "相骂": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明传奇《钗钏记》（旧题月榭主人撰），演丫鬟芸香上门索讨钗钏、与皇甫家对骂事，与《相约》连演，为六旦（贴旦）做工名剧。",
+    "descEn": "The kunqu scene \"The Quarrel\" from The Hairpin and Bracelet: the maid Yunxiang's door-step row over the betrothal tokens, twin scene to \"The Tryst\" and a tie-dan showcase.",
     "contextZh": "在小说第42回中被引用，例如：“...保的《盗令》、《杀舟》，桂保的《相约》、《相骂》，实是个名人家数，他人做不来的。」亮轩道...”。",
     "contextEn": "Cited in chapter 42 of the novel.",
     "chapters": [
@@ -3364,8 +3364,8 @@
     ]
   },
   "懒画眉": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "南曲曲牌名，属南吕宫，传奇清唱习用；小说第四十三回徐子云在东风昨夜楼上自唱一枝《懒画眉》，四人楼下驻足静听。",
+    "descEn": "Lanhuamei (\"Too Languid to Paint Her Brows\"), a southern qupai in the Nanlü mode; Xu Ziyun sings one alone in his tower as the four friends listen below.",
     "contextZh": "在小说第43回中被引用，例如：“...四人便住了脚步，听像度香的声音，唱着一枝《懒画眉》，四人细听是：...”。",
     "contextEn": "Cited in chapter 43 of the novel.",
     "chapters": [
@@ -3373,8 +3373,8 @@
     ]
   },
   "梅花梦": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的曲本：萧次贤亡友所制传奇《梅花梦》二十出，有曲文而未谱工尺；次贤照《九宫谱》填了《入梦》一出试唱，拟请教师全谱之。",
+    "descEn": "An in-novel play: \"The Plum Blossom Dream,\" a twenty-scene chuanqi left by Xiao Cixian's late friend, of which Cixian has scored only the scene \"Entering the Dream.\"",
     "contextZh": "在小说第43回中被引用，例如：“...次贤道：「这是我当年一个好友，制了一部《梅花梦》的曲本，有二十出戏。前日从书箱内找出来，...”。",
     "contextEn": "Cited in chapter 43 of the novel.",
     "chapters": [
@@ -3382,8 +3382,8 @@
     ]
   },
   "入梦": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中《梅花梦》传奇的第一出，萧次贤照《九宫谱》为之填定工尺，楼头试唱，蕙芳等叹其曲文甚好。",
+    "descEn": "The scene \"Entering the Dream\" from the in-novel play The Plum Blossom Dream, the only scene Cixian has set to music when the friends overhear him singing it.",
     "contextZh": "在小说第43回中被引用，例如：“...了填了工尺，倒也唱得合拍。却只填了这一出《入梦》，其余不知唱得唱不得。明日与你们班里教师...”。",
     "contextEn": "Cited in chapter 43 of the novel.",
     "chapters": [
@@ -3391,8 +3391,8 @@
     ]
   },
   "乐记": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《礼记》中的《乐记》篇，先秦儒家论乐专篇，言\"乐者，天地之和也\"；古《乐经》亡佚后，儒家乐论赖此以存，小说中屈道翁即持\"三代之后乐已亡\"之论。",
+    "descEn": "The \"Record of Music\" chapter of the Book of Rites, the surviving Confucian treatise on music after the Classic of Music was lost—the basis of Daoweng's claim that true music died with the Three Dynasties.",
     "contextZh": "在小说第43回中被引用，例如：“...好。你与他讲，他又说三代之后乐已亡，故将《乐记》并入《礼记》。」四旦皆笑。子云道：「我今...”。",
     "contextEn": "Cited in chapter 43 of the novel.",
     "chapters": [
@@ -3400,8 +3400,8 @@
     ]
   },
   "游湖借伞": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "白蛇故事戏，演白娘子、许仙西湖游船遇雨借伞定情一节，出自清代《雷峰塔》传奇（黄图珌1738年本、方成培1771年水竹居本），为白蛇戏最脍炙人口的开场。",
+    "descEn": "The \"Lake Outing and Borrowed Umbrella\" scene from the Qing Leifeng Pagoda plays (Huang Tubi 1738; Fang Chengpei 1771): Lady White Snake and Xu Xian fall in love sharing an umbrella in the rain.",
     "contextZh": "在小说第43回中被引用，例如：“...着一副。」琴言道：「是什么？」宝珠道：「《游湖借伞》，《搜山打车》。」琴言道：「真好，工稳之...”。",
     "contextEn": "Cited in chapter 43 of the novel.",
     "chapters": [
@@ -3409,8 +3409,8 @@
     ]
   },
   "搜山打车": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清初李玉传奇《千忠戮》（《千锺禄》），演建文帝出亡，严震直搜山遇旧主、纵之而自尽事，《惨睹》《搜山》《打车》为该剧名折。",
+    "descEn": "The kunqu scenes \"Searching the Hills and Smashing the Cart\" from Li Yu's The Slaughter of a Thousand Loyalists: the fugitive Jianwen emperor is discovered—and released—by a conscience-stricken pursuer.",
     "contextZh": "在小说第43回中被引用，例如：“...道：「是什么？」宝珠道：「《游湖借伞》，《搜山打车》。」琴言道：「真好，工稳之极。」蕙芳道：...”。",
     "contextEn": "Cited in chapter 43 of the novel.",
     "chapters": [
@@ -3418,8 +3418,8 @@
     ]
   },
   "别母乱箭": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清初传奇《铁冠图》，演明将周遇吉宁武关别母出战、力竭死于乱箭事，老生武戏悲壮绝伦。",
+    "descEn": "The kunqu scenes \"Farewell to Mother; Death by Arrows\" from The Iron Crown: the Ming general Zhou Yuji parts from his mother at Ningwu Pass and dies under a hail of arrows.",
     "contextZh": "在小说第43回中被引用，例如：“...言道：「真好，工稳之极。」蕙芳道：「就是《别母乱箭》，可以对《训子单刀》。」素兰道：「这么对...”。",
     "contextEn": "Cited in chapter 43 of the novel.",
     "chapters": [
@@ -3427,8 +3427,8 @@
     ]
   },
   "训子单刀": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "演关羽故事的折子戏《训子》《单刀》，源出元关汉卿杂剧《单刀会》：关羽训诫关平后单刀赴鲁肃之会，昆班承演，红净唱做名剧。",
+    "descEn": "The Guan Yu scenes \"Instructing the Son\" and \"Single Blade,\" descended from Guan Hanqing's Yuan play The Single Sword Meeting: Guan Yu lectures Guan Ping, then attends Lu Su's banquet armed with one blade.",
     "contextZh": "在小说第43回中被引用，例如：“...极。」蕙芳道：「就是《别母乱箭》，可以对《训子单刀》。」素兰道：「这么对，还有《闹朝扑犬》，...”。",
     "contextEn": "Cited in chapter 43 of the novel.",
     "chapters": [
@@ -3436,8 +3436,8 @@
     ]
   },
   "闹朝扑犬": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明传奇《八义记》（赵氏孤儿故事），演晋灵公朝上纵神獒扑咬忠臣赵盾、提弥明殿前搏犬救主事。",
+    "descEn": "The kunqu scene \"Tumult at Court: the Hound Attack\" from The Eight Righteous (Bayi Ji): Duke Ling looses his mastiff on the loyal Zhao Dun, and a retainer wrestles the beast barehanded.",
     "contextZh": "在小说第43回中被引用，例如：“...对《训子单刀》。」素兰道：「这么对，还有《闹朝扑犬》，也可对得《打店偷鸡》。」子云笑道：「到...”。",
     "contextEn": "Cited in chapter 43 of the novel.",
     "chapters": [
@@ -3445,8 +3445,8 @@
     ]
   },
   "打店偷鸡": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏目对语：合武松《打店》与时迁《偷鸡》两出武戏而成的四字对，第四十三回素兰以之对《闹朝扑犬》。",
+    "descEn": "A composite four-character pairing of the combat scenes \"Fighting at the Inn\" and \"Stealing the Chicken,\" offered by Sulan in the title-matching game.",
     "contextZh": "在小说第43回中被引用，例如：“...道：「这么对，还有《闹朝扑犬》，也可对得《打店偷鸡》。」子云笑道：「到底他们记得熟，可以不假...”。",
     "contextEn": "Cited in chapter 43 of the novel.",
     "chapters": [
@@ -3454,8 +3454,8 @@
     ]
   },
   "霓裳羽衣舞": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐开元天宝间著名宫廷乐舞《霓裳羽衣曲》，传为唐玄宗采月宫仙乐（一说据西凉《婆罗门曲》）润色而成，杨贵妃善舞之，白居易《长恨歌》\"犹似霓裳羽衣舞\"即咏此。",
+    "descEn": "The Rainbow Skirts and Feathered Robes, the great Tang court suite ascribed to Emperor Xuanzong's celestial inspiration and danced by Consort Yang; quoted here via the Song of Everlasting Sorrow.",
     "contextZh": "在小说第44回中被引用，例如：“...风吹仙袂飘飘举，犹似《霓裳羽衣舞》。...”。",
     "contextEn": "Cited in chapter 44 of the novel.",
     "chapters": [
@@ -3463,8 +3463,8 @@
     ]
   },
   "古今图书集成": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清代官修大型类书，康熙间陈梦雷编纂、雍正间蒋廷锡校订奏进，雍正四年（1726）铜活字印行，一万卷、分六汇编三十二典，为现存最大类书；小说中王胡子售与徐子云一部，装了五大车。",
+    "descEn": "The Complete Collection of Illustrations and Writings (1726), the 10,000-juan imperial encyclopedia begun by Chen Mengléi; in the novel a set fills five carts on its way into Yi Garden's library.",
     "contextZh": "在小说第45回中被引用，例如：“...这个人，倒也不讨人嫌，就是利心过于重些。《古今图书集成》我虽有一部，这个也只好我们留下罢。这部书...”。",
     "contextEn": "Cited in chapter 45 of the novel.",
     "chapters": [
@@ -3472,8 +3472,8 @@
     ]
   },
   "怡园序": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的文章：徐子云托屈道翁撰作的《怡园序》，拟刻于含万楼下；第四十六回道翁作成，次贤叹\"就使徐、庾复生，也不能涂改一字\"。",
+    "descEn": "The in-novel \"Preface to Yi Garden\" that Qu Daoweng composes at Xu Ziyun's request for engraving in the garden, praised as beyond the touch of Xu Ling or Yu Xin themselves.",
     "contextZh": "在小说第46回中被引用，例如：“...一日，想起子云托做《怡园序》，便作了半日，又修饰了一会，自己送与子云...”。",
     "contextEn": "Cited in chapter 46 of the novel.",
     "chapters": [
@@ -3481,8 +3481,8 @@
     ]
   },
   "十三经": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "儒家十三部经典的总称（《易》《书》《诗》三《礼》三《传》《论语》《孝经》《尔雅》《孟子》），南宋后定型，清阮元刻《十三经注疏》为通行本。",
+    "descEn": "The Thirteen Classics, the full Confucian canon fixed by the Southern Song and standardized in Ruan Yuan's Qing edition with commentaries.",
     "contextZh": "在小说第46回中被引用，例如：“...文苑赐英华，数玉笈金编，正学《十三经》，旁通《廿二子》；词场开鼓吹，看笔歌墨舞...”。",
     "contextEn": "Cited in chapter 46 of the novel.",
     "chapters": [
@@ -3490,8 +3490,8 @@
     ]
   },
   "廿二子": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "二十二种先秦及汉魏子书的合称（老、庄、荀、韩非等），清代书坊有《二十二子》汇刻本；小说怡园联语以\"正学《十三经》，旁通《廿二子》\"称藏书之富。",
+    "descEn": "The Twenty-Two Masters, the collective title for the pre-Qin and Han philosophical corpus as printed in Qing collectanea; paired with the Thirteen Classics in the garden couplet.",
     "contextZh": "在小说第46回中被引用，例如：“...赐英华，数玉笈金编，正学《十三经》，旁通《廿二子》；词场开鼓吹，看笔歌墨舞，纵横一万里，上...”。",
     "contextEn": "Cited in chapter 46 of the novel.",
     "chapters": [
@@ -3508,8 +3508,8 @@
     ]
   },
   "水调歌": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "指唐大曲《水调》之歌，相传隋炀帝开汴河时所制，唐代传唱不衰，\"谁家唱水调，明月满扬州\"；小说怡园联语借咏画舫笙歌。",
+    "descEn": "The Water Melody (Shuidiao), the great song-suite attributed to Emperor Yang of Sui at the opening of the Bian Canal and beloved through the Tang; evoked in the garden couplet.",
     "contextZh": "在小说第46回中被引用，例如：“...清樽满赏《山香曲》，画舫遥听《水调歌》。...”。",
     "contextEn": "Cited in chapter 46 of the novel.",
     "chapters": [
@@ -3517,8 +3517,8 @@
     ]
   },
   "兰亭": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即东晋王羲之《兰亭集序》（永和九年，353年），记会稽兰亭修禊雅集，真迹\"天下第一行书\"传入昭陵，摹本刻帖春贴争传。",
+    "descEn": "The Orchid Pavilion Preface (353), Wang Xizhi's record of the spring purification gathering—the \"finest running script under heaven,\" endlessly copied and engraved.",
     "contextZh": "在小说第46回中被引用，例如：“...于白虎芬龙；刻石之诗，目方自平泉翠筱。故《兰亭》一序，春贴争传；《柏梁》数篇，华词擅藻。...”。",
     "contextEn": "Cited in chapter 46 of the novel.",
     "chapters": [
@@ -3526,8 +3526,8 @@
     ]
   },
   "柏梁": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "汉武帝柏梁台联句诗：元封三年武帝会群臣于柏梁台，人各七言一句联成一篇，句句用韵，后世称此体为\"柏梁体\"。",
+    "descEn": "The Boliang Terrace linked verse: Emperor Wu and his ministers each contributed one rhymed seven-character line, giving the \"Boliang style\" its name.",
     "contextZh": "在小说第46回中被引用，例如：“...方自平泉翠筱。故《兰亭》一序，春贴争传；《柏梁》数篇，华词擅藻。况乃地严紫禁，云护皇都，...”。",
     "contextEn": "Cited in chapter 46 of the novel.",
     "chapters": [
@@ -3535,8 +3535,8 @@
     ]
   },
   "水调歌头": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "词牌名，双调九十五字，取唐大曲《水调》首章另倚新声；苏轼中秋词\"明月几时有\"为此调绝唱，小说第四十八回南湘朗吟即其\"我欲乘风归去\"数句。",
+    "descEn": "Shuidiao Getou, the 95-character cipai derived from the Water Melody suite; Nanxiang declaims Su Shi's Mid-Autumn masterpiece (\"I would ride the wind home…\") in chapter 48.",
     "contextZh": "在小说第48回中被引用，例如：“...得楼上叮叮当当的响，又听得南湘朗吟东坡的《水调歌头》道：「我欲乘风归去，只恐琼楼玉宇，高处不...”。",
     "contextEn": "Cited in chapter 48 of the novel.",
     "chapters": [
@@ -3544,8 +3544,8 @@
     ]
   },
   "清平调": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "李白《清平调词》三首，天宝初奉诏于兴庆宫沉香亭咏牡丹与杨妃，\"云想衣裳花想容\"，由李龟年执板而歌；小说中金粟借\"清平调\"戏指诸名士诗格。",
+    "descEn": "Li Bai's three Qingping Diao lyrics on the peonies and Consort Yang, sung on the spot by Li Guinian; in chapter 48 Jinsu puns on the title to tease the poets.",
     "contextZh": "在小说第48回中被引用，例如：“...来。」南湘道：「什么格调？」金粟笑道：「《清平调》，不是太白先生遗下来的？」子玉道：「这《...”。",
     "contextEn": "Cited in chapter 48 of the novel.",
     "chapters": [
@@ -3553,8 +3553,8 @@
     ]
   },
   "滕王阁序": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐王勃《秋日登洪府滕王阁饯别序》（约676年），即席而成，\"落霞与孤鹜齐飞，秋水共长天一色\"为千古名对；小说中金粟谓其最传诵者不过写景。",
+    "descEn": "Wang Bo's Preface to the Tengwang Pavilion (c. 676), improvised at the feast, whose \"lone duck flying with sunset clouds\" couplet every schoolboy knows—dismissed by Jinsu as mere scenery.",
     "contextZh": "在小说第48回中被引用，例如：“...宋之问以土囊谋人佳句，试看佳句何如？王勃《滕王阁序》最传诵者，为落霞秋水一联，然亦不过写景而...”。",
     "contextEn": "Cited in chapter 48 of the novel.",
     "chapters": [
@@ -3562,8 +3562,8 @@
     ]
   },
   "潘金莲雪天戏叔": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《水浒传》第二十四回情节：潘金莲雪天置酒挑逗小叔武松被斥。小说中作《水浒传》酒令的签目，去年蕙芳掣着此签，神色之窘传为笑谈。",
+    "descEn": "The Water Margin episode of Pan Jinlian tempting her brother-in-law Wu Song over wine on a snowy day—drawn by Huifang as a mortifying drinking-game lot the year before.",
     "contextZh": "在小说第48回中被引用，例如：“...去年静宜有个《水浒传》的酒令，媚香掣着了《潘金莲雪天戏叔》，媚香那个神色，再没有这么好笑，不料湘帆...”。",
     "contextEn": "Cited in chapter 48 of the novel.",
     "chapters": [
@@ -3571,8 +3571,8 @@
     ]
   },
   "怡园饯别图": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的画作：萧静宜（次贤）画于扇上的《怡园饯别图》，写古香林屋饯别之景，徐度香于另一面题《金缕曲》半阕，琴仙携之南下。",
+    "descEn": "The in-novel fan painting \"Farewell Feast at Yi Garden\" by Xiao Cixian, inscribed on the reverse with Xu Ziyun's half-finished lyric; Qinxian carries it south.",
     "contextZh": "在小说第48回中被引用，例如：“...。」琴仙道：「前日静宜画了一柄扇子，是个《怡园饯别图》，度香于那一面填了一首《金缕曲》，还空了...”。",
     "contextEn": "Cited in chapter 48 of the novel.",
     "chapters": [
@@ -3580,8 +3580,8 @@
     ]
   },
   "河满子": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐教坊曲名，传为开元中沧州歌者临刑进此曲以赎死不得，声调哀切；张祜\"故国三千里\"一绝咏之，小说中南湘吟\"一声《河满子》，双泪落君前\"。",
+    "descEn": "Hemanzi, the Tang song named for a doomed singer's last plea; Zhang Hu's quatrain—\"one strain of Hemanzi, two streams of tears before my lord\"—is quoted at the sad farewell.",
     "contextZh": "在小说第48回中被引用，例如：“...一杯酒喝了，便□脚而卧，口中吟道：「一声《河满子》，双泪落君前。哀猿夜吟，令人肠断。」琴仙...”。",
     "contextEn": "Cited in chapter 48 of the novel.",
     "chapters": [
@@ -3589,8 +3589,8 @@
     ]
   },
   "刺梁": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清初朱佐朝传奇《渔家乐》，演邬飞霞混入梁府、以金簪刺杀权奸梁冀事，为刺杀旦重头戏；小说第五十回论其南北合套的笛色一凡。",
+    "descEn": "The kunqu scene \"Stabbing Liang\" from The Fisherman's Joy: Wu Feixia infiltrates the tyrant Liang Ji's palace and kills him with her golden hairpin; its flute modes are debated in chapter 50.",
     "contextZh": "在小说第50回中被引用，例如：“...曲笛子上有一凡没有，他也说没有。我说你做《刺梁》那一出，是南北合套，梁冀所唱之曲皆系南曲...”。",
     "contextEn": "Cited in chapter 50 of the novel.",
     "chapters": [
@@ -3598,8 +3598,8 @@
     ]
   },
   "惊变": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清洪昇《长生殿》\"惊变\"一出，演御园小宴中安禄山反讯骤至、明皇仓皇定计幸蜀事，南北合套音节最妙；小说中琴言论\"恁道是失机的哥舒翰\"句唱法。",
+    "descEn": "The kunqu scene \"The Alarm\" from The Palace of Everlasting Life: news of An Lushan's revolt shatters the garden feast; Qinyan analyzes how its key line should be delivered.",
     "contextZh": "在小说第50回中被引用，例如：“...套音节最好。若以人之神情摹想当日光景，至《惊变》处，唱到『恁道是失机的哥舒翰』，非用五六...”。",
     "contextEn": "Cited in chapter 50 of the novel.",
     "chapters": [
@@ -3607,8 +3607,8 @@
     ]
   },
   "滚绣球": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "北曲曲牌名，正宫套数第二牌，元杂剧习用（《窦娥冤》\"有日月朝暮悬\"即此牌）；小说第五十回春喜论《阳告》一折中此牌与口白文气的接续。",
+    "descEn": "Gunxiuqiu (\"Rolling the Embroidered Ball\"), the standard second tune of northern Zhenggong suites, famous from Dou E's aria; Chunxi dissects its placement in the temple-lament scene.",
     "contextZh": "在小说第50回中被引用，例如：“...第一段的口白是：『望大王爷早赐报应』，与《滚绣球》一枝『他因功名阻归』，文气不接。第二段口...”。",
     "contextEn": "Cited in chapter 50 of the novel.",
     "chapters": [
@@ -3616,8 +3616,8 @@
     ]
   },
   "叨叨令": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "北曲曲牌名，正宫习用牌子，以叠字衬字见长（王实甫《西厢记》\"见安排着车儿马儿\"最著）；小说第五十回论《阳告》唱段引之。",
+    "descEn": "Daodaoling (\"Chattering Song\"), the northern qupai famed for its tumbling reduplications, as in the Western Chamber's farewell aria; cited in Chunxi's critique.",
     "contextZh": "在小说第50回中被引用，例如：“...气不接。第二段口白：『在神前焚香设誓』与《叨叨令》一枝『那天知地知』，文气又不对。第三段口...”。",
     "contextEn": "Cited in chapter 50 of the novel.",
     "chapters": [
@@ -3625,8 +3625,8 @@
     ]
   },
   "脱布衫": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "北曲曲牌名，正宫套内常与《小梁州》连用；小说第五十回春喜论敫桂英《阳告》一折中此牌前口白应如何改。",
+    "descEn": "Tuobushan (\"Doffing the Cloth Robe\"), a northern Zhenggong tune usually chained to Xiaoliangzhou; Chunxi proposes rewriting the spoken lead-in before it.",
     "contextZh": "在小说第50回中被引用，例如：“...。第三段口白『勾去那厮魂灵与奴对证』，与《脱布衫》一枝『他好生忘筌得鱼』，文气又不接。依我...”。",
     "contextEn": "Cited in chapter 50 of the novel.",
     "chapters": [
@@ -3634,8 +3634,8 @@
     ]
   },
   "梅花三弄": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "古琴名曲，本东晋桓伊笛曲，后移入琴（谱见明《神奇秘谱》，1425年），一调三弄以泛音写梅花清标；小说中吉甫自梅卿死后不复弹此曲，人谓深于情。",
+    "descEn": "Three Variations on Plum Blossom, the qin classic descended from Huan Yi's flute air (tablature in the 1425 Shenqi Mipu); Jifu's refusal to play it after his beloved's death marks his constancy.",
     "contextZh": "在小说第50回中被引用，例如：“...静，他当日教过梅卿弹琴，自梅卿死后，他的《梅花三弄》是再不弹的了。你说这也算深于情了。」仲清...”。",
     "contextEn": "Cited in chapter 50 of the novel.",
     "chapters": [
@@ -3643,8 +3643,8 @@
     ]
   },
   "当巾": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明传奇《绣襦记》，演郑元和床头金尽、典当衣巾的落魄光景，与《卖兴》连演；小说第五十二回高品点此戏微讽田春航。",
+    "descEn": "The kunqu scene \"Pawning the Kerchief\" from The Embroidered Jacket: the penniless Zheng Yuanhe pawns his very headcloth—pointedly chosen by Gao Pin to needle Tian Chunhang.",
     "contextZh": "在小说第52回中被引用，例如：“...面前，子云点了一出《乔醋》，高品点了一出《当巾》。《乔醋》唱了，《当巾》却是兰保扮了小生...”。",
     "contextEn": "Cited in chapter 52 of the novel.",
     "chapters": [
@@ -3652,8 +3652,8 @@
     ]
   },
   "玉抱肚": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "南曲曲牌名（亦入北曲），传奇套数习用；小说第五十二回王兰保隔屏唱《玉抱肚》曲文，春航听之。",
+    "descEn": "Yubaodu (\"Jade Girdle\"), a qupai used in chuanqi suites; Wang Lanbao sings one behind the screen as Chunhang listens in chapter 52.",
     "contextZh": "在小说第52回中被引用，例如：“...又听得兰保唱那《玉抱肚》的曲子道：...”。",
     "contextEn": "Cited in chapter 52 of the novel.",
     "chapters": [
@@ -3661,8 +3661,8 @@
     ]
   },
   "燕子笺": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "明末阮大铖所作传奇（约崇祯间），演霍都梁与华行云、郦飞云因燕子衔笺、画像错认而成双美团圆事，关目奇巧，为阮氏《石巢四种》之一。",
+    "descEn": "The Swallow Letter (Yanzi Jian) by Ruan Dacheng (late Ming): a swallow-borne love note and a swapped portrait entangle the scholar Huo Duliang with two beauties—plotting at its most ingenious.",
     "contextZh": "在小说第52回中被引用，例如：“...听了，笑道：「如今闹出两位状元夫人，倒与《燕子笺》上的《诰圆》一样了。」华公子一想，自觉失...”。",
     "contextEn": "Cited in chapter 52 of the novel.",
     "chapters": [
@@ -3670,8 +3670,8 @@
     ]
   },
   "诰圆": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《燕子笺》末出《诰圆》，演霍都梁双美团圆、两位夫人同受封诰事；小说第五十二回子云笑称\"如今闹出两位状元夫人，倒与《燕子笺》上的《诰圆》一样了\"。",
+    "descEn": "The finale of The Swallow Letter, in which both brides receive imperial patents together; Ziyun jokes that Chunhang's \"two zhuangyuan ladies\" reenact it.",
     "contextZh": "在小说第52回中被引用，例如：“...如今闹出两位状元夫人，倒与《燕子笺》上的《诰圆》一样了。」华公子一想，自觉失言，便不再问...”。",
     "contextEn": "Cited in chapter 52 of the novel.",
     "chapters": [
@@ -3679,8 +3679,8 @@
     ]
   },
   "良宵风月图": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的画作：陆素兰昔年题诗其上的一幅《良宵风月图》，华公子已裱成手卷并遍请名人题咏，称其诗画字俱佳。",
+    "descEn": "The in-novel scroll \"A Fine Night of Breeze and Moonlight,\" bearing Lu Sulan's poem, which lord Hua has mounted and circulated for colophons.",
     "contextZh": "在小说第52回中被引用，例如：“...亭可爱，即叫他上前，说道：「你去年写在那《良宵风月图》上的诗，我已裱成了手卷，并请人题了好些，...”。",
     "contextEn": "Cited in chapter 52 of the novel.",
     "chapters": [
@@ -3688,8 +3688,8 @@
     ]
   },
   "断肠词": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的词作：陆素兰扇头小楷所录题为《断肠词》的词章，华公子爱其词而忌其名，另易一扇与素兰易之。",
+    "descEn": "The in-novel \"Heartbreak Lyrics\" copied in tiny regular script on Sulan's fan; lord Hua covets the verses but swaps fans to banish the inauspicious title from his feast.",
     "contextZh": "在小说第52回中被引用，例如：“...来，看了一会。又见那一面写着小楷，题目是《断肠词》。华公子道：「肠何可以轻断？」子玉见了，...”。",
     "contextEn": "Cited in chapter 52 of the novel.",
     "chapters": [
@@ -3697,8 +3697,8 @@
     ]
   },
   "拜石图": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "画题，用宋米芾（元章）知无为军时具衣冠拜奇石呼\"石丈\"之典，后人好绘《米颠拜石图》；小说第五十三回子玉观华府太湖石而问及此图。",
+    "descEn": "The \"Bowing to the Rock\" painting subject, from Mi Fu's famous obeisance to a marvelous stone he dubbed \"Elder Rock\"; Ziyu recalls it before the Hua mansion's Taihu rocks.",
     "contextZh": "在小说第53回中被引用，例如：“...「我闻米元章拜石，成了佳话，后人便绘他的《拜石图》。听得这块石在安徽无为州衙门里，怎么取来...”。",
     "contextEn": "Cited in chapter 53 of the novel.",
     "chapters": [
@@ -3706,8 +3706,8 @@
     ]
   },
   "桃花曲": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的曲作：华公子请陆素兰题咏的《桃花曲》，素兰为之题就，得了丰厚赏赐，开古董铺的本钱因此而成。",
+    "descEn": "The in-novel \"Peach Blossom Song\" that lord Hua asks Lu Sulan to inscribe; the reward funds the friends' antique shop.",
     "contextZh": "在小说第53回中被引用，例如：“...。少顷，素兰到蕙芳处来，讲华公子要他题那《桃花曲》，并待他一番光景，赏他好些东西，这铺子竟...”。",
     "contextEn": "Cited in chapter 53 of the novel.",
     "chapters": [
@@ -3715,8 +3715,8 @@
     ]
   },
   "拟汉诏": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科考试的头场试题之一：拟作汉代诏书，考骈散文体功力；第五十四回子玉等入场应试。",
+    "descEn": "An in-novel examination topic: \"Draft an Edict in the Han Manner,\" first-session test of archaic prose at the special boxue hongci examination in chapter 54.",
     "contextZh": "在小说第54回中被引用，例如：“...雨派了巡罗官。初十日一早入场，首试题目是《拟汉诏》、《拟唐疏》、《五经条解》、《五代南北朝...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3724,8 +3724,8 @@
     ]
   },
   "拟唐疏": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科头场试题之一：拟作唐代奏疏。",
+    "descEn": "An in-novel examination topic: \"Draft a Memorial in the Tang Manner.\"",
     "contextZh": "在小说第54回中被引用，例如：“...。初十日一早入场，首试题目是《拟汉诏》、《拟唐疏》、《五经条解》、《五代南北朝年号考》、《...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3733,8 +3733,8 @@
     ]
   },
   "五经条解": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科头场试题之一：就五经义理条分缕析作解。",
+    "descEn": "An in-novel examination topic: itemized exegesis of the Five Classics.",
     "contextZh": "在小说第54回中被引用，例如：“...入场，首试题目是《拟汉诏》、《拟唐疏》、《五经条解》、《五代南北朝年号考》、《治河策》、《问...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3742,8 +3742,8 @@
     ]
   },
   "五代南北朝年号考": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科头场试题之一：考订五代及南北朝纷繁的年号，试博闻强识之学。",
+    "descEn": "An in-novel examination topic: a philological study of the tangled reign-titles of the Five Dynasties and Northern-Southern courts.",
     "contextZh": "在小说第54回中被引用，例如：“...是《拟汉诏》、《拟唐疏》、《五经条解》、《五代南北朝年号考》、《治河策》、《问酌六科则例》《增损盐法...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3751,8 +3751,8 @@
     ]
   },
   "治河策": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科头场试题之一：论治理黄河方略的策问。",
+    "descEn": "An in-novel examination topic: a policy essay on Yellow River control.",
     "contextZh": "在小说第54回中被引用，例如：“...》、《五经条解》、《五代南北朝年号考》、《治河策》、《问酌六科则例》《增损盐法利弊》、《正...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3760,8 +3760,8 @@
     ]
   },
   "问酌六科则例": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科头场试题之一：问六科给事中稽核则例的斟酌损益。",
+    "descEn": "An in-novel examination topic on adjusting the regulatory codes of the Six Offices of Scrutiny.",
     "contextZh": "在小说第54回中被引用，例如：“...解》、《五代南北朝年号考》、《治河策》、《问酌六科则例》《增损盐法利弊》、《正本清源论》八题。二...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3769,8 +3769,8 @@
     ]
   },
   "增损盐法利弊": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科头场试题之一：论盐法增损的利弊得失。",
+    "descEn": "An in-novel examination topic weighing reforms to the salt administration.",
     "contextZh": "在小说第54回中被引用，例如：“...朝年号考》、《治河策》、《问酌六科则例》《增损盐法利弊》、《正本清源论》八题。二试是《大礼赋》、...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3778,8 +3778,8 @@
     ]
   },
   "正本清源论": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科头场试题之末：以\"正本清源\"为题的议论文。",
+    "descEn": "An in-novel examination topic: a discourse on \"rectifying the root and clearing the source.\"",
     "contextZh": "在小说第54回中被引用，例如：“...策》、《问酌六科则例》《增损盐法利弊》、《正本清源论》八题。二试是《大礼赋》、《大乐赋》、《大...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3787,8 +3787,8 @@
     ]
   },
   "大礼赋": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科二场试题之一：以朝廷大礼为题的赋作，与《大乐赋》《大搜赋》并试。",
+    "descEn": "An in-novel second-session topic: a rhapsody on the Grand Rites, set alongside rhapsodies on Grand Music and the Grand Hunt.",
     "contextZh": "在小说第54回中被引用，例如：“...损盐法利弊》、《正本清源论》八题。二试是《大礼赋》、《大乐赋》、《大搜赋》。三试《拟杜少陵...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3796,8 +3796,8 @@
     ]
   },
   "大乐赋": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科二场试题之一：以雅乐为题的赋作。",
+    "descEn": "An in-novel examination topic: a rhapsody on the Grand Music.",
     "contextZh": "在小说第54回中被引用，例如：“...、《正本清源论》八题。二试是《大礼赋》、《大乐赋》、《大搜赋》。三试《拟杜少陵北征诗》、《...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3805,8 +3805,8 @@
     ]
   },
   "大搜赋": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科二场试题之一：以天子大蒐（狩猎阅兵之礼）为题的赋作。",
+    "descEn": "An in-novel examination topic: a rhapsody on the Grand Hunt review.",
     "contextZh": "在小说第54回中被引用，例如：“...论》八题。二试是《大礼赋》、《大乐赋》、《大搜赋》。三试《拟杜少陵北征诗》、《韩昌黎南山诗...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3814,8 +3814,8 @@
     ]
   },
   "拟杜少陵北征诗": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中宏词科三场试题之一：依杜甫《北征》原韵拟作长篇五古，试险韵大篇之力。",
+    "descEn": "An in-novel third-session topic: compose a long poem matching the original rhymes of Du Fu's \"Northern Journey.\"",
     "contextZh": "在小说第54回中被引用，例如：“...《大礼赋》、《大乐赋》、《大搜赋》。三试《拟杜少陵北征诗》、《韩昌黎南山诗》，皆依元韵。这三场子玉...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3823,8 +3823,8 @@
     ]
   },
   "韩昌黎南山诗": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "此处为小说中宏词科三场试题：依韩愈《南山诗》原韵拟作。韩诗一百零二韵无一重韵，用险韵铺写终南山，向称五古奇观。",
+    "descEn": "Han Yu's \"Southern Mountains,\" the 102-rhyme tour de force on Zhongnan—set in the novel's examination as a rhyme-matching challenge.",
     "contextZh": "在小说第54回中被引用，例如：“...》、《大搜赋》。三试《拟杜少陵北征诗》、《韩昌黎南山诗》，皆依元韵。这三场子玉甚是得意，第一试共...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3832,8 +3832,8 @@
     ]
   },
   "唐诗三百首": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "清乾隆二十八年（1763）蘅塘退士孙洙编选的唐诗启蒙选本，三百一十余首，\"熟读唐诗三百首，不会吟诗也会吟\"；小说第五十四回闺中论诗即以此本为话题。",
+    "descEn": "The Three Hundred Tang Poems (1763), Sun Zhu's canonical primer—\"read it till it's worn and you will versify unbidden\"—the text behind the ladies' poetry talk in chapter 54.",
     "contextZh": "在小说第54回中被引用，例如：“...佩秋道：「我看学做诗也不容易。人说『熟读《唐诗三百首》，不会吟诗也会吟』。若说《唐诗三百首》，...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3841,8 +3841,8 @@
     ]
   },
   "七夕": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说中的诗题：倪佩秋所作《七夕》诗，蓉华从兄长处听来极口称赞，佩秋却讳言己作，见闺秀藏才之风。",
+    "descEn": "An in-novel poem: Ni Peiqiu's \"Double Seventh\" verses, praised secondhand while their modest author denies having written them.",
     "contextZh": "在小说第54回中被引用，例如：“...「你是不肯做，做了又不肯给人看。前日你的《七夕》诗，我就看得很好。为何有这样诗才，要秘不...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3850,8 +3850,8 @@
     ]
   },
   "长相思": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "李白乐府《长相思》（\"长相思，在长安\"），写天涯忆远、上有青冥之高天，下有渌水之波澜，为七古言情名篇。",
+    "descEn": "Li Bai's yuefu \"Endless Longing\" (\"Long I yearn, in Chang'an…\"), the classic of love across unbridgeable distance.",
     "contextZh": "在小说第54回中被引用，例如：“...萝补茅屋』，写得这般沉痛。七古如李太白之《长相思》、《行路难》、《金陵酒肆》，岑参之《走马...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3859,8 +3859,8 @@
     ]
   },
   "行路难": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "李白乐府《行路难》三首，\"金樽清酒斗十千\"起，写世路艰险而终以\"长风破浪会有时\"自壮，为李白七古代表作。",
+    "descEn": "Li Bai's \"Hard Is the Road\" trilogy, from the jeweled banquet pushed away to the vow to \"ride the long wind and cleave the waves someday.\"",
     "contextZh": "在小说第54回中被引用，例如：“...写得这般沉痛。七古如李太白之《长相思》、《行路难》、《金陵酒肆》，岑参之《走马行》，杜少陵...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3868,8 +3868,8 @@
     ]
   },
   "金陵酒肆": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "李白《金陵酒肆留别》，\"风吹柳花满店香\"，以吴姬压酒、金陵子弟相送写别情如东流水，为七古短章绝唱。",
+    "descEn": "Li Bai's \"Parting at a Jinling Tavern\": willow catkins scent the wine-shop as friends see him off, farewell feelings measured against the east-flowing river.",
     "contextZh": "在小说第54回中被引用，例如：“...。七古如李太白之《长相思》、《行路难》、《金陵酒肆》，岑参之《走马行》，杜少陵之《古柏行》、...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3877,8 +3877,8 @@
     ]
   },
   "走马行": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即岑参《走马川行奉送封大夫出师西征》，\"君不见走马川行雪海边\"，写轮台风夜石乱走的边塞出师，三句一转韵，奇峭雄快。",
+    "descEn": "Cen Shen's \"Song of Running-Horse River,\" the blizzard-swept send-off of a western expedition, its rhymes wheeling every three lines like the storm itself.",
     "contextZh": "在小说第54回中被引用，例如：“...相思》、《行路难》、《金陵酒肆》，岑参之《走马行》，杜少陵之《古柏行》、《公孙大娘舞剑器》...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3886,8 +3886,8 @@
     ]
   },
   "古柏行": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "杜甫《古柏行》，咏夔州孔明庙前古柏\"霜皮溜雨四十围\"，借大材难用叹志士不遇。",
+    "descEn": "Du Fu's \"Ballad of the Ancient Cypress\" before Zhuge Liang's shrine—great timber unused, the standing emblem of neglected worth.",
     "contextZh": "在小说第54回中被引用，例如：“...《金陵酒肆》，岑参之《走马行》，杜少陵之《古柏行》、《公孙大娘舞剑器》，韩昌黎之《石鼓歌》...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3895,8 +3895,8 @@
     ]
   },
   "公孙大娘舞剑器": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即杜甫《观公孙大娘弟子舞剑器行并序》（767年），追忆开元间公孙大娘剑器浑脱之舞\"㸌如羿射九日落\"，兼寓五十年兴衰之感。",
+    "descEn": "Du Fu's \"Watching a Pupil of Madam Gongsun Dance the Sword Dance\" (767), recalling the great dancer of Kaiyuan days—\"flashing like Yi shooting down nine suns\"—across fifty years of ruin.",
     "contextZh": "在小说第54回中被引用，例如：“...，岑参之《走马行》，杜少陵之《古柏行》、《公孙大娘舞剑器》，韩昌黎之《石鼓歌》，李义山之《韩碑》。...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3904,8 +3904,8 @@
     ]
   },
   "石鼓歌": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "韩愈七古《石鼓歌》，咏周宣王猎碣石鼓文的古奥与湮没，力请朝廷宝护而不果，与苏轼同题之作并称。",
+    "descEn": "Han Yu's \"Song of the Stone Drums,\" pleading in vain for the preservation of the archaic hunting inscriptions—the monument poem of Tang antiquarianism.",
     "contextZh": "在小说第54回中被引用，例如：“...《古柏行》、《公孙大娘舞剑器》，韩昌黎之《石鼓歌》，李义山之《韩碑》。五律如『山中一夜雨，...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3913,8 +3913,8 @@
     ]
   },
   "韩碑": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "李商隐七古《韩碑》，咏韩愈撰《平淮西碑》被谗磨去事，\"公之斯文若元气\"，气格高古，为义山七古压卷。",
+    "descEn": "Li Shangyin's \"The Han Stele,\" on the erasure of Han Yu's Huaixi inscription—\"his prose is the primal breath itself\"—the poet's starkest, grandest work.",
     "contextZh": "在小说第54回中被引用，例如：“...娘舞剑器》，韩昌黎之《石鼓歌》，李义山之《韩碑》。五律如『山中一夜雨，树杪百重泉』，『星...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3922,8 +3922,8 @@
     ]
   },
   "三百首": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即《唐诗三百首》之省称；小说中琼华论\"《三百首》真是全唐诗中的精液\"，谓其于温李七古只载《韩碑》一篇，便于初学。",
+    "descEn": "Short for the Three Hundred Tang Poems; Qionghua calls it \"the distilled essence of the whole Tang corpus\" in the sisters' poetry seminar.",
     "contextZh": "在小说第54回中被引用，例如：“...唐诗中的七古佳者亦难尽述，即如《三百首》中，如岑参之《白雪歌》内云：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3931,8 +3931,8 @@
     ]
   },
   "白雪歌": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "岑参《白雪歌送武判官归京》，\"忽如一夜春风来，千树万树梨花开\"，写胡天八月飞雪中的送别，边塞七古名篇。",
+    "descEn": "Cen Shen's \"Song of White Snow,\" whose overnight \"spring wind\" that opens ten thousand pear trees is the most famous snow image in Chinese poetry.",
     "contextZh": "在小说第54回中被引用，例如：“...佳者亦难尽述，即如《三百首》中，如岑参之《白雪歌》内云：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3940,8 +3940,8 @@
     ]
   },
   "燕歌行": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "高适《燕歌行》（738年），\"战士军前半死生，美人帐下犹歌舞\"，写边将骄逸、士卒苦战，为唐边塞诗第一等作。",
+    "descEn": "Gao Shi's \"Song of Yan\" (738): soldiers dying at the front while beauties dance in the general's tent—the great indictment among Tang frontier poems.",
     "contextZh": "在小说第54回中被引用，例如：“...高适之《燕歌行》云：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3949,8 +3949,8 @@
     ]
   },
   "洛阳女儿行": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "王维《洛阳女儿行》，写洛阳贵家女儿\"画阁珠楼尽相望\"的骄奢生涯，末以越溪贫女浣纱作对照。",
+    "descEn": "Wang Wei's \"Ballad of the Luoyang Girl,\" the gilded idleness of a young beauty set against the poor silk-washing girl of the Yue stream.",
     "contextZh": "在小说第54回中被引用，例如：“...写得军中苦者自苦，乐者自乐。王维《洛阳女儿行》云：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3958,8 +3958,8 @@
     ]
   },
   "兵车行": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "杜甫《兵车行》，\"车辚辚，马萧萧\"，写天宝穷兵黩武、行人爷娘妻子走相送的惨状，开杜诗即事名篇之先。",
+    "descEn": "Du Fu's \"Ballad of the Army Carts\"—rumbling wheels, wailing families—the founding poem of his social-protest manner.",
     "contextZh": "在小说第54回中被引用，例如：“...代人作嫁的光景。若沉痛悲凉，则莫如老杜之《兵车行》、《哀江头》、《哀王孙》等篇。...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3967,8 +3967,8 @@
     ]
   },
   "哀江头": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "杜甫《哀江头》（757年陷贼中作），潜行曲江忆昔日霓旌下南苑的贵妃游幸，\"明眸皓齿今何在\"，沉痛绝人。",
+    "descEn": "Du Fu's \"Lament by the Winding River\" (757), written in occupied Chang'an: the emptied pleasure park and the vanished consort's \"bright eyes and white teeth.\"",
     "contextZh": "在小说第54回中被引用，例如：“...景。若沉痛悲凉，则莫如老杜之《兵车行》、《哀江头》、《哀王孙》等篇。...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3976,8 +3976,8 @@
     ]
   },
   "哀王孙": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "杜甫《哀王孙》（756年），写安史乱中金鞭断折、九马死尽后流落道旁的王孙，戒其隐忍自全，忠爱悱恻。",
+    "descEn": "Du Fu's \"Lament for the Prince\" (756): a royal scion hiding by the roadside after the fall of Chang'an, counseled to endure in silence.",
     "contextZh": "在小说第54回中被引用，例如：“...凉，则莫如老杜之《兵车行》、《哀江头》、《哀王孙》等篇。...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3985,8 +3985,8 @@
     ]
   },
   "寄韩谏议": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "杜甫《寄韩谏议注》，\"今我不乐思岳阳\"，以美人鸿飞、星宫醉琼浆的游仙笔意寄怀，格近太白；小说中琼华即举此证杜诗亦有似李处。",
+    "descEn": "Du Fu's \"To Censor Han,\" whose immortals drunk on nectar in the star palaces sound so like Li Bai that Qionghua cites it to blur the two masters' border.",
     "contextZh": "在小说第54回中被引用，例如：“...李、杜诗格不同，我说杜诗也有似太白处，其《寄韩谏议》云：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -3994,8 +3994,8 @@
     ]
   },
   "谒衡岳庙": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "韩愈《谒衡岳庙遂宿岳寺题门楼》，\"五岳祭秩皆三公\"起，写谒庙开云之诚与穷途自嘲，沉雄似杜；小说中琼华谓其绝似少陵。",
+    "descEn": "Han Yu's \"Visiting the Temple of the Southern Peak,\" where his prayer parts the autumn clouds—cited as Han at his most Du Fu-like.",
     "contextZh": "在小说第54回中被引用，例如：“...不绝似太白么？还有韩昌黎《谒衡岳庙》与《八月十五夜赠张功曹》诗，绝似少陵。不...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4003,8 +4003,8 @@
     ]
   },
   "八月十五夜赠张功曹": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "韩愈《八月十五夜赠张功曹》，中秋听张署歌而作，\"一年明月今宵多\"，迁谪之悲以旷达出之；琼华举以证韩之似杜。",
+    "descEn": "Han Yu's Mid-Autumn poem to Zhang Shu, exile's grief folded into \"no night of the year has more moon than tonight.\"",
     "contextZh": "在小说第54回中被引用，例如：“...不绝似太白么？还有韩昌黎《谒衡岳庙》与《八月十五夜赠张功曹》诗，绝似少陵。不知二公当日有意摹仿，还是...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4012,8 +4012,8 @@
     ]
   },
   "望蓟门": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐祖咏七律《望蓟门》，\"燕台一去客心惊\"，写蓟门烽火沙场之气而结以请缨之志，被举为七律浩气流转的格范。",
+    "descEn": "Zu Yong's \"Gazing on Jimen,\" the regulated verse of beacon fires and battle plains that Qionghua holds up as the model of sweeping qi in the form.",
     "contextZh": "在小说第54回中被引用，例如：“...上。以我的见解，首举一首为格，我想如祖咏《望蓟门》云：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4021,8 +4021,8 @@
     ]
   },
   "望月有感": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "白居易《望月有感》（\"自河南经乱……\"），\"共看明月应垂泪，一夜乡心五处同\"，写离乱中兄弟姊妹五处望月，真切如话。",
+    "descEn": "Bai Juyi's \"Moved by Moon-Gazing\": five scattered siblings weep at the same moon in one night of war—plainspoken and piercing.",
     "contextZh": "在小说第54回中被引用，例如：“...亦像一手。七律中亦有最真切者，如白香山之《望月有感》云：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4030,8 +4030,8 @@
     ]
   },
   "逢入京使": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "岑参《逢入京使》，\"马上相逢无纸笔，凭君传语报平安\"，全篇如白话而情致无穷；小说中琼华举以证\"诗只要好，白话也一样好看\"。",
+    "descEn": "Cen Shen's \"Meeting a Courier Bound for the Capital\"—no paper, no brush, \"just tell them I am safe\"—Qionghua's proof that plain speech can be perfect poetry.",
     "contextZh": "在小说第54回中被引用，例如：“...当，也不好看，倒反不如那白话呢。你看岑参《逢入京使》那一首：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4039,8 +4039,8 @@
     ]
   },
   "春宫曲": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "王昌龄七绝《春宫曲》，\"昨夜风开露井桃\"，借平阳歌舞新承宠写失宠者之怨，措词香艳而意在言外。",
+    "descEn": "Wang Changling's \"Spring Palace Song\": last night's peach blossoms and a rival's new favor, resentment glimpsed only in what is left unsaid.",
     "contextZh": "在小说第54回中被引用，例如：“...香艳，字字是露光花气，方能醒眼，如王昌龄《春宫曲》、《闺怨》是人人说好的。其余如温飞卿之：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4048,8 +4048,8 @@
     ]
   },
   "闺怨": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "王昌龄七绝《闺怨》，\"闺中少妇不知愁\"，凝妆上楼忽见陌头杨柳色，悔教夫婿觅封侯，为闺怨诗绝唱。",
+    "descEn": "Wang Changling's \"Boudoir Plaint\": the carefree young wife sees the willows turn and suddenly rues sending her husband off to win a title.",
     "contextZh": "在小说第54回中被引用，例如：“...露光花气，方能醒眼，如王昌龄《春宫曲》、《闺怨》是人人说好的。其余如温飞卿之：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4057,8 +4057,8 @@
     ]
   },
   "梦太白": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即杜甫《梦李白》二首，\"死别已吞声，生别常恻恻\"，写流放中的李白入梦、\"魂来枫林青\"的悬念死生之情；小说中琼华却议其\"枫林青、关塞黑\"有鬼气。",
+    "descEn": "Du Fu's two \"Dreaming of Li Bai\" poems, the deathless testament of poetic friendship—though Qionghua dares to find their green maples and black passes \"ghostly.\"",
     "contextZh": "在小说第54回中被引用，例如：“...议处也有呢，我就要议那诗祖宗那一首，少陵《梦太白》诗云：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4066,8 +4066,8 @@
     ]
   },
   "访陆鸿渐": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐诗僧皎然《寻陆鸿渐不遇》，\"移家虽带郭，野径入桑麻\"，访茶圣陆羽不遇之作；小说中琼华议其\"古不像古，律不像律\"。",
+    "descEn": "The monk Jiaoran's \"Calling on Lu Yu and Missing Him,\" the amiable visit poem Qionghua faults as neither properly ancient nor properly regulated.",
     "contextZh": "在小说第54回中被引用，例如：“...还有什么可议的么？」琼华道：「还有僧皎然《访陆鸿渐》那一首，古不像古，律不像律，不知选家何意...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4075,8 +4075,8 @@
     ]
   },
   "北征": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "杜甫五古长篇《北征》（757年），七百字自凤翔归鄜州省家，兼陈国事家事，用险韵一百五十韵，与《南山》并称五古双璧。",
+    "descEn": "Du Fu's \"Northern Journey\" (757), the 700-character homeward epic mixing statecraft and family in one hundred fifty difficult rhymes—twin summit with Han Yu's \"Southern Mountains.\"",
     "contextZh": "在小说第54回中被引用，例如：“...是没有学过做诗，但我前日听他们说杜少陵的《北征》、韩昌黎的《南山》，我将他翻出来看时，用...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4084,8 +4084,8 @@
     ]
   },
   "子虚": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "西汉司马相如《子虚赋》，借子虚、乌有先生问答铺陈游猎之盛，武帝读而叹恨不同时，与《上林赋》相续为汉赋极轨。",
+    "descEn": "Sima Xiangru's Rhapsody of Sir Vacuous (Zixu Fu), the hunting-park extravaganza that made Emperor Wu sigh to meet its author; continued in the Shanglin Fu.",
     "contextZh": "在小说第54回中被引用，例如：“...》诗一百零二韵，内中一个重韵也没有，真与《子虚》、《上林》一样，非大力量不能。」佩秋道：...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4093,8 +4093,8 @@
     ]
   },
   "上林": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "司马相如《上林赋》，承《子虚》而铺写天子上林苑囿田猎之壮丽，终归讽谏，与《子虚》并为汉大赋典范。",
+    "descEn": "The Shanglin Rhapsody, Sima Xiangru's sequel exalting—and gently admonishing—the imperial hunting park, the paradigm of Han epideictic fu.",
     "contextZh": "在小说第54回中被引用，例如：“...二韵，内中一个重韵也没有，真与《子虚》、《上林》一样，非大力量不能。」佩秋道：「你说没有...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [
@@ -4102,8 +4102,8 @@
     ]
   },
   "玉台序": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即徐陵《玉台新咏序》；小说第五十五回石翁与屈道翁论文，举其\"琉璃研匣，翡翠笔床\"句论骈文浓淡相间之法。",
+    "descEn": "Xu Ling's Jade Terrace preface again: in chapter 55 the two old scholars analyze its \"crystal ink-case, kingfisher brush-stand\" couplet as a model of alternating richness.",
     "contextZh": "在小说第55回中被引用，例如：“...呢？」石翁道：「琉璃研匣，翡翠笔床，是用《玉台序》。但他一浓一淡，相间成文，便入古格。他是...”。",
     "contextEn": "Cited in chapter 55 of the novel.",
     "chapters": [
@@ -4111,8 +4111,8 @@
     ]
   },
   "三百篇": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《诗经》的代称（存诗三百零五篇，举成数称\"诗三百\"）；小说第五十五回石翁举\"《三百篇》不废《桑中》《溱洧》\"为其游戏之诗辩护。",
+    "descEn": "The \"Three Hundred Pieces,\" the standing epithet of the Book of Songs; Old Shi cites its retention of love songs to defend his own frivolous verses.",
     "contextZh": "在小说第55回中被引用，例如：“...、外集？」石翁道：「游戏之言，颇得天趣，《三百篇》不废《桑中》、《溱洧》，何以圣人当日删《...”。",
     "contextEn": "Cited in chapter 55 of the novel.",
     "chapters": [
@@ -4120,8 +4120,8 @@
     ]
   },
   "桑中": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《诗经·鄘风·桑中》，男女期会于桑中、上宫的情诗，汉儒斥为\"淫奔之诗\"，卫宏以下聚讼不休；小说中石翁举以自解。",
+    "descEn": "The ode \"Among the Mulberries\" (Sangzhong), the trysting song that orthodox commentators branded licentious—Old Shi's precedent for playful verse.",
     "contextZh": "在小说第55回中被引用，例如：“...道：「游戏之言，颇得天趣，《三百篇》不废《桑中》、《溱洧》，何以圣人当日删《诗》，也不另...”。",
     "contextEn": "Cited in chapter 55 of the novel.",
     "chapters": [
@@ -4129,8 +4129,8 @@
     ]
   },
   "溱洧": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "《诗经·郑风·溱洧》，写郑国上巳溱洧河畔士女秉兰相谑、赠之以芍药的春游情景，为\"郑声淫\"之说的公案名篇。",
+    "descEn": "The ode \"Zhen and Wei,\" young men and women bantering with orchids and peonies at the spring rites—the locus classicus of \"wanton\" Zheng songs.",
     "contextZh": "在小说第55回中被引用，例如：“...之言，颇得天趣，《三百篇》不废《桑中》、《溱洧》，何以圣人当日删《诗》，也不另编一集呢？...”。",
     "contextEn": "Cited in chapter 55 of the novel.",
     "chapters": [
@@ -4138,8 +4138,8 @@
     ]
   },
   "诗": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即《诗经》，中国最早诗歌总集，三百零五篇，相传孔子删定，分风雅颂，为六经之一。",
+    "descEn": "The Book of Songs (Shijing), China's earliest anthology of 305 poems, traditionally edited by Confucius, canonized among the Six Classics.",
     "contextZh": "在小说第55回中被引用，例如：“...》不废《桑中》、《溱洧》，何以圣人当日删《诗》，也不另编一集呢？」道翁道：「此是存本国...”。",
     "contextEn": "Cited in chapter 55 of the novel.",
     "chapters": [
@@ -4147,8 +4147,8 @@
     ]
   },
   "刘唐": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子（净脚戏），演《水浒传》赤发鬼刘唐往郓城下书酬谢宋江事（\"刘唐下书\"），昆曲承演于明许自昌《水浒记》一系。",
+    "descEn": "The jing (painted-face) scene \"Liu Tang Delivers the Letter,\" from the Water Margin episode of the Red-Haired Devil's secret errand to Song Jiang.",
     "contextZh": "在小说第57回中被引用，例如：“...绮香点了一出《刘唐》，是单，是净脚戏，看各人手中个个皆有。绮...”。",
     "contextEn": "Cited in chapter 57 of the novel.",
     "chapters": [
@@ -4165,8 +4165,8 @@
     ]
   },
   "顶针续麻令": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "传统酒令名目：\"顶针续麻\"即联句游戏，下句首字须顶上句末字，元曲中已见其名；小说第五十七回闺中行此令。",
+    "descEn": "The \"thimble-and-thread\" chain game, a classic drinking forfeit in which each phrase must begin with the last word of the one before; played by the ladies in chapter 57.",
     "contextZh": "在小说第57回中被引用，例如：“...重掷骰子，数到明珠，是侯生，是个《顶针续麻令》。李斯输了喝酒，侯生输了要喝酱油。明珠道...”。",
     "contextEn": "Cited in chapter 57 of the novel.",
     "chapters": [
@@ -4174,8 +4174,8 @@
     ]
   },
   "书经": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "即《尚书》，上古政事文诰的汇编，六经之一；小说行令中红雪引\"惟三月哉生魄\"证\"哉\"字可作起句。",
+    "descEn": "The Book of Documents (Shangshu), the canon of archaic state pronouncements; quoted in the game to prove a sentence may begin with the particle zai.",
     "contextZh": "在小说第57回中被引用，例如：“...明珠赌着气，真吃了一口酱油。红雪笑道：「《书经》上『惟三月哉生魄，哉生明。』哉字可作起句...”。",
     "contextEn": "Cited in chapter 57 of the novel.",
     "chapters": [
@@ -4183,8 +4183,8 @@
     ]
   },
   "公孙大娘舞剑器行": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "杜甫七古《观公孙大娘弟子舞剑器行》，写剑器舞的神采与抚今追昔之悲；小说第六十回琴仙赞王兰保咏侠诗\"比《公孙大娘舞剑器行》还刻画得入细\"。",
+    "descEn": "Du Fu's sword-dance ballad again: in chapter 60 Qinxian declares Lanbao's poem on the swordswoman even finer-grained than Du Fu's original.",
     "contextZh": "在小说第60回中被引用，例如：“...琴仙赞道：「这首七古，实在做得好，念去比《公孙大娘舞剑器行》还刻画得入细。」王兰保笑而不言。蕙芳道：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4192,8 +4192,8 @@
     ]
   },
   "诗品": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "指唐司空图《二十四诗品》，以雄浑、冲淡等二十四目各系四言韵语品诗境，为古代诗歌美学名著；小说第六十回诸旦\"仿司空《诗品》\"各作四言赞。",
+    "descEn": "Sikong Tu's Twenty-Four Grades of Poetry, the Tang classic that renders each poetic mode in four-character verse—the model for the actors' closing eulogies in chapter 60.",
     "contextZh": "在小说第60回中被引用，例如：“...称我们为花史，我们就称他们为文星，仿司空《诗品》，各作四言赞语一首，刻在上面。你们想这个...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4201,8 +4201,8 @@
     ]
   },
   "群仙领袖": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第六十回诸旦仿司空图《诗品》所作四言赞语的第一首，十人公撰，总赞诸名士为群仙之首。",
+    "descEn": "The first of the in-novel four-character eulogies modeled on the Grades of Poetry: \"Leader of the Assembled Immortals,\" jointly composed by the ten actors.",
     "contextZh": "在小说第60回中被引用，例如：“...。」遂看第一首，是他们十人公撰的，题曰：《群仙领袖》：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4210,8 +4210,8 @@
     ]
   },
   "仙中逸品": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第六十回金漱芳所题四言赞语，以\"仙中逸品\"品目赞其知己名士，仿司空图《诗品》体。",
+    "descEn": "An in-novel eulogy by Jin Shufang: \"The Untrammeled Grade among Immortals,\" in the manner of the Grades of Poetry.",
     "contextZh": "在小说第60回中被引用，例如：“...第二首是金漱芳题的《仙中逸品》：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4219,8 +4219,8 @@
     ]
   },
   "仙中趣品": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第六十回玉林所题四言赞语：\"仙中趣品\"。",
+    "descEn": "An in-novel eulogy by Yulin: \"The Witty Grade among Immortals.\"",
     "contextZh": "在小说第60回中被引用，例如：“...第三首是玉林题的《仙中趣品》：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4228,8 +4228,8 @@
     ]
   },
   "仙中狂品": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第六十回王兰保所题四言赞语：\"仙中狂品\"。",
+    "descEn": "An in-novel eulogy by Wang Lanbao: \"The Wild Grade among Immortals.\"",
     "contextZh": "在小说第60回中被引用，例如：“...第四首是王兰保题的《仙中狂品》：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4237,8 +4237,8 @@
     ]
   },
   "仙中高品": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第六十回秦琪官所题四言赞语：\"仙中高品\"。",
+    "descEn": "An in-novel eulogy by Qin Qiguan: \"The Lofty Grade among Immortals.\"",
     "contextZh": "在小说第60回中被引用，例如：“...第五首是秦琪官题的《仙中高品》：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4246,8 +4246,8 @@
     ]
   },
   "仙中和品": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第六十回林春喜所题四言赞语：\"仙中和品\"。",
+    "descEn": "An in-novel eulogy by Lin Chunxi: \"The Harmonious Grade among Immortals.\"",
     "contextZh": "在小说第60回中被引用，例如：“...第六首是林春喜题的《仙中和品》：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4255,8 +4255,8 @@
     ]
   },
   "箫韶": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "传说中虞舜之乐《韶》（箫韶），\"箫韶九成，凤皇来仪\"（《尚书·益稷》），孔子在齐闻《韶》三月不知肉味；小说赞语借喻乐境之至。",
+    "descEn": "The Xiaoshao, the legendary music of Sage-King Shun that summoned phoenixes in nine movements and made Confucius forget the taste of meat.",
     "contextZh": "在小说第60回中被引用，例如：“...争明。云辉锦集，月满川盈。《霓裳》一曲，《箫韶》九成。不矜不庄，或休或暇。惠而好我，是曰...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4264,8 +4264,8 @@
     ]
   },
   "仙中乐品": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第六十回王桂保所题四言赞语：\"仙中乐品\"。",
+    "descEn": "An in-novel eulogy by Wang Guibao: \"The Joyous Grade among Immortals.\"",
     "contextZh": "在小说第60回中被引用，例如：“...第七首是王桂保题的《仙中乐品》：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4273,8 +4273,8 @@
     ]
   },
   "仙中华品": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第六十回苏蕙芳所题四言赞语：\"仙中华品\"。",
+    "descEn": "An in-novel eulogy by Su Huifang: \"The Splendid Grade among Immortals.\"",
     "contextZh": "在小说第60回中被引用，例如：“...第八首是苏蕙芳题的《仙中华品》：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4282,8 +4282,8 @@
     ]
   },
   "仙中豪品": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第六十回陆素兰所题四言赞语：\"仙中豪品\"。",
+    "descEn": "An in-novel eulogy by Lu Sulan: \"The Bold Grade among Immortals.\"",
     "contextZh": "在小说第60回中被引用，例如：“...第九首是陆素兰题的《仙中豪品》：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4291,8 +4291,8 @@
     ]
   },
   "仙中上品": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第六十回袁宝珠所题四言赞语：\"仙中上品\"，赞语有\"无上上品，首推此君\"云。",
+    "descEn": "An in-novel eulogy by Yuan Baozhu: \"The Upper Grade among Immortals,\" opening \"of grades supreme, this gentleman stands first.\"",
     "contextZh": "在小说第60回中被引用，例如：“...第十首是袁宝珠题的《仙中上品》：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4300,8 +4300,8 @@
     ]
   },
   "九丘": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "传说中上古典籍，与《三坟》《五典》《八索》并称（《左传》楚左史倚相能读之），后世泛指最古的书；小说赞语以\"《九丘》《三坟》\"状博学。",
+    "descEn": "The Nine Mounds (Jiuqiu), legendary lost books of highest antiquity paired with the Three Tumuli—shorthand for the profoundest erudition.",
     "contextZh": "在小说第60回中被引用，例如：“...飘然不群。具大智慧，博学多闻。温良冲淡，《九丘》《三坟》。磊磊落落，抱璞含芬。高谈雄辩，...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4309,8 +4309,8 @@
     ]
   },
   "三坟": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "传说中三皇之书（《左传》\"能读《三坟》《五典》《八索》《九丘》\"），久佚，后世以\"坟典\"泛称上古坟籍。",
+    "descEn": "The Three Tumuli (Sanfen), the fabled books of the Three Sovereigns, long lost; with the Nine Mounds a byword for archaic learning.",
     "contextZh": "在小说第60回中被引用，例如：“...。具大智慧，博学多闻。温良冲淡，《九丘》《三坟》。磊磊落落，抱璞含芬。高谈雄辩，说剑论文...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
@@ -4318,8 +4318,8 @@
     ]
   },
   "仙中正品": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "小说第六十回屈琴仙所题四言赞语：\"仙中正品\"，为十一首之末。",
+    "descEn": "The last in-novel eulogy, by Qu Qinxian: \"The Upright Grade among Immortals.\"",
     "contextZh": "在小说第60回中被引用，例如：“...第十一首是屈琴仙题的《仙中正品》：...”。",
     "contextEn": "Cited in chapter 60 of the novel.",
     "chapters": [
