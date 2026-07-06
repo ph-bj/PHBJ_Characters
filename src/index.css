@@ -147,3 +147,21 @@ body {
 .question-answer blockquote + h3 {
   margin-top: 1.25rem;
 }
+
+/* Ruby annotation styling for paragraph numbers above the first character */
+.ruby-paragraph-number {
+  ruby-position: over;
+  ruby-align: center;
+}
+
+.ruby-paragraph-number rt {
+  font-size: 10px;
+  font-family: var(--font-sans);
+  font-weight: normal;
+  color: var(--ink-dim-text);
+  opacity: 0.75;
+  user-select: none;
+  line-height: 1;
+  padding-bottom: 2px;
+}
+

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "motion/react";
 import {
   ArrowUp,
@@ -58,6 +58,58 @@ export function readLastReadingPosition(): { id: number; top: number } | null {
     // Ignore unreadable storage; treated as "no saved position".
   }
   return null;
+}
+
+function injectParagraphNumber(nodes: React.ReactNode, num: number): React.ReactNode {
+  if (nodes === null || nodes === undefined) return nodes;
+
+  // If nodes is a string
+  if (typeof nodes === "string") {
+    const trimmed = nodes.trimStart();
+    const leadingWhitespace = nodes.slice(0, nodes.length - trimmed.length);
+    if (trimmed.length > 0) {
+      const firstChar = trimmed.charAt(0);
+      const rest = trimmed.slice(1);
+      return (
+        <span key="para-start">
+          {leadingWhitespace}
+          <ruby className="ruby-paragraph-number">
+            {firstChar}
+            <rt className="text-[10px] select-none font-sans font-normal text-[var(--ink-dim-text)]/75">{num}</rt>
+          </ruby>
+          {rest}
+        </span>
+      );
+    }
+    return nodes;
+  }
+
+  // If nodes is an array of ReactNode
+  if (Array.isArray(nodes)) {
+    const newNodes = [...nodes];
+    for (let i = 0; i < newNodes.length; i++) {
+      const originalNode = newNodes[i];
+      const modifiedNode = injectParagraphNumber(originalNode, num);
+      if (modifiedNode !== originalNode) {
+        newNodes[i] = modifiedNode;
+        return newNodes;
+      }
+    }
+    return nodes;
+  }
+
+  // If nodes is a valid React element
+  if (React.isValidElement(nodes)) {
+    const children = (nodes.props as any).children;
+    if (children !== undefined && children !== null) {
+      const modifiedChildren = injectParagraphNumber(children, num);
+      if (modifiedChildren !== children) {
+        return React.cloneElement(nodes, {} as any, modifiedChildren);
+      }
+    }
+  }
+
+  return nodes;
 }
 
 export function ChapterReader({
@@ -367,7 +419,11 @@ export function ChapterReader({
     );
   };
 
-  const renderAnnotated = (text: string, showBilingual = false) => {
+  const renderAnnotated = (
+    text: string,
+    showBilingual = false,
+    paragraphNumber?: number,
+  ) => {
     if (!text) return null;
 
     const highlightPlain = (plain: string) =>
@@ -378,7 +434,7 @@ export function ChapterReader({
         chapterSearchMatchCounter,
       );
 
-    return segmentText(text, tokenMap).map((seg, i) => {
+    const nodes = segmentText(text, tokenMap).map((seg, i) => {
       if (typeof seg === "string") {
         const parts = seg.split(CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX);
         if (parts.length === 1) return highlightPlain(seg);
@@ -437,6 +493,11 @@ export function ChapterReader({
         </button>
       );
     });
+
+    if (paragraphNumber !== undefined) {
+      return injectParagraphNumber(nodes, paragraphNumber);
+    }
+    return nodes;
   };
 
   chapterSearchMatchCounter.current = 0;
@@ -711,25 +772,16 @@ export function ChapterReader({
                 })}
               </div>
             ) : translationMap[chapter.id] ? (
-              <div className="space-y-8 pl-7 sm:pl-0">
+              <div className="space-y-8">
                 {chapter.content.split("\n\n").map((para, i) => (
                   <div
                     key={i}
-                    className="relative border-b border-[var(--paper-border)]/40 pb-6 last:border-0 sm:pl-0"
+                    className="relative border-b border-[var(--paper-border)]/40 pb-6 last:border-0"
                   >
-                    <span
-                      className="absolute left-0 sm:-left-10 md:-left-12 top-0 w-6 sm:w-8 text-[10px] tabular-nums text-[var(--ink-dim-text)]/55 text-right leading-relaxed select-none font-sans"
-                      aria-hidden
-                      title={
-                        lang === "zh" ? `第 ${i + 1} 段` : `Paragraph ${i + 1}`
-                      }
-                    >
-                      {i + 1}
-                    </span>
                     {lang === "en" && translationMap[chapter.id][i] ? (
                       <>
                         <p className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
-                          {renderAnnotated(translationMap[chapter.id][i])}
+                          {renderAnnotated(translationMap[chapter.id][i], false, i + 1)}
                         </p>
                         <p className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed mt-3">
                           {renderAnnotated(para)}
@@ -738,7 +790,7 @@ export function ChapterReader({
                     ) : (
                       <>
                         <p className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed">
-                          {renderAnnotated(para)}
+                          {renderAnnotated(para, false, i + 1)}
                         </p>
                         {translationMap[chapter.id][i] && (
                           <p className="text-[0.875em] sm:text-[1em] text-[#4a3f38] mt-3 leading-[1.75] font-sans whitespace-pre-line">
