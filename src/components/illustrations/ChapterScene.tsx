@@ -506,8 +506,8 @@ const PRIMS: Record<string, React.ReactElement> = {
 /* ---- Scene table -------------------------------------------------------- */
 /* [element, x, y, scale?] on a 280x150 canvas; ground sits near y=118-130.  */
 
-type El = [keyof typeof PRIMS | string, number, number, number?];
-type Scene = { seal: string; wash?: El[]; els: El[] };
+export type El = [keyof typeof PRIMS | string, number, number, number?];
+export type Scene = { seal: string; wash?: El[]; els: El[] };
 
 const OUTDOOR_WASH: El[] = [['hills', 140, 110]];
 
@@ -634,14 +634,15 @@ const SCENES: Record<number, Scene> = {
   60: { seal: '宵', els: [['ground', 140, 122], ['firework', 75, 35], ['firework', 135, 25, 0.8], ['lanterns', 205, 60, 0.95], ['house', 55, 120, 0.85], ['figStand', 145, 122, 0.9], ['figStand', 175, 122, 0.85], ['figWalk', 230, 122, 0.9]] },
 };
 
-export const ChapterScene: React.FC<{ chapterId: number }> = ({ chapterId }) => {
-  const scene = SCENES[chapterId];
-  if (!scene) return null;
-
+/** Shared parchment-tile renderer used by the opening and closing scenes. */
+export const InkSceneCard: React.FC<{ scene: Scene; className?: string }> = ({
+  scene,
+  className,
+}) => {
   const washEls = scene.wash ?? OUTDOOR_WASH;
 
   return (
-    <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center mb-10">
+    <div className={`parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center${className ? ` ${className}` : ''}`}>
       <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '150px' }}>
         <defs>
           <linearGradient id="csWash" x1="0" y1="0" x2="0" y2="1">
@@ -695,4 +696,10 @@ export const ChapterScene: React.FC<{ chapterId: number }> = ({ chapterId }) => 
       </svg>
     </div>
   );
+};
+
+export const ChapterScene: React.FC<{ chapterId: number }> = ({ chapterId }) => {
+  const scene = SCENES[chapterId];
+  if (!scene) return null;
+  return <InkSceneCard scene={scene} className="mb-10" />;
 };

@@ -39,6 +39,7 @@ import {
 } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
 import { ChapterScene } from "./illustrations/ChapterScene";
+import { ChapterEndScene } from "./illustrations/ChapterEndScene";
 
 export const READER_LAST_POSITION_KEY = "phbj-reader-last-position";
 const READER_FONT_SCALE_KEY = "phbj-reader-font-scale";
@@ -754,6 +755,7 @@ export function ChapterReader({
                 {renderAnnotated(chapter.content)}
               </div>
             )}
+            {chapter.id >= 1 && <ChapterEndScene chapterId={chapter.id} />}
             {chapter.id >= 0 && chapterCitedWorks.length > 0 && (
               <div className="mt-10 border border-[var(--paper-border)] bg-black/5 p-4 rounded-sm">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold mb-3">
