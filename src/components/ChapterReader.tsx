@@ -40,6 +40,10 @@ import {
 import { PermalinkButton } from "./PermalinkButton";
 import { ChapterScene } from "./illustrations/ChapterScene";
 import { ChapterEndScene } from "./illustrations/ChapterEndScene";
+import {
+  ChapterMidScene,
+  midSceneParagraphIndex,
+} from "./illustrations/ChapterMidScene";
 
 export const READER_LAST_POSITION_KEY = "phbj-reader-last-position";
 const READER_FONT_SCALE_KEY = "phbj-reader-font-scale";
@@ -799,6 +803,10 @@ export function ChapterReader({
                         )}
                       </>
                     )}
+                    {chapter.id >= 1 &&
+                      midSceneParagraphIndex(chapter.id) === i && (
+                        <ChapterMidScene chapterId={chapter.id} />
+                      )}
                   </div>
                 ))}
               </div>
