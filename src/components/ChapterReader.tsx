@@ -44,6 +44,7 @@ import {
   ChapterMidScene,
   midSceneParagraphIndex,
 } from "./illustrations/ChapterMidScene";
+import { SnowPoemsIllustration } from "./illustrations/SnowPoemsIllustration";
 
 export const READER_LAST_POSITION_KEY = "phbj-reader-last-position";
 const READER_FONT_SCALE_KEY = "phbj-reader-font-scale";
@@ -827,6 +828,11 @@ export function ChapterReader({
                       midSceneParagraphIndex(chapter.id) === i && (
                         <ChapterMidScene chapterId={chapter.id} />
                       )}
+                    {chapter.id === 4 && i === 20 && (
+                      <div className="mt-8 mb-4">
+                        <SnowPoemsIllustration />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
