@@ -44,7 +44,18 @@ import {
   ChapterMidScene,
   midSceneParagraphIndex,
 } from "./illustrations/ChapterMidScene";
-import { SnowPoemsIllustration } from "./illustrations/SnowPoemsIllustration";
+import { SnowMountainSVG } from "./illustrations/snow/SnowMountainSVG";
+import { SnowPagodaSVG } from "./illustrations/snow/SnowPagodaSVG";
+import { SnowScreenSVG } from "./illustrations/snow/SnowScreenSVG";
+import { SnowLanternSVG } from "./illustrations/snow/SnowLanternSVG";
+import { SnowLionSVG } from "./illustrations/snow/SnowLionSVG";
+import { SnowCatSVG } from "./illustrations/snow/SnowCatSVG";
+import { SnowArhatSVG } from "./illustrations/snow/SnowArhatSVG";
+import { SnowBeautySVG } from "./illustrations/snow/SnowBeautySVG";
+import { SnowFeelingSVG } from "./illustrations/snow/SnowFeelingSVG";
+import { SnowShadowSVG } from "./illustrations/snow/SnowShadowSVG";
+import { SnowSoundSVG } from "./illustrations/snow/SnowSoundSVG";
+import { SnowColorSVG } from "./illustrations/snow/SnowColorSVG";
 
 export const READER_LAST_POSITION_KEY = "phbj-reader-last-position";
 const READER_FONT_SCALE_KEY = "phbj-reader-font-scale";
@@ -444,6 +455,62 @@ export function ChapterReader({
     );
   };
 
+  const renderTextWithSnowPoems = (
+    text: string,
+    showBilingual = false,
+    paragraphNumber?: number,
+  ) => {
+    if (chapter.id !== 4 || !text) return renderAnnotated(text, showBilingual, paragraphNumber);
+
+    const poemMap = [
+      { en: "Snow Mountain", zh: "雪山", Cmp: SnowMountainSVG },
+      { en: "Snow Pagoda", zh: "雪塔", Cmp: SnowPagodaSVG },
+      { en: "Snow Screen", zh: "雪屏", Cmp: SnowScreenSVG },
+      { en: "Snow Lantern", zh: "雪灯", Cmp: SnowLanternSVG },
+      { en: "Snow Lion", zh: "雪狮", Cmp: SnowLionSVG },
+      { en: "Snow Cat", zh: "雪猫", Cmp: SnowCatSVG },
+      { en: "Snow Arhat", zh: "雪罗汉", Cmp: SnowArhatSVG },
+      { en: "Snow Beauty", zh: "雪美人", Cmp: SnowBeautySVG },
+      { en: "Snow Feeling", zh: "雪意", Cmp: SnowFeelingSVG },
+      { en: "Snow Shadow", zh: "雪影", Cmp: SnowShadowSVG },
+      { en: "Snow Sound", zh: "雪声", Cmp: SnowSoundSVG },
+      { en: "Snow Color", zh: "雪色", Cmp: SnowColorSVG },
+    ];
+
+    let chunks: string[];
+    const isEnglish = text.includes("\n\n");
+    if (isEnglish) {
+      chunks = text.split("\n\n");
+    } else {
+      chunks = text.split(/(?=雪山\n|雪塔\n|雪屏\n|雪灯\n|雪狮\n|雪猫\n|雪罗汉\n|雪美人\n|雪意\n|雪影\n|雪声\n|雪色\n)/);
+    }
+
+    return chunks.map((chunk, idx) => {
+      if (!chunk.trim()) return null;
+      let SvgCmp = null;
+      for (const p of poemMap) {
+        if (chunk.startsWith(p.en) || chunk.startsWith(p.zh + "\n")) {
+          SvgCmp = p.Cmp;
+          break;
+        }
+      }
+      return (
+        <React.Fragment key={idx}>
+          {idx > 0 && !isEnglish ? (
+             <span className="block mt-4">{renderAnnotated(chunk, showBilingual, idx === 0 ? paragraphNumber : undefined)}</span>
+          ) : (
+             <>{renderAnnotated(chunk, showBilingual, idx === 0 ? paragraphNumber : undefined)}{isEnglish && idx < chunks.length - 1 && <br/>}{isEnglish && idx < chunks.length - 1 && <br/>}</>
+          )}
+          {SvgCmp && (
+            <div className="mt-4 mb-8 block w-full">
+              <SvgCmp />
+            </div>
+          )}
+        </React.Fragment>
+      );
+    });
+  };
+
   const renderAnnotated = (
     text: string,
     showBilingual = false,
@@ -805,22 +872,22 @@ export function ChapterReader({
                   >
                     {lang === "en" && translationMap[chapter.id][i] ? (
                       <>
-                        <p className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
-                          {renderAnnotated(translationMap[chapter.id][i], false, i + 1)}
-                        </p>
-                        <p className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed mt-3 whitespace-pre-line">
-                          {renderAnnotated(para)}
-                        </p>
+                        <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
+                          {renderTextWithSnowPoems(translationMap[chapter.id][i], false, i + 1)}
+                        </div>
+                        <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed mt-3 whitespace-pre-line">
+                          {renderTextWithSnowPoems(para)}
+                        </div>
                       </>
                     ) : (
                       <>
-                        <p className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed whitespace-pre-line">
-                          {renderAnnotated(para, false, i + 1)}
-                        </p>
+                        <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed whitespace-pre-line">
+                          {renderTextWithSnowPoems(para, false, i + 1)}
+                        </div>
                         {translationMap[chapter.id][i] && (
-                          <p className="text-[0.875em] sm:text-[1em] text-[#4a3f38] mt-3 leading-[1.75] font-sans whitespace-pre-line">
-                            {renderAnnotated(translationMap[chapter.id][i])}
-                          </p>
+                          <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] mt-3 leading-[1.75] font-sans whitespace-pre-line">
+                            {renderTextWithSnowPoems(translationMap[chapter.id][i])}
+                          </div>
                         )}
                       </>
                     )}
@@ -828,11 +895,6 @@ export function ChapterReader({
                       midSceneParagraphIndex(chapter.id) === i && (
                         <ChapterMidScene chapterId={chapter.id} />
                       )}
-                    {chapter.id === 4 && i === 20 && (
-                      <div className="mt-8 mb-4">
-                        <SnowPoemsIllustration />
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
