@@ -459,6 +459,7 @@ export function ChapterReader({
     text: string,
     showBilingual = false,
     paragraphNumber?: number,
+    injectSvgs = true,
   ) => {
     if (chapter.id !== 4 || !text) return renderAnnotated(text, showBilingual, paragraphNumber);
 
@@ -501,7 +502,7 @@ export function ChapterReader({
           ) : (
              <>{renderAnnotated(chunk, showBilingual, idx === 0 ? paragraphNumber : undefined)}{isEnglish && idx < chunks.length - 1 && <br/>}{isEnglish && idx < chunks.length - 1 && <br/>}</>
           )}
-          {SvgCmp && (
+          {injectSvgs && SvgCmp && (
             <div className="mt-4 mb-8 block w-full">
               <SvgCmp />
             </div>
@@ -873,20 +874,20 @@ export function ChapterReader({
                     {lang === "en" && translationMap[chapter.id][i] ? (
                       <>
                         <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
-                          {renderTextWithSnowPoems(translationMap[chapter.id][i], false, i + 1)}
+                          {renderTextWithSnowPoems(translationMap[chapter.id][i], false, i + 1, false)}
                         </div>
                         <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed mt-3 whitespace-pre-line">
-                          {renderTextWithSnowPoems(para)}
+                          {renderTextWithSnowPoems(para, false, undefined, true)}
                         </div>
                       </>
                     ) : (
                       <>
                         <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed whitespace-pre-line">
-                          {renderTextWithSnowPoems(para, false, i + 1)}
+                          {renderTextWithSnowPoems(para, false, i + 1, true)}
                         </div>
                         {translationMap[chapter.id][i] && (
                           <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] mt-3 leading-[1.75] font-sans whitespace-pre-line">
-                            {renderTextWithSnowPoems(translationMap[chapter.id][i])}
+                            {renderTextWithSnowPoems(translationMap[chapter.id][i], false, undefined, false)}
                           </div>
                         )}
                       </>
