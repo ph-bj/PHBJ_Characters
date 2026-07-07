@@ -787,13 +787,13 @@ export function ChapterReader({
                         <p className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
                           {renderAnnotated(translationMap[chapter.id][i], false, i + 1)}
                         </p>
-                        <p className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed mt-3">
+                        <p className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed mt-3 whitespace-pre-line">
                           {renderAnnotated(para)}
                         </p>
                       </>
                     ) : (
                       <>
-                        <p className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed">
+                        <p className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed whitespace-pre-line">
                           {renderAnnotated(para, false, i + 1)}
                         </p>
                         {translationMap[chapter.id][i] && (
