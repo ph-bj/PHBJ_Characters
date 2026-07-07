@@ -327,15 +327,35 @@ export function ChapterReader({
       );
       for (const t of zhTokens) entries.push([t, char]);
 
-      // English tokens: full de-accented pinyin plus longer individual name parts.
+      // English tokens: the full de-accented pinyin name, plus distinctive
+      // given-name parts. The surname (first part) is deliberately NOT emitted
+      // as a standalone token: bare surnames such as Wang, Tang, Yang, Zhang,
+      // Chen, Shen, Huan collide with dynasty names, place names, and historical
+      // figures throughout the text (e.g. "Zhang Lihua", "Yang Pass", the Tang
+      // dynasty), producing spurious character chips. Full names and given names
+      // stay linked; only the ambiguous surname-alone match is dropped.
       const pinyinPart = char.name.slice(chineseName.length).trim();
       if (pinyinPart) {
         const plain = stripDiacritics(pinyinPart);
-        const allParts = plain.split(/\s+/).filter(Boolean);
-        const parts = allParts.filter((p) => p.length >= 4);
+        const allParts = plain
+          .split(/\s+/)
+          .filter((p) => /^[a-z]+$/i.test(p));
         const enTokens = new Set<string>();
-        if (allParts.length >= 2) enTokens.add(allParts.join(" "));
-        for (const p of parts) enTokens.add(p);
+        if (allParts.length >= 2) {
+          enTokens.add(allParts.join(" "));
+          // Given-name components only (skip the surname at index 0).
+          for (const p of allParts.slice(1)) {
+            if (p.length >= 4) enTokens.add(p);
+          }
+        } else if (
+          allParts.length === 1 &&
+          allParts[0].length >= 4 &&
+          chineseName.length >= 2
+        ) {
+          // A single distinctive two-syllable given name (e.g. 宝珠 Bǎozhū) —
+          // but never a bare single-character surname (e.g. 张 Zhāng).
+          enTokens.add(allParts[0]);
+        }
         for (const alias of getEnglishAliasTokens(char)) enTokens.add(alias);
         for (const t of enTokens) entries.push([t, char]);
       }
