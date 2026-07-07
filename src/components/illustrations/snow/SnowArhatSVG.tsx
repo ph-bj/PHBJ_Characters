@@ -2,8 +2,8 @@ import React from 'react';
 
 export function SnowArhatSVG() {
   return (
-    <div className="w-full max-w-sm mx-auto my-6 opacity-90 transition-opacity hover:opacity-100">
-      <svg viewBox="0 0 400 240" className="w-full h-auto drop-shadow-sm">
+    <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center my-6 opacity-90 transition-opacity hover:opacity-100 max-w-md mx-auto">
+      <svg viewBox="0 0 400 240" className="w-full" style={{ maxHeight: '320px' }}>
         <defs>
           <filter id="snow-arhat-wobble">
             <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
@@ -13,7 +13,7 @@ export function SnowArhatSVG() {
         
         <rect width="400" height="240" fill="transparent" />
         
-        <g filter="url(#snow-arhat-wobble)" stroke="#1f2329" fill="none">
+        <g filter="url(#snow-arhat-wobble)" stroke="#2c2420" fill="none">
           {/* Floor */}
           <path d="M 80 200 L 320 200" strokeDasharray="4,4" opacity="0.5" />
           
@@ -46,7 +46,14 @@ export function SnowArhatSVG() {
           <path d="M 110 140 Q 120 135 130 130 Q 120 125 110 140 Z" fill="#e8eaed" />
           <path d="M 110 145 Q 110 160 115 175" opacity="0.3" strokeWidth="1" />
         </g>
-      </svg>
+      
+      {/* ===== RED SEAL STAMP (印章) ===== */}
+      <rect x="365" y="205" width="22" height="22" fill="none" stroke="#8b2500" strokeWidth="1.5" rx="1" />
+      <text x="376" y="220" textAnchor="middle" fill="#8b2500" fontSize="10" fontFamily="serif" fontWeight="bold">禅</text>
+
+      {/* ===== CALLIGRAPHY TITLE (题字) ===== */}
+      <text x="382" y="30" textAnchor="middle" fill="#2c2420" fontSize="14" fontFamily="serif" writingMode="vertical-rl" opacity="0.7">雪罗汉</text>
+    </svg>
     </div>
   );
 }

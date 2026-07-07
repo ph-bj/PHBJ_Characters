@@ -2,8 +2,8 @@ import React from 'react';
 
 export function SnowShadowSVG() {
   return (
-    <div className="w-full max-w-sm mx-auto my-6 opacity-90 transition-opacity hover:opacity-100">
-      <svg viewBox="0 0 400 240" className="w-full h-auto drop-shadow-sm">
+    <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center my-6 opacity-90 transition-opacity hover:opacity-100 max-w-md mx-auto">
+      <svg viewBox="0 0 400 240" className="w-full" style={{ maxHeight: '320px' }}>
         <defs>
           <filter id="snow-shadow-wobble">
             <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
@@ -14,10 +14,10 @@ export function SnowShadowSVG() {
         <rect width="400" height="240" fill="transparent" />
         
         {/* Dim water reflecting empty whiteness */}
-        <path d="M 50 180 Q 150 190 250 170 Q 300 180 350 175" stroke="#1f2329" fill="none" opacity="0.1" strokeWidth="1" />
-        <path d="M 70 200 Q 170 210 270 190 Q 320 200 370 195" stroke="#1f2329" fill="none" opacity="0.1" strokeWidth="1" />
+        <path d="M 50 180 Q 150 190 250 170 Q 300 180 350 175" stroke="#2c2420" fill="none" opacity="0.1" strokeWidth="1" />
+        <path d="M 70 200 Q 170 210 270 190 Q 320 200 370 195" stroke="#2c2420" fill="none" opacity="0.1" strokeWidth="1" />
         
-        <g filter="url(#snow-shadow-wobble)" stroke="#1f2329" fill="none">
+        <g filter="url(#snow-shadow-wobble)" stroke="#2c2420" fill="none">
           {/* Jade balustrade trace */}
           <path d="M 280 20 L 280 120 M 340 20 L 340 120" opacity="0.2" strokeWidth="2" />
           <path d="M 260 80 L 360 80" opacity="0.2" strokeWidth="2" />
@@ -37,7 +37,14 @@ export function SnowShadowSVG() {
           <circle cx="220" cy="110" r="3" fill="#a03030" stroke="none" opacity="0.15" />
           <circle cx="250" cy="80" r="3" fill="#a03030" stroke="none" opacity="0.15" />
         </g>
-      </svg>
+      
+      {/* ===== RED SEAL STAMP (印章) ===== */}
+      <rect x="365" y="205" width="22" height="22" fill="none" stroke="#8b2500" strokeWidth="1.5" rx="1" />
+      <text x="376" y="220" textAnchor="middle" fill="#8b2500" fontSize="10" fontFamily="serif" fontWeight="bold">影</text>
+
+      {/* ===== CALLIGRAPHY TITLE (题字) ===== */}
+      <text x="382" y="30" textAnchor="middle" fill="#2c2420" fontSize="14" fontFamily="serif" writingMode="vertical-rl" opacity="0.7">雪影</text>
+    </svg>
     </div>
   );
 }

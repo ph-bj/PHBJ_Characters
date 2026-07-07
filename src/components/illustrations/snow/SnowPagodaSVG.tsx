@@ -2,8 +2,8 @@ import React from 'react';
 
 export function SnowPagodaSVG() {
   return (
-    <div className="w-full max-w-sm mx-auto my-6 opacity-90 transition-opacity hover:opacity-100">
-      <svg viewBox="0 0 400 240" className="w-full h-auto drop-shadow-sm">
+    <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center my-6 opacity-90 transition-opacity hover:opacity-100 max-w-md mx-auto">
+      <svg viewBox="0 0 400 240" className="w-full" style={{ maxHeight: '320px' }}>
         <defs>
           <filter id="snow-pagoda-wobble">
             <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
@@ -13,7 +13,7 @@ export function SnowPagodaSVG() {
         
         <rect width="400" height="240" fill="transparent" />
         
-        <g filter="url(#snow-pagoda-wobble)" stroke="#1f2329" fill="none">
+        <g filter="url(#snow-pagoda-wobble)" stroke="#2c2420" fill="none">
           {/* Base */}
           <path d="M 150 200 L 250 200 L 250 220 L 150 220 Z" fill="#e8eaed" />
           {/* Tier 1 */}
@@ -36,14 +36,21 @@ export function SnowPagodaSVG() {
           <circle cx="200" cy="15" r="5" fill="#e8eaed" />
           
           {/* Small bells / details */}
-          <circle cx="130" cy="160" r="2" fill="#1f2329" />
-          <circle cx="270" cy="160" r="2" fill="#1f2329" />
-          <circle cx="140" cy="110" r="2" fill="#1f2329" />
-          <circle cx="260" cy="110" r="2" fill="#1f2329" />
-          <circle cx="150" cy="65" r="2" fill="#1f2329" />
-          <circle cx="250" cy="65" r="2" fill="#1f2329" />
+          <circle cx="130" cy="160" r="2" fill="#2c2420" />
+          <circle cx="270" cy="160" r="2" fill="#2c2420" />
+          <circle cx="140" cy="110" r="2" fill="#2c2420" />
+          <circle cx="260" cy="110" r="2" fill="#2c2420" />
+          <circle cx="150" cy="65" r="2" fill="#2c2420" />
+          <circle cx="250" cy="65" r="2" fill="#2c2420" />
         </g>
-      </svg>
+      
+      {/* ===== RED SEAL STAMP (印章) ===== */}
+      <rect x="365" y="205" width="22" height="22" fill="none" stroke="#8b2500" strokeWidth="1.5" rx="1" />
+      <text x="376" y="220" textAnchor="middle" fill="#8b2500" fontSize="10" fontFamily="serif" fontWeight="bold">塔</text>
+
+      {/* ===== CALLIGRAPHY TITLE (题字) ===== */}
+      <text x="382" y="30" textAnchor="middle" fill="#2c2420" fontSize="14" fontFamily="serif" writingMode="vertical-rl" opacity="0.7">雪塔</text>
+    </svg>
     </div>
   );
 }
