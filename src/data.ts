@@ -76,22 +76,22 @@ char-73	潘其观 Pān Qíguān	—	—	—	villain	ch.13	A malicious schemer an
 char-74	老王 Lǎo Wáng	—	~60	—	villain	ch.3	Hunchbacked jade-vendor; tries to extort Pincai at the theatre; expelled by Xi Shiyi's men	驼背玉商；在剧场敲诈聘才；被奚十一的人赶走。
 char-75	唐和尚 Táng Héshang	—	~40	—	villain	ch.8	Wine-and-meat Buddhist monk (酒肉和尚); purple-faced; fur-robed; associate of Xi Shiyi and Pan Qiguan; enables harassment of Qinyan and runs gambling and opium dens at Hongji Temple.	酒肉和尚；紫脸皮袄；与奚十一、潘其观等勾结；在宏济寺设赌开烟，助虐琴言，为书中反派之一。
 char-76	起盛银号潘老三 Pān Lǎosān	—	—	—	minor	ch.8	Silver-exchange merchant; dines with Zhang Zhongyu in ch.8; very minor	银号商人；第8回与张仲雨共餐。
-char-78	华夫人 Huá Fūrén	—	—	—	minor	ch.5	"Hua Guangsu's beautiful wife; née Su, daughter of Jingbian Hou (靖边侯); described as 'the most beautiful woman in the empire'; ten pearl-maids"	华光宿之妻；靖边侯之女；号称“天下第一美人”。
+char-78	华夫人 Huá Fūrén	Lady Hua / Madam Hua	—	—	minor	ch.5	"Hua Guangsu's beautiful wife; née Su, daughter of Jingbian Hou (靖边侯); described as 'the most beautiful woman in the empire'; ten pearl-maids"	华光宿之妻；靖边侯之女；号称“天下第一美人”。
 char-79	青姨奶奶 Qīng Yínǎinai	—	—	—	minor	ch.3	One of Fu Lun's two quarrelling concubines; fights with Bai Yinainai; mentioned by Rong Guan	富伦的姨太太；与白姨奶奶争吵。
 char-80	白姨奶奶 Bái Yínǎinai	—	—	—	minor	ch.3	Fu Lun's other quarrelling concubine; fights with Qing Yinainai; mentioned by Rong Guan	富伦的另一位姨太太；与青姨奶奶争吵。
 char-81	阿呆 Ā Dāi	—	—	—	minor	ch.23	Simple-minded victim who is cruelly harmed by Xi Shiyi's men in ch.23	愚笨的受害者；第23回遭奚十一手下残害。
 char-83	苗先生 Miáo Xiānsheng	—	—	—	minor	ch.42	Su Huifang's widowed aunt/guardian's male advisor; extorts money for Suifang's redemption in ch.42	苏蕙芳婶母的谋士；在赎身时敲诈钱财。
 char-85	王大夫 Wáng Dàfū	—	—	—	minor	ch.4	Doctor who treats Sun Lianggong when the Sun household couple have a fight; mentioned by Sihui in ch.4	医生；在孙亮功夫妇吵架后为其诊治。
-char-86	颜夫人 Yán Fūrén	—	44	Jinling	female	ch.1	Wife of Mei Shixie; moral guardian of the novel; arranges Ziyu's betrothal to Wang Qionghua	梅士燮之妻；小说中的道德守护者；安排子玉与王琼华的婚事。
-char-87	陆氏夫人（王家）	—	40	—	female	ch.1	Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu	王文辉继室；王恂继母；孙家陆夫人之妹。
+char-86	颜夫人 Yán Fūrén	Lady Yan / Madam Yan	44	Jinling	female	ch.1	Wife of Mei Shixie; moral guardian of the novel; arranges Ziyu's betrothal to Wang Qionghua	梅士燮之妻；小说中的道德守护者；安排子玉与王琼华的婚事。
+char-87	陆氏夫人（王家）	Madam Lu / Wang family's Madam Lu / The Wang Madam Lu	40	—	female	ch.1	Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu	王文辉继室；王恂继母；孙家陆夫人之妹。
 char-88	孙氏 Sūn Shì	—	—	—	female	ch.1	Wang Xun's wife; daughter of Sun Lianggong	王恂之妻；孙亮功之女。
 char-89	蓉华 Rónghuá	—	—	—	female	ch.1	Yan Zhongqing's wife; Wang Wenhui's daughter; sister of Wang Qionghua	颜仲清之妻；王文辉之女；王琼华之姐。
 char-90	王琼华 Wáng Qiónghúa	—	16	—	female	ch.1	Wang Wenhui's second daughter; shy; scratches Ziyu's poem; eventually betrothed and married to Ziyu	王文辉次女；害羞；涂抹子玉的诗；最终嫁给子玉。
-char-91	袁夫人 Yuán Fūrén	Mrs. Yuan / Mrs Yuan	23	—	female	ch.5	Xu Ziyun's wife; née Yuan; daughter of Yunnan governor; beautiful and virtuous	徐子云之妻；云南巡抚之女；美丽贤德。
+char-91	袁夫人 Yuán Fūrén	Mrs. Yuan / Mrs Yuan / Madam Yuan	23	—	female	ch.5	Xu Ziyun's wife; née Yuan; daughter of Yunnan governor; beautiful and virtuous	徐子云之妻；云南巡抚之女；美丽贤德。
 char-92	郑氏 Zhèng Shì	—	—	—	female	ch.1	Yan Zhuang's wife; fasted to death after his death; honoured for chastity; Yan Zhongqing's mother	颜庄之妻；绝食殉夫；贞节受表彰；颜仲清之母。
 char-94	许三姐 Xǔ Sānjiě	—	—	—	female	ch.49	Recognizes a lost brother unexpectedly; family reunion subplot in ch.49	意外认出失散的弟弟；家庭团圆情节。
 char-95	玉天仙 Yù Tiānxiān	—	27	—	female	ch.18	Courtesan married by Wei Pincai in ch.50 after he helps revise opera texts	妓女；魏聘才改写剧本后娶其为妻。
-char-96	陆氏夫人（孙家）	—	39	—	female	ch.6	Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu	孙亮功继室；嫉妒霸道；王家陆夫人之姐。
+char-96	陆氏夫人（孙家）	Madam Lu / Sun family's Madam Lu / The Sun Madam Lu	39	—	female	ch.6	Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu	孙亮功继室；嫉妒霸道；王家陆夫人之姐。
 char-97	沈芸姑 Shěn Yúngū	—	—	—	female	ch.6	Sun Sihui's wife; née Shen; intelligent but miserable in marriage	孙嗣徽之妻；聪明但婚姻不幸。
 char-98	巴来风 Bā Láifēng	—	~17	—	female	ch.6	Sun Siyuan's wife; née Ba; beautiful and fierce; physically overpowers husband on wedding night	孙嗣元之妻；美丽凶悍；新婚之夜制服丈夫。
 char-99	王大姑娘	—	~29	—	female	ch.2	Wang Wenhui's eldest daughter; prematurely white-haired; unable to marry	王文辉长女；少白头；无法出嫁。
