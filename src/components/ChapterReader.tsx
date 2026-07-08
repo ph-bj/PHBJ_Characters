@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { motion } from "motion/react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import {
   ArrowUp,
   Book,
@@ -63,6 +63,8 @@ export const READER_LAST_POSITION_KEY = "phbj-reader-last-position";
 const READER_FONT_SCALE_KEY = "phbj-reader-font-scale";
 const READER_FONT_SCALES = [0.85, 1, 1.15, 1.3, 1.5];
 const DEFAULT_FONT_SCALE_INDEX = 1;
+const READER_ZH_VOICE_KEY = "phbj-reader-zh-voice";
+const READER_EN_VOICE_KEY = "phbj-reader-en-voice";
 
 export function readLastReadingPosition(): { id: number; top: number } | null {
   try {
@@ -152,6 +154,17 @@ export function ChapterReader({
   const [chapterSearchQuery, setChapterSearchQuery] = useState("");
   const [chapterSearchMatchIndex, setChapterSearchMatchIndex] = useState(0);
   const [speakingParagraph, setSpeakingParagraph] = useState<string | null>(null);
+  const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [selectedZhVoiceName, setSelectedZhVoiceName] = useState<string>(() => {
+    try { return localStorage.getItem(READER_ZH_VOICE_KEY) ?? ""; } catch { return ""; }
+  });
+  const [selectedEnVoiceName, setSelectedEnVoiceName] = useState<string>(() => {
+    try { return localStorage.getItem(READER_EN_VOICE_KEY) ?? ""; } catch { return ""; }
+  });
+  const [showZhVoicePicker, setShowZhVoicePicker] = useState(false);
+  const [showEnVoicePicker, setShowEnVoicePicker] = useState(false);
+  const zhVoicePickerRef = useRef<HTMLDivElement | null>(null);
+  const enVoicePickerRef = useRef<HTMLDivElement | null>(null);
   const chapterSearchMatchCounter = useRef(0);
   const chapterWorkAnchorIdsRef = useRef<Map<string, string>>(new Map());
   const contentScrollRef = useRef<HTMLDivElement | null>(null);
@@ -258,6 +271,46 @@ export function ChapterReader({
     },
     [],
   );
+
+  // Load available speech synthesis voices
+  useEffect(() => {
+    if (typeof speechSynthesis === "undefined") return;
+    const loadVoices = () => {
+      setAvailableVoices(speechSynthesis.getVoices());
+    };
+    loadVoices();
+    speechSynthesis.addEventListener("voiceschanged", loadVoices);
+    return () => speechSynthesis.removeEventListener("voiceschanged", loadVoices);
+  }, []);
+
+  // Close voice pickers when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (zhVoicePickerRef.current && !zhVoicePickerRef.current.contains(e.target as Node)) {
+        setShowZhVoicePicker(false);
+      }
+      if (enVoicePickerRef.current && !enVoicePickerRef.current.contains(e.target as Node)) {
+        setShowEnVoicePicker(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const zhVoices = useMemo(() => availableVoices.filter(v => v.lang.startsWith("zh")), [availableVoices]);
+  const enVoices = useMemo(() => availableVoices.filter(v => v.lang.startsWith("en")), [availableVoices]);
+
+  const selectZhVoice = useCallback((name: string) => {
+    setSelectedZhVoiceName(name);
+    setShowZhVoicePicker(false);
+    try { localStorage.setItem(READER_ZH_VOICE_KEY, name); } catch { /* noop */ }
+  }, []);
+
+  const selectEnVoice = useCallback((name: string) => {
+    setSelectedEnVoiceName(name);
+    setShowEnVoicePicker(false);
+    try { localStorage.setItem(READER_EN_VOICE_KEY, name); } catch { /* noop */ }
+  }, []);
 
   useEffect(() => {
     if (keysSuspended) return;
@@ -477,6 +530,14 @@ export function ChapterReader({
     const utterance = new SpeechSynthesisUtterance(plain);
     utterance.lang = speechLang;
     utterance.rate = 0.95;
+
+    // Apply user-selected voice if available
+    const selectedName = speechLang === "zh-CN" ? selectedZhVoiceName : selectedEnVoiceName;
+    if (selectedName) {
+      const voice = availableVoices.find(v => v.name === selectedName);
+      if (voice) utterance.voice = voice;
+    }
+
     utterance.onend = () => setSpeakingParagraph(null);
     utterance.onerror = () => setSpeakingParagraph(null);
 
@@ -733,6 +794,124 @@ export function ChapterReader({
                   <Book size={20} />
                 </button>
               )}
+              <div className="relative" ref={zhVoicePickerRef}>
+                <button
+                  type="button"
+                  onClick={() => { setShowZhVoicePicker(p => !p); setShowEnVoicePicker(false); }}
+                  className={`flex items-center gap-1 px-2 py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${
+                    selectedZhVoiceName
+                      ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
+                      : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
+                  }`}
+                  title={lang === "zh" ? "选择中文语音" : "Choose Chinese voice"}
+                  aria-label={lang === "zh" ? "选择中文语音" : "Choose Chinese voice"}
+                >
+                  <Volume2 size={12} />
+                  <span className="hidden sm:inline font-sans">{lang === "zh" ? "中文" : "ZH"}</span>
+                  <ChevronDown size={10} />
+                </button>
+                <AnimatePresence>
+                  {showZhVoicePicker && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 top-full mt-1 z-50 w-64 max-h-56 overflow-y-auto rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)] shadow-xl scrollbar-thin"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => selectZhVoice("")}
+                        className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/50 ${
+                          !selectedZhVoiceName
+                            ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
+                            : "text-[var(--ink-dim-text)] hover:bg-black/5"
+                        }`}
+                      >
+                        {lang === "zh" ? "默认语音" : "Default voice"}
+                      </button>
+                      {zhVoices.length === 0 ? (
+                        <div className="px-3 py-3 text-[11px] text-[var(--ink-dim-text)] italic font-sans">
+                          {lang === "zh" ? "未找到中文语音" : "No Chinese voices found"}
+                        </div>
+                      ) : zhVoices.map(v => (
+                        <button
+                          key={v.name}
+                          type="button"
+                          onClick={() => selectZhVoice(v.name)}
+                          className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${
+                            selectedZhVoiceName === v.name
+                              ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
+                              : "text-[var(--ink-title)] hover:bg-black/5"
+                          }`}
+                        >
+                          <span className="block truncate">{v.name}</span>
+                          <span className="block text-[9px] text-[var(--ink-dim-text)] mt-0.5">{v.lang}{v.localService ? "" : " · remote"}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              <div className="relative" ref={enVoicePickerRef}>
+                <button
+                  type="button"
+                  onClick={() => { setShowEnVoicePicker(p => !p); setShowZhVoicePicker(false); }}
+                  className={`flex items-center gap-1 px-2 py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${
+                    selectedEnVoiceName
+                      ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
+                      : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
+                  }`}
+                  title={lang === "zh" ? "选择英文语音" : "Choose English voice"}
+                  aria-label={lang === "zh" ? "选择英文语音" : "Choose English voice"}
+                >
+                  <Volume2 size={12} />
+                  <span className="hidden sm:inline font-sans">{lang === "zh" ? "英文" : "EN"}</span>
+                  <ChevronDown size={10} />
+                </button>
+                <AnimatePresence>
+                  {showEnVoicePicker && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 top-full mt-1 z-50 w-64 max-h-56 overflow-y-auto rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)] shadow-xl scrollbar-thin"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => selectEnVoice("")}
+                        className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/50 ${
+                          !selectedEnVoiceName
+                            ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
+                            : "text-[var(--ink-dim-text)] hover:bg-black/5"
+                        }`}
+                      >
+                        {lang === "zh" ? "默认语音" : "Default voice"}
+                      </button>
+                      {enVoices.length === 0 ? (
+                        <div className="px-3 py-3 text-[11px] text-[var(--ink-dim-text)] italic font-sans">
+                          {lang === "zh" ? "未找到英文语音" : "No English voices found"}
+                        </div>
+                      ) : enVoices.map(v => (
+                        <button
+                          key={v.name}
+                          type="button"
+                          onClick={() => selectEnVoice(v.name)}
+                          className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${
+                            selectedEnVoiceName === v.name
+                              ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
+                              : "text-[var(--ink-title)] hover:bg-black/5"
+                          }`}
+                        >
+                          <span className="block truncate">{v.name}</span>
+                          <span className="block text-[9px] text-[var(--ink-dim-text)] mt-0.5">{v.lang}{v.localService ? "" : " · remote"}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
               <PermalinkButton
                 lang={lang}
                 link={{ kind: "chapter", id: chapter.id }}
