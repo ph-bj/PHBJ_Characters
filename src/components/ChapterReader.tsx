@@ -791,8 +791,8 @@ export function ChapterReader({
                   title={lang === "zh" ? "选择中文语音" : "Choose Chinese voice"}
                   aria-label={lang === "zh" ? "选择中文语音" : "Choose Chinese voice"}
                 >
+                  <span className="font-sans">CN</span>
                   <Volume2 size={12} />
-                  <span className="hidden sm:inline font-sans">{lang === "zh" ? "中文" : "ZH"}</span>
                   <ChevronDown size={10} />
                 </button>
                 <AnimatePresence>
@@ -850,8 +850,8 @@ export function ChapterReader({
                   title={lang === "zh" ? "选择英文语音" : "Choose English voice"}
                   aria-label={lang === "zh" ? "选择英文语音" : "Choose English voice"}
                 >
+                  <span className="font-sans">EN</span>
                   <Volume2 size={12} />
-                  <span className="hidden sm:inline font-sans">{lang === "zh" ? "英文" : "EN"}</span>
                   <ChevronDown size={10} />
                 </button>
                 <AnimatePresence>
