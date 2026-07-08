@@ -132,6 +132,63 @@ function injectParagraphNumber(nodes: React.ReactNode, num: number): React.React
   return nodes;
 }
 
+const PlumIcon: React.FC<{ className?: string; size?: number }> = ({ className = "", size = 20 }) => {
+  const INK = "#2c2420";
+  return (
+    <svg
+      viewBox="-4 -1 25 25"
+      width={size}
+      height={size}
+      className={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <radialGradient id="readerPlumGradient" cx="35%" cy="30%" r="70%">
+          <stop offset="0%" stopColor="#e8efb8" stopOpacity="0.95" />
+          <stop offset="30%" stopColor="#c5d66a" stopOpacity="0.92" />
+          <stop offset="65%" stopColor="#8db34a" stopOpacity="0.95" />
+          <stop offset="100%" stopColor="#5c7a3a" stopOpacity="0.95" />
+        </radialGradient>
+        <linearGradient id="readerLeafGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#a7c29b" />
+          <stop offset="100%" stopColor="#5c7a4d" />
+        </linearGradient>
+        <filter id="readerPlumShadow" x="-30%" y="-30%" width="160%" height="160%">
+          <feDropShadow dx="0.3" dy="0.6" stdDeviation="0.4" floodColor="#140d0b" floodOpacity="0.25" />
+        </filter>
+      </defs>
+      <g transform="translate(12, 12) scale(1.5)" filter="url(#readerPlumShadow)">
+        <path
+          d="M 0 -3 C -1.5 -5, -3 -6, -4.5 -5.5"
+          fill="none"
+          stroke={INK}
+          strokeWidth="0.55"
+          strokeLinecap="round"
+        />
+        <path
+          d="M -3 -5.5 C -5.5 -7.5, -9 -7.5, -10 -6 C -11 -4, -8 -4, -3 -5.5 Z"
+          fill="url(#readerLeafGradient)"
+          stroke={INK}
+          strokeWidth="0.4"
+        />
+        <path
+          d="M -3.5 -5.5 C -6 -6.2, -7.5 -6.0, -9 -6.2"
+          fill="none"
+          stroke={INK}
+          strokeWidth="0.25"
+          opacity="0.6"
+        />
+        <path
+          d="M 0 -3 C -3.8 -3, -5.8 -0.8, -5.5 2.8 C -5.2 6.4, -2.6 8, 0 8 C 2.6 8, 5.2 6.4, 5.5 2.8 C 5.8 -0.8, 3.8 -3, 0 -3 Z"
+          fill="url(#readerPlumGradient)"
+          stroke={INK}
+          strokeWidth="0.6"
+        />
+      </g>
+    </svg>
+  );
+};
+
 export function ChapterReader({
   chapter,
   onClose,
@@ -767,7 +824,7 @@ export function ChapterReader({
         <div className="p-4 sm:p-6 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] space-y-3 shrink-0">
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-3 min-w-0 flex-1">
-              <Book className="text-[var(--accent)] shrink-0" size={20} />
+              <PlumIcon className="shrink-0" size={20} />
               <h2
                 className={`text-lg sm:text-xl font-bold text-[var(--ink-title)] line-clamp-2 ${lang === "en" ? "font-sans" : "font-hans"}`}
               >
