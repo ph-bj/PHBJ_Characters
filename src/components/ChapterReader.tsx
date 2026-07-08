@@ -8,6 +8,8 @@ import {
   ChevronRight,
   ChevronUp,
   Search,
+  Square,
+  Volume2,
   X,
 } from "lucide-react";
 import { characters } from "../data";
@@ -149,6 +151,7 @@ export function ChapterReader({
   const [chapterSearchInput, setChapterSearchInput] = useState("");
   const [chapterSearchQuery, setChapterSearchQuery] = useState("");
   const [chapterSearchMatchIndex, setChapterSearchMatchIndex] = useState(0);
+  const [speakingParagraph, setSpeakingParagraph] = useState<string | null>(null);
   const chapterSearchMatchCounter = useRef(0);
   const chapterWorkAnchorIdsRef = useRef<Map<string, string>>(new Map());
   const contentScrollRef = useRef<HTMLDivElement | null>(null);
@@ -425,7 +428,91 @@ export function ChapterReader({
 
   useEffect(() => {
     clearChapterSearch();
+    // Stop any ongoing speech when switching chapters
+    if (typeof speechSynthesis !== "undefined") {
+      speechSynthesis.cancel();
+    }
+    setSpeakingParagraph(null);
   }, [chapter.id]);
+
+  // Clean up speech synthesis on unmount
+  useEffect(
+    () => () => {
+      if (typeof speechSynthesis !== "undefined") {
+        speechSynthesis.cancel();
+      }
+    },
+    [],
+  );
+
+  /** Strip annotation markers and work-title brackets to produce plain speakable text. */
+  const stripForSpeech = (raw: string): string =>
+    raw
+      .replace(/《|》/g, "")
+      .replace(/\*(?!\s)([^*]+)(?<!\s)\*/g, "$1")
+      .replace(/[▉□]/g, "")
+      .trim();
+
+  /**
+   * Speak a paragraph aloud using the Web Speech API.
+   * `paraKey` is a stable identifier (e.g. "zh-3" or "en-3") used to track
+   * which paragraph is currently being read.
+   */
+  const speakParagraph = (text: string, paraKey: string, speechLang: "zh-CN" | "en-US" = "zh-CN") => {
+    if (typeof speechSynthesis === "undefined") return;
+
+    // If this paragraph is already playing, stop it
+    if (speakingParagraph === paraKey) {
+      speechSynthesis.cancel();
+      setSpeakingParagraph(null);
+      return;
+    }
+
+    // Cancel any other ongoing speech
+    speechSynthesis.cancel();
+
+    const plain = stripForSpeech(text);
+    if (!plain) return;
+
+    const utterance = new SpeechSynthesisUtterance(plain);
+    utterance.lang = speechLang;
+    utterance.rate = 0.95;
+    utterance.onend = () => setSpeakingParagraph(null);
+    utterance.onerror = () => setSpeakingParagraph(null);
+
+    setSpeakingParagraph(paraKey);
+    speechSynthesis.speak(utterance);
+  };
+
+  const TtsButton = ({ paraKey, text, speechLang = "zh-CN" }: { paraKey: string; text: string; speechLang?: "zh-CN" | "en-US" }) => {
+    const isActive = speakingParagraph === paraKey;
+    return (
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          speakParagraph(text, paraKey, speechLang);
+        }}
+        className={`inline-flex items-center justify-center shrink-0 rounded-full border transition-all duration-200 mr-1.5 align-middle select-none ${
+          isActive
+            ? "w-6 h-6 bg-[var(--accent)] border-[var(--accent)] text-white shadow-sm hover:bg-red-600 hover:border-red-600"
+            : "w-5 h-5 bg-[var(--paper-bg)]/80 border-[var(--paper-border)] text-[var(--ink-dim-text)]/60 hover:text-[var(--accent)] hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/10"
+        }`}
+        title={
+          isActive
+            ? lang === "zh" ? "停止朗读" : "Stop reading"
+            : lang === "zh" ? "朗读本段" : "Read aloud"
+        }
+        aria-label={
+          isActive
+            ? lang === "zh" ? "停止朗读" : "Stop reading"
+            : lang === "zh" ? "朗读本段" : "Read aloud"
+        }
+      >
+        {isActive ? <Square size={10} /> : <Volume2 size={11} />}
+      </button>
+    );
+  };
 
   useEffect(() => {
     if (chapterSearchMatchCount === 0) return;
@@ -874,19 +961,23 @@ export function ChapterReader({
                     {lang === "en" && translationMap[chapter.id][i] ? (
                       <>
                         <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
+                          <TtsButton paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
                           {renderTextWithSnowPoems(translationMap[chapter.id][i], false, i + 1, false)}
                         </div>
                         <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed mt-3 whitespace-pre-line">
+                          <TtsButton paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
                           {renderTextWithSnowPoems(para, false, undefined, true)}
                         </div>
                       </>
                     ) : (
                       <>
                         <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed whitespace-pre-line">
+                          <TtsButton paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
                           {renderTextWithSnowPoems(para, false, i + 1, true)}
                         </div>
                         {translationMap[chapter.id][i] && (
                           <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] mt-3 leading-[1.75] font-sans whitespace-pre-line">
+                            <TtsButton paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
                             {renderTextWithSnowPoems(translationMap[chapter.id][i], false, undefined, false)}
                           </div>
                         )}
@@ -900,7 +991,8 @@ export function ChapterReader({
                 ))}
               </div>
             ) : (
-              <div className="whitespace-pre-wrap text-[1em] sm:text-[1.125em] italic font-hans first-letter:text-4xl first-letter:font-bold first-letter:mr-1 first-letter:float-left">
+              <div className="whitespace-pre-wrap text-[1em] sm:text-[1.125em] italic font-hans">
+                <TtsButton paraKey="single-0" text={chapter.content} speechLang="zh-CN" />
                 {renderAnnotated(chapter.content)}
               </div>
             )}
