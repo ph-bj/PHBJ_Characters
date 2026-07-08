@@ -802,7 +802,7 @@ export function ChapterReader({
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -4 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-1 z-50 w-64 max-h-56 overflow-y-auto rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)] shadow-xl scrollbar-thin"
+                      className="absolute left-1/2 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 top-full mt-1 z-50 w-64 max-h-56 overflow-y-auto rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)] shadow-xl scrollbar-thin"
                     >
                       <button
                         type="button"
