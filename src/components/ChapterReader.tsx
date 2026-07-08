@@ -775,25 +775,6 @@ export function ChapterReader({
               </h2>
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
-              {chapter.id !== -1 && (
-                <button
-                  onClick={() =>
-                    onSelectChapter({
-                      id: -1,
-                      title: "目录",
-                      content: chapters
-                        .filter((c) => c.id > 0)
-                        .map((c) => c.title)
-                        .join("\n"),
-                    })
-                  }
-                  className="p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)] shrink-0"
-                  title={lang === "zh" ? "目录" : "Contents"}
-                  aria-label={lang === "zh" ? "目录" : "Contents"}
-                >
-                  <Book size={20} />
-                </button>
-              )}
               <div className="relative" ref={zhVoicePickerRef}>
                 <button
                   type="button"
