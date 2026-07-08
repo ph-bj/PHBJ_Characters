@@ -771,7 +771,11 @@ export function ChapterReader({
               <h2
                 className={`text-lg sm:text-xl font-bold text-[var(--ink-title)] line-clamp-2 ${lang === "en" ? "font-sans" : "font-hans"}`}
               >
-                {getChapterReaderTitle(chapter, lang)}
+                {chapter.id === -1
+                  ? (lang === "zh" ? "目录" : "Table of Contents")
+                  : chapter.id === 0
+                  ? (lang === "zh" ? "序" : "Preface")
+                  : (lang === "zh" ? `第${chapter.id}回` : `Ch. ${chapter.id}`)}
               </h2>
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
