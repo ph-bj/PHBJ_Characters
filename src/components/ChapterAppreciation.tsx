@@ -26,13 +26,21 @@ import {
 } from "recharts";
 
 // Dimensions Info interface
+interface DimensionSubSection {
+  labelZh: string;
+  labelEn: string;
+  textZh: string;
+  textEn: string;
+}
+
 interface DimensionInfo {
   icon: React.ReactNode;
   titleZh: string;
   titleEn: string;
   score: number;
-  textZh: string;
-  textEn: string;
+  textZh?: string;
+  textEn?: string;
+  subsections?: DimensionSubSection[];
 }
 
 // Taxonomy Feeling interface
@@ -133,60 +141,144 @@ export function ChapterAppreciation({
       titleZh: "文本结构与布局",
       titleEn: "Structure & Layout",
       score: 85,
-      textZh:
-        "第一回作为全书的“大总纲”与“导言”，其布局极富层次。作者首先通过宏大的开篇论述为男女之“情”立传，并阐明全书写作的道德主旨（好色而不淫）。接着，镜头切入大户人家的书房，通过梅子玉与好友史南湘、严仲清的辩论，确立了主角起初“冰清玉洁、坚守礼法”的心理基础。随后，通过“游戏院”的混乱、恶俗与“归途塞车”的偶然，以梅子玉与杜琴言惊鸿一瞥的“车厢对望”这一命运交汇点戛然而止。这种由理性的思辨，到世俗的试炼，再到最终超凡的审美顿悟的起承转合，构筑了完美的叙事推进器。",
-      textEn:
-        "Chapter 1 serves as the grand prologue and structural blueprint. It begins with theoretical classifications of 'feeling' (qing), moves to Ziyu's intellectual debate with his peers in his study, descends into the chaotic reality of the capital's theaters, and culminates in a fateful, wordless glance between two carriages. This structure functions as an engine, driving Ziyu away from detached rationality into the vortex of emotional experience, laying the groundwork for his life-long romance with Du Qinyan.",
+      subsections: [
+        {
+          labelZh: "承上启下",
+          labelEn: "Connection",
+          textZh: "这一章是由“序言”中关于“情”的宏大理论引出，通过大户人家书房的闲谈（理性），过渡到戏院的喧闹（世俗），最后定格在车厢的一瞥（超脱），为后续梅子玉与杜琴言的宿命纠缠埋下了最关键的情感伏笔。",
+          textEn: "Transitions from the prologue's theory on 'Qing' to the study's rationality, the theater's vulgarity, and ends with the fateful glance, foreshadowing Ziyu and Qinyan's romance."
+        },
+        {
+          labelZh: "情节逻辑",
+          labelEn: "Plot Logic",
+          textZh: "它是推动情节发展的“推进器”。主角从抗拒优伶，到被迫接触，再到灵魂震颤，完成了一次心理的断崖式跌落与重生。",
+          textEn: "An engine driving the plot. Ziyu falls from rejecting actors to experiencing an aesthetic epiphany."
+        },
+        {
+          labelZh: "节奏掌控",
+          labelEn: "Pacing",
+          textZh: "作者先是“详写”书房的高谈阔论与戏院的嘈杂，显得有些冗长压抑；然后在结尾处突然“留白”，两人在车流中仅仅是对视，一语未发，将高潮的情感张力拉至顶点。",
+          textEn: "Detailed, slow build-up in the study and theater, followed by a sudden, breathtaking 'blank space' at the climax where no words are spoken during the glance."
+        }
+      ]
     },
     {
       icon: <User size={18} className="text-[var(--accent)]" />,
       titleZh: "人物塑造与心理",
       titleEn: "Characterization & Psychology",
       score: 90,
-      textZh:
-        "本回对主角梅子玉的塑造充满了动态的张力。他并非生来就是情种，而是一个深受正统理教熏陶、对戏子优伶抱有强烈排斥与偏见的洁癖公子。在戏院中，他对喧闹环境的不适、对拉客艺人的反感，将他的理学防御心理推到了顶点。然而，当他在马车中与那位“如玉少年”对视时，防线瞬间瓦解，陷入了失魂落魄的审美震撼。这种从“偏见/防范”到“震惊/沉醉”的转变十分真实，揭示了他纯真、易感且极度渴求绝对美感的内心深度。",
-      textEn:
-        "We observe a delicate psychological arc for Mei Ziyu. He starts as a sheltered scholar bound by strict neo-Confucian decorum, expressing disdain for actors. His irritation peaks in the dirty, chaotic theater. Yet, the sudden encounter with the peerless boy collapses his intellectual defense, leaving him stunned and enchanted. This transition reveals his highly sensitive, latent capacity for profound romantic devotion and aesthetic experience.",
+      subsections: [
+        {
+          labelZh: "性格展现",
+          labelEn: "Personality",
+          textZh: "通过梅子玉对戏院环境的极度厌恶（如捂鼻、闭眼），以及面对“假宝珠”拉扯时的发怒神态，揭示了他有着精神洁癖和高傲的一面。",
+          textEn: "Ziyu's disgust in the theater and anger towards the fake Baozhu reveal his moral fastidiousness and pride."
+        },
+        {
+          labelZh: "心理深度",
+          labelEn: "Psychological Depth",
+          textZh: "在这一章中，梅子玉的内心世界经历了“坚冰融化”的剧变。他性格弧光的关键点就在闻到异香、掀开帘子的那一刻，理教防线瞬间崩溃。",
+          textEn: "Ziyu's inner world experiences a melting of ice. The turning point of his arc is when he smells the fragrance and lifts the curtain, collapsing his Confucian defenses."
+        },
+        {
+          labelZh: "人物关系",
+          labelEn: "Relationships",
+          textZh: "史南湘的世故与梅子玉的纯真形成对比。两人在探讨名伶时的对话，体现了南湘作为“引导者”和子玉作为“被动接受者”的权力动态，但最终子玉的情感体验超越了南湘的世俗认知。",
+          textEn: "Nanxiang's worldly experience contrasts with Ziyu's purity. Nanxiang acts as a guide, but Ziyu's ultimate emotional epiphany transcends Nanxiang's vulgar appreciation."
+        }
+      ]
     },
     {
       icon: <Heart size={18} className="text-[var(--accent)]" />,
       titleZh: "主题与思想内核",
       titleEn: "Themes & Philosophical Core",
       score: 95,
-      textZh:
-        "本回奠定了全书的核心思想对立：纯真之“情”（以梅子玉、杜琴言为表征的至真、至洁之爱）与世俗之“淫/利”（以戏院中讨赏的小旦和粗鄙看客为表征的肉欲与商品化交易）。作者通过细分“名士十情”与“优伶十情”，试图为“情”正名。他宣扬一种超脱于世俗肉欲、以灵魂共鸣和才艺欣赏为核心的“好色而不淫”之情。这一核心议题不仅是对理学禁欲主义的温和反叛，也是对当时男色、优伶交易庸俗风气的严厉批判。",
-      textEn:
-        "The chapter establishes the novel's central tension: pure, ideal sentiment (Qing) versus vulgar, transactional lust (Yin). By classifying ten noble feelings and ten performer virtues, the narrative attempts to reclaim 'feeling' as a spiritual force, arguing that genuine appreciation of beauty can remain pure and distinct from transactional exploitation. It stands as a critique of both rigid asceticism and raw materialism.",
+      subsections: [
+        {
+          labelZh: "核心议题",
+          labelEn: "Core Issues",
+          textZh: "本章探讨了“纯粹的美与世俗的污浊”、“理教禁欲与天性觉醒”之间的冲突，试图论证“好色而不淫”的哲学可能性。",
+          textEn: "Explores the conflict between pure beauty and worldly filth, asceticism and awakening, arguing for the philosophical possibility of 'loving beauty without lust'."
+        },
+        {
+          labelZh: "象征与隐喻",
+          labelEn: "Symbolism",
+          textZh: "“幽香”象征着超越世俗的纯净灵魂；戏院中嘈杂的锣鼓和泥泞的街道，隐喻了晚清京城浑浊不堪的社会现实与肉欲横流的优伶交易。",
+          textEn: "The 'fragrance' symbolizes a pure soul transcending the mundane; the muddy streets and noisy theater symbolize the corrupt, lustful reality of late Qing society."
+        },
+        {
+          labelZh: "作者意图",
+          labelEn: "Author's Intent",
+          textZh: "作者试图借梅子玉的“顿悟”，批判当时将优伶仅仅视为玩物和泄欲工具的庸俗价值观，呼唤一种基于灵魂共鸣的古典理想主义。",
+          textEn: "Critiques the vulgar treatment of actors as mere playthings, advocating for a classical idealism based on spiritual resonance."
+        }
+      ]
     },
     {
       icon: <Eye size={18} className="text-[var(--accent)]" />,
       titleZh: "叙事视角与声音",
       titleEn: "POV & Voice",
       score: 80,
-      textZh:
-        "本回的叙事视角灵活多变。开篇部分采用全知视角，以说书人、史家评注的客观口吻对全书进行框架式概括；随后迅速转化为以梅子玉为主的限制性视角。读者的获取信息被严格限制在子玉的所见所感中——我们一同忍受戏院中粗劣的“假宝珠”拉扯，也一同体验那一瞥对视时空气凝固、奇香扑鼻的魔幻瞬间。这种视角的切换使得宏大的社会叙事与幽微的情感体验达成精妙的平衡。",
-      textEn:
-        "The story utilizes a third-person limited perspective focused on Mei Ziyu. Readers experience the sensory overload of the theater and the sudden quietude of the carriage encounter through Ziyu's eyes. This is framed by a detached, ironic narrator who offers pseudo-historical commentary, balancing raw emotional resonance with intellectual distance.",
+      subsections: [
+        {
+          labelZh: "叙事视角",
+          labelEn: "POV",
+          textZh: "采用的是带有说书人遗风的全知视角，但中后段大幅度转向梅子玉的限制性视角。这让读者能够感同身受地体验戏院的恶劣以及对视时的震撼。",
+          textEn: "Uses an omniscient narrator with a storyteller's flavor, but shifts heavily to Ziyu's limited perspective, making the reader feel his disgust and sudden awe."
+        },
+        {
+          labelZh: "语调与语体",
+          labelEn: "Tone",
+          textZh: "文字在开篇是说理的客观冷峻，在戏院描写时转为辛辣讽刺，而在结尾描写琴言容貌时则变为了极度抒情优美的诗化语言，营造了先抑后扬的氛围。",
+          textEn: "The tone shifts from cold and theoretical, to biting and satirical in the theater, to highly lyrical and poetic at the end, creating a 'suppress then elevate' atmosphere."
+        }
+      ]
     },
     {
       icon: <PenTool size={18} className="text-[var(--accent)]" />,
       titleZh: "语言特色与修辞",
       titleEn: "Stylistic Devices",
       score: 88,
-      textZh:
-        "文字兼具骈文的华美与白话小说的辛辣。开篇对“十情”的分类排比对偶工整，颇具骈俪色彩。在描写“百花谱”名伶（如袁宝珠、苏徽芳）时，大量运用“秋水为神，玉雪为骨”等经典比喻，以及极为优美的七律组诗，极尽古典辞章之美。而在描写戏院里庸俗丑陋的拉客小旦“假宝珠”时，则切换为粗粝、生动的日常白话，雅俗对比鲜明，展现出强烈的戏剧张力与笔力。",
-      textEn:
-        "The language blends highly refined classical parallel prose (pianwen) with lively vernacular speech. The 'Register of Flowers' entries utilize beautiful imagery ('autumn waters for spirit, jade and snow for bones') and heavy literary allusions. In contrast, the theater descriptions are rendered in colloquial, biting prose, demonstrating the author's rich range of tone.",
+      subsections: [
+        {
+          labelZh: "辞章美感",
+          labelEn: "Aesthetics",
+          textZh: "大量使用排比、对偶以及典故。如“秋水为神，玉雪为骨”，精妙的白描手法将极具肉体美的名伶升华为抽象的精神符号。",
+          textEn: "Heavy use of parallelisms and allusions. Phrases like 'autumn waters for spirit, jade and snow for bones' sublimate physical beauty into a spiritual symbol."
+        },
+        {
+          labelZh: "经典句式",
+          labelEn: "Classic Quotes",
+          textZh: "“那人面庞庞的，黑漆漆的，一双油手……”与“惊鸿一瞥，异香扑鼻”形成惨烈的对照。前者极尽丑恶，后者极尽唯美。",
+          textEn: "The contrast between the ugly 'dark-faced, greasy-handed' fake Baozhu and the beautiful 'fateful glance, exotic fragrance' highlights the author's stylistic range."
+        },
+        {
+          labelZh: "感官描写",
+          labelEn: "Sensory Details",
+          textZh: "作者极致调动了感官——听觉上的震耳欲聋（戏院），视觉上的泥泞不堪，以及最为关键的嗅觉上的“一阵幽香”，这股香气成为了打破主角心理防御的利器。",
+          textEn: "Masterful use of sensory details: deafening noise, muddy sights, and most crucially, the 'exotic fragrance' that acts as the weapon breaking Ziyu's psychological defenses."
+        }
+      ]
     },
     {
       icon: <MessageSquare size={18} className="text-[var(--accent)]" />,
       titleZh: "阅读体验与共鸣",
-      titleEn: "Reader Response & Relevance",
+      titleEn: "Reader Response",
       score: 85,
-      textZh:
-        "阅读此章的体验是一次情绪起伏的洗礼：从书房辩论的清雅，跌入尘俗戏院的躁动与恶心，再到最后一刻马车狭路相逢时“屏息凝神”的极致美丽。这种由静入闹、最终回归到灵魂对望的节奏安排，让读者产生强烈的审美愉悦。在今天（2026年）的语境下，这一幕关于“偏见被绝对美感击碎”的宿命相遇，依然能唤起我们对超越阶级、性别与社会成见之纯粹爱恋的向往与反思。",
-      textEn:
-        "The reader travels along an emotional trajectory: intellectual security in the study, chaotic alienation in the theater, and breathtaking aesthetic elevation in the traffic jam. Even today, the contrast between structural prejudice and the undeniable power of aesthetic connection sparks reflection on the nature of love, art, and societal boundaries.",
+      subsections: [
+        {
+          labelZh: "情感冲击",
+          labelEn: "Emotional Impact",
+          textZh: "阅读时情绪由极度的烦躁（戏院部分）瞬间转化为极度的惊叹与屏息。那无声的对视不仅击中了梅子玉，也击中了读者的心弦，产生强烈的共鸣。",
+          textEn: "The reader's emotion shifts from extreme irritation to sudden awe. The silent glance strikes a chord with both Ziyu and the reader."
+        },
+        {
+          labelZh: "时代反思",
+          labelEn: "Modern Reflection",
+          textZh: "在2026年高度物质化、娱乐化的今天，戏院里的“假宝珠”拉客与如今的“流量狂欢”何其相似。而梅子玉所追求的那种不掺杂利益、直击灵魂的纯粹爱慕，反倒成为现代人内心深处最稀缺的奢侈品。",
+          textEn: "In today's highly materialized 2026, the theater's chaotic hustling mirrors modern 'traffic-driven' entertainment. Ziyu's pursuit of pure, non-transactional love remains a scarce luxury in modern times."
+        }
+      ]
     },
   ];
 
@@ -553,9 +645,27 @@ export function ChapterAppreciation({
                     : `Emphasis: ${dimensions[activeTab].score}%`}
                 </span>
               </div>
-              <p className="text-[var(--ink-main)] font-serif indent-6">
-                {lang === "zh" ? dimensions[activeTab].textZh : dimensions[activeTab].textEn}
-              </p>
+              <div className="text-[var(--ink-main)] font-serif space-y-3">
+                {dimensions[activeTab].textZh && (
+                  <p className="indent-6">
+                    {lang === "zh" ? dimensions[activeTab].textZh : dimensions[activeTab].textEn}
+                  </p>
+                )}
+                {dimensions[activeTab].subsections && (
+                  <div className="space-y-2.5 mt-2">
+                    {dimensions[activeTab].subsections.map((sub, idx) => (
+                      <div key={idx} className="bg-[var(--accent)]/5 p-2 rounded-sm border-l-[3px] border-[var(--accent)]/50">
+                        <span className="font-bold text-[var(--ink-title)] mr-1.5 font-hans">
+                          {lang === "zh" ? sub.labelZh : sub.labelEn}:
+                        </span>
+                        <span className="leading-relaxed">
+                          {lang === "zh" ? sub.textZh : sub.textEn}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>
