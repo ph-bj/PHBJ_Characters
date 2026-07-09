@@ -89,11 +89,10 @@ export function ChapterAppreciation({
                   setActiveTaxonomy("lords");
                   setSelectedFeeling(null);
                 }}
-                className={`px-3 py-1 text-[10px] sm:text-xs font-bold font-hans transition-colors cursor-pointer ${
-                  activeTaxonomy === "lords"
+                className={`px-3 py-1 text-[10px] sm:text-xs font-bold font-hans transition-colors cursor-pointer ${activeTaxonomy === "lords"
                     ? "bg-[var(--accent)] text-white"
                     : "bg-[var(--paper-bg)] text-[var(--ink-dim-text)] hover:bg-black/5"
-                }`}
+                  }`}
               >
                 {lang === "zh" ? "名士十情 (Lords)" : "Ten Scholar Feelings"}
               </button>
@@ -103,11 +102,10 @@ export function ChapterAppreciation({
                   setActiveTaxonomy("performers");
                   setSelectedFeeling(null);
                 }}
-                className={`px-3 py-1 text-[10px] sm:text-xs font-bold font-hans transition-colors cursor-pointer ${
-                  activeTaxonomy === "performers"
+                className={`px-3 py-1 text-[10px] sm:text-xs font-bold font-hans transition-colors cursor-pointer ${activeTaxonomy === "performers"
                     ? "bg-[var(--accent)] text-white"
                     : "bg-[var(--paper-bg)] text-[var(--ink-dim-text)] hover:bg-black/5"
-                }`}
+                  }`}
               >
                 {lang === "zh" ? "优伶十情 (Dan)" : "Ten Actor Feelings"}
               </button>
@@ -126,11 +124,10 @@ export function ChapterAppreciation({
                 key={idx}
                 type="button"
                 onClick={() => setSelectedFeeling(item)}
-                className={`flex flex-col items-center justify-center p-2 rounded-sm border transition-all cursor-pointer ${
-                  selectedFeeling?.char === item.char
+                className={`flex flex-col items-center justify-center p-2 rounded-sm border transition-all cursor-pointer ${selectedFeeling?.char === item.char
                     ? "border-[var(--accent)] bg-[var(--accent)] text-white scale-105 shadow-md"
                     : "border-[var(--paper-border)] bg-[var(--paper-bg)] text-[var(--ink-title)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/5 hover:scale-102"
-                }`}
+                  }`}
               >
                 <span className="text-xl sm:text-2xl font-bold font-hans">{item.char}</span>
                 <span className="text-[8px] opacity-75 font-sans mt-0.5">{item.pinyin}</span>
@@ -192,11 +189,10 @@ export function ChapterAppreciation({
                 key={cup.id}
                 type="button"
                 onClick={() => setSelectedCup(cup.id)}
-                className={`p-3 rounded-sm border transition-all text-left flex flex-col justify-between cursor-pointer ${
-                  selectedCup === cup.id
+                className={`p-3 rounded-sm border transition-all text-left flex flex-col justify-between cursor-pointer ${selectedCup === cup.id
                     ? "border-[var(--accent)] bg-[var(--accent)]/10 shadow-md scale-102"
                     : "border-[var(--paper-border)] bg-[var(--paper-bg)]/40 hover:border-[var(--accent)]/55 hover:bg-[var(--accent)]/5"
-                }`}
+                  }`}
               >
                 <div className="flex items-start justify-between">
                   <Wine
@@ -296,11 +292,10 @@ export function ChapterAppreciation({
                 key={arc.id}
                 type="button"
                 onClick={() => setSelectedArchetype(arc.id)}
-                className={`p-3 rounded-sm border transition-all text-left flex flex-col justify-between cursor-pointer ${
-                  selectedArchetype === arc.id
+                className={`p-3 rounded-sm border transition-all text-left flex flex-col justify-between cursor-pointer ${selectedArchetype === arc.id
                     ? "border-[var(--accent)] bg-[var(--accent)]/10 shadow-md scale-102"
                     : "border-[var(--paper-border)] bg-[var(--paper-bg)]/40 hover:border-[var(--accent)]/55 hover:bg-[var(--accent)]/5"
-                }`}
+                  }`}
               >
                 <div className="flex items-start justify-between">
                   <User
@@ -352,6 +347,52 @@ export function ChapterAppreciation({
         </div>
       );
     }
+    if (vis.type === "poetryCritique") {
+      return (
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--paper-border)]/30 pb-2">
+            <h4 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] flex items-center gap-1.5 font-hans">
+              <Sparkles size={16} className="text-[var(--accent)]" />
+              {lang === "zh" ? "《雪窗八咏》诗词解析" : "Analysis of 'Eight Verses on the Snow Window'"}
+            </h4>
+          </div>
+
+          <div className="space-y-6 mt-4">
+            {vis.poems.map((poem, idx) => (
+              <div key={idx} className="border border-[var(--paper-border)] rounded-sm bg-[var(--paper-bg)] overflow-hidden">
+                <div className="bg-[var(--accent)]/5 px-4 py-2 border-b border-[var(--paper-border)] flex justify-between items-center">
+                  <h5 className="font-bold text-[var(--accent)] font-hans text-sm sm:text-base">
+                    {lang === "zh" ? poem.titleZh : poem.titleEn}
+                  </h5>
+                  <span className="text-[10px] sm:text-xs text-[var(--ink-dim-text)]">
+                    {lang === "zh" ? poem.authorZh : poem.authorEn}
+                  </span>
+                </div>
+                <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <p className="text-xs text-[var(--ink-dim-text)] uppercase tracking-wider font-bold">
+                      {lang === "zh" ? "原诗选段" : "Poem Excerpt"}
+                    </p>
+                    <p className="text-sm text-[var(--ink-main)] font-serif whitespace-pre-wrap leading-relaxed">
+                      {lang === "zh" ? poem.textZh : poem.textEn}
+                    </p>
+                  </div>
+                  <div className="space-y-2 border-t sm:border-t-0 sm:border-l border-[var(--paper-border)] pt-4 sm:pt-0 sm:pl-4">
+                    <p className="text-xs text-[var(--ink-dim-text)] uppercase tracking-wider font-bold">
+                      {lang === "zh" ? "梅子玉鉴赏" : "Ziyu's Critique"}
+                    </p>
+                    <p className="text-xs sm:text-sm text-[var(--ink-title)] font-hans leading-relaxed">
+                      {lang === "zh" ? poem.critiqueZh : poem.critiqueEn}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
     return null;
   };
 
@@ -482,11 +523,10 @@ export function ChapterAppreciation({
               key={idx}
               type="button"
               onClick={() => setActiveTab(idx)}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-sm border transition-all cursor-pointer ${
-                activeTab === idx
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-sm border transition-all cursor-pointer ${activeTab === idx
                   ? "border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
                   : "border-[var(--paper-border)] bg-[var(--paper-bg)]/40 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/5 hover:text-[var(--accent)]"
-              }`}
+                }`}
             >
               {icons[dim.iconType]}
               <span className="font-hans">
