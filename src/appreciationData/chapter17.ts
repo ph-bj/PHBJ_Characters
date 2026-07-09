@@ -230,7 +230,53 @@ export const chapter17Appreciation: ChapterAppreciationData = {
     },
   ],
   visualizer: {
-    type: "rumorNetwork",
-    rumors: [{ id: 1, rumorZh: "苏蕙芳倾囊救助田春航", rumorEn: "Su Huifang gives everything to save Tian Chunhang", originZh: "核心朋友圈内的真实见证", originEn: "True testimonies within the core circle of friends", effectZh: "彻底扭转了士人圈对优伶仅仅是‘玩物’的刻板印象，将其提升至具备‘侠义’精神的高度。", effectEn: "Completely overturned the scholars' stereotype of actors as mere playthings, elevating them to figures of 'chivalry'." }]
-  }
+    type: "archetypes",
+    archetypes: [
+      {
+        id: 1,
+        titleZh: "文人共同体",
+        titleEn: "The Literati Community",
+        roleZh: "众名士",
+        roleEn: "The Scholars",
+        descZh:
+          "通过定期的雅集与信息共享，维系着士大夫阶层的品味认同与道德评价体系。",
+        descEn:
+          "Maintaining the scholar class's taste identity and moral evaluation system through regular elegant gatherings and information sharing.",
+      },
+    ],
+  },
+  visualizers: [
+    {
+      type: "archetypes",
+      archetypes: [
+        {
+          id: 1,
+          titleZh: "文人共同体",
+          titleEn: "The Literati Community",
+          roleZh: "众名士",
+          roleEn: "The Scholars",
+          descZh:
+            "通过定期的雅集与信息共享，维系着士大夫阶层的品味认同与道德评价体系。",
+          descEn:
+            "Maintaining the scholar class's taste identity and moral evaluation system through regular elegant gatherings and information sharing.",
+        },
+      ],
+    },
+    {
+      type: "rumorNetwork",
+      rumors: [
+        {
+          id: 1,
+          rumorZh: "苏蕙芳倾囊救助田春航",
+          rumorEn: "Su Huifang gives everything to save Tian Chunhang",
+          originZh: "核心朋友圈内的真实见证",
+          originEn: "True testimonies within the core circle of friends",
+          effectZh:
+            "彻底扭转了士人圈对优伶仅仅是‘玩物’的刻板印象，将其提升至具备‘侠义’精神的高度。",
+          effectEn:
+            "Completely overturned the scholars' stereotype of actors as mere playthings, elevating them to figures of 'chivalry'.",
+        },
+      ],
+    },
+  ],
 };

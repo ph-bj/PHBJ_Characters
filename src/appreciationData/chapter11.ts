@@ -231,7 +231,55 @@ export const chapter11Appreciation: ChapterAppreciationData = {
     },
   ],
   visualizer: {
-    type: "emotionalDichotomy",
-    dichotomies: [{ id: 1, characterZh: "徐紫云", characterEn: "Xu Ziyun", surfaceEmotionZh: "对戏曲与优伶的赞赏", surfaceEmotionEn: "Appreciation for opera and actors", hiddenEmotionZh: "对沉迷声色的同僚的清醒审视与轻微疏离", hiddenEmotionEn: "Sober scrutiny and slight alienation towards colleagues addicted to sensuality", triggerZh: "向妻子转述外界的荒唐事", triggerEn: "Relaying the absurdities of the outside world to his wife" }]
-  }
+    type: "archetypes",
+    archetypes: [
+      {
+        id: 1,
+        titleZh: "清醒旁观者",
+        titleEn: "The Sober Observer",
+        roleZh: "徐紫云",
+        roleEn: "Xu Ziyun",
+        descZh:
+          "身处局中却能保持理智的距离，以审美的眼光而非肉欲的眼光看待优伶，是作者价值观的某种代言人。",
+        descEn:
+          "In the game but keeping a rational distance, viewing actors with an aesthetic rather than lustful eye. A proxy for the author's values.",
+      },
+    ],
+  },
+  visualizers: [
+    {
+      type: "archetypes",
+      archetypes: [
+        {
+          id: 1,
+          titleZh: "清醒旁观者",
+          titleEn: "The Sober Observer",
+          roleZh: "徐紫云",
+          roleEn: "Xu Ziyun",
+          descZh:
+            "身处局中却能保持理智的距离，以审美的眼光而非肉欲的眼光看待优伶，是作者价值观的某种代言人。",
+          descEn:
+            "In the game but keeping a rational distance, viewing actors with an aesthetic rather than lustful eye. A proxy for the author's values.",
+        },
+      ],
+    },
+    {
+      type: "emotionalDichotomy",
+      dichotomies: [
+        {
+          id: 1,
+          characterZh: "徐紫云",
+          characterEn: "Xu Ziyun",
+          surfaceEmotionZh: "对戏曲与优伶的赞赏",
+          surfaceEmotionEn: "Appreciation for opera and actors",
+          hiddenEmotionZh: "对沉迷声色的同僚的清醒审视与轻微疏离",
+          hiddenEmotionEn:
+            "Sober scrutiny and slight alienation towards colleagues addicted to sensuality",
+          triggerZh: "向妻子转述外界的荒唐事",
+          triggerEn:
+            "Relaying the absurdities of the outside world to his wife",
+        },
+      ],
+    },
+  ],
 };

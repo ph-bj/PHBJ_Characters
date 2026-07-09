@@ -170,7 +170,54 @@ export const chapter19Appreciation: ChapterAppreciationData = {
     },
   ],
   visualizer: {
-    type: "socialLadder",
-    ladder: [{ id: 1, characterZh: "魏聘才", characterEn: "Wei Pincai", initialStatusZh: "梅府的清客、穷酸教书匠", initialStatusEn: "Hanger-on at Mei's, poor tutor", finalStatusZh: "华府深受宠爱的红人", finalStatusEn: "Highly favored favorite in Hua's mansion", methodZh: "抛弃文人操守，以下贱的姿态迎合权贵的声色之好", methodEn: "Abandoning scholar integrity, pandering basely to the elite's sensual tastes" }]
-  }
+    type: "archetypes",
+    archetypes: [
+      {
+        id: 1,
+        titleZh: "逢迎小人",
+        titleEn: "The Sycophant",
+        roleZh: "魏聘才",
+        roleEn: "Wei Pincai",
+        descZh:
+          "缺乏道德底线，为了往上爬可以随时切换面具，精通名利场的一切潜规则。",
+        descEn:
+          "Lacking moral bottom lines, ready to switch masks to climb up, mastering all unwritten rules of Vanity Fair.",
+      },
+    ],
+  },
+  visualizers: [
+    {
+      type: "archetypes",
+      archetypes: [
+        {
+          id: 1,
+          titleZh: "逢迎小人",
+          titleEn: "The Sycophant",
+          roleZh: "魏聘才",
+          roleEn: "Wei Pincai",
+          descZh:
+            "缺乏道德底线，为了往上爬可以随时切换面具，精通名利场的一切潜规则。",
+          descEn:
+            "Lacking moral bottom lines, ready to switch masks to climb up, mastering all unwritten rules of Vanity Fair.",
+        },
+      ],
+    },
+    {
+      type: "socialLadder",
+      ladder: [
+        {
+          id: 1,
+          characterZh: "魏聘才",
+          characterEn: "Wei Pincai",
+          initialStatusZh: "梅府的清客、穷酸教书匠",
+          initialStatusEn: "Hanger-on at Mei's, poor tutor",
+          finalStatusZh: "华府深受宠爱的红人",
+          finalStatusEn: "Highly favored favorite in Hua's mansion",
+          methodZh: "抛弃文人操守，以下贱的姿态迎合权贵的声色之好",
+          methodEn:
+            "Abandoning scholar integrity, pandering basely to the elite's sensual tastes",
+        },
+      ],
+    },
+  ],
 };

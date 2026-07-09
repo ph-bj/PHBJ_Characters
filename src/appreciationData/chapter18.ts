@@ -247,7 +247,55 @@ export const chapter18Appreciation: ChapterAppreciationData | null = {
     },
   ],
   visualizer: {
-    type: "powerDynamics",
-    dynamics: [{ id: 1, dominatorZh: "班主长清", dominatorEn: "Troupe Master Changqing", submissiveZh: "病中的杜琴言", submissiveEn: "The Sick Du Qinyan", powerBaseZh: "法律意义上的契约所有权", powerBaseEn: "Legal indenture ownership", shiftZh: "班主的权力因琴言的生病而暂时失效，暴露出这种依附关系的脆弱：一旦‘商品’受损，剥削便无法继续。", shiftEn: "The master's power is temporarily voided by Qinyan's illness, exposing the fragility of the dependency: once the 'commodity' is damaged, exploitation stalls." }]
-  }
+    type: "archetypes",
+    archetypes: [
+      {
+        id: 1,
+        titleZh: "生病的商品",
+        titleEn: "The Sick Commodity",
+        roleZh: "杜琴言",
+        roleEn: "Du Qinyan",
+        descZh:
+          "优伶的身体不仅属于自己，更属于班主。生病不仅是生理痛苦，更是由于无法创造利润而带来的生存危机。",
+        descEn:
+          "The actor's body belongs more to the master than himself. Illness is not just physical pain, but a survival crisis due to zero profit creation.",
+      },
+    ],
+  },
+  visualizers: [
+    {
+      type: "archetypes",
+      archetypes: [
+        {
+          id: 1,
+          titleZh: "生病的商品",
+          titleEn: "The Sick Commodity",
+          roleZh: "杜琴言",
+          roleEn: "Du Qinyan",
+          descZh:
+            "优伶的身体不仅属于自己，更属于班主。生病不仅是生理痛苦，更是由于无法创造利润而带来的生存危机。",
+          descEn:
+            "The actor's body belongs more to the master than himself. Illness is not just physical pain, but a survival crisis due to zero profit creation.",
+        },
+      ],
+    },
+    {
+      type: "powerDynamics",
+      dynamics: [
+        {
+          id: 1,
+          dominatorZh: "班主长清",
+          dominatorEn: "Troupe Master Changqing",
+          submissiveZh: "病中的杜琴言",
+          submissiveEn: "The Sick Du Qinyan",
+          powerBaseZh: "法律意义上的契约所有权",
+          powerBaseEn: "Legal indenture ownership",
+          shiftZh:
+            "班主的权力因琴言的生病而暂时失效，暴露出这种依附关系的脆弱：一旦‘商品’受损，剥削便无法继续。",
+          shiftEn:
+            "The master's power is temporarily voided by Qinyan's illness, exposing the fragility of the dependency: once the 'commodity' is damaged, exploitation stalls.",
+        },
+      ],
+    },
+  ],
 };

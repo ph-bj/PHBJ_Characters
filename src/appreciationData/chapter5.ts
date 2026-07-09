@@ -210,7 +210,53 @@ export const chapter5Appreciation: ChapterAppreciationData = {
     },
   ],
   visualizer: {
-    type: "rumorNetwork",
-    rumors: [{ id: 1, rumorZh: "梅子玉独宠杜琴言", rumorEn: "Mei Ziyu exclusively favors Du Qinyan", originZh: "戏班内部的攀比与恩客的闲谈", originEn: "Comparison within the troupe and idle chatter of patrons", effectZh: "给琴言带来了同行的嫉妒与压力，也让子玉的情感暴露在世俗的审视之下。", effectEn: "Brings Qinyan peer jealousy and pressure, exposing Ziyu's feelings to secular scrutiny." }]
-  }
+    type: "archetypes",
+    archetypes: [
+      {
+        id: 1,
+        titleZh: "善妒同行",
+        titleEn: "The Jealous Peer",
+        roleZh: "同班优伶",
+        roleEn: "Fellow Actors",
+        descZh:
+          "在资源有限的戏班生态中，为了争夺恩客的宠爱与生存空间，对拔尖者进行排挤与造谣。",
+        descEn:
+          "In the limited ecosystem of a troupe, they marginalize and spread rumors about the top star to compete for patrons' favor.",
+      },
+    ],
+  },
+  visualizers: [
+    {
+      type: "archetypes",
+      archetypes: [
+        {
+          id: 1,
+          titleZh: "善妒同行",
+          titleEn: "The Jealous Peer",
+          roleZh: "同班优伶",
+          roleEn: "Fellow Actors",
+          descZh:
+            "在资源有限的戏班生态中，为了争夺恩客的宠爱与生存空间，对拔尖者进行排挤与造谣。",
+          descEn:
+            "In the limited ecosystem of a troupe, they marginalize and spread rumors about the top star to compete for patrons' favor.",
+        },
+      ],
+    },
+    {
+      type: "rumorNetwork",
+      rumors: [
+        {
+          id: 1,
+          rumorZh: "梅子玉独宠杜琴言",
+          rumorEn: "Mei Ziyu exclusively favors Du Qinyan",
+          originZh: "戏班内部的攀比与恩客的闲谈",
+          originEn: "Comparison within the troupe and idle chatter of patrons",
+          effectZh:
+            "给琴言带来了同行的嫉妒与压力，也让子玉的情感暴露在世俗的审视之下。",
+          effectEn:
+            "Brings Qinyan peer jealousy and pressure, exposing Ziyu's feelings to secular scrutiny.",
+        },
+      ],
+    },
+  ],
 };

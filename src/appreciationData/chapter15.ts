@@ -119,7 +119,55 @@ export const chapter15Appreciation: ChapterAppreciationData = {
     },
   ],
   visualizer: {
-    type: "socialLadder",
-    ladder: [{ id: 1, characterZh: "田春航", characterEn: "Tian Chunhang", initialStatusZh: "受人接济的落魄食客", initialStatusEn: "Destitute dependent parasite", finalStatusZh: "发愤图强的备考举子", finalStatusEn: "Determined exam candidate", methodZh: "受到优伶高洁品格的刺激，唤醒了儒家士大夫入世兼济的责任感。", methodEn: "Stimulated by the actor's noble character, awakening the Confucian scholar's sense of duty." }]
-  }
+    type: "archetypes",
+    archetypes: [
+      {
+        id: 1,
+        titleZh: "知耻后勇者",
+        titleEn: "The Awakened Scholar",
+        roleZh: "田春航",
+        roleEn: "Tian Chunhang",
+        descZh:
+          "在经历了极度的屈辱与意外的恩惠后，重拾传统文人的科举道路，以求世俗的翻盘。",
+        descEn:
+          "After extreme humiliation and unexpected grace, picking up the traditional exam path to seek a secular comeback.",
+      },
+    ],
+  },
+  visualizers: [
+    {
+      type: "archetypes",
+      archetypes: [
+        {
+          id: 1,
+          titleZh: "知耻后勇者",
+          titleEn: "The Awakened Scholar",
+          roleZh: "田春航",
+          roleEn: "Tian Chunhang",
+          descZh:
+            "在经历了极度的屈辱与意外的恩惠后，重拾传统文人的科举道路，以求世俗的翻盘。",
+          descEn:
+            "After extreme humiliation and unexpected grace, picking up the traditional exam path to seek a secular comeback.",
+        },
+      ],
+    },
+    {
+      type: "socialLadder",
+      ladder: [
+        {
+          id: 1,
+          characterZh: "田春航",
+          characterEn: "Tian Chunhang",
+          initialStatusZh: "受人接济的落魄食客",
+          initialStatusEn: "Destitute dependent parasite",
+          finalStatusZh: "发愤图强的备考举子",
+          finalStatusEn: "Determined exam candidate",
+          methodZh:
+            "受到优伶高洁品格的刺激，唤醒了儒家士大夫入世兼济的责任感。",
+          methodEn:
+            "Stimulated by the actor's noble character, awakening the Confucian scholar's sense of duty.",
+        },
+      ],
+    },
+  ],
 };

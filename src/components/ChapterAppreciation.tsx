@@ -764,7 +764,11 @@ export function ChapterAppreciation({
       </div>
 
       {/* Interactive Feature - Template renderer */}
-      {renderVisualizer(visualizer)}
+      <div className="space-y-12">
+        {(data.visualizers || [data.visualizer]).map((v, i) => (
+          <div key={i}>{renderVisualizer(v)}</div>
+        ))}
+      </div>
     </div>
   );
 }

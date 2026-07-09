@@ -137,7 +137,55 @@ export const chapter13Appreciation: ChapterAppreciationData | null = {
     },
   ],
   visualizer: {
-    type: "wealthFlow",
-    flows: [{ id: 1, sourceZh: "王恂 / 严仲清", sourceEn: "Wang Xun / Yan Zhongqing", targetZh: "田春航 (经由高聘)", targetEn: "Tian Chunhang (via Gao Pin)", amountZh: "一百两救济银", amountEn: "100 taels of relief silver", impactZh: "杯水车薪，虽能暂缓饿死之虞，却无法挽回春航在名利场的彻底颜面扫地。", impactEn: "A drop in the bucket; saves him from starvation but cannot restore his utterly ruined face in Vanity Fair." }]
-  }
+    type: "archetypes",
+    archetypes: [
+      {
+        id: 1,
+        titleZh: "落魄士子",
+        titleEn: "The Fallen Scholar",
+        roleZh: "田春航",
+        roleEn: "Tian Chunhang",
+        descZh:
+          "失去了经济基础后，其文化资本（才华）也随之贬值，揭示了名利场的残酷现实。",
+        descEn:
+          "Without an economic foundation, his cultural capital (talent) depreciates, revealing the cruelty of Vanity Fair.",
+      },
+    ],
+  },
+  visualizers: [
+    {
+      type: "archetypes",
+      archetypes: [
+        {
+          id: 1,
+          titleZh: "落魄士子",
+          titleEn: "The Fallen Scholar",
+          roleZh: "田春航",
+          roleEn: "Tian Chunhang",
+          descZh:
+            "失去了经济基础后，其文化资本（才华）也随之贬值，揭示了名利场的残酷现实。",
+          descEn:
+            "Without an economic foundation, his cultural capital (talent) depreciates, revealing the cruelty of Vanity Fair.",
+        },
+      ],
+    },
+    {
+      type: "wealthFlow",
+      flows: [
+        {
+          id: 1,
+          sourceZh: "王恂 / 严仲清",
+          sourceEn: "Wang Xun / Yan Zhongqing",
+          targetZh: "田春航 (经由高聘)",
+          targetEn: "Tian Chunhang (via Gao Pin)",
+          amountZh: "一百两救济银",
+          amountEn: "100 taels of relief silver",
+          impactZh:
+            "杯水车薪，虽能暂缓饿死之虞，却无法挽回春航在名利场的彻底颜面扫地。",
+          impactEn:
+            "A drop in the bucket; saves him from starvation but cannot restore his utterly ruined face in Vanity Fair.",
+        },
+      ],
+    },
+  ],
 };
