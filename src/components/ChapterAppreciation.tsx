@@ -79,6 +79,7 @@ export function ChapterAppreciation({
   const [activeTaxonomy, setActiveTaxonomy] = useState<"lords" | "performers">("lords");
   const [selectedFeeling, setSelectedFeeling] = useState<FeelingItem | null>(null);
   const [selectedCup, setSelectedCup] = useState<number | null>(null);
+  const [selectedArchetype, setSelectedArchetype] = useState<number | null>(null);
 
   // ==========================================
   // CHAPTER 1 DATA
@@ -476,10 +477,261 @@ export function ChapterAppreciation({
     }
   ];
 
+  // ==========================================
+  // CHAPTER 3 DATA
+  // ==========================================
+  const radarData3 = [
+    { subject: lang === "zh" ? "文本结构" : "Structure", score: 85 },
+    { subject: lang === "zh" ? "人物塑造" : "Character", score: 95 },
+    { subject: lang === "zh" ? "主题思想" : "Themes", score: 90 },
+    { subject: lang === "zh" ? "叙事视角" : "POV & Voice", score: 85 },
+    { subject: lang === "zh" ? "语言修辞" : "Style", score: 80 },
+    { subject: lang === "zh" ? "体验共鸣" : "Resonance", score: 88 },
+  ];
+
+  const timelineData3 = [
+    {
+      stage: lang === "zh" ? "1. 孤身闲逛" : "1. Wandering",
+      sentiment: 40,
+      description:
+        lang === "zh"
+          ? "初入戏园无人理睬，百无聊赖地看戏"
+          : "Enters the theater alone, ignored, watching boredly",
+    },
+    {
+      stage: lang === "zh" ? "2. 遭遇讹诈" : "2. Extorted",
+      sentiment: 10,
+      description:
+        lang === "zh"
+          ? "被卖玉老头碰瓷讹诈，极度憋屈、愤怒且无助"
+          : "Extorted by the jade seller over a broken bottle; feels angry and helpless",
+    },
+    {
+      stage: lang === "zh" ? "3. 权贵解围" : "3. Rescued",
+      sentiment: 80,
+      description:
+        lang === "zh"
+          ? "傅三爷仗义执言并慷慨解囊，聘才如释重负"
+          : "Saved by Third Master Fu, who pays the extortion; immense relief",
+    },
+    {
+      stage: lang === "zh" ? "4. 酒楼攀附" : "4. Flattery",
+      sentiment: 95,
+      description:
+        lang === "zh"
+          ? "通过高超的话术奉承傅三爷，成功结交权贵"
+          : "Successfully flatters Fu Lun, securing a powerful patron",
+    },
+    {
+      stage: lang === "zh" ? "5. 归家高论" : "5. Boasting",
+      sentiment: 90,
+      description:
+        lang === "zh"
+          ? "回家向梅子玉夸耀见闻，并极力渲染琴言的孤高"
+          : "Returns home victorious; spins his story to heighten Ziyu's romantic obsession",
+    },
+  ];
+
+  const dimensions3: DimensionInfo[] = [
+    {
+      icon: <GitBranch size={18} className="text-[var(--accent)]" />,
+      titleZh: "文本结构与布局",
+      titleEn: "Structure & Layout",
+      score: 85,
+      subsections: [
+        {
+          labelZh: "承上启下",
+          labelEn: "Connection",
+          textZh: "这一章将舞台从封闭的书房彻底搬到了喧闹的戏园和酒楼，借魏聘才的游历，正式拉开了京城欢场生态的帷幕，同时在结尾借聘才之口，彻底点燃了子玉对琴言的痴迷。",
+          textEn: "Transitions the stage from the closed study to the bustling theater and restaurant. Through Pincai's eyes, the capital's vanity fair is unveiled, setting up Ziyu's obsession at the chapter's close."
+        },
+        {
+          labelZh: "情节逻辑",
+          labelEn: "Plot Logic",
+          textZh: "以“偶然相遇”为核心驱动。逛戏园、遇讹诈、得解围、结新欢，一气呵成，情节紧凑且极具古典世俗小说的写实感。",
+          textEn: "Driven by accidental encounters. From wandering the theater to extortion, rescue, and networking, the pacing is tight and highly realistic."
+        },
+        {
+          labelZh: "节奏掌控",
+          labelEn: "Pacing",
+          textZh: "戏院里的描写拥挤喧闹，酒楼里的描写暴躁激烈（奚十一砸碗），最后切回梅府书房的静谧，形成强烈的动静对比，张弛有度。",
+          textEn: "Contrasts the chaotic theater and violent restaurant (Xi smashing bowls) with the quiet, reflective study at the end, providing excellent dynamic pacing."
+        }
+      ]
+    },
+    {
+      icon: <User size={18} className="text-[var(--accent)]" />,
+      titleZh: "人物塑造与心理",
+      titleEn: "Characterization & Psychology",
+      score: 95,
+      subsections: [
+        {
+          labelZh: "性格展现",
+          labelEn: "Personality",
+          textZh: "魏聘才的“圆滑市侩”与“见风使舵”被刻画得淋漓尽致；奚十一的“暴发户狂态”与傅三爷的“世家真性情”形成绝佳对照。",
+          textEn: "Pincai's slick social climbing is brilliantly drawn, contrasting sharply with Xi the Eleventh's nouveau-riche tyranny and Fu Lun's aristocratic generosity."
+        },
+        {
+          labelZh: "心理深度",
+          labelEn: "Psychological Depth",
+          textZh: "结尾处梅子玉听闻琴言“冷酷无情”时，并未退缩，反而自动将其脑补为“孤高傲世的佳人”，生动展现了子玉深度“理想化”的恋爱脑。",
+          textEn: "When Ziyu hears that Qinyan is 'cold and heartless', he romantically rationalizes it as 'noble purity', showcasing the depth of his idealistic infatuation."
+        },
+        {
+          labelZh: "人物关系",
+          labelEn: "Relationships",
+          textZh: "魏聘才通过极高情商的攀谈，迅速抹平了与傅三爷的阶级差距，展现了晚清社会中“帮闲”与“权贵”之间寄生与互利的经典关系。",
+          textEn: "Pincai uses high EQ to bridge the class gap with Fu Lun, illustrating the classic parasitic yet symbiotic relationship between sycophants and elites."
+        }
+      ]
+    },
+    {
+      icon: <Heart size={18} className="text-[var(--accent)]" />,
+      titleZh: "主题与思想内核",
+      titleEn: "Themes & Philosophical Core",
+      score: 90,
+      subsections: [
+        {
+          labelZh: "核心议题",
+          labelEn: "Core Issues",
+          textZh: "探讨了金钱、权力与人情的世俗交易。戏园不仅是看戏的地方，更是阶级展示、财富挥霍和社交钻营的名利场。",
+          textEn: "Explores the transactional nature of money, power, and favors. The theater is depicted not just for art, but as a vanity fair for class display and social climbing."
+        },
+        {
+          labelZh: "象征与隐喻",
+          labelEn: "Symbolism",
+          textZh: "“碎玉瓶”象征着京城险恶的社交陷阱；“砸酒碗”则隐喻了暴发户试图用金钱暴力砸碎文化阶层壁垒的狂妄与无能。",
+          textEn: "The 'broken jade bottle' symbolizes the capital's treacherous social traps; 'smashing bowls' represents the parvenu's futile attempt to break cultural barriers with brute wealth."
+        },
+        {
+          labelZh: "作者意图",
+          labelEn: "Author's Intent",
+          textZh: "作者以写实的笔调撕开了京城风月场的面纱——充斥着欺软怕硬、挥金如土和阿谀奉承，以此反衬梅子玉追求纯情的珍贵。",
+          textEn: "The author realistically exposes the capital's red-light district—full of bullying, waste, and flattery—to highlight the rarity of Ziyu's pure pursuit of love."
+        }
+      ]
+    },
+    {
+      icon: <Eye size={18} className="text-[var(--accent)]" />,
+      titleZh: "叙事视角与声音",
+      titleEn: "POV & Voice",
+      score: 85,
+      subsections: [
+        {
+          labelZh: "叙事视角",
+          labelEn: "POV",
+          textZh: "全章主要采用魏聘才的“游历视角”。读者跟随着他这个“京城新客”的眼睛，像看西洋镜一样，一层层拨开京城戏园的繁华与肮脏。",
+          textEn: "Primarily uses Wei Pincai's 'traveler POV'. Readers follow this newcomer to peel back the layers of the capital's glamorous yet dirty theater scene."
+        },
+        {
+          labelZh: "语调与语体",
+          labelEn: "Tone",
+          textZh: "语调世故、写实、甚至带着市井的诙谐。尤其是描写卖玉老汉讹人、奚十一砸桌子时，语言极具市井小说的生动与讽刺意味。",
+          textEn: "The tone is worldly, realistic, and comically urban. The descriptions of the extortion and the tantrum are dripping with satire and lively vernacular."
+        }
+      ]
+    },
+    {
+      icon: <PenTool size={18} className="text-[var(--accent)]" />,
+      titleZh: "语言特色与修辞",
+      titleEn: "Stylistic Devices",
+      score: 80,
+      subsections: [
+        {
+          labelZh: "辞章美感",
+          labelEn: "Aesthetics",
+          textZh: "相对前两回的典雅，本章大量使用了极具生活气息的北方方言和市井黑话，极大地增强了小说的世俗画卷感和烟火气。",
+          textEn: "Compared to the elegance of earlier chapters, this one uses rich Northern vernacular and street slang, massively enhancing the novel's earthy realism."
+        },
+        {
+          labelZh: "经典句式",
+          labelEn: "Classic Quotes",
+          textZh: "“这人脾气太大，若是一直戳死了，还要吃官司呢。”等市井对话，活灵活现地描绘了看客们看热闹不嫌事大的心理。",
+          textEn: "Lines like 'If he jabbed him to death, he'd have a lawsuit' perfectly capture the cynical, rubbernecking psychology of the bystander crowd."
+        },
+        {
+          labelZh: "感官描写",
+          labelEn: "Sensory Details",
+          textZh: "听觉描写尤为出彩。从戏园里震耳欲聋的“好”声导致打碎鼻烟壶，到隔壁酒楼奚十一“叮叮当当”砸瓷器的声音，声效极具画面感。",
+          textEn: "Auditory descriptions shine. The deafening 'Bravo!' that shatters the bottle, and the 'ding ding dang dang' of smashing porcelain, create highly cinematic scenes."
+        }
+      ]
+    },
+    {
+      icon: <MessageSquare size={18} className="text-[var(--accent)]" />,
+      titleZh: "阅读体验与共鸣",
+      titleEn: "Reader Response",
+      score: 88,
+      subsections: [
+        {
+          labelZh: "情感冲击",
+          labelEn: "Emotional Impact",
+          textZh: "卖玉老头碰瓷一段让人深感魏聘才的憋屈，而傅三爷的解围则带来“爽文”般的释然；奚十一的撒泼则让人感到滑稽与荒诞。",
+          textEn: "The extortion scene makes the reader feel Pincai's stifled anger, while Fu's rescue provides a satisfying release; Xi's tantrum is purely comedic and absurd."
+        },
+        {
+          labelZh: "时代反思",
+          labelEn: "Modern Reflection",
+          textZh: "无论是戏园里的“隐形消费陷阱”（碰瓷），还是酒楼老板对“土豪”的跪舔与杀熟（多报账单），在今天的消费社会中依然能找到完美的对应。",
+          textEn: "Hidden consumer traps (extortion) and restaurants inflating bills for rich 'whales' perfectly mirror the absurdities of today's hyper-consumerist society."
+        }
+      ]
+    },
+  ];
+
+  interface ArchetypeItem {
+    id: number;
+    titleZh: string;
+    titleEn: string;
+    roleZh: string;
+    roleEn: string;
+    descZh: string;
+    descEn: string;
+  }
+
+  const archetypes3: ArchetypeItem[] = [
+    {
+      id: 1,
+      titleZh: "讹诈者：市井流氓",
+      titleEn: "The Extortionist",
+      roleZh: "卖玉老叟 (Jade Seller)",
+      roleEn: "The opportunistic local scammer",
+      descZh: "代表了京城底层的市井陷阱与“欺生”潜规则。利用戏园的拥挤和新客的脸皮薄进行强买强卖，最终被更高阶级的权力（傅三爷）所镇压。",
+      descEn: "Represents urban traps and the bullying of newcomers. He uses the crowded theater and the victim's social awkwardness to extort, only to be crushed by a higher power (Fu Lun)."
+    },
+    {
+      id: 2,
+      titleZh: "庇护者：世家子弟",
+      titleEn: "The Patron",
+      roleZh: "傅三爷 (Third Master Fu)",
+      roleEn: "The Old Money Gentry",
+      descZh: "老派权贵子弟，极重面子与江湖道义。性格慷慨直爽，保护弱小（帮魏解围），但耳根子软，极易被他人的阿谀奉承和对自己祖辈的吹捧所打动。",
+      descEn: "Old money elite who values face and chivalry. Generous and protective (saves Wei), but highly susceptible to flattery, especially regarding his father's legacy."
+    },
+    {
+      id: 3,
+      titleZh: "暴发户：粗鄙财阀",
+      titleEn: "The Parvenu",
+      roleZh: "奚十一 (Xi the Eleventh)",
+      roleEn: "The Tyrannical Nouveau Riche",
+      descZh: "身怀巨款来京买官的广东富商。试图用粗暴的金钱开路，动辄砸碗掀桌。表面上被所有人谄媚（酒楼老板），背地里却被当作笑柄和“冤大头”宰割。",
+      descEn: "A wealthy southern merchant buying office in the capital. Uses money violently (smashing tables). Openly flattered by the restaurant owner, but secretly mocked and overcharged."
+    },
+    {
+      id: 4,
+      titleZh: "钻营者：八面帮闲",
+      titleEn: "The Social Climber",
+      roleZh: "魏聘才 (Wei Pincai)",
+      roleEn: "The Slick Sycophant",
+      descZh: "无权无势的南方食客。凭借极高的情商、敏锐的观察力和教科书般的奉承话术，在戏园中化险为夷，成功攀附上京城权贵，是晚清社会典型的“帮闲”人物。",
+      descEn: "A powerless southern guest. Uses high EQ, sharp observation, and textbook flattery to escape trouble and attach himself to elites. A classic late Qing 'hanger-on'."
+    }
+  ];
+
   // Dynamic selection based on chapterId
-  const radarData = chapterId === 2 ? radarData2 : radarData1;
-  const timelineData = chapterId === 2 ? timelineData2 : timelineData1;
-  const dimensions = chapterId === 2 ? dimensions2 : dimensions1;
+  const radarData = chapterId === 3 ? radarData3 : chapterId === 2 ? radarData2 : radarData1;
+  const timelineData = chapterId === 3 ? timelineData3 : chapterId === 2 ? timelineData2 : timelineData1;
+  const dimensions = chapterId === 3 ? dimensions3 : chapterId === 2 ? dimensions2 : dimensions1;
 
   const currentTaxonomyItems = activeTaxonomy === "lords" ? lordsFeelings : performersFeelings;
 
@@ -533,7 +785,11 @@ export function ChapterAppreciation({
         {/* Trajectory Chart */}
         <div className="border border-[var(--paper-border)]/40 bg-[var(--paper-bg)]/40 p-4 rounded-sm flex flex-col items-center">
           <h4 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] mb-4 text-center font-hans">
-            {chapterId === 2
+            {chapterId === 3
+              ? lang === "zh"
+                ? "魏聘才京城社交/运势起伏轨迹"
+                : "Wei Pincai's Social Fortune Trajectory"
+              : chapterId === 2
               ? lang === "zh"
                 ? "孙良功酒后失态/尊严崩塌轨迹"
                 : "Sun Lianggong's Decorum Collapse Trajectory"
@@ -567,7 +823,11 @@ export function ChapterAppreciation({
                         <div className="bg-[var(--paper-bg)] border border-[var(--paper-border)] p-2.5 rounded-sm shadow-md text-left max-w-[200px] text-[10px] sm:text-xs">
                           <p className="font-bold text-[var(--accent)]">{data.stage}</p>
                           <p className="text-[var(--ink-title)] font-bold mt-1">
-                            {chapterId === 2
+                            {chapterId === 3
+                              ? lang === "zh"
+                                ? `社交运势指数: ${data.sentiment}`
+                                : `Social Fortune: ${data.sentiment}`
+                              : chapterId === 2
                               ? lang === "zh"
                                 ? `体统/尊严指数: ${data.sentiment}`
                                 : `Decorum Index: ${data.sentiment}`
@@ -672,7 +932,7 @@ export function ChapterAppreciation({
       </div>
 
       {/* Interactive Feature - Grid for Ch.1, Flying Flower for Ch.2 */}
-      {chapterId === 1 ? (
+      {chapterId === 1 && (
         /* CHAPTER 1 INTERACTIVE: Taxonomy Grid */
         <div className="space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--paper-border)]/30 pb-2">
@@ -766,7 +1026,8 @@ export function ChapterAppreciation({
             )}
           </div>
         </div>
-      ) : (
+      )}
+      {chapterId === 2 && (
         /* CHAPTER 2 INTERACTIVE: Flying Flower Game Explorer */
         <div className="space-y-4">
           <div className="flex items-center gap-2 border-b border-[var(--paper-border)]/30 pb-2">
@@ -865,6 +1126,84 @@ export function ChapterAppreciation({
                 {lang === "zh"
                   ? "💡 请点击上方四个行酒令卡片之一，解锁深层飞花令与游戏细节解析"
                   : "💡 Click one of the four drinking cup cards above to unlock details"}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+      {chapterId === 3 && (
+        /* CHAPTER 3 INTERACTIVE: Patron Archetypes */
+        <div className="space-y-4">
+          <div className="flex items-center gap-2 border-b border-[var(--paper-border)]/30 pb-2">
+            <User className="text-[var(--accent)]" size={18} />
+            <h4 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] font-hans">
+              {lang === "zh" ? "京城戏园名利场·四大恩客图鉴" : "Capital Theater Vanity Fair: 4 Patron Archetypes"}
+            </h4>
+          </div>
+
+          <p className="text-[11px] sm:text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
+            {lang === "zh"
+              ? "* 点击以下图鉴卡片，洞察晚清欢场中不同阶层人物的社交面具与权力游戏"
+              : "* Click any archetype card below to explore the social masks and power plays of the capital's vanity fair"}
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {archetypes3.map((arc) => (
+              <button
+                key={arc.id}
+                type="button"
+                onClick={() => setSelectedArchetype(arc.id)}
+                className={`p-3 rounded-sm border transition-all text-left flex flex-col justify-between cursor-pointer ${
+                  selectedArchetype === arc.id
+                    ? "border-[var(--accent)] bg-[var(--accent)]/10 shadow-md scale-102"
+                    : "border-[var(--paper-border)] bg-[var(--paper-bg)]/40 hover:border-[var(--accent)]/55 hover:bg-[var(--accent)]/5"
+                }`}
+              >
+                <div className="flex items-start justify-between">
+                  <User
+                    size={16}
+                    className={selectedArchetype === arc.id ? "text-[var(--accent)]" : "text-[var(--ink-dim-text)]/60"}
+                  />
+                  <span className="text-[9px] font-bold text-[var(--ink-dim-text)] uppercase tracking-wider">
+                    {lang === "zh" ? "人物卡" : "CARD"} {arc.id}
+                  </span>
+                </div>
+                <h5 className="text-xs font-bold text-[var(--ink-title)] mt-3 font-hans">
+                  {lang === "zh" ? arc.titleZh : arc.titleEn}
+                </h5>
+              </button>
+            ))}
+          </div>
+
+          {/* Display selected archetype info */}
+          <div className="border border-dashed border-[var(--paper-border)] bg-[var(--paper-bg)]/30 p-4 rounded-sm min-h-[140px] flex flex-col justify-center">
+            {selectedArchetype !== null ? (
+              (() => {
+                const arc = archetypes3.find((a) => a.id === selectedArchetype);
+                if (!arc) return null;
+                return (
+                  <div className="w-full text-left space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--paper-border)]/20 pb-1.5">
+                      <h5 className="text-sm font-bold text-[var(--accent)] font-hans">
+                        {lang === "zh" ? arc.titleZh : arc.titleEn}
+                      </h5>
+                      <span className="text-[10px] bg-[var(--paper-border)]/30 px-2 py-0.5 rounded-sm text-[var(--ink-dim-text)] font-sans">
+                        {lang === "zh" ? `代表人物: ${arc.roleZh}` : `Key Figure: ${arc.roleEn}`}
+                      </span>
+                    </div>
+                    <div className="text-xs sm:text-sm space-y-2">
+                      <p className="text-[var(--ink-dim-text)] leading-relaxed font-sans">
+                        {lang === "zh" ? arc.descZh : arc.descEn}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })()
+            ) : (
+              <div className="text-center py-2 text-xs text-[var(--ink-dim-text)] italic">
+                {lang === "zh"
+                  ? "💡 请点击上方四大图鉴之一以浏览阶层剖析"
+                  : "💡 Click an archetype card above to explore the class analysis"}
               </div>
             )}
           </div>
