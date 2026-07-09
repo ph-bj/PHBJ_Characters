@@ -30,11 +30,11 @@ export function PermalinkButton({
       className="flex items-center gap-1.5 px-2 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0"
     >
       {copied ? <Check size={12} /> : <LinkIcon size={12} />}
-      <span>
-        {copied
-          ? lang === 'zh' ? '已复制' : 'Copied'
-          : lang === 'zh' ? '链接' : 'Link'}
-      </span>
+      {copied && (
+        <span>
+          {lang === 'zh' ? '已复制' : 'Copied'}
+        </span>
+      )}
     </button>
   );
 }
