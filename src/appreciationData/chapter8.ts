@@ -85,32 +85,7 @@ export const chapter8Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-      {
-        id: 1, titleZh: "附庸风雅的土老帽：李元茂", titleEn: "The Pretentious Bumpkin: Li Yuanmao",
-        roleZh: "怯老斗", roleEn: "Timid Novice Patron",
-        descZh: "元茂初入欢场，对戏园规矩一窍不通，被相公们几句好话就哄得神魂颠倒，花钱大手大脚却又在结账时斤斤计较，是典型的没见过世面却爱慕虚荣的“冤大头”。",
-        descEn: "New to the pleasure quarters, Yuanmao is ignorant of the rules, easily charmed by actors' flattery, and spends wildly only to haggle at the bill. A classic gullible novice obsessed with vanity."
-      },
-      {
-        id: 2, titleZh: "狡黠圆滑的帮闲：魏聘才", titleEn: "The Sly Hanger-On: Wei Pincai",
-        roleZh: "破落户帮闲", roleEn: "Impoverished Hanger-on",
-        descZh: "聘才深谙欢场门道，却苦于囊中羞涩。他利用元茂的无知，怂恿其偷钱请客，自己则借机在旁白吃白喝，甚至打肿脸充胖子强行赊账，展现了极强的生存智慧与厚颜无耻。",
-        descEn: "Pincai knows the pleasure quarters well but lacks money. He uses Yuanmao's ignorance, coaxing him to steal for a treat, while he freeloads and boldly signs credit slips, showing survival wit and shamelessness."
-      },
-      {
-        id: 3, titleZh: "冷眼旁观的世故者：张仲雨", titleEn: "The Worldly Bystander: Zhang Zhongyu",
-        roleZh: "冷场客", roleEn: "Aloof Acquaintance",
-        descZh: "张仲雨看似客气，实则对元茂和聘才充满鄙夷。他的冷淡敷衍，不仅是出于身份的傲慢，更是对这两个不懂规矩、不自量力的“土包子”的无声嘲弄。",
-        descEn: "Zhongyu seems polite but disdains Yuanmao and Pincai. His cold, perfunctory manner stems from class arrogance and acts as silent mockery of these ignorant, overreaching bumpkins."
-      },
-      {
-        id: 4, titleZh: "精明势利的掌柜", titleEn: "The Shrewd, Snobbish Manager",
-        roleZh: "势利眼", roleEn: "Snobbish Proprietor",
-        descZh: "饭馆掌柜见风使舵，对有背景的客人笑脸相迎，对赊账的聘才则言语中暗藏机锋，冷嘲热讽，生动刻画了商人重利轻义、嫌贫爱富的市侩嘴脸。",
-        descEn: "The manager bends with the wind, smiling at well-connected guests but using veiled sarcasm against Pincai who seeks credit, vividly depicting the profit-driven, snobbish face of a merchant."
-      }
-    ]
+    type: "spatialMapping",
+    spaces: [{ id: 1, locationZh: "子玉的病榻", locationEn: "Ziyu's Sickbed", atmosphereZh: "封闭、压抑、药香缭绕", atmosphereEn: "Enclosed, oppressive, lingering with medicine", significanceZh: "病房成为了子玉逃避现实社会责任、沉溺于精神相思的物理避难所。", significanceEn: "The sickroom becomes a physical refuge for Ziyu to escape social responsibilities and indulge in spiritual longing." }]
   }
 };

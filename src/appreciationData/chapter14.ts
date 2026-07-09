@@ -75,26 +75,7 @@ export const chapter14Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "drinkingCups",
-    cups: [
-      {
-        id: 1, titleZh: "起因：以『奚』字行令", titleEn: "Origin: The 'Xi' Game",
-        ruleZh: "因有人自称奚十一求见蕙芳被拒，高品提议在《四书》中找出带有“奚”字的句子，按顺序从第一个说到第十一个，错者罚酒。", ruleEn: "Inspired by a rejected visitor named Xi, Gao Pin proposes finding sentences in the Four Books containing 'Xi' in exact sequential order from 1 to 11. Errors incur fines.",
-        actionZh: "众人虽然觉得有些困难，但为了活跃气氛，纷纷答应挑战，展开了一场考验记忆力与反应的文学角逐。", actionEn: "Though challenging, the group accepts to liven the mood, kicking off a literary battle of memory and quick wits.",
-        critiqueZh: "这一酒令极大地考验了文人对经典的熟悉程度，将寻常的饮酒化作了风雅的才学比拼。", critiqueEn: "This game tests the scholars' absolute familiarity with the classics, transforming ordinary drinking into an elegant intellectual contest."
-      },
-      {
-        id: 2, titleZh: "过程：抢说与罚酒", titleEn: "Process: Snatching and Fines",
-        ruleZh: "必须按次序背诵，且不能多句连背，否则需加倍罚酒。", ruleEn: "Must recite in exact order without combining multiple quotes at once; otherwise, the penalty is doubled.",
-        actionZh: "史南湘急于求成，不仅顺序出错，还一口气背了两句，被高品无情重罚；高品自己也被众人抓到漏洞，连连罚酒。", actionEn: "Shi Nanxiang rushes, messes up the order, and recites two lines at once, getting heavily fined. Gao Pin himself is caught making errors and fined continuously.",
-        critiqueZh: "在这个环节中，规则成了互相调侃的工具，文人们的狂放与狡黠展露无遗，充满喜剧色彩。", critiqueEn: "The rules become tools for mutual teasing, perfectly revealing the scholars' wildness and cunning in a highly comedic way."
-      },
-      {
-        id: 3, titleZh: "结局：代酒见真情", titleEn: "Ending: Drinking for Others",
-        ruleZh: "遇到不胜酒力或被重罚的情况，相好之人可以出面代为饮酒。", ruleEn: "When someone cannot hold their liquor or faces a heavy fine, their companions can drink on their behalf.",
-        actionZh: "当春航、南湘被罚时，蕙芳、兰保纷纷挺身而出代酒，最后高品勉强收尾完成了第十一个“奚”字。", actionEn: "When Chunhang and Nanxiang are fined, Huifang and Lanbao step up to drink for them. Finally, Gao Pin manages to close the game with the 11th 'Xi'.",
-        critiqueZh: "代酒不仅是游戏规则的一部分，更是检验人物亲密关系的试金石，在欢笑中流露出深厚的情感羁绊。", critiqueEn: "Drinking for someone else is not just a rule, but a touchstone of intimacy, revealing deep emotional bonds amidst the laughter."
-      }
-    ]
+    type: "objectSymbolism",
+    objects: [{ id: 1, objectZh: "新皮袄与靴帽", objectEn: "New Fur Coat, Boots, and Cap", appearanceZh: "蕙芳亲自为春航换上的华贵冬装", appearanceEn: "Luxurious winter clothes Huifang personally put on Chunhang", meaningZh: "不仅是物质上的御寒，更是精神上为落魄文人重新披上尊严的铠甲，完成了优伶对士子的救赎。", meaningEn: "Not just physical warmth, but spiritually reclothing the destitute scholar in the armor of dignity, completing the actor's redemption of the scholar." }]
   }
 };

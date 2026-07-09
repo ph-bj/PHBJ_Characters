@@ -75,52 +75,7 @@ export const chapter20Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "drinkingCups",
-    cups: [
-      {
-        id: 1,
-        titleZh: "宋江怒杀阎婆惜",
-        titleEn: "Song Jiang Kills Yan Poxi",
-        ruleZh: "饮两杯，并坐者为阎婆惜，自饮一杯；首为张文远，饮一杯",
-        ruleEn: "Drink 2 cups; seatmate (Yan Poxi) drinks 1 cup; head seat (Zhang Wenyuan) drinks 1 cup.",
-        actionZh: "徐子云抽中，因其首座并无张文远，且免一杯；本人自饮两杯，左右素兰、宝珠（并坐者）各饮一杯。",
-        actionEn: "Drawn by Xu Ziyun. Since there is no Zhang Wenyuan, he drinks two cups; his seatmates Sulan and Baozhu each drink one.",
-        critiqueZh: "子云为主人，犹如宋江为尊；将素兰、宝珠戏比为阎婆惜，实则是风流调侃。",
-        critiqueEn: "Ziyun as host mirrors Song Jiang's status; playfully comparing Sulan and Baozhu to Yan Poxi is pure romantic banter."
-      },
-      {
-        id: 2,
-        titleZh: "鲁智深醉打山门",
-        titleEn: "Lu Zhishen Smashes the Gate",
-        ruleZh: "先饮一大杯，首二坐为金刚，每人豁三拳",
-        ruleEn: "Drink 1 large cup; top two seats (Guardians) each play 3 rounds of finger-guessing games.",
-        actionZh: "王兰保抽中，连饮两杯。首二坐的史南湘与子云、次贤豁拳，南湘输了两杯。",
-        actionEn: "Drawn by Wang Lanbao, who drinks two cups. Nanxiang plays games with Ziyun and Cixian, losing two cups.",
-        critiqueZh: "兰保本性粗犷豪放，此令恰合其“鲁智深”般的爽直性情。",
-        critiqueEn: "Lanbao's bold and rugged nature perfectly matches the direct, forceful spirit of Lu Zhishen."
-      },
-      {
-        id: 3,
-        titleZh: "金翠莲酒楼卖唱",
-        titleEn: "Jin Cuilian Sings at the Tavern",
-        ruleZh: "要弹琵琶，敬鲁达、李忠、史进各一杯",
-        ruleEn: "Play the pipa and toast 1 cup each to Lu Da, Li Zhong, and Shi Jin.",
-        actionZh: "漱芳抽中。无琵琶而代以清唱《长生殿》“小宴”一曲。兰保自认为鲁达饮一杯，南湘（史）饮一杯，子云（同音李）饮一杯。",
-        actionEn: "Drawn by Shufang. Sings a Kunqu aria instead of pipa. Lanbao (Lu), Nanxiang (Shi), and Ziyun (Li soundalike) each drink a cup.",
-        critiqueZh: "借名伶之口轻歌曼舞，将江湖草莽气化为温柔乡里的雅致清音。",
-        critiqueEn: "Transforms the rough outlaw theme into an elegant musical performance by the delicate actor."
-      },
-      {
-        id: 4,
-        titleZh: "燕青寻访李师师",
-        titleEn: "Yan Qing Visits Li Shishi",
-        ruleZh: "须要帮李师师铺床叠被，敬道君皇帝一杯，自饮一杯，再替道君皇帝把门",
-        ruleEn: "Make Li Shishi's bed, toast 1 cup to the Emperor, drink 1 cup, and guard the Emperor's door.",
-        actionZh: "田春航抽中。被众人打趣他应为李师师，让对面的蕙芳作燕青，强令蕙芳敬酒。",
-        actionEn: "Drawn by Tian Chunhang. The crowd teases that he should be Li Shishi, forcing opposite-seated Huifang (as Yan Qing) to toast him.",
-        critiqueZh: "此令极为香艳戏谑，打破了宾主尊卑，生动展现了当时文士与名伶之间百无禁忌的狎昵之风。",
-        critiqueEn: "Highly flirtatious and playful, breaking social hierarchy to show the intimate, uninhibited dynamic between scholars and actors."
-      }
-    ]
+    type: "rumorNetwork",
+    rumors: [{ id: 1, rumorZh: "巡城御史带兵查夜", rumorEn: "Ward officials inspecting the night", originZh: "蕙芳为脱身而精心编造的谎言与排练", originEn: "A carefully fabricated lie and rehearsal by Huifang to escape", effectZh: "利用了暴发户潘三胆小怕事的心理，成功解除了性侵危机，展示了弱者的生存智慧。", effectEn: "Exploited the cowardly psychology of the nouveau riche Pan, successfully diffusing a sexual assault crisis and showing the survival wisdom of the weak." }]
   }
 };

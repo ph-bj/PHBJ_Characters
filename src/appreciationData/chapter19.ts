@@ -170,63 +170,7 @@ export const chapter19Appreciation: ChapterAppreciationData = {
     },
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-      {
-        id: 1,
-        titleZh: "刚烈反抗者",
-        titleEn: "The Fierce Resister",
-        roleZh: "琪官 (Qiguan)",
-        roleEn: "Qiguan",
-        descZh:
-          "面对绝对的暴力与诱惑，宁愿双手受伤也绝不屈服，打破了优伶柔弱顺从的刻板印象，展现了底层的血性。",
-        descEn:
-          "Facing absolute violence and temptation, he prefers injured hands over submission, shattering the stereotype of the submissive actor and displaying the fiery courage of the oppressed.",
-      },
-      {
-        id: 2,
-        titleZh: "狡黠生存者",
-        titleEn: "The Cunning Survivor",
-        roleZh: "苏蕙芳 (Su Huifang)",
-        roleEn: "Su Huifang",
-        descZh:
-          "在不平等的权力关系中游刃有余，利用美貌与心机反向剥削高位者（潘三），在夹缝中寻求生存与利益的最大化。",
-        descEn:
-          "Navigating unequal power dynamics with ease, he uses beauty and cunning to reverse-exploit the powerful (Pan San), maximizing his survival and gains in the margins.",
-      },
-      {
-        id: 3,
-        titleZh: "粗暴掠夺者",
-        titleEn: "The Brutal Predator",
-        roleZh: "奚十一 (Xi Shiyi)",
-        roleEn: "Xi Shiyi",
-        descZh:
-          "依靠金钱与特权横行霸道，将他人完全物化。机关木桶是其权力异化的具象化标志。",
-        descEn:
-          "Relying on wealth and privilege to run rampant, completely commodifying others. The trick barrel is the physical manifestation of his alienated power.",
-      },
-      {
-        id: 4,
-        titleZh: "财大气粗的蠢物",
-        titleEn: "The Wealthy Fool",
-        roleZh: "潘三 (Pan San)",
-        roleEn: "Pan San",
-        descZh:
-          "自以为能用金钱买断一切，实则色令智昏，被蕙芳玩弄于股掌之间，显得滑稽而可悲。",
-        descEn:
-          "Believing money can buy everything, he is actually blinded by lust, comically and pathetically played for a fool by Huifang.",
-      },
-      {
-        id: 5,
-        titleZh: "圆滑钻营者",
-        titleEn: "The Slick Opportunist",
-        roleZh: "魏聘才 (Wei Pingcai)",
-        roleEn: "Wei Pingcai",
-        descZh:
-          "深谙人情世故与逢迎之道，凭借一技之长（昆曲）在权贵与戏班之间左右逢源。",
-        descEn:
-          "Well-versed in worldly wisdom and sycophancy, he uses his skills (Kunqu) to navigate seamlessly between the elites and the theater troupes.",
-      },
-    ],
-  },
+    type: "socialLadder",
+    ladder: [{ id: 1, characterZh: "魏聘才", characterEn: "Wei Pincai", initialStatusZh: "梅府的清客、穷酸教书匠", initialStatusEn: "Hanger-on at Mei's, poor tutor", finalStatusZh: "华府深受宠爱的红人", finalStatusEn: "Highly favored favorite in Hua's mansion", methodZh: "抛弃文人操守，以下贱的姿态迎合权贵的声色之好", methodEn: "Abandoning scholar integrity, pandering basely to the elite's sensual tastes" }]
+  }
 };

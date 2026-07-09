@@ -247,41 +247,7 @@ export const chapter18Appreciation: ChapterAppreciationData | null = {
     },
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-      {
-        id: 1,
-        titleZh: "一等人：高人隐士",
-        titleEn: "First-Class: High-Minded Recluses",
-        roleZh: "文化名流与傲骨闲人",
-        roleEn: "Cultural Elites & Proud Recluses",
-        descZh:
-          "学问数一数二，命运不佳未作显宦，以琴棋书画奔走于王侯之门，令大老官奉承。有真才实学与傲骨，代表人物如陈眉公、李笠翁。",
-        descEn:
-          "Learned men of unfortunate destiny who play the role of high-minded hermits. They use art and poetry to charm nobles and secure favor, possessing genuine talent and pride.",
-      },
-      {
-        id: 2,
-        titleZh: "二等人：八面帮闲",
-        titleEn: "Second-Class: Versatile Operators",
-        roleZh: "圆滑世故的清客",
-        roleEn: "Slick & Worldly Sycophants",
-        descZh:
-          "需具备“十样要诀”且加“不”字：一团和气不变，二等才情不露，三斤酒量不醉，四季衣服不当，五声音律不错，六品官衔不做，七言诗句不荒，八面张罗不断，九流通透不短，十分应酬不俗。",
-        descEn:
-          "Masters of the 'Ten Essentials', maintaining harmony without change, showing talent without flaunting, drinking without getting drunk, and flawlessly entertaining the rich with worldly elegance.",
-      },
-      {
-        id: 3,
-        titleZh: "三等人：钻营篾片",
-        titleEn: "Third-Class: Desperate Leeches",
-        roleZh: "毫无底线的附庸",
-        roleEn: "Bottomless Parasites",
-        descZh:
-          "需精通“七字诀”：童（考过童生）、半通、会足恭、巴结内东、奴才拜弟兄、拉门面靠祖宗、钻头觅缝打抽风。为了利益可以放弃一切尊严，在名利场中四处钻营。",
-        descEn:
-          "Desperate leeches who rely on deep bows, flattering hosts, calling servants 'brother', and drilling every hole for a quick buck, abandoning all dignity for profit.",
-      },
-    ],
-  },
+    type: "powerDynamics",
+    dynamics: [{ id: 1, dominatorZh: "班主长清", dominatorEn: "Troupe Master Changqing", submissiveZh: "病中的杜琴言", submissiveEn: "The Sick Du Qinyan", powerBaseZh: "法律意义上的契约所有权", powerBaseEn: "Legal indenture ownership", shiftZh: "班主的权力因琴言的生病而暂时失效，暴露出这种依附关系的脆弱：一旦‘商品’受损，剥削便无法继续。", shiftEn: "The master's power is temporarily voided by Qinyan's illness, exposing the fragility of the dependency: once the 'commodity' is damaged, exploitation stalls." }]
+  }
 };

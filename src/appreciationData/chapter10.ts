@@ -79,5 +79,8 @@ export const chapter10Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: { type: "none" }
+  visualizer: {
+    type: "wealthFlow",
+    flows: [{ id: 1, sourceZh: "杜琴言的尊严与健康", sourceEn: "Du Qinyan's Dignity and Health", targetZh: "班主长清的钱袋", targetEn: "Troupe Master Changqing's Purse", amountZh: "强迫接客带来的缠头之资", amountEn: "Tips from forced client entertainment", impactZh: "赤裸裸的人身压榨，展示了优伶在失去赎身银两前的悲惨奴隶境地。", impactEn: "Naked personal exploitation, showing the miserable slave-like status of actors before securing redemption money." }]
+  }
 };

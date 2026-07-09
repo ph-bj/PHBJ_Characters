@@ -137,30 +137,7 @@ export const chapter13Appreciation: ChapterAppreciationData | null = {
     },
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-      {
-        id: 1,
-        titleZh: "清雅绝俗",
-        titleEn: "Ethereal Elegance",
-        roleZh: "精神知己 (The Spiritual Confidant)",
-        roleEn: "Spiritual Confidant",
-        descZh:
-          "代表人物：苏蕙芳、田春航。他们重情轻利，以诗词相交，视彼此为超越肉欲的“宝友”。象征着晚清文人对纯粹美与真情的乌托邦式追求。",
-        descEn:
-          "Represented by Su Huifang and Tian Chunhang. They value emotion over profit, connecting through poetry and viewing each other as 'treasure friends' beyond physical lust. Symbolizing the late Qing literati's utopian pursuit of pure beauty and true feeling.",
-      },
-      {
-        id: 2,
-        titleZh: "铜臭肉欲",
-        titleEn: "Carnal Vulgarity",
-        roleZh: "市侩色鬼 (The Philistine Lecher)",
-        roleEn: "Philistine Lecher",
-        descZh:
-          "代表人物：潘其观。他仗着财大气粗，企图用金钱购买感情，行为粗鄙猥琐，最终在排泄与呕吐中尽显小丑本色，是作者无情鞭挞的对象。",
-        descEn:
-          "Represented by Pan Qiguan. Relying on his wealth, he attempts to buy affection with money. His behavior is vulgar and lecherous, ultimately revealing his true clownish nature amidst excrement and vomit—the primary target of the author's relentless mockery.",
-      },
-    ],
-  },
+    type: "wealthFlow",
+    flows: [{ id: 1, sourceZh: "王恂 / 严仲清", sourceEn: "Wang Xun / Yan Zhongqing", targetZh: "田春航 (经由高聘)", targetEn: "Tian Chunhang (via Gao Pin)", amountZh: "一百两救济银", amountEn: "100 taels of relief silver", impactZh: "杯水车薪，虽能暂缓饿死之虞，却无法挽回春航在名利场的彻底颜面扫地。", impactEn: "A drop in the bucket; saves him from starvation but cannot restore his utterly ruined face in Vanity Fair." }]
+  }
 };

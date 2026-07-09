@@ -72,18 +72,7 @@ export const chapter4Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-      {
-        id: 1, titleZh: "纯情理想家", titleEn: "The Pure Idealist", roleZh: "梅子玉 (Mei Ziyu)", roleEn: "The Romantic",
-        descZh: "书斋中的贵公子。未受世俗污染，将情感寄托于诗词与美的想象中，凭借才华与诗意去认定位知音，是“情痴”的典型代表。",
-        descEn: "The noble young master in his study. Unpolluted by the world, he projects emotions onto poetry and beauty, identifying soulmates through talent. A classic 'love-fool'."
-      },
-      {
-        id: 2, titleZh: "清狂绝俗者", titleEn: "The Transcendent", roleZh: "徐湘帆 (Xu Xiangfan)", roleEn: "The Nonconformist",
-        descZh: "酒楼惊艳出场的神秘少年。气度非凡，见解独到，敢于打破世俗对“雅俗”与“正淫”的成见，胸中积蓄着怀才不遇的幽愤与孤高。",
-        descEn: "The mysterious youth who dazzles at the restaurant. Extraordinary bearing, unique views, daring to break worldly prejudices on 'elegant vs. vulgar'. Filled with the proud resentment of unrecognized talent."
-      }
-    ]
+    type: "objectSymbolism",
+    objects: [{ id: 1, objectZh: "梅花纹饰", objectEn: "Plum Blossom Motifs", appearanceZh: "琴言居所及衣物上的梅花图案", appearanceEn: "Plum blossom patterns on Qinyan's residence and clothes", meaningZh: "梅（Mei）暗合子玉的姓氏，象征着两人之间超越世俗、高洁且隐秘的灵魂契合。", meaningEn: "Plum (Mei) matches Ziyu's surname, symbolizing a pure, secret soul connection transcending the secular world." }]
   }
 };

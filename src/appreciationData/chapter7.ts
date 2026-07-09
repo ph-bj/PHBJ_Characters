@@ -85,26 +85,7 @@ export const chapter7Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "drinkingCups",
-    cups: [
-      {
-        id: 1, titleZh: "第一轮：凑字成诗", titleEn: "Round 1: Character Matching",
-        ruleZh: "出题人说出一字，众人依次对字，连成一句通顺的诗句，不连贯者罚酒。", ruleEn: "The host offers a character; each person matches one to form a coherent line. Incoherent lines are fined.",
-        actionZh: "高品故意胡乱对字，如对出“八鸡露后靠舟前”，因毫无逻辑而被罚酒。", actionEn: "Gao Pin deliberately provides absurd matches like 'eight chickens behind dew leaning front boat', and gets fined.",
-        critiqueZh: "高品以退为进，通过故意犯规来活跃气氛，展现了他玩世不恭的幽默感。", critiqueEn: "Gao Pin plays the fool to liven the mood, showcasing his cynical and irreverent sense of humor."
-      },
-      {
-        id: 2, titleZh: "第二轮：拔毛入笠", titleEn: "Round 2: The Giant Nation Allusion",
-        ruleZh: "用古典文学中的典故来应对诗句。", ruleEn: "Use allusions from classical literature to match the lines.",
-        actionZh: "高品巧用《孟子》中“杨朱一毛不拔”与“追豚入笠”的典故，拼凑出“朱毛入笠天天长”的奇句。", actionEn: "Gao Pin cleverly splices Mencius's 'Yang Zhu refuses to pull a hair' with 'chasing a pig into a hat' to create a bizarre pun.",
-        critiqueZh: "将高雅的经史典故进行滑稽的解构与重组，是文人雅集独有的高级幽默。", critiqueEn: "The comical deconstruction and reassembly of elegant historical texts is a high-level humor unique to literati gatherings."
-      },
-      {
-        id: 3, titleZh: "第三轮：拆字反讽", titleEn: "Round 3: Character Decomposition",
-        ruleZh: "出题人念出一串毫无关联的字，实则是运用拆字法隐去原句的部分笔画。", ruleEn: "The host recites seemingly unrelated characters, which actually form a line through character decomposition.",
-        actionZh: "高品出题，众人竭力拼凑，结果对出的诗句竟然全部变成了指名道姓辱骂高品和互相嘲讽的话。", actionEn: "Everyone tries to match Gao Pin's prompt, but their answers inadvertently form lines that explicitly mock Gao Pin by name.",
-        critiqueZh: "这一场“反杀”堪称戏剧性的高潮，大家在不知不觉中完成了对出题人的群嘲，令人拍案叫绝。", critiqueEn: "This unexpected 'counter-kill' is the dramatic climax, as the group unconsciously roasts the game master, leading to pure hilarity."
-      }
-    ]
+    type: "powerDynamics",
+    dynamics: [{ id: 1, dominatorZh: "庸俗权贵", dominatorEn: "Vulgar Elite Patron", submissiveZh: "优伶群体与清高文人", submissiveEn: "Actors and Aloof Scholars", powerBaseZh: "官僚特权与强横的财力", powerBaseEn: "Bureaucratic privilege and tyrannical wealth", shiftZh: "粗暴地打破了平等的雅集氛围，将艺术欣赏降级为赤裸裸的权力支配与感官消费。", shiftEn: "Brutally shatters the equal, elegant atmosphere, downgrading art appreciation to naked power domination and sensory consumption." }]
   }
 };

@@ -85,32 +85,7 @@ export const chapter3Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-      {
-        id: 1, titleZh: "讹诈者：市井流氓", titleEn: "The Extortionist",
-        roleZh: "卖玉老叟 (Jade Seller)", roleEn: "The opportunistic local scammer",
-        descZh: "代表了京城底层的市井陷阱与“欺生”潜规则。利用戏园的拥挤和新客的脸皮薄进行强买强卖，最终被更高阶级的权力（傅三爷）所镇压。",
-        descEn: "Represents urban traps and the bullying of newcomers. He uses the crowded theater and the victim's social awkwardness to extort, only to be crushed by a higher power (Fu Lun)."
-      },
-      {
-        id: 2, titleZh: "庇护者：世家子弟", titleEn: "The Patron",
-        roleZh: "傅三爷 (Third Master Fu)", roleEn: "The Old Money Gentry",
-        descZh: "老派权贵子弟，极重面子与江湖道义。性格慷慨直爽，保护弱小（帮魏解围），但耳根子软，极易被他人的阿谀奉承和对自己祖辈的吹捧所打动。",
-        descEn: "Old money elite who values face and chivalry. Generous and protective (saves Wei), but highly susceptible to flattery, especially regarding his father's legacy."
-      },
-      {
-        id: 3, titleZh: "暴发户：粗鄙财阀", titleEn: "The Parvenu",
-        roleZh: "奚十一 (Xi the Eleventh)", roleEn: "The Tyrannical Nouveau Riche",
-        descZh: "身怀巨款来京买官的广东富商。试图用粗暴的金钱开路，动辄砸碗掀桌。表面上被所有人谄媚（酒楼老板），背地里却被当作笑柄和“冤大头”宰割。",
-        descEn: "A wealthy southern merchant buying office in the capital. Uses money violently (smashing tables). Openly flattered by the restaurant owner, but secretly mocked and overcharged."
-      },
-      {
-        id: 4, titleZh: "钻营者：八面帮闲", titleEn: "The Social Climber",
-        roleZh: "魏聘才 (Wei Pincai)", roleEn: "The Slick Sycophant",
-        descZh: "无权无势的南方食客。凭借极高的情商、敏锐的观察力和教科书般的奉承话术，在戏园中化险为夷，成功攀附上京城权贵，是晚清社会典型的“帮闲”人物。",
-        descEn: "A powerless southern guest. Uses high EQ, sharp observation, and textbook flattery to escape trouble and attach himself to elites. A classic late Qing 'hanger-on'."
-      }
-    ]
+    type: "emotionalDichotomy",
+    dichotomies: [{ id: 1, characterZh: "梅子玉", characterEn: "Mei Ziyu", surfaceEmotionZh: "恪守礼节的克制", surfaceEmotionEn: "Restraint abiding by etiquette", hiddenEmotionZh: "对绝世之美的极度震撼与灵魂共鸣", hiddenEmotionEn: "Extreme shock and soul resonance towards peerless beauty", triggerZh: "在花园中近距离端详琴言的容貌与气质", triggerEn: "Observing Qinyan's appearance and temperament up close in the garden" }]
   }
 };

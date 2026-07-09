@@ -104,44 +104,7 @@ export const chapter9Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-      {
-        id: 1,
-        titleZh: "情痴与理想家",
-        titleEn: "The Romantic Idealist",
-        roleZh: "梅子玉",
-        roleEn: "Mei Ziyu",
-        descZh: "在喧闹的世俗中保持清高，对未曾谋面的知音抱有纯粹而执着的精神向往。",
-        descEn: "Maintains aloofness in the noisy secular world, holding a pure and persistent spiritual yearning for an unseen soulmate."
-      },
-      {
-        id: 2,
-        titleZh: "狂放的酒徒名士",
-        titleEn: "The Uninhibited Drunken Scholar",
-        roleZh: "史南湘",
-        roleEn: "Shi Nanxiang",
-        descZh: "以酒盖脸，狂傲不羁，代表了旧时代文人蔑视礼法、追求个性释放的典型形象。",
-        descEn: "Wild and uninhibited, using wine as his guise. Represents the classic scholar who despises rigid norms and seeks self-liberation."
-      },
-      {
-        id: 3,
-        titleZh: "清雅的东道主",
-        titleEn: "The Elegant Host",
-        roleZh: "萧次贤",
-        roleEn: "Xiao Cixian",
-        descZh: "从容大度，巧设灯虎，以瑶琴赠知音，是文人雅集中的组织者与品味的定调者。",
-        descEn: "Composed and magnanimous, setting up riddles and gifting a lute to a true friend; the orchestrator and tastemaker of literary gatherings."
-      },
-      {
-        id: 4,
-        titleZh: "玲珑的戏伶",
-        titleEn: "The Exquisite Performer",
-        roleZh: "袁宝珠",
-        roleEn: "Yuan Baozhu",
-        descZh: "慧心妙质，不仅能书善画，更能敏锐察觉子玉的琴思，是连接才子与名伶群体的桥梁。",
-        descEn: "Intelligent and beautiful, skilled in art, and keenly aware of Ziyu's unspoken thoughts. A bridge between scholars and elite performers."
-      }
-    ]
+    type: "socialLadder",
+    ladder: [{ id: 1, characterZh: "素兰", characterEn: "Sulan", initialStatusZh: "普通的优伶同行", initialStatusEn: "Ordinary fellow actor", finalStatusZh: "不可或缺的情感枢纽", finalStatusEn: "Indispensable emotional hub", methodZh: "凭借极高的情商与真诚，穿梭于不同阶层与被隔离的空间", methodEn: "Using high emotional intelligence and sincerity to navigate between classes and isolated spaces" }]
   }
 };

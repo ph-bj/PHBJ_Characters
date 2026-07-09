@@ -95,26 +95,7 @@ export const chapter12Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-      {
-        id: 1,
-        titleZh: "唯美浪漫主义者",
-        titleEn: "Aesthetic Romanticist",
-        roleZh: "田春航",
-        roleEn: "Tian Chunhang",
-        descZh: "视金钱如粪土，将对“美”的追求上升到哲学高度（“性即理，理即天”），追求绝对的“诚”与“真”。他的行为在世人眼中是荒唐的，但他自身却处于一种狂热的信仰之中。他不重肉欲，只重精神共鸣与审美享受。",
-        descEn: "Despises money and elevates the pursuit of 'beauty' to a philosophical height, seeking absolute 'sincerity' and 'truth'. His behavior seems absurd to the world, yet he acts with fervent devotion. He values spiritual resonance and aesthetic enjoyment over physical lust."
-      },
-      {
-        id: 2,
-        titleZh: "世俗理性主义者",
-        titleEn: "Secular Rationalist",
-        roleZh: "高品",
-        roleEn: "Gao Pin",
-        descZh: "深谙世事，懂得在体制与风月场中游刃有余。他劝春航要看清现实（“鹑衣小丐，恐忽饿于花街”），代表了当时社会的主流价值观：享受生活但不可倾其所有。他是春航的对立面，但也包容、欣赏春航的才华。",
-        descEn: "World-wise and adept at navigating both bureaucracy and pleasure districts. He urges Chunhang to face reality, representing mainstream values: enjoy life but don't lose everything. He serves as Chunhang's foil but also tolerates and appreciates his talent."
-      }
-    ]
+    type: "poetryCritique",
+    critiques: [{ id: 1, titleZh: "群鸦乱噪风中戏", titleEn: "The Flock of Crows Cawing in the Wind", contentZh: "不拘平仄不拘韵，\n信口开河皆是真。\n笑煞书房穷腐客，\n不如闺阁女儿心。", contentEn: "Unbound by meter, unbound by rhyme,\nSpeaking freely, all is true.\nLaughing to death the pedantic scholars in the study,\nNot matching the hearts of the inner chamber girls.", critiqueZh: "丫鬟们的诗作虽然粗糙，却充满了生机与活力，是对正统文人僵化诗词体系的一次戏谑与解构。", critiqueEn: "Though crude, the maids' poetry is full of vitality, acting as a playful deconstruction of the rigid poetic system of orthodox scholars." }]
   }
 };

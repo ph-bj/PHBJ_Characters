@@ -83,44 +83,7 @@ export const chapter16Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-      {
-        id: 1,
-        titleZh: "阎简安：老派劣幕",
-        titleEn: "Yan Jian'an: The Old-School Cynic",
-        roleZh: "倚老卖老的半生半熟老篾片",
-        roleEn: "Arrogant, semi-familiar old hanger-on",
-        descZh: "倚仗与华公的旧交在府中白吃白喝，为人势利、冷漠、心窄嘴臭，看不起新人魏聘才。代表了封建官僚体系中腐朽的寄生阶层。",
-        descEn: "Relies on past ties with Lord Hua to freeload. Snobbish, cold, narrow-minded, and looks down on newcomer Wei Pincai. Represents the corrupt parasitic class in the feudal bureaucracy."
-      },
-      {
-        id: 2,
-        titleZh: "杨梅窗：市井混混",
-        titleEn: "Yang Meichuang: The Street Hustler",
-        roleZh: "打着看风水幌子的土篾片",
-        roleEn: "Rustic hanger-on masquerading as a Fengshui master",
-        descZh: "怯头怯脑却极度贪财，毫无堪舆真才实学，全靠胡吹乱讲、与地主工头勾结骗取钱财。代表了利用迷信诈骗的底层无赖。",
-        descEn: "Timid yet extremely greedy; lacks real geomancy skills, relying entirely on bluffing and colluding with foremen to swindle money. Represents bottom-tier rascals exploiting superstition."
-      },
-      {
-        id: 3,
-        titleZh: "张笑梅 & 顾月卿：清客雅士",
-        titleEn: "Zhang Xiaomei & Gu Yueqing: The Refined Aides",
-        roleZh: "供奉笔墨丹青的文艺帮闲",
-        roleEn: "Literary and artistic companions",
-        descZh: "年轻俊秀，以绘画、弹唱技艺侍奉公子。态度较为温和，是贵族阶级用于附庸风雅的工具人。",
-        descEn: "Young and handsome, serving the young master with painting and music. Milder in temperament, they act as tools for aristocratic cultural posturing."
-      },
-      {
-        id: 4,
-        titleZh: "魏聘才：新晋钻营者",
-        titleEn: "Wei Pincai: The New Opportunist",
-        roleZh: "圆滑逢迎的趋附小人",
-        roleEn: "Slick and sycophantic opportunist",
-        descZh: "不甘寂寞，极力寻找靠山。凭借圆滑的交际手腕和富三的推荐成功打入华府，是名利场中的新鲜血液，充满野心。",
-        descEn: "Eager to find a patron. Successfully infiltrates the Hua Mansion through smooth social skills and Fu's recommendation, bringing fresh, ambitious blood to the vanity fair."
-      }
-    ]
+    type: "spatialMapping",
+    spaces: [{ id: 1, locationZh: "梅府书斋", locationEn: "The Mei Mansion Study", atmosphereZh: "清雅、隔绝、充满书卷气", atmosphereEn: "Elegant, isolated, filled with scholarly aura", significanceZh: "这是传统文人乌托邦的缩影，不仅保护了子玉的纯真，也暗示了其在严酷现实面前的脆弱性。", significanceEn: "A microcosm of the traditional scholar's utopia; it protects Ziyu's innocence but also hints at his fragility in the face of harsh reality." }]
   }
 };

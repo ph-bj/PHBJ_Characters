@@ -86,33 +86,6 @@ export const chapter2Appreciation: ChapterAppreciationData = {
   ],
   visualizer: {
     type: "drinkingCups",
-    cups: [
-      {
-        id: 1, titleZh: "第一杯：猜拳斗酒", titleEn: "Cup 1: Finger Guessing",
-        ruleZh: "一化为三，对手指拳", ruleEn: "One cup becomes three; guessing fingers with a partner",
-        actionZh: "杨芳有与孙良功划拳对决，孙良功连输三局", actionEn: "Yang Fangyou vs. Sun Lianggong; Sun loses 3 rounds in a row",
-        critiqueZh: "宴席的开局对决，奠定了酒会热闹世俗的欢快基调，同时将孙良功拉入连败的漩涡中。", critiqueEn: "The opening duel sets up a noisy, playful tension, pulling Sun Lianggong into a losing streak."
-      },
-      {
-        id: 2, titleZh: "第二、三杯：戏装进酒", titleEn: "Cup 2 & 3: Performer Impersonation",
-        ruleZh: "装旦进酒，模仿名伶Tan Ba神态", ruleEn: "Mimic a female performer's posture and toast in drag style",
-        actionZh: "孙良功以手掩须，扭捏作态，向杨芳有和陆宗元进大杯", actionEn: "Sun Lianggong hides his beard, curtsies, and toasts with large cups",
-        critiqueZh: "士大夫高官主动解构自身政治形象，模仿卑微女伶，讽刺了清代官员伪善面具下的庸俗狂欢。", critiqueEn: "Gentry officials voluntarily deconstruct their political image, revealing the absurdity beneath decorum."
-      },
-      {
-        id: 4, titleZh: "第四杯：数籽定罚", titleEn: "Cup 4: Seed Counting Gamble",
-        ruleZh: "手抓瓜子，奇偶数子，数到谁谁喝", ruleEn: "Grab a handful of melon seeds; count determines the target",
-        actionZh: "孙良功手抓瓜子数出二十五粒，再度落到自身受罚", actionEn: "Sun Lianggong grabs and counts 25 seeds, landing on himself again",
-        critiqueZh: "概率博弈的游戏，展现了席间纯粹的偶然娱乐，也印证了孙良功今晚“衰运缠身”的戏剧定位。", critiqueEn: "A pure game of chance that highlights Sun's comedic misfortune throughout the night."
-      },
-      {
-        id: 5, titleZh: "第五、六杯：飞花令词", titleEn: "Cup 5 & 6: Flying Flower Poetry",
-        ruleZh: "二化为六，诗词中须含“花”字，按数字行罚", ruleEn: "Two cups become six; quote poetry containing 'flower', count determines target",
-        actionZh: "良功、文hui等对诗，良功被王桂保巧计连灌数杯", actionEn: "Lianggong, Wenhui, and others trade quotes; Guibao traps Lianggong",
-        poetryZh: "“何人更问后庭花” / “桃花细逐杨花落” / “无可奈何花落去”", poetryEn: "'Who asks of rear courtyard flowers?' / 'Peach blossoms follow willow flowers' / 'Flowers fall helplessly'",
-        critiqueZh: "高雅的诗词成为席间斗智、灌酒的工具，甚至被优伶作为调戏官僚的武器，雅俗在此时达成一体。", critiqueEn: "Elegant classical poetry is used as a tactical tool to tease and force drinks on the bureaucracy."
-      }
-    ]
+    cups: [{ id: 1, titleZh: "飞花令词", titleEn: "Flying Flower Poetry", ruleZh: "诗词中须含特定字眼", ruleEn: "Quote poetry containing a specific word", actionZh: "官员与优伶对诗，官员反被巧妙灌酒", actionEn: "Officials and actors trade quotes; officials are cleverly forced to drink", poetryZh: "“无可奈何花落去”", poetryEn: "'Flowers fall helplessly'", critiqueZh: "高雅的诗词成为席间斗智的工具，雅俗在此时达成一体，讽刺了官员的伪善。", critiqueEn: "Elegant poetry becomes a tactical tool, merging high and low culture and satirizing the officials' hypocrisy." }]
   }
 };
-
