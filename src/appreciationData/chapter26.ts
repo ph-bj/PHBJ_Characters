@@ -74,12 +74,20 @@ export const chapter26Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "taxonomy",
-    lordsFeelings: [
-        { char: "迷", pinyin: "mí", nameZh: "沉迷", nameEn: "Infatuation", descZh: "华公子对极致审美与奢华生活的病态沉迷。", descEn: "Young Master Hua's morbid infatuation with extreme aesthetics and luxury." }
-      ],
-      performersFeelings: [
-        { char: "屈", pinyin: "qū", nameZh: "屈从", nameEn: "Submission", descZh: "侍女们失去个性，被物化为观赏品的无奈。", descEn: "The maids lose their individuality, helpless in being objectified for display." }
+    type: "objectSymbolism",
+    objects: [
+        {
+          id: 1,
+          objectZh: "十名统一着装的侍女", objectEn: "Ten Identically Dressed Maids",
+          appearanceZh: "皆穿白纺绸大衫，梳麻姑髻，簪茉莉花", appearanceEn: "All wearing white silk gowns, Magu chignons, pinned with jasmine",
+          meaningZh: "极致的审美追求掩盖了对女性的物化。她们不再是独立的个体，而是华公子权力与审美的标准化展示品。", meaningEn: "Extreme aesthetic pursuit masking the objectification of women. They are no longer individuals, but standardized displays of Hua's power."
+        },
+        {
+          id: 2,
+          objectZh: "星楼的灯光与香气", objectEn: "Lamplight and Perfume in the Star-Lattice",
+          appearanceZh: "柔和暧昧，香气袭人", appearanceEn: "Soft, ambiguous, with overwhelming fragrance",
+          meaningZh: "象征着华府内部那种令人窒息的颓靡与温柔乡的沉沦，与外界的现实完全隔离。", meaningEn: "Symbolizes the suffocating decadence and indulgence within the Hua mansion, completely isolated from outside reality."
+        }
       ]
   }
 };

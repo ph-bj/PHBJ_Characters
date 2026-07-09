@@ -74,9 +74,15 @@ export const chapter25Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-        { id: 1, titleZh: "纨绔公子", titleEn: "The Aristocratic Playboy", roleZh: "华公子", roleEn: "Young Master Hua", descZh: "排场极大，享受着众星捧月般的待遇。", descEn: "Displays extreme extravagance, enjoying being the center of attention." }
+    type: "powerDynamics",
+    dynamics: [
+        {
+          id: 1,
+          dominatorZh: "华公子", dominatorEn: "Young Master Hua",
+          submissiveZh: "名士与优伶群体", submissiveEn: "Scholars and Actors",
+          powerBaseZh: "无与伦比的财富与显赫的家世背景", powerBaseEn: "Unrivaled wealth and prominent family background",
+          shiftZh: "他的到来让怡园的焦点瞬间转移，所有人的活动（如排新戏）都围绕取悦他而展开，确立了绝对的中心地位。", shiftEn: "His arrival shifts the garden's focus instantly; all activities revolve around pleasing him, establishing his absolute centrality."
+        }
       ]
   }
 };

@@ -74,10 +74,22 @@ export const chapter29Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-        { id: 1, titleZh: "慈悲长者", titleEn: "The Compassionate Elder", roleZh: "颜夫人", roleEn: "Lady Yan", descZh: "超越了阶级偏见，对琴言展现出罕见的温情与包容。", descEn: "Transcends class prejudice, showing rare warmth and tolerance towards Qinyan." },
-        { id: 2, titleZh: "知己", titleEn: "The Soulmate", roleZh: "杜琴言", roleEn: "Du Qinyan", descZh: "满怀感激与同情，成为治愈子玉心病的良药。", descEn: "Filled with gratitude and sympathy, becoming the cure for Ziyu's heart disease." }
+    type: "emotionalDichotomy",
+    dichotomies: [
+        {
+          id: 1,
+          characterZh: "杜琴言", characterEn: "Du Qinyan",
+          surfaceEmotionZh: "极度的恐惧与视死如归的平静", surfaceEmotionEn: "Extreme fear masked by fatalistic calmness",
+          hiddenEmotionZh: "被颜夫人慈悲相待后涌起的巨大震惊与感激", hiddenEmotionEn: "Immense shock and gratitude surging after Lady Yan's compassionate treatment",
+          triggerZh: "踏入梅府大门，面对原本以为会严惩自己的主母", triggerEn: "Entering the Mei mansion, facing the matriarch he assumed would punish him"
+        },
+        {
+          id: 2,
+          characterZh: "颜夫人", characterEn: "Lady Yan",
+          surfaceEmotionZh: "温和、平静的指令", surfaceEmotionEn: "Mild, calm instructions",
+          hiddenEmotionZh: "作为母亲对儿子病危的深切焦虑，以及对优伶跨越阶级的罕见同情", hiddenEmotionEn: "A mother's deep anxiety for her dying son, and rare cross-class sympathy for the actor",
+          triggerZh: "看到琴言的真诚与自己儿子的执念", triggerEn: "Seeing Qinyan's sincerity and her own son's obsession"
+        }
       ]
   }
 };

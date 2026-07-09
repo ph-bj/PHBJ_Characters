@@ -74,12 +74,16 @@ export const chapter28Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "taxonomy",
-    lordsFeelings: [
-        { char: "狂", pinyin: "kuáng", nameZh: "猖狂", nameEn: "Arrogance", descZh: "魏聘才看到长清屈服后极度膨胀的狂妄心态。", descEn: "Wei Pincai's highly inflated arrogant mindset upon seeing Changqing submit." }
-      ],
-      performersFeelings: [
-        { char: "辱", pinyin: "rǔ", nameZh: "屈辱", nameEn: "Humiliation", descZh: "长清被迫负荆请罪，放弃尊严的极致屈辱。", descEn: "Changqing is forced to bear thorns and beg pardon, the ultimate humiliation of surrendering dignity." }
+    type: "poetryCritique",
+    critiques: [
+
+        {
+          id: 1,
+          titleZh: "负荆请罪的荒诞诗意", titleEn: "The Absurd Poetics of Begging Pardon",
+          contentZh: `长清背负荆条，\n步入权贵的书房。\n不索一文，只求苟全。\n小人的嘴角，\n挂着最得意的笑。`, contentEn: `Changqing bears thorns on his back,\nEntering the study of power.\nAsking not a single coin, only to survive.\nThe petty man's lips,\nCurl in the most triumphant smile.`,
+          critiqueZh: "这一幕犹如一出荒诞的戏剧，传统的‘负荆请罪’被剥夺了道德内涵，沦为纯粹的权力碾压与平民的极致屈辱。聘才的‘拒收赎金’并非宽宏，而是为了彻底摧毁对方的尊严底线。", critiqueEn: "This scene is like an absurd play. The traditional 'bearing thorns' is stripped of moral meaning, reduced to pure power crushing and ultimate civilian humiliation. Pincai's 'refusal of ransom' is not generosity, but a move to utterly destroy their dignity."
+        }
+
       ]
   }
 };

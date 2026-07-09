@@ -74,9 +74,15 @@ export const chapter27Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-        { id: 1, titleZh: "狐假虎威", titleEn: "The Jackal", roleZh: "魏聘才", roleEn: "Wei Pincai", descZh: "借华公子之势，对弱者进行残酷的敲诈勒索。", descEn: "Uses Young Master Hua's power to cruelly extort the weak." }
+    type: "socialLadder",
+    ladder: [
+        {
+          id: 1,
+          characterZh: "魏聘才", characterEn: "Wei Pincai",
+          initialStatusZh: "梅府边缘清客", initialStatusEn: "Marginalized hanger-on at Mei's",
+          finalStatusZh: "华府狐假虎威的权客", finalStatusEn: "Power-broker acting as Hua's jackal",
+          methodZh: "谄媚华公子，利用其权势向下层施压", methodEn: "Flattering Hua and using his power to oppress the lower classes"
+        }
       ]
   }
 };

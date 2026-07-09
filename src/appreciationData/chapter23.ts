@@ -74,9 +74,22 @@ export const chapter23Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-        { id: 1, titleZh: "落魄文人", titleEn: "The Destitute Scholar", roleZh: "李元茂", roleEn: "Li Yuanmao", descZh: "为了生计四处奔波，甚至为几串钱斤斤计较。", descEn: "Struggling for livelihood, even haggling over a few strings of cash." }
+    type: "wealthFlow",
+    flows: [
+        {
+          id: 1,
+          sourceZh: "梅子玉", sourceEn: "Mei Ziyu",
+          targetZh: "李元茂", targetEn: "Li Yuanmao",
+          amountZh: "八串大钱", amountEn: "Eight strings of large cash",
+          impactZh: "解了元茂燃眉之急，让其感受到了瞬间的狂喜。", impactEn: "Relieved Yuanmao's desperate need, bringing him momentary ecstasy."
+        },
+        {
+          id: 2,
+          sourceZh: "李元茂 (通过钱铺)", sourceEn: "Li Yuanmao (via Money Shop)",
+          targetZh: "银票 (纸面财富)", targetEn: "Silver Notes (Paper Wealth)",
+          amountZh: "五串钱兑换十张票", amountEn: "5 strings exchanged for 10 notes",
+          impactZh: "本为携带方便，却因其脆弱性（易丢、易损）成为后续风波的导火索，象征着底层文人财富的不稳定性。", impactEn: "Intended for convenience, but its fragility becomes the catalyst for later trouble, symbolizing the instability of a poor scholar's wealth."
+        }
       ]
   }
 };

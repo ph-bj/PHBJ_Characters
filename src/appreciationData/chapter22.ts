@@ -74,12 +74,20 @@ export const chapter22Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "taxonomy",
-    lordsFeelings: [
-        { char: "盼", pinyin: "pàn", nameZh: "盼望", nameEn: "Longing", descZh: "子玉对相会的急切期盼。", descEn: "Ziyu's eager longing for the meeting." }
-      ],
-      performersFeelings: [
-        { char: "忧", pinyin: "yōu", nameZh: "忧虑", nameEn: "Worry", descZh: "琴言面对门外滋事者的烦扰与忧愁。", descEn: "Qinyan's distress and worry facing the troublemakers outside." }
+    type: "spatialMapping",
+    spaces: [
+        {
+          id: 1,
+          locationZh: "东门外的画舫", locationEn: "The Painted Boat Outside East Gate",
+          atmosphereZh: "清幽、隐秘、超脱世俗喧嚣", atmosphereEn: "Quiet, secret, transcending worldly noise",
+          significanceZh: "象征着摆脱名利场与规矩束缚的纯粹情感空间，是子玉与琴言灵魂交汇的避难所。", significanceEn: "Symbolizes a pure emotional space free from vanity and rules, a sanctuary for Ziyu and Qinyan's souls."
+        },
+        {
+          id: 2,
+          locationZh: "琴言被堵的院落", locationEn: "Qinyan's Blocked Courtyard",
+          atmosphereZh: "嘈杂、混乱、充满市井的压迫感", atmosphereEn: "Noisy, chaotic, filled with vulgar oppression",
+          significanceZh: "代表了优伶无法摆脱的底层身份与残酷的社会现实。", significanceEn: "Represents the inescapable low status of actors and the cruel social reality."
+        }
       ]
   }
 };

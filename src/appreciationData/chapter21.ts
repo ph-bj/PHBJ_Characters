@@ -74,10 +74,22 @@ export const chapter21Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
-        { id: 1, titleZh: "小人得志", titleEn: "The Arrogant Petty Man", roleZh: "魏聘才", roleEn: "Wei Pincai", descZh: "展现出得势后的狂妄与无所顾忌。", descEn: "Demonstrates arrogance and unscrupulousness after gaining power." },
-        { id: 2, titleZh: "相思情痴", titleEn: "The Lovesick Scholar", roleZh: "梅子玉", roleEn: "Mei Ziyu", descZh: "沉浸在对琴言的思念中，形销骨立。", descEn: "Immersed in longing for Qinyan, becoming emaciated." }
+    type: "emotionalDichotomy",
+    dichotomies: [
+        {
+          id: 1,
+          characterZh: "魏聘才", characterEn: "Wei Pincai",
+          surfaceEmotionZh: "对子玉病情的虚假关怀与得意洋洋", surfaceEmotionEn: "Fake concern for Ziyu mixed with triumphant arrogance",
+          hiddenEmotionZh: "对梅家昔日权威的蔑视与借机炫耀自己如今的权势", hiddenEmotionEn: "Contempt for the Mei family's past authority and a desire to flaunt his new power",
+          triggerZh: "在华府得势后重新面对昔日的旧相识", triggerEn: "Facing an old acquaintance after gaining power in the Hua mansion"
+        },
+        {
+          id: 2,
+          characterZh: "梅子玉", characterEn: "Mei Ziyu",
+          surfaceEmotionZh: "礼貌性的敷衍与病中的倦怠", surfaceEmotionEn: "Polite perfunctoriness and sick fatigue",
+          hiddenEmotionZh: "对琴言刻骨铭心的相思与对聘才市侩嘴脸的隐隐厌恶", hiddenEmotionEn: "Deep-seated longing for Qinyan and subtle disgust for Pincai's vulgarity",
+          triggerZh: "听闻琴言的名字被轻佻提及", triggerEn: "Hearing Qinyan's name mentioned frivolously"
+        }
       ]
   }
 };

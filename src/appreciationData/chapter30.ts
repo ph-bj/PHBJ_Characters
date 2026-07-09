@@ -74,12 +74,20 @@ export const chapter30Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "taxonomy",
-    lordsFeelings: [
-        { char: "囚", pinyin: "qiú", nameZh: "囚禁", nameEn: "Imprisonment", descZh: "华公子以爱之名对琴言进行的实质性囚禁。", descEn: "Young Master Hua's substantial imprisonment of Qinyan in the name of love." }
-      ],
-      performersFeelings: [
-        { char: "悲", pinyin: "bēi", nameZh: "悲泣", nameEn: "Weeping", descZh: "琴言借凤仙花自叹身世，对命运无常的深切悲哀。", descEn: "Qinyan sighs over his fate through the balsam flowers, feeling deep sorrow over life's impermanence." }
+    type: "objectSymbolism",
+    objects: [
+        {
+          id: 1,
+          objectZh: "被采摘的凤仙花", objectEn: "Plucked Balsam Flowers",
+          appearanceZh: "花色娇艳，却离开枝头插在瓶中或鬓边", appearanceEn: "Brightly colored, but removed from the branch and placed in a vase or hair",
+          meaningZh: "完美隐喻了琴言自身的命运：因美丽而被权贵（华公子）‘采摘’把玩，看似受宠，实则切断了生命的根基，注定迅速枯萎。", meaningEn: "A perfect metaphor for Qinyan's fate: 'plucked' by power (Hua) for his beauty. Seemingly favored, but cut off from his life's roots, doomed to wither quickly."
+        },
+        {
+          id: 2,
+          objectZh: "深闺与水晶假山", objectEn: "Inner Chambers and Crystal Rockery",
+          appearanceZh: "精致、幽闭、与世隔绝", appearanceEn: "Exquisite, claustrophobic, isolated from the world",
+          meaningZh: "象征着华丽的牢笼。水晶的透明看似自由，实则是坚硬的壁垒，将琴言囚禁在无形的权力网中。", meaningEn: "Symbolizes a gilded cage. The crystal's transparency mimics freedom but is a hard barrier, trapping Qinyan in an invisible web of power."
+        }
       ]
   }
 };

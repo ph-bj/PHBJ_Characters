@@ -74,9 +74,14 @@ export const chapter24Appreciation: ChapterAppreciationData = {
     }
   ],
   visualizer: {
-    type: "drinkingCups",
-    cups: [
-        { id: 1, titleZh: "脱身酒", titleEn: "The Wine of Escape", ruleZh: "梅香灌醉潘三", ruleEn: "Meixiang gets Pan the Third drunk", actionZh: "梅香假借鱼刺卡喉逃避罚酒，反将二人灌醉。", actionEn: "Meixiang feigns a fishbone in her throat to avoid a penalty drink, instead getting the two men drunk.", critiqueZh: "展现了优伶在权势逼迫下的生存智慧与无奈。", critiqueEn: "Shows the survival wisdom and helplessness of actors under the pressure of power." }
+    type: "rumorNetwork",
+    rumors: [
+        {
+          id: 1,
+          rumorZh: "潘三非要收苏蕙芳为干儿子不可", rumorEn: "Pan the Third insists on taking Su Huifang as an adopted son",
+          originZh: "银楼老板潘三的强权施压与市井闲谈", originEn: "The pressure from silver shop owner Pan the Third and street gossip",
+          effectZh: "导致蕙芳极度恐慌，梅香被迫出面周旋，揭示了财势对优伶的人身霸凌。", effectEn: "Causes Huifang extreme panic; Meixiang is forced to intervene, revealing how wealth bullies actors."
+        }
       ]
   }
 };
