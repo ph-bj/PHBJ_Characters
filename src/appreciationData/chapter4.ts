@@ -2,71 +2,72 @@ import { ChapterAppreciationData } from "../appreciationTypes";
 
 export const chapter4Appreciation: ChapterAppreciationData = {
   radarData: [
-    { subjectZh: "文本结构", subjectEn: "Structure", score: 75 },
-    { subjectZh: "人物塑造", subjectEn: "Character", score: 85 },
-    { subjectZh: "主题思想", subjectEn: "Themes", score: 90 },
-    { subjectZh: "叙事视角", subjectEn: "POV & Voice", score: 80 },
+    { subjectZh: "文本结构", subjectEn: "Structure", score: 85 },
+    { subjectZh: "人物塑造", subjectEn: "Characterization", score: 90 },
+    { subjectZh: "主题思想", subjectEn: "Themes", score: 80 },
+    { subjectZh: "叙事视角", subjectEn: "POV & Voice", score: 75 },
     { subjectZh: "语言修辞", subjectEn: "Style", score: 95 },
-    { subjectZh: "体验共鸣", subjectEn: "Resonance", score: 80 },
+    { subjectZh: "体验共鸣", subjectEn: "Resonance", score: 85 },
   ],
   timelineData: [
-    { stageZh: "独坐读赋", stageEn: "Reading Alone", sentiment: 60, descriptionZh: "雪中闲读《雪赋》，心境平和", descriptionEn: "Reading 'Rhapsody on Snow', feeling peaceful." },
-    { stageZh: "论及琴官", stageEn: "Hearing of Qinguan", sentiment: 85, descriptionZh: "听聘才极力渲染琴官才貌，心向往之", descriptionEn: "Hears Pincai praise Qinguan, longing deepens." },
-    { stageZh: "读雪窗诗", stageEn: "Reading Poems", sentiment: 95, descriptionZh: "收到《雪窗八咏》，才情被彻底激发", descriptionEn: "Receives 'Eight Views' poems, poetic talent ignited." }
+    { stageZh: "冬至瑞雪", stageEn: "Winter Solstice Snow", sentiment: 80, descriptionZh: "冬至降雪，梅子玉因雪闲坐书斋，品读《雪赋》。自然之景呼应其清高之志。", descriptionEn: "Snow falls on the Winter Solstice. Mei Ziyu reads 'Rhapsody on Snow' in his study, the natural scenery reflecting his lofty aspirations." },
+    { stageZh: "听论琴官", stageEn: "Hearing of Qinguan", sentiment: 90, descriptionZh: "魏聘才极力渲染琴官才貌，子玉心驰神往，倾慕之情达到顶点。", descriptionEn: "Wei Pincai fervently praises Qinguan's talent and beauty. Ziyu is mesmerized, his admiration reaching its peak." },
+    { stageZh: "品鉴咏雪", stageEn: "Appreciating Snow Poems", sentiment: 95, descriptionZh: "阅读友人寄来的《雪窗八咏》，诗词之美与知己之情交融，极具审美愉悦。", descriptionEn: "Reading the 'Eight Verses on the Snow Window' sent by friends. The beauty of poetry and the sentiment of kindred spirits blend into profound aesthetic joy." },
+    { stageZh: "酒楼奇遇", stageEn: "Restaurant Encounter", sentiment: 85, descriptionZh: "视线转至酒楼，神秘少年（徐湘帆）论音乐、题壁词，展现清狂绝俗的风采。", descriptionEn: "The scene shifts to a restaurant. A mysterious youth (Xu Xiangfan) discusses music and writes a poem on the wall, showing his transcendent and unconstrained grace." }
   ],
   dimensions: [
     {
-      iconType: "GitBranch", titleZh: "文本结构与布局", titleEn: "Structure & Layout", score: 75,
-      textZh: "本章在整部小说中起到了关键的转折与铺垫作用。前三章主要展现市井与戏园的喧闹，而本章将镜头切入书房，节奏从“动”转“静”。",
-      textEn: "This chapter serves as a crucial turning point and setup. The previous chapters showed the noise of the streets and theaters, while this chapter shifts the lens to the study, changing the rhythm from 'dynamic' to 'static'.",
+      iconType: "GitBranch", titleZh: "文本结构与布局", titleEn: "Structure & Layout", score: 85,
+      textZh: "本章在结构上呈现出明显的“双线并行”与“动静交替”的特点，前半部分聚焦于书房的静谧，后半部分转向酒楼的喧嚣与清谈。",
+      textEn: "Structurally, this chapter presents a clear 'dual-thread' and 'alternating dynamic-static' pattern. The first half focuses on the quiet study, while the second half shifts to the lively yet refined discourse in the restaurant.",
       subsections: [
-        { labelZh: "承上启下", labelEn: "Connection", textZh: "由前一回聘才逛戏园引出，本章聘才造访梅子玉，将“戏子”的话题带入这片纯洁的雪景中，为后续子玉与琴官的宿命相遇埋下深刻伏笔。", textEn: "Following Pincai's theater visit, he visits Mei Ziyu, bringing the topic of 'actors' into this pure snowscape, laying a profound foreshadowing for Ziyu and Qinguan's fated encounter." },
-        { labelZh: "情节逻辑与节奏", labelEn: "Pacing", textZh: "它是情节发展的“缓冲带”兼“推进器”。表面上只有二人闲坐清谈，节奏舒缓（留白多）；但内里却通过对《雪窗八咏》的品鉴，将子玉的倾慕推向高潮。", textEn: "It is both a 'buffer' and a 'propeller'. On the surface, the pacing is slow with two people chatting (much blank space); but internally, through the appreciation of the 'Eight Views', it pushes Ziyu's admiration to a climax." }
+        { labelZh: "承上启下", labelEn: "Connection", textZh: "前三章写市井喧嚣，本章借“大雪”将节奏收拢于书斋。子玉通过聘才之口对琴官产生了极度的好奇与迷恋，为二人未来的宿命相逢做足了情感铺垫。", textEn: "The first three chapters depict urban bustle. This chapter uses the 'heavy snow' to draw the rhythm into the study. Ziyu's extreme curiosity and infatuation with Qinguan, sparked by Pincai, lay a deep emotional foundation for their fated encounter." },
+        { labelZh: "情节逻辑与节奏", labelEn: "Plot & Pacing", textZh: "本章的情节推进主要依赖于“对话”和“诗词品鉴”。它放缓了外部动作的节奏（成为缓冲带），但在心理与精神层面上，却将人物间的精神契合度推向了高潮。", textEn: "Plot advancement relies heavily on dialogue and poetry appreciation. It slows external action (acting as a buffer) but pushes spiritual affinity between characters to a climax." }
       ]
     },
     {
-      iconType: "User", titleZh: "人物塑造与心理", titleEn: "Characterization", score: 85,
-      textZh: "通过两人的对话互动，鲜明地勾勒出梅子玉的清高脱俗与颜聘才的世俗油滑，形成了强烈的性格对照。",
-      textEn: "Through their dialogue, Mei Ziyu's lofty purity and Yan Pincai's worldly slickness are vividly outlined, forming a strong character contrast.",
+      iconType: "User", titleZh: "人物塑造与心理", titleEn: "Characterization & Psychology", score: 90,
+      textZh: "本章最成功之处在于通过“听闻”和“读诗”来塑造人物，展现了人物内心极度的理想化与唯美倾向。",
+      textEn: "The chapter's greatest success lies in shaping characters through 'hearing' and 'reading poetry', revealing their extreme idealization and aestheticism.",
       subsections: [
-        { labelZh: "性格展现", labelEn: "Personality", textZh: "子玉只凭琴官的诗句便认定其为知音，展现了他理想化、重情重才的浪漫主义性格；聘才则三句不离俗务，凸显其市井掮客的面目。", textEn: "Ziyu considers Qinguan a soulmate solely based on his poetry, showing his idealized, romantic nature; Pincai constantly mentions mundane affairs, highlighting his role as a worldly broker." },
-        { labelZh: "心理深度与关系", labelEn: "Psychology", textZh: "子玉的内心经历了从平静到波澜的转变。这是他性格弧光中情感觉醒的关键点。在权力关系上，聘才看似迎合子玉，实则在用言语引导子玉的情感走向。", textEn: "Ziyu's mind shifts from calm to turbulent. This is the key emotional awakening in his character arc. In power dynamics, Pincai seemingly caters to Ziyu, but is actually verbally guiding Ziyu's emotional direction." }
+        { labelZh: "性格展现", labelEn: "Personality", textZh: "梅子玉的清高脱俗与多情被刻画得淋漓尽致。他只听描述、只看诗句便将琴官引为知音，展现了其“重情不重貌”的浪漫主义性格；而新出场的神秘少年则展现出一种不落俗套的狂放。", textEn: "Mei Ziyu's aloof purity and deep sentiment are vividly portrayed. Deeming Qinguan a soulmate based solely on descriptions and poetry shows his romantic 'valuing feeling over appearance' nature. The new mysterious youth shows an unconventional wildness." },
+        { labelZh: "心理深度", labelEn: "Psychological Depth", textZh: "子玉在听闻琴官之事时，内心经历了从好奇到深深迷恋的转变。这种未见其人、先倾其心的“神交”，是古典小说中情痴的最高境界。", textEn: "Hearing of Qinguan, Ziyu's heart shifts from curiosity to deep infatuation. This 'spiritual communion' before ever meeting is the highest state of the 'love-fool' in classical fiction." }
       ]
     },
     {
-      iconType: "Heart", titleZh: "主题与思想内核", titleEn: "Themes", score: 90,
-      textZh: "本章不仅是写景，更是写“心”。在晚清的名利场中，探讨了纯真情感与世俗环境的冲突。",
-      textEn: "This chapter writes not just of scenery, but of 'heart'. In the late Qing vanity fair, it explores the conflict between pure emotion and secular environments.",
+      iconType: "Heart", titleZh: "主题与思想内核", titleEn: "Themes & Core", score: 80,
+      textZh: "本章探讨了清朝士大夫阶层的审美情趣、知音难求的孤独感，以及超越世俗阶级的“情”之力量。",
+      textEn: "This chapter explores the aesthetic tastes of Qing dynasty literati, the loneliness of seeking a soulmate, and the power of 'Qing' (feeling) that transcends class.",
       subsections: [
-        { labelZh: "象征与隐喻", labelEn: "Symbolism", textZh: "“雪”是本章最大的隐喻。白雪象征了纯洁无瑕的理想境界，而子玉在雪中寻觅知音，隐喻了他在污浊社会中对“至情”的坚守。", textEn: "'Snow' is the biggest metaphor here. White snow symbolizes a flawless ideal realm, and Ziyu seeking a soulmate in the snow metaphors his persistence in 'supreme feeling' amidst a corrupt society." },
-        { labelZh: "核心议题与意图", labelEn: "Author's Intent", textZh: "作者通过子玉对琴官诗才的极度推崇，批判了当时仅仅将优伶视为玩物的社会风气，提出了一种超越阶级与身份的“情学”价值观。", textEn: "Through Ziyu's extreme admiration for Qinguan's talent, the author critiques the social norm of treating actors merely as playthings, proposing a 'Qing-ology' values that transcends class." }
+        { labelZh: "象征与隐喻", labelEn: "Symbolism", textZh: "“雪”在文中不仅是自然景观，更是主人公内心纯洁无瑕、不染世俗尘埃的象征。《雪窗八咏》更是将这份冰雪之操具象化。", textEn: "'Snow' is not just a natural landscape, but a symbol of the protagonist's flawless, unpolluted inner world. The 'Eight Verses' concrete this pure integrity." },
+        { labelZh: "作者意图", labelEn: "Author's Intent", textZh: "作者试图构建一个以“情”和“才”为核心的乌托邦，以此来对抗外部名利场中的虚伪与浑浊。", textEn: "The author attempts to construct a utopia centered on 'Qing' (emotion) and talent, to counter the hypocrisy and corruption of the external vanity fair." }
       ]
     },
     {
-      iconType: "Eye", titleZh: "叙事视角与声音", titleEn: "POV & Voice", score: 80,
-      textZh: "采用了全知全能的叙事视角，但在描写子玉心理时，又紧密贴合了他的主观感受。",
-      textEn: "An omniscient narrative perspective is used, but when describing Ziyu's psychology, it closely aligns with his subjective feelings.",
+      iconType: "Eye", titleZh: "叙事视角与声音", titleEn: "POV & Voice", score: 75,
+      textZh: "采用了全知全能的叙事视角，但在处理子玉听闻琴官和神秘少年出场时，又带有强烈的限制性体验。",
+      textEn: "An omniscient perspective is used, but it adopts a strongly restricted experience when Ziyu hears of Qinguan and when the mysterious youth appears.",
       subsections: [
-        { labelZh: "叙事视角", labelEn: "Perspective", textZh: "虽然是第三人称，但大量信息是通过梅子玉的感官（听聘才说、看诗稿）获取的。这种限制性信息的流入，让读者与子玉同频共振。", textEn: "Though third-person, much information is gathered through Ziyu's senses (hearing Pincai, reading poems). This restricted flow aligns the reader with Ziyu." },
-        { labelZh: "语调与语体", labelEn: "Tone & Style", textZh: "整体语调抒情优美、冷峻高雅。字里行间透出一种古典的静谧感，营造出“红炉夜雪”的极佳阅读氛围。", textEn: "The overall tone is lyrical, beautiful, and elegantly aloof. It exudes a classical tranquility, creating an excellent 'red stove, night snow' reading atmosphere." }
+        { labelZh: "叙事视角", labelEn: "Perspective", textZh: "通过聘才的讲述和朋友的诗信来侧面描绘琴官，这种“间接描写”极大地激发了读者的想象力。酒楼一段则通过旁观者的视角观察神秘少年，增加了神秘感。", textEn: "Indirect description of Qinguan via Pincai's tales and friends' poems greatly stimulates the reader's imagination. The restaurant scene observes the mysterious youth from a bystander's POV, adding mystery." },
+        { labelZh: "语调与语体", labelEn: "Tone & Style", textZh: "整体语调雅致清冷，充满了古典文人独有的书卷气与抒情性。酒楼少年的言论则带有一种睥睨流俗的冷峻与孤傲。", textEn: "The overall tone is elegantly cool, filled with the unique scholarly and lyrical air of classical literati. The youth's speech in the restaurant carries a cold, proud disdain for the mundane." }
       ]
     },
     {
       iconType: "PenTool", titleZh: "语言特色与修辞", titleEn: "Stylistic Devices", score: 95,
-      textZh: "《品花宝鉴》的文笔在这一章达到了极高的美学成就，诗词与散文交相辉映。",
-      textEn: "The writing of 'A Guide to the Flower Vanity Fair' reaches a high aesthetic achievement in this chapter, with poetry and prose shining together.",
+      textZh: "本章是全书文学性最高峰之一，《雪窗八咏》及结尾的《浪淘沙》展现了作者深厚的古典诗词功底。",
+      textEn: "This chapter is a literary peak of the novel. The 'Eight Verses on the Snow Window' and the closing 'Langtaosha' showcase the author's profound mastery of classical poetry.",
       subsections: [
-        { labelZh: "辞章美感与感官", labelEn: "Aesthetics", textZh: "巧妙运用借景抒情，调动了视觉（白雪、红梅）与听觉（炉水沸腾声）。《雪窗八咏》更是展现了作者极高的古典诗词造诣。", textEn: "Clever use of scenery to express emotion, invoking sight (white snow, red plum) and sound (boiling stove water). 'Eight Views' shows the author's high mastery of classical poetry." },
-        { labelZh: "经典句式拆解", labelEn: "Classic Quotes", textZh: "“不知此老有何福泽，生出这样一个儿子。”看似艳羡，实则暗含了对封建门第不公的幽微叹息。", textEn: "'I know not what blessings this old man has, to produce such a son.' Seemingly envious, it subtly contains a faint sigh at the unfairness of feudal lineage." }
+        { labelZh: "辞章美感", labelEn: "Aesthetics", textZh: "诗词与散文交织，用典精妙，句式工整。如《雪窗八咏》中“雪山”、“雪塔”等咏物诗，既切题又寄托了人物的高雅志趣，极具大观园诗社之风。", textEn: "Poetry and prose intertwine with exquisite allusions and neat structures. Poems like 'Snow Mountain' and 'Snow Pagoda' are both topical and expressive of lofty tastes, highly reminiscent of the Grand View Garden poetry club." },
+        { labelZh: "经典句式", labelEn: "Classic Quotes", textZh: "“丝声本哀，说胡琴非淫声，此却破俗之论，从没有人听得出来的。”（String music is inherently sorrowful; his saying that the huqin is not licentious—now that is indeed a view that breaks from convention.）一语道破了少年的脱俗见解，也点明了“音乐”与“人心”的深刻联系。", textEn: "'String music is inherently sorrowful; his saying that the huqin is not licentious—now that is indeed a view that breaks from convention.' This breaks convention and highlights the deep link between music and the human heart." }
       ]
     },
     {
-      iconType: "MessageSquare", titleZh: "阅读体验与共鸣", titleEn: "Reader Response", score: 80,
-      textZh: "这段文字在浮躁的社会中，提供了一种难得的“精神避难所”。",
-      textEn: "In a restless society, this text provides a rare 'spiritual sanctuary'.",
+      iconType: "MessageSquare", titleZh: "阅读体验与共鸣", titleEn: "Reader Response", score: 85,
+      textZh: "在慢节奏的诗酒风流中，读者能深切感受到古典士大夫那份精致而孤独的精神生活。",
+      textEn: "In the slow-paced elegance of poetry and wine, readers deeply feel the refined yet lonely spiritual life of classical literati.",
       subsections: [
-        { labelZh: "情感冲击", labelEn: "Emotional Impact", textZh: "阅读时情绪从开篇的宁静平和，随着诗句的展现逐渐升温为惊叹与共鸣，完全被主角的痴情所打动。", textEn: "Reading emotions shift from initial tranquility to growing amazement and resonance as the poems unfold, fully moved by the protagonist's infatuation." },
-        { labelZh: "时代反思 (2026)", labelEn: "Modern Reflection", textZh: "在快节奏的今天，这种“雪夜闭门读禁书”或“围炉夜话”的古典慢生活，成为了一种极具稀缺性的奢侈体验，引发强烈的现实反思。", textEn: "In today's fast-paced world, this classical slow living of 'reading behind closed doors on a snowy night' becomes a highly scarce luxury experience, provoking strong modern reflection." }
+        { labelZh: "情感冲击", labelEn: "Emotional Impact", textZh: "雪夜围炉读诗的场景令人感到宁静与向往；而神秘少年对音乐的独到见解及其留下的绝妙好词，则让人产生强烈的惊艳与好奇。", textEn: "The scene of reading poetry by the stove on a snowy night evokes peace and yearning. The mysterious youth's unique musical views and brilliant poem leave a strong sense of awe and curiosity." },
+        { labelZh: "时代反思 (2026)", labelEn: "Modern Reflection", textZh: "在快节奏、碎片化的今天，这种“雪夜闭门读禁书”的闲情逸致、对一首诗词的反复咀嚼与品味，成了一种极为奢侈的精神享受，引发现代人对“慢生活”与“深阅读”的反思与渴望。", textEn: "In today's fast-paced, fragmented world, this leisurely 'reading behind closed doors on a snowy night' and the slow savoring of poetry has become a luxurious spiritual enjoyment, sparking a modern longing for 'slow living' and 'deep reading'." }
       ]
     }
   ],
@@ -75,15 +76,14 @@ export const chapter4Appreciation: ChapterAppreciationData = {
     archetypes: [
       {
         id: 1, titleZh: "纯情理想家", titleEn: "The Pure Idealist", roleZh: "梅子玉 (Mei Ziyu)", roleEn: "The Romantic",
-        descZh: "书斋中的贵公子。他未受世俗污染，将一切情感寄托于诗词与美的想象中。大雪是他内心纯洁无瑕的绝佳投射。",
-        descEn: "The noble young master in his study. Unpolluted by the world, he projects all emotions onto poetry and imagined beauty. The snow perfectly reflects his pure heart."
+        descZh: "书斋中的贵公子。未受世俗污染，将情感寄托于诗词与美的想象中，凭借才华与诗意去认定位知音，是“情痴”的典型代表。",
+        descEn: "The noble young master in his study. Unpolluted by the world, he projects emotions onto poetry and beauty, identifying soulmates through talent. A classic 'love-fool'."
       },
       {
-        id: 2, titleZh: "世俗掮客", titleEn: "The Worldly Broker", roleZh: "颜聘才 (Yan Pincai)", roleEn: "The Fixer",
-        descZh: "穿梭于名利场的边缘文人。他深谙人情世故，用华丽的辞藻包装情色交易。在子玉面前，他扮演着“引路人”的诱惑角色。",
-        descEn: "A marginal scholar navigating the vanity fair. He understands worldly ways, wrapping erotic transactions in elegant words. To Ziyu, he plays the tempting role of 'guide'."
+        id: 2, titleZh: "清狂绝俗者", titleEn: "The Transcendent", roleZh: "徐湘帆 (Xu Xiangfan)", roleEn: "The Nonconformist",
+        descZh: "酒楼惊艳出场的神秘少年。气度非凡，见解独到，敢于打破世俗对“雅俗”与“正淫”的成见，胸中积蓄着怀才不遇的幽愤与孤高。",
+        descEn: "The mysterious youth who dazzles at the restaurant. Extraordinary bearing, unique views, daring to break worldly prejudices on 'elegant vs. vulgar'. Filled with the proud resentment of unrecognized talent."
       }
     ]
   }
 };
-
