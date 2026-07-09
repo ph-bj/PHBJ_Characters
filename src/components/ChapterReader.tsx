@@ -1219,7 +1219,7 @@ export function ChapterReader({
               </div>
             )}
             {chapter.id >= 1 && <ChapterEndScene chapterId={chapter.id} />}
-            {(chapter.id >= 1 && chapter.id <= 3) && <ChapterAppreciation chapterId={chapter.id} lang={lang} />}
+            {chapter.id >= 1 && <ChapterAppreciation chapterId={chapter.id} lang={lang} />}
             {chapter.id >= 0 && chapterCitedWorks.length > 0 && (
               <div className="mt-10 border border-[var(--paper-border)] bg-black/5 p-4 rounded-sm">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold mb-3">
