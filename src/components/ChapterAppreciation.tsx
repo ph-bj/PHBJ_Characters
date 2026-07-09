@@ -370,60 +370,144 @@ export function ChapterAppreciation({
       titleZh: "文本结构与布局",
       titleEn: "Structure & Layout",
       score: 80,
-      textZh:
-        "第二回采用了精妙的“双线复调，雅俗对照”结构。第一条是“雅线/悬念线”，在梅府书房中，魏聘才绘声绘色地向梅子玉描述“琴官”与“琪官”的绝美姿色，正好与第一回子玉的“车厢惊艳”相吻合，完成了情节悬念的逻辑闭环与升华。第二条是“俗线/讽刺线”，描写王温如府邸的酒宴，通过孙氏丑兄弟的酸态百出与老父孙良功在酒席上被优伶捉弄的喜剧，生动展现了晚清官僚阶层的无聊与虚伪。两条线索在篇尾收拢，做足了名伶正式出场的铺垫。",
-      textEn:
-        "Chapter 2 employs a dual-thread polyphonic structure. The 'elegant' thread follows Ziyu and Wei Pingcai discussing the breathtaking beauty of Qi Guan and Qin Guan, confirming Ziyu's carriage encounter. The 'vulgar' thread details the chaotic feast at Wang's mansion, introducing the comical Sun brothers and showcasing the vanity of the gentry. The threads merge at the end to herald the actors' official debut.",
+      subsections: [
+        {
+          labelZh: "承上启下",
+          labelEn: "Connection",
+          textZh: "由首回的车厢惊艳悬念，通过魏聘才的回叙印证，接着转入王府俗宴，为后续优伶正式登场拉足期待。",
+          textEn: "Connects Ziyu's carriage encounter to Wei's confirmation, then shifts to Wang's vulgar feast, building anticipation for the actors' debut."
+        },
+        {
+          labelZh: "情节逻辑",
+          labelEn: "Plot Logic",
+          textZh: "以“赴宴”为核心事件，推动了王桂保等优伶的出场，是展现晚清社会群像的推进器。",
+          textEn: "Driven by the feast, it pushes the debut of actors like Guibao. An engine for showcasing the late Qing social ensemble."
+        },
+        {
+          labelZh: "节奏掌控",
+          labelEn: "Pacing",
+          textZh: "先在书房静聊（留白悬念），后转入酒宴的极度喧闹与滑稽（高潮），张弛有度，喜剧张力拉满。",
+          textEn: "Quiet suspense in the study followed by the loud, chaotic climax of the banquet. Great dynamic pacing."
+        }
+      ]
     },
     {
       icon: <User size={18} className="text-[var(--accent)]" />,
       titleZh: "人物塑造与心理",
       titleEn: "Characterization & Psychology",
       score: 88,
-      textZh:
-        "本回是极为精彩的群像刻画。魏聘才的“长袖善舞、八面玲珑”与李元茂的“畏缩寡言”形成鲜明对照。孙氏兄弟（嗣徽、思源）则是古典小说中罕见的讽刺戏剧丑角，一个满口错字、装腔作势（“狗无恒心”），一个生理结巴、专门揭短，极为传神。而名伶王桂保的“聪颖伶俐、掌控全局”与三品官孙良功“惧内、好色、酒后失仪”的尴尬反差，将封建士大夫的伪善嘴脸刻画得入木三分。",
-      textEn:
-        "The chapter excels in ensemble characterization. Wei Pingcai's verbal tricks contrast with Li Yuanmao's silence. The Sun brothers are classic caricatures of mediocre, pedantic scholars. The actor Wang Guibao's quick-witted playfulness stands in sharp contrast to the senior official Sun Lianggong's drunken loss of decorum and hilarious dread of his jealous wife.",
+      subsections: [
+        {
+          labelZh: "性格展现",
+          labelEn: "Personality",
+          textZh: "魏聘才的长袖善舞、孙氏兄弟的附庸风雅与迂腐、王桂保的机智伶俐，各自鲜明传神。",
+          textEn: "Wei's slickness, the Sun brothers' pedantry, and Guibao's wit are all vividly and distinctly drawn."
+        },
+        {
+          labelZh: "心理深度",
+          labelEn: "Psychological Depth",
+          textZh: "孙良功醉酒后从高高在上的威严到惧内逃窜的心理反差，极具讽刺效果，展示了礼教面具的脆弱。",
+          textEn: "Sun Lianggong's psychological shift from dignified authority to terrified flight is deeply satirical, exposing the fragility of decorum."
+        },
+        {
+          labelZh: "人物关系",
+          labelEn: "Relationships",
+          textZh: "官僚士大夫与优伶之间的权力关系发生倒转，地位卑微的戏子在酒局中反而利用智商与规则掌控了达官贵人。",
+          textEn: "The power dynamic between officials and actors is inverted; the actors use intellect and rules to control the elite at the feast."
+        }
+      ]
     },
     {
       icon: <Heart size={18} className="text-[var(--accent)]" />,
       titleZh: "主题与思想内核",
       titleEn: "Themes & Philosophical Core",
       score: 85,
-      textZh:
-        "本回深化了关于“社会表演与权力倒错”的探讨。在王府大宴上，自诩高尚、满口礼法的士大夫们，在酒令惩罚中被迫“装旦角敬酒”，放下尊严模仿戏子；而卑贱的优伶王桂保却凭借超凡的机智与才华掌控了酒局的节奏，并设计作弄权贵。这种“台下作戏，真假倒错”的戏剧化场景，辛辣地解构了封建统治阶层的道德虚无与精神腐朽，折射出传统礼教在世俗欲望前的无力。",
-      textEn:
-        "This chapter deepens the theme of social performativity and status inversion. Gentry officials, who hold high social status, are forced to cross-dress and mimic female actors (Sun Lianggong's drag performance) during drinking games, while the actor Wang Guibao controls the feast's rhythm. This performativity exposes the vanity and moral hollow of the late Qing bureaucracy.",
+      subsections: [
+        {
+          labelZh: "核心议题",
+          labelEn: "Core Issues",
+          textZh: "探讨晚清社会的“名实分离”——高官满口仁义却行止粗俗，优伶地位卑贱却才思敏捷。",
+          textEn: "Explores the separation of name and reality in late Qing: high officials are vulgar while lowly actors are brilliant."
+        },
+        {
+          labelZh: "象征与隐喻",
+          labelEn: "Symbolism",
+          textZh: "“装旦进酒”隐喻了官僚阶层实质上的谄媚与精神矮化；整场酒局本身就是微缩的丑态百出的官场。",
+          textEn: "The drag toast symbolizes the officials' spiritual degradation and sycophancy; the feast is a microcosm of a corrupt officialdom."
+        },
+        {
+          labelZh: "作者意图",
+          labelEn: "Author's Intent",
+          textZh: "作者以辛辣的笔触，解构封建统治阶层的道德虚无、无聊以及精神腐朽，折射出礼教在世俗欲望前的无力。",
+          textEn: "A biting critique deconstructing the moral bankruptcy, boredom, and spiritual rot of the ruling class."
+        }
+      ]
     },
     {
       icon: <Eye size={18} className="text-[var(--accent)]" />,
       titleZh: "叙事视角与声音",
       titleEn: "POV & Voice",
       score: 90,
-      textZh:
-        "叙事视角从首回聚焦于梅子玉个人的心理，扩展到了对晚清官场宴会群像的“全景式俯瞰”。叙事者的声音充满了干练的讽刺与近乎写实画作的客观笔调。通过对孙良功“喷酒泼脸”、“粘花打喷嚏”以及最后“听闻悍妻传唤面色惨白”等一系列滑稽动作的近距离白描，叙事者如同一位冷眼旁观的剧场看客，不加主观说教，却把讽刺效果拉到最大。",
-      textEn:
-        "The perspective broadens from Ziyu's limited consciousness to a panoramic view of the gentry banquet. The narrator's voice becomes distinctly satirical and observant. By using graphic vernacular realism to describe the stuttering debates, sprayed wine, and sneezes, the narrative achieves a comic distance that lays bare the social realities.",
+      subsections: [
+        {
+          labelZh: "叙事视角",
+          labelEn: "POV",
+          textZh: "采用全景式的俯瞰视角，像一幅长卷风俗画，客观且细致地展现了宴席上的群丑图。",
+          textEn: "A panoramic, bird's-eye view, like a genre painting unrolling the banquet's gallery of clowns."
+        },
+        {
+          labelZh: "语调与语体",
+          labelEn: "Tone",
+          textZh: "充满了冷峻的幽默与干练的讽刺。叙事者如同看客，不加主观说教地白描荒谬行为，把讽刺效果最大化。",
+          textEn: "Filled with deadpan humor and sharp satire, objectively displaying absurd behavior without preaching."
+        }
+      ]
     },
     {
       icon: <PenTool size={18} className="text-[var(--accent)]" />,
       titleZh: "语言特色与修辞",
       titleEn: "Stylistic Devices",
       score: 85,
-      textZh:
-        "本回展示了高超的“语言复调”。魏聘才对秦官、琪官的赞美，运用了仙界典故与唯美排比，辞藻极为华丽。而孙氏兄弟的对话则充斥着生吞活剥的古典字词，拼凑出滑稽的 pedantic 效果。最精彩的则是席间的“飞花令”交锋，将高雅的古典名句（如“桃李春风一杯酒，江湖夜雨十年灯”的化用）与低俗的调笑、甚至粗鄙的俏皮话无缝编织在一起，雅俗互文，妙趣横生。",
-      textEn:
-        "The prose exhibits a rich heteroglossia. It ranges from Pingcai's romantic parallel prose describing the actors to the pedantic, error-ridden classical jargon of Sun Sihui, and finally to the drinking games where elegant classical poetry (e.g., 'Peach blossoms drift lazily...') clashes with colloquial banter and crude threats.",
+      subsections: [
+        {
+          labelZh: "辞章美感",
+          labelEn: "Aesthetics",
+          textZh: "展示了高超的“语言复调”与雅俗互文。书房的描写辞藻华丽，而酒局上的斗嘴则俚俗生动，充满生活气息。",
+          textEn: "Masterful heteroglossia. Elegant prose in the study contrasts with lively, vernacular bickering at the feast."
+        },
+        {
+          labelZh: "经典句式",
+          labelEn: "Classic Quotes",
+          textZh: "孙思源结巴揭短的市井对话，与飞花令中“桃李春风一杯酒”的高雅词句并置，产生强烈的反差萌与滑稽感。",
+          textEn: "The stuttered insults juxtaposed with elegant poetry in the drinking game create a sharp comedic contrast."
+        },
+        {
+          labelZh: "感官描写",
+          labelEn: "Sensory Details",
+          textZh: "极其生动的视觉与动效描写——喷酒泼脸、粘满花瓣打喷嚏的声音与画面，极具现代喜剧电影的张力。",
+          textEn: "Vivid sights and actions—sprayed wine, petal-covered sneezes—create immense cinematic comedic tension."
+        }
+      ]
     },
     {
       icon: <MessageSquare size={18} className="text-[var(--accent)]" />,
       titleZh: "阅读体验与共鸣",
-      titleEn: "Reader Response & Relevance",
+      titleEn: "Reader Response",
       score: 92,
-      textZh:
-        "读者的阅读体验在这一章里被密集的“喜剧包袱”所填充。孙氏兄弟的错字辩论让人捧腹，而孙良功从雍容华贵到狼狈逃窜的“酒席历险记”，更提供了极高的娱乐价值。在2026年的当下，酒桌上的阿谀奉承、官员的失态无礼以及令人会心一笑的“惧内”八卦，依然具有极其现代的荒诞感和普世共鸣，令现代读者在笑声中反思阶层话语与权力表演的荒谬。",
-      textEn:
-        "The reader shifts from the romantic suspense of Ziyu's fated love to roaring laughter at the banquet's antics. The depiction of the stuttering scholar, the flower-petal sneeze, and the husband terrified of his wife remains highly relatable in 2026, offering timeless humor regarding status, social performances, and domestic dynamics.",
+      subsections: [
+        {
+          labelZh: "情感冲击",
+          labelEn: "Emotional Impact",
+          textZh: "阅读体验被密集的“喜剧包袱”填充，从听闻绝色的惊艳，迅速转换为被小丑群像逗得捧腹大笑，情绪跌宕起伏。",
+          textEn: "Packed with comic relief. Transitions from awe at perfect beauty to roaring laughter at the clowns, a rollercoaster of emotion."
+        },
+        {
+          labelZh: "时代反思",
+          labelEn: "Modern Reflection",
+          textZh: "酒桌文化中的劝酒、权力服从、失态无礼以及令人会心一笑的“惧内”八卦，在今天（2026年）仍有强烈的现代荒诞感与普世共鸣。",
+          textEn: "Modern drinking culture, power dynamics, loss of decorum, and strict wife gossip still resonate strongly in 2026."
+        }
+      ]
     },
   ];
 
