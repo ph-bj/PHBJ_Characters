@@ -79,10 +79,29 @@ export interface ArchetypesVisualizerData {
   archetypes: ArchetypeItem[];
 }
 
+
+export interface PoetryCritiqueItem {
+  id: number;
+  titleZh: string;
+  titleEn: string;
+  authorZh: string;
+  authorEn: string;
+  textZh: string;
+  textEn: string;
+  critiqueZh: string;
+  critiqueEn: string;
+}
+
+export interface PoetryCritiqueVisualizerData {
+  type: "poetryCritique";
+  poems: PoetryCritiqueItem[];
+}
+
 export type ChapterVisualizerData =
   | TaxonomyVisualizerData
   | DrinkingCupsVisualizerData
   | ArchetypesVisualizerData
+  | PoetryCritiqueVisualizerData
   | { type: "none" };
 
 export interface ChapterAppreciationData {
