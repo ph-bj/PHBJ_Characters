@@ -34,49 +34,103 @@ On the claim that Li and Du had different styles, she argued Du sometimes sounde
 
 She asked whether those lines did not strongly resemble Li Bai. She added Han Yu's *Visiting Hengyue Temple* and *Mid-Autumn to Zhang Gongcao* felt strikingly Du-like, and wondered whether such likeness was conscious imitation or natural convergence.
 
-Ronghua praised her criticism as exact and said these ideas could form a proper poetry notebook. Peiqiu said she sensed such things too but could not articulate them with precision and feared rebuttal. Qionghua said five-character regulated verse prized sincerity above all, then quoted Du Fu's famous eight-line war poem as the crown of the form. For seven-character regulated verse, she said flowing heroic qi was supreme and offered Zu Yong's *Looking toward Jimen* as ideal model.
+Ronghua praised her criticism as exact and said these ideas could form a proper poetry notebook. Peiqiu said she sensed such things too but could not articulate them with precision and feared rebuttal. Qionghua said, "For five-character regulated verse, profound sincerity is naturally most valued; describing scenes or emotions is otherwise quite easy. Take Du Fu's lines:"
 
-She recited Zu Yong's poem and said its pattern was exquisite, widely imitated later. She listed corresponding masterpieces by Du Fu, Liu Zongyuan, Liu Yuxi, and Li Shangyin as examples of the same structural spirit.
+"The nation is shattered, but mountains and rivers remain;
+Spring touches the city, and the grass and trees run deep.
+Feeling the times, the flowers shed tears;
+Hating the parting, the birds startle the heart.
+Beacon fires have burned for three continuous months;
+A letter from home is worth ten thousand pieces of gold.
+My white hair, scratched even shorter,
+Can barely hold a hairpin."
+She called these forty characters the crown of five-character regulated verse, uttering extreme emotion in extreme language. "As for seven-character regulated verse, there are many meters, but flowing vast spirit seems highest. In my view, one should hold up one poem as the supreme pattern, and I think Zu Yong's *Looking Toward Jimen* is exactly that:"
 
-She added that seven-character regulated verse also had deeply sincere peaks, especially Bai Juyi's *Looking at the Moon with Feelings*.
+"Once past the Yan platform, the traveler's heart startles;
+Reed pipes and war drums clamor in the Han general's camp.
+Ten thousand miles of cold light are born from the packed snow;
+The dawn colors on three borders stir the high perilous banners.
+Battlefield beacon-fires invade the barbarian moon;
+Sea-edge cloud-mountains embrace the walls of Ji.
+Though I was not a pen-tossing official in my youth,
+To speak of merit, I would still beg the long tassel."
+She explained that this pattern was the most exquisite, imitated by many later poets, citing examples by Du Fu, Liu Zongyuan, Liu Yuxi, and Li Shangyin.
 
-She recited and praised it as blood-and-bone language, near pure natural sound, calling it Bai's best. Ronghua said this proved the saying 'poverty brings craftsmanship.' Qionghua replied adversity helped, but many suffered exile and still could not write this truly; many wrote only artificial scenery and stock sorrow-weather. Those could move readers, but remained hollow compared to poems where each word rang true. Peiqiu joked she disliked such near-prose poetry; would learning it not become plain speech? Qionghua answered that good poetry could be plain and still beautiful; over-carving often looked worse than plainness. She quoted Cen Shen's brief courier poem:
+She observed that all those poems shared a single structural breath, as if by one hand. "Within seven-character regulated verse there are also profoundly sincere peaks, like Bai Juyi's *Feeling on Watching the Moon*:"
 
-"Looking eastward toward my home the endless road goes on..."
-and then added Wang Wei's famous festive homesickness lines:
-    "A lonely stranger in a foreign land..."
-She said these were almost plain speech yet superior to ornate carving. Otherwise, one must achieve deep conception with richly fragrant diction, every word with dew-light and flower-air, as in Wang Changling's palace and grievance poems. She then cited Wen Tingyun:
+"Times of hardship, years of famine, the family estate emptied;
+Brothers in exile, wandering east and west.
+Fields and gardens lie desolate after the halberds and shields;
+Bone and flesh scattered upon the roads.
+Mourning our shadows, we are divided like thousand-mile geese;
+Taking leave of our roots, we scatter like autumn tumbleweed.
+Looking together at the bright moon, we should shed tears;
+In one night, a single homesick heart is shared across five places."
+She called this pure blood-and-bone language, bordering on natural divine sound, and Bai's finest poem. Ronghua remarked this proved the saying that "adversity makes the poet." Qionghua agreed that misfortune helped, but added that many had been exiled yet could not write with such truth, instead turning out mere ornate scenes and stock phrases about the weather and sorrow. Those might move someone, but next to words that rang absolutely true, they were empty. Peiqiu joked that if she disliked polished verse, wouldn't poetry just turn into plain speech? Qionghua answered that the best plain speech surpassed heavy carving. She cited Cen Shen:
 
-"By silver bed and screen of ice, the dream refuses form..."
-and Gu Kuang:
-    "At mid-sky's jade towers rise piping and song,
-The immortals above laugh and play in the heights.
-They look down on the earth as an ocean of dust,
-and they see not the myriad cities of men."
+"Looking eastward toward my home, the endless road goes on;
+On both sleeves, like a tottering old man, my tears will not dry.
+Meeting on horseback with neither paper nor brush,
+I rely on you to pass the word and report my peace."
+She then cited Wang Wei:
 
-She said those words were like petals with dew beads, irresistibly lovely. Ronghua asked whether even such excellent poems had points open to critique. Qionghua laughed that she dared not critique Tang sages—people would mock or scold her. Ronghua said this was private discussion only. Qionghua conceded there were discussable points and targeted even Du Fu's famous *Dreaming of Li Bai*: after brilliant opening lines, she questioned two middle lines about soul coming and going through dark forests and passes, saying they shifted from dreaming of living Li to ghostly dead Li too abruptly.
+"A lonely stranger in a foreign land,
+Every festive day my longing for kin doubles.
+I know from afar that where my brothers ascend the heights,
+Everywhere the dogwood is planted, but one person is missing."
+She asked if this was not almost plain speech, yet far better than elaborate carving. "If not this style," she added, "then the conception must be deeply remote, and the diction fragrantly beautiful, every word filled with dew-light and flower-breath to strike the eye, as in Wang Changling's palace and grievance poems that everyone praises. Or like Wen Tingyun's:"
 
-She proposed deleting those two lines and jumping directly to later lines.
+"On the ice-smooth silver bed, the dream cannot form;
+The blue sky is like water, the night clouds light.
+The cry of the wild goose passes far off toward Xiao and Xiang;
+Amidst the twelve towers, the moon shines alone."
+And Gu Kuang's:
 
-She said ending there without the final warning line might yield fuller implicit feeling. Ronghua and Peiqiu laughed and agreed deletion seemed cleaner; the dark lines indeed carried ghostly chill. They asked for more critiques. Qionghua named the monk Jiaoran's poem on visiting Lu Hongjian as weak and structurally confused—neither properly ancient nor properly regulated—and wondered why anthologists included it:
+"At mid-sky's jade towers rise piping and song,
+The wind delivers the palace ladies' mingling laughs.
+The moon-palace shadows part to the sound of the night water-clock;
+The crystal blinds are rolled up close to the Autumn River."
+"Every word is like a petal or a dewdrop—wouldn't you say that is lovely?" Ronghua said that having it pointed out made her eyes open wider. "Looking at all these poems, every one is excellent—but do they have points you would criticize too?" Qionghua replied, "Oh, I wouldn't dare. Who am I to criticize the Tang sages? People would mock me and scold me!" Ronghua urged, "This is just our private view; who would know?" Qionghua said, "If you ask for points to criticize, then there are some. I would even criticize the ancestor of poetry himself, in Du Fu's *Dreaming of Li Bai*:"
 
-"Though moving near the city wall, the wild path enters mulberry and hemp.
-The new chrysanthemums welcome autumn festival, the hidden pavilion delights in the evening glow.
-Through the bamboo the dog's barking sounds distant, across the trees the cicada's song sounds late.
-Who could know that the one who has retired here,
-Is still a person of the dusty world?"
+"Separation by death has swallowed its sobs;
+Separation in life remains ever sorrowful.
+Jiangnan is a land of miasma and plague;
+Of the exiled guest, there is no news.
+An old friend enters my dream,
+Showing how long I have remembered him.
+I fear this is not his living soul,
+For the road is too far and unmeasured."
+She praised this opening as absolutely wonderful, especially the fear that the dreamt Li Bai was no longer alive. "But immediately after, it connects to 'His soul comes, the maple forest is green; / His soul departs, the frontier pass is dark.' Those two lines make it seem he is dreaming of a dead Li Bai, no longer like a living one."
 
-She said the poem lacked flavor and even repeated characters awkwardly, making it misleading for learners. As for five-character quatrains, she said they were another art, often fit for music and hardest to master; she cited Jin Changxu:
+"Why not delete those two lines and go directly to:"
 
-"Shoo away the yellow orioles..."
-and Bai Juyi:
+"You are now caught in the net;
+How can you have wings to fly?
+The setting moon fills the roof beams;
+I still suspect it shines upon your face."
+"If it went straight to this, and also dropped 'The water is deep and the waves are wide, / Do not let the water-dragons get you,' the poem would feel endlessly suggestive and implicit." Ronghua and Peiqiu both laughed and agreed. "Truly, deleting them would be better! That green maple forest and dark pass really have a ghostly chill. What excellent insight! Are there any others to critique?" Qionghua said, "There is also the monk Jiaoran's poem *Visiting Lu Hongjian*. It is neither ancient style nor regulated verse; I do not know what the anthologists were thinking:"
+
+"Moving my home, though near the outer wall,
+The wild path enters mulberry and hemp.
+Newly planted chrysanthemums along the fence,
+Autumn comes, but they bear no flowers.
+Knocking at the door, no dog barks;
+Wanting to leave, I ask the wine house.
+They report he has gone into the mountains,
+Returning every day when the sun is slanting."
+She declared it utterly flavorless. "If it is meant to be regulated, the words 'go' (qu) and 'come' (lai) are repeated, which is completely out of meter. This kind of poem seems like something it is not, and absolutely must not be imitated. As for small five-character quatrains, they have a different intention and can enter the Music Bureau. But they are especially hard to match. Take Jin Changxu's:"
+
+"Shoo away the yellow orioles,
+Do not let them sing on the branch.
+When they sing, they startle my dream,
+And I cannot reach Liaoxi."
+"And Bai Juyi's:"
 
 "Green-ant new-fermented wine,
 A small red-clay stove.
 Evening approaches and the sky threatens snow,
 Can you drink a cup with me or not?"
-
-She said these seemed casually tossed off yet each became profound. Peiqiu joked that with such command, Qionghua should sit the Broad Learning exam herself and become another Huang Chonggu.
+This is all gathered easily yet achieves profound truth." Peiqiu joked, "Miss, you discuss poetry with such mastery of the profound mysteries—if you took the Broad Learning exam, wouldn't you be the top scholar? You'd be another Huang Chonggu!"
 
 Qionghua laughed that a few memorized lines were useless alone. Peiqiu said Qionghua used to ask her brother to revise poems, yet in truth brother likely could not write them so well himself, or he would not have been cut after three sessions. Ronghua laughed that if her brother heard this, he'd object loudly. Peiqiu said she had looked up Du's *Northern Expedition* and Han's *South Mountain* after hearing men discuss their difficult rhymes, and now she would test them: how many rhyme positions in *Northern Expedition*? Ronghua said she had never counted and could not remember fully.
 
@@ -84,9 +138,9 @@ Qionghua guessed about seventy rhymes. Peiqiu asked how many repeated rhymes. Qi
 
 Qionghua argued those were not true repeats: one *que* was 'gate,' the other 'omission'; same sound, different word-value. For *zu*, one meant soldier, another an adverbial 'suddenly' sound value—thus effectively separate rhyme categories. Ronghua praised her memory, citing favorite lines and saying their political praise of Minghuang's moral stance surpassed later poets' treatments. She admitted she could barely remember *South Mountain* at all—its diction was too craggy and rare. Peiqiu said she had only looked it up for testing and could not memorize such a long, difficult poem either.
 
-Qionghua corrected that *South Mountain* had one hundred and two rhymes with no repeats, requiring enormous power like grand fu writing. Peiqiu challenged with two apparent repeated *cou* characters. Qionghua laughed and explained one was different graph/semantic class despite similar sound, then gave a side philological question about removing radicals and reading shifts. Peiqiu joked through it. Qionghua explained a gloss where the character meant 'offspring.' Ronghua said it was a pity Qionghua could not sit the exam; with such mastery she would surely pass. Qionghua smiled and admitted she had only recently read these poems closely because those two pieces happened to be this year's set texts. Ronghua asked to see *South Mountain* again.
+Qionghua corrected that *South Mountain* had one hundred and two rhymes with no repeats, requiring extraordinary structural power. Peiqiu tried citing a repeat of 'cou', but Qionghua gently pointed out it was not a rhyme repeat but a different character base. Ronghua said it was a pity Qionghua couldn't take the exam; she would surely pass. Qionghua laughed that she only learned the poem perfectly recently because those exam questions had just been set. Ronghua asked to see the poem text.
 
-Qionghua fetched it. Ronghua read a little and asked which word was the seventh rhyme. Qionghua laughed that no one remembered by position alone, then counted through and answered it was 'shou.' Peiqiu praised such memorization and said Qionghua could certainly compose in those rhymes. Qionghua said the one hard rhyme in *Northern Expedition* was actually the 'da' of Daji; she wondered how examinees used it, since her brother and brother-in-law had also used that same allusion and there seemed little alternative. Peiqiu laughed that asking second brother-in-law directly would reveal usage. Qionghua blushed and fell silent. Peiqiu then joked that on the first bridal night they should make him recite full rhyme tables before entering, otherwise lock him out kneeling—so he would know women could be broadly learned too.
+Qionghua fetched it. Ronghua read a little and asked which word was the seventh rhyme. Qionghua laughed that one doesn't ask such things—even if well-memorized, one cannot recall what the exact seventh rhyme is, only recite down to it. She then recited line by line and arrived at 'thin' (shou). Peiqiu said this was truly difficult; with such rote memory she could definitely write a matching poem. Qionghua said despite difficult rhymes, they were easy to use. "But in *Northern Journey*, the 'Da' character is very hard to use. I wonder how the successful candidates managed it. My brother and brother-in-law probably just used it for Daji; aside from that, it has no other use." Peiqiu joked she need only ask her future husband. Qionghua blushed and stayed silent. Peiqiu teased that on the wedding night she should demand he recite the rhyme scheme before entering, otherwise lock him out kneeling—so he would know women could be broadly learned too.
 
 Ronghua laughed. Qionghua blushed harder, paused, then said perhaps Ronghua's husband had already knelt once. Peiqiu joked she herself was unworthy; if worthy, Ronghua's husband would kneel too. Ronghua sighed that their sisters' time together was ending and Qionghua was the blessed one, unlike her. After saying she'd return with her child, she and Peiqiu left. Qionghua reflected privately: Ronghua's resentment was understandable, though her husband was truly talented and would rise eventually. She then thought of her own future husband: only nineteen yet already so accomplished, truly rare. But she had heard long ago of someone named Qinyan who had caused him several illnesses, and now she wondered what had become of that Qinyan. Meanwhile Wang Wenhui fixed the wedding date for the nineteenth day of the ninth month; Lady Yan sent family letters saying Ziyu had passed and marriage was now imminent, all arrangements entrusted to Zhongqing.
 
@@ -94,4 +148,6 @@ Zhongqing roused himself. Being naturally broad-minded, he did not brood over ga
 
 One day Ziyu was talking privately with Qionghua when business from the academy called him out suddenly. In his haste he dropped a small old-brocade pouch on the floor. Qionghua picked it up and opened it, finding two folded sheets. One, in Ziyu's hand, was a *Jinlü Qu* and clearly a painful parting lyric. The other, also *Jinlü Qu*, looked like a response. She saw Qinyan's name on the letter paper and felt an inward thrill: several times she had asked about this Qinyan and Ziyu always dodged with jokes, saying only they resembled each other; now she had evidence. Their depth of feeling—calling each other in dreams, speaking of repeated heartbreak—was rare indeed. She recalled hearing her brother and brother-in-law long ago discuss Qinyan as a uniquely strange emotional case. Reading these two lyrics proved such passion and grievance were no ordinary thing. She put away the sheets and hung the pouch to one side.
 
-After a while Ziyu returned. At first he forgot the pouch; then he saw it hanging and started. Qionghua pretended not to notice. Ziyu hovered, wanting and fearing to take it. When he finally took it down and felt it empty, panic rose—he knew Qionghua had removed the papers. Other matters he might explain, but Qinyan's name on the letter was hard to deny. He wanted to ask but could not directly, and kept stealing glances at her. Qionghua smiled despite herself. Ziyu took this opening and asked why she laughed. She answered playfully that she didn't wish to laugh, yet laughed anyway. He joked with poetic line about rare open laughter in life. She countered with 'How many times does one break the intestines?'—hitting his sore point directly. Ziyu dared ask no further and thought to walk away, but Qionghua held him and said she had found two excellent lyrics and would read them aloud. After reading, she asked if they were good. Ziyu evaded interpretation, saying poetry cannot be linearly explained and cited philosophical analogy. Qionghua said allegory and plain statement differ, and she would explain plainly. She proceeded line by line through the first lyric, praising its layered turns, emotional openings/closures, and intricate movement from immediate pain to imaginative strategy of mutual name-calling across distance if souls could not fly. She ended that 'ink mixed with tears' needed no gloss beyond itself, then asked if her reading was right. Ziyu said entirely right. She then asked the core question: if this person had lived in constant intimacy with him, what place had he held? Ziyu answered only as attendant in books and ink. Qionghua shot back that attendants are not called by souls in dreams. Ziyu, slightly agitated, said he had thought her his true confidante, able to see his heart unlike others. Qionghua said she had interpreted thoroughly, so how was that not understanding? Ziyu said others could speak muddle, but she should not; he began to say their appearances were similar and stopped. Qionghua started a sharp retort and also stopped. They looked at each other. Ziyu smiled awkwardly and said no need to keep arguing—time would show truth. He changed topic: Duxiang had invited her to view chrysanthemums, also inviting wives of Yong'an and Jiantan and other familiar ladies. Would she go? Qionghua said probably not. Why? She said first she had not yet completed a month after marriage; second she should await Madam Yan's instruction—if Madam Yan went, she'd follow. Ziyu said this invitation was to younger wives only, not elders, and Duxiang had said date would be chosen only after confirming everyone could attend and weather was calm, with no absences allowed. Qionghua said she'd decide by what her sisters and sisters-in-law did: if they went, she'd go; if any declined, she'd decline. Fearing renewed Qinyan discussion, Ziyu kept steering to trivial topics. Qionghua, understanding his heart, spared him further embarrassment. The narrator closes with praise of their deep marital pairing and notes that the next volume will detail Qinyan's journey onward.
+After a while Ziyu returned. At first he forgot the pouch; then he saw it hanging and started. Qionghua pretended not to notice. Ziyu hovered, wanting and fearing to take it. When he finally took it down and felt it empty, panic rose—he knew Qionghua had removed the papers. Other matters he might explain, but Qinyan's name on the letter was hard to deny. He wanted to ask but could not directly, and kept stealing glances at her. Qionghua smiled despite herself. Ziyu took this opening and asked why she laughed. She answered playfully that she didn't wish to laugh, yet laughed anyway. He joked with a poetic line about rare open laughter in life. She countered with 'How many times does one break the intestines?'—hitting his sore point directly. Ziyu dared ask no further and thought to walk away, but Qionghua held him and said she had found two excellent lyrics and would read them aloud. After reading, she asked if they were good. Ziyu evaded interpretation, saying poetry cannot be linearly explained and cited a philosophical analogy. Qionghua said allegory and plain statement differ, and she would explain plainly. She proceeded line by line through the first lyric, praising its layered turns, emotional openings and closures, and intricate movement from immediate pain to imaginative strategy of mutual name-calling across distance if souls could not fly.
+
+She recited further: "'If we calculate constant intimacy with no space between, becoming one family is best, yet perversely we must be separated.'" She continued reading: "'Tomorrow morning, parting by the long pavilion. Enduring to pull your clothes and say take care—this heart grows more chaotic.' Reading this makes my own heart sour, let alone those personally experiencing it—I don't know what they would do. After this, he goes far away, looked for but unseen, no one knowing exactly where he is, which is why it says 'Outside the door, where is the end of the sky? I see only rivers and lakes vast and boundless.' Yet though the rivers and lakes are vast, if we speak of my sorrowful intestines, I fear not even half can be washed away, so it says 'It is hard to wash away even half my sorrowful intestines.' The next part is truly a bizarre thought: just because the bodies are separated, are the soul and dream forbidden to meet? But separated so far, the soul and dream may not arrive, or perhaps, with stirred hearts and divine knowledge, calling his name might actually summon him. So it is not just me here calling him, but him there calling me—the two sides matching up, perhaps they really could meet. That is why it says: 'If you fear the soul and dream fly not there, try night by night to call each other's name. Ink mixed with tears, I invite you to play with this.' This line needs no explanation; it just means 'ink and tears, take this and see.' Is that how it is explained, or not?" Ziyu smiled awkwardly and said, "Explained without the slightest error." Qionghua asked, "Let me ask you: this person lived in constant intimacy with you, but what position did you actually place him in?" Ziyu said, "Merely an attendant for books and ink." Qionghua countered, "An attendant for books and ink? What need to call each other's names in soul and dream?" Ziyu grew slightly frantic and said, "I said you were my true confidante, naturally seeing straight into my lungs and belly. Who would have thought you cannot understand me either—let alone anyone else?" Qionghua laughed, "I explained it so penetratingly, how can you say I don't understand you?" Ziyu said, "If others speak muddled nonsense, let them, but you should not speak so. Right now, our appearances even have some..." He caught himself and stopped. Qionghua said, "Nonsense, then you should..." She also stopped and did not continue. Ziyu looked at Qionghua, and Qionghua looked at Ziyu. Ziyu could only smile apologetically and say, "No need to speak of this; eventually truth is known, no need for defenses. Today I saw Duxiang, who said his wife wants to invite you to view chrysanthemums, inviting the wives of Yong'an and Jiantan and other close friends. Will you go?" Qionghua said she would probably not go. Why? "First, I have just come over and a month hasn't passed. Second, I must wait for Madam's instructions; if Madam goes, I will follow." Ziyu said they were not inviting the elders, only her generation. Duxiang said the date was unset, pending everyone's agreement to come on a windless day with no one absent. Qionghua said she would see what her sisters and sisters-in-law did; if they went, she'd go, otherwise not. Fearing she would ask about Qinyan again, Ziyu kept finding idle talk. Qionghua, knowing his heart, could not bear to press him and make him suffer. Truly: deep as fish and water, a perfect phoenix pair; having seen the great sea, other waters pale; willing to be mandarin ducks, not envying immortals. The next volume will detail Qinyan's situation on the road, waiting to be finely unfolded.
