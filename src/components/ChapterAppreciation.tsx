@@ -133,10 +133,11 @@ export function ChapterAppreciation({
                 key={idx}
                 type="button"
                 onClick={() => setSelectedFeeling(item)}
-                className={`flex flex-col items-center justify-center p-2 rounded-sm border transition-all cursor-pointer ${selectedFeeling?.char === item.char
+                className={`flex flex-col items-center justify-center p-2 rounded-sm border transition-all duration-300 cursor-pointer ${
+                  selectedFeeling?.char === item.char
                     ? "border-[var(--accent)] bg-[var(--accent)] text-white scale-105 shadow-md"
-                    : "border-[var(--paper-border)] bg-[var(--paper-bg)] text-[var(--ink-title)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/5 hover:scale-102"
-                  }`}
+                    : "border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/40 text-[var(--ink-title)] hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/5 hover:scale-102"
+                }`}
               >
                 <span className="text-xl sm:text-2xl font-bold font-hans">{item.char}</span>
                 <span className="text-[8px] opacity-75 font-sans mt-0.5">{item.pinyin}</span>
@@ -144,7 +145,7 @@ export function ChapterAppreciation({
             ))}
           </div>
 
-          <div className="border border-dashed border-[var(--paper-border)] bg-[var(--paper-bg)]/30 p-3 sm:p-4 rounded-sm min-h-[90px] flex items-center justify-center">
+          <div className="border border-dashed border-[var(--paper-border)] bg-[var(--paper-bg)]/20 p-4 rounded-sm min-h-[90px] flex items-center justify-center">
             {selectedFeeling ? (
               <div className="w-full text-left space-y-1.5">
                 <div className="flex items-center gap-2">
@@ -188,7 +189,7 @@ export function ChapterAppreciation({
           </div>
           <div className="grid gap-3">
             {vis.flows.map(f => (
-              <div key={f.id} className="p-3 border border-[var(--paper-border)] rounded-sm bg-[var(--paper-bg)]/40">
+              <div key={f.id} className="p-3 border border-l-[3px] border-[var(--paper-border)]/50 border-l-[var(--accent)] bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--paper-border)]/50 hover:border-l-[var(--accent)] transition-all duration-300 shadow-sm">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="font-bold text-[var(--ink-title)]">{lang === "zh" ? f.sourceZh : f.sourceEn}</span>
                   <ArrowRight size={14} className="text-[var(--accent)]" />
@@ -215,7 +216,7 @@ export function ChapterAppreciation({
           </div>
           <div className="grid sm:grid-cols-2 gap-3">
             {vis.spaces.map(s => (
-              <div key={s.id} className="p-3 border border-l-4 border-[var(--paper-border)] border-l-[var(--accent)] rounded-sm bg-[var(--paper-bg)]/40">
+              <div key={s.id} className="p-3 border border-l-[3px] border-[var(--paper-border)]/50 border-l-[var(--accent)] bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--paper-border)]/50 hover:border-l-[var(--accent)] transition-all duration-300 shadow-sm">
                 <h5 className="font-bold text-[var(--ink-title)] mb-2">{lang === "zh" ? s.locationZh : s.locationEn}</h5>
                 <div className="text-xs space-y-1 text-[var(--ink-dim-text)]">
                   <p><span className="font-bold">{lang === "zh" ? "氛围: " : "Atmosphere: "}</span>{lang === "zh" ? s.atmosphereZh : s.atmosphereEn}</p>
@@ -238,7 +239,7 @@ export function ChapterAppreciation({
           </div>
           <div className="space-y-3">
             {vis.rumors.map(r => (
-              <div key={r.id} className="p-3 border border-dashed border-[var(--paper-border)] rounded-sm">
+              <div key={r.id} className="p-3 border border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 transition-all duration-300 shadow-sm">
                 <p className="font-bold text-[var(--ink-main)] italic">"{lang === "zh" ? r.rumorZh : r.rumorEn}"</p>
                 <div className="mt-2 text-xs flex gap-4 text-[var(--ink-dim-text)]">
                   <p>📍 {lang === "zh" ? r.originZh : r.originEn}</p>
@@ -261,12 +262,12 @@ export function ChapterAppreciation({
           </div>
           <div className="grid gap-3">
             {vis.ladder.map(l => (
-              <div key={l.id} className="p-3 border border-[var(--paper-border)] rounded-sm flex flex-col sm:flex-row justify-between items-center gap-4">
+              <div key={l.id} className="p-3 border border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/40 rounded-sm flex flex-col sm:flex-row justify-between items-center gap-4 hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 transition-all duration-300 shadow-sm">
                 <div className="font-bold text-[var(--accent)]">{lang === "zh" ? l.characterZh : l.characterEn}</div>
                 <div className="flex flex-1 items-center justify-between w-full">
-                  <div className="text-xs text-center p-2 bg-[var(--paper-bg)] border rounded-sm">{lang === "zh" ? l.initialStatusZh : l.initialStatusEn}</div>
+                  <div className="text-xs text-center p-2 bg-[var(--paper-border)]/30 border border-[var(--paper-border)]/50 rounded-sm text-[var(--ink-title)] font-semibold">{lang === "zh" ? l.initialStatusZh : l.initialStatusEn}</div>
                   <div className="text-[10px] text-[var(--ink-dim-text)] px-2">{lang === "zh" ? l.methodZh : l.methodEn}</div>
-                  <div className="text-xs text-center p-2 bg-[var(--accent)]/10 border border-[var(--accent)] rounded-sm font-bold">{lang === "zh" ? l.finalStatusZh : l.finalStatusEn}</div>
+                  <div className="text-xs text-center p-2 bg-[var(--accent)]/10 border border-[var(--accent)]/30 rounded-sm font-bold text-[var(--accent)]">{lang === "zh" ? l.finalStatusZh : l.finalStatusEn}</div>
                 </div>
               </div>
             ))}
@@ -285,8 +286,8 @@ export function ChapterAppreciation({
           </div>
           <div className="space-y-4">
             {vis.poems && vis.poems.map((poem, idx) => (
-              <div key={idx} className="border border-[var(--paper-border)] rounded-sm bg-[var(--paper-bg)] overflow-hidden">
-                <div className="bg-[var(--accent)]/5 px-4 py-2 border-b border-[var(--paper-border)] flex justify-between items-center">
+              <div key={idx} className="border border-[var(--paper-border)]/50 rounded-sm bg-[var(--paper-bg)]/40 hover:bg-[var(--paper-bg)]/60 transition-all duration-300 shadow-sm overflow-hidden">
+                <div className="bg-[var(--paper-bg)]/60 px-4 py-2 border-b border-[var(--paper-border)]/30 flex justify-between items-center">
                   <h5 className="font-bold text-[var(--accent)] font-hans text-sm sm:text-base">
                     {lang === "zh" ? poem.titleZh : poem.titleEn}
                   </h5>
@@ -315,10 +316,10 @@ export function ChapterAppreciation({
               </div>
             ))}
             {vis.critiques && vis.critiques.map(p => (
-              <div key={p.id} className="p-4 border border-[var(--paper-border)] bg-[#f9f5f0] rounded-sm">
+              <div key={p.id} className="p-4 border border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 transition-all duration-300 shadow-sm">
                 <h5 className="font-bold text-[var(--ink-title)] text-center mb-2">{lang === "zh" ? p.titleZh : p.titleEn}</h5>
                 <pre className="font-serif text-sm text-center mb-4 text-[var(--ink-main)] whitespace-pre-wrap leading-relaxed">{lang === "zh" ? p.contentZh : p.contentEn}</pre>
-                <div className="border-t border-dashed border-[var(--paper-border)] pt-2 mt-2">
+                <div className="border-t border-dashed border-[var(--paper-border)]/40 pt-2 mt-2">
                   <p className="text-xs text-[var(--ink-dim-text)] font-sans">{lang === "zh" ? p.critiqueZh : p.critiqueEn}</p>
                 </div>
               </div>
@@ -338,16 +339,16 @@ export function ChapterAppreciation({
           </div>
           <div className="grid gap-3">
             {vis.dichotomies.map(d => (
-              <div key={d.id} className="grid sm:grid-cols-3 gap-2 p-3 border border-[var(--paper-border)] rounded-sm">
-                <div className="font-bold text-[var(--accent)] flex items-center justify-center border-b sm:border-b-0 sm:border-r pb-2 sm:pb-0 sm:pr-2">
+              <div key={d.id} className="grid sm:grid-cols-3 gap-3 p-3 border border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 transition-all duration-300 shadow-sm">
+                <div className="font-bold text-[var(--accent)] flex items-center justify-center border-b sm:border-b-0 sm:border-r border-[var(--paper-border)]/30 pb-2 sm:pb-0 sm:pr-2">
                   {lang === "zh" ? d.characterZh : d.characterEn}
                 </div>
-                <div className="text-xs p-2 bg-[var(--paper-bg)]/50">
-                  <span className="font-bold opacity-50 block mb-1">SURFACE</span>
+                <div className="text-xs p-2 bg-[var(--paper-border)]/20 border border-[var(--paper-border)]/40 rounded-sm">
+                  <span className="font-bold block mb-1 text-[9px] uppercase tracking-wider text-[var(--ink-dim-text)] opacity-70">SURFACE</span>
                   {lang === "zh" ? d.surfaceEmotionZh : d.surfaceEmotionEn}
                 </div>
-                <div className="text-xs p-2 bg-[var(--accent)]/5 border-l-2 border-[var(--accent)]">
-                  <span className="font-bold text-[var(--accent)] block mb-1">HIDDEN</span>
+                <div className="text-xs p-2 bg-[var(--accent)]/5 border-l-[3px] border-l-[var(--accent)] border border-[var(--paper-border)]/40 rounded-sm">
+                  <span className="font-bold text-[var(--accent)] block mb-1 text-[9px] uppercase tracking-wider">HIDDEN</span>
                   {lang === "zh" ? d.hiddenEmotionZh : d.hiddenEmotionEn}
                 </div>
                 <div className="col-span-1 sm:col-span-3 text-[10px] text-[var(--ink-dim-text)] text-center mt-1 italic">
@@ -370,15 +371,14 @@ export function ChapterAppreciation({
           </div>
           <div className="space-y-3">
             {vis.dynamics.map(pd => (
-              <div key={pd.id} className="p-3 border rounded-sm relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-1 h-full bg-[var(--accent)]"></div>
+              <div key={pd.id} className="p-3 border border-l-[3px] border-[var(--paper-border)]/50 border-l-[var(--accent)] bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--paper-border)]/50 hover:border-l-[var(--accent)] transition-all duration-300 shadow-sm">
                 <div className="flex justify-between items-center mb-2 ml-2">
                   <span className="font-bold font-serif text-lg">{lang === "zh" ? pd.dominatorZh : pd.dominatorEn}</span>
-                  <span className="text-[10px] bg-red-100 text-red-800 px-2 py-0.5 rounded-sm">DOMINANT</span>
+                  <span className="bg-[var(--accent)]/10 text-[var(--accent)] px-1.5 py-0.5 rounded-sm font-sans font-bold text-[9px] uppercase tracking-wider">DOMINANT</span>
                 </div>
-                <div className="flex justify-between items-center mb-3 ml-2 border-b pb-2">
+                <div className="flex justify-between items-center mb-3 ml-2 border-b border-[var(--paper-border)]/35 pb-2">
                   <span className="text-sm opacity-70">{lang === "zh" ? pd.submissiveZh : pd.submissiveEn}</span>
-                  <span className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded-sm">SUBMISSIVE</span>
+                  <span className="bg-[var(--paper-border)]/40 text-[var(--ink-dim-text)] px-1.5 py-0.5 rounded-sm font-sans font-bold text-[9px] uppercase tracking-wider">SUBMISSIVE</span>
                 </div>
                 <div className="text-xs space-y-1 ml-2 text-[var(--ink-dim-text)]">
                   <p><span className="font-bold text-[var(--ink-main)]">Base: </span>{lang === "zh" ? pd.powerBaseZh : pd.powerBaseEn}</p>
@@ -401,7 +401,7 @@ export function ChapterAppreciation({
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             {vis.objects.map(o => (
-              <div key={o.id} className="p-4 border border-[var(--paper-border)] rounded-sm bg-gradient-to-br from-transparent to-[var(--accent)]/5">
+              <div key={o.id} className="p-4 border border-[var(--paper-border)]/50 rounded-sm bg-gradient-to-br from-[var(--paper-bg)]/40 to-[var(--accent)]/5 hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 transition-all duration-300 shadow-sm">
                 <h5 className="font-bold text-lg text-[var(--accent)] mb-2 font-serif">{lang === "zh" ? o.objectZh : o.objectEn}</h5>
                 <div className="text-xs space-y-2">
                   <p><span className="font-bold bg-white/50 px-1">外观/场景:</span> {lang === "zh" ? o.appearanceZh : o.appearanceEn}</p>
@@ -436,10 +436,11 @@ export function ChapterAppreciation({
                 key={cup.id}
                 type="button"
                 onClick={() => setSelectedCup(cup.id)}
-                className={`p-3 rounded-sm border transition-all text-left flex flex-col justify-between cursor-pointer ${selectedCup === cup.id
+                className={`p-3 rounded-sm border transition-all duration-300 text-left flex flex-col justify-between cursor-pointer ${
+                  selectedCup === cup.id
                     ? "border-[var(--accent)] bg-[var(--accent)]/10 shadow-md scale-102"
-                    : "border-[var(--paper-border)] bg-[var(--paper-bg)]/40 hover:border-[var(--accent)]/55 hover:bg-[var(--accent)]/5"
-                  }`}
+                    : "border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/40 hover:border-[var(--accent)]/30 hover:bg-[var(--accent)]/5"
+                }`}
               >
                 <div className="flex items-start justify-between">
                   <Wine
@@ -457,7 +458,7 @@ export function ChapterAppreciation({
             ))}
           </div>
 
-          <div className="border border-dashed border-[var(--paper-border)] bg-[var(--paper-bg)]/30 p-4 rounded-sm min-h-[140px] flex items-center justify-center">
+          <div className="border border-dashed border-[var(--paper-border)] bg-[var(--paper-bg)]/20 p-4 rounded-sm min-h-[140px] flex items-center justify-center">
             {selectedCup !== null ? (
               (() => {
                 const cup = vis.cups.find((c) => c.id === selectedCup);
@@ -539,10 +540,11 @@ export function ChapterAppreciation({
                 key={arc.id}
                 type="button"
                 onClick={() => setSelectedArchetype(arc.id)}
-                className={`p-3 rounded-sm border transition-all text-left flex flex-col justify-between cursor-pointer ${selectedArchetype === arc.id
+                className={`p-3 rounded-sm border transition-all duration-300 text-left flex flex-col justify-between cursor-pointer ${
+                  selectedArchetype === arc.id
                     ? "border-[var(--accent)] bg-[var(--accent)]/10 shadow-md scale-102"
-                    : "border-[var(--paper-border)] bg-[var(--paper-bg)]/40 hover:border-[var(--accent)]/55 hover:bg-[var(--accent)]/5"
-                  }`}
+                    : "border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/40 hover:border-[var(--accent)]/30 hover:bg-[var(--accent)]/5"
+                }`}
               >
                 <div className="flex items-start justify-between">
                   <User
@@ -560,7 +562,7 @@ export function ChapterAppreciation({
             ))}
           </div>
 
-          <div className="border border-dashed border-[var(--paper-border)] bg-[var(--paper-bg)]/30 p-4 rounded-sm min-h-[140px] flex flex-col justify-center">
+          <div className="border border-dashed border-[var(--paper-border)] bg-[var(--paper-bg)]/20 p-4 rounded-sm min-h-[140px] flex flex-col justify-center">
             {selectedArchetype !== null ? (
               (() => {
                 const arc = vis.archetypes.find((a) => a.id === selectedArchetype);
