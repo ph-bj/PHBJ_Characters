@@ -247,5 +247,55 @@ export const chapter6Appreciation: ChapterAppreciationData = {
         "descEn": "Represents the ideal traditional woman bound by propriety. She shows both maidenly shyness and high self-esteem (scratching out her name), but her orthodox marriage contrasts sharply with Ziyu's quest for spiritual romance."
       }
     ]
-  }
+  },
+  "visualizers": [
+    {
+      "type": "wealthFlow",
+      "flows": [
+        {
+          "id": 1,
+          "sourceZh": "梅子玉",
+          "sourceEn": "Mei Ziyu",
+          "targetZh": "杜琴言",
+          "targetEn": "Du Qinyan",
+          "amountZh": "珍贵的信物与资助",
+          "amountEn": "Precious tokens and financial aid",
+          "impactZh": "不同于权贵的买笑，子玉的馈赠是不求回报的灵魂抚慰，加深了二人的情感羁绊。",
+          "impactEn": "Unlike the elite buying smiles, Ziyu's gift is unrequited soul-soothing, deepening their emotional bond."
+        }
+      ]
+    },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "纨绔子弟：草包兄弟",
+          "titleEn": "The Incompetent Scions",
+          "roleZh": "孙氏兄弟 (The Sun Brothers)",
+          "roleEn": "Spoiled, ignorant heirs of the elite",
+          "descZh": "代表了清代晚期腐朽没落的官二代。不学无术、举止粗鄙，在雅集中屡屡出丑，成为文人雅士们的笑料与“三字经”嘲讽对象，揭示了权贵阶层内部的德不配位。",
+          "descEn": "Represents the decayed second-generation officials of late Qing. Ignorant and crude, they are repeatedly mocked by scholars (the 'Three-Character Classic' jokes), highlighting the unworthiness of the privileged class."
+        },
+        {
+          "id": 2,
+          "titleZh": "清雅名流：才子群像",
+          "titleEn": "The Refined Literati",
+          "roleZh": "高品、史南湘等 (Gao Pin, Shi Nanxiang, et al.)",
+          "roleEn": "Talented, witty, and cynical scholars",
+          "descZh": "代表了具备高超文学修养和审美品味的文人群体。他们以机锋对答和高雅游宴为乐，既能欣赏优伶的绝世才情，也毫不留情地讽刺不学无术的权贵，是小说的审美标尺。",
+          "descEn": "Represents the literati with high literary culture and taste. They delight in witty banter, appreciate the actors' art, and mercilessly mock the ignorant elite, serving as the novel's aesthetic benchmark."
+        },
+        {
+          "id": 3,
+          "titleZh": "深闺佳人：端庄千金",
+          "titleEn": "The Sequestered Maiden",
+          "roleZh": "颜琼华 (Yan Qionghua)",
+          "roleEn": "The modest, sensitive noblewoman",
+          "descZh": "代表了传统礼教下恪守妇道的理想女性。面对长辈定下的婚事，她既有少女的娇羞，又保有高度的自尊（挖去诗稿上的名字），但她的正统婚姻与子玉那追求灵魂自由的“色界”体验形成了深刻的宿命反差。",
+          "descEn": "Represents the ideal traditional woman bound by propriety. She shows both maidenly shyness and high self-esteem (scratching out her name), but her orthodox marriage contrasts sharply with Ziyu's quest for spiritual romance."
+        }
+      ]
+    }
+  ]
 };

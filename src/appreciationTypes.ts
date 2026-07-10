@@ -144,6 +144,18 @@ export interface SocialLadderVisualizerData {
   ladder: SocialLadderItem[];
 }
 
+export interface PoetryItem {
+  id: number;
+  titleZh: string;
+  titleEn: string;
+  authorZh: string;
+  authorEn: string;
+  textZh: string;
+  textEn: string;
+  critiqueZh: string;
+  critiqueEn: string;
+}
+
 export interface PoetryCritiqueItem {
   id: number;
   titleZh: string;
@@ -156,7 +168,8 @@ export interface PoetryCritiqueItem {
 
 export interface PoetryCritiqueVisualizerData {
   type: "poetryCritique";
-  critiques: PoetryCritiqueItem[];
+  poems?: PoetryItem[];
+  critiques?: PoetryCritiqueItem[];
 }
 
 export interface EmotionalDichotomyItem {
@@ -227,4 +240,5 @@ export interface ChapterAppreciationData {
   timelineData: TimelineNode[];
   dimensions: DimensionInfo[];
   visualizer: ChapterVisualizerData;
+  visualizers?: ChapterVisualizerData[];
 }
