@@ -284,7 +284,37 @@ export function ChapterAppreciation({
             </h4>
           </div>
           <div className="space-y-4">
-            {vis.critiques.map(p => (
+            {vis.poems && vis.poems.map((poem, idx) => (
+              <div key={idx} className="border border-[var(--paper-border)] rounded-sm bg-[var(--paper-bg)] overflow-hidden">
+                <div className="bg-[var(--accent)]/5 px-4 py-2 border-b border-[var(--paper-border)] flex justify-between items-center">
+                  <h5 className="font-bold text-[var(--accent)] font-hans text-sm sm:text-base">
+                    {lang === "zh" ? poem.titleZh : poem.titleEn}
+                  </h5>
+                  <span className="text-[10px] sm:text-xs text-[var(--ink-dim-text)] font-hans">
+                    {lang === "zh" ? poem.authorZh : poem.authorEn}
+                  </span>
+                </div>
+                <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <p className="text-xs text-[var(--ink-dim-text)] uppercase tracking-wider font-bold font-hans">
+                      {lang === "zh" ? "原诗选段" : "Poem Excerpt"}
+                    </p>
+                    <p className="text-sm text-[var(--ink-main)] font-serif whitespace-pre-wrap leading-relaxed">
+                      {lang === "zh" ? poem.textZh : poem.textEn}
+                    </p>
+                  </div>
+                  <div className="space-y-2 border-t sm:border-t-0 sm:border-l border-[var(--paper-border)] pt-4 sm:pt-0 sm:pl-4">
+                    <p className="text-xs text-[var(--ink-dim-text)] uppercase tracking-wider font-bold font-hans">
+                      {lang === "zh" ? "梅子玉鉴赏" : "Ziyu's Critique"}
+                    </p>
+                    <p className="text-xs sm:text-sm text-[var(--ink-title)] font-hans leading-relaxed">
+                      {lang === "zh" ? poem.critiqueZh : poem.critiqueEn}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+            {vis.critiques && vis.critiques.map(p => (
               <div key={p.id} className="p-4 border border-[var(--paper-border)] bg-[#f9f5f0] rounded-sm">
                 <h5 className="font-bold text-[var(--ink-title)] text-center mb-2">{lang === "zh" ? p.titleZh : p.titleEn}</h5>
                 <pre className="font-serif text-sm text-center mb-4 text-[var(--ink-main)] whitespace-pre-wrap leading-relaxed">{lang === "zh" ? p.contentZh : p.contentEn}</pre>
