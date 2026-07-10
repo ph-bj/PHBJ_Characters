@@ -78,7 +78,7 @@ export const chapter51Appreciation: ChapterAppreciationData = {
     ladder: [
         {
           id: 1,
-          characterZh: "孙斯辉", characterEn: "Sun Sihui",
+          characterZh: "孙嗣徽", characterEn: "Sun Sihui",
           initialStatusZh: "不学无术的市井商贾之子", initialStatusEn: "Ignorant son of a merchant",
           finalStatusZh: "冒牌科举秀才", finalStatusEn: "Fake scholar",
           methodZh: "八十两银子雇人代笔，贿赂科场", methodEn: "Hired a ghostwriter for 80 taels, bribing the exam system"

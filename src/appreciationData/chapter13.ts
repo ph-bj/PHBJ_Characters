@@ -122,7 +122,7 @@ export const chapter13Appreciation: ChapterAppreciationData = {
     "flows": [
       {
         "id": 1,
-        "sourceZh": "王恂 / 严仲清",
+        "sourceZh": "王恂 / 颜仲清",
         "sourceEn": "Wang Xun / Yan Zhongqing",
         "targetZh": "田春航 (经由高品)",
         "targetEn": "Tian Chunhang (via Gao Pin)",
@@ -153,7 +153,7 @@ export const chapter13Appreciation: ChapterAppreciationData = {
       "flows": [
         {
           "id": 1,
-          "sourceZh": "王恂 / 严仲清",
+          "sourceZh": "王恂 / 颜仲清",
           "sourceEn": "Wang Xun / Yan Zhongqing",
           "targetZh": "田春航 (经由高品)",
           "targetEn": "Tian Chunhang (via Gao Pin)",

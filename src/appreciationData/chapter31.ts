@@ -78,7 +78,7 @@ export const chapter31Appreciation: ChapterAppreciationData = {
     dichotomies: [
         {
           id: 1,
-          characterZh: "冯子派", characterEn: "Feng Zipai",
+          characterZh: "冯子佩", characterEn: "Feng Zipei",
           surfaceEmotionZh: "舞台上的卖力与台下的愤怒防卫", surfaceEmotionEn: "Overexertion on stage and angry defensiveness off stage",
           hiddenEmotionZh: "对自身技艺的不自信与对名士评价的极度渴望", hiddenEmotionEn: "Insecurity about his skills and an extreme craving for validation from scholars",
           triggerZh: "听到文泽等人的闲聊，误以为是对自己演技的贬低", triggerEn: "Hearing Wenze's idle chat and mistaking it for a critique of his acting"
