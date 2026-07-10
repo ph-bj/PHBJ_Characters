@@ -80,146 +80,28 @@ export interface ArchetypesVisualizerData {
 }
 
 
-export interface WealthFlowItem {
-  id: number;
-  sourceZh: string;
-  sourceEn: string;
-  targetZh: string;
-  targetEn: string;
-  amountZh: string;
-  amountEn: string;
-  impactZh: string;
-  impactEn: string;
-}
-
-export interface WealthFlowVisualizerData {
-  type: "wealthFlow";
-  flows: WealthFlowItem[];
-}
-
-export interface SpatialMappingItem {
-  id: number;
-  locationZh: string;
-  locationEn: string;
-  atmosphereZh: string;
-  atmosphereEn: string;
-  significanceZh: string;
-  significanceEn: string;
-}
-
-export interface SpatialMappingVisualizerData {
-  type: "spatialMapping";
-  spaces: SpatialMappingItem[];
-}
-
-export interface RumorNetworkItem {
-  id: number;
-  rumorZh: string;
-  rumorEn: string;
-  originZh: string;
-  originEn: string;
-  effectZh: string;
-  effectEn: string;
-}
-
-export interface RumorNetworkVisualizerData {
-  type: "rumorNetwork";
-  rumors: RumorNetworkItem[];
-}
-
-export interface SocialLadderItem {
-  id: number;
-  characterZh: string;
-  characterEn: string;
-  initialStatusZh: string;
-  initialStatusEn: string;
-  finalStatusZh: string;
-  finalStatusEn: string;
-  methodZh: string;
-  methodEn: string;
-}
-
-export interface SocialLadderVisualizerData {
-  type: "socialLadder";
-  ladder: SocialLadderItem[];
-}
-
 export interface PoetryCritiqueItem {
   id: number;
   titleZh: string;
   titleEn: string;
-  contentZh: string;
-  contentEn: string;
+  authorZh: string;
+  authorEn: string;
+  textZh: string;
+  textEn: string;
   critiqueZh: string;
   critiqueEn: string;
 }
 
 export interface PoetryCritiqueVisualizerData {
   type: "poetryCritique";
-  critiques: PoetryCritiqueItem[];
-}
-
-export interface EmotionalDichotomyItem {
-  id: number;
-  characterZh: string;
-  characterEn: string;
-  surfaceEmotionZh: string;
-  surfaceEmotionEn: string;
-  hiddenEmotionZh: string;
-  hiddenEmotionEn: string;
-  triggerZh: string;
-  triggerEn: string;
-}
-
-export interface EmotionalDichotomyVisualizerData {
-  type: "emotionalDichotomy";
-  dichotomies: EmotionalDichotomyItem[];
-}
-
-export interface PowerDynamicsItem {
-  id: number;
-  dominatorZh: string;
-  dominatorEn: string;
-  submissiveZh: string;
-  submissiveEn: string;
-  powerBaseZh: string;
-  powerBaseEn: string;
-  shiftZh: string;
-  shiftEn: string;
-}
-
-export interface PowerDynamicsVisualizerData {
-  type: "powerDynamics";
-  dynamics: PowerDynamicsItem[];
-}
-
-export interface ObjectSymbolismItem {
-  id: number;
-  objectZh: string;
-  objectEn: string;
-  appearanceZh: string;
-  appearanceEn: string;
-  meaningZh: string;
-  meaningEn: string;
-}
-
-export interface ObjectSymbolismVisualizerData {
-  type: "objectSymbolism";
-  objects: ObjectSymbolismItem[];
+  poems: PoetryCritiqueItem[];
 }
 
 export type ChapterVisualizerData =
   | TaxonomyVisualizerData
   | DrinkingCupsVisualizerData
   | ArchetypesVisualizerData
-  | WealthFlowVisualizerData
-  | SpatialMappingVisualizerData
-  | RumorNetworkVisualizerData
-  | SocialLadderVisualizerData
   | PoetryCritiqueVisualizerData
-  | EmotionalDichotomyVisualizerData
-  | PowerDynamicsVisualizerData
-  | ObjectSymbolismVisualizerData
   | { type: "none" };
 
 export interface ChapterAppreciationData {

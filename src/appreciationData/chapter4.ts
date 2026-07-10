@@ -217,54 +217,64 @@ export const chapter4Appreciation: ChapterAppreciationData = {
     },
   ],
   visualizer: {
-    type: "archetypes",
-    archetypes: [
+    type: "poetryCritique",
+    poems: [
       {
-        id: 1,
-        titleZh: "知音试探者",
-        titleEn: "The Soulmate Seeker",
-        roleZh: "梅子玉",
-        roleEn: "Mei Ziyu",
-        descZh:
-          "在欢场中不以金钱狎妓，而是试图通过共同的审美（梅花）与诗意来寻找灵魂契合的伴侣。",
-        descEn:
-          "Does not use money to exploit in the brothel, but seeks a soulmate through shared aesthetics (plum blossoms) and poetry.",
+        id: 1, titleZh: "雪山", titleEn: "Snow Mountain", authorZh: "王恂 (Wang Xun)", authorEn: "Wang Xun",
+        textZh: "只履好吟亭畔絮，一驴难觅岭头梅。\n再看欲滴全无翠，虽已多消岂是灰。",
+        textEn: "In clogs, how fine to chant of catkins by the pavilion;\non a donkey, how hard to seek the plum along the ridge.\nLook again: it seems to drip, yet holds no verdant green;\nthough much may melt, how could it be the ash of ruin?",
+        critiqueZh: "梅子玉评：“雪山”一题最易落入“白”、“冷”之俗套。此诗巧借“欲滴无翠”与“多消非灰”两句，以否定式的描绘凸显雪之洁白，用典精妙，别出心裁。",
+        critiqueEn: "Ziyu's Critique: It avoids the clichés of 'white' and 'cold'. By describing what it is not ('no verdant green', 'not ash'), it brilliantly highlights the snow's purity using elegant allusions."
       },
-    ],
-  },
-  visualizers: [
-    {
-      type: "archetypes",
-      archetypes: [
-        {
-          id: 1,
-          titleZh: "知音试探者",
-          titleEn: "The Soulmate Seeker",
-          roleZh: "梅子玉",
-          roleEn: "Mei Ziyu",
-          descZh:
-            "在欢场中不以金钱狎妓，而是试图通过共同的审美（梅花）与诗意来寻找灵魂契合的伴侣。",
-          descEn:
-            "Does not use money to exploit in the brothel, but seeks a soulmate through shared aesthetics (plum blossoms) and poetry.",
-        },
-      ],
-    },
-    {
-      type: "objectSymbolism",
-      objects: [
-        {
-          id: 1,
-          objectZh: "梅花纹饰",
-          objectEn: "Plum Blossom Motifs",
-          appearanceZh: "琴言居所及衣物上的梅花图案",
-          appearanceEn:
-            "Plum blossom patterns on Qinyan's residence and clothes",
-          meaningZh:
-            "梅（Mei）暗合子玉的姓氏，象征着两人之间超越世俗、高洁且隐秘的灵魂契合。",
-          meaningEn:
-            "Plum (Mei) matches Ziyu's surname, symbolizing a pure, secret soul connection transcending the secular world.",
-        },
-      ],
-    },
-  ],
+      {
+        id: 2, titleZh: "雪塔", titleEn: "Snow Pagoda", authorZh: "王恂 (Wang Xun)", authorEn: "Wang Xun",
+        textZh: "散花天女临梵室，层宝庄严见化工。\n月里明珠宝更朗，水中结顶色犹空。",
+        textEn: "The flower-scattering maiden nears the Brahma palace;\nthese tiers of treasure, all this splendor, are Heaven’s own craft.\nIn the moon, the holy relic—how brilliantly it blazes;\non the water, the floating spire—its color emptier still.",
+        critiqueZh: "梅子玉将此诗评为王恂四首之冠。其高妙在于将“雪”之洁白与“佛塔”之空灵完美结合，“水中色空”一句尽显禅意，写出了一种超凡脱俗的神性美。",
+        critiqueEn: "Ziyu ranks this first among Wang's four. Its brilliance lies in merging the snow's purity with the pagoda's ethereal nature. 'Its color emptier still' evokes Zen philosophy and divine beauty."
+      },
+      {
+        id: 3, titleZh: "雪屏", titleEn: "Snow Screen", authorZh: "王恂 (Wang Xun)", authorEn: "Wang Xun",
+        textZh: "云母好教花史障，水精合赐虎贲家。\n银釭不动画偏冷，金雁徐图梦未赊。",
+        textEn: "Mica would serve to screen the flower-loving censor;\ncrystal should be bestowed on the lady of the tiger’s house.\nThe silver candle, unstirred, sheds a light gone cold;\npaint the golden geese—still the dream will not hold.",
+        critiqueZh: "此诗胜在词藻华丽、意象精巧。“云母”、“水精”、“银釭”、“金雁”等物象连缀，营造出一种闺阁式的绮丽与凄冷交织的氛围。",
+        critiqueEn: "This poem excels in ornate vocabulary and delicate imagery. Objects like 'mica', 'crystal', 'silver candle', and 'golden geese' create a boudoir-like atmosphere intertwining splendor and chill."
+      },
+      {
+        id: 4, titleZh: "雪灯", titleEn: "Snow Lantern", authorZh: "王恂 (Wang Xun)", authorEn: "Wang Xun",
+        textZh: "挑尽寒更频赋雪，夜燃浑胜九华灯。\n织绡不复愁向壁，映雪何曾有一灯。",
+        textEn: "Trimming the wick, how often I have chanted the sharp-rhymed snow;\ntonight the burning oil outshines the nine-flower lamp.\nWeaving white silk, one need no longer face the wall;\nwhose is the house that reads with never a lamp alight?",
+        critiqueZh: "梅子玉将其排在最末，或许是因为全诗过分着意于“光”的描摹（燃灯、映雪等），用典稍显堆砌，相比前三首少了些许自然与空灵。",
+        critiqueEn: "Ziyu ranks this last. Perhaps it focuses too heavily on describing 'light' (burning oil, reading by snow) and stacks allusions, lacking the natural emptiness of the first three."
+      },
+      {
+        id: 5, titleZh: "雪狮", titleEn: "Snow Lion", authorZh: "苏简谭 (Su Jiantan)", authorEn: "Su Jiantan",
+        textZh: "异种居然化狻猊，呼名偶借白泽居。\n腾空果有超海势，随风只向东江嘘。",
+        textEn: "Uncanny form, taking shape as a long-haired beast;\ncalled by name, the Bai Ze claims lordship by chance.\nRiding the air, can it truly leap beyond the seas?\nDriven by wind, it only roars along the eastern river.",
+        critiqueZh: "梅子玉赞此题极难，但简谭用典贴切（借白泽）。诗中虽写狮之雄风，却以“空”、“风”暗指其虚幻不实，最后归于“空”境，乃大家手笔。",
+        critiqueEn: "Ziyu considers this topic difficult, but Su handles it masterfully. Though describing a lion's majesty, 'air' and 'wind' hint at its illusory nature, ultimately returning to 'emptiness'."
+      },
+      {
+        id: 6, titleZh: "雪猫", titleEn: "Snow Cat", authorZh: "苏简谭 (Su Jiantan)", authorEn: "Su Jiantan",
+        textZh: "乱弈曾枕双妆合，玉狸高卧雕檐头。\n今日牡丹红尽飞，冷眼何须更捕鼠。",
+        textEn: "Playing go at random, pillowed on two dressing-cases;\nthe jade-like creature crouches by the carved eaves.\nToday the red of peony has all flown away;\ncold-eyed, there is no need to catch the mouse.",
+        critiqueZh: "诗句生动捕捉了猫的慵懒姿态。末句“牡丹飞尽”、“冷眼不捕”更是绝妙，借猫写人，隐喻一种冷眼旁观世间繁华落尽、不染红尘的高洁态度。",
+        critiqueEn: "Vividly captures a cat's laziness. The final lines 'peony flown' and 'cold-eyed, no need to catch' are brilliant, using the cat as a metaphor for a detached, pure observer of a fading world."
+      },
+      {
+        id: 7, titleZh: "雪罗汉", titleEn: "Snow Arhat", authorZh: "苏简谭 (Su Jiantan)", authorEn: "Su Jiantan",
+        textZh: "面壁九年空费力，只留幻影向人间。\n未曾修得金刚体，怕听春风过玉关。",
+        textEn: "Facing the wall nine years, effort spent in vain;\nleaving only an illusion facing the human realm.\nHaving never achieved a diamond body,\nit fears to hear the spring wind cross the Jade Pass.",
+        critiqueZh: "此题极为刁钻。简谭将冰雪的易融与罗汉的修行联系起来。“怕听春风”点出其“幻影”本质，既有哲理的禅机，又带着一丝幽默的嘲讽。",
+        critiqueEn: "A very tricky topic. Su connects the snow's melting nature with Buddhist cultivation. 'Fearing the spring wind' highlights its illusory essence, containing both Zen philosophy and gentle irony."
+      },
+      {
+        id: 8, titleZh: "雪美人", titleEn: "Snow Beauty", authorZh: "苏简谭 (Su Jiantan)", authorEn: "Su Jiantan",
+        textZh: "姑射仙人冰雪肌，人间无物可比拟。\n纵教画史丹青妙，争奈春愁化水飞。",
+        textEn: "The immortal of Mount Guye, skin of ice and snow;\nnothing in the human realm can compare.\nEven if a master painter has wondrous skill,\nhow to stop spring sorrow from melting into water and flying away.",
+        critiqueZh: "作为压轴之作，简谭借《庄子》中“姑射仙人”的典故，写出了一种极具悲剧美感的意境。美人如雪，纯洁无暇却又易碎易逝，与全书“悲情”的基调暗合。",
+        critiqueEn: "As the finale, Su uses the allusion of the Mount Guye immortal to create a tragic beauty. A beauty like snow is flawless yet fragile, aligning with the novel's overarching tragic tone."
+      }
+    ]
+  }
 };

@@ -8,6 +8,7 @@ import {
   ChevronRight,
   ChevronUp,
   Search,
+  Sparkles,
   Square,
   Volume2,
   X,
@@ -43,6 +44,7 @@ import { PermalinkButton } from "./PermalinkButton";
 import { ChapterScene } from "./illustrations/ChapterScene";
 import { ChapterEndScene } from "./illustrations/ChapterEndScene";
 import { ChapterAppreciation } from "./ChapterAppreciation";
+import { getChapterAppreciation } from "../appreciationData";
 import {
   ChapterMidScene,
   midSceneParagraphIndex,
@@ -261,6 +263,7 @@ export function ChapterReader({
     });
   };
 
+  const hasAppreciation = chapter.id >= 1 && !!getChapterAppreciation(chapter.id);
   const chapterIndex = chapters.findIndex((c) => c.id === chapter.id);
   const prevChapter = chapterIndex > 0 ? chapters[chapterIndex - 1] : null;
   const nextChapter =
@@ -1020,6 +1023,23 @@ export function ChapterReader({
                 A+
               </button>
             </div>
+            {hasAppreciation && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const element = document.getElementById("chapter-appreciation-section");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                title={lang === "zh" ? "跳转至本回赏析" : "Jump to chapter appreciation"}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0"
+              >
+                <Sparkles size={12} />
+                <span>{lang === "zh" ? "赏析" : "Appreciation"}</span>
+              </button>
+            )}
             {chapterSearchQuery.trim() && (
               <div className="flex items-center gap-1 shrink-0">
                 <span className="text-[10px] tabular-nums text-[var(--ink-dim-text)] font-sans min-w-[2.5rem] text-center">
@@ -1219,7 +1239,11 @@ export function ChapterReader({
               </div>
             )}
             {chapter.id >= 1 && <ChapterEndScene chapterId={chapter.id} />}
-            {chapter.id >= 1 && <ChapterAppreciation chapterId={chapter.id} lang={lang} />}
+            {chapter.id >= 1 && (
+              <div id="chapter-appreciation-section">
+                <ChapterAppreciation chapterId={chapter.id} lang={lang} />
+              </div>
+            )}
             {chapter.id >= 0 && chapterCitedWorks.length > 0 && (
               <div className="mt-10 border border-[var(--paper-border)] bg-black/5 p-4 rounded-sm">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold mb-3">
