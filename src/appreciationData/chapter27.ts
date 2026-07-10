@@ -17,7 +17,7 @@ export const chapter27Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "聘才密谋敲诈长清，迫其就范。",
+      descriptionZh: "聘才密谋敲诈长庆，迫其就范。",
       descriptionEn: "Pincai plots to harry Changqing for ransom and force submission.",
     },
     {

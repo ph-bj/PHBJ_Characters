@@ -12,12 +12,12 @@ export const chapter28Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：长清请罪",
+      descriptionZh: "本章开篇局势：长庆请罪",
       descriptionEn: "The situation at the beginning of the chapter.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "长清与叶茂林负荆请罪，助长了聘才的得意。",
+      descriptionZh: "长庆与叶茂林负荆请罪，助长了聘才的得意。",
       descriptionEn: "Changqing and Ye Maolin beg pardon, feeding Pincai's triumph.",
     },
     {
@@ -31,14 +31,14 @@ export const chapter28Appreciation: ChapterAppreciationData = {
       iconType: "GitBranch", titleZh: "文本结构与布局", titleEn: "Structure & Layout", score: 85,
       subsections: [
         { labelZh: "承上启下", labelEn: "Connection", textZh: "本章紧接上文，推动了核心情节发展。", textEn: "This chapter directly follows the previous text, advancing the core plot." },
-        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕 '第二十八章：长清请罪与聘才得意' 展开，结构严密。", textEn: "The plot revolves around 'Chapter 28: Changqing's Submission', with a tight structure." },
+        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕 '第二十八章：长庆请罪与聘才得意' 展开，结构严密。", textEn: "The plot revolves around 'Chapter 28: Changqing's Submission', with a tight structure." },
         { labelZh: "节奏掌控", labelEn: "Pacing", textZh: "张弛有度，高潮处情感饱满。", textEn: "Pacing is well-controlled with emotional fullness at the climax." }
       ]
     },
     {
       iconType: "User", titleZh: "人物塑造与心理", titleEn: "Characterization & Psychology", score: 90,
       subsections: [
-        { labelZh: "性格展现", labelEn: "Character", textZh: "长清的温顺屈服与聘才膨胀的自尊形成对比。", textEn: "Changqing's meek submission contrasts with Pincai's inflated ego." },
+        { labelZh: "性格展现", labelEn: "Character", textZh: "长庆的温顺屈服与聘才膨胀的自尊形成对比。", textEn: "Changqing's meek submission contrasts with Pincai's inflated ego." },
         { labelZh: "心理深度", labelEn: "Psychology", textZh: "人物内心的挣扎和波澜描写真实细腻。", textEn: "The inner struggles and psychological waves of the characters are depicted authentically and delicately." },
         { labelZh: "人物关系", labelEn: "Relationships", textZh: "人物间的互动微妙地改变了彼此的权力或情感平衡。", textEn: "Interactions between characters subtly alter their power or emotional balance." }
       ]
@@ -79,7 +79,7 @@ export const chapter28Appreciation: ChapterAppreciationData = {
         {
           id: 1,
           titleZh: "负荆请罪的荒诞诗意", titleEn: "The Absurd Poetics of Begging Pardon",
-          contentZh: `长清背负荆条，\n步入权贵的书房。\n不索一文，只求苟全。\n小人的嘴角，\n挂着最得意的笑。`, contentEn: `Changqing bears thorns on his back,\nEntering the study of power.\nAsking not a single coin, only to survive.\nThe petty man's lips,\nCurl in the most triumphant smile.`,
+          contentZh: `长庆背负荆条，\n步入权贵的书房。\n不索一文，只求苟全。\n小人的嘴角，\n挂着最得意的笑。`, contentEn: `Changqing bears thorns on his back,\nEntering the study of power.\nAsking not a single coin, only to survive.\nThe petty man's lips,\nCurl in the most triumphant smile.`,
           critiqueZh: "这一幕犹如一出荒诞的戏剧，传统的‘负荆请罪’被剥夺了道德内涵，沦为纯粹的权力碾压与平民的极致屈辱。聘才的‘拒收赎金’并非宽宏，而是为了彻底摧毁对方的尊严底线。", critiqueEn: "This scene is like an absurd play. The traditional 'bearing thorns' is stripped of moral meaning, reduced to pure power crushing and ultimate civilian humiliation. Pincai's 'refusal of ransom' is not generosity, but a move to utterly destroy their dignity."
         }
       ]

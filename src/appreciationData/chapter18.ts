@@ -214,13 +214,13 @@ export const chapter18Appreciation: ChapterAppreciationData = {
     "dynamics": [
       {
         "id": 1,
-        "dominatorZh": "班主长清",
+        "dominatorZh": "班主长庆",
         "dominatorEn": "Troupe Master Changqing",
         "submissiveZh": "病中的杜琴言",
         "submissiveEn": "The Sick Du Qinyan",
         "powerBaseZh": "法律意义上的契约所有权",
         "powerBaseEn": "Legal indenture ownership",
-        "shiftZh": "班主的权力因琴言的生病而暂时失效，暴露出这种依附关系的脆弱：一旦‘商品’受损，剥削便无法继续。",
+        "shiftZh": "班主的权力因琴言的生病而暂时失效，暴露出这种依附关系脆弱：一旦‘商品’受损，剥削便无法继续。",
         "shiftEn": "The master's power is temporarily voided by Qinyan's illness, exposing the fragility of the dependency: once the 'commodity' is damaged, exploitation stalls."
       }
     ]
@@ -245,7 +245,7 @@ export const chapter18Appreciation: ChapterAppreciationData = {
       "dynamics": [
         {
           "id": 1,
-          "dominatorZh": "班主长清",
+          "dominatorZh": "班主长庆",
           "dominatorEn": "Troupe Master Changqing",
           "submissiveZh": "病中的杜琴言",
           "submissiveEn": "The Sick Du Qinyan",

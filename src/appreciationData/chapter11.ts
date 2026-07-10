@@ -221,7 +221,7 @@ export const chapter11Appreciation: ChapterAppreciationData = {
     "dichotomies": [
       {
         "id": 1,
-        "characterZh": "徐紫云",
+        "characterZh": "徐子云",
         "characterEn": "Xu Ziyun",
         "surfaceEmotionZh": "对戏曲与优伶的赞赏",
         "surfaceEmotionEn": "Appreciation for opera and actors",
@@ -240,7 +240,7 @@ export const chapter11Appreciation: ChapterAppreciationData = {
           "id": 1,
           "titleZh": "清醒旁观者",
           "titleEn": "The Sober Observer",
-          "roleZh": "徐紫云",
+          "roleZh": "徐子云",
           "roleEn": "Xu Ziyun",
           "descZh": "身处局中却能保持理智的距离，以审美的眼光而非肉欲的眼光看待优伶，是作者价值观的某种代言人。",
           "descEn": "In the game but keeping a rational distance, viewing actors with an aesthetic rather than lustful eye. A proxy for the author's values."
@@ -252,7 +252,7 @@ export const chapter11Appreciation: ChapterAppreciationData = {
       "dichotomies": [
         {
           "id": 1,
-          "characterZh": "徐紫云",
+          "characterZh": "徐子云",
           "characterEn": "Xu Ziyun",
           "surfaceEmotionZh": "对戏曲与优伶的赞赏",
           "surfaceEmotionEn": "Appreciation for opera and actors",
