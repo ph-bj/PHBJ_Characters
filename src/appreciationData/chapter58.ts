@@ -12,12 +12,12 @@ export const chapter58Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：席十一的破产",
+      descriptionZh: "本章开篇局势：奚十一的破产",
       descriptionEn: "The situation at the beginning of the chapter.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "席十一得知家族的洋行和盐业生意彻底垮台，倾家荡产。",
+      descriptionZh: "奚十一得知家族的洋行和盐业生意彻底垮台，倾家荡产。",
       descriptionEn: "Xi Shiyi receives news that his family's foreign trade and salt businesses have collapsed, ruining him.",
     },
     {
@@ -30,15 +30,15 @@ export const chapter58Appreciation: ChapterAppreciationData = {
     {
       iconType: "GitBranch", titleZh: "文本结构与布局", titleEn: "Structure & Layout", score: 85,
       subsections: [
-        { labelZh: "承上启下", labelEn: "Connection", textZh: "本章紧接上文，推动了核心情节发展。", textEn: "This chapter directly follows the previous text, advancing the core plot." },
-        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕 '第五十八章：席十一的破产与厄运' 展开，结构严密。", textEn: "The plot revolves around 'Chapter 58: Xi Shiyi's Downfall', with a tight structure." },
+        { labelZh: "情节逻辑", labelEn: "Connection", textZh: "本章紧接上文，推动了核心情节发展。", textEn: "This chapter directly follows the previous text, advancing the core plot." },
+        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕 '第五十八章：奚十一的破产与厄运' 展开，结构严密。", textEn: "The plot revolves around 'Chapter 58: Xi Shiyi's Downfall', with a tight structure." },
         { labelZh: "节奏掌控", labelEn: "Pacing", textZh: "张弛有度，高潮处情感饱满。", textEn: "Pacing is well-controlled with emotional fullness at the climax." }
       ]
     },
     {
       iconType: "User", titleZh: "人物塑造与心理", titleEn: "Characterization & Psychology", score: 90,
       subsections: [
-        { labelZh: "性格展现", labelEn: "Character", textZh: "曾经傲慢的席十一，在家族黑幕生意失败后面临彻底的破产。", textEn: "Xi Shiyi, formerly arrogant, faces complete ruin as his family's shady businesses fail." },
+        { labelZh: "性格展现", labelEn: "Character", textZh: "曾经傲慢的奚十一，在家族黑幕生意失败后面临彻底的破产。", textEn: "Xi Shiyi, formerly arrogant, faces complete ruin as his family's shady businesses fail." },
         { labelZh: "心理深度", labelEn: "Psychology", textZh: "人物内心的挣扎和波澜描写真实细腻。", textEn: "The inner struggles and psychological waves of the characters are depicted authentically and delicately." },
         { labelZh: "人物关系", labelEn: "Relationships", textZh: "人物间的互动微妙地改变了彼此的权力或情感平衡。", textEn: "Interactions between characters subtly alter their power or emotional balance." }
       ]
@@ -78,7 +78,7 @@ export const chapter58Appreciation: ChapterAppreciationData = {
     flows: [
         {
           id: 1,
-          sourceZh: "席十一的家族资本", sourceEn: "Xi Shiyi's Family Capital",
+          sourceZh: "奚十一的家族资本", sourceEn: "Xi Shiyi's Family Capital",
           targetZh: "洋行破产与海水倒灌盐场", targetEn: "Foreign Trade Bankruptcy & Salt Pan Flooding",
           amountZh: "倾家荡产，灰飞烟灭", amountEn: "Total ruin, turning to ashes",
           impactZh: "古典小说中典型的‘因果报应’模式，恶人因外部不可抗力（天灾与商战）瞬间失去所有作恶的资本。", impactEn: "A typical 'karmic retribution' model in classical novels, where the villain instantly loses all capital for evil due to external forces (natural disaster and trade wars)."

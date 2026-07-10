@@ -38,7 +38,7 @@ export const chapter40Appreciation: ChapterAppreciationData = {
     {
       iconType: "User", titleZh: "人物塑造与心理", titleEn: "Characterization & Psychology", score: 90,
       subsections: [
-        { labelZh: "性格展现", labelEn: "Character", textZh: "席十一受辱后，诉诸懦弱的诽谤来毁坏琴言的名声。", textEn: "Xi Shiyi, humiliated, resorts to cowardly slander to ruin Qinyan's reputation." },
+        { labelZh: "性格展现", labelEn: "Character", textZh: "奚十一受辱后，诉诸懦弱的诽谤来毁坏琴言的名声。", textEn: "Xi Shiyi, humiliated, resorts to cowardly slander to ruin Qinyan's reputation." },
         { labelZh: "心理深度", labelEn: "Psychology", textZh: "人物内心的挣扎和波澜描写真实细腻。", textEn: "The inner struggles and psychological waves of the characters are depicted authentically and delicately." },
         { labelZh: "人物关系", labelEn: "Relationships", textZh: "人物间的互动微妙地改变了彼此的权力或情感平衡。", textEn: "Interactions between characters subtly alter their power or emotional balance." }
       ]
@@ -79,7 +79,7 @@ export const chapter40Appreciation: ChapterAppreciationData = {
         {
           id: 1,
           rumorZh: "琴言在外陪酒且极其热情", rumorEn: "Qinyan drinks at outside parties and is extremely warm",
-          originZh: "席十一因求欢被拒后的恶意捏造", originEn: "Xi Shiyi's malicious fabrication after being rejected",
+          originZh: "奚十一因求欢被拒后的恶意捏造", originEn: "Xi Shiyi's malicious fabrication after being rejected",
           effectZh: "在坊间流传，对琴言孤傲清高的名誉造成了实质性的玷污与伤害。", effectEn: "Spreads in the community, causing substantial tarnish and harm to Qinyan's reputation for aloof purity."
         }
       ]
