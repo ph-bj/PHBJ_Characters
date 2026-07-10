@@ -41,6 +41,72 @@ import {
   ChapterVisualizerData
 } from "../appreciationTypes";
 
+function getProtagonist(chapterId: number): { zh: string; en: string } | null {
+  const mapping: Record<number, { zh: string; en: string }> = {
+    1: { zh: "华公子与众名士", en: "Young Master Hua & Scholars" },
+    2: { zh: "华公子", en: "Young Master Hua" },
+    3: { zh: "梅子玉", en: "Mei Ziyu" },
+    4: { zh: "王恂", en: "Wang Xun" },
+    5: { zh: "杜琴言", en: "Du Qinyan" },
+    6: { zh: "梅子玉与杜琴言", en: "Mei Ziyu & Du Qinyan" },
+    7: { zh: "杜琴言", en: "Du Qinyan" },
+    8: { zh: "梅子玉", en: "Mei Ziyu" },
+    9: { zh: "素兰", en: "Sulan" },
+    10: { zh: "杜琴言", en: "Du Qinyan" },
+    11: { zh: "徐子云", en: "Xu Ziyun" },
+    12: { zh: "田春航", en: "Tian Chunhang" },
+    13: { zh: "田春航", en: "Tian Chunhang" },
+    14: { zh: "苏蕙芳", en: "Su Huifang" },
+    15: { zh: "田春航", en: "Tian Chunhang" },
+    16: { zh: "梅子玉", en: "Mei Ziyu" },
+    17: { zh: "梅子玉与杜琴言", en: "Mei Ziyu & Du Qinyan" },
+    18: { zh: "杜琴言", en: "Du Qinyan" },
+    19: { zh: "魏聘才", en: "Wei Pincai" },
+    20: { zh: "苏蕙芳", en: "Su Huifang" },
+    21: { zh: "梅子玉", en: "Mei Ziyu" },
+    22: { zh: "杜琴言", en: "Du Qinyan" },
+    23: { zh: "李元茂", en: "Li Yuanmao" },
+    24: { zh: "杜琴言", en: "Du Qinyan" },
+    25: { zh: "华公子", en: "Young Master Hua" },
+    26: { zh: "魏聘才", en: "Wei Pincai" },
+    27: { zh: "魏聘才", en: "Wei Pincai" },
+    28: { zh: "魏聘才", en: "Wei Pincai" },
+    29: { zh: "杜琴言", en: "Du Qinyan" },
+    30: { zh: "梅子玉", en: "Mei Ziyu" },
+    31: { zh: "冯子佩", en: "Feng Zipei" },
+    32: { zh: "杜琴言", en: "Du Qinyan" },
+    33: { zh: "梅子玉", en: "Mei Ziyu" },
+    34: { zh: "杜琴言", en: "Du Qinyan" },
+    35: { zh: "魏聘才", en: "Wei Pincai" },
+    36: { zh: "杜琴言", en: "Du Qinyan" },
+    37: { zh: "梅子玉", en: "Mei Ziyu" },
+    38: { zh: "梅子玉", en: "Mei Ziyu" },
+    39: { zh: "魏聘才", en: "Wei Pincai" },
+    40: { zh: "杜琴言", en: "Du Qinyan" },
+    41: { zh: "华公子", en: "Young Master Hua" },
+    42: { zh: "杜琴言", en: "Du Qinyan" },
+    43: { zh: "杜琴言", en: "Du Qinyan" },
+    44: { zh: "杜琴言", en: "Du Qinyan" },
+    45: { zh: "梅子玉", en: "Mei Ziyu" },
+    46: { zh: "杜琴仙 (杜琴言)", en: "Du Qinxian (Du Qinyan)" },
+    47: { zh: "田春航", en: "Tian Chunhang" },
+    48: { zh: "梅子玉", en: "Mei Ziyu" },
+    49: { zh: "杜琴言", en: "Du Qinyan" },
+    50: { zh: "杜琴言", en: "Du Qinyan" },
+    51: { zh: "孙嗣徽", en: "Sun Sihui" },
+    52: { zh: "田春航", en: "Tian Chunhang" },
+    53: { zh: "杜琴言", en: "Du Qinyan" },
+    54: { zh: "梅子玉", en: "Mei Ziyu" },
+    55: { zh: "杜琴言", en: "Du Qinyan" },
+    56: { zh: "杜琴言", en: "Du Qinyan" },
+    57: { zh: "梅子玉", en: "Mei Ziyu" },
+    58: { zh: "奚十一", en: "Xi Shiyi" },
+    59: { zh: "杜琴仙 (杜琴言)", en: "Du Qinxian (Du Qinyan)" },
+    60: { zh: "杜琴仙 (杜琴言)", en: "Du Qinxian (Du Qinyan)" }
+  };
+  return mapping[chapterId] || null;
+}
+
 export function ChapterAppreciation({
   chapterId = 1,
   lang,
@@ -57,6 +123,10 @@ export function ChapterAppreciation({
   const [selectedArchetype, setSelectedArchetype] = useState<number | null>(null);
 
   if (!data) return null;
+
+  const defaultProtagonist = getProtagonist(chapterId);
+  const protagonistZh = data.protagonistZh || defaultProtagonist?.zh;
+  const protagonistEn = data.protagonistEn || defaultProtagonist?.en;
 
   const icons: Record<string, React.ReactNode> = {
     GitBranch: <GitBranch size={18} className="text-[var(--accent)]" />,
@@ -657,8 +727,15 @@ export function ChapterAppreciation({
 
         {/* Emotion / Dignity Trajectory */}
         <div className="flex-1 bg-[var(--paper-bg)]/80 rounded-sm border border-[var(--paper-border)]/30 p-4 h-[300px] sm:h-[350px]">
-          <h4 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] mb-2 flex justify-between items-center font-hans">
-            {lang === "zh" ? "主角心理状态与环境反馈轨迹" : "Protagonist Psychology Trajectory"}
+          <h4 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] mb-2 flex flex-wrap items-center justify-between gap-2 font-hans">
+            <span>
+              {lang === "zh" ? "主角心理状态与环境反馈轨迹" : "Protagonist Psychology Trajectory"}
+            </span>
+            {protagonistZh && (
+              <span className="text-[10px] sm:text-xs font-normal text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 rounded-sm border border-[var(--accent)]/30">
+                {lang === "zh" ? `主角: ${protagonistZh}` : `Protagonist: ${protagonistEn}`}
+              </span>
+            )}
           </h4>
           <p className="text-[10px] text-[var(--ink-dim-text)] mb-4">
             {lang === "zh"

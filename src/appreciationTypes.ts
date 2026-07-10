@@ -241,4 +241,6 @@ export interface ChapterAppreciationData {
   dimensions: DimensionInfo[];
   visualizer: ChapterVisualizerData;
   visualizers?: ChapterVisualizerData[];
+  protagonistZh?: string;
+  protagonistEn?: string;
 }
