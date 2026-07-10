@@ -214,26 +214,49 @@ export const chapter5Appreciation: ChapterAppreciationData = {
     archetypes: [
       {
         id: 1,
-        titleZh: "高洁的落难者",
-        titleEn: "The Fallen Noble Spirit",
-        roleZh: "杜琴官 (Du Qinguan)",
-        roleEn: "The Pure Soul in Distress",
+        titleZh: "善妒同行",
+        titleEn: "The Jealous Peer",
+        roleZh: "同班优伶",
+        roleEn: "Fellow Actors",
         descZh:
-          "身世凄惨、被迫坠入风尘，但内心保持着极高的自尊与纯洁，宁死不屈，时刻等待着能懂他、救他的“知音”。",
+          "在资源有限的戏班生态中，为了争夺恩客的宠爱与生存空间，对拔尖者进行排挤与造谣。",
         descEn:
-          "Has a tragic past and was forced into prostitution, but maintains intense self-esteem and purity. Unyielding, constantly waiting for a 'soulmate' who can understand and save him.",
-      },
-      {
-        id: 2,
-        titleZh: "风流的庇护伞",
-        titleEn: "The Elegant Protector",
-        roleZh: "徐子云 (Xu Ziyun)",
-        roleEn: "The Ultimate Patron",
-        descZh:
-          "位高权重、富甲一方的权贵，但品格高雅，不以狎昵为乐。他为这些落难的优伶提供了一个相对安全的“乌托邦”（怡园）。",
-        descEn:
-          "A highly powerful and wealthy noble, but elegant in character, taking no pleasure in vulgarity. He provides a relatively safe 'utopia' (Yiyuan) for these fallen performers.",
+          "In the limited ecosystem of a troupe, they marginalize and spread rumors about the top star to compete for patrons' favor.",
       },
     ],
   },
+  visualizers: [
+    {
+      type: "archetypes",
+      archetypes: [
+        {
+          id: 1,
+          titleZh: "善妒同行",
+          titleEn: "The Jealous Peer",
+          roleZh: "同班优伶",
+          roleEn: "Fellow Actors",
+          descZh:
+            "在资源有限的戏班生态中，为了争夺恩客的宠爱与生存空间，对拔尖者进行排挤与造谣。",
+          descEn:
+            "In the limited ecosystem of a troupe, they marginalize and spread rumors about the top star to compete for patrons' favor.",
+        },
+      ],
+    },
+    {
+      type: "rumorNetwork",
+      rumors: [
+        {
+          id: 1,
+          rumorZh: "梅子玉独宠杜琴言",
+          rumorEn: "Mei Ziyu exclusively favors Du Qinyan",
+          originZh: "戏班内部的攀比与恩客的闲谈",
+          originEn: "Comparison within the troupe and idle chatter of patrons",
+          effectZh:
+            "给琴言带来了同行的嫉妒与压力，也让子玉的情感暴露在世俗的审视之下。",
+          effectEn:
+            "Brings Qinyan peer jealousy and pressure, exposing Ziyu's feelings to secular scrutiny.",
+        },
+      ],
+    },
+  ],
 };

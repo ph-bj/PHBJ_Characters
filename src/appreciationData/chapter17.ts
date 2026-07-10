@@ -234,108 +234,49 @@ export const chapter17Appreciation: ChapterAppreciationData = {
     archetypes: [
       {
         id: 1,
-        titleZh: "牡丹",
-        titleEn: "Peony",
-        roleZh: "袁宝珠",
-        roleEn: "Yuan Baozhu",
+        titleZh: "文人共同体",
+        titleEn: "The Literati Community",
+        roleZh: "众名士",
+        roleEn: "The Scholars",
         descZh:
-          "花中之王，雍容华贵，象征宝珠在群芳中居首的地位与明艳大气的姿容。",
+          "通过定期的雅集与信息共享，维系着士大夫阶层的品味认同与道德评价体系。",
         descEn:
-          "King of flowers, elegant and grand, symbolizing Baozhu's supreme status and radiant beauty among the performers.",
-      },
-      {
-        id: 2,
-        titleZh: "芍药",
-        titleEn: "Herbaceous Peony",
-        roleZh: "苏蕙芳",
-        roleEn: "Su Huifang",
-        descZh:
-          "妖娆多姿，被誉为“花相”，与蕙芳的妩媚动人以及作为宴会主角的身份相称。",
-        descEn:
-          "Charming and graceful, known as the 'Prime Minister of Flowers', fitting Huifang's allure and role as the banquet's honoree.",
-      },
-      {
-        id: 3,
-        titleZh: "莲花",
-        titleEn: "Lotus",
-        roleZh: "陆素兰",
-        roleEn: "Lu Sulan",
-        descZh: "出淤泥而不染，清秀脱俗，象征素兰清冷优雅的性格与气质。",
-        descEn:
-          "Rising from mud unstained, pure and unworldly, symbolizing Sulan's cool, elegant disposition.",
-      },
-      {
-        id: 4,
-        titleZh: "碧桃",
-        titleEn: "Green Peach Blossom",
-        roleZh: "李玉林",
-        roleEn: "Li Yulin",
-        descZh: "春意盎然，娇艳欲滴，象征玉林的活泼与青春气息。",
-        descEn:
-          "Brimming with spring, vibrant and fresh, symbolizing Yulin's lively and youthful energy.",
-      },
-      {
-        id: 5,
-        titleZh: "海棠",
-        titleEn: "Crabapple",
-        roleZh: "金漱芳",
-        roleEn: "Jin Shufang",
-        descZh: "娇柔妩媚，有“解语花”之称，代表漱芳的温婉可人。",
-        descEn:
-          "Tender and captivating, the 'flower that understands words', representing Shufang's gentle sweetness.",
-      },
-      {
-        id: 6,
-        titleZh: "玫瑰",
-        titleEn: "Rose",
-        roleZh: "王兰保",
-        roleEn: "Wang Lanbao",
-        descZh: "艳丽而带刺，象征兰保的美貌与她略带高傲、不易亲近的性格。",
-        descEn:
-          "Gorgeous yet thorny, symbolizing Lanbao's beauty paired with her somewhat proud and unapproachable nature.",
-      },
-      {
-        id: 7,
-        titleZh: "芙蓉",
-        titleEn: "Cotton Rose",
-        roleZh: "王桂保",
-        roleEn: "Wang Guibao",
-        descZh: "清丽照水，秋日独放，象征桂保的独特风韵与清雅。",
-        descEn:
-          "Clear and watery, blooming uniquely in autumn, symbolizing Guibao's distinct charm and refined grace.",
-      },
-      {
-        id: 8,
-        titleZh: "兰花",
-        titleEn: "Orchid",
-        roleZh: "林春喜",
-        roleEn: "Lin Chunxi",
-        descZh: "幽谷吐香，小巧玲珑，象征春喜年少才高、惹人怜爱的特质。",
-        descEn:
-          "Fragrant in a hidden valley, petite and exquisite, symbolizing the young, highly talented, and lovable Chunxi.",
-      },
-      {
-        id: 9,
-        titleZh: "梅花",
-        titleEn: "Plum Blossom",
-        roleZh: "杜琴言",
-        roleEn: "Du Qinyan",
-        descZh:
-          "凌寒独开，冰清玉洁，象征琴言性格过冷、孤高傲骨及对艺术的极致追求。",
-        descEn:
-          "Blooming alone in the cold, pure as ice, symbolizing Qinyan's cold nature, lofty pride, and ultimate artistic pursuit.",
-      },
-      {
-        id: 10,
-        titleZh: "杏花",
-        titleEn: "Apricot Blossom",
-        roleZh: "秦琪官",
-        roleEn: "Qin Qiguan",
-        descZh:
-          "春色满园，刚烈中透着娇柔，象征琪官性情刚烈却又不失惹人怜爱的温柔处。",
-        descEn:
-          "Filling the garden with spring, fierce yet tender, symbolizing Qiguan's fierce temper mixed with a lovable gentleness.",
+          "Maintaining the scholar class's taste identity and moral evaluation system through regular elegant gatherings and information sharing.",
       },
     ],
   },
+  visualizers: [
+    {
+      type: "archetypes",
+      archetypes: [
+        {
+          id: 1,
+          titleZh: "文人共同体",
+          titleEn: "The Literati Community",
+          roleZh: "众名士",
+          roleEn: "The Scholars",
+          descZh:
+            "通过定期的雅集与信息共享，维系着士大夫阶层的品味认同与道德评价体系。",
+          descEn:
+            "Maintaining the scholar class's taste identity and moral evaluation system through regular elegant gatherings and information sharing.",
+        },
+      ],
+    },
+    {
+      type: "rumorNetwork",
+      rumors: [
+        {
+          id: 1,
+          rumorZh: "苏蕙芳倾囊救助田春航",
+          rumorEn: "Su Huifang gives everything to save Tian Chunhang",
+          originZh: "核心朋友圈内的真实见证",
+          originEn: "True testimonies within the core circle of friends",
+          effectZh:
+            "彻底扭转了士人圈对优伶仅仅是‘玩物’的刻板印象，将其提升至具备‘侠义’精神的高度。",
+          effectEn:
+            "Completely overturned the scholars' stereotype of actors as mere playthings, elevating them to figures of 'chivalry'.",
+        },
+      ],
+    },
+  ],
 };

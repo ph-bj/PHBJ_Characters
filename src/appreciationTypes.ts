@@ -109,4 +109,5 @@ export interface ChapterAppreciationData {
   timelineData: TimelineNode[];
   dimensions: DimensionInfo[];
   visualizer: ChapterVisualizerData;
+  visualizers?: ChapterVisualizerData[];
 }
