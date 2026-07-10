@@ -433,6 +433,10 @@ export const GENERIC_HONORIFICS = new Set([
   "大人",
   "将军",
   "夫君",
+  "大爷",
+  "二爷",
+  "三爷",
+  "少爷",
 ]);
 
 function sortMentionTokensByLength(tokens: string[]): string[] {
@@ -446,8 +450,15 @@ export function getCharacterMentionTokens(character: Character): string[] {
     character.alias !== "—"
       ? character.alias.split(/[/\s，、]+/).filter(Boolean)
       : [];
+  const baseTokens = [...new Set([chineseName, givenName, ...aliases])].filter(Boolean);
+  const shortenedYeTokens: string[] = [];
+  for (const t of baseTokens) {
+    if (t.endsWith("爷") && t.length > 2) {
+      shortenedYeTokens.push(t.slice(0, -1));
+    }
+  }
   return sortMentionTokensByLength(
-    [...new Set([chineseName, givenName, ...aliases])].filter(
+    [...new Set([...baseTokens, ...shortenedYeTokens])].filter(
       (t) => t.length >= 2 && !GENERIC_HONORIFICS.has(t),
     ),
   );
@@ -511,9 +522,17 @@ export function getChineseShortFormTokens(char: Character): string[] {
           .split("/")
           .flatMap((part) => extractChineseTokens(part.trim()))
       : [];
-  return [
-    ...new Set([...(givenName ? [givenName] : []), ...aliasTokens]),
-  ].filter(
+  const baseTokens = [...new Set([...(givenName ? [givenName] : []), ...aliasTokens])];
+  const shortenedYeTokens: string[] = [];
+  for (const t of baseTokens) {
+    if (t.endsWith("爷") && t.length > 2) {
+      shortenedYeTokens.push(t.slice(0, -1));
+    }
+  }
+  if (chineseName.endsWith("爷") && chineseName.length > 2) {
+    shortenedYeTokens.push(chineseName.slice(0, -1));
+  }
+  return [...new Set([...baseTokens, ...shortenedYeTokens])].filter(
     (t) => t.length >= 2 && t !== chineseName && !GENERIC_HONORIFICS.has(t),
   );
 }
@@ -791,7 +810,14 @@ export function getChapterMentionedCharacters(content: string): Character[] {
       .split("/")
       .flatMap((part) => extractChineseTokens(part))
       .filter((token) => token !== "—");
-    const tokens = Array.from(new Set([...nameTokens, ...aliasTokens])).filter(
+    const baseTokens = [...new Set([...nameTokens, ...aliasTokens])];
+    const shortenedYeTokens: string[] = [];
+    for (const t of baseTokens) {
+      if (t.endsWith("爷") && t.length > 2) {
+        shortenedYeTokens.push(t.slice(0, -1));
+      }
+    }
+    const tokens = Array.from(new Set([...baseTokens, ...shortenedYeTokens])).filter(
       (token) => token.length >= 2,
     );
 
