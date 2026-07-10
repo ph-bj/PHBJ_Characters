@@ -594,51 +594,6 @@ export function ChapterAppreciation({
         </div>
       );
     }
-    if (vis.type === "poetryCritique") {
-      return (
-        <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--paper-border)]/30 pb-2">
-            <h4 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] flex items-center gap-1.5 font-hans">
-              <Sparkles size={16} className="text-[var(--accent)]" />
-              {lang === "zh" ? "《雪窗八咏》诗词解析" : "Analysis of 'Eight Verses on the Snow Window'"}
-            </h4>
-          </div>
-
-          <div className="space-y-6 mt-4">
-            {vis.poems.map((poem, idx) => (
-              <div key={idx} className="border border-[var(--paper-border)] rounded-sm bg-[var(--paper-bg)] overflow-hidden">
-                <div className="bg-[var(--accent)]/5 px-4 py-2 border-b border-[var(--paper-border)] flex justify-between items-center">
-                  <h5 className="font-bold text-[var(--accent)] font-hans text-sm sm:text-base">
-                    {lang === "zh" ? poem.titleZh : poem.titleEn}
-                  </h5>
-                  <span className="text-[10px] sm:text-xs text-[var(--ink-dim-text)]">
-                    {lang === "zh" ? poem.authorZh : poem.authorEn}
-                  </span>
-                </div>
-                <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <p className="text-xs text-[var(--ink-dim-text)] uppercase tracking-wider font-bold">
-                      {lang === "zh" ? "原诗选段" : "Poem Excerpt"}
-                    </p>
-                    <p className="text-sm text-[var(--ink-main)] font-serif whitespace-pre-wrap leading-relaxed">
-                      {lang === "zh" ? poem.textZh : poem.textEn}
-                    </p>
-                  </div>
-                  <div className="space-y-2 border-t sm:border-t-0 sm:border-l border-[var(--paper-border)] pt-4 sm:pt-0 sm:pl-4">
-                    <p className="text-xs text-[var(--ink-dim-text)] uppercase tracking-wider font-bold">
-                      {lang === "zh" ? "梅子玉鉴赏" : "Ziyu's Critique"}
-                    </p>
-                    <p className="text-xs sm:text-sm text-[var(--ink-title)] font-hans leading-relaxed">
-                      {lang === "zh" ? poem.critiqueZh : poem.critiqueEn}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      );
-    }
 
     return null;
   };
