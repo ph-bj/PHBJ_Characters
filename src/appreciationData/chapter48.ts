@@ -73,7 +73,8 @@ export const chapter48Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "emotionalDichotomy",
     dichotomies: [
         {
@@ -84,5 +85,20 @@ export const chapter48Appreciation: ChapterAppreciationData = {
           triggerZh: "接连不断的送别宴席", triggerEn: "The continuous stream of farewell banquets"
         }
       ]
-  }
+  },
+    {
+      "type": "objectSymbolism",
+      "objects": [
+        {
+          "id": 1,
+          "objectZh": "断裂玉簪",
+          "objectEn": "Broken Hairpin",
+          "appearanceZh": "纯洁但折断",
+          "appearanceEn": "Pure but broken",
+          "meaningZh": "象征情感破灭",
+          "meaningEn": "Symbolizes destroyed emotion"
+        }
+      ]
+    }
+  ]
 };

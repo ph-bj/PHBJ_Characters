@@ -73,7 +73,8 @@ export const chapter42Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "wealthFlow",
     flows: [
         {
@@ -84,5 +85,22 @@ export const chapter42Appreciation: ChapterAppreciationData = {
           impactZh: "将优伶的生命力直接量化为维持他人体面生活的柴米油盐，揭示了包身制度的残酷剥削本质。", impactEn: "Quantifies the actor's vitality directly into the daily necessities maintaining others' decent lives, revealing the cruel exploitation of the indenture system."
         }
       ]
-  }
+  },
+    {
+      "type": "powerDynamics",
+      "dynamics": [
+        {
+          "id": 1,
+          "dominatorZh": "华公子",
+          "dominatorEn": "Young Master Hua",
+          "submissiveZh": "众优伶",
+          "submissiveEn": "Actors",
+          "powerBaseZh": "家族势力与金钱",
+          "powerBaseEn": "Family influence and wealth",
+          "shiftZh": "呼风唤雨",
+          "shiftEn": "Wields immense power"
+        }
+      ]
+    }
+  ]
 };

@@ -73,7 +73,8 @@ export const chapter51Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "socialLadder",
     ladder: [
         {
@@ -84,5 +85,22 @@ export const chapter51Appreciation: ChapterAppreciationData = {
           methodZh: "八十两银子雇人代笔，贿赂科场", methodEn: "Hired a ghostwriter for 80 taels, bribing the exam system"
         }
       ]
-  }
+  },
+    {
+      "type": "powerDynamics",
+      "dynamics": [
+        {
+          "id": 1,
+          "dominatorZh": "长庆",
+          "dominatorEn": "Changqing",
+          "submissiveZh": "戏班伶人",
+          "submissiveEn": "Troupe Actors",
+          "powerBaseZh": "经济剥削",
+          "powerBaseEn": "Economic exploitation",
+          "shiftZh": "权力达到顶峰",
+          "shiftEn": "Power reaches peak"
+        }
+      ]
+    }
+  ]
 };

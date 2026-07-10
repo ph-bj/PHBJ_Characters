@@ -73,7 +73,8 @@ export const chapter55Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "spatialMapping",
     spaces: [
         {
@@ -83,5 +84,20 @@ export const chapter55Appreciation: ChapterAppreciationData = {
           significanceZh: "这条航线不仅是地理上的位移，更是琴仙被迫割裂过往情感纽带（与子玉）的伤心之路。", significanceEn: "This route is not just geographical displacement, but a heartbreaking path where Qinxian is forced to sever past emotional ties (with Ziyu)."
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "命运抗争者",
+          "titleEn": "Fate Fighter",
+          "roleZh": "杜琴言",
+          "roleEn": "Du Qinyan",
+          "descZh": "绝境不随波逐流",
+          "descEn": "Refuses to drift with tide"
+        }
+      ]
+    }
+  ]
 };

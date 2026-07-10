@@ -73,7 +73,8 @@ export const chapter38Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "spatialMapping",
     spaces: [
         {
@@ -83,5 +84,20 @@ export const chapter38Appreciation: ChapterAppreciationData = {
           significanceZh: "与华府的奢靡压抑形成鲜明对比，这里是基于才华与平等的乌托邦，治愈了琴言的创伤。", significanceEn: "In sharp contrast to Hua's oppressive luxury, this is a utopia based on talent and equality, healing Qinyan's trauma."
         }
       ]
-  }
+  },
+    {
+      "type": "rumorNetwork",
+      "rumors": [
+        {
+          "id": 1,
+          "rumorZh": "子玉病危",
+          "rumorEn": "Ziyu is critically ill",
+          "originZh": "仆人间传话",
+          "originEn": "Servants' gossip",
+          "effectZh": "促使琴言冒险探望",
+          "effectEn": "Prompts Qinyan to visit"
+        }
+      ]
+    }
+  ]
 };

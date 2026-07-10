@@ -73,7 +73,8 @@ export const chapter22Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "spatialMapping",
     spaces: [
         {
@@ -89,5 +90,20 @@ export const chapter22Appreciation: ChapterAppreciationData = {
           significanceZh: "代表了优伶无法摆脱的底层身份与残酷的社会现实。", significanceEn: "Represents the inescapable low status of actors and the cruel social reality."
         }
       ]
-  }
+  },
+    {
+      "type": "rumorNetwork",
+      "rumors": [
+        {
+          "id": 1,
+          "rumorZh": "琴言在华府受委屈",
+          "rumorEn": "Qinyan suffers in Hua mansion",
+          "originZh": "优伶间的私下议论",
+          "originEn": "Private chatter among actors",
+          "effectZh": "加重了外界的刻板印象",
+          "effectEn": "Reinforces external stereotypes"
+        }
+      ]
+    }
+  ]
 };

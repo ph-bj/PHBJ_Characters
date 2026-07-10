@@ -73,7 +73,8 @@ export const chapter46Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "socialLadder",
     ladder: [
         {
@@ -84,5 +85,20 @@ export const chapter46Appreciation: ChapterAppreciationData = {
           methodZh: "拜名士屈公为义父，潜心研习传统诗书经典", methodEn: "Adopted by the renowned scholar Master Qu, devoting himself to classical studies"
         }
       ]
-  }
+  },
+    {
+      "type": "spatialMapping",
+      "spaces": [
+        {
+          "id": 1,
+          "locationZh": "幽静园林",
+          "locationEn": "Quiet Garden",
+          "atmosphereZh": "避世凄美",
+          "atmosphereEn": "Escapist and poignant",
+          "significanceZh": "精神避风港",
+          "significanceEn": "Spiritual haven"
+        }
+      ]
+    }
+  ]
 };

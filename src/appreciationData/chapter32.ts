@@ -73,7 +73,8 @@ export const chapter32Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "spatialMapping",
     spaces: [
         {
@@ -83,5 +84,20 @@ export const chapter32Appreciation: ChapterAppreciationData = {
           significanceZh: "环境的泥泞与压抑外化了考生们考前等待发榜的煎熬与心理泥沼。", significanceEn: "The muddy, oppressive environment externalizes the candidates' psychological quagmire while waiting for exam results."
         }
       ]
-  }
+  },
+    {
+      "type": "objectSymbolism",
+      "objects": [
+        {
+          "id": 1,
+          "objectZh": "旧香囊",
+          "objectEn": "Old Sachet",
+          "appearanceZh": "略显陈旧但香气不减",
+          "appearanceEn": "Worn but still fragrant",
+          "meaningZh": "象征深情不褪色",
+          "meaningEn": "Symbolizes unfading deep affection"
+        }
+      ]
+    }
+  ]
 };

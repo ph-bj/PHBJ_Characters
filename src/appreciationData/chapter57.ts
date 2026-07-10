@@ -73,7 +73,8 @@ export const chapter57Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "poetryCritique",
     critiques: [
         {
@@ -83,5 +84,20 @@ export const chapter57Appreciation: ChapterAppreciationData = {
           critiqueZh: "这一章刻画了晚清贵族女性的理想化群像。她们并非仅仅是附庸，而是拥有极高文学修养的独立审视者。这场诗会与男性视角的欢场形成了对照，是纯粹高雅的‘女儿国’。", critiqueEn: "This chapter portrays an idealized group of late Qing aristocratic women. They are not mere appendages, but independent observers with high literary cultivation. This poetry gathering contrasts with the male-dominated pleasure houses, forming a pure, elegant 'Kingdom of Women'."
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "悔悟浪子",
+          "titleEn": "Repentant Prodigal",
+          "roleZh": "纨绔子弟",
+          "roleEn": "Playboys",
+          "descZh": "看清现实",
+          "descEn": "Seeing reality clearly"
+        }
+      ]
+    }
+  ]
 };

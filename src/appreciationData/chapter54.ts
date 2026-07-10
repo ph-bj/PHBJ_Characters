@@ -73,7 +73,8 @@ export const chapter54Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "emotionalDichotomy",
     dichotomies: [
         {
@@ -84,5 +85,20 @@ export const chapter54Appreciation: ChapterAppreciationData = {
           triggerZh: "收到父亲关于婚期已定的家书", triggerEn: "Receiving the family letter fixing his wedding date"
         }
       ]
-  }
+  },
+    {
+      "type": "spatialMapping",
+      "spaces": [
+        {
+          "id": 1,
+          "locationZh": "冬夜街道",
+          "locationEn": "Winter Street",
+          "atmosphereZh": "凄凉萧杀",
+          "atmosphereEn": "Desolate",
+          "significanceZh": "映衬凄凉心境",
+          "significanceEn": "Reflects desolate mood"
+        }
+      ]
+    }
+  ]
 };

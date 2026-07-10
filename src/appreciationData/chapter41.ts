@@ -73,7 +73,8 @@ export const chapter41Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "spatialMapping",
     spaces: [
         {
@@ -83,5 +84,20 @@ export const chapter41Appreciation: ChapterAppreciationData = {
           significanceZh: "作为一个人造的奢华景观，它反映了华公子内心对控制欲的满足，却掩盖不了情感上的空虚与对琴言缺失的焦躁。", significanceEn: "As an artificial luxury landscape, it reflects Hua's satisfaction of control, but cannot hide his emotional emptiness and anxiety over Qinyan's absence."
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "虚荣看客",
+          "titleEn": "The Vain Onlooker",
+          "roleZh": "名士圈",
+          "roleEn": "Scholars circle",
+          "descZh": "表面清高实则追逐名利",
+          "descEn": "Appear aloof but chase fame"
+        }
+      ]
+    }
+  ]
 };

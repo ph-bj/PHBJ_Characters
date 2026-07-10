@@ -73,7 +73,8 @@ export const chapter43Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "emotionalDichotomy",
     dichotomies: [
         {
@@ -84,5 +85,20 @@ export const chapter43Appreciation: ChapterAppreciationData = {
           triggerZh: "面对季良轩与吴大傻的空洞高谈阔论", triggerEn: "Facing the empty, grandiose talk of Ji Liangxuan and Wu Dasha"
         }
       ]
-  }
+  },
+    {
+      "type": "rumorNetwork",
+      "rumors": [
+        {
+          "id": 1,
+          "rumorZh": "子玉与琴言私会",
+          "rumorEn": "Ziyu and Qinyan meet",
+          "originZh": "魏聘才",
+          "originEn": "Wei Pincai",
+          "effectZh": "带来名誉压力",
+          "effectEn": "Brings reputational pressure"
+        }
+      ]
+    }
+  ]
 };

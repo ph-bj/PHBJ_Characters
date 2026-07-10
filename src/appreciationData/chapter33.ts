@@ -73,7 +73,8 @@ export const chapter33Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "socialLadder",
     ladder: [
         {
@@ -84,5 +85,22 @@ export const chapter33Appreciation: ChapterAppreciationData = {
           methodZh: "家族长辈（颜夫人与王大学士）的包办与催促", methodEn: "Arranged and urged by family elders (Lady Yan and Grand Secretary Wang)"
         }
       ]
-  }
+  },
+    {
+      "type": "wealthFlow",
+      "flows": [
+        {
+          "id": 1,
+          "sourceZh": "众名士",
+          "sourceEn": "Scholars",
+          "targetZh": "戏班",
+          "targetEn": "Troupe",
+          "amountZh": "源源不断",
+          "amountEn": "Continuous",
+          "impactZh": "反映捧角的狂热风气",
+          "impactEn": "Reflects the fervent trend of patronizing actors"
+        }
+      ]
+    }
+  ]
 };

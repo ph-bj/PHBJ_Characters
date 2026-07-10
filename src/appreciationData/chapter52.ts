@@ -73,7 +73,8 @@ export const chapter52Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "wealthFlow",
     flows: [
         {
@@ -84,5 +85,22 @@ export const chapter52Appreciation: ChapterAppreciationData = {
           impactZh: "彻底改变了春航清贫文人的阶层属性，使其跃升为顶级权贵阶层，展示了联姻作为财富转移的工具。", impactEn: "Completely altered Chunhang's class from poor scholar to top-tier elite, showing marriage as a tool for wealth transfer."
         }
       ]
-  }
+  },
+    {
+      "type": "emotionalDichotomy",
+      "dichotomies": [
+        {
+          "id": 1,
+          "characterZh": "杜琴言",
+          "characterEn": "Du Qinyan",
+          "surfaceEmotionZh": "顺从木然",
+          "surfaceEmotionEn": "Submissive numbness",
+          "hiddenEmotionZh": "渴望自由",
+          "hiddenEmotionEn": "Thirst for freedom",
+          "triggerZh": "被迫赴宴",
+          "triggerEn": "Forced to attend banquet"
+        }
+      ]
+    }
+  ]
 };

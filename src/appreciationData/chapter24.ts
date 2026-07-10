@@ -73,7 +73,8 @@ export const chapter24Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "rumorNetwork",
     rumors: [
         {
@@ -83,5 +84,20 @@ export const chapter24Appreciation: ChapterAppreciationData = {
           effectZh: "导致蕙芳极度恐慌，梅香被迫出面周旋，揭示了财势对优伶的人身霸凌。", effectEn: "Causes Huifang extreme panic; Meixiang is forced to intervene, revealing how wealth bullies actors."
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "清高名伶",
+          "titleEn": "The Aloof Performer",
+          "roleZh": "杜琴言",
+          "roleEn": "Du Qinyan",
+          "descZh": "面对金钱与权势依然孤高",
+          "descEn": "Maintaining aloofness in the face of money and power"
+        }
+      ]
+    }
+  ]
 };

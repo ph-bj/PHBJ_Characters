@@ -73,7 +73,8 @@ export const chapter60Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "powerDynamics",
     dynamics: [
         {
@@ -84,5 +85,20 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           shiftZh: "曾经的玩物不仅摆脱了被支配的命运，反而以学者的姿态赢得了前主人的敬畏，实现了个人尊严的终极胜利。", shiftEn: "The former plaything not only escaped domination but won the awe of his former master as a scholar, achieving the ultimate victory of personal dignity."
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "重生之玉",
+          "titleEn": "Reborn Jade",
+          "roleZh": "梅子玉、杜琴言",
+          "roleEn": "Ziyu and Qinyan",
+          "descZh": "灵魂升华圆满",
+          "descEn": "Souls sublimated and fulfilled"
+        }
+      ]
+    }
+  ]
 };

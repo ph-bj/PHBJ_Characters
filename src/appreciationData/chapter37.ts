@@ -73,7 +73,8 @@ export const chapter37Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "objectSymbolism",
     objects: [
         {
@@ -83,5 +84,22 @@ export const chapter37Appreciation: ChapterAppreciationData = {
           meaningZh: "象征着琴言在遭受接连背叛（聘才与华府）后，试图彻底封闭自我、走向自我毁灭的心理防御机制。", meaningEn: "Symbolizes Qinyan's psychological defense mechanism of total self-isolation and leaning towards self-destruction after successive betrayals."
         }
       ]
-  }
+  },
+    {
+      "type": "emotionalDichotomy",
+      "dichotomies": [
+        {
+          "id": 1,
+          "characterZh": "梅子玉",
+          "characterEn": "Mei Ziyu",
+          "surfaceEmotionZh": "病榻虚弱",
+          "surfaceEmotionEn": "Weak on sickbed",
+          "hiddenEmotionZh": "精神活跃执念深",
+          "hiddenEmotionEn": "Hyperactive mental obsession",
+          "triggerZh": "夜深人静",
+          "triggerEn": "Dead of night"
+        }
+      ]
+    }
+  ]
 };

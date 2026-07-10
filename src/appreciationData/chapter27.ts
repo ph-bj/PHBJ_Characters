@@ -73,7 +73,8 @@ export const chapter27Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "socialLadder",
     ladder: [
         {
@@ -84,5 +85,22 @@ export const chapter27Appreciation: ChapterAppreciationData = {
           methodZh: "谄媚华公子，利用其权势向下层施压", methodEn: "Flattering Hua and using his power to oppress the lower classes"
         }
       ]
-  }
+  },
+    {
+      "type": "wealthFlow",
+      "flows": [
+        {
+          "id": 1,
+          "sourceZh": "华公子的赏赐",
+          "sourceEn": "Rewards from Master Hua",
+          "targetZh": "魏聘才",
+          "targetEn": "Wei Pincai",
+          "amountZh": "丰厚",
+          "amountEn": "Generous",
+          "impactZh": "使得魏聘才更加嚣张跋扈",
+          "impactEn": "Makes Wei Pincai even more arrogant"
+        }
+      ]
+    }
+  ]
 };

@@ -73,7 +73,8 @@ export const chapter31Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "emotionalDichotomy",
     dichotomies: [
         {
@@ -84,5 +85,20 @@ export const chapter31Appreciation: ChapterAppreciationData = {
           triggerZh: "听到文泽等人的闲聊，误以为是对自己演技的贬低", triggerEn: "Hearing Wenze's idle chat and mistaking it for a critique of his acting"
         }
       ]
-  }
+  },
+    {
+      "type": "spatialMapping",
+      "spaces": [
+        {
+          "id": 1,
+          "locationZh": "喧闹的戏台",
+          "locationEn": "The Noisy Stage",
+          "atmosphereZh": "繁华浮躁",
+          "atmosphereEn": "Prosperous and impetuous",
+          "significanceZh": "优伶们争奇斗艳的名利场",
+          "significanceEn": "The vanity fair for actors"
+        }
+      ]
+    }
+  ]
 };

@@ -73,7 +73,8 @@ export const chapter49Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "rumorNetwork",
     rumors: [
         {
@@ -83,5 +84,22 @@ export const chapter49Appreciation: ChapterAppreciationData = {
           effectZh: "引发了京城各大家族的关注，展示了婚姻在古代往往是社会地位与实用主义的结合。", effectEn: "Attracts the attention of major families in the capital, showing that marriage in ancient times was often a combination of social status and pragmatism."
         }
       ]
-  }
+  },
+    {
+      "type": "wealthFlow",
+      "flows": [
+        {
+          "id": 1,
+          "sourceZh": "暴发户",
+          "sourceEn": "Nouveau Riche",
+          "targetZh": "官僚",
+          "targetEn": "Officials",
+          "amountZh": "巨额",
+          "amountEn": "Massive",
+          "impactZh": "揭示黑暗交易",
+          "impactEn": "Reveals dark trading"
+        }
+      ]
+    }
+  ]
 };

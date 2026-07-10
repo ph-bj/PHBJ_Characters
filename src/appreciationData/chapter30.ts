@@ -73,7 +73,8 @@ export const chapter30Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "objectSymbolism",
     objects: [
         {
@@ -89,5 +90,22 @@ export const chapter30Appreciation: ChapterAppreciationData = {
           meaningZh: "象征着华丽的牢笼。水晶的透明看似自由，实则是坚硬的壁垒，将琴言囚禁在无形的权力网中。", meaningEn: "Symbolizes a gilded cage. The crystal's transparency mimics freedom but is a hard barrier, trapping Qinyan in an invisible web of power."
         }
       ]
-  }
+  },
+    {
+      "type": "emotionalDichotomy",
+      "dichotomies": [
+        {
+          "id": 1,
+          "characterZh": "梅子玉",
+          "characterEn": "Mei Ziyu",
+          "surfaceEmotionZh": "故作镇定",
+          "surfaceEmotionEn": "Feigning calm",
+          "hiddenEmotionZh": "内心如焚",
+          "hiddenEmotionEn": "Burning longing inside",
+          "triggerZh": "听到琴言的传闻",
+          "triggerEn": "Hearing rumors about Qinyan"
+        }
+      ]
+    }
+  ]
 };

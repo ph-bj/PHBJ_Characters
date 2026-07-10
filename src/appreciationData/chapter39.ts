@@ -73,7 +73,8 @@ export const chapter39Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "emotionalDichotomy",
     dichotomies: [
         {
@@ -84,5 +85,20 @@ export const chapter39Appreciation: ChapterAppreciationData = {
           triggerZh: "李元茂带着几百两银子找他帮忙筹办婚礼", triggerEn: "Li Yuanmao approaching him with hundreds of taels to help arrange the wedding"
         }
       ]
-  }
+  },
+    {
+      "type": "spatialMapping",
+      "spaces": [
+        {
+          "id": 1,
+          "locationZh": "花街柳巷",
+          "locationEn": "Red-light District",
+          "atmosphereZh": "肉欲横流",
+          "atmosphereEn": "Lustful",
+          "significanceZh": "迷失自我的场所",
+          "significanceEn": "Place of losing oneself"
+        }
+      ]
+    }
+  ]
 };

@@ -73,7 +73,8 @@ export const chapter58Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "wealthFlow",
     flows: [
         {
@@ -84,5 +85,22 @@ export const chapter58Appreciation: ChapterAppreciationData = {
           impactZh: "古典小说中典型的‘因果报应’模式，恶人因外部不可抗力（天灾与商战）瞬间失去所有作恶的资本。", impactEn: "A typical 'karmic retribution' model in classical novels, where the villain instantly loses all capital for evil due to external forces (natural disaster and trade wars)."
         }
       ]
-  }
+  },
+    {
+      "type": "powerDynamics",
+      "dynamics": [
+        {
+          "id": 1,
+          "dominatorZh": "权贵",
+          "dominatorEn": "Elites",
+          "submissiveZh": "魏聘才",
+          "submissiveEn": "Wei Pincai",
+          "powerBaseZh": "绝对压制",
+          "powerBaseEn": "Absolute suppression",
+          "shiftZh": "被抛弃清算",
+          "shiftEn": "Abandoned and purged"
+        }
+      ]
+    }
+  ]
 };

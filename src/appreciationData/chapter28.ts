@@ -73,7 +73,8 @@ export const chapter28Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "poetryCritique",
     critiques: [
         {
@@ -83,5 +84,20 @@ export const chapter28Appreciation: ChapterAppreciationData = {
           critiqueZh: "这一幕犹如一出荒诞的戏剧，传统的‘负荆请罪’被剥夺了道德内涵，沦为纯粹的权力碾压与平民的极致屈辱。聘才的‘拒收赎金’并非宽宏，而是为了彻底摧毁对方的尊严底线。", critiqueEn: "This scene is like an absurd play. The traditional 'bearing thorns' is stripped of moral meaning, reduced to pure power crushing and ultimate civilian humiliation. Pincai's 'refusal of ransom' is not generosity, but a move to utterly destroy their dignity."
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "精明戏班主",
+          "titleEn": "The Shrewd Troupe Master",
+          "roleZh": "长庆",
+          "roleEn": "Changqing",
+          "descZh": "唯利是图的长庆",
+          "descEn": "The profit-driven Changqing"
+        }
+      ]
+    }
+  ]
 };

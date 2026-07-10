@@ -73,7 +73,8 @@ export const chapter50Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "spatialMapping",
     spaces: [
         {
@@ -83,5 +84,20 @@ export const chapter50Appreciation: ChapterAppreciationData = {
           significanceZh: "讽刺了晚清年轻官僚群体的玩物丧志，他们将政治责任抛诸脑后，将名利场转化为纯粹的游乐场。", significanceEn: "Satirizes the late Qing young bureaucrats' loss of ambition; they abandon political responsibility, turning vanity fair into a pure playground."
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "虚无主义者",
+          "titleEn": "The Nihilist",
+          "roleZh": "旁观者",
+          "roleEn": "Bystander",
+          "descZh": "看破红尘",
+          "descEn": "Seeing through vanity"
+        }
+      ]
+    }
+  ]
 };

@@ -73,7 +73,8 @@ export const chapter45Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "spatialMapping",
     spaces: [
         {
@@ -83,5 +84,22 @@ export const chapter45Appreciation: ChapterAppreciationData = {
           significanceZh: "怡园的自然美景不仅是赏玩的客体，更是琴言心理创伤愈合的温床，象征着自由与重生。", significanceEn: "The natural beauty of Yiyuan is not just for viewing, but a hotbed for healing Qinyan's psychological trauma, symbolizing freedom and rebirth."
         }
       ]
-  }
+  },
+    {
+      "type": "emotionalDichotomy",
+      "dichotomies": [
+        {
+          "id": 1,
+          "characterZh": "梅子玉",
+          "characterEn": "Mei Ziyu",
+          "surfaceEmotionZh": "被迫冷静",
+          "surfaceEmotionEn": "Forced calm",
+          "hiddenEmotionZh": "自责痛苦",
+          "hiddenEmotionEn": "Pain and guilt",
+          "triggerZh": "意识到造成伤害",
+          "triggerEn": "Realizing harm done"
+        }
+      ]
+    }
+  ]
 };

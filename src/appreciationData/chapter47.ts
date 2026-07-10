@@ -73,7 +73,8 @@ export const chapter47Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "socialLadder",
     ladder: [
         {
@@ -84,5 +85,20 @@ export const chapter47Appreciation: ChapterAppreciationData = {
           methodZh: "通过科举考试的最高选拔（殿试）", methodEn: "Through the highest selection of the imperial examination (Palace Exam)"
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "觉醒士子",
+          "titleEn": "Awakened Scholar",
+          "roleZh": "梅子玉",
+          "roleEn": "Mei Ziyu",
+          "descZh": "反思封建礼教",
+          "descEn": "Reflecting on feudal ethics"
+        }
+      ]
+    }
+  ]
 };

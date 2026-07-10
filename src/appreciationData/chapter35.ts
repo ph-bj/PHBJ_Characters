@@ -73,7 +73,8 @@ export const chapter35Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "wealthFlow",
     flows: [
         {
@@ -84,5 +85,22 @@ export const chapter35Appreciation: ChapterAppreciationData = {
           impactZh: "不义之财的突然丧失，打破了聘才因勒索得来的虚假安全感。", impactEn: "The sudden loss of ill-gotten gains shatters Pincai's false sense of security derived from extortion."
         }
       ]
-  }
+  },
+    {
+      "type": "powerDynamics",
+      "dynamics": [
+        {
+          "id": 1,
+          "dominatorZh": "窃贼",
+          "dominatorEn": "Thieves",
+          "submissiveZh": "魏聘才",
+          "submissiveEn": "Wei Pincai",
+          "powerBaseZh": "暗处的掠夺",
+          "powerBaseEn": "Plunder in the dark",
+          "shiftZh": "聘才失去财物，权力大减",
+          "shiftEn": "Pincai loses his wealth and power"
+        }
+      ]
+    }
+  ]
 };

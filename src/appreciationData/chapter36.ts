@@ -73,7 +73,8 @@ export const chapter36Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "powerDynamics",
     dynamics: [
         {
@@ -84,5 +85,20 @@ export const chapter36Appreciation: ChapterAppreciationData = {
           shiftZh: "琴言流露真实的悲伤被视为扫兴，导致其被瞬间打入冷宫，揭示了权贵‘宠爱’的虚伪与脆弱。", shiftEn: "Qinyan's genuine sorrow is deemed a buzzkill, leading to instant banishment, revealing the hypocrisy and fragility of elite 'favor'."
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "深情守护者",
+          "titleEn": "The Devoted Guardian",
+          "roleZh": "名士",
+          "roleEn": "Scholars",
+          "descZh": "默默关注暗中相助",
+          "descEn": "Quietly watching over and helping"
+        }
+      ]
+    }
+  ]
 };

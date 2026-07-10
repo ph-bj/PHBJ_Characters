@@ -73,7 +73,8 @@ export const chapter23Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "wealthFlow",
     flows: [
         {
@@ -91,5 +92,22 @@ export const chapter23Appreciation: ChapterAppreciationData = {
           impactZh: "本为携带方便，却因其脆弱性（易丢、易损）成为后续风波的导火索，象征着底层文人财富的不稳定性。", impactEn: "Intended for convenience, but its fragility becomes the catalyst for later trouble, symbolizing the instability of a poor scholar's wealth."
         }
       ]
-  }
+  },
+    {
+      "type": "socialLadder",
+      "ladder": [
+        {
+          "id": 1,
+          "characterZh": "李元茂",
+          "characterEn": "Li Yuanmao",
+          "initialStatusZh": "附庸风雅",
+          "initialStatusEn": "Pseudo-elegant",
+          "finalStatusZh": "被人戏弄",
+          "finalStatusEn": "Mocked by all",
+          "methodZh": "打肿脸充胖子",
+          "methodEn": "Pretending to be wealthy"
+        }
+      ]
+    }
+  ]
 };

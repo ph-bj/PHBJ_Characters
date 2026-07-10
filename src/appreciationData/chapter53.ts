@@ -73,7 +73,8 @@ export const chapter53Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "objectSymbolism",
     objects: [
         {
@@ -83,5 +84,20 @@ export const chapter53Appreciation: ChapterAppreciationData = {
           meaningZh: "象征着闺阁真情与忠诚，却被华公子在欢场中轻易送给男戏子，讽刺了权贵对结发之妻情感的轻视与僭越。", meaningEn: "Symbolizes true spousal devotion, yet easily given to a male actor in a brothel by Hua, satirizing the elite's disregard for their wives' feelings."
         }
       ]
-  }
+  },
+    {
+      "type": "rumorNetwork",
+      "rumors": [
+        {
+          "id": 1,
+          "rumorZh": "梅家将败落",
+          "rumorEn": "Mei family will fall",
+          "originZh": "政敌",
+          "originEn": "Political enemies",
+          "effectZh": "世态炎凉",
+          "effectEn": "Fickleness of human nature"
+        }
+      ]
+    }
+  ]
 };

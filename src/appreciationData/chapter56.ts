@@ -73,7 +73,8 @@ export const chapter56Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "rumorNetwork",
     rumors: [
         {
@@ -83,5 +84,20 @@ export const chapter56Appreciation: ChapterAppreciationData = {
           effectZh: "为小说的现实主义叙事注入了神话色彩，暗示了琴仙命运的宿命感与超自然庇护。", effectEn: "Injects mythological color into the novel's realistic narrative, hinting at the fatalism and supernatural protection of Qinxian's destiny."
         }
       ]
-  }
+  },
+    {
+      "type": "objectSymbolism",
+      "objects": [
+        {
+          "id": 1,
+          "objectZh": "残破古琴",
+          "objectEn": "Ruined Guqin",
+          "appearanceZh": "琴弦断裂",
+          "appearanceEn": "Broken strings",
+          "meaningZh": "象征知音难觅",
+          "meaningEn": "Symbolizes hard to find soulmate"
+        }
+      ]
+    }
+  ]
 };

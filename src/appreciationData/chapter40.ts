@@ -73,7 +73,8 @@ export const chapter40Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "rumorNetwork",
     rumors: [
         {
@@ -83,5 +84,20 @@ export const chapter40Appreciation: ChapterAppreciationData = {
           effectZh: "在坊间流传，对琴言孤傲清高的名誉造成了实质性的玷污与伤害。", effectEn: "Spreads in the community, causing substantial tarnish and harm to Qinyan's reputation for aloof purity."
         }
       ]
-  }
+  },
+    {
+      "type": "objectSymbolism",
+      "objects": [
+        {
+          "id": 1,
+          "objectZh": "伪造信件",
+          "objectEn": "Forged Letter",
+          "appearanceZh": "字迹逼真",
+          "appearanceEn": "Authentic-looking handwriting",
+          "meaningZh": "象征卑劣手段",
+          "meaningEn": "Symbolizes despicable methods"
+        }
+      ]
+    }
+  ]
 };

@@ -73,7 +73,8 @@ export const chapter21Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "emotionalDichotomy",
     dichotomies: [
         {
@@ -91,5 +92,29 @@ export const chapter21Appreciation: ChapterAppreciationData = {
           triggerZh: "听闻琴言的名字被轻佻提及", triggerEn: "Hearing Qinyan's name mentioned frivolously"
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "得志小人",
+          "titleEn": "The Triumphant Villain",
+          "roleZh": "魏聘才",
+          "roleEn": "Wei Pincai",
+          "descZh": "一朝得势便猖狂的小人",
+          "descEn": "A villain who becomes arrogant after gaining power"
+        },
+        {
+          "id": 2,
+          "titleZh": "痴情公子",
+          "titleEn": "The Lovesick Scholar",
+          "roleZh": "梅子玉",
+          "roleEn": "Mei Ziyu",
+          "descZh": "因思念成疾的痴心人",
+          "descEn": "A devoted scholar falling ill due to lovesickness"
+        }
+      ]
+    }
+  ]
 };

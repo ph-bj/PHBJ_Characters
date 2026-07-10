@@ -73,7 +73,8 @@ export const chapter25Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "powerDynamics",
     dynamics: [
         {
@@ -84,5 +85,20 @@ export const chapter25Appreciation: ChapterAppreciationData = {
           shiftZh: "他的到来让怡园的焦点瞬间转移，所有人的活动（如排新戏）都围绕取悦他而展开，确立了绝对的中心地位。", shiftEn: "His arrival shifts the garden's focus instantly; all activities revolve around pleasing him, establishing his absolute centrality."
         }
       ]
-  }
+  },
+    {
+      "type": "spatialMapping",
+      "spaces": [
+        {
+          "id": 1,
+          "locationZh": "华府内宅",
+          "locationEn": "Hua Mansion Inner Quarters",
+          "atmosphereZh": "封闭压抑",
+          "atmosphereEn": "Enclosed and oppressive",
+          "significanceZh": "代表琴言受困的牢笼",
+          "significanceEn": "Represents Qinyan's cage"
+        }
+      ]
+    }
+  ]
 };

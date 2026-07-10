@@ -73,7 +73,8 @@ export const chapter59Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "emotionalDichotomy",
     dichotomies: [
         {
@@ -84,5 +85,20 @@ export const chapter59Appreciation: ChapterAppreciationData = {
           triggerZh: "面对忠仆刘喜劝其接受权贵（侯老翁）施舍的建议", triggerEn: "Facing loyal servant Liu Xi's advice to accept charity from the powerful (Lord Hou)"
         }
       ]
-  }
+  },
+    {
+      "type": "rumorNetwork",
+      "rumors": [
+        {
+          "id": 1,
+          "rumorZh": "琴言脱籍",
+          "rumorEn": "Qinyan is freed",
+          "originZh": "官府文书",
+          "originEn": "Official doc",
+          "effectZh": "引起轩然大波",
+          "effectEn": "Causes huge stir"
+        }
+      ]
+    }
+  ]
 };

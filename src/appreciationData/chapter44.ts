@@ -73,7 +73,8 @@ export const chapter44Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "powerDynamics",
     dynamics: [
         {
@@ -84,5 +85,20 @@ export const chapter44Appreciation: ChapterAppreciationData = {
           shiftZh: "通过合法的银钱赎身，彻底瓦解了华公子基于身份碾压的特权，完成了权力的完美反转。", shiftEn: "Through legal monetary redemption, Hua's privilege based on status crushing is completely dismantled, completing a perfect power reversal."
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "隐忍的牺牲者",
+          "titleEn": "The Patient Sacrifice",
+          "roleZh": "杜琴言",
+          "roleEn": "Du Qinyan",
+          "descZh": "独自承受压力",
+          "descEn": "Bears pressure alone"
+        }
+      ]
+    }
+  ]
 };

@@ -239,7 +239,7 @@ export interface ChapterAppreciationData {
   radarData: RadarNode[];
   timelineData: TimelineNode[];
   dimensions: DimensionInfo[];
-  visualizer: ChapterVisualizerData;
+  visualizer?: ChapterVisualizerData;
   visualizers?: ChapterVisualizerData[];
   protagonistZh?: string;
   protagonistEn?: string;

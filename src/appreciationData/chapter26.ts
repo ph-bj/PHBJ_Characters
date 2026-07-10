@@ -73,7 +73,8 @@ export const chapter26Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "objectSymbolism",
     objects: [
         {
@@ -89,5 +90,20 @@ export const chapter26Appreciation: ChapterAppreciationData = {
           meaningZh: "象征着华府内部那种令人窒息的颓靡与温柔乡的沉沦，与外界的现实完全隔离。", meaningEn: "Symbolizes the suffocating decadence and indulgence within the Hua mansion, completely isolated from outside reality."
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "市井无赖",
+          "titleEn": "The Street Rogue",
+          "roleZh": "底层混混",
+          "roleEn": "Bottom-rung hustlers",
+          "descZh": "坑蒙拐骗生存的底层人物",
+          "descEn": "Figures surviving on scams"
+        }
+      ]
+    }
+  ]
 };

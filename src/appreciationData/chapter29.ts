@@ -73,7 +73,8 @@ export const chapter29Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "emotionalDichotomy",
     dichotomies: [
         {
@@ -91,5 +92,20 @@ export const chapter29Appreciation: ChapterAppreciationData = {
           triggerZh: "看到琴言的真诚与自己儿子的执念", triggerEn: "Seeing Qinyan's sincerity and her own son's obsession"
         }
       ]
-  }
+  },
+    {
+      "type": "rumorNetwork",
+      "rumors": [
+        {
+          "id": 1,
+          "rumorZh": "琴言暗结新欢",
+          "rumorEn": "Qinyan has a new lover",
+          "originZh": "恶意中伤",
+          "originEn": "Malicious slander",
+          "effectZh": "导致子玉内心焦灼",
+          "effectEn": "Causes Ziyu extreme anxiety"
+        }
+      ]
+    }
+  ]
 };

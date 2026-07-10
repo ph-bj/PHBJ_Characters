@@ -73,7 +73,8 @@ export const chapter34Appreciation: ChapterAppreciationData = {
       ]
     }
   ],
-  visualizer: {
+  visualizers: [
+    {
     type: "rumorNetwork",
     rumors: [
         {
@@ -83,5 +84,20 @@ export const chapter34Appreciation: ChapterAppreciationData = {
           effectZh: "这一消息在名士与优伶圈中传播，预示着子玉与琴言关系的巨大转折危机。", effectEn: "The news spreads among scholars and actors, signaling a massive crisis in Ziyu and Qinyan's relationship."
         }
       ]
-  }
+  },
+    {
+      "type": "archetypes",
+      "archetypes": [
+        {
+          "id": 1,
+          "titleZh": "受难的纯洁",
+          "titleEn": "Suffering Purity",
+          "roleZh": "杜琴言",
+          "roleEn": "Du Qinyan",
+          "descZh": "在泥沼中保持高洁",
+          "descEn": "Maintaining purity in the mud"
+        }
+      ]
+    }
+  ]
 };
