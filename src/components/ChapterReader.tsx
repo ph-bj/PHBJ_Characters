@@ -1202,26 +1202,36 @@ export function ChapterReader({
                   >
                     {lang === "en" && translationMap[chapter.id][i] ? (
                       <>
-                        <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
+                        <div className="mb-1.5 flex items-center">
                           <TtsButton paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
+                        </div>
+                        <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
                           {renderTextWithSnowPoems(translationMap[chapter.id][i], false, i + 1, false)}
                         </div>
-                        <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed mt-3 whitespace-pre-line">
+                        <div className="mt-3 mb-1.5 flex items-center">
                           <TtsButton paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
+                        </div>
+                        <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed whitespace-pre-line">
                           {renderTextWithSnowPoems(para, false, undefined, true)}
                         </div>
                       </>
                     ) : (
                       <>
-                        <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed whitespace-pre-line">
+                        <div className="mb-1.5 flex items-center">
                           <TtsButton paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
+                        </div>
+                        <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed whitespace-pre-line">
                           {renderTextWithSnowPoems(para, false, i + 1, true)}
                         </div>
                         {translationMap[chapter.id][i] && (
-                          <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] mt-3 leading-[1.75] font-sans whitespace-pre-line">
-                            <TtsButton paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
-                            {renderTextWithSnowPoems(translationMap[chapter.id][i], false, undefined, false)}
-                          </div>
+                          <>
+                            <div className="mt-3 mb-1.5 flex items-center">
+                              <TtsButton paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
+                            </div>
+                            <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
+                              {renderTextWithSnowPoems(translationMap[chapter.id][i], false, undefined, false)}
+                            </div>
+                          </>
                         )}
                       </>
                     )}
@@ -1234,8 +1244,12 @@ export function ChapterReader({
               </div>
             ) : (
               <div className="whitespace-pre-wrap text-[1em] sm:text-[1.125em] italic font-hans">
-                <TtsButton paraKey="single-0" text={chapter.content} speechLang="zh-CN" />
-                {renderAnnotated(chapter.content)}
+                <div className="mb-1.5 flex items-center">
+                  <TtsButton paraKey="single-0" text={chapter.content} speechLang="zh-CN" />
+                </div>
+                <div>
+                  {renderAnnotated(chapter.content)}
+                </div>
               </div>
             )}
             {chapter.id >= 1 && <ChapterEndScene chapterId={chapter.id} />}
