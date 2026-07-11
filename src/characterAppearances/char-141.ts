@@ -1,6 +1,6 @@
 // Character: 屈道翁 Qū Dàowēng (merged: 屈本立, 屈方正)
-// Chapter Appearances: 7, 9, 37, 38, 43, 45, 46, 47, 48, 49, 50, 53, 55, 56, 59, 60
-import type { SceneBullet } from './types';
+// Chapter Appearances: 7, 9, 37, 38, 43, 44, 45, 46, 47, 48, 49, 50, 53, 55, 56, 59, 60
+import type { SceneBullet } from "./types";
 
 export const char_141Appearances: Record<number, SceneBullet[]> = {
   7: [
@@ -35,6 +35,12 @@ export const char_141Appearances: Record<number, SceneBullet[]> = {
     {
       en: "During a philosophical discussion on aging, Xiao Cixian jokingly compares dried lychees to Qu Daoweng, suggesting they remain a distinguished delicacy despite losing their youth.",
       zh: "在讨论关于衰老的感悟时，萧次贤开玩笑地将干荔枝比作屈道翁，认为它虽失去青春，但仍是上品。",
+    },
+  ],
+  44: [
+    {
+      en: "Xu Ziyun plans a banquet to host Qu Daosheng and send off Nanxiang and Chunhang, prompting him to keep Qinyan for a few more days before returning him to the Hua household.",
+      zh: "徐子云筹划举办宴会招待屈道生，并为南湘和春航送行，这让他决定将琴言多留几日，然后再送回华府。",
     },
   ],
   45: [
