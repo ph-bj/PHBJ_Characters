@@ -22,11 +22,6 @@ import {
 } from "lucide-react";
 import {
   ResponsiveContainer,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-  Radar,
   AreaChart,
   Area,
   XAxis,
@@ -136,11 +131,6 @@ export function ChapterAppreciation({
     PenTool: <PenTool size={18} className="text-[var(--accent)]" />,
     MessageSquare: <MessageSquare size={18} className="text-[var(--accent)]" />,
   };
-
-  const radarDataLocal = data.radarData.map(d => ({
-    subject: lang === "zh" ? d.subjectZh : d.subjectEn,
-    score: d.score
-  }));
 
   const timelineDataLocal = data.timelineData.map(d => ({
     stage: lang === "zh" ? d.stageZh : d.stageEn,
@@ -688,45 +678,9 @@ export function ChapterAppreciation({
       </div>
 
       {/* Visualizations row */}
-      <div className="flex flex-col lg:flex-row gap-6">
-        {/* Radar Chart */}
-        <div className="flex-1 bg-[var(--paper-bg)]/80 rounded-sm border border-[var(--paper-border)]/30 p-4 h-[300px] sm:h-[350px]">
-          <h4 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] mb-4 flex justify-between items-center font-hans">
-            {lang === "zh" ? "六大文学维度雷达图" : "Six Dimensions Analysis"}
-          </h4>
-          <div className="h-full w-full pb-8">
-            <ResponsiveContainer width="100%" height="100%">
-              <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarDataLocal}>
-                <PolarGrid stroke="var(--paper-border)" />
-                <PolarAngleAxis
-                  dataKey="subject"
-                  tick={{ fill: "var(--ink-dim-text)", fontSize: 12, fontWeight: 500 }}
-                />
-                <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
-                <Radar
-                  name={lang === "zh" ? "本章评分" : "Score"}
-                  dataKey="score"
-                  stroke="var(--accent)"
-                  fill="var(--accent)"
-                  fillOpacity={0.3}
-                />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: "var(--paper-bg)",
-                    border: "1px solid var(--paper-border)",
-                    borderRadius: "4px",
-                    color: "var(--ink-main)",
-                    fontSize: "12px",
-                  }}
-                  itemStyle={{ color: "var(--accent)", fontWeight: "bold" }}
-                />
-              </RadarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-
+      <div className="w-full">
         {/* Emotion / Dignity Trajectory */}
-        <div className="flex-1 bg-[var(--paper-bg)]/80 rounded-sm border border-[var(--paper-border)]/30 p-4 h-[300px] sm:h-[350px]">
+        <div className="bg-[var(--paper-bg)]/80 rounded-sm border border-[var(--paper-border)]/30 p-4 h-[300px] sm:h-[350px]">
           <h4 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] mb-2 flex flex-wrap items-center justify-between gap-2 font-hans">
             <span>
               {lang === "zh" ? "主角心理状态与环境反馈轨迹" : "Protagonist Psychology Trajectory"}
