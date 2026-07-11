@@ -1202,11 +1202,14 @@ export function ChapterReader({
                   >
                     {lang === "en" && translationMap[chapter.id][i] ? (
                       <>
-                        <div className="mb-1.5 flex items-center">
+                        <div className="mb-1.5 flex flex-col items-start gap-1">
+                          <span className="text-[10px] select-none font-sans font-normal text-[var(--ink-dim-text)]/75 leading-none">
+                            {i + 1}
+                          </span>
                           <TtsButton paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
                         </div>
                         <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
-                          {renderTextWithSnowPoems(translationMap[chapter.id][i], false, i + 1, false)}
+                          {renderTextWithSnowPoems(translationMap[chapter.id][i], false, undefined, false)}
                         </div>
                         <div className="mt-3 mb-1.5 flex items-center">
                           <TtsButton paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
@@ -1217,11 +1220,14 @@ export function ChapterReader({
                       </>
                     ) : (
                       <>
-                        <div className="mb-1.5 flex items-center">
+                        <div className="mb-1.5 flex flex-col items-start gap-1">
+                          <span className="text-[10px] select-none font-sans font-normal text-[var(--ink-dim-text)]/75 leading-none">
+                            {i + 1}
+                          </span>
                           <TtsButton paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
                         </div>
                         <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed whitespace-pre-line">
-                          {renderTextWithSnowPoems(para, false, i + 1, true)}
+                          {renderTextWithSnowPoems(para, false, undefined, true)}
                         </div>
                         {translationMap[chapter.id][i] && (
                           <>
