@@ -244,166 +244,166 @@ export const chapter1Appreciation: ChapterAppreciationData = {
       "type": "taxonomy",
       "lordsFeelings": [
         {
-          "char": "义",
-          "pinyin": "yì",
-          "nameZh": "义情",
-          "nameEn": "Righteous Feeling",
-          "descZh": "见义勇为，重情重义，在道义中融入真情",
-          "descEn": "Combines justice with romantic devotion; valuing loyalty and honor."
+          "char": "正",
+          "pinyin": "zhèng",
+          "nameZh": "情中正",
+          "nameEn": "Moral Feeling",
+          "descZh": "情感中正，发乎情止乎礼义，合乎儒家道德",
+          "descEn": "Virtuous and moral sentiment, conforming strictly to Confucian propriety."
         },
         {
-          "char": "贵",
-          "pinyin": "guì",
-          "nameZh": "贵情",
-          "nameEn": "Eminent Feeling",
-          "descZh": "身份高贵而情意深厚，以贵气温润人情",
-          "descEn": "Noble status with rich, deep sentiment; gentle and dignified."
+          "char": "上",
+          "pinyin": "shàng",
+          "nameZh": "情中上",
+          "nameEn": "Sublime Feeling",
+          "descZh": "情感高尚纯洁，超脱凡俗尘垢",
+          "descEn": "Sublime sentiment, pure and elevated above worldly desires."
         },
         {
           "char": "高",
           "pinyin": "gāo",
-          "nameZh": "高情",
+          "nameZh": "情中高",
           "nameEn": "Lofty Feeling",
-          "descZh": "高洁脱俗，不染尘俗，寄托于高尚的情操",
-          "descEn": "Pure, elevated, above worldly desires; holding high ideals."
-        },
-        {
-          "char": "闲",
-          "pinyin": "xián",
-          "nameZh": "闲情",
-          "nameEn": "Easy Feeling",
-          "descZh": "闲适自在，寄情山水与文艺，不为名利羁绊",
-          "descEn": "Leisurely ease; investing feeling in nature, poetry, and art."
-        },
-        {
-          "char": "雅",
-          "pinyin": "yǎ",
-          "nameZh": "雅情",
-          "nameEn": "Refined Feeling",
-          "descZh": "雅致风流，通晓琴棋书画，格调高雅",
-          "descEn": "Refined elegance; highly versed in classical arts and literature."
-        },
-        {
-          "char": "侠",
-          "pinyin": "xiá",
-          "nameZh": "侠情",
-          "nameEn": "Bold Feeling",
-          "descZh": "豪侠侠骨，肝胆相照，为知己甘冒万险",
-          "descEn": "Chivalrous spirit; heroic devotion that faces danger for loved ones."
-        },
-        {
-          "char": "狂",
-          "pinyin": "kuáng",
-          "nameZh": "狂情",
-          "nameEn": "Wild Feeling",
-          "descZh": "狂放不羁，超脱世俗礼法，至真至纯",
-          "descEn": "Wild abandon; defying conventional social rites in search of truth."
-        },
-        {
-          "char": "黠",
-          "pinyin": "xiá",
-          "nameZh": "黠情",
-          "nameEn": "Witty Feeling",
-          "descZh": "聪明机智，诙谐有趣，在智巧中含情",
-          "descEn": "Sparkling wit; clever, playful, and quick-minded in romance."
-        },
-        {
-          "char": "和",
-          "pinyin": "hé",
-          "nameZh": "和情",
-          "nameEn": "Harmonious Feeling",
-          "descZh": "温和宽厚，情感协调中庸，平淡而持久",
-          "descEn": "Gentle harmony; balanced, peaceful affection that lasts long."
-        },
-        {
-          "char": "欢",
-          "pinyin": "huān",
-          "nameZh": "欢情",
-          "nameEn": "Joyful Feeling",
-          "descZh": "欢乐开朗，乐在其中，给身边人带来愉悦",
-          "descEn": "Steeped in joy; radiating cheerfulness and celebrating pleasure."
-        }
-      ],
-      "performersFeelings": [
-        {
-          "char": "深",
-          "pinyin": "shēn",
-          "nameZh": "深情",
-          "nameEn": "Profound Feeling",
-          "descZh": "情感至深，专一执着，至死不渝",
-          "descEn": "Most profound emotion; dedicated, single-minded, and unbreakable."
-        },
-        {
-          "char": "慧",
-          "pinyin": "huì",
-          "nameZh": "慧情",
-          "nameEn": "Wise Feeling",
-          "descZh": "聪明智慧，慧眼识人，能看透风尘世相",
-          "descEn": "Intellectual wisdom; a discerning mind that recognizes true worth."
-        },
-        {
-          "char": "婉",
-          "pinyin": "wǎn",
-          "nameZh": "婉情",
-          "nameEn": "Graceful Feeling",
-          "descZh": "温婉可人，柔情似水，言行举止极尽娇美",
-          "descEn": "Soft grace; tender and gentle as water, full of subtle beauty."
-        },
-        {
-          "char": "洁",
-          "pinyin": "jié",
-          "nameZh": "洁情",
-          "nameEn": "Pure Feeling",
-          "descZh": "冰清玉洁，坚贞自守，出淤泥而不染",
-          "descEn": "Purity; keeping body and soul unblemished amid dirty circles."
-        },
-        {
-          "char": "贤",
-          "pinyin": "xián",
-          "nameZh": "贤情",
-          "nameEn": "Virtuous Feeling",
-          "descZh": "贤良德行，通达大体，克己待人",
-          "descEn": "Virtuous conduct; possessing high moral characters and wisdom."
-        },
-        {
-          "char": "烈",
-          "pinyin": "liè",
-          "nameZh": "烈情",
-          "nameEn": "Ardent Feeling",
-          "descZh": "热情如火，刚烈决绝，不受任何欺侮",
-          "descEn": "Ardent and fierce; passionate, unyielding under oppression."
-        },
-        {
-          "char": "贞",
-          "pinyin": "zhēn",
-          "nameZh": "贞情",
-          "nameEn": "Chaste Feeling",
-          "descZh": "坚贞不屈，操守严明，一生守护所爱之人",
-          "descEn": "Strict integrity; chaste devotion to a single chosen partner."
+          "descZh": "志趣高洁，超然物外，不染俗尘",
+          "descEn": "Lofty feeling, transcending mundane affairs and material pursuits."
         },
         {
           "char": "逸",
           "pinyin": "yì",
-          "nameZh": "逸情",
-          "nameEn": "Flowing Feeling",
-          "descZh": "超逸洒脱，超脱戏班流俗，追求心灵自由",
-          "descEn": "Flowing abandon; transcending standard troupe lifestyles for freedom."
+          "nameZh": "情中逸",
+          "nameEn": "Transcendent Feeling",
+          "descZh": "超逸洒脱，寄情山水琴棋，不为世俗所累",
+          "descEn": "Detached and flowing sentiment, finding leisure in art and nature."
         },
         {
           "char": "华",
           "pinyin": "huá",
-          "nameZh": "华情",
-          "nameEn": "Radiant Feeling",
-          "descZh": "光彩照人，华贵大方，舞台上倾国倾城",
-          "descEn": "Radiant beauty and elegance; stunning everyone on the stage."
+          "nameZh": "情中华",
+          "nameEn": "Splendid Feeling",
+          "descZh": "文采斐然，风流华美，极具才情",
+          "descEn": "Radiant sentiment, full of literary talent and elegant romance."
+        },
+        {
+          "char": "豪",
+          "pinyin": "háo",
+          "nameZh": "情中豪",
+          "nameEn": "Heroic Feeling",
+          "descZh": "豪爽慷慨，肝胆相照，重义轻利",
+          "descEn": "Heroic and generous sentiment, valuing loyalty and honor over profit."
+        },
+        {
+          "char": "狂",
+          "pinyin": "kuáng",
+          "nameZh": "情中狂",
+          "nameEn": "Wild Feeling",
+          "descZh": "狂放不羁，蔑视礼法，任性至真",
+          "descEn": "Wild abandon, defying social conventions to stay true to oneself."
+        },
+        {
+          "char": "趣",
+          "pinyin": "qù",
+          "nameZh": "情中趣",
+          "nameEn": "Witty Feeling",
+          "descZh": "风趣幽默，聪明机巧，含情有趣",
+          "descEn": "Delightful and sparkling wit, blending intellect with romantic charm."
+        },
+        {
+          "char": "和",
+          "pinyin": "hé",
+          "nameZh": "情中和",
+          "nameEn": "Harmonious Feeling",
+          "descZh": "温和中庸，平易近人，情感持久而克制",
+          "descEn": "Harmonious and gentle sentiment, balanced, calm, and enduring."
+        },
+        {
+          "char": "乐",
+          "pinyin": "lè",
+          "nameZh": "情中乐",
+          "nameEn": "Joyful Feeling",
+          "descZh": "乐观开朗，乐在情中，充满欢欣",
+          "descEn": "Steeped in joy, celebrating the pleasant and cheerful side of affection."
+        }
+      ],
+      "performersFeelings": [
+        {
+          "char": "至",
+          "pinyin": "zhì",
+          "nameZh": "情中至",
+          "nameEn": "Utmost Feeling",
+          "descZh": "情感至真至深，执着专一，至死不渝",
+          "descEn": "Most profound and ultimate emotion, single-minded and unbreakable."
+        },
+        {
+          "char": "慧",
+          "pinyin": "huì",
+          "nameZh": "情中慧",
+          "nameEn": "Wise Feeling",
+          "descZh": "聪慧灵秀，通晓世事，慧眼识人",
+          "descEn": "Intellectual wisdom, a discerning mind that recognizes true worth."
+        },
+        {
+          "char": "韵",
+          "pinyin": "yùn",
+          "nameZh": "情中韵",
+          "nameEn": "Elegant Feeling",
+          "descZh": "风韵雅致，举手投足尽是艺术神韵",
+          "descEn": "Unique aesthetic charm, full of artistic grace and refined poise."
+        },
+        {
+          "char": "醇",
+          "pinyin": "chún",
+          "nameZh": "情中醇",
+          "nameEn": "Mellow Feeling",
+          "descZh": "诚挚醇厚，真情不掺杂质，温润持久",
+          "descEn": "Mellow and sincere sentiment, honest, deep, and without guile."
+        },
+        {
+          "char": "淑",
+          "pinyin": "shū",
+          "nameZh": "情中淑",
+          "nameEn": "Virtuous Feeling",
+          "descZh": "温婉贤淑，恪守德行，克己待人",
+          "descEn": "Virtuous conduct, displaying high moral character and modest grace."
+        },
+        {
+          "char": "烈",
+          "pinyin": "liè",
+          "nameZh": "情中烈",
+          "nameEn": "Ardent Feeling",
+          "descZh": "性情刚烈决绝，不受侮慢，宁折不弯",
+          "descEn": "Ardent and fierce, passionate, and unyielding under oppression."
+        },
+        {
+          "char": "直",
+          "pinyin": "zhí",
+          "nameZh": "情中直",
+          "nameEn": "Straightforward Feeling",
+          "descZh": "坦率真挚，心口如一，无半点矫饰",
+          "descEn": "Candid and straightforward sentiment, honest and without hypocrisy."
+        },
+        {
+          "char": "酣",
+          "pinyin": "hān",
+          "nameZh": "情中酣",
+          "nameEn": "Intoxicated Feeling",
+          "descZh": "酣畅淋漓，忘我沉醉，情感炽烈而痛快",
+          "descEn": "Intoxicated and wholehearted sentiment, expressing emotion to the absolute fullest."
+        },
+        {
+          "char": "艳",
+          "pinyin": "yàn",
+          "nameZh": "情中艳",
+          "nameEn": "Gorgeous Feeling",
+          "descZh": "娇艳夺目，华彩照人，倾倒众生",
+          "descEn": "Dazzling and radiant charm, stunning on and off the stage."
         },
         {
           "char": "媚",
           "pinyin": "mèi",
-          "nameZh": "媚情",
+          "nameZh": "情中媚",
           "nameEn": "Charming Feeling",
-          "descZh": "妩媚动人，柔情百转，令人魂牵梦绕",
-          "descEn": "Soft charm and alluring grace; deeply attractive and moving."
+          "descZh": "娇媚多情，柔情似水，动人心魄",
+          "descEn": "Alluring and delicate grace, deeply attractive and moving."
         }
       ]
     },
