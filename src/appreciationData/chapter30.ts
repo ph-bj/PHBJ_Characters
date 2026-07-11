@@ -106,6 +106,64 @@ export const chapter30Appreciation: ChapterAppreciationData = {
           "triggerEn": "Hearing rumors about Qinyan"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "杜琴言 ⇄ 凤仙花",
+          "pairEn": "Du Qinyan ⇄ the Garden Balsam",
+          "relationZh": "物我同悲",
+          "relationEn": "Flower as Mirror",
+          "temperature": 85,
+          "noteZh": "花被折入金盆便失了根本，正如自己身陷华府。",
+          "noteEn": "Cut and set in a golden basin, the flower loses its roots — exactly his own captivity."
+        },
+        {
+          "id": 2,
+          "pairZh": "杜琴言 ⇄ 华公子",
+          "pairEn": "Du Qinyan ⇄ Young Master Hua",
+          "relationZh": "禁锢与被禁",
+          "relationEn": "Jailer & Jailed",
+          "temperature": 15,
+          "noteZh": "私自外出便遭迁入内室，与外界音讯断绝。",
+          "noteEn": "One unauthorized outing and he is moved to the inner quarters, cut off from the world."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 华府夜宴",
+          "pairEn": "Mei Ziyu ⇄ the Hua Night Feast",
+          "relationZh": "咫尺天涯",
+          "relationEn": "A Wall Between Worlds",
+          "temperature": 30,
+          "noteZh": "亲属回避之例让他只能枯坐书斋，对月独愁。",
+          "noteEn": "Kinship-avoidance rules chain him to his study, alone with the moon while the feast blazes next door."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "琴言私自出府，被华公子下令禁闭",
+          "decisionEn": "Qinyan slips out without leave and is confined by Young Master Hua's order",
+          "rippleZh": "与外界音讯断绝，独对凤仙泣诉。",
+          "rippleEn": "Sealed off from the world, he weeps his grief to the balsam flowers.",
+          "echoZh": "囚居的绝望在第36回台上泪洒时总爆发。",
+          "echoEn": "The despair of confinement finally detonates on stage in chapter 36, in a fall of real tears."
+        },
+        {
+          "id": 2,
+          "decisionZh": "华公子筹备中秋西园夜宴",
+          "decisionEn": "Young Master Hua prepares the Mid-Autumn night feast in the West Garden",
+          "rippleZh": "子玉因回避之例枯坐书斋。",
+          "rippleEn": "Ziyu, barred by avoidance rules, sits out the night in his study.",
+          "echoZh": "一墙之隔的灯火与孤影，写尽这段情的制度性阻隔。",
+          "echoEn": "Lantern-light on one side of the wall, a lone shadow on the other — the institutional gulf of this love, in one image."
+        }
+      ]
     }
   ]
 };

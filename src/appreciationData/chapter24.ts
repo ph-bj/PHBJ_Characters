@@ -98,6 +98,64 @@ export const chapter24Appreciation: ChapterAppreciationData = {
           "descEn": "Maintaining aloofness in the face of money and power"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "颜仲清 ⇄ 王恂",
+          "pairEn": "Yan Zhongqing ⇄ Wang Xun",
+          "relationZh": "促膝论世",
+          "relationEn": "Fireside Chroniclers",
+          "temperature": 80,
+          "noteZh": "把盏闲话，将京城诸事与诸人性情一一勾连。",
+          "noteEn": "Over wine they thread together the capital's affairs and every player's character."
+        },
+        {
+          "id": 2,
+          "pairZh": "潘其观 ⇄ 苏蕙芳",
+          "pairEn": "Pan Qiguan ⇄ Su Huifang",
+          "relationZh": "歪缠不休",
+          "relationEn": "Relentless Pestering",
+          "temperature": 10,
+          "noteZh": "强求收义子的流言四起，掠夺披上了人情的外衣。",
+          "noteEn": "Rumors of a forced 'adoption' swirl — predation dressed up as kinship."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 杜琴言",
+          "pairEn": "Mei Ziyu ⇄ Du Qinyan",
+          "relationZh": "旁人眼中",
+          "relationEn": "As Others See Them",
+          "temperature": 80,
+          "noteZh": "“情根何处而生”，令知交亦费解而感叹。",
+          "noteEn": "'Where does such feeling take root?' — even close friends can only marvel."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "仲清、王恂坐论梅杜情缘的来龙去脉",
+          "decisionEn": "Zhongqing and Wang Xun sit down to trace the Mei-Du romance from its origins",
+          "rippleZh": "初见、灯谜、舟中重逢的脉络被梳理分明。",
+          "rippleEn": "First glimpse, lantern riddle, canal reunion — the thread is laid out clearly.",
+          "echoZh": "名士圈对这段情的正名，让后来的护持行动师出有名。",
+          "echoEn": "The circle's endorsement legitimizes every later act of protection."
+        },
+        {
+          "id": 2,
+          "decisionZh": "潘三放出收蕙芳为义子的流言",
+          "decisionEn": "Pan the Third spreads word that he will take Huifang as his 'adopted son'",
+          "rippleZh": "蕙芳处境微妙，周旋愈难。",
+          "rippleEn": "Huifang's position grows delicate, the maneuvering harder.",
+          "echoZh": "蕙芳的应对智慧将在第43回瞒寡妇、赎琴言时再放异彩。",
+          "echoEn": "That same resourcefulness will shine again in chapter 43, outwitting the widow to free Qinyan."
+        }
+      ]
     }
   ]
 };

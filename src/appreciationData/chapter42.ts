@@ -101,6 +101,54 @@ export const chapter42Appreciation: ChapterAppreciationData = {
           "shiftEn": "Wields immense power"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "杜琴言 ⇄ 师娘",
+          "pairEn": "Du Qinyan ⇄ the Master's Widow",
+          "relationZh": "软硬勒索",
+          "relationEn": "Extortion, Soft and Hard",
+          "temperature": 10,
+          "noteZh": "一月二百吊的养膳价码步步紧逼，情面作刀。",
+          "noteEn": "Two hundred strings a month, demanded with smiles and threats — sentiment wielded as a blade."
+        },
+        {
+          "id": 2,
+          "pairZh": "杜琴言 ⇄ 华府",
+          "pairEn": "Du Qinyan ⇄ the Hua Mansion",
+          "relationZh": "进退两难",
+          "relationEn": "Caught Between",
+          "temperature": 25,
+          "noteZh": "不知月例几何，难向公子启齿，经济上全无自主。",
+          "noteEn": "Ignorant of his own allowance, unable to ask — a man with no economic self at all."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "师娘拦住琴言，开出天价养膳",
+          "decisionEn": "The widow corners Qinyan with her ruinous 'maintenance' demand",
+          "rippleZh": "琴言进退两难，只得以“进府商量”搪塞。",
+          "rippleEn": "Trapped, he stalls with 'let me consult the mansion.'",
+          "echoZh": "这场勒索直接催生了宝珠、素兰的赎身密谋（第43回）。",
+          "echoEn": "The shakedown directly ignites Baozhu and Sulan's ransom conspiracy (ch. 43)."
+        },
+        {
+          "id": 2,
+          "decisionZh": "琴言直面自己“无钱亦无自由”的处境",
+          "decisionEn": "Qinyan confronts the truth: no money, and no freedom either",
+          "rippleZh": "愁眉苦脸，进退维谷。",
+          "rippleEn": "He is cornered, and knows it.",
+          "echoZh": "“钱与自由”的命题，到第59回卖画守孝时才有了他自己的答案。",
+          "echoEn": "The question of money and freedom finds his own answer only in chapter 59 — selling paintings to keep a filial vigil."
+        }
+      ]
     }
   ]
 };

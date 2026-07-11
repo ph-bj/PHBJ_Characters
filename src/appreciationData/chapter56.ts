@@ -98,6 +98,54 @@ export const chapter56Appreciation: ChapterAppreciationData = {
           "meaningEn": "Symbolizes hard to find soulmate"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "杜琴仙 ⇄ 屈道翁",
+          "pairEn": "Du Qinxian ⇄ Qu Daoweng",
+          "relationZh": "衣不解带",
+          "relationEn": "The Unsleeping Nurse",
+          "temperature": 95,
+          "noteZh": "焚香愿以身代，弥留者仍为少年忧心——父子情逾骨肉。",
+          "noteEn": "He prays to take the illness upon himself; the dying man worries only for the boy — devotion beyond blood."
+        },
+        {
+          "id": 2,
+          "pairZh": "杜琴仙 ⇄ 梅子玉",
+          "pairEn": "Du Qinxian ⇄ Mei Ziyu",
+          "relationZh": "摇舱寄词",
+          "relationEn": "Verses from a Rocking Boat",
+          "temperature": 75,
+          "noteZh": "代笔家书、构思和词，字斟句酌直至深夜。",
+          "noteEn": "Writing letters home and drafting answering lyrics deep into the night, word by weighed word."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "道翁跌伤病沉，琴仙衣不解带侍疾",
+          "decisionEn": "Qu falls gravely ill; Qinxian nurses him without rest",
+          "rippleZh": "迁入护国寺养病，病势日沉。",
+          "rippleEn": "They move into Huguo Temple as the illness deepens.",
+          "echoZh": "守孝百日、卖画度日的孝义（第59回）自此立起。",
+          "echoEn": "The hundred-day vigil and paintings sold for rice (ch. 59) are founded on these nights."
+        },
+        {
+          "id": 2,
+          "decisionZh": "琴仙神前焚香，愿以己身相代",
+          "decisionEn": "Qinxian burns incense, offering his own life in exchange",
+          "rippleZh": "道翁感其孝心，悲悯交加。",
+          "rippleEn": "Qu, moved beyond words, grieves for the boy even as he fades.",
+          "echoZh": "超越血缘的父子之情，成为全书“情”字的另一重注解。",
+          "echoEn": "A father-son love beyond blood — the novel's other great gloss on the word 'qing.'"
+        }
+      ]
     }
   ]
 };

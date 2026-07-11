@@ -258,6 +258,64 @@ export const chapter17Appreciation: ChapterAppreciationData = {
           "effectEn": "Completely overturned the scholars' stereotype of actors as mere playthings, elevating them to figures of 'chivalry'."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "梅子玉 ⇄ 杜琴言",
+          "pairEn": "Mei Ziyu ⇄ Du Qinyan",
+          "relationZh": "缺席之思",
+          "relationEn": "Longing for the Absent",
+          "temperature": 75,
+          "noteZh": "群芳毕集独缺一人——热闹是他们的，子玉什么也没有。",
+          "noteEn": "Every flower gathered but one — the revelry belongs to others; Ziyu has nothing."
+        },
+        {
+          "id": 2,
+          "pairZh": "众名士 ⇄ 众名旦",
+          "pairEn": "The Scholars ⇄ the Performers",
+          "relationZh": "诗酒共欢",
+          "relationEn": "Verse & Wine Together",
+          "temperature": 80,
+          "noteZh": "联句评花、人花互喻，雅集之盛冠绝全书。",
+          "noteEn": "Linked verses and flower-rankings — the most resplendent gathering in the novel."
+        },
+        {
+          "id": 3,
+          "pairZh": "高品 ⇄ 史南湘",
+          "pairEn": "Gao Pin ⇄ Shi Nanxiang",
+          "relationZh": "斗口逗趣",
+          "relationEn": "Duel of Tongues",
+          "temperature": 65,
+          "noteZh": "联句中的机锋你来我往，谑而不虐。",
+          "noteEn": "Barbed couplets fly back and forth — sharp, never cruel."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "王恂点将，把病中的琴言列入邀请名单",
+          "decisionEn": "Wang Xun insists on adding the ailing Qinyan to the guest list",
+          "rippleZh": "琴言未至，子玉在琼筵上黯然神伤、推醉出席。",
+          "rippleEn": "Qinyan never comes; Ziyu wilts at the feast and pleads drunkenness to slip away.",
+          "echoZh": "“匪我思存”的怅惘让子玉思病渐深，引出后文卧病逾月。",
+          "echoEn": "The ache of 'not the one my heart holds' deepens into the illness that confines him for a month."
+        },
+        {
+          "id": 2,
+          "decisionZh": "众人以百花品评席上名伶",
+          "decisionEn": "The company ranks the performers as flowers",
+          "rippleZh": "琴言比梅、琪官比杏，各得其所。",
+          "rippleEn": "Qinyan is the plum blossom, Qiguan the apricot — each perfectly placed.",
+          "echoZh": "花谱定品成为全书人物气质的隐喻索引。",
+          "echoEn": "The flower-ranking becomes the novel's metaphorical index of character."
+        }
+      ]
     }
   ]
 };

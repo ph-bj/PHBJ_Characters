@@ -98,6 +98,64 @@ export const chapter28Appreciation: ChapterAppreciationData = {
           "descEn": "The profit-driven Changqing"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "杜琴言 ⇄ 梅子玉",
+          "pairEn": "Du Qinyan ⇄ Mei Ziyu",
+          "relationZh": "罗帕寄情",
+          "relationEn": "A Kerchief of Farewell",
+          "temperature": 90,
+          "noteZh": "一方泪帕、四味药草，万语千言尽在隐语之中。",
+          "noteEn": "One tear-stained kerchief and four herbs — ten thousand words folded into a cipher."
+        },
+        {
+          "id": 2,
+          "pairZh": "长庆 ⇄ 魏聘才",
+          "pairEn": "Changqing ⇄ Wei Pincai",
+          "relationZh": "屈从胁迫",
+          "relationEn": "Submission Under Duress",
+          "temperature": 15,
+          "noteZh": "迫于压力亲送琴言入府，温顺屈服助长小人气焰。",
+          "noteEn": "Pressured into delivering Qinyan himself, his meekness only feeds the schemer's swagger."
+        },
+        {
+          "id": 3,
+          "pairZh": "杜琴言 ⇄ 华公子",
+          "pairEn": "Du Qinyan ⇄ Young Master Hua",
+          "relationZh": "笼中新客",
+          "relationEn": "New to the Cage",
+          "temperature": 30,
+          "noteZh": "举止端谨、沉默相对，是笼中人仅有的自卫。",
+          "noteEn": "Careful manners and silence — the only armor left to the caged."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "琴言将罗帕与药草托素兰转呈子玉",
+          "decisionEn": "Qinyan entrusts the kerchief and herbs to Sulan for Ziyu",
+          "rippleZh": "数日后子玉方知变故，如坠冰窟。",
+          "rippleEn": "Days later Ziyu learns the truth and plunges into ice.",
+          "echoZh": "这份隐语信物成为二人隔墙相守的凭证。",
+          "echoEn": "The coded keepsake becomes the token of a vigil kept across walls."
+        },
+        {
+          "id": 2,
+          "decisionZh": "长庆以“不收身价”将琴言送入华府",
+          "decisionEn": "Changqing hands Qinyan to the Hua mansion 'without taking a price'",
+          "rippleZh": "华公子甚为满意，琴言入住留青精舍。",
+          "rippleEn": "Young Master Hua is well pleased; Qinyan is installed in the Liuqing Studio.",
+          "echoZh": "“无身价”三字日后成为赎身的死结，直到子云重金破局（第43-44回）。",
+          "echoEn": "'No price' becomes the legal knot strangling any ransom — until Ziyun's fortune cuts it (ch. 43-44)."
+        }
+      ]
     }
   ]
 };

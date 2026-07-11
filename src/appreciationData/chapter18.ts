@@ -255,6 +255,64 @@ export const chapter18Appreciation: ChapterAppreciationData = {
           "shiftEn": "The master's power is temporarily voided by Qinyan's illness, exposing the fragility of the dependency: once the 'commodity' is damaged, exploitation stalls."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "魏聘才 ⇄ 张仲雨",
+          "pairEn": "Wei Pincai ⇄ Zhang Zhongyu",
+          "relationZh": "厚黑师徒",
+          "relationEn": "Master & Pupil in Cynicism",
+          "temperature": 60,
+          "noteZh": "“十样要诀”“七字诀”倾囊相授，帮闲之道自成体系。",
+          "noteEn": "The 'ten essentials' and 'seven-word formula' — a complete curriculum in parasitism, freely given."
+        },
+        {
+          "id": 2,
+          "pairZh": "奚十一 ⇄ 白菊花",
+          "pairEn": "Xi Shiyi ⇄ White Chrysanthemum",
+          "relationZh": "千金买妾",
+          "relationEn": "A Concubine for Gold",
+          "temperature": 30,
+          "noteZh": "重金纳妾不过是又一场买卖，底层的生存智慧尽在应对之间。",
+          "noteEn": "The lavish purchase is just another transaction — and her survival instincts meet it move for move."
+        },
+        {
+          "id": 3,
+          "pairZh": "杜琴言 ⇄ 梅子玉",
+          "pairEn": "Du Qinyan ⇄ Mei Ziyu",
+          "relationZh": "病中悬念",
+          "relationEn": "Longing Through Illness",
+          "temperature": 70,
+          "noteZh": "闭门谢客、屡访不遇，情愫在缺席中愈发深浓。",
+          "noteEn": "Doors closed, visits missed — absence only distills the feeling."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "仲雨向聘才传授帮闲厚黑学",
+          "decisionEn": "Zhongyu tutors Pincai in the dark arts of the hanger-on",
+          "rippleZh": "聘才如获至宝，若有所悟。",
+          "rippleEn": "Pincai drinks it in like treasure.",
+          "echoZh": "第19回他即学以致用，从林珊枝下手直入华公子视野。",
+          "echoEn": "By chapter 19 he applies the lessons — courting Lin Shanzhi straight into Young Master Hua's sight."
+        },
+        {
+          "id": 2,
+          "decisionZh": "奚十一掷重金纳白菊花为妾",
+          "decisionEn": "Xi Shiyi throws down a fortune to take White Chrysanthemum as concubine",
+          "rippleZh": "豪阔之名在欢场传开。",
+          "rippleEn": "His reputation for reckless wealth spreads through the quarter.",
+          "echoZh": "挥霍与荒淫为第58回的倾家荡产早早埋下伏笔。",
+          "echoEn": "The extravagance and dissipation quietly set up his total ruin in chapter 58."
+        }
+      ]
     }
   ]
 };

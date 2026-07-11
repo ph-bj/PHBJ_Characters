@@ -99,6 +99,64 @@ export const chapter48Appreciation: ChapterAppreciationData = {
           "meaningEn": "Symbolizes destroyed emotion"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "杜琴仙 ⇄ 众名士",
+          "pairEn": "Du Qinxian ⇄ the Scholars",
+          "relationZh": "轮番饯行",
+          "relationEn": "Farewell After Farewell",
+          "temperature": 80,
+          "noteZh": "皇华亭前依依惜别，离情洒作断肠词。",
+          "noteEn": "Lingering goodbyes at Huanghua Pavilion — parting grief poured into heartbreak verse."
+        },
+        {
+          "id": 2,
+          "pairZh": "田春航 ⇄ 苏蕙芳",
+          "pairEn": "Tian Chunhang ⇄ Su Huifang",
+          "relationZh": "一声“苏大爷”",
+          "relationEn": "The Title 'Master Su'",
+          "temperature": 92,
+          "noteZh": "一声称呼，含尽感激、亏欠与无言的承诺。",
+          "noteEn": "One form of address holding all his gratitude, his debt, and an unspoken promise."
+        },
+        {
+          "id": 3,
+          "pairZh": "屈道翁 ⇄ 杜琴仙",
+          "pairEn": "Qu Daoweng ⇄ Du Qinxian",
+          "relationZh": "携子赴任",
+          "relationEn": "Father & Son Southbound",
+          "temperature": 90,
+          "noteZh": "领南昌通判，父子同舟南下。",
+          "noteEn": "Appointed to Nanchang, the adoptive father takes his son downriver with him."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "屈道翁领南昌通判，携琴仙南下",
+          "decisionEn": "Qu Daoweng accepts the Nanchang post and takes Qinxian south",
+          "rippleZh": "木兰艇上断肠词，皇华亭前离情泪。",
+          "rippleEn": "Heartbreak verses on the magnolia skiff, tears at Huanghua Pavilion.",
+          "echoZh": "南下之旅通向守灵卖画的至暗时刻（第56-59回），也炼成琴仙的风骨。",
+          "echoEn": "The southern journey leads to his darkest hours — the vigil and the sold paintings (ch. 56-59) — and forges his character."
+        },
+        {
+          "id": 2,
+          "decisionZh": "春航命阖府尊称蕙芳为“苏大爷”",
+          "decisionEn": "Chunhang orders his whole household to address Huifang as 'Master Su'",
+          "rippleZh": "身份尴尬处，得一声正名。",
+          "rippleEn": "An awkward station receives its dignity in a single title.",
+          "echoZh": "这声称呼是全书对“宝友”之义最郑重的承认。",
+          "echoEn": "That title is the novel's most solemn ratification of the 'treasured friend.'"
+        }
+      ]
     }
   ]
 };

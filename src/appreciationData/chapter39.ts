@@ -99,6 +99,64 @@ export const chapter39Appreciation: ChapterAppreciationData = {
           "significanceEn": "Place of losing oneself"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "李元茂 ⇄ 孙家",
+          "pairEn": "Li Yuanmao ⇄ the Sun Household",
+          "relationZh": "将就姻缘",
+          "relationEn": "A Make-Do Marriage",
+          "temperature": 40,
+          "noteZh": "招赘入门的婚事处处凑合，喜气中透着将就。",
+          "noteEn": "A live-in son-in-law's wedding, improvised at every turn — festivity shot through with compromise."
+        },
+        {
+          "id": 2,
+          "pairZh": "魏聘才 ⇄ 王文辉",
+          "pairEn": "Wei Pincai ⇄ Wang Wenhui",
+          "relationZh": "示好碰壁",
+          "relationEn": "Overtures Rebuffed",
+          "temperature": 25,
+          "noteZh": "特意奔走讨好，却在颜家碰了软钉子。",
+          "noteEn": "He runs errands to curry favor — and meets a velvet wall at the Yan household."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 魏聘才",
+          "pairEn": "Mei Ziyu ⇄ Wei Pincai",
+          "relationZh": "旧谊成冰",
+          "relationEn": "Friendship Frozen Over",
+          "temperature": 15,
+          "noteZh": "态度明显冷淡，往日亲厚已成过眼云烟。",
+          "noteEn": "Unmistakable coldness — the old warmth has evaporated entirely."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "元茂招赘孙家，婚事仓促办妥",
+          "decisionEn": "Yuanmao marries into the Sun family in a hastily arranged match",
+          "rippleZh": "借来的珠冠补服撑起门面，洞房戏语引哄堂大笑。",
+          "rippleEn": "Borrowed pearl crowns and robes prop up appearances; his wedding-night quips bring the house down.",
+          "echoZh": "这桩凑合婚姻与第51回的科场冒名一样，是元茂式人生的注脚。",
+          "echoEn": "The make-do marriage, like the exam fraud of chapter 51, is a footnote defining the Yuanmao way of life."
+        },
+        {
+          "id": 2,
+          "decisionZh": "聘才为向王文辉示好四处奔走",
+          "decisionEn": "Pincai runs himself ragged courting Wang Wenhui's favor",
+          "rippleZh": "在颜家吃了软钉子，旧账在笑语下暗暗清算。",
+          "rippleEn": "The Yan household's polite rebuff settles old accounts beneath the smiles.",
+          "echoZh": "梅府的大门对他实质关闭，聘才愈发滑向另一条路。",
+          "echoEn": "The Mei door is now effectively shut — and Pincai slides further down his other road."
+        }
+      ]
     }
   ]
 };

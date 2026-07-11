@@ -166,6 +166,64 @@ export const chapter15Appreciation: ChapterAppreciationData = {
           "methodEn": "Stimulated by the actor's noble character, awakening the Confucian scholar's sense of duty."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "梅子玉 ⇄ 梅士燮",
+          "pairEn": "Mei Ziyu ⇄ Mei Shixie",
+          "relationZh": "严父远行",
+          "relationEn": "The Stern Father Departs",
+          "temperature": 55,
+          "noteZh": "城外三十五里洒泪相送，管束与自由只在一线之间。",
+          "noteEn": "Tears at the thirty-fifth li outside the city — discipline and freedom change hands in a moment."
+        },
+        {
+          "id": 2,
+          "pairZh": "袁宝珠 ⇄ 金漱芳",
+          "pairEn": "Yuan Baozhu ⇄ Jin Shufang",
+          "relationZh": "令中斗才",
+          "relationEn": "Dueling Wits",
+          "temperature": 65,
+          "noteZh": "飞花酒令绞尽脑汁，名伶以才学自证身价。",
+          "noteEn": "The flying-blossom games wring their wits dry — performers proving their worth in letters."
+        },
+        {
+          "id": 3,
+          "pairZh": "徐子云 ⇄ 萧次贤",
+          "pairEn": "Xu Ziyun ⇄ Xiao Cixian",
+          "relationZh": "园林知己",
+          "relationEn": "Garden Confidants",
+          "temperature": 80,
+          "noteZh": "桃花坞中把酒论人，共赏群芳的从容默契。",
+          "noteEn": "Wine and appraisal in the Peach Blossom Dell — an easy, seasoned rapport."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "梅士燮受命放江西学差离京",
+          "decisionEn": "Mei Shixie is dispatched to Jiangxi as education commissioner",
+          "rippleZh": "子玉失去严父约束，课业与情怀悬于自处。",
+          "rippleEn": "Ziyu loses his father's discipline, left alone with his studies and his longing.",
+          "echoZh": "这份自由让他得以访素兰、赴雅集、踏月寻琴言，情缘因此加速。",
+          "echoEn": "That freedom lets him visit Sulan, join the gatherings, seek Qinyan by moonlight — the romance accelerates."
+        },
+        {
+          "id": 2,
+          "decisionZh": "席间盛论琴言“行乎所当行”的化境",
+          "decisionEn": "The table extols Qinyan's artistry of 'moving exactly as one should'",
+          "rippleZh": "琴言之名在名士圈愈盛。",
+          "rippleEn": "Qinyan's fame swells among the literati.",
+          "echoZh": "声名亦引来华府与恶客的觊觎——福祸自此相倚。",
+          "echoEn": "Fame draws the covetous eyes of the Hua mansion and worse — fortune and calamity now travel together."
+        }
+      ]
     }
   ]
 };

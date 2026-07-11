@@ -38,7 +38,7 @@ export const chapter31Appreciation: ChapterAppreciationData = {
     {
       iconType: "User", titleZh: "人物塑造与心理", titleEn: "Characterization & Psychology", score: 90,
       subsections: [
-        { labelZh: "性格展现", labelEn: "Character", textZh: "子派的用力过猛与防御性自尊，文泽的尖锐批评。", textEn: "Zipai's overacting and defensive pride; Wenze's sharp critique." },
+        { labelZh: "性格展现", labelEn: "Character", textZh: "子佩的用力过猛与防御性自尊，文泽的尖锐批评。", textEn: "Zipei's overacting and defensive pride; Wenze's sharp critique." },
         { labelZh: "心理深度", labelEn: "Psychology", textZh: "人物内心的挣扎和波澜描写真实细腻。", textEn: "The inner struggles and psychological waves of the characters are depicted authentically and delicately." },
         { labelZh: "人物关系", labelEn: "Relationships", textZh: "人物间的互动微妙地改变了彼此的权力或情感平衡。", textEn: "Interactions between characters subtly alter their power or emotional balance." }
       ]
@@ -97,6 +97,64 @@ export const chapter31Appreciation: ChapterAppreciationData = {
           "atmosphereEn": "Prosperous and impetuous",
           "significanceZh": "优伶们争奇斗艳的名利场",
           "significanceEn": "The vanity fair for actors"
+        }
+      ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "冯子佩 ⇄ 刘文泽",
+          "pairEn": "Feng Zipei ⇄ Liu Wenze",
+          "relationZh": "无端猜隙",
+          "relationEn": "A Groundless Grudge",
+          "temperature": 30,
+          "noteZh": "台上费力、台下疑谤，一场误会闹成满座笑谈。",
+          "noteEn": "Straining on stage, suspecting slander below — a misunderstanding that becomes the table's best joke."
+        },
+        {
+          "id": 2,
+          "pairZh": "杜琴言 ⇄ 席间繁华",
+          "pairEn": "Du Qinyan ⇄ the Glittering Feast",
+          "relationZh": "身在心不在",
+          "relationEn": "Present in Body Only",
+          "temperature": 20,
+          "noteZh": "托病离席独坐屏后，乐声愈欢，愁绪愈浓。",
+          "noteEn": "Pleading illness, he sits alone behind the screen — the merrier the music, the deeper his sorrow."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 众名士",
+          "pairEn": "Mei Ziyu ⇄ the Scholars",
+          "relationZh": "翰墨争锋",
+          "relationEn": "Duels in Ink",
+          "temperature": 65,
+          "noteZh": "就书法诗词高论迭出，争辩不休而愈见风雅。",
+          "noteEn": "Theories of calligraphy and verse clash and spark — contention as refinement."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "子佩登台献艺，却疑心文泽在台下讥评",
+          "decisionEn": "Zipei performs on stage, then suspects Wenze of mocking him from below",
+          "rippleZh": "华公子笑比“阎婆惜”，满座莞尔。",
+          "rippleEn": "Young Master Hua laughingly likens him to Yan Poxi, to the table's delight.",
+          "echoZh": "名利场中的敏感自尊被写成一面镜子，照见清客与优伶的共同处境。",
+          "echoEn": "Thin-skinned pride becomes a mirror held up to retainer and performer alike."
+        },
+        {
+          "id": 2,
+          "decisionZh": "琴言托病离席，独坐屏后垂泪",
+          "decisionEn": "Qinyan pleads illness and weeps alone behind the screen",
+          "rippleZh": "繁华与悲凉同框，无人察觉。",
+          "rippleEn": "Splendor and desolation share one frame, and no one notices.",
+          "echoZh": "“困于金笼”的意象反复回响，直至赎身出府方止（第44回）。",
+          "echoEn": "The gilded-cage image echoes on and on, silenced only by the ransom of chapter 44."
         }
       ]
     }

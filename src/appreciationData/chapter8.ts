@@ -258,6 +258,64 @@ export const chapter8Appreciation: ChapterAppreciationData = {
           "significanceEn": "The sickroom becomes a physical refuge for Ziyu to escape social responsibilities and indulge in spiritual longing."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "李元茂 ⇄ 魏聘才",
+          "pairEn": "Li Yuanmao ⇄ Wei Pincai",
+          "relationZh": "狼狈为奸",
+          "relationEn": "Partners in Folly",
+          "temperature": 55,
+          "noteZh": "怂恿偷银、同去寻欢，出事后各自狼狈。",
+          "noteEn": "One goads the theft, both go carousing — and both slink home in disgrace."
+        },
+        {
+          "id": 2,
+          "pairZh": "李元茂 ⇄ 众相公",
+          "pairEn": "Li Yuanmao ⇄ the Dan Boys",
+          "relationZh": "虚荣与逢场",
+          "relationEn": "Vanity Meets Performance",
+          "temperature": 30,
+          "noteZh": "几句奉承便心花怒放，怀中银两却不翼而飞。",
+          "noteEn": "A few compliments send him soaring — while the silver vanishes from his coat."
+        },
+        {
+          "id": 3,
+          "pairZh": "魏聘才 ⇄ 张仲雨",
+          "pairEn": "Wei Pincai ⇄ Zhang Zhongyu",
+          "relationZh": "冷脸相待",
+          "relationEn": "A Cold Reception",
+          "temperature": 25,
+          "noteZh": "表面客气实则冷淡，欢场人情薄如纸。",
+          "noteEn": "Polite on the surface, icy beneath — pleasure-quarter friendship is paper-thin."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "元茂在聘才怂恿下偷取父亲箱中银两",
+          "decisionEn": "Egged on by Pincai, Yuanmao steals silver from his father's chest",
+          "rippleZh": "戏园酒馆一夜挥霍，结账时银两失窃，只得赊账收场。",
+          "rippleEn": "A night of splurging ends with the silver stolen and an IOU scrawled in shame.",
+          "echoZh": "“偷复偷”的闹剧是元茂一生荒唐的缩影，第23回土窑子遭劫又是一次重演。",
+          "echoEn": "The 'theft upon theft' farce epitomizes Yuanmao's life — replayed when he is fleeced at the dive in chapter 23."
+        },
+        {
+          "id": 2,
+          "decisionZh": "元茂戏园门口跌跤，被人双手扶起",
+          "decisionEn": "Yuanmao trips at the theater door and is helped up by a stranger",
+          "rippleZh": "扶他之人正是华光宿，一面之缘就此结下。",
+          "rippleEn": "The helping hands belong to Hua Guangsu — a chance encounter is sealed.",
+          "echoZh": "这条支线悄然铺开，华府的世界自此与梅宅诸人纠缠不清。",
+          "echoEn": "A fateful subplot unspools from here, entangling the Hua mansion with everyone from the Mei household."
+        }
+      ]
     }
   ]
 };

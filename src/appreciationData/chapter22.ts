@@ -104,6 +104,64 @@ export const chapter22Appreciation: ChapterAppreciationData = {
           "effectEn": "Reinforces external stereotypes"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "陆素兰 ⇄ 梅子玉",
+          "pairEn": "Lu Sulan ⇄ Mei Ziyu",
+          "relationZh": "仗义筹划",
+          "relationEn": "The Loyal Schemer",
+          "temperature": 80,
+          "noteZh": "借逛运河之名租船设局，苦心成全一场再会。",
+          "noteEn": "Under cover of a canal outing he hires a boat and stages the reunion — devotion in logistics."
+        },
+        {
+          "id": 2,
+          "pairZh": "奚十一 ⇄ 杜琴言",
+          "pairEn": "Xi Shiyi ⇄ Du Qinyan",
+          "relationZh": "恶势相逼",
+          "relationEn": "Menace at the Door",
+          "temperature": 5,
+          "noteZh": "爪牙登门撒野威逼陪酒，钱财打发方休。",
+          "noteEn": "His thugs storm the lodging demanding Qinyan's company; only money makes them leave."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 杜琴言",
+          "pairEn": "Mei Ziyu ⇄ Du Qinyan",
+          "relationZh": "舟中重逢",
+          "relationEn": "Reunion on the Water",
+          "temperature": 90,
+          "noteZh": "一纸约书愁雾顿散，病已去了九分。",
+          "noteEn": "One letter of invitation lifts the gloom — nine-tenths of the illness gone at a stroke."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "素兰以子云名义致书梅宅，约船游运河",
+          "decisionEn": "Sulan writes to the Mei house in Ziyun's name, proposing a canal excursion",
+          "rippleZh": "子玉病去九分，欣然赴约。",
+          "rippleEn": "Ziyu, nearly cured by joy, accepts at once.",
+          "echoZh": "运河相会成为梅杜情缘中难得的亮色，守护者同盟也愈发紧密。",
+          "echoEn": "The canal meeting becomes a rare bright passage in the romance — and tightens the circle of its guardians."
+        },
+        {
+          "id": 2,
+          "decisionZh": "琴言家人跪地送钱，打发奚府恶奴",
+          "decisionEn": "Qinyan's household kneels and pays off Xi's thugs",
+          "rippleZh": "一场撒野暂告平息。",
+          "rippleEn": "The rampage is bought off — for now.",
+          "echoZh": "恶客环伺让琴言处境日蹙，终被逼入华府樊笼（第28回）。",
+          "echoEn": "With predators circling, Qinyan's position crumbles until he is forced into the Hua mansion's cage (ch. 28)."
+        }
+      ]
     }
   ]
 };

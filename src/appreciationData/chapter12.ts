@@ -272,6 +272,64 @@ export const chapter12Appreciation: ChapterAppreciationData = {
           "critiqueEn": "Though crude, the maids' poetry is full of vitality, acting as a playful deconstruction of the rigid poetic system of orthodox scholars."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "田春航 ⇄ 高品",
+          "pairEn": "Tian Chunhang ⇄ Gao Pin",
+          "relationZh": "诤友论道",
+          "relationEn": "Sparring Friends",
+          "temperature": 65,
+          "noteZh": "“诚”与“情”之辩针锋相对，却愈辩愈见惺惺相惜。",
+          "noteEn": "Their duel over 'sincerity' and 'feeling' is fierce — and deepens their mutual regard."
+        },
+        {
+          "id": 2,
+          "pairZh": "颜仲清 ⇄ 田春航",
+          "pairEn": "Yan Zhongqing ⇄ Tian Chunhang",
+          "relationZh": "惜才赠金",
+          "relationEn": "Gold for Genius",
+          "temperature": 70,
+          "noteZh": "二百两赠金转手即空——侠气遇上痴气，皆是真性情。",
+          "noteEn": "Two hundred taels gifted, and spent at once — chivalry meets obsession, both utterly sincere."
+        },
+        {
+          "id": 3,
+          "pairZh": "田春航 ⇄ 蓉官",
+          "pairEn": "Tian Chunhang ⇄ Rongguan",
+          "relationZh": "势利冷遇",
+          "relationEn": "Snubbed for Poverty",
+          "temperature": 10,
+          "noteZh": "衣衫褴褛便遭白眼，风月场只认衣冠不认人。",
+          "noteEn": "Ragged clothes earn cold eyes — the pleasure quarter sees robes, not men."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "春航将盘缠尽数散与戏班优伶",
+          "decisionEn": "Chunhang scatters his entire travel purse among the opera performers",
+          "rippleZh": "陷入赤贫，在戏园遭蓉官冷遇。",
+          "rippleEn": "Destitute, he is snubbed by Rongguan at the theater.",
+          "echoZh": "落魄让他遇见不以衣冠取人的蕙芳，成就全书另一段知音佳话（第13回）。",
+          "echoEn": "Poverty leads him to Huifang, who judges men not robes — the novel's other great soulmate story begins (ch. 13)."
+        },
+        {
+          "id": 2,
+          "decisionZh": "春航发表“情即天理”的惊世宏论",
+          "decisionEn": "Chunhang delivers his astonishing thesis that 'feeling is heavenly principle'",
+          "rippleZh": "高品折服，奇论在名士圈传开。",
+          "rippleEn": "Gao Pin is won over; the audacious argument spreads through the literati.",
+          "echoZh": "这套情学宣言成为他日后状元及第、宝友不渝的注脚。",
+          "echoEn": "This manifesto of feeling becomes the footnote to his future first-place triumph and unwavering 'treasured friendship.'"
+        }
+      ]
     }
   ]
 };

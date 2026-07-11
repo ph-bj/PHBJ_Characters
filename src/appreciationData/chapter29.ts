@@ -106,6 +106,54 @@ export const chapter29Appreciation: ChapterAppreciationData = {
           "effectEn": "Causes Ziyu extreme anxiety"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "杜琴言 ⇄ 梅子玉",
+          "pairEn": "Du Qinyan ⇄ Mei Ziyu",
+          "relationZh": "床前拭泪",
+          "relationEn": "Tears at the Bedside",
+          "temperature": 95,
+          "noteZh": "泪滴脸上唤不醒，执手相看时悲喜交集。",
+          "noteEn": "Tears fall on the sleeper's face and cannot wake him; when hands finally clasp, grief and joy flood together."
+        },
+        {
+          "id": 2,
+          "pairZh": "颜夫人 ⇄ 杜琴言",
+          "pairEn": "Lady Yan ⇄ Du Qinyan",
+          "relationZh": "慈母心肠",
+          "relationEn": "A Mother's Heart",
+          "temperature": 70,
+          "noteZh": "破例命其入内安慰病儿，隔壁听得肝肠欲断。",
+          "noteEn": "She breaks convention to let him comfort her son — and listens through the wall, heart breaking."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "颜夫人破例让琴言入内室探病",
+          "decisionEn": "Lady Yan breaks precedent to admit Qinyan to the sickroom",
+          "rippleZh": "梦呓中的“长生殿”终于有了现实的执手。",
+          "rippleEn": "The 'Palace of Eternal Life' murmured in dreams becomes a real clasp of hands.",
+          "echoZh": "长辈的默许给这段情一线正当性，在全书中弥足珍贵。",
+          "echoEn": "An elder's tacit blessing lends the love a sliver of legitimacy — precious beyond measure in this novel."
+        },
+        {
+          "id": 2,
+          "decisionZh": "半醒的子玉冷笑拒认，疑是又一次试探",
+          "decisionEn": "Half-waking, Ziyu sneers and refuses to acknowledge him, suspecting another test",
+          "rippleZh": "琴言侧身对光，子玉方如梦初醒。",
+          "rippleEn": "Only when Qinyan turns into the light does Ziyu truly wake.",
+          "echoZh": "第10回“假琴言”的旧影犹在——真假之辨，恰见情之深。",
+          "echoEn": "The shadow of chapter 10's 'false Qinyan' lingers — doubting the real one proves how deep the feeling runs."
+        }
+      ]
     }
   ]
 };

@@ -173,6 +173,64 @@ export const chapter9Appreciation: ChapterAppreciationData = {
           "methodEn": "Using high emotional intelligence and sincerity to navigate between classes and isolated spaces"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "梅子玉 ⇄ 袁宝珠",
+          "pairEn": "Mei Ziyu ⇄ Yuan Baozhu",
+          "relationZh": "对视走神",
+          "relationEn": "A Distracted Gaze",
+          "temperature": 55,
+          "noteZh": "与宝珠四目相对，心中想的却是未曾谋面的琴言。",
+          "noteEn": "His eyes meet Baozhu's, but his heart is with the Qinyan he has never met."
+        },
+        {
+          "id": 2,
+          "pairZh": "梅子玉 ⇄ 灯市少妇",
+          "pairEn": "Mei Ziyu ⇄ the Lady at the Lantern Fair",
+          "relationZh": "灯市艳遇",
+          "relationEn": "Lantern-Fair Flirtation",
+          "temperature": 20,
+          "noteZh": "莲足嫣然的注视只换来子玉的局促无措。",
+          "noteEn": "Her lotus-foot display and lingering smile earn only Ziyu's flustered retreat."
+        },
+        {
+          "id": 3,
+          "pairZh": "众名士 ⇄ 萧次贤",
+          "pairEn": "The Scholars ⇄ Xiao Cixian",
+          "relationZh": "宾主尽欢",
+          "relationEn": "Host & Guests in High Spirits",
+          "temperature": 75,
+          "noteZh": "烟火百兽灯阵与灯谜彩头，尽见怡园主人的巧思。",
+          "noteEn": "Fireworks, the hundred-beast lantern array and riddle prizes — the host's ingenuity on full display."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "子玉在怡园连猜灯谜，拔得头筹",
+          "decisionEn": "Ziyu sweeps the lantern riddles at Yiyuan and takes first prize",
+          "rippleZh": "获赠瑶琴彩头，风头一时无两。",
+          "rippleEn": "He wins a jade qin as his prize, the toast of the evening.",
+          "echoZh": "他猜中的正是琴言所制的谜——“琴”之彩头暗扣“琴言”，缘分自此系上一线（第10回点明）。",
+          "echoEn": "The riddle he solved was Qinyan's own — a 'qin' prize knotting their fates, as chapter 10 reveals."
+        },
+        {
+          "id": 2,
+          "decisionZh": "聘才、元茂借钱票遮掩前夜窘事",
+          "decisionEn": "Pincai and Yuanmao borrow money to cover up the previous night's fiasco",
+          "rippleZh": "谎称张仲雨相请，骗过了子玉的盘问。",
+          "rippleEn": "A lie about Zhang Zhongyu's invitation gets them past Ziyu's questions.",
+          "echoZh": "说谎圆谎自此成为二人处世的常态，日后愈演愈烈。",
+          "echoEn": "Lying to cover lies becomes their way of life — and it only escalates."
+        }
+      ]
     }
   ]
 };

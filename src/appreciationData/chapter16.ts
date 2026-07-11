@@ -246,6 +246,64 @@ export const chapter16Appreciation: ChapterAppreciationData = {
           "significanceEn": "A microcosm of the traditional scholar's utopia; it protects Ziyu's innocence but also hints at his fragility in the face of harsh reality."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "魏聘才 ⇄ 华府门客",
+          "pairEn": "Wei Pincai ⇄ the Hua Retainers",
+          "relationZh": "势利倾轧",
+          "relationEn": "Snobbery & Squeeze",
+          "temperature": 25,
+          "noteZh": "进府一月不见主人一面，尽是赔累与排挤。",
+          "noteEn": "A month inside without a glimpse of the master — nothing but expenses and elbows."
+        },
+        {
+          "id": 2,
+          "pairZh": "梅子玉 ⇄ 陆素兰",
+          "pairEn": "Mei Ziyu ⇄ Lu Sulan",
+          "relationZh": "托情知己",
+          "relationEn": "Confidant & Go-Between",
+          "temperature": 80,
+          "noteZh": "重礼相访实为打听琴言，素兰一语点破相思病。",
+          "noteEn": "Lavish gifts mask his real errand — news of Qinyan; Sulan names his lovesickness in a sentence."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 杜琴言",
+          "pairEn": "Mei Ziyu ⇄ Du Qinyan",
+          "relationZh": "咫尺天涯",
+          "relationEn": "So Near, So Far",
+          "temperature": 70,
+          "noteZh": "得知其病中受无赖搅扰，避嫌未见，怅然而归。",
+          "noteEn": "Learning Qinyan is ill and harassed, he must avoid suspicion and turn home unfulfilled."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "聘才托富三爷引荐，进华公府做食客",
+          "decisionEn": "Pincai has Third Master Fu usher him into the Hua mansion as a retainer",
+          "rippleZh": "初尝侯门似海的冷暖与赔累。",
+          "rippleEn": "He gets his first taste of the marquis-gate's depths — cold shoulders and mounting costs.",
+          "echoZh": "为在华府立足，他日后不惜构陷琴言以酬宿怨（第26-27回），善恶自此分途。",
+          "echoEn": "To secure his footing he will frame Qinyan to settle old scores (ch. 26-27) — the moral fork in his road."
+        },
+        {
+          "id": 2,
+          "decisionZh": "素兰将琴言的种种反常和盘托出",
+          "decisionEn": "Sulan reveals that all Qinyan's strange behavior traces back to Ziyu",
+          "rippleZh": "子玉确信两心相通，痴情更深。",
+          "rippleEn": "Ziyu now knows the feeling is mutual — and falls deeper.",
+          "echoZh": "素兰自此成为梅杜之间最重要的信使与撮合者（第22、28回）。",
+          "echoEn": "Sulan becomes the couple's vital messenger and matchmaker (ch. 22, 28)."
+        }
+      ]
     }
   ]
 };

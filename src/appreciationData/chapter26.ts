@@ -104,6 +104,64 @@ export const chapter26Appreciation: ChapterAppreciationData = {
           "descEn": "Figures surviving on scams"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "华公子 ⇄ 林珊枝",
+          "pairEn": "Young Master Hua ⇄ Lin Shanzhi",
+          "relationZh": "心腹密谈",
+          "relationEn": "Confidant in the Night",
+          "temperature": 60,
+          "noteZh": "收留琴言之事夜议内室，心腹奉命穿针引线。",
+          "noteEn": "The plan to take in Qinyan is weighed in the inner chamber; the confidant is sent to thread the needle."
+        },
+        {
+          "id": 2,
+          "pairZh": "魏聘才 ⇄ 长庆",
+          "pairEn": "Wei Pincai ⇄ Changqing",
+          "relationZh": "威逼施压",
+          "relationEn": "Coercion",
+          "temperature": 10,
+          "noteZh": "以“无身价”之名逼戏班就范，幕后黑手浮出水面。",
+          "noteEn": "Pressure to hand Qinyan over 'without a price' — the hidden hand shows itself."
+        },
+        {
+          "id": 3,
+          "pairZh": "华公子 ⇄ 十珠侍女",
+          "pairEn": "Young Master Hua ⇄ the Ten Pearl Maids",
+          "relationZh": "奢靡日常",
+          "relationEn": "Luxury as Routine",
+          "temperature": 50,
+          "noteZh": "星楼调粥的精致画卷，写尽豪门的物化与讲究。",
+          "noteEn": "The exquisite tableau of porridge-making at Star Tower — refinement built on objectification."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "聘才向长庆施压，谋划将琴言送入华府",
+          "decisionEn": "Pincai squeezes Changqing, engineering Qinyan's transfer into the Hua mansion",
+          "rippleZh": "幕后运作悄然收网。",
+          "rippleEn": "The behind-the-scenes net quietly closes.",
+          "echoZh": "第28回琴言被亲送入府，生离之悲全由此局。",
+          "echoEn": "By chapter 28 Qinyan is delivered to the mansion — all the grief of that parting begins with this plot."
+        },
+        {
+          "id": 2,
+          "decisionZh": "华公子决意“重国色”而购名花",
+          "decisionEn": "Young Master Hua resolves to 'prize national beauty' and acquire the famous flower",
+          "rippleZh": "琴言浑然不觉，命运的转折已然逼近。",
+          "rippleEn": "Qinyan suspects nothing as the turn of his fate bears down.",
+          "echoZh": "高墙内的岁月成为琴言一生最暗的章节，直至第44回赎身方解。",
+          "echoEn": "The years behind those high walls are the darkest of his life — unbroken until the ransom of chapter 44."
+        }
+      ]
     }
   ]
 };

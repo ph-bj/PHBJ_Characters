@@ -18,6 +18,8 @@ import {
   Zap,
   Shield,
   Gem,
+  Users,
+  Waves,
 
 } from "lucide-react";
 import {
@@ -38,66 +40,66 @@ import {
 
 function getProtagonist(chapterId: number): { zh: string; en: string } | null {
   const mapping: Record<number, { zh: string; en: string }> = {
-    1: { zh: "华公子与众名士", en: "Young Master Hua & Scholars" },
-    2: { zh: "华公子", en: "Young Master Hua" },
-    3: { zh: "梅子玉", en: "Mei Ziyu" },
-    4: { zh: "王恂", en: "Wang Xun" },
+    1: { zh: "梅子玉", en: "Mei Ziyu" },
+    2: { zh: "孙亮功", en: "Sun Lianggong" },
+    3: { zh: "魏聘才", en: "Wei Pincai" },
+    4: { zh: "梅子玉", en: "Mei Ziyu" },
     5: { zh: "杜琴言", en: "Du Qinyan" },
-    6: { zh: "梅子玉与杜琴言", en: "Mei Ziyu & Du Qinyan" },
-    7: { zh: "杜琴言", en: "Du Qinyan" },
-    8: { zh: "梅子玉", en: "Mei Ziyu" },
-    9: { zh: "素兰", en: "Sulan" },
-    10: { zh: "杜琴言", en: "Du Qinyan" },
-    11: { zh: "徐子云", en: "Xu Ziyun" },
+    6: { zh: "梅子玉", en: "Mei Ziyu" },
+    7: { zh: "梅子玉与众名士", en: "Mei Ziyu & the Scholars" },
+    8: { zh: "李元茂与魏聘才", en: "Li Yuanmao & Wei Pincai" },
+    9: { zh: "梅子玉", en: "Mei Ziyu" },
+    10: { zh: "梅子玉", en: "Mei Ziyu" },
+    11: { zh: "袁夫人与众夫人", en: "Lady Yuan & the Noble Ladies" },
     12: { zh: "田春航", en: "Tian Chunhang" },
-    13: { zh: "田春航", en: "Tian Chunhang" },
-    14: { zh: "苏蕙芳", en: "Su Huifang" },
-    15: { zh: "田春航", en: "Tian Chunhang" },
-    16: { zh: "梅子玉", en: "Mei Ziyu" },
-    17: { zh: "梅子玉与杜琴言", en: "Mei Ziyu & Du Qinyan" },
-    18: { zh: "杜琴言", en: "Du Qinyan" },
+    13: { zh: "田春航与苏蕙芳", en: "Tian Chunhang & Su Huifang" },
+    14: { zh: "田春航与苏蕙芳", en: "Tian Chunhang & Su Huifang" },
+    15: { zh: "梅子玉与众名士", en: "Mei Ziyu & the Scholars" },
+    16: { zh: "魏聘才与梅子玉", en: "Wei Pincai & Mei Ziyu" },
+    17: { zh: "梅子玉与众名士", en: "Mei Ziyu & the Scholars" },
+    18: { zh: "魏聘才", en: "Wei Pincai" },
     19: { zh: "魏聘才", en: "Wei Pincai" },
-    20: { zh: "苏蕙芳", en: "Su Huifang" },
-    21: { zh: "梅子玉", en: "Mei Ziyu" },
-    22: { zh: "杜琴言", en: "Du Qinyan" },
+    20: { zh: "徐子云与众名士", en: "Xu Ziyun & the Scholars" },
+    21: { zh: "梅子玉与魏聘才", en: "Mei Ziyu & Wei Pincai" },
+    22: { zh: "梅子玉与杜琴言", en: "Mei Ziyu & Du Qinyan" },
     23: { zh: "李元茂", en: "Li Yuanmao" },
-    24: { zh: "杜琴言", en: "Du Qinyan" },
+    24: { zh: "颜仲清与王恂", en: "Yan Zhongqing & Wang Xun" },
     25: { zh: "华公子", en: "Young Master Hua" },
-    26: { zh: "魏聘才", en: "Wei Pincai" },
-    27: { zh: "魏聘才", en: "Wei Pincai" },
-    28: { zh: "魏聘才", en: "Wei Pincai" },
-    29: { zh: "杜琴言", en: "Du Qinyan" },
-    30: { zh: "梅子玉", en: "Mei Ziyu" },
-    31: { zh: "冯子佩", en: "Feng Zipei" },
-    32: { zh: "杜琴言", en: "Du Qinyan" },
-    33: { zh: "梅子玉", en: "Mei Ziyu" },
-    34: { zh: "杜琴言", en: "Du Qinyan" },
+    26: { zh: "华公子与魏聘才", en: "Young Master Hua & Wei Pincai" },
+    27: { zh: "奚十一与魏聘才", en: "Xi Shiyi & Wei Pincai" },
+    28: { zh: "杜琴言", en: "Du Qinyan" },
+    29: { zh: "梅子玉与杜琴言", en: "Mei Ziyu & Du Qinyan" },
+    30: { zh: "杜琴言", en: "Du Qinyan" },
+    31: { zh: "冯子佩与杜琴言", en: "Feng Zipei & Du Qinyan" },
+    32: { zh: "田春航与苏蕙芳", en: "Tian Chunhang & Su Huifang" },
+    33: { zh: "梅子玉与袁宝珠", en: "Mei Ziyu & Yuan Baozhu" },
+    34: { zh: "魏聘才与李元茂", en: "Wei Pincai & Li Yuanmao" },
     35: { zh: "魏聘才", en: "Wei Pincai" },
     36: { zh: "杜琴言", en: "Du Qinyan" },
-    37: { zh: "梅子玉", en: "Mei Ziyu" },
-    38: { zh: "梅子玉", en: "Mei Ziyu" },
-    39: { zh: "魏聘才", en: "Wei Pincai" },
-    40: { zh: "杜琴言", en: "Du Qinyan" },
+    37: { zh: "杜琴言", en: "Du Qinyan" },
+    38: { zh: "屈道翁与众名士", en: "Qu Daoweng & the Scholars" },
+    39: { zh: "李元茂与魏聘才", en: "Li Yuanmao & Wei Pincai" },
+    40: { zh: "奚十一与潘其观", en: "Xi Shiyi & Pan Qiguan" },
     41: { zh: "华公子", en: "Young Master Hua" },
     42: { zh: "杜琴言", en: "Du Qinyan" },
-    43: { zh: "杜琴言", en: "Du Qinyan" },
-    44: { zh: "杜琴言", en: "Du Qinyan" },
-    45: { zh: "梅子玉", en: "Mei Ziyu" },
-    46: { zh: "杜琴仙 (杜琴言)", en: "Du Qinxian (Du Qinyan)" },
+    43: { zh: "苏蕙芳与徐子云", en: "Su Huifang & Xu Ziyun" },
+    44: { zh: "华公子与徐子云", en: "Young Master Hua & Xu Ziyun" },
+    45: { zh: "梅子玉与杜琴言", en: "Mei Ziyu & Du Qinyan" },
+    46: { zh: "杜琴仙与屈道翁", en: "Du Qinxian & Qu Daoweng" },
     47: { zh: "田春航", en: "Tian Chunhang" },
-    48: { zh: "梅子玉", en: "Mei Ziyu" },
-    49: { zh: "杜琴言", en: "Du Qinyan" },
-    50: { zh: "杜琴言", en: "Du Qinyan" },
-    51: { zh: "孙嗣徽", en: "Sun Sihui" },
+    48: { zh: "杜琴仙与田春航", en: "Du Qinxian & Tian Chunhang" },
+    49: { zh: "田春航", en: "Tian Chunhang" },
+    50: { zh: "刘文泽与林春喜", en: "Liu Wenze & Lin Chunxi" },
+    51: { zh: "孙嗣徽与李元茂", en: "Sun Sihui & Li Yuanmao" },
     52: { zh: "田春航", en: "Tian Chunhang" },
-    53: { zh: "杜琴言", en: "Du Qinyan" },
+    53: { zh: "华公子与陆素兰", en: "Young Master Hua & Lu Sulan" },
     54: { zh: "梅子玉", en: "Mei Ziyu" },
-    55: { zh: "杜琴言", en: "Du Qinyan" },
-    56: { zh: "杜琴言", en: "Du Qinyan" },
-    57: { zh: "梅子玉", en: "Mei Ziyu" },
+    55: { zh: "杜琴仙 (杜琴言)", en: "Du Qinxian (Du Qinyan)" },
+    56: { zh: "杜琴仙与屈道翁", en: "Du Qinxian & Qu Daoweng" },
+    57: { zh: "袁绮香与众夫人", en: "Yuan Qixiang & the Ladies" },
     58: { zh: "奚十一", en: "Xi Shiyi" },
     59: { zh: "杜琴仙 (杜琴言)", en: "Du Qinxian (Du Qinyan)" },
-    60: { zh: "杜琴仙 (杜琴言)", en: "Du Qinxian (Du Qinyan)" }
+    60: { zh: "杜琴仙与众名士", en: "Du Qinxian & the Company" }
   };
   return mapping[chapterId] || null;
 }
@@ -116,6 +118,7 @@ export function ChapterAppreciation({
   const [selectedFeeling, setSelectedFeeling] = useState<TaxonomyFeelingItem | null>(null);
   const [selectedCup, setSelectedCup] = useState<number | null>(null);
   const [selectedArchetype, setSelectedArchetype] = useState<number | null>(null);
+  const [selectedEcho, setSelectedEcho] = useState<number | null>(null);
 
   if (!data) return null;
 
@@ -652,6 +655,118 @@ export function ChapterAppreciation({
                   : "💡 Click an archetype card above to explore"}
               </div>
             )}
+          </div>
+        </div>
+      );
+    }
+
+    if (vis.type === "relationCompass") {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center gap-2 border-b border-[var(--paper-border)]/30 pb-2">
+            <Users className="text-[var(--accent)]" size={18} />
+            <h4 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] font-hans">
+              {lang === "zh" ? "人物关系温度计" : "Relationship Compass"}
+            </h4>
+          </div>
+          <p className="text-[11px] sm:text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
+            {lang === "zh"
+              ? "* 温度自“冰点”（对立疏离）升至“沸点”（莫逆知音），度量本章人物关系的亲疏冷暖"
+              : "* Temperature runs from 'freezing' (antagonism) to 'boiling' (soulmates), gauging each bond in this chapter"}
+          </p>
+          <div className="grid gap-3">
+            {vis.relations.map(r => (
+              <div key={r.id} className="p-3 border border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 transition-all duration-300 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span className="font-bold text-[var(--ink-title)] font-hans">
+                    {lang === "zh" ? r.pairZh : r.pairEn}
+                  </span>
+                  <span className="text-[10px] font-bold text-[var(--accent)] bg-[var(--accent)]/10 border border-[var(--accent)]/30 px-2 py-0.5 rounded-sm font-hans">
+                    {lang === "zh" ? r.relationZh : r.relationEn}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-[9px] text-[var(--ink-dim-text)] shrink-0 font-hans">
+                    {lang === "zh" ? "冰点" : "Cold"}
+                  </span>
+                  <div className="relative flex-1 h-1.5 rounded-full bg-gradient-to-r from-[var(--paper-border)]/60 via-[var(--accent)]/30 to-[var(--accent)]">
+                    <div
+                      className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[var(--accent)] border-2 border-[var(--paper-bg)] shadow"
+                      style={{ left: `${Math.min(100, Math.max(0, r.temperature))}%` }}
+                    />
+                  </div>
+                  <span className="text-[9px] text-[var(--ink-dim-text)] shrink-0 font-hans">
+                    {lang === "zh" ? "沸点" : "Warm"}
+                  </span>
+                  <span className="text-[10px] font-bold text-[var(--accent)] w-8 text-right">{r.temperature}°</span>
+                </div>
+                <p className="text-xs text-[var(--ink-dim-text)] leading-relaxed">
+                  {lang === "zh" ? r.noteZh : r.noteEn}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+    if (vis.type === "echoes") {
+      return (
+        <div className="space-y-4">
+          <div className="flex items-center gap-2 border-b border-[var(--paper-border)]/30 pb-2">
+            <Waves className="text-[var(--accent)]" size={18} />
+            <h4 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] font-hans">
+              {lang === "zh" ? "关键抉择与回响" : "Decisions & Echoes"}
+            </h4>
+          </div>
+          <p className="text-[11px] sm:text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
+            {lang === "zh"
+              ? "* 点击卡片，追踪本章的一个决定如何激起即时涟漪，又在后文的远处回响"
+              : "* Click a card to trace how a decision in this chapter ripples immediately — and echoes far into later chapters"}
+          </p>
+          <div className="grid gap-3">
+            {vis.echoes.map(e => (
+              <button
+                key={e.id}
+                type="button"
+                onClick={() => setSelectedEcho(selectedEcho === e.id ? null : e.id)}
+                className={`w-full text-left p-3 rounded-sm border transition-all duration-300 cursor-pointer ${
+                  selectedEcho === e.id
+                    ? "border-[var(--accent)] bg-[var(--accent)]/5 shadow-md"
+                    : "border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/40 hover:border-[var(--accent)]/30 hover:bg-[var(--accent)]/5"
+                }`}
+              >
+                <div className="flex items-start gap-2">
+                  <span className="text-[9px] font-bold uppercase tracking-wider text-white bg-[var(--accent)] px-1.5 py-0.5 rounded-sm shrink-0 mt-0.5 font-hans">
+                    {lang === "zh" ? "抉择" : "CHOICE"}
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-[var(--ink-title)] leading-relaxed font-hans">
+                    {lang === "zh" ? e.decisionZh : e.decisionEn}
+                  </span>
+                </div>
+                {selectedEcho === e.id ? (
+                  <div className="mt-3 space-y-2 border-t border-dashed border-[var(--paper-border)]/40 pt-2">
+                    <div className="flex items-start gap-2 text-xs sm:text-sm">
+                      <ArrowRight size={14} className="text-[var(--accent)] shrink-0 mt-0.5" />
+                      <p className="leading-relaxed">
+                        <span className="font-bold text-[var(--accent)] font-hans">{lang === "zh" ? "涟漪：" : "Ripple: "}</span>
+                        <span className="text-[var(--ink-main)]">{lang === "zh" ? e.rippleZh : e.rippleEn}</span>
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 text-xs sm:text-sm">
+                      <ArrowRight size={14} className="text-[var(--ink-dim-text)] shrink-0 mt-0.5" />
+                      <p className="leading-relaxed">
+                        <span className="font-bold text-[var(--ink-title)] font-hans">{lang === "zh" ? "回响：" : "Echo: "}</span>
+                        <span className="text-[var(--ink-dim-text)]">{lang === "zh" ? e.echoZh : e.echoEn}</span>
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="mt-1.5 text-[10px] text-[var(--ink-dim-text)] italic">
+                    {lang === "zh" ? "点击展开涟漪与回响…" : "Click to reveal ripple & echo…"}
+                  </p>
+                )}
+              </button>
+            ))}
           </div>
         </div>
       );

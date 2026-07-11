@@ -213,6 +213,64 @@ export const chapter19Appreciation: ChapterAppreciationData = {
           "methodEn": "Abandoning scholar integrity, pandering basely to the elite's sensual tastes"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "魏聘才 ⇄ 林珊枝",
+          "pairEn": "Wei Pincai ⇄ Lin Shanzhi",
+          "relationZh": "投其所好",
+          "relationEn": "Courting the Gatekeeper",
+          "temperature": 55,
+          "noteZh": "昆曲技艺一鸣惊人，敲开了华府核心的大门。",
+          "noteEn": "A dazzling display of Kunqu skill knocks open the inner door of the Hua mansion."
+        },
+        {
+          "id": 2,
+          "pairZh": "奚十一 ⇄ 琪官",
+          "pairEn": "Xi Shiyi ⇄ Qiguan",
+          "relationZh": "施暴与反抗",
+          "relationEn": "Violence & Defiance",
+          "temperature": 5,
+          "noteZh": "机关木桶前的奋起一踢，是弱者尊严的暴烈反击。",
+          "noteEn": "One furious kick at the trick barrel — the violent dignity of the powerless."
+        },
+        {
+          "id": 3,
+          "pairZh": "苏蕙芳 ⇄ 潘其观",
+          "pairEn": "Su Huifang ⇄ Pan Qiguan",
+          "relationZh": "智取金镯",
+          "relationEn": "The Bracelet Sting",
+          "temperature": 15,
+          "noteZh": "虚与委蛇骗得金镯，再借坊官查夜吓退色鬼。",
+          "noteEn": "Feigned compliance wins the gold bracelet; a staged night-watch scare sends the lecher fleeing."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "聘才以昆曲在华府崭露头角",
+          "decisionEn": "Pincai makes his name in the Hua mansion through Kunqu opera",
+          "rippleZh": "广施小惠笼络上下，渐入华公子视野。",
+          "rippleEn": "Small favors grease every palm; Young Master Hua begins to notice him.",
+          "echoZh": "站稳脚跟后他便开始酬报私怨，琴言的厄运由此步步加深。",
+          "echoEn": "Once secure, he starts settling scores — and Qinyan's misfortunes deepen step by step."
+        },
+        {
+          "id": 2,
+          "decisionZh": "琪官在木桶奸谋前奋起反抗，踢伤奚十一",
+          "decisionEn": "Qiguan fights back against the barrel scheme, injuring Xi Shiyi",
+          "rippleZh": "恶少受创怀恨，颜面扫地。",
+          "rippleEn": "The predator is wounded, humiliated, and vengeful.",
+          "echoZh": "奚十一转而迁怒琴言一系——第22回登门撒野、第27回大闹秋水堂皆源于此。",
+          "echoEn": "His fury turns on Qinyan's circle — the ch. 22 doorstep rampage and ch. 27 Qiushui Hall riot both stem from here."
+        }
+      ]
     }
   ]
 };

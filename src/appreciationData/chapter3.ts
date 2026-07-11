@@ -52,15 +52,15 @@ export const chapter3Appreciation: ChapterAppreciationData = {
       "stageZh": "3. 权贵解围",
       "stageEn": "3. Rescued",
       "sentiment": 80,
-      "descriptionZh": "傅三爷仗义执言并慷慨解囊，聘才如释重负",
+      "descriptionZh": "富三爷仗义执言并慷慨解囊，聘才如释重负",
       "descriptionEn": "Saved by Third Master Fu, who pays the extortion; immense relief"
     },
     {
       "stageZh": "4. 酒楼攀附",
       "stageEn": "4. Flattery",
       "sentiment": 95,
-      "descriptionZh": "通过高超的话术奉承傅三爷，成功结交权贵",
-      "descriptionEn": "Successfully flatters Fu Lun, securing a powerful patron"
+      "descriptionZh": "通过高超的话术奉承富三爷，成功结交权贵",
+      "descriptionEn": "Successfully flatters Third Master Fu, securing a powerful patron"
     },
     {
       "stageZh": "5. 归家高论",
@@ -92,8 +92,8 @@ export const chapter3Appreciation: ChapterAppreciationData = {
         {
           "labelZh": "节奏掌控",
           "labelEn": "Pacing",
-          "textZh": "戏院里的描写拥挤喧闹，酒楼里的描写暴躁激烈（奚十一砸碗），最后切回梅府书房的静谧，形成强烈的动静对比，张弛有度。",
-          "textEn": "Contrasts the chaotic theater and violent restaurant (Xi smashing bowls) with the quiet, reflective study at the end, providing excellent dynamic pacing."
+          "textZh": "戏院里的描写拥挤喧闹，酒楼里的描写暴躁激烈（奚十一摔菜、小旦春兰砸碗撒娇），最后切回梅府书房的静谧，形成强烈的动静对比，张弛有度。",
+          "textEn": "Contrasts the chaotic theater and violent restaurant (Xi hurling dishes, the dan Chunlan smashing bowls in a tantrum) with the quiet, reflective study at the end, providing excellent dynamic pacing."
         }
       ]
     },
@@ -106,8 +106,8 @@ export const chapter3Appreciation: ChapterAppreciationData = {
         {
           "labelZh": "性格展现",
           "labelEn": "Personality",
-          "textZh": "魏聘才的“圆滑市侩”与“见风使舵”被刻画得淋漓尽致；奚十一的“暴发户狂态”与傅三爷的“世家真性情”形成绝佳对照。",
-          "textEn": "Pincai's slick social climbing is brilliantly drawn, contrasting sharply with Xi the Eleventh's nouveau-riche tyranny and Fu Lun's aristocratic generosity."
+          "textZh": "魏聘才的“圆滑市侩”与“见风使舵”被刻画得淋漓尽致；奚十一的“暴发户狂态”与富三爷的“世家真性情”形成绝佳对照。",
+          "textEn": "Pincai's slick social climbing is brilliantly drawn, contrasting sharply with Xi the Eleventh's nouveau-riche tyranny and Third Master Fu's aristocratic generosity."
         },
         {
           "labelZh": "心理深度",
@@ -118,8 +118,8 @@ export const chapter3Appreciation: ChapterAppreciationData = {
         {
           "labelZh": "人物关系",
           "labelEn": "Relationships",
-          "textZh": "魏聘才通过极高情商的攀谈，迅速抹平了与傅三爷的阶级差距，展现了晚清社会中“帮闲”与“权贵”之间寄生与互利的经典关系。",
-          "textEn": "Pincai uses high EQ to bridge the class gap with Fu Lun, illustrating the classic parasitic yet symbiotic relationship between sycophants and elites."
+          "textZh": "魏聘才通过极高情商的攀谈，迅速抹平了与富三爷的阶级差距，展现了晚清社会中“帮闲”与“权贵”之间寄生与互利的经典关系。",
+          "textEn": "Pincai uses high EQ to bridge the class gap with Third Master Fu, illustrating the classic parasitic yet symbiotic relationship between sycophants and elites."
         }
       ]
     },
@@ -138,8 +138,8 @@ export const chapter3Appreciation: ChapterAppreciationData = {
         {
           "labelZh": "象征与隐喻",
           "labelEn": "Symbolism",
-          "textZh": "“碎玉瓶”象征着京城险恶的社交陷阱；“砸酒碗”则隐喻了暴发户试图用金钱暴力砸碎文化阶层壁垒的狂妄与无能。",
-          "textEn": "The 'broken jade bottle' symbolizes the capital's treacherous social traps; 'smashing bowls' represents the parvenu's futile attempt to break cultural barriers with brute wealth."
+          "textZh": "“碎烟壶”象征着京城险恶的社交陷阱；“砸菜碗”既是小旦恃宠撒娇的表演，也隐喻了暴发户金钱纵容下的骄纵与荒诞。",
+          "textEn": "The 'shattered snuff bottle' symbolizes the capital's treacherous social traps; the 'smashed dishes' are both a pampered dan's tantrum-performance and a metaphor for the absurd indulgence that parvenu money buys."
         },
         {
           "labelZh": "作者意图",
@@ -164,7 +164,7 @@ export const chapter3Appreciation: ChapterAppreciationData = {
         {
           "labelZh": "语调与语体",
           "labelEn": "Tone",
-          "textZh": "语调世故、写实、甚至带着市井的诙谐。尤其是描写卖玉老汉讹人、奚十一砸桌子时，语言极具市井小说的生动与讽刺意味。",
+          "textZh": "语调世故、写实、甚至带着市井的诙谐。尤其是描写卖玉器的老王讹人、春兰恃宠砸碗时，语言极具市井小说的生动与讽刺意味。",
           "textEn": "The tone is worldly, realistic, and comically urban. The descriptions of the extortion and the tantrum are dripping with satire and lively vernacular."
         }
       ]
@@ -204,8 +204,8 @@ export const chapter3Appreciation: ChapterAppreciationData = {
         {
           "labelZh": "情感冲击",
           "labelEn": "Emotional Impact",
-          "textZh": "卖玉老头碰瓷一段让人深感魏聘才的憋屈，而傅三爷的解围则带来“爽文”般的释然；奚十一的撒泼则让人感到滑稽与荒诞。",
-          "textEn": "The extortion scene makes the reader feel Pincai's stifled anger, while Fu's rescue provides a satisfying release; Xi's tantrum is purely comedic and absurd."
+          "textZh": "卖玉老头碰瓷一段让人深感魏聘才的憋屈，而富三爷的解围则带来“爽文”般的释然；奚十一一席摔菜骂人、春兰砸碗撒娇则让人感到滑稽与荒诞。",
+          "textEn": "The extortion scene makes the reader feel Pincai's stifled anger, while Fu's rescue provides a satisfying release; the tantrums at Xi's table are purely comedic and absurd."
         },
         {
           "labelZh": "时代反思",
@@ -221,14 +221,14 @@ export const chapter3Appreciation: ChapterAppreciationData = {
     "dichotomies": [
       {
         "id": 1,
-        "characterZh": "梅子玉",
-        "characterEn": "Mei Ziyu",
-        "surfaceEmotionZh": "恪守礼节的克制",
-        "surfaceEmotionEn": "Restraint abiding by etiquette",
-        "hiddenEmotionZh": "对绝世之美的极度震撼与灵魂共鸣",
-        "hiddenEmotionEn": "Extreme shock and soul resonance towards peerless beauty",
-        "triggerZh": "在花园中近距离端详琴言的容貌与气质",
-        "triggerEn": "Observing Qinyan's appearance and temperament up close in the garden"
+        "characterZh": "魏聘才",
+        "characterEn": "Wei Pincai",
+        "surfaceEmotionZh": "强作镇定、据理力争的体面",
+        "surfaceEmotionEn": "A forced composure, arguing his case to keep face",
+        "hiddenEmotionZh": "初来京城、无权无势的憋屈愤怒与无助",
+        "hiddenEmotionEn": "The stifled anger and helplessness of a newcomer with no power in the capital",
+        "triggerZh": "卖玉器的老王碰瓷讹诈，将百钱不值的松香烟壶索价六两",
+        "triggerEn": "Old Wang the trinket seller stages the broken snuff bottle scam, demanding six taels for a bottle worth under a hundred cash"
       }
     ]
   },
@@ -252,14 +252,72 @@ export const chapter3Appreciation: ChapterAppreciationData = {
       "dichotomies": [
         {
           "id": 1,
-          "characterZh": "梅子玉",
-          "characterEn": "Mei Ziyu",
-          "surfaceEmotionZh": "恪守礼节的克制",
-          "surfaceEmotionEn": "Restraint abiding by etiquette",
-          "hiddenEmotionZh": "对绝世之美的极度震撼与灵魂共鸣",
-          "hiddenEmotionEn": "Extreme shock and soul resonance towards peerless beauty",
-          "triggerZh": "在花园中近距离端详琴言的容貌与气质",
-          "triggerEn": "Observing Qinyan's appearance and temperament up close in the garden"
+          "characterZh": "魏聘才",
+          "characterEn": "Wei Pincai",
+          "surfaceEmotionZh": "强作镇定、据理力争的体面",
+          "surfaceEmotionEn": "A forced composure, arguing his case to keep face",
+          "hiddenEmotionZh": "初来京城、无权无势的憋屈愤怒与无助",
+          "hiddenEmotionEn": "The stifled anger and helplessness of a newcomer with no power in the capital",
+          "triggerZh": "卖玉器的老王碰瓷讹诈，将百钱不值的松香烟壶索价六两",
+          "triggerEn": "Old Wang the trinket seller stages the broken snuff bottle scam, demanding six taels for a bottle worth under a hundred cash"
+        }
+      ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "魏聘才 ⇄ 富三爷",
+          "pairEn": "Wei Pincai ⇄ Third Master Fu",
+          "relationZh": "萍水订交",
+          "relationEn": "Chance Acquaintance",
+          "temperature": 65,
+          "noteZh": "一场解围换来“从此订交”，帮闲攀上权门的第一级台阶。",
+          "noteEn": "One rescue earns a pledge of friendship — the sycophant's first step onto the ladder of power."
+        },
+        {
+          "id": 2,
+          "pairZh": "魏聘才 ⇄ 卖玉老王",
+          "pairEn": "Wei Pincai ⇄ Old Wang the Trinket Seller",
+          "relationZh": "碰瓷讹诈",
+          "relationEn": "Extortion Scam",
+          "temperature": 5,
+          "noteZh": "六两银子的讹诈让初来京城的新客见识了名利场的陷阱。",
+          "noteEn": "A six-tael shakedown teaches the newcomer his first lesson in the capital's traps."
+        },
+        {
+          "id": 3,
+          "pairZh": "奚十一 ⇄ 春兰",
+          "pairEn": "Xi Shiyi ⇄ Chunlan",
+          "relationZh": "纵宠与撒娇",
+          "relationEn": "Indulgence & Tantrum",
+          "temperature": 45,
+          "noteZh": "摔菜砸碗的闹剧，是金钱豢养出的畸形宠溺。",
+          "noteEn": "The dish-smashing farce is the warped intimacy that money breeds."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "富三爷出面替聘才摆平烟壶讹诈",
+          "decisionEn": "Third Master Fu steps in to settle the snuff-bottle scam for Pincai",
+          "rippleZh": "聘才施展恭维话术，当场结交了富三爷。",
+          "rippleEn": "Pincai deploys his full arsenal of flattery and wins Fu over on the spot.",
+          "echoZh": "正是富三爷日后引荐聘才进华公府，彻底改变其命运轨迹。",
+          "echoEn": "It is Fu who later ushers Pincai into the Hua mansion, permanently bending his fate."
+        },
+        {
+          "id": 2,
+          "decisionZh": "聘才归家向子玉极言琴言之“冷”",
+          "decisionEn": "Back home, Pincai dwells on Qinyan's 'coldness' to Ziyu",
+          "rippleZh": "子玉反将其脑补为孤高自洁的佳人，情愫暗生。",
+          "rippleEn": "Ziyu re-imagines that coldness as noble purity, and affection quietly takes hold.",
+          "echoZh": "“冷”成了琴言在子玉心中的印记，一场痴恋自此一发不可收。",
+          "echoEn": "'Cold' becomes Qinyan's signature in Ziyu's heart — the obsession that follows never lets go."
         }
       ]
     }

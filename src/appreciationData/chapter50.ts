@@ -98,6 +98,64 @@ export const chapter50Appreciation: ChapterAppreciationData = {
           "descEn": "Seeing through vanity"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "刘文泽 ⇄ 林春喜",
+          "pairEn": "Liu Wenze ⇄ Lin Chunxi",
+          "relationZh": "访艺惊叹",
+          "relationEn": "Astonished Connoisseur",
+          "temperature": 75,
+          "noteZh": "螳螂捕蝉团扇令人目瞪口呆，索扇不得讨扇而归。",
+          "noteEn": "The mantis-and-cicada fan leaves him speechless; denied one fan, he begs another and leaves content."
+        },
+        {
+          "id": 2,
+          "pairZh": "林春喜 ⇄ 瑶卿",
+          "pairEn": "Lin Chunxi ⇄ Yaoqing",
+          "relationZh": "画艺相较",
+          "relationEn": "Rivals in Painting",
+          "temperature": 60,
+          "noteZh": "数月苦功，连素来挑剔的瑶卿也甘拜下风。",
+          "noteEn": "Months of secret practice — even the famously exacting Yaoqing concedes defeat."
+        },
+        {
+          "id": 3,
+          "pairZh": "魏聘才 ⇄ 妓女",
+          "pairEn": "Wei Pincai ⇄ the Courtesan",
+          "relationZh": "草草收场",
+          "relationEn": "A Shabby Curtain",
+          "temperature": 20,
+          "noteZh": "娶妓收场，为钻营半生画上潦草句号。",
+          "noteEn": "Marrying a courtesan closes his career of scheming with a scrawled full stop."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "春喜数月闭门苦练绘画",
+          "decisionEn": "Chunxi spends months behind closed doors mastering painting",
+          "rippleZh": "芭蕉叶上写满练笔字，画艺大进惊倒访客。",
+          "rippleEn": "Banana leaves covered in practice strokes; his sudden mastery stuns his visitor.",
+          "echoZh": "优伶以才艺自赎体面的另一条路，与琴仙的弃伶从学互为映照。",
+          "echoEn": "A performer redeeming dignity through art — the mirror image of Qinxian's path from stage to study."
+        },
+        {
+          "id": 2,
+          "decisionZh": "聘才娶妓女收场",
+          "decisionEn": "Pincai ends his run by marrying a courtesan",
+          "rippleZh": "钻营半生的路走到了尽头。",
+          "rippleEn": "The road of half a lifetime's scheming reaches its dead end.",
+          "echoZh": "与琴仙的重生对照，全书的因果观在两人结局上完成闭环。",
+          "echoEn": "Set against Qinxian's rebirth, the novel's moral arithmetic closes its books on these two endings."
+        }
+      ]
     }
   ]
 };

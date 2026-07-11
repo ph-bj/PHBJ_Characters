@@ -240,6 +240,64 @@ export const chapter5Appreciation: ChapterAppreciationData = {
           "effectEn": "Brings Qinyan peer jealousy and pressure, exposing Ziyu's feelings to secular scrutiny."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "徐子云 ⇄ 袁宝珠",
+          "pairEn": "Xu Ziyun ⇄ Yuan Baozhu",
+          "relationZh": "惜花之主",
+          "relationEn": "The Cherishing Patron",
+          "temperature": 85,
+          "noteZh": "视名旦如奇珍名花，只有爱惜之心，绝无亵渎之念。",
+          "noteEn": "He treats the famous dan as rare treasures and flowers — cherishing, never profaning."
+        },
+        {
+          "id": 2,
+          "pairZh": "杜琴言 ⇄ 梅子玉",
+          "pairEn": "Du Qinyan ⇄ Mei Ziyu",
+          "relationZh": "梦兆奇缘",
+          "relationEn": "A Destiny Dreamed",
+          "temperature": 75,
+          "noteZh": "梦中梅林玉貌少年相救于泥潭，马车偶遇恰应梦境。",
+          "noteEn": "A jade-faced youth in a plum grove rescues him from the mire in a dream — the carriage encounter answers it."
+        },
+        {
+          "id": 3,
+          "pairZh": "杜琴言 ⇄ 徐子云",
+          "pairEn": "Du Qinyan ⇄ Xu Ziyun",
+          "relationZh": "初见怜惜",
+          "relationEn": "Compassion at First Sight",
+          "temperature": 60,
+          "noteZh": "诉说孤苦身世而得怜惜，怡园成为乱世中的避风港。",
+          "noteEn": "His orphan's tale wins compassion; Yiyuan becomes his shelter in a merciless world."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "子云命人连夜赶制服饰赠与琴官、琪官",
+          "decisionEn": "Ziyun has costumes made overnight as gifts for Qinguan and Qiguan",
+          "rippleZh": "初入怡园的琴言第一次感受到不带亵玩的尊重。",
+          "rippleEn": "Entering Yiyuan, Qinyan feels respect without exploitation for the first time.",
+          "echoZh": "怡园此后屡为琴言庇护之所，直至子云出重金赎其自由身（第43-44回）。",
+          "echoEn": "Yiyuan shelters Qinyan again and again — until Ziyun buys his freedom outright (ch. 43-44)."
+        },
+        {
+          "id": 2,
+          "decisionZh": "琴官将梦中梅林少年深藏心底",
+          "decisionEn": "Qinyan keeps the plum-grove youth of his dream locked in his heart",
+          "rippleZh": "醒来怅然，进京路上的偶遇让梦有了眉目。",
+          "rippleEn": "He wakes bereft — then the roadside encounter gives the dream a face.",
+          "echoZh": "梦与现实在第10回梅崦重逢时对接，宿命感贯穿全书。",
+          "echoEn": "Dream and reality lock together at the Meiyan reunion in chapter 10; destiny hums beneath the whole novel."
+        }
+      ]
     }
   ]
 };

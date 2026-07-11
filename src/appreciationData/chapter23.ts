@@ -108,6 +108,54 @@ export const chapter23Appreciation: ChapterAppreciationData = {
           "methodEn": "Pretending to be wealthy"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "李元茂 ⇄ 市井土棍",
+          "pairEn": "Li Yuanmao ⇄ the Street Hustlers",
+          "relationZh": "羊入虎口",
+          "relationEn": "Lamb Among Wolves",
+          "temperature": 5,
+          "noteZh": "花言巧语哄进土窑子，衣裤尽脱洗劫一空。",
+          "noteEn": "Sweet talk lures him into the dive, where he is stripped and fleeced to the skin."
+        },
+        {
+          "id": 2,
+          "pairZh": "李元茂 ⇄ 梅子玉",
+          "pairEn": "Li Yuanmao ⇄ Mei Ziyu",
+          "relationZh": "借钱不误",
+          "relationEn": "The Easy Loan",
+          "temperature": 40,
+          "noteZh": "八吊钱借得志得意满，转眼喂了骗子。",
+          "noteEn": "Eight strings of cash borrowed in high spirits — and fed to swindlers within the hour."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "元茂揣着借来的钱票独自出门寻欢",
+          "decisionEn": "Yuanmao pockets the borrowed notes and goes carousing alone",
+          "rippleZh": "误入土窑子遭洗劫，围着草帘子进退不得。",
+          "rippleEn": "He blunders into the dive, is robbed bare, and ends up trapped behind a straw mat.",
+          "echoZh": "丑事传遍京城成一时笑谈，“阿呆”之名坐实终身。",
+          "echoEn": "The scandal sweeps the capital — the name 'blockhead' sticks to him for life."
+        },
+        {
+          "id": 2,
+          "decisionZh": "看客们围观哄笑，险些挤塌破屋",
+          "decisionEn": "Gawkers mob the scene, nearly collapsing the shack with laughter",
+          "rippleZh": "元茂灰头土脸狼狈脱身。",
+          "rippleEn": "Yuanmao escapes filthy and humiliated.",
+          "echoZh": "世态的凉薄与猎奇在此定格，与名士圈的温情互为反照。",
+          "echoEn": "The crowd's cold appetite for spectacle freezes here — a dark mirror to the warmth of the literati circle."
+        }
+      ]
     }
   ]
 };

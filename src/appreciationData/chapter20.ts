@@ -38,8 +38,8 @@ export const chapter20Appreciation: ChapterAppreciationData = {
       "stageZh": "1. 怡园重聚",
       "stageEn": "1. Reunion at Yiyuan",
       "sentiment": 80,
-      "descriptionZh": "子玉久病初愈，众名士受邀至怡园赏榴花、看龙舟，开启盛大聚会",
-      "descriptionEn": "Ziyu recovers from illness; scholars gather at Yiyuan to admire pomegranate flowers and watch dragon boats."
+      "descriptionZh": "端午前夕，众名士受邀至怡园赏榴花、看龙舟（子玉、王恂、仲清因故未至）",
+      "descriptionEn": "On the eve of Duanwu, the scholars gather at Yiyuan for pomegranate blossoms and dragon boats (Ziyu, absent due to illness)."
     },
     {
       "stageZh": "2. 画舫惊艳",
@@ -99,8 +99,8 @@ export const chapter20Appreciation: ChapterAppreciationData = {
         {
           "labelZh": "人物关系",
           "labelEn": "Relationships",
-          "textZh": "酒令环节巧妙地展示了名士与名伶之间复杂的权力与情感平衡。借《水浒》人物的诨号，既有调侃与戏谑（如将田春航比作李师师），也暗含了他们之间亦师亦友、亦主亦客的微妙互动。",
-          "textEn": "The drinking games cleverly reflect the power and emotional dynamics between patrons and performers, mixing playful banter with subtle role-playing."
+          "textZh": "酒令环节巧妙地展示了名士与名伶之间复杂的权力与情感平衡。借《水浒》人物的诨号，既有调侃与戏谑（如蕙芳抽得“金莲戏叔”之筹，被逼向春航劝酒作媚态），也暗含了他们之间亦师亦友、亦主亦客的微妙互动。",
+          "textEn": "The drinking games cleverly reflect the power and emotional dynamics between patrons and performers, mixing playful banter with subtle role-playing — e.g. Huifang draws the 'Golden Lotus teases her brother-in-law' tally and must coax Chunhang flirtatiously."
         }
       ]
     },
@@ -219,6 +219,64 @@ export const chapter20Appreciation: ChapterAppreciationData = {
           "originEn": "A carefully fabricated lie and rehearsal by Huifang to escape",
           "effectZh": "利用了暴发户潘三胆小怕事的心理，成功解除了性侵危机，展示了弱者的生存智慧。",
           "effectEn": "Exploited the cowardly psychology of the nouveau riche Pan, successfully diffusing a sexual assault crisis and showing the survival wisdom of the weak."
+        }
+      ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "徐子云 ⇄ 萧次贤",
+          "pairEn": "Xu Ziyun ⇄ Xiao Cixian",
+          "relationZh": "怡园双璧",
+          "relationEn": "Twin Pillars of Yiyuan",
+          "temperature": 85,
+          "noteZh": "携群贤赏榴观舟，是这场声色盛宴的总导演。",
+          "noteEn": "Leading the company through pomegranates and dragon boats — co-directors of the spectacle."
+        },
+        {
+          "id": 2,
+          "pairZh": "苏蕙芳 ⇄ 田春航",
+          "pairEn": "Su Huifang ⇄ Tian Chunhang",
+          "relationZh": "令中戏叔",
+          "relationEn": "'Teasing the Brother-in-Law'",
+          "temperature": 85,
+          "noteZh": "抽筹逼出的劝酒媚态，满座笑其“牵缠不清”。",
+          "noteEn": "The drawn tally forces a flirtatious toast — the whole table roars that the two are 'hopelessly entangled.'"
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 杜琴言",
+          "pairEn": "Mei Ziyu ⇄ Du Qinyan",
+          "relationZh": "双双缺席",
+          "relationEn": "The Absent Pair",
+          "temperature": 65,
+          "noteZh": "一个病卧书斋，一个时好时发，缘悭命蹇的对照。",
+          "noteEn": "One sick in his study, one relapsing at home — a portrait of thwarted fate."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "子云、次贤广邀名士名旦共度端午",
+          "decisionEn": "Ziyun and Cixian gather scholars and performers for the Duanwu festival",
+          "rippleZh": "画舫载花、龙舟竞渡，端午行乐图达到极盛。",
+          "rippleEn": "Flower-laden barges and racing dragon boats — the festival tableau at its zenith.",
+          "echoZh": "盛极而衰：下一回便是造谣冷眼与同心暗泣的转折。",
+          "echoEn": "Zenith precedes decline: the very next chapter turns to slander, cold eyes, and secret tears."
+        },
+        {
+          "id": 2,
+          "decisionZh": "水浒酒筹抽出“金莲戏叔”一签",
+          "decisionEn": "The Shuihu drinking tally turns up 'Golden Lotus teases her brother-in-law'",
+          "rippleZh": "蕙芳被众人逼着向春航作媚态劝酒。",
+          "rippleEn": "The table forces Huifang into a coquettish toast to Chunhang.",
+          "echoZh": "一句“媚香与湘帆牵缠不清”道破天机，二人情谊自此半公开。",
+          "echoEn": "'Meixiang and Xiangfan, hopelessly entangled' — the open secret of their bond is spoken aloud at last."
         }
       ]
     }

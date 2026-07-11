@@ -99,6 +99,64 @@ export const chapter44Appreciation: ChapterAppreciationData = {
           "descEn": "Bears pressure alone"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "华公子 ⇄ 徐子云",
+          "pairEn": "Young Master Hua ⇄ Xu Ziyun",
+          "relationZh": "绝交之札",
+          "relationEn": "The Letter of Rupture",
+          "temperature": 10,
+          "noteZh": "赎身消息激起震怒，一纸恶札断绝两府往来。",
+          "noteEn": "News of the ransom ignites fury; one venomous letter severs the two houses."
+        },
+        {
+          "id": 2,
+          "pairZh": "姚贤 ⇄ 孟七",
+          "pairEn": "Yao Xian ⇄ Meng Qi",
+          "relationZh": "仆从探信",
+          "relationEn": "Servants Piecing the Truth",
+          "temperature": 45,
+          "noteZh": "底层跑腿的口中拼出惊天真相。",
+          "noteEn": "The earth-shaking truth is assembled from errand-runners' gossip."
+        },
+        {
+          "id": 3,
+          "pairZh": "杜琴言 ⇄ 怡园",
+          "pairEn": "Du Qinyan ⇄ Yiyuan",
+          "relationZh": "新生之所",
+          "relationEn": "Place of Rebirth",
+          "temperature": 90,
+          "noteZh": "从牢笼般的旧身份中挣脱，崭新人生自此开始。",
+          "noteEn": "Free of the old caged identity at last — a new life begins here."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "子云以两千四百五十两银票替琴言赎身",
+          "decisionEn": "Ziyun redeems Qinyan with a note for 2,450 taels",
+          "rippleZh": "华公子传唤落空，震怒之下却无可奈何。",
+          "rippleEn": "Young Master Hua's summons finds no one; his rage has nowhere to land.",
+          "echoZh": "两府绝交的裂痕，直到第60回团圆宴方才弥合。",
+          "echoEn": "The rupture between the houses heals only at the grand reunion of chapter 60."
+        },
+        {
+          "id": 2,
+          "decisionZh": "琴言悄然住进怡园",
+          "decisionEn": "Qinyan quietly moves into Yiyuan",
+          "rippleZh": "从此告别樊笼岁月。",
+          "rippleEn": "The years of the cage end without fanfare.",
+          "echoZh": "从优伶到义子、再到受人尊敬的士人（第46、60回），命运的转折自此起笔。",
+          "echoEn": "From performer to adopted son to respected literatus (ch. 46, 60) — the great turn of his fate starts here."
+        }
+      ]
     }
   ]
 };

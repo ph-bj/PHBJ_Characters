@@ -98,6 +98,54 @@ export const chapter40Appreciation: ChapterAppreciationData = {
           "meaningEn": "Symbolizes despicable methods"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "奚十一 ⇄ 春兰、巴英官",
+          "pairEn": "Xi Shiyi ⇄ Chunlan & Ba Yingguan",
+          "relationZh": "众叛亲离",
+          "relationEn": "Deserted by His Own",
+          "temperature": 10,
+          "noteZh": "弃旧怜新、玩弄情义，身边人私下历数其不堪。",
+          "noteEn": "Discarding old favorites for new, toying with loyalty — even his intimates catalogue his sins behind his back."
+        },
+        {
+          "id": 2,
+          "pairZh": "潘其观 ⇄ 赌场众人",
+          "pairEn": "Pan Qiguan ⇄ the Gambling Den",
+          "relationZh": "烂账缠身",
+          "relationEn": "Debts Come Due",
+          "temperature": 5,
+          "noteZh": "输打赢要欠下烂账，终至众怒被揪住痛打。",
+          "noteEn": "Welshing on losses and bullying for wins — until the den's fury lands on him with fists."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "奚十一入寺意图轻薄酣睡的得月",
+          "decisionEn": "Xi Shiyi sneaks into the temple to molest the sleeping Deyue",
+          "rippleZh": "得月腹泻骤发，秽物喷涌，奚十一狼狈不堪。",
+          "rippleEn": "Deyue's bowels erupt at the crucial moment, drenching him in filth.",
+          "echoZh": "恶报的荒诞序曲——第47回求医、第58回破产步步应验。",
+          "echoEn": "The absurd overture of retribution — the quack cure of chapter 47 and the ruin of chapter 58 follow in strict sequence."
+        },
+        {
+          "id": 2,
+          "decisionZh": "潘其观在寺庙赌场输打赢要",
+          "decisionEn": "Pan Qiguan cheats and bullies at the temple gambling den",
+          "rippleZh": "众怒爆发，被揪住痛打颜面尽失。",
+          "rippleEn": "Collective rage boils over; he is seized and beaten, dignity destroyed.",
+          "echoZh": "作恶者的下场一一兑现，因果链条清晰可见。",
+          "echoEn": "The wages of villainy are paid out one by one — the chain of karma in plain sight."
+        }
+      ]
     }
   ]
 };

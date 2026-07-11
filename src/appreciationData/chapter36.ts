@@ -99,6 +99,54 @@ export const chapter36Appreciation: ChapterAppreciationData = {
           "descEn": "Quietly watching over and helping"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "杜琴言 ⇄ 华公子",
+          "pairEn": "Du Qinyan ⇄ Young Master Hua",
+          "relationZh": "真泪触怒",
+          "relationEn": "Punished for Real Tears",
+          "temperature": 10,
+          "noteZh": "台上真情流露，反遭痛斥冷落——眼泪也是罪。",
+          "noteEn": "Genuine tears on stage earn a tirade and cold exile — even weeping is an offense."
+        },
+        {
+          "id": 2,
+          "pairZh": "杜琴言 ⇄ 林珊枝",
+          "pairEn": "Du Qinyan ⇄ Lin Shanzhi",
+          "relationZh": "传噩耗者",
+          "relationEn": "Bearer of Bad News",
+          "temperature": 45,
+          "noteZh": "师傅猝逝的消息，竟成了出府奔丧的一线缝隙。",
+          "noteEn": "News of his master's sudden death becomes, perversely, a crack in the cage."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "琴言元宵登台，演至动情处泪洒当场",
+          "decisionEn": "Performing at the Lantern Festival, Qinyan weeps real tears mid-scene",
+          "rippleZh": "华公子大为不悦，将其晾在一旁数日。",
+          "rippleEn": "Young Master Hua, displeased, freezes him out for days.",
+          "echoZh": "“真情即罪过”让琴言彻底认清樊笼本质，去意暗生。",
+          "echoEn": "'Real feeling as offense' shows him the cage for what it is — the resolve to leave begins here."
+        },
+        {
+          "id": 2,
+          "decisionZh": "琴言强忍悲痛，趁奔丧之机出府",
+          "decisionEn": "Swallowing grief, Qinyan uses the funeral to leave the mansion",
+          "rippleZh": "华公子叮嘱事毕即回，笼门只开了一缝。",
+          "rippleEn": "Ordered to return the moment rites end — the cage door opens only a crack.",
+          "echoZh": "这场丧事引出师娘索养赡（第42回）与子云赎身（第43-44回）的连环局。",
+          "echoEn": "The funeral sets off the chain: the widow's extortion (ch. 42) and Ziyun's ransom (ch. 43-44)."
+        }
+      ]
     }
   ]
 };

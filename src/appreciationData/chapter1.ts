@@ -49,10 +49,10 @@ export const chapter1Appreciation: ChapterAppreciationData = {
       "descriptionEn": "Deafened by gongs, irritated by chaotic crowds and shady actor boys"
     },
     {
-      "stageZh": "3. 强触白珠",
+      "stageZh": "3. 强触保珠",
       "stageEn": "3. Accosted by 'Baozhu'",
       "sentiment": 20,
-      "descriptionZh": "被粗俗主动的手艺人强拉手、问姓名，心中厌恶不快到极点",
+      "descriptionZh": "被蠢笨粗俗的相公保珠强拉手、问姓名，心中厌恶不快到极点",
       "descriptionEn": "Felt intense disgust when accosted by the pushy, dark-handed 'Baozhu'"
     },
     {
@@ -106,7 +106,7 @@ export const chapter1Appreciation: ChapterAppreciationData = {
         {
           "labelZh": "性格展现",
           "labelEn": "Personality",
-          "textZh": "通过梅子玉对戏院环境的极度厌恶（如捂鼻、闭眼），以及面对“假宝珠”拉扯时的发怒神态，揭示了他有着精神洁癖和高傲的一面。",
+          "textZh": "通过梅子玉对戏院环境的极度厌恶（如捂鼻、闭眼），以及面对山寨相公“保珠”拉扯时的发怒神态，揭示了他有着精神洁癖和高傲的一面。",
           "textEn": "Ziyu's disgust in the theater and anger towards the fake Baozhu reveal his moral fastidiousness and pride."
         },
         {
@@ -210,7 +210,7 @@ export const chapter1Appreciation: ChapterAppreciationData = {
         {
           "labelZh": "时代反思",
           "labelEn": "Modern Reflection",
-          "textZh": "在2026年高度物质化、娱乐化的今天，戏院里的“假宝珠”拉客与如今的“流量狂欢”何其相似。而梅子玉所追求的那种不掺杂利益、直击灵魂的纯粹爱慕，反倒成为现代人内心深处最稀缺的奢侈品。",
+          "textZh": "在2026年高度物质化、娱乐化的今天，戏院里“保珠”式的山寨拉客与如今的“流量狂欢”何其相似。而梅子玉所追求的那种不掺杂利益、直击灵魂的纯粹爱慕，反倒成为现代人内心深处最稀缺的奢侈品。",
           "textEn": "In today's highly materialized 2026, the theater's chaotic hustling mirrors modern 'traffic-driven' entertainment. Ziyu's pursuit of pure, non-transactional love remains a scarce luxury in modern times."
         }
       ]
@@ -315,6 +315,64 @@ export const chapter1Appreciation: ChapterAppreciationData = {
           "atmosphereEn": "Secular, noisy, heavy with rouge",
           "significanceZh": "子玉受到强烈的感官冲击与阶级不适感，是其理智开始松动的过渡空间。",
           "significanceEn": "Ziyu experiences strong sensory impact and class discomfort; a transitional space where his rationality begins to loosen."
+        }
+      ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "梅子玉 ⇄ 颜仲清",
+          "pairEn": "Mei Ziyu ⇄ Yan Zhongqing",
+          "relationZh": "总角知交",
+          "relationEn": "Childhood Confidants",
+          "temperature": 85,
+          "noteZh": "书房论“情”，仲清为守身如玉的子玉推开了梨园世界的一扇窗。",
+          "noteEn": "Discussing 'qing' in the study, Zhongqing opens a window onto the opera world for the sheltered Ziyu."
+        },
+        {
+          "id": 2,
+          "pairZh": "梅子玉 ⇄ 杜琴言",
+          "pairEn": "Mei Ziyu ⇄ Du Qinyan",
+          "relationZh": "惊鸿初遇",
+          "relationEn": "A Fateful First Glimpse",
+          "temperature": 70,
+          "noteZh": "车流之中一缕幽香、四目相对，一语未发而灵魂已然震颤。",
+          "noteEn": "A wisp of fragrance in the traffic jam, four eyes meeting — not a word spoken, yet the soul trembles."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 保珠",
+          "pairEn": "Mei Ziyu ⇄ Baozhu",
+          "relationZh": "相看两厌",
+          "relationEn": "Mutual Repulsion",
+          "temperature": 5,
+          "noteZh": "蠢笨相公强拉手问姓名，令子玉对戏园的厌恶到达顶点。",
+          "noteEn": "The boorish dan grabs his hand and demands his name, pushing Ziyu's disgust with the theater to its peak."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "子玉随王恂踏入戏园一探究竟",
+          "decisionEn": "Ziyu follows Wang Xun into the theater to see for himself",
+          "rippleZh": "亲见拉客小旦的庸俗喧闹，对优伶的成见反而更深。",
+          "rippleEn": "Witnessing the vulgar hustling of the dan boys only deepens his prejudice against performers.",
+          "echoZh": "成见在归途车中的惊鸿一瞥中轰然倒塌，为全书“情”之觉醒埋下第一颗种子。",
+          "echoEn": "That prejudice collapses at the glimpse from the carriage — the first seed of the novel's awakening of 'qing'."
+        },
+        {
+          "id": 2,
+          "decisionZh": "史南湘以“情”字为经纬制谱品评名旦",
+          "decisionEn": "Shi Nanxiang compiles the flower registry, ranking the dan by 'qing'",
+          "rippleZh": "名士圈将品鉴优伶抬升为风雅之事。",
+          "rippleEn": "The scholars' circle elevates the appraisal of performers into a refined art.",
+          "echoZh": "花谱十旦成为全书群芳名册，“品花即品人”的主题贯穿六十回。",
+          "echoEn": "The registry's ten dan become the novel's cast list; 'ranking flowers is ranking people' runs through all sixty chapters."
         }
       ]
     }

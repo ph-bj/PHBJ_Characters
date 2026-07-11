@@ -100,6 +100,64 @@ export const chapter37Appreciation: ChapterAppreciationData = {
           "triggerEn": "Dead of night"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "杜琴言 ⇄ 魏聘才",
+          "pairEn": "Du Qinyan ⇄ Wei Pincai",
+          "relationZh": "受辱之恨",
+          "relationEn": "The Final Betrayal",
+          "temperature": 5,
+          "noteZh": "探望却遭算计受辱，含恨彻夜哭泣，恩断义绝。",
+          "noteEn": "A courtesy visit repaid with humiliation — a night of bitter tears severs the last thread."
+        },
+        {
+          "id": 2,
+          "pairZh": "徐子云 ⇄ 梅子玉",
+          "pairEn": "Xu Ziyun ⇄ Mei Ziyu",
+          "relationZh": "梅叙相召",
+          "relationEn": "Summons to the Plum Feast",
+          "temperature": 75,
+          "noteZh": "十日梅花之约不拘形迹，怡园自成桃源。",
+          "noteEn": "A ten-day plum-blossom pact, free of ceremony — Yiyuan as its own Peach Blossom Spring."
+        },
+        {
+          "id": 3,
+          "pairZh": "王恂 ⇄ 众人",
+          "pairEn": "Wang Xun ⇄ the Company",
+          "relationZh": "花辩之题",
+          "relationEn": "The Flower Debate",
+          "temperature": 60,
+          "noteZh": "“人中花与花中花孰美”引满座争锋，子云笑而不答。",
+          "noteEn": "'Which is fairer — the flower among men, or among flowers?' The table erupts; Ziyun only smiles."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "琴言出府探望聘才，反遭算计受辱",
+          "decisionEn": "Qinyan visits Pincai and walks into a humiliating trap",
+          "rippleZh": "彻夜哭泣，悔不当初。",
+          "rippleEn": "He weeps through the night, cursing his own trust.",
+          "echoZh": "对聘才的最后一分情面就此撕破，恩怨从此分明。",
+          "echoEn": "The last shred of courtesy toward Pincai tears away — the lines of enmity are drawn for good."
+        },
+        {
+          "id": 2,
+          "decisionZh": "子云发起十日梅叙，随兴而至",
+          "decisionEn": "Ziyun launches the ten-day plum gatherings, come-as-you-please",
+          "rippleZh": "梅崦成了城中烦扰之外的世外桃源。",
+          "rippleEn": "The Meiyan becomes a refuge beyond the city's torments.",
+          "echoZh": "怡园的庇护性在琴言最黑暗的日子里愈发重要。",
+          "echoEn": "Yiyuan's shelter matters more and more as Qinyan's darkest days close in."
+        }
+      ]
     }
   ]
 };

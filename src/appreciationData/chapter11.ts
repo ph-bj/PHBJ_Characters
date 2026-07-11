@@ -262,6 +262,64 @@ export const chapter11Appreciation: ChapterAppreciationData = {
           "triggerEn": "Relaying the absurdities of the outside world to his wife"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "袁夫人 ⇄ 华夫人",
+          "pairEn": "Lady Yuan ⇄ Lady Hua",
+          "relationZh": "闺阁酬唱",
+          "relationEn": "Boudoir Repartee",
+          "temperature": 75,
+          "noteZh": "骨牌酒令比拼才学，名门夫人的风雅棋逢对手。",
+          "noteEn": "Domino drinking games become a contest of erudition — refined ladies meeting their match."
+        },
+        {
+          "id": 2,
+          "pairZh": "十二红 ⇄ 十珠",
+          "pairEn": "The Twelve Reds ⇄ the Ten Pearls",
+          "relationZh": "暗中较劲",
+          "relationEn": "Rival Retinues",
+          "temperature": 35,
+          "noteZh": "效颦行令变成互相挖苦，终至动手受罚。",
+          "noteEn": "Imitating their mistresses' games turns to mockery, then blows — and punishment."
+        },
+        {
+          "id": 3,
+          "pairZh": "徐子云 ⇄ 袁夫人",
+          "pairEn": "Xu Ziyun ⇄ Lady Yuan",
+          "relationZh": "夫妻论道",
+          "relationEn": "A Marital Debate",
+          "temperature": 70,
+          "noteZh": "关于相公“面有女容、身无女体”的辩白，见夫妻间的坦诚。",
+          "noteEn": "His defense of the dan — 'a woman's face, not a woman's body' — shows a marriage that can speak frankly."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "袁夫人携六红盛妆赴华府贺寿",
+          "decisionEn": "Lady Yuan takes her six 'Red' maids in full dress to the Hua birthday feast",
+          "rippleZh": "闺阁酒令传为佳话，两府女眷缔结情谊。",
+          "rippleEn": "The boudoir games become the talk of the town, bonding the two households' women.",
+          "echoZh": "子云刻印“群鸦噪凤令”流传，第12回开篇即见其余波。",
+          "echoEn": "Ziyun prints the 'Crows Mobbing the Phoenix' games for posterity — chapter 12 opens on the ripples."
+        },
+        {
+          "id": 2,
+          "decisionZh": "丫鬟们效仿主人行令取乐",
+          "decisionEn": "The maids stage their own imitation of the mistresses' games",
+          "rippleZh": "笑闹升级，六婢受罚跪饮。",
+          "rippleEn": "The fun escalates until six maids kneel to drink their punishment.",
+          "echoZh": "雅与俗的同构对照，成为全书审视阶层的一面镜子。",
+          "echoEn": "The mirrored elegance and vulgarity become the novel's lens on class itself."
+        }
+      ]
     }
   ]
 };

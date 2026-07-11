@@ -98,6 +98,54 @@ export const chapter34Appreciation: ChapterAppreciationData = {
           "descEn": "Maintaining purity in the mud"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "魏聘才 ⇄ 李元茂",
+          "pairEn": "Wei Pincai ⇄ Li Yuanmao",
+          "relationZh": "穷途互啃",
+          "relationEn": "Paupers Preying on Paupers",
+          "temperature": 25,
+          "noteZh": "一叠债单自证穷困，倒苦水倒到不欢而散。",
+          "noteEn": "A stack of IOUs proves his poverty; the mutual griping ends in mutual disgust."
+        },
+        {
+          "id": 2,
+          "pairZh": "魏聘才 ⇄ 唐和尚",
+          "pairEn": "Wei Pincai ⇄ Monk Tang",
+          "relationZh": "暧昧密谈",
+          "relationEn": "Murky Dealings",
+          "temperature": 35,
+          "noteZh": "深夜密谈言辞含糊，禅房里各打算盘。",
+          "noteEn": "A vague midnight conference — every man in the meditation hall running his own numbers."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "聘才从华府出走，寄居唐和尚庙中",
+          "decisionEn": "Pincai quits the Hua mansion and lodges at Monk Tang's temple",
+          "rippleZh": "债台高筑，年关将近却囊空如洗。",
+          "rippleEn": "Debts tower as the year-end closes in on empty pockets.",
+          "echoZh": "从华府红人到寺中赖客，聘才的下坡路自此陡转。",
+          "echoEn": "From mansion favorite to temple freeloader — his descent turns steep from here."
+        },
+        {
+          "id": 2,
+          "decisionZh": "元茂登门借钱并厚颜留宿",
+          "decisionEn": "Yuanmao comes to borrow money and brazenly stays the night",
+          "rippleZh": "借烟吃点心、呼奴唤婢，扰得聘才不得安宁。",
+          "rippleEn": "Smoking, snacking, ordering servants about — he gives Pincai no peace.",
+          "echoZh": "这对难兄难弟的相互拖累，一直演到第39回的婚宴闹剧。",
+          "echoEn": "The two liabilities keep dragging each other down, all the way to the wedding farce of chapter 39."
+        }
+      ]
     }
   ]
 };

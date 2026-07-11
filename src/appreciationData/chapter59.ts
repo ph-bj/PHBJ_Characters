@@ -99,6 +99,64 @@ export const chapter59Appreciation: ChapterAppreciationData = {
           "effectEn": "Causes huge stir"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "杜琴仙 ⇄ 屈道翁（亡）",
+          "pairEn": "Du Qinxian ⇄ the Late Qu Daoweng",
+          "relationZh": "守孝逾百日",
+          "relationEn": "A Vigil Past a Hundred Days",
+          "temperature": 95,
+          "noteZh": "盘缠耗尽、衣单食薄，守灵之志不改分毫。",
+          "noteEn": "Money gone, thin-clothed and half-fed — the vigil never wavers."
+        },
+        {
+          "id": 2,
+          "pairZh": "杜琴仙 ⇄ 侯太史",
+          "pairEn": "Du Qinxian ⇄ Academician Hou",
+          "relationZh": "冷面拒金",
+          "relationEn": "Gold Refused Cold",
+          "temperature": 5,
+          "noteZh": "趁人之危的“义举”被冷脸挡回，伪善原形毕露。",
+          "noteEn": "The predatory 'charity' meets an icy refusal — hypocrisy stripped bare."
+        },
+        {
+          "id": 3,
+          "pairZh": "杜琴仙 ⇄ 刘喜",
+          "pairEn": "Du Qinxian ⇄ Liu Xi",
+          "relationZh": "患难主仆",
+          "relationEn": "Master & Servant in Adversity",
+          "temperature": 80,
+          "noteZh": "一个摆摊卖果、一个卖画糊口，相依为命。",
+          "noteEn": "One hawks fruit at the temple gate, the other sells paintings — surviving on each other."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "琴仙以丹青糊口，冷拒侯太史之金",
+          "decisionEn": "Qinxian lives by his brush and coldly refuses Hou's gold",
+          "rippleZh": "画作颇受好评，风骨愈见分明。",
+          "rippleEn": "His paintings win admirers; his integrity wins more.",
+          "echoZh": "这份气节让他重返都门时（第60回）赢得包括华公子在内所有人的敬重。",
+          "echoEn": "That backbone earns him, on his return (ch. 60), the respect of everyone — Young Master Hua included."
+        },
+        {
+          "id": 2,
+          "decisionZh": "梅侍郎独力建起屈公祠",
+          "decisionEn": "Vice-Minister Mei builds the shrine to Qu single-handedly",
+          "rippleZh": "屈公身后得享祭祀。",
+          "rippleEn": "The old master receives his rites at last.",
+          "echoZh": "子玉以行动回应第38回的知遇——儒林情义有始有终。",
+          "echoEn": "Ziyu answers the recognition of chapter 38 with deeds — scholarly fidelity, kept to the end."
+        }
+      ]
     }
   ]
 };

@@ -101,6 +101,64 @@ export const chapter51Appreciation: ChapterAppreciationData = {
           "shiftEn": "Power reaches peak"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "孙嗣徽 ⇄ 孙嗣元",
+          "pairEn": "Sun Sihui ⇄ Sun Siyuan",
+          "relationZh": "难兄难弟",
+          "relationEn": "A Matched Pair of Failures",
+          "temperature": 45,
+          "noteZh": "一个雇枪手、一个乱涂鸦，堂上厚颜辩解语惊四座。",
+          "noteEn": "One hires a ghostwriter, the other scribbles nonsense — and the courtroom defense outdoes them both."
+        },
+        {
+          "id": 2,
+          "pairZh": "宗师 ⇄ 孙氏兄弟",
+          "pairEn": "The Examiner ⇄ the Sun Brothers",
+          "relationZh": "斥为疯子",
+          "relationEn": "Dismissed as Madmen",
+          "temperature": 5,
+          "noteZh": "卷子被点名嘲讽，满堂哄笑中斯文扫地。",
+          "noteEn": "Their papers are mocked by name; scholarly dignity dies amid the hall's laughter."
+        },
+        {
+          "id": 3,
+          "pairZh": "李元茂 ⇄ 科场",
+          "pairEn": "Li Yuanmao ⇄ the Examination",
+          "relationZh": "侥幸得售",
+          "relationEn": "Luck Over Learning",
+          "temperature": 50,
+          "noteZh": "混得秀才，志得意满独步运河边。",
+          "noteEn": "Scraping through to xiucai, he struts the canal bank in triumph."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "嗣徽花钱雇枪手代考",
+          "decisionEn": "Sihui pays a ghostwriter to sit his examination",
+          "rippleZh": "堂上为弟辩解语出惊人，被宗师斥为疯子。",
+          "rippleEn": "His outrageous courtroom defense of his brother gets him branded a madman by the examiner.",
+          "echoZh": "科举腐败的众生相，与子玉、春航的真才实学两相对照。",
+          "echoEn": "A rogues' gallery of exam fraud — the dark twin of Ziyu's and Chunhang's genuine laurels."
+        },
+        {
+          "id": 2,
+          "decisionZh": "元茂考毕，独自在运河边散步解闷",
+          "decisionEn": "Exams done, Yuanmao strolls the canal bank alone",
+          "rippleZh": "粮船如云、市声喧嚣，志得意满。",
+          "rippleEn": "Grain barges crowd the water, the market roars — and he savors his little triumph.",
+          "echoZh": "世俗繁华中一个小人物的高光时刻，竟也令人唏嘘。",
+          "echoEn": "A small man's shining moment amid the worldly bustle — absurd, and strangely poignant."
+        }
+      ]
     }
   ]
 };

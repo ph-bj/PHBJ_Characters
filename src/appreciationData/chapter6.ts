@@ -296,6 +296,64 @@ export const chapter6Appreciation: ChapterAppreciationData = {
           "descEn": "Represents the ideal traditional woman bound by propriety. She shows both maidenly shyness and high self-esteem (scratching out her name), but her orthodox marriage contrasts sharply with Ziyu's quest for spiritual romance."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "梅子玉 ⇄ 王琼华",
+          "pairEn": "Mei Ziyu ⇄ Wang Qionghua",
+          "relationZh": "礼教姻缘",
+          "relationEn": "A Proper Match",
+          "temperature": 50,
+          "noteZh": "诗稿上被挖去的“琼”“华”二字，道尽这桩婚事的微妙。",
+          "noteEn": "The two characters of her name scratched from his poem say everything about this arranged match."
+        },
+        {
+          "id": 2,
+          "pairZh": "梅子玉 ⇄ 杜琴言",
+          "pairEn": "Mei Ziyu ⇄ Du Qinyan",
+          "relationZh": "台上台下",
+          "relationEn": "Across the Footlights",
+          "temperature": 80,
+          "noteZh": "四目相窥、两心相照，喧闹中建立起排他的精神联结。",
+          "noteEn": "Eyes meet across the crowd, hearts answer — an exclusive bond forged amid the din."
+        },
+        {
+          "id": 3,
+          "pairZh": "众名士 ⇄ 孙氏兄弟",
+          "pairEn": "The Scholars ⇄ the Sun Brothers",
+          "relationZh": "风雅对草包",
+          "relationEn": "Wit vs. Witlessness",
+          "temperature": 15,
+          "noteZh": "会馆雅集上的笑谑，将不学无术者钉在耻辱柱上。",
+          "noteEn": "The banter at the guild-hall gathering pins the talentless brothers to the pillory."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "颜夫人与陆夫人快订子玉与琼华的良缘",
+          "decisionEn": "Lady Yan and Lady Lu swiftly settle the match between Ziyu and Qionghua",
+          "rippleZh": "少女琼华窥见诗稿，芳心暗动又带一丝芥蒂。",
+          "rippleEn": "Qionghua glimpses the poem — her heart stirs, with a sliver of grievance.",
+          "echoZh": "这桩婚约成为子玉情感世界的另一极，直到第54回定期完婚方尘埃落定。",
+          "echoEn": "The betrothal becomes the other pole of Ziyu's emotional world, unresolved until the wedding date is fixed in chapter 54."
+        },
+        {
+          "id": 2,
+          "decisionZh": "子玉首次亲睹蕙芳、琴言登台",
+          "decisionEn": "Ziyu witnesses Huifang and Qinyan on stage for the first time",
+          "rippleZh": "心神激荡，魂魄随之而去。",
+          "rippleEn": "His spirit is swept clean away.",
+          "echoZh": "“初观色界”是全书爱情主线的正式起点。",
+          "echoEn": "This 'first view of the world of beauty' is the true starting gun of the novel's central romance."
+        }
+      ]
     }
   ]
 };

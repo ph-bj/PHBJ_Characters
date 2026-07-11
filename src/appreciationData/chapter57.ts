@@ -98,6 +98,54 @@ export const chapter57Appreciation: ChapterAppreciationData = {
           "descEn": "Seeing reality clearly"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "袁绮香 ⇄ 七位夫人",
+          "pairEn": "Yuan Qixiang ⇄ the Seven Ladies",
+          "relationZh": "结拜姊妹",
+          "relationEn": "Sworn Sisters",
+          "temperature": 85,
+          "noteZh": "仿竹林七贤序齿排行，菊山锦幕香风盈袖。",
+          "noteEn": "Ranked by age like the Seven Sages of the Bamboo Grove, amid chrysanthemum mountains and brocade."
+        },
+        {
+          "id": 2,
+          "pairZh": "王琼华 ⇄ 众才媛",
+          "pairEn": "Wang Qionghua ⇄ the Talented Ladies",
+          "relationZh": "诗牌盟主",
+          "relationEn": "Mistress of the Poem Tiles",
+          "temperature": 80,
+          "noteZh": "才思横溢执牛耳，群花争妍百鸟竞鸣。",
+          "noteEn": "Her brimming talent takes the chair as the company vies like flowers in bloom, birds in chorus."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "绮香设菊宴，广邀名门夫人",
+          "decisionEn": "Qixiang throws the chrysanthemum feast for the great households' ladies",
+          "rippleZh": "闺秀诗社欢声满园，酒令联诗才思横溢。",
+          "rippleEn": "The garden rings with the ladies' poetry society — games, linked verse, overflowing wit.",
+          "echoZh": "女性才情的集中亮相，与名士雅集互为镜像，补全全书的风雅版图。",
+          "echoEn": "This concentrated display of women's talent mirrors the scholars' salons, completing the novel's map of refinement."
+        },
+        {
+          "id": 2,
+          "decisionZh": "琼华以诗牌夺魁作盟主",
+          "decisionEn": "Qionghua wins the poem-tile game and takes the league's chair",
+          "rippleZh": "京城闺秀的气象尽显。",
+          "rippleEn": "The full stature of the capital's gentlewomen stands revealed.",
+          "echoZh": "子玉之妻的才华获得正名，为这桩礼教婚姻添了一分真实的敬重。",
+          "echoEn": "Ziyu's bride earns her own name for brilliance — lending the arranged marriage a measure of real respect."
+        }
+      ]
     }
   ]
 };

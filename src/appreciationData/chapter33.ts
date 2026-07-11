@@ -101,6 +101,64 @@ export const chapter33Appreciation: ChapterAppreciationData = {
           "impactEn": "Reflects the fervent trend of patronizing actors"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "梅子玉 ⇄ 袁宝珠",
+          "pairEn": "Mei Ziyu ⇄ Yuan Baozhu",
+          "relationZh": "雪斋清叙",
+          "relationEn": "Snowbound Communion",
+          "temperature": 75,
+          "noteZh": "小琅室煮雪烹茶，竹石之语最见默契。",
+          "noteEn": "Snow-melt tea in the Xiaolang studio; talk of bamboo and stone reveals a quiet accord."
+        },
+        {
+          "id": 2,
+          "pairZh": "袁宝珠 ⇄ 金粟",
+          "pairEn": "Yuan Baozhu ⇄ Jin Su",
+          "relationZh": "故人之思",
+          "relationEn": "Remembering the Fallen",
+          "temperature": 60,
+          "noteZh": "忆落难画师含泪长叹，风雅人自有情义账。",
+          "noteEn": "Tears for the ruined painter — the refined keep their own ledgers of loyalty."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 父命婚期",
+          "pairEn": "Mei Ziyu ⇄ the Appointed Marriage",
+          "relationZh": "婚期将近",
+          "relationEn": "The Closing Date",
+          "temperature": 40,
+          "noteZh": "“家信未回”的淡淡推说下，另有一腔隐衷。",
+          "noteEn": "'No reply from home yet,' he demurs — hiding an entire unspoken heart."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "史南湘随任出京，众名士相送",
+          "decisionEn": "Shi Nanxiang leaves the capital for his post, seen off by the circle",
+          "rippleZh": "知己又少数人，京中顿显冷清。",
+          "rippleEn": "Another confidant gone; the capital feels suddenly empty.",
+          "echoZh": "名士星散拉开了全书聚散无常的下半场。",
+          "echoEn": "The scattering of the scholars opens the novel's second act of partings."
+        },
+        {
+          "id": 2,
+          "decisionZh": "席间子玉的婚事被一语道破",
+          "decisionEn": "At the table, Ziyu's betrothal is named aloud",
+          "rippleZh": "他淡淡推说家信未回，神情间另有隐衷。",
+          "rippleEn": "He deflects with talk of unanswered letters, his face saying otherwise.",
+          "echoZh": "情与礼的拉锯将在第54回敲定婚期时迎来终局。",
+          "echoEn": "The tug-of-war between feeling and duty reaches its endgame when the wedding date is fixed in chapter 54."
+        }
+      ]
     }
   ]
 };

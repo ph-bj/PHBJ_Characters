@@ -99,6 +99,54 @@ export const chapter25Appreciation: ChapterAppreciationData = {
           "significanceEn": "Represents Qinyan's cage"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "华公子 ⇄ 徐子云",
+          "pairEn": "Young Master Hua ⇄ Xu Ziyun",
+          "relationZh": "贵胄相酬",
+          "relationEn": "Nobles Exchanging Courtesies",
+          "temperature": 55,
+          "noteZh": "怡园设宴看戏，豪门社交的雍容之下各有心思。",
+          "noteEn": "A banquet and opera at Yiyuan — beneath the aristocratic polish, separate agendas."
+        },
+        {
+          "id": 2,
+          "pairZh": "众名士 ⇄ 华府",
+          "pairEn": "The Scholars ⇄ the Hua Mansion",
+          "relationZh": "借故缺席",
+          "relationEn": "Polite Absences",
+          "temperature": 35,
+          "noteZh": "子玉称病、竹君醉伤，各有推辞各怀心事。",
+          "noteEn": "Ziyu pleads illness, Zhujun a drinking injury — every excuse hides a reservation."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "华公子在怡园大摆宴席邀名士看戏",
+          "decisionEn": "Young Master Hua throws a grand opera banquet at Yiyuan",
+          "rippleZh": "名士纷纷借故缺席，宾主之间隐有暗流。",
+          "rippleEn": "The scholars beg off one after another; undercurrents run beneath the courtesies.",
+          "echoZh": "名士圈与华府的疏离，预示了琴言日后入府的孤立无援。",
+          "echoEn": "The circle's distance from the Hua mansion foreshadows how alone Qinyan will be inside it."
+        },
+        {
+          "id": 2,
+          "decisionZh": "萧次贤在后台指点演员声律",
+          "decisionEn": "Xiao Cixian coaches the performers on melody backstage",
+          "rippleZh": "华公子见识了怡园的艺文底蕴。",
+          "rippleEn": "Young Master Hua glimpses Yiyuan's artistic depth.",
+          "echoZh": "对“名花”的欣赏渐成占有欲——第26回便密谋购琴言入府。",
+          "echoEn": "Appreciation of 'famous flowers' curdles into possession — by chapter 26 he is scheming to acquire Qinyan."
+        }
+      ]
     }
   ]
 };

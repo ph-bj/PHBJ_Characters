@@ -59,8 +59,8 @@ export const chapter4Appreciation: ChapterAppreciationData = {
       "stageZh": "酒楼奇遇",
       "stageEn": "Restaurant Encounter",
       "sentiment": 85,
-      "descriptionZh": "视线转至酒楼，神秘少年（徐湘帆）论音乐、题壁词，展现清狂绝俗的风采。",
-      "descriptionEn": "The scene shifts to a restaurant. A mysterious youth (Xu Xiangfan) discusses music and writes a poem on the wall, showing his transcendent and unconstrained grace."
+      "descriptionZh": "视线转至酒楼，神秘少年（署名“湘帆”，即田春航）论音乐、题壁词，展现清狂绝俗的风采。",
+      "descriptionEn": "The scene shifts to a restaurant. A mysterious youth (signing as 'Xiangfan', i.e. Tian Chunhang) discusses music and writes a poem on the wall, showing his transcendent and unconstrained grace."
     }
   ],
   "dimensions": [
@@ -316,6 +316,64 @@ export const chapter4Appreciation: ChapterAppreciationData = {
           "appearanceEn": "Plum blossom patterns on Qinyan's residence and clothes",
           "meaningZh": "梅（Mei）暗合子玉的姓氏，象征着两人之间超越世俗、高洁且隐秘的灵魂契合。",
           "meaningEn": "Plum (Mei) matches Ziyu's surname, symbolizing a pure, secret soul connection transcending the secular world."
+        }
+      ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "梅子玉 ⇄ 王恂",
+          "pairEn": "Mei Ziyu ⇄ Wang Xun",
+          "relationZh": "诗简知音",
+          "relationEn": "Kindred Poets",
+          "temperature": 80,
+          "noteZh": "《雪窗八咏》随信寄至，雪夜唱和最见文字之交的真情。",
+          "noteEn": "The 'Eight Songs of the Snowy Window' arrive by letter; answering verses on a snowy night is friendship at its truest."
+        },
+        {
+          "id": 2,
+          "pairZh": "颜仲清 ⇄ “湘帆”",
+          "pairEn": "Yan Zhongqing ⇄ 'Xiangfan'",
+          "relationZh": "惊才相惜",
+          "relationEn": "Talent Recognizing Talent",
+          "temperature": 70,
+          "noteZh": "一首壁上《浪淘沙》令仲清断言“此人恰是我辈”。",
+          "noteEn": "One 'Langtaosha' on the wall makes Zhongqing declare: 'this man is one of us.'"
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 琴官（耳闻）",
+          "pairEn": "Mei Ziyu ⇄ Qinyan (by hearsay)",
+          "relationZh": "未见倾心",
+          "relationEn": "Love Before Meeting",
+          "temperature": 60,
+          "noteZh": "聘才改口盛赞，子玉神往至“胜过瑶岛看花”。",
+          "noteEn": "Pincai's newly glowing account leaves Ziyu yearning — 'better than viewing flowers on a fairy isle.'"
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "聘才改口盛赞琴官的才情身份",
+          "decisionEn": "Pincai reverses himself and extols Qinyan's talent and character",
+          "rippleZh": "子玉的倾慕在雪夜里达到顶点。",
+          "rippleEn": "Ziyu's admiration peaks on the snowy night.",
+          "echoZh": "为第6回会馆初见时的“灵魂出窍”蓄满了情感势能。",
+          "echoEn": "It charges the emotional voltage for Ziyu's soul-shaking first sight of Qinyan in chapter 6."
+        },
+        {
+          "id": 2,
+          "decisionZh": "神秘少年在酒楼粉壁题下《浪淘沙》",
+          "decisionEn": "The mysterious youth inscribes a 'Langtaosha' on the tavern wall",
+          "rippleZh": "仲清嘱店家务必保留墨迹，遍寻其人不得。",
+          "rippleEn": "Zhongqing has the innkeeper preserve the ink, though the writer cannot be found.",
+          "echoZh": "“湘帆”即田春航——日后的状元，此词是他出场的绝妙伏笔。",
+          "echoEn": "'Xiangfan' is Tian Chunhang, the future top graduate — the poem is his perfect foreshadowed entrance."
         }
       ]
     }

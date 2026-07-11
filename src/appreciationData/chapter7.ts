@@ -262,6 +262,64 @@ export const chapter7Appreciation: ChapterAppreciationData = {
           "shiftEn": "Brutally shatters the equal, elegant atmosphere, downgrading art appreciation to naked power domination and sensory consumption."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "高品 ⇄ 众名士",
+          "pairEn": "Gao Pin ⇄ the Scholars",
+          "relationZh": "谑浪笑傲",
+          "relationEn": "The Jester Among Wits",
+          "temperature": 70,
+          "noteZh": "“朱毛入笠”的杜撰典故让满座绝倒，罚酒也罚得风流。",
+          "noteEn": "His invented allusion 'red hair enters the hat-city' floors the table — even his penalty drinks are stylish."
+        },
+        {
+          "id": 2,
+          "pairZh": "梅子玉 ⇄ 王琼华",
+          "pairEn": "Mei Ziyu ⇄ Wang Qionghua",
+          "relationZh": "无心结缘",
+          "relationEn": "An Accidental Bond",
+          "temperature": 55,
+          "noteZh": "挖字的痕迹让子玉认下这桩无意间结下的“冤缘”。",
+          "noteEn": "The scratched-out characters make Ziyu accept this 'fated entanglement' he never sought."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 名士圈",
+          "pairEn": "Mei Ziyu ⇄ the Literati Circle",
+          "relationZh": "初入雅集",
+          "relationEn": "Debut at the Gathering",
+          "temperature": 65,
+          "noteZh": "虚白室初识南湘、高品诸子，少年才子风华各异。",
+          "noteEn": "At the Xubai studio he first meets Nanxiang, Gao Pin and company — young talents each with their own edge."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "子玉追问诗稿上被挖去的两个字",
+          "decisionEn": "Ziyu investigates the two characters scratched from his poem",
+          "rippleZh": "得知琼华已许配自己，细想其容貌竟有几分像琴官。",
+          "rippleEn": "He learns Qionghua is betrothed to him — and realizes she rather resembles Qinyan.",
+          "echoZh": "“像琴官”三字预示了他的婚姻与痴情将纠缠一生。",
+          "echoEn": "'Resembles Qinyan' foretells the lifelong entanglement of his marriage and his obsession."
+        },
+        {
+          "id": 2,
+          "decisionZh": "刘文泽再邀子玉赴虚白室行令",
+          "decisionEn": "Liu Wenze invites Ziyu to the drinking games at the Xubai studio",
+          "rippleZh": "子玉正式踏入名士社交圈。",
+          "rippleEn": "Ziyu formally enters the literati's social circle.",
+          "echoZh": "这个圈子日后成为护持琴言、对抗恶势力的同盟。",
+          "echoEn": "This circle later becomes the alliance that shields Qinyan from predators."
+        }
+      ]
     }
   ]
 };

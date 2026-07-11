@@ -221,6 +221,38 @@ export interface ObjectSymbolismVisualizerData {
   objects: ObjectSymbolismItem[];
 }
 
+export interface RelationCompassItem {
+  id: number;
+  pairZh: string;
+  pairEn: string;
+  relationZh: string;
+  relationEn: string;
+  /** 0 (冰点/antagonism) — 100 (沸点/soulmates) */
+  temperature: number;
+  noteZh: string;
+  noteEn: string;
+}
+
+export interface RelationCompassVisualizerData {
+  type: "relationCompass";
+  relations: RelationCompassItem[];
+}
+
+export interface EchoItem {
+  id: number;
+  decisionZh: string;
+  decisionEn: string;
+  rippleZh: string;
+  rippleEn: string;
+  echoZh: string;
+  echoEn: string;
+}
+
+export interface EchoesVisualizerData {
+  type: "echoes";
+  echoes: EchoItem[];
+}
+
 export type ChapterVisualizerData =
   | TaxonomyVisualizerData
   | DrinkingCupsVisualizerData
@@ -233,6 +265,8 @@ export type ChapterVisualizerData =
   | EmotionalDichotomyVisualizerData
   | PowerDynamicsVisualizerData
   | ObjectSymbolismVisualizerData
+  | RelationCompassVisualizerData
+  | EchoesVisualizerData
   | { type: "none" };
 
 export interface ChapterAppreciationData {

@@ -99,6 +99,54 @@ export const chapter46Appreciation: ChapterAppreciationData = {
           "significanceEn": "Spiritual haven"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "屈道翁 ⇄ 杜琴仙",
+          "pairEn": "Qu Daoweng ⇄ Du Qinxian",
+          "relationZh": "义父义子",
+          "relationEn": "Father & Son by Choice",
+          "temperature": 95,
+          "noteZh": "晨昏对课、日授诗文，父慈子孝竟如亲生。",
+          "noteEn": "Lessons at dawn and dusk, poetry daily — a father and son more devoted than blood."
+        },
+        {
+          "id": 2,
+          "pairZh": "徐子云 ⇄ 屈道翁",
+          "pairEn": "Xu Ziyun ⇄ Qu Daoweng",
+          "relationZh": "宾主相得",
+          "relationEn": "Host & Honored Guest",
+          "temperature": 80,
+          "noteZh": "园序勒石、“赐书楼”题联语惊四座。",
+          "noteEn": "The garden preface carved in stone, the 'Bestowed Books Tower' couplet stunning the assembly."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "屈道翁收琴仙为义子，日授诗文",
+          "decisionEn": "Qu Daoweng adopts Qinxian and tutors him daily",
+          "rippleZh": "半月之内文理大进，脱籍从学。",
+          "rippleEn": "Within a fortnight his letters leap forward; the register of performers is behind him.",
+          "echoZh": "琴仙的士人身份自此奠基——第59、60回重返都门时，已能以士礼见故人。",
+          "echoEn": "His identity as a literatus is founded here — by chapters 59-60 he returns to the capital greeting old friends as a scholar."
+        },
+        {
+          "id": 2,
+          "decisionZh": "子云大开园会，道翁改楼名“赐书楼”",
+          "decisionEn": "Ziyun throws the garden assembly; Qu renames the tower 'Bestowed Books'",
+          "rippleZh": "分题赋对、觥筹交错，雅集之乐达于鼎盛。",
+          "rippleEn": "Assigned verses and flowing cups — the gatherings at their absolute zenith.",
+          "echoZh": "怡园的黄金时代在此定格，此后聚散渐多、盛景难再。",
+          "echoEn": "Yiyuan's golden age is fixed in this frame; from here, partings multiply and the splendor never quite returns."
+        }
+      ]
     }
   ]
 };

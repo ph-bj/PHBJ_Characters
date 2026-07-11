@@ -98,6 +98,54 @@ export const chapter53Appreciation: ChapterAppreciationData = {
           "effectEn": "Fickleness of human nature"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "华公子 ⇄ 陆素兰",
+          "pairEn": "Young Master Hua ⇄ Lu Sulan",
+          "relationZh": "双扇定情",
+          "relationEn": "Twin Fans, One Bond",
+          "temperature": 70,
+          "noteZh": "题《梁州序》互换扇子，结下一段风雅情缘。",
+          "noteEn": "A 'Liangzhou Prelude' inscribed, fans exchanged — an elegant bond is sealed."
+        },
+        {
+          "id": 2,
+          "pairZh": "蕙芳、宝珠等 ⇄ 古董铺之约",
+          "pairEn": "Huifang, Baozhu & Co. ⇄ the Antique Shop Venture",
+          "relationZh": "合伙同心",
+          "relationEn": "Partners in Enterprise",
+          "temperature": 75,
+          "noteZh": "凑古玩、分园藏，优伶们谋划经济自立。",
+          "noteEn": "Pooling curios and garden treasures — the performers plot their economic independence."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "华公子索还误送的桃花扇",
+          "decisionEn": "Young Master Hua recalls the peach-blossom fan he gave away by mistake",
+          "rippleZh": "素兰携扇赴约，题词换扇，风雅收场。",
+          "rippleEn": "Sulan brings the fan, inscribes the lyric, and the exchange ends in elegance.",
+          "echoZh": "这段风雅情缘冲淡了华府线的戾气，为华公子添了人味。",
+          "echoEn": "The graceful episode softens the Hua storyline, lending its master a touch of humanity."
+        },
+        {
+          "id": 2,
+          "decisionZh": "优伶们合议开设古董书画铺",
+          "decisionEn": "The performers resolve to open an antique and painting shop",
+          "rippleZh": "盘算分取园藏，兴致勃勃。",
+          "rippleEn": "They inventory the garden's holdings with mounting excitement.",
+          "echoZh": "从被豢养到自谋生计，优伶群体的主体性悄然生长。",
+          "echoEn": "From kept men to entrepreneurs — the performers' agency quietly takes root."
+        }
+      ]
     }
   ]
 };

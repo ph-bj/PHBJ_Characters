@@ -99,6 +99,64 @@ export const chapter54Appreciation: ChapterAppreciationData = {
           "significanceEn": "Reflects desolate mood"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "梅子玉 ⇄ 科场",
+          "pairEn": "Mei Ziyu ⇄ the Examination Hall",
+          "relationZh": "强撑应试",
+          "relationEn": "Trial by Willpower",
+          "temperature": 60,
+          "noteZh": "思念中文思泉涌，三场过关殿试夺魁。",
+          "noteEn": "Longing sharpens his brush — three sessions passed, then first place at the palace exam."
+        },
+        {
+          "id": 2,
+          "pairZh": "梅子玉 ⇄ 颜夫人",
+          "pairEn": "Mei Ziyu ⇄ Lady Yan",
+          "relationZh": "母子荣光",
+          "relationEn": "A Mother's Pride",
+          "temperature": 75,
+          "noteZh": "高中之喜与婚期敲定并至，欣喜与隐衷同在。",
+          "noteEn": "Triumph and wedding date arrive together — joy for her, a divided heart for him."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 仲清、高品",
+          "pairEn": "Mei Ziyu ⇄ Zhongqing & Gao Pin",
+          "relationZh": "荣而愈谦",
+          "relationEn": "Humble in Victory",
+          "temperature": 80,
+          "noteZh": "友人落第，他不以己荣自矜，反深感愧疚。",
+          "noteEn": "His friends fail where he triumphs — and he answers glory with guilt and deeper modesty."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "子玉强撑病体应博学鸿词科",
+          "decisionEn": "Ziyu forces his sick body through the special boxue hongci examination",
+          "rippleZh": "一路过关，殿试夺魁，授翰林编修。",
+          "rippleEn": "He sweeps through, takes first at the palace exam, and enters the Hanlin Academy.",
+          "echoZh": "功名既就，第59回建屈公祠、第60回题传赞方有了话语权。",
+          "echoEn": "Rank secured, he gains the standing to build Qu's shrine (ch. 59) and inscribe the final eulogies (ch. 60)."
+        },
+        {
+          "id": 2,
+          "decisionZh": "父亲来信敲定完婚日期",
+          "decisionEn": "His father's letter fixes the wedding date",
+          "rippleZh": "情与功名的纠缠愈发难解。",
+          "rippleEn": "Feeling and duty knot ever tighter.",
+          "echoZh": "娶琼华的礼教之局与念琴仙的深情并行至终卷。",
+          "echoEn": "The proper marriage to Qionghua and the enduring love for Qinxian run in parallel to the final page."
+        }
+      ]
     }
   ]
 };

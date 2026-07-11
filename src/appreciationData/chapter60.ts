@@ -99,6 +99,64 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           "descEn": "Souls sublimated and fulfilled"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "杜琴仙 ⇄ 众名士名旦",
+          "pairEn": "Du Qinxian ⇄ Scholars & Performers",
+          "relationZh": "平等重聚",
+          "relationEn": "Reunion as Equals",
+          "temperature": 95,
+          "noteZh": "旧日艰辛恍若隔世，以士人身份把酒言欢。",
+          "noteEn": "Past hardships feel a lifetime away as he raises his cup among them — a scholar now."
+        },
+        {
+          "id": 2,
+          "pairZh": "梅子玉 ⇄ 杜琴仙",
+          "pairEn": "Mei Ziyu ⇄ Du Qinxian",
+          "relationZh": "拈阄天定",
+          "relationEn": "Destiny by Lot",
+          "temperature": 90,
+          "noteZh": "拈阄得琴仙与杜仙女合传，缘分天定令人叹服。",
+          "noteEn": "The lot assigns him Qinxian and the Fairy Du to eulogize together — fate signing its own name."
+        },
+        {
+          "id": 3,
+          "pairZh": "金吉甫 ⇄ 众人",
+          "pairEn": "Jin Jifu ⇄ the Company",
+          "relationZh": "倡议立传",
+          "relationEn": "The Chronicler's Proposal",
+          "temperature": 75,
+          "noteZh": "提议为九香楼诸人入画立传、刻石传世。",
+          "noteEn": "He proposes painting and chronicling the company for posterity, carved in stone."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "金吉甫倡议为诸人入画立传",
+          "decisionEn": "Jin Jifu proposes portraits and biographies for the whole company",
+          "rippleZh": "拈阄分赋，子玉恰得琴仙与杜仙女。",
+          "rippleEn": "Lots are drawn — and Ziyu receives Qinxian and the Fairy Du.",
+          "echoZh": "小说以为自己作传收束：“品花”至此成“品人”，在诗画流传中获得不朽。",
+          "echoEn": "The novel closes by writing its own chronicle: 'ranking flowers' becomes 'ranking souls,' immortal in verse and paint."
+        },
+        {
+          "id": 2,
+          "decisionZh": "华公子在团圆宴上对琴仙极尽礼敬",
+          "decisionEn": "At the reunion feast, Young Master Hua treats Qinxian with utmost respect",
+          "rippleZh": "昔日笼中人与旧主平礼相见。",
+          "rippleEn": "The once-caged bird and his former keeper meet as equals.",
+          "echoZh": "身份的彻底翻转，为全书“情之所至、人皆可贵”的题旨盖章。",
+          "echoEn": "The complete reversal of station seals the novel's thesis: where true feeling reaches, every soul has worth."
+        }
+      ]
     }
   ]
 };

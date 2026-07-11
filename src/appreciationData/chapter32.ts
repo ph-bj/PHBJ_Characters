@@ -98,6 +98,54 @@ export const chapter32Appreciation: ChapterAppreciationData = {
           "meaningEn": "Symbolizes unfading deep affection"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "田春航 ⇄ 高品",
+          "pairEn": "Tian Chunhang ⇄ Gao Pin",
+          "relationZh": "同科悲欢",
+          "relationEn": "Shared Vigil, Split Fates",
+          "temperature": 60,
+          "noteZh": "彻夜长谈苦中作乐，放榜后一中一落两重天。",
+          "noteEn": "A night of gallows humor together — then the list splits them into triumph and despair."
+        },
+        {
+          "id": 2,
+          "pairZh": "苏蕙芳 ⇄ 田春航",
+          "pairEn": "Su Huifang ⇄ Tian Chunhang",
+          "relationZh": "情胜儿女",
+          "relationEn": "Beyond Romance",
+          "temperature": 90,
+          "noteZh": "坐卧不宁遣人打探，挂念远胜寻常私情。",
+          "noteEn": "Pacing, sleepless, sending runners for news — a devotion beyond ordinary love."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "放榜之日，高品中式而春航名落孙山",
+          "decisionEn": "The list goes up: Gao Pin passes, Chunhang fails",
+          "rippleZh": "怡园众人或贺或慰，几家欢喜几家愁。",
+          "rippleEn": "At Yiyuan, congratulations and consolations mingle — joy in one house, gloom in the next.",
+          "echoZh": "落第之痛为第47、48回春航进士及第、殿试夺魁作了最深的铺垫。",
+          "echoEn": "The sting of failure lays the deepest groundwork for his triumph — jinshi and then top graduate (ch. 47-48)."
+        },
+        {
+          "id": 2,
+          "decisionZh": "蕙芳遣人四处打探科场消息",
+          "decisionEn": "Huifang sends messengers scouring for examination news",
+          "rippleZh": "深知才情不敌八股，惟将情义深埋。",
+          "rippleEn": "Knowing genius counts for less than formula essays, he buries the feeling deep.",
+          "echoZh": "这份超越儿女私情的相知，使“苏大爷”之称（第48回）水到渠成。",
+          "echoEn": "This understanding beyond romance makes the title 'Master Su' (ch. 48) feel inevitable."
+        }
+      ]
     }
   ]
 };

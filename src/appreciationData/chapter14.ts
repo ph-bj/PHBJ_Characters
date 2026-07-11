@@ -221,6 +221,64 @@ export const chapter14Appreciation: ChapterAppreciationData = {
           "meaningEn": "Not just physical warmth, but spiritually reclothing the destitute scholar in the armor of dignity, completing the actor's redemption of the scholar."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "田春航 ⇄ 苏蕙芳",
+          "pairEn": "Tian Chunhang ⇄ Su Huifang",
+          "relationZh": "镜里并影",
+          "relationEn": "Twin Reflections",
+          "temperature": 88,
+          "noteZh": "换衣对镜、品诗论琴，情动而自持，最见克己之美。",
+          "noteEn": "Robes changed before the mirror, poems and qin appraised — desire mastered is the scene's true beauty."
+        },
+        {
+          "id": 2,
+          "pairZh": "史南湘 ⇄ 王兰保",
+          "pairEn": "Shi Nanxiang ⇄ Wang Lanbao",
+          "relationZh": "打情骂俏",
+          "relationEn": "Teasing Intimacy",
+          "temperature": 60,
+          "noteZh": "酒令中的罚与代，写尽二人的亲昵与机锋。",
+          "noteEn": "Penalties taken and traded in the drinking game map their playful intimacy."
+        },
+        {
+          "id": 3,
+          "pairZh": "高品 ⇄ 众人",
+          "pairEn": "Gao Pin ⇄ the Company",
+          "relationZh": "奇令令主",
+          "relationEn": "Master of the Odd Game",
+          "temperature": 70,
+          "noteZh": "四书搜“奚”的奇令令满座叫绝，笑料百出。",
+          "noteEn": "His game of hunting the character 'xi' through the Four Books delights the table into chaos."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "蕙芳吟评《燕台旅稿》中的香艳诗句",
+          "decisionEn": "Huifang recites and critiques the sensuous verses of the 'Yantai Travel Drafts'",
+          "rippleZh": "暗自比对班中同伴，猜测诗中佳人，春航含笑不语。",
+          "rippleEn": "She guesses at the beauty in the poem, comparing troupe-mates; Chunhang only smiles.",
+          "echoZh": "“飘烟抱月一尺腰”的悬念成为二人情感的暗语。",
+          "echoEn": "The mystery of 'a waist of drifting smoke embracing the moon' becomes their private code."
+        },
+        {
+          "id": 2,
+          "decisionZh": "春航抚琴时察觉有知音窃听",
+          "decisionEn": "Playing the qin, Chunhang senses a connoisseur eavesdropping",
+          "rippleZh": "南湘携友大笑而入，私会顿成雅集。",
+          "rippleEn": "Nanxiang bursts in laughing with friends — the tryst becomes a salon.",
+          "echoZh": "春航正式融入名士群体，为日后的科场逆袭铺路。",
+          "echoEn": "Chunhang is absorbed into the literati circle, paving the way for his examination triumph."
+        }
+      ]
     }
   ]
 };

@@ -115,6 +115,54 @@ export const chapter21Appreciation: ChapterAppreciationData = {
           "descEn": "A devoted scholar falling ill due to lovesickness"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "梅子玉 ⇄ 魏聘才",
+          "pairEn": "Mei Ziyu ⇄ Wei Pincai",
+          "relationZh": "话不投机",
+          "relationEn": "Words at Cross-Purposes",
+          "temperature": 20,
+          "noteZh": "贬琴言者被比作粗鄙之流，一场探病谈成决裂前奏。",
+          "noteEn": "Belittling Qinyan gets Pincai likened to the vulgar herd — a sickbed visit becomes a prelude to rupture."
+        },
+        {
+          "id": 2,
+          "pairZh": "梅子玉 ⇄ 杜琴言",
+          "pairEn": "Mei Ziyu ⇄ Du Qinyan",
+          "relationZh": "病榻痴心",
+          "relationEn": "Devotion on the Sickbed",
+          "temperature": 85,
+          "noteZh": "缠绵逾月，心病的症结全在一人身上。",
+          "noteEn": "A month bedridden — and the whole illness knots around a single name."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "聘才雇车耀武扬威地登门探病",
+          "decisionEn": "Pincai arrives in a hired carriage, swaggering, to visit the invalid",
+          "rippleZh": "贬损琴言遭子玉拍案力辩，强颜附和而嫉恨暗生。",
+          "rippleEn": "His slights against Qinyan meet Ziyu's table-pounding rebuttal; he smiles along while envy takes root.",
+          "echoZh": "这场不欢而散让聘才的报复从含糊变得具体，梅魏恩义走向破裂。",
+          "echoEn": "The sour parting turns Pincai's vague resentment into concrete revenge — the old friendship is finished."
+        },
+        {
+          "id": 2,
+          "decisionZh": "子玉以高花冬月为喻力辩琴言之挚情",
+          "decisionEn": "Ziyu defends Qinyan's deep feeling with images of lofty blossoms and winter moons",
+          "rippleZh": "相思病愈发沉重。",
+          "rippleEn": "His lovesickness only grows heavier.",
+          "echoZh": "病中痴语直到第29回琴言床前拭泪方得回应。",
+          "echoEn": "The feverish devotion is finally answered at his bedside in chapter 29, by Qinyan's falling tears."
+        }
+      ]
     }
   ]
 };

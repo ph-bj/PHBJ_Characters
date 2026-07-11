@@ -163,6 +163,64 @@ export const chapter13Appreciation: ChapterAppreciationData = {
           "impactEn": "A drop in the bucket; saves him from starvation but cannot restore his utterly ruined face in Vanity Fair."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "田春航 ⇄ 苏蕙芳",
+          "pairEn": "Tian Chunhang ⇄ Su Huifang",
+          "relationZh": "知音订交",
+          "relationEn": "Soulmates Sworn",
+          "temperature": 90,
+          "noteZh": "“四友”“宝友”之论，一雅一慧结为道义之交。",
+          "noteEn": "The discourse of 'four friends' and 'treasured friends' seals a bond of honor between wit and grace."
+        },
+        {
+          "id": 2,
+          "pairZh": "苏蕙芳 ⇄ 潘其观",
+          "pairEn": "Su Huifang ⇄ Pan Qiguan",
+          "relationZh": "智斗色鬼",
+          "relationEn": "Outwitting the Lecher",
+          "temperature": 10,
+          "noteZh": "假意逢迎实为灌醉，皮杯之计送客最妙。",
+          "noteEn": "Feigned hospitality is really a trap of wine — the 'skin cup' stratagem shows lechers the door."
+        },
+        {
+          "id": 3,
+          "pairZh": "潘其观 ⇄ 张仲雨",
+          "pairEn": "Pan Qiguan ⇄ Zhang Zhongyu",
+          "relationZh": "酒肉之交",
+          "relationEn": "Cronies in Vice",
+          "temperature": 40,
+          "noteZh": "同去纠缠、同被灌醉，丑态互相映照。",
+          "noteEn": "They harass together, get drunk together — each man's disgrace mirrors the other's."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "蕙芳请痴候多日的春航入室相见",
+          "decisionEn": "Huifang invites the long-waiting Chunhang inside at last",
+          "rippleZh": "一席清谈，结为不涉邪念的知己。",
+          "rippleEn": "One night of pure conversation makes them confidants without a trace of impropriety.",
+          "echoZh": "这对“宝友”从贫贱相交到状元府中的“苏大爷”（第48回），情义贯穿全书。",
+          "echoEn": "From friendship in poverty to 'Master Su' in the champion's mansion (ch. 48), their bond spans the novel."
+        },
+        {
+          "id": 2,
+          "decisionZh": "蕙芳以“皮杯”等计灌醉潘、张二人",
+          "decisionEn": "Huifang uses the 'skin cup' and other tricks to drink Pan and Zhang under the table",
+          "rippleZh": "二人屎尿齐流、丑态百出，成京城笑谈。",
+          "rippleEn": "The two men's filth-soaked collapse becomes the capital's favorite joke.",
+          "echoZh": "潘三怀恨纠缠不休，引出第19回骗金镯、第24回逼收义子的后续缠斗。",
+          "echoEn": "Pan's grudge festers — fueling the gold-bracelet con of chapter 19 and the forced-adoption rumor of chapter 24."
+        }
+      ]
     }
   ]
 };

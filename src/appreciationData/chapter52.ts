@@ -101,6 +101,64 @@ export const chapter52Appreciation: ChapterAppreciationData = {
           "triggerEn": "Forced to attend banquet"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "田春航 ⇄ 苏氏千金",
+          "pairEn": "Tian Chunhang ⇄ the Marquis's Daughter",
+          "relationZh": "豪门联姻",
+          "relationEn": "An Alliance of Houses",
+          "temperature": 65,
+          "noteZh": "数万妆奁的婚事，巩固了状元的新贵地位。",
+          "noteEn": "A dowry in the tens of thousands cements the new champion's standing."
+        },
+        {
+          "id": 2,
+          "pairZh": "高品 ⇄ 田春航",
+          "pairEn": "Gao Pin ⇄ Tian Chunhang",
+          "relationZh": "令中相讥",
+          "relationEn": "Barbs at the Banquet",
+          "temperature": 60,
+          "noteZh": "《当巾》暗讽对郑元和自比，机锋往来言笑晏晏。",
+          "noteEn": "A pointed opera reference meets a deft Zheng Yuanhe rejoinder — blades flashing through the laughter."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 喜宴",
+          "pairEn": "Mei Ziyu ⇄ the Wedding Feast",
+          "relationZh": "强颜与会",
+          "relationEn": "Smiling Through",
+          "temperature": 30,
+          "noteZh": "强撑病体出席，因琴仙缺席而黯然神伤。",
+          "noteEn": "He drags his sick body to the feast, hollowed by the one absence that matters."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "春航迎娶苏侯千金",
+          "decisionEn": "Chunhang weds the marquis's daughter",
+          "rippleZh": "妆奁数万、宾客如云、两班竞艳。",
+          "rippleEn": "A vast dowry, a sea of guests, two opera troupes competing in splendor.",
+          "echoZh": "财富与功名交汇的顶点，也为蕙芳的位置留下永恒的微妙。",
+          "echoEn": "The summit where wealth meets rank — leaving Huifang's place forever, delicately, unresolved."
+        },
+        {
+          "id": 2,
+          "decisionZh": "高品席间借《当巾》一出暗讽新郎",
+          "decisionEn": "Gao Pin needles the groom with a pointed scene from 'Pawning the Kerchief'",
+          "rippleZh": "春航以郑元和自比，巧妙还击。",
+          "rippleEn": "Chunhang parries by casting himself as Zheng Yuanhe.",
+          "echoZh": "名士间的机锋不因富贵而钝——风骨犹在，是全书对功名的温和提醒。",
+          "echoEn": "Wit stays sharp even in silk — the novel's gentle reminder that character outranks rank."
+        }
+      ]
     }
   ]
 };

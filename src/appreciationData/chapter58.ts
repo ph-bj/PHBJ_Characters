@@ -30,7 +30,7 @@ export const chapter58Appreciation: ChapterAppreciationData = {
     {
       iconType: "GitBranch", titleZh: "文本结构与布局", titleEn: "Structure & Layout", score: 85,
       subsections: [
-        { labelZh: "情节逻辑", labelEn: "Connection", textZh: "本章紧接上文，推动了核心情节发展。", textEn: "This chapter directly follows the previous text, advancing the core plot." },
+        { labelZh: "承上启下", labelEn: "Connection", textZh: "本章紧接上文，推动了核心情节发展。", textEn: "This chapter directly follows the previous text, advancing the core plot." },
         { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕 '第五十八章：奚十一的破产与厄运' 展开，结构严密。", textEn: "The plot revolves around 'Chapter 58: Xi Shiyi's Downfall', with a tight structure." },
         { labelZh: "节奏掌控", labelEn: "Pacing", textZh: "张弛有度，高潮处情感饱满。", textEn: "Pacing is well-controlled with emotional fullness at the climax." }
       ]
@@ -99,6 +99,54 @@ export const chapter58Appreciation: ChapterAppreciationData = {
           "powerBaseEn": "Absolute suppression",
           "shiftZh": "被抛弃清算",
           "shiftEn": "Abandoned and purged"
+        }
+      ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "奚十一 ⇄ 潘其观",
+          "pairEn": "Xi Shiyi ⇄ Pan Qiguan",
+          "relationZh": "债主与债奴",
+          "relationEn": "Creditor & Debtor",
+          "temperature": 15,
+          "noteZh": "万两欠票立下，昔日酒肉兄弟今朝逼债上门。",
+          "noteEn": "A ten-thousand-tael IOU signed — yesterday's drinking brother is today's debt collector."
+        },
+        {
+          "id": 2,
+          "pairZh": "奚十一 ⇄ 家业",
+          "pairEn": "Xi Shiyi ⇄ the Family Fortune",
+          "relationZh": "大厦倾颓",
+          "relationEn": "The House Collapses",
+          "temperature": 5,
+          "noteZh": "洋行倒闭、盐场漂没，一夜之间倾家荡产。",
+          "noteEn": "The trading house fails, the salt yards wash away — beggared in a single night."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "奚家的洋行与盐业生意双双垮台",
+          "decisionEn": "The Xi family's trading house and salt business collapse together",
+          "rippleZh": "被迫向潘其观立下万两欠票，狼狈至极。",
+          "rippleEn": "He is forced to sign Pan Qiguan's ten-thousand-tael IOU in utter disgrace.",
+          "echoZh": "第3回摔菜、第19回木桶、第40回轻薄——恶行的总账在此一并清算。",
+          "echoEn": "The hurled dishes (ch. 3), the trick barrel (ch. 19), the temple assault (ch. 40) — every debt of villainy is settled here at once."
+        },
+        {
+          "id": 2,
+          "decisionZh": "深夜独自吞云吐雾，撞见下人丑事",
+          "decisionEn": "Smoking alone at midnight, he stumbles on his servants' affair",
+          "rippleZh": "又恼又酸，五味杂陈。",
+          "rippleEn": "Rage and humiliation curdle together.",
+          "echoZh": "色与财的双重衰落同步上演，报应叙事就此完成闭环。",
+          "echoEn": "Lust and fortune fail in tandem — the retribution arc closes its circle."
         }
       ]
     }

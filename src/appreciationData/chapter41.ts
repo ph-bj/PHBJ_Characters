@@ -98,6 +98,54 @@ export const chapter41Appreciation: ChapterAppreciationData = {
           "descEn": "Appear aloof but chase fame"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "华公子 ⇄ 华夫人",
+          "pairEn": "Young Master Hua ⇄ Lady Hua",
+          "relationZh": "泛舟春昼",
+          "relationEn": "A Spring Day Afloat",
+          "temperature": 60,
+          "noteZh": "穿桥过堤赏碧桃，鹣鲽情深的表象下心不在焉。",
+          "noteEn": "Under bridges and past dikes among peach blossoms — conjugal harmony on the surface, absence beneath."
+        },
+        {
+          "id": 2,
+          "pairZh": "华公子 ⇄ 杜琴言",
+          "pairEn": "Young Master Hua ⇄ Du Qinyan",
+          "relationZh": "念念不忘",
+          "relationEn": "The Absent Obsession",
+          "temperature": 35,
+          "noteZh": "假期已满迟迟未归，公子的心思飘向园外。",
+          "noteEn": "The leave has expired and Qinyan has not returned — the master's thoughts drift beyond the garden walls."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "琴言假满而迟迟不归华府",
+          "decisionEn": "Qinyan lets his leave lapse without returning to the mansion",
+          "rippleZh": "华公子游园宴饮，始终心不在焉。",
+          "rippleEn": "Through the garden feast, Young Master Hua's mind is elsewhere.",
+          "echoZh": "传唤落空的震怒（第44回）已在这心神不宁中悄然酝酿。",
+          "echoEn": "The fury of the failed summons (ch. 44) is already brewing in this restlessness."
+        },
+        {
+          "id": 2,
+          "decisionZh": "金龄、玉龄划桨忙乱，险些翻船",
+          "decisionEn": "Maids Jinling and Yuling fumble the oars and nearly capsize the boat",
+          "rippleZh": "满船欢笑，春日浮生如画。",
+          "rippleEn": "The boat rocks with laughter — a painted scene of spring idleness.",
+          "echoZh": "华府的春昼愈欢，愈衬出笼外之人挣脱的决心。",
+          "echoEn": "The gayer the mansion's spring, the starker the resolve of the one bird already outside the cage."
+        }
+      ]
     }
   ]
 };

@@ -99,6 +99,64 @@ export const chapter47Appreciation: ChapterAppreciationData = {
           "descEn": "Reflecting on feudal ethics"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "田春航 ⇄ 史南湘",
+          "pairEn": "Tian Chunhang ⇄ Shi Nanxiang",
+          "relationZh": "同榜之喜",
+          "relationEn": "Fellow Graduates",
+          "temperature": 85,
+          "noteZh": "双双高中进士，社会轨迹就此改写。",
+          "noteEn": "Both pass the jinshi — their social trajectories rewritten in a stroke."
+        },
+        {
+          "id": 2,
+          "pairZh": "苏蕙芳 ⇄ 田春航",
+          "pairEn": "Su Huifang ⇄ Tian Chunhang",
+          "relationZh": "张罗迁居",
+          "relationEn": "Steward of the New Life",
+          "temperature": 85,
+          "noteZh": "欣喜之余为二人张罗搬迁，事事亲力。",
+          "noteEn": "Amid the joy, he manages the whole move himself — devotion in logistics."
+        },
+        {
+          "id": 3,
+          "pairZh": "奚十一 ⇄ 江湖医馆",
+          "pairEn": "Xi Shiyi ⇄ the Quack Clinic",
+          "relationZh": "病急乱投",
+          "relationEn": "Desperate Remedies",
+          "temperature": 15,
+          "noteZh": "伤处成疾内外难支，撞见怪医馆便一头栽入。",
+          "noteEn": "His old injury festering, he stumbles on the bizarre clinic and dives straight in."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "春航、南湘同科高中进士",
+          "decisionEn": "Chunhang and Nanxiang pass the jinshi in the same class",
+          "rippleZh": "蕙芳张罗新宅，子云慷慨相邀。",
+          "rippleEn": "Huifang arranges the new residence; Ziyun extends his open invitation.",
+          "echoZh": "殿试夺魁（第48回）完成从落魄才子到状元的全书最大逆袭。",
+          "echoEn": "The palace exam triumph (ch. 48) completes the novel's greatest reversal — from destitute genius to top graduate."
+        },
+        {
+          "id": 2,
+          "decisionZh": "奚十一踏入宏济寺旁的怪医馆",
+          "decisionEn": "Xi Shiyi steps into the strange clinic beside Hongji Temple",
+          "rippleZh": "荒唐求医之旅就此开场。",
+          "rippleEn": "His farcical medical odyssey begins.",
+          "echoZh": "讽刺恶人线在“修肾医臀”的闹剧中走向高潮。",
+          "echoEn": "The satire of the villains crests in the 'kidney cures and buttock treatments' farce."
+        }
+      ]
     }
   ]
 };

@@ -101,6 +101,54 @@ export const chapter35Appreciation: ChapterAppreciationData = {
           "shiftEn": "Pincai loses his wealth and power"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "魏聘才 ⇄ 唐和尚",
+          "pairEn": "Wei Pincai ⇄ Monk Tang",
+          "relationZh": "互相猜疑",
+          "relationEn": "Mutual Suspicion",
+          "temperature": 30,
+          "noteZh": "内贼疑云下绑人审问，鸡飞狗跳一夜无眠。",
+          "noteEn": "Suspecting an inside job, they bind and interrogate — a sleepless night of chaos."
+        },
+        {
+          "id": 2,
+          "pairZh": "魏聘才 ⇄ 蔡姓伙计",
+          "pairEn": "Wei Pincai ⇄ Laborer Cai",
+          "relationZh": "监守自盗",
+          "relationEn": "The Thief Within",
+          "temperature": 5,
+          "noteZh": "新来的灌园伙计借机逃盗，千金一夜蒸发。",
+          "noteEn": "The new gardener seizes his moment and vanishes with a fortune overnight."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "聘才将箱笼细软寄存僧舍",
+          "decisionEn": "Pincai stores his chests of valuables at the temple",
+          "rippleZh": "一夜被洗劫，报官审讯查明是伙计逃盗，人财两空。",
+          "rippleEn": "Robbed in a night; the inquest names the runaway laborer, but man and money are both gone.",
+          "echoZh": "靠钻营聚敛的浮财一夜归零，恰是他人生结局的预演。",
+          "echoEn": "Wealth scraped together by scheming zeroes out in one night — a dress rehearsal for how his story ends."
+        },
+        {
+          "id": 2,
+          "decisionZh": "宝珠生日喜宴与窃案同夜举行",
+          "decisionEn": "Baozhu's birthday feast falls on the very night of the burglary",
+          "rippleZh": "一墙之隔，悲喜两重天。",
+          "rippleEn": "One wall apart, celebration and calamity.",
+          "echoZh": "作者以对照笔法点破：热闹与凄凉从不相让。",
+          "echoEn": "The author's counterpoint is explicit: festivity and desolation never yield to each other."
+        }
+      ]
     }
   ]
 };

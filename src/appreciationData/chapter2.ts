@@ -45,15 +45,15 @@ export const chapter2Appreciation: ChapterAppreciationData = {
       "stageZh": "2. 猜拳连罚",
       "stageEn": "2. Losing Bets",
       "sentiment": 75,
-      "descriptionZh": "猜拳连输三局给杨芳有，被迫认罚喝酒，尊严受到轻微挑战",
+      "descriptionZh": "猜拳连输三局给杨方猷，被迫认罚喝酒，尊严受到轻微挑战",
       "descriptionEn": "Loses three consecutive finger-guessing rounds, forced to drink"
     },
     {
       "stageZh": "3. 装旦进酒",
       "stageEn": "3. Drag Toast",
       "sentiment": 30,
-      "descriptionZh": "以袖掩须模仿名伶Tan Ba姿态，娇嗔敬酒，滑稽百出，尊严解构",
-      "descriptionEn": "Forced to mimic Tan Ba; a highly comical drag show that deconstructs authority"
+      "descriptionZh": "以手掩须模仿联锦班京丑谭八的姿态，娇嗔敬酒，滑稽百出，尊严解构",
+      "descriptionEn": "Forced to mimic Tan Ba, the Lianjin troupe clown; a highly comical drag show that deconstructs authority"
     },
     {
       "stageZh": "4. 喷酒粘花",
@@ -112,7 +112,7 @@ export const chapter2Appreciation: ChapterAppreciationData = {
         {
           "labelZh": "心理深度",
           "labelEn": "Psychological Depth",
-          "textZh": "孙良功醉酒后从高高在上的威严到惧内逃窜的心理反差，极具讽刺效果，展示了礼教面具的脆弱。",
+          "textZh": "孙亮功醉酒后从高高在上的威严到惧内逃窜的心理反差，极具讽刺效果，展示了礼教面具的脆弱。",
           "textEn": "Sun Lianggong's psychological shift from dignified authority to terrified flight is deeply satirical, exposing the fragility of decorum."
         },
         {
@@ -184,7 +184,7 @@ export const chapter2Appreciation: ChapterAppreciationData = {
         {
           "labelZh": "经典句式",
           "labelEn": "Classic Quotes",
-          "textZh": "孙思源结巴揭短的市井对话，与飞花令中“桃李春风一杯酒”的高雅词句并置，产生强烈的反差萌与滑稽感。",
+          "textZh": "孙嗣元结巴揭短的市井对话，与飞花令中“桃李春风一杯酒”的高雅词句并置，产生强烈的反差萌与滑稽感。",
           "textEn": "The stuttered insults juxtaposed with elegant poetry in the drinking game create a sharp comedic contrast."
         },
         {
@@ -244,7 +244,7 @@ export const chapter2Appreciation: ChapterAppreciationData = {
           "titleEn": "Cup 1: The Volunteer",
           "ruleZh": "首座代人受过",
           "ruleEn": "Head seat volunteers for another's penalty",
-          "actionZh": "孙良功为王桂保解围，主动喝下第一杯大觞",
+          "actionZh": "孙亮功为王桂保解围，主动喝下第一杯大觞",
           "actionEn": "Sun Lianggong saves Guibao by drinking the first large cup",
           "critiqueZh": "展现了官场老手在酒局中的‘豪爽’伪装，实则为了在优伶面前表现权势与风度。",
           "critiqueEn": "Shows the veteran official's 'generous' facade, showing off his power before actors."
@@ -255,7 +255,7 @@ export const chapter2Appreciation: ChapterAppreciationData = {
           "titleEn": "Cup 2: The Fist Game Defeat",
           "ruleZh": "划拳连输",
           "ruleEn": "Losing streak in finger-guessing game",
-          "actionZh": "孙良功猜拳连输杨芳有三局，被迫认罚",
+          "actionZh": "孙亮功猜拳连输杨方猷三局，被迫认罚",
           "actionEn": "Sun loses three consecutive rounds to Yang Fangyou and takes the penalty",
           "critiqueZh": "官僚在世俗游戏规则下失去了天然的权力庇护，遭到平民的规训。",
           "critiqueEn": "Officials lose their natural power shield under secular game rules, disciplined by commoners."
@@ -266,7 +266,7 @@ export const chapter2Appreciation: ChapterAppreciationData = {
           "titleEn": "Cup 3: Hiding the Beard",
           "ruleZh": "模仿女旦娇羞态进酒",
           "ruleEn": "Mimicking a shy female actor to toast",
-          "actionZh": "孙良功以手掩须，扭捏作态，向杨芳有和陆宗元进大杯",
+          "actionZh": "孙亮功以手掩须，扭捏作态，向杨方猷和陆宗沅进大杯",
           "actionEn": "Sun Lianggong hides his beard, curtsies, and toasts with large cups",
           "critiqueZh": "士大夫高官主动解构自身政治形象，模仿卑微女伶，讽刺了清代官员伪善面具下的庸俗狂欢。",
           "critiqueEn": "Gentry officials voluntarily deconstruct their political image, revealing the absurdity beneath decorum."
@@ -288,6 +288,64 @@ export const chapter2Appreciation: ChapterAppreciationData = {
           "poetryEn": "'Flowers fall helplessly'",
           "critiqueZh": "高雅的诗词成为席间斗智的工具，雅俗在此时达成一体，讽刺了官员的伪善。",
           "critiqueEn": "Elegant poetry becomes a tactical tool, merging high and low culture and satirizing the officials' hypocrisy."
+        }
+      ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "孙亮功 ⇄ 王桂保",
+          "pairEn": "Sun Lianggong ⇄ Wang Guibao",
+          "relationZh": "捧与被捧",
+          "relationEn": "Patron & Performer",
+          "temperature": 60,
+          "noteZh": "桂保以妙令戏弄老官僚，看似奉承，实则掌控了全场节奏。",
+          "noteEn": "Guibao teases the old official with clever drinking games — flattery on the surface, total control underneath."
+        },
+        {
+          "id": 2,
+          "pairZh": "魏聘才 ⇄ 梅府",
+          "pairEn": "Wei Pincai ⇄ the Mei Household",
+          "relationZh": "寄人篱下",
+          "relationEn": "A Dependent Guest",
+          "temperature": 40,
+          "noteZh": "叩头讨巧的外省少年被安置后院，暗怀攀附京华之心。",
+          "noteEn": "The ingratiating provincial youth is lodged in the rear court, nursing ambitions of climbing the capital's ladder."
+        },
+        {
+          "id": 3,
+          "pairZh": "孙亮功 ⇄ 陆宗沅",
+          "pairEn": "Sun Lianggong ⇄ Lu Zongyuan",
+          "relationZh": "同僚戏谑",
+          "relationEn": "Colleagues in Farce",
+          "temperature": 50,
+          "noteZh": "一杯喷酒喷掉了御史的体面，官场威仪在酒局中荡然无存。",
+          "noteEn": "A spray of wine strips the censor of his dignity — official gravitas dissolves at the banquet table."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "梅学士收留魏聘才、李元茂两位远来投奔者",
+          "decisionEn": "Academician Mei takes in the two newcomers, Wei Pincai and Li Yuanmao",
+          "rippleZh": "书房里添了两个心思各异的同窗。",
+          "rippleEn": "The study gains two companions with very different designs.",
+          "echoZh": "聘才日后进华府、构陷琴言，元茂闹出无数笑话——皆由这一收留而起。",
+          "echoEn": "Pincai's later schemes in the Hua mansion and Yuanmao's endless fiascos all trace back to this act of hospitality."
+        },
+        {
+          "id": 2,
+          "decisionZh": "聘才在账房翻读《曲台花选》，默记八旦姓名",
+          "decisionEn": "Pincai studies the 'Flower Registry of the Stage' in the counting room, memorizing the eight dan",
+          "rippleZh": "对京城声色的向往在心中生根发芽。",
+          "rippleEn": "A longing for the capital's world of song and beauty takes root.",
+          "echoZh": "这份向往驱使他一步步钻营欢场，人品也随之步步下滑。",
+          "echoEn": "That longing drives his step-by-step descent into scheming through the pleasure quarters."
         }
       ]
     }

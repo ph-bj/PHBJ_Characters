@@ -100,6 +100,54 @@ export const chapter45Appreciation: ChapterAppreciationData = {
           "triggerEn": "Realizing harm done"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "梅子玉 ⇄ 杜琴言",
+          "pairEn": "Mei Ziyu ⇄ Du Qinyan",
+          "relationZh": "海棠夜话",
+          "relationEn": "Night Talk by the Crabapples",
+          "temperature": 92,
+          "noteZh": "凭栏说花香须“以心闻之”，久别的情谊月下复苏。",
+          "noteEn": "Leaning on the rail, he says the flowers' scent must be 'heard with the heart' — an old bond revives in moonlight."
+        },
+        {
+          "id": 2,
+          "pairZh": "徐子云、萧次贤 ⇄ 杜琴言",
+          "pairEn": "Xu Ziyun & Xiao Cixian ⇄ Du Qinyan",
+          "relationZh": "悉心开导",
+          "relationEn": "Patient Healers",
+          "temperature": 75,
+          "noteZh": "牡丹台畔芍药圃间，日日陪伴收拾愁绪。",
+          "noteEn": "Among peony terraces and paeonia beds, daily company slowly mends his spirit."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "子玉趁一钩新月独自踏月来访",
+          "decisionEn": "Under a sliver of new moon, Ziyu comes calling alone",
+          "rippleZh": "海棠春圃凭栏闲话，重逢不着一字而情意尽显。",
+          "rippleEn": "Idle talk at the crabapple rail — a reunion where nothing is declared and everything is understood.",
+          "echoZh": "“以心闻香”成为二人情感的哲学注脚，此后聚少离多全凭此心。",
+          "echoEn": "'Scent heard with the heart' becomes the couple's philosophy — sustaining them through all the partings ahead."
+        },
+        {
+          "id": 2,
+          "decisionZh": "琴言留居怡园，在陪伴中渐复精神",
+          "decisionEn": "Qinyan stays on at Yiyuan, mending among friends",
+          "rippleZh": "科考前夕的名士优伶相聚为他重筑生活。",
+          "rippleEn": "Scholars and performers gathering before the examinations rebuild his daily world.",
+          "echoZh": "疗愈之后，扶乩认义父开启他弃伶从学的第二人生。",
+          "echoEn": "Healed, the spirit-writing adoption opens his second life — from the stage to the study."
+        }
+      ]
     }
   ]
 };

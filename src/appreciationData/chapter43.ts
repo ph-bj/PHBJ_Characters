@@ -99,6 +99,64 @@ export const chapter43Appreciation: ChapterAppreciationData = {
           "effectEn": "Brings reputational pressure"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "袁宝珠 ⇄ 陆素兰",
+          "pairEn": "Yuan Baozhu ⇄ Lu Sulan",
+          "relationZh": "合谋赎友",
+          "relationEn": "Conspirators for a Friend",
+          "temperature": 85,
+          "noteZh": "一拍手断言“出师最妙”，你来我往盘算三千两从何而来。",
+          "noteEn": "'Buy him out — nothing better!' — and the two set to plotting where three thousand taels might come from."
+        },
+        {
+          "id": 2,
+          "pairZh": "徐子云 ⇄ 杜琴言",
+          "pairEn": "Xu Ziyun ⇄ Du Qinyan",
+          "relationZh": "慷慨解玉",
+          "relationEn": "The Generous Ransomer",
+          "temperature": 90,
+          "noteZh": "以赎身之名解燃眉之急，又给琴言留足余地。",
+          "noteEn": "A ransom that solves the crisis while sparing Qinyan's dignity — generosity with tact."
+        },
+        {
+          "id": 3,
+          "pairZh": "苏蕙芳 ⇄ 师娘",
+          "pairEn": "Su Huifang ⇄ the Widow",
+          "relationZh": "慧心周旋",
+          "relationEn": "Outwitting the Widow",
+          "temperature": 40,
+          "noteZh": "瞒天过海的谈判艺术，把勒索者变成成交者。",
+          "noteEn": "Negotiation as sleight of hand — turning an extortionist into a seller."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "众人议定请子云出面赎琴言",
+          "decisionEn": "The friends resolve to ask Ziyun to ransom Qinyan",
+          "rippleZh": "密谋在春花烂漫中悄然成形。",
+          "rippleEn": "The conspiracy takes shape amid the spring blossoms.",
+          "echoZh": "二千四百五十两银票（第44回）买断了琴言的樊笼岁月。",
+          "echoEn": "A note for 2,450 taels (ch. 44) buys out every year of the cage."
+        },
+        {
+          "id": 2,
+          "decisionZh": "谋议既定，众人转身同去赏杏花",
+          "decisionEn": "The plan settled, the group strolls off to view apricot blossoms",
+          "rippleZh": "关乎命运的密谋举重若轻。",
+          "rippleEn": "A life-altering conspiracy, carried as lightly as a stroll.",
+          "echoZh": "友情的轻描淡写与义举的分量，恰成全书最动人的对比之一。",
+          "echoEn": "The offhandedness of friends and the weight of their deed — one of the novel's most affecting contrasts."
+        }
+      ]
     }
   ]
 };

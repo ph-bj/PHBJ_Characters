@@ -101,6 +101,64 @@ export const chapter27Appreciation: ChapterAppreciationData = {
           "impactEn": "Makes Wei Pincai even more arrogant"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "奚十一 ⇄ 姬亮轩",
+          "pairEn": "Xi Shiyi ⇄ Ji Liangxuan",
+          "relationZh": "臭味相投",
+          "relationEn": "Birds of a Feather",
+          "temperature": 55,
+          "noteZh": "劣幕入府、恶上加恶，恶势力结成同盟。",
+          "noteEn": "The crooked adviser moves in — villainy compounds villainy into an alliance."
+        },
+        {
+          "id": 2,
+          "pairZh": "魏聘才 ⇄ 杜琴言",
+          "pairEn": "Wei Pincai ⇄ Du Qinyan",
+          "relationZh": "阴毒相逼",
+          "relationEn": "Venomous Persecution",
+          "temperature": 5,
+          "noteZh": "市井流氓屡次骚扰皆出其手，手段愈发阴毒。",
+          "noteEn": "Every round of street-thug harassment traces to his hand — and the methods keep darkening."
+        },
+        {
+          "id": 3,
+          "pairZh": "张仲雨 ⇄ 各方",
+          "pairEn": "Zhang Zhongyu ⇄ All Sides",
+          "relationZh": "左右逢源",
+          "relationEn": "Playing Every Side",
+          "temperature": 40,
+          "noteZh": "恶局中周旋渔利，令人不齿。",
+          "noteEn": "He angles for profit amid the villainy — contemptible, and skilled at it."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "聘才暗遣流氓轮番骚扰琴言",
+          "decisionEn": "Pincai secretly sends hoodlums to harass Qinyan in waves",
+          "rippleZh": "琴言不堪其扰，求告无门。",
+          "rippleEn": "Qinyan is worn down with nowhere to turn.",
+          "echoZh": "“避祸”成了入华府的推力——前门驱狼，后门入笼。",
+          "echoEn": "'Refuge' becomes the shove into the Hua mansion — wolves at the front door, a cage at the back."
+        },
+        {
+          "id": 2,
+          "decisionZh": "奚十一延请姬亮轩入府为幕",
+          "decisionEn": "Xi Shiyi installs Ji Liangxuan as his house adviser",
+          "rippleZh": "恶人结党，气焰更炽。",
+          "rippleEn": "The villains close ranks, bolder than ever.",
+          "echoZh": "这张恶网日后反噬其主——第58回奚家败落，有自取之道。",
+          "echoEn": "The web of vice will devour its weaver — Xi's ruin in chapter 58 is self-made."
+        }
+      ]
     }
   ]
 };

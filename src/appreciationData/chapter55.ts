@@ -98,6 +98,54 @@ export const chapter55Appreciation: ChapterAppreciationData = {
           "descEn": "Refuses to drift with tide"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "杜琴仙 ⇄ 屈道翁",
+          "pairEn": "Du Qinxian ⇄ Qu Daoweng",
+          "relationZh": "南下父子",
+          "relationEn": "Father & Son on the River",
+          "temperature": 90,
+          "noteZh": "一路山水诗情与感伤交织，父子相依。",
+          "noteEn": "Rivers and mountains, poetry and melancholy — father and son leaning on each other southward."
+        },
+        {
+          "id": 2,
+          "pairZh": "杜琴仙 ⇄ 杜仙女墓",
+          "pairEn": "Du Qinxian ⇄ the Fairy Du's Tomb",
+          "relationZh": "隔世相认",
+          "relationEn": "Recognition Across Ages",
+          "temperature": 70,
+          "noteZh": "莫愁湖畔荒冢红衣，玄机隐现令他久久难平。",
+          "noteEn": "A lonely tomb and red robes by Mochou Lake — an omen that will not leave him."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "琴仙只身寻访莫愁湖杜仙女墓",
+          "decisionEn": "Qinxian seeks out the Fairy Du's tomb at Mochou Lake alone",
+          "rippleZh": "荒冢红衣、玄机隐现，心中久久难平。",
+          "rippleEn": "The desolate grave and its red-robed mystery haunt him long after.",
+          "echoZh": "第60回子玉拈阄恰得“琴仙与杜仙女”合传——缘分天定的最后回环。",
+          "echoEn": "In chapter 60 Ziyu draws the lot to write 'Qinxian and the Fairy Du' together — destiny's final loop."
+        },
+        {
+          "id": 2,
+          "decisionZh": "舟过扬州，直面旧日繁华的废墟",
+          "decisionEn": "Passing Yangzhou, they face the ruins of its former splendor",
+          "rippleZh": "废墟荒草触目惊心。",
+          "rippleEn": "Weeds and rubble where glory stood — the sight strikes deep.",
+          "echoZh": "盛衰无常的画卷，预演了全书结局的苍凉底色。",
+          "echoEn": "This panorama of rise and ruin rehearses the elegiac undertone of the novel's close."
+        }
+      ]
     }
   ]
 };

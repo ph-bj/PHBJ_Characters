@@ -232,6 +232,64 @@ export const chapter10Appreciation: ChapterAppreciationData = {
           "impactEn": "Naked personal exploitation, showing the miserable slave-like status of actors before securing redemption money."
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "梅子玉 ⇄ 杜琴言",
+          "pairEn": "Mei Ziyu ⇄ Du Qinyan",
+          "relationZh": "筵席传情",
+          "relationEn": "Hearts Meet at the Feast",
+          "temperature": 90,
+          "noteZh": "真人现身，一惊一喜；席上巧言回护，两心相印。",
+          "noteEn": "The real Qinyan appears — shock, then joy; Ziyu's deft gallantry at table seals two hearts."
+        },
+        {
+          "id": 2,
+          "pairZh": "徐子云 ⇄ 梅子玉",
+          "pairEn": "Xu Ziyun ⇄ Mei Ziyu",
+          "relationZh": "试探与考验",
+          "relationEn": "The Test",
+          "temperature": 60,
+          "noteZh": "“移花接木”之局，测出的是子玉的真心与洁癖。",
+          "noteEn": "The 'grafted flower' ruse measures the purity of Ziyu's heart — and finds it true."
+        },
+        {
+          "id": 3,
+          "pairZh": "梅子玉 ⇄ 假琴言",
+          "pairEn": "Mei Ziyu ⇄ the False Qinyan",
+          "relationZh": "色诱与拒斥",
+          "relationEn": "Seduction Refused",
+          "temperature": 10,
+          "noteZh": "投怀送抱换来严词拒绝，有“色”无“情”者原形毕露。",
+          "noteEn": "Brazen advances meet stern refusal — beauty without feeling is exposed for what it is."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "子云设下“假琴言”之局试探子玉",
+          "decisionEn": "Ziyun stages the 'false Qinyan' to test Ziyu",
+          "rippleZh": "子玉严拒轻薄，通过了品格大考。",
+          "rippleEn": "Ziyu rebuffs the seduction and passes the character exam.",
+          "echoZh": "子云自此认定子玉配得上琴言，成为二人最有力的护持者。",
+          "echoEn": "Ziyun is convinced Ziyu deserves Qinyan — and becomes the pair's most powerful protector."
+        },
+        {
+          "id": 2,
+          "decisionZh": "筵席上琴言以笑靥惊艳全场、与子玉互通心意",
+          "decisionEn": "At the banquet Qinyan dazzles with a smile and hearts are exchanged",
+          "rippleZh": "梅崦之会确立了这段双向奔赴。",
+          "rippleEn": "The Meiyan gathering confirms a love that runs both ways.",
+          "echoZh": "此后患难重重，彼此的牵挂却再未动摇。",
+          "echoEn": "Trials multiply from here, but their devotion never wavers again."
+        }
+      ]
     }
   ]
 };

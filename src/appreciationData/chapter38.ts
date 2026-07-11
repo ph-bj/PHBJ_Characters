@@ -38,7 +38,7 @@ export const chapter38Appreciation: ChapterAppreciationData = {
     {
       iconType: "User", titleZh: "人物塑造与心理", titleEn: "Characterization & Psychology", score: 90,
       subsections: [
-        { labelZh: "性格展现", labelEn: "Character", textZh: "屈公与紫云创造了一个高雅的空间，让子玉和琴言得以体面地互动。", textEn: "Master Qu and Ziyun create a refined space where Ziyu and Qinyan can interact properly." },
+        { labelZh: "性格展现", labelEn: "Character", textZh: "屈公与子云创造了一个高雅的空间，让子玉和琴言得以体面地互动。", textEn: "Master Qu and Ziyun create a refined space where Ziyu and Qinyan can interact properly." },
         { labelZh: "心理深度", labelEn: "Psychology", textZh: "人物内心的挣扎和波澜描写真实细腻。", textEn: "The inner struggles and psychological waves of the characters are depicted authentically and delicately." },
         { labelZh: "人物关系", labelEn: "Relationships", textZh: "人物间的互动微妙地改变了彼此的权力或情感平衡。", textEn: "Interactions between characters subtly alter their power or emotional balance." }
       ]
@@ -96,6 +96,64 @@ export const chapter38Appreciation: ChapterAppreciationData = {
           "originEn": "Servants' gossip",
           "effectZh": "促使琴言冒险探望",
           "effectEn": "Prompts Qinyan to visit"
+        }
+      ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "屈道翁 ⇄ 梅子玉",
+          "pairEn": "Qu Daoweng ⇄ Mei Ziyu",
+          "relationZh": "忘年相赏",
+          "relationEn": "Esteem Across Generations",
+          "temperature": 80,
+          "noteZh": "细察其气象冲虚，暗赞“梅铁庵可为有子矣”。",
+          "noteEn": "Studying the youth's serene bearing, he silently pronounces: 'Mei Tie'an has a worthy son.'"
+        },
+        {
+          "id": 2,
+          "pairZh": "屈道翁 ⇄ 众名士",
+          "pairEn": "Qu Daoweng ⇄ the Scholars",
+          "relationZh": "裁断群议",
+          "relationEn": "Arbiter of the Debate",
+          "temperature": 75,
+          "noteZh": "碑帖之别、诗歌正统，从容裁断折服满座。",
+          "noteEn": "Stele versus copybook, the poetic orthodoxy — his effortless rulings win the room."
+        },
+        {
+          "id": 3,
+          "pairZh": "众名旦 ⇄ 屈道翁",
+          "pairEn": "The Performers ⇄ Qu Daoweng",
+          "relationZh": "捧砚得题",
+          "relationEn": "Ink-Grinders Honored",
+          "temperature": 65,
+          "noteZh": "捧砚拂笺得一一品题，儒林与梨园在梅香中相遇。",
+          "noteEn": "Holding inkstones, smoothing paper, each receives his inscription — the scholar's world meets the stage amid plum fragrance."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "子云设宴，将老名士屈道生请入怡园",
+          "decisionEn": "Ziyun hosts a feast to draw the venerable Qu Daosheng into Yiyuan",
+          "rippleZh": "老名士与群贤诗酒论道，尽兴而归。",
+          "rippleEn": "The old master debates poetry and wine with the company, deeply content.",
+          "echoZh": "这场相识让屈公日后收琴仙为义子（第46回），改写琴言后半生。",
+          "echoEn": "This acquaintance leads Qu to adopt Qinxian (ch. 46), rewriting the second half of Qinyan's life."
+        },
+        {
+          "id": 2,
+          "decisionZh": "屈公席间细察子玉，暗自称许",
+          "decisionEn": "At table, Qu quietly appraises Ziyu and approves",
+          "rippleZh": "儒林前辈的认可为子玉添了分量。",
+          "rippleEn": "A grandee's regard adds weight to the young man's name.",
+          "echoZh": "第59回子玉独建屈公祠，回应了这场初见的知遇。",
+          "echoEn": "In chapter 59 Ziyu builds the shrine to Qu single-handedly — answering this first meeting's recognition."
         }
       ]
     }

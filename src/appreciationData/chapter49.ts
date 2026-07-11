@@ -100,6 +100,54 @@ export const chapter49Appreciation: ChapterAppreciationData = {
           "impactEn": "Reveals dark trading"
         }
       ]
+    },
+    {
+      "type": "relationCompass",
+      "relations": [
+        {
+          "id": 1,
+          "pairZh": "田春航 ⇄ 许三姐",
+          "pairEn": "Tian Chunhang ⇄ Third Sister Xu",
+          "relationZh": "异样亲近",
+          "relationEn": "An Unsettling Closeness",
+          "temperature": 55,
+          "noteZh": "蛾眉柳腰、千伶百俐，一声“苏大爷”里各有心事。",
+          "noteEn": "Willow-waisted and quick-witted — and in one soft 'Master Su,' every heart hides its own thought."
+        },
+        {
+          "id": 2,
+          "pairZh": "梅子玉 ⇄ 杜琴仙",
+          "pairEn": "Mei Ziyu ⇄ Du Qinxian",
+          "relationZh": "别后重病",
+          "relationEn": "Illness of Separation",
+          "temperature": 70,
+          "noteZh": "离京之痛令旧病复发，足月方愈。",
+          "noteEn": "The pain of the departure fells him for a full month."
+        }
+      ]
+    },
+    {
+      "type": "echoes",
+      "echoes": [
+        {
+          "id": 1,
+          "decisionZh": "周小三向断弦的田府举荐三姐",
+          "decisionEn": "Zhou Xiaosan recommends his third sister to the widowed Tian household",
+          "rippleZh": "三姐千伶百俐，上下周到，老太太欢喜。",
+          "rippleEn": "Quick and attentive, she charms the household, the old lady above all.",
+          "echoZh": "认弟与求婚两线交错，田府内闱的新格局渐次成形。",
+          "echoEn": "Adoption and courtship intertwine as the Tian inner household takes its new shape."
+        },
+        {
+          "id": 2,
+          "decisionZh": "琴仙离京，子玉恸极成疾",
+          "decisionEn": "Qinxian leaves the capital; Ziyu collapses with grief",
+          "rippleZh": "旧病复发，足月方愈。",
+          "rippleEn": "The old illness returns and holds him for a month.",
+          "echoZh": "身与心的代价，预告了第54回强撑病体应试的悲壮。",
+          "echoEn": "The toll on body and heart foreshadows his heroic, half-broken run at the examinations in chapter 54."
+        }
+      ]
     }
   ]
 };
