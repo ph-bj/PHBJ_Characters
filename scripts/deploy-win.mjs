@@ -18,11 +18,17 @@ if (existsSync(downloadsTarget)) {
 
 cpSync('dist/index.html', join(TARGET, 'index.html'));
 cpSync('dist/favicon.svg', join(TARGET, 'favicon.svg'));
+cpSync('dist/apple-touch-icon.png', join(TARGET, 'apple-touch-icon.png'));
+cpSync('dist/favicon-16x16.png', join(TARGET, 'favicon-16x16.png'));
+cpSync('dist/favicon-32x32.png', join(TARGET, 'favicon-32x32.png'));
+cpSync('dist/android-chrome-192x192.png', join(TARGET, 'android-chrome-192x192.png'));
+cpSync('dist/android-chrome-512x512.png', join(TARGET, 'android-chrome-512x512.png'));
+cpSync('dist/site.webmanifest', join(TARGET, 'site.webmanifest'));
 cpSync('dist/assets', assetsTarget, { recursive: true });
 cpSync('dist/downloads', downloadsTarget, { recursive: true });
 
 console.log('Committing and pushing...');
-execSync(`git -C "${TARGET}" add index.html favicon.svg assets/ downloads/`, { stdio: 'inherit', shell: true });
+execSync(`git -C "${TARGET}" add index.html favicon.svg apple-touch-icon.png favicon-16x16.png favicon-32x32.png android-chrome-192x192.png android-chrome-512x512.png site.webmanifest assets/ downloads/`, { stdio: 'inherit', shell: true });
 
 const hasChanges = execSync(`git -C "${TARGET}" diff --cached --name-only`, {
   encoding: 'utf8',
