@@ -77,6 +77,50 @@ def split_segment_by_commas(seg):
     
     return [p for p in parts if p]
 
+def split_long_segment(seg):
+    words = seg.split()
+    if len(words) <= 16:
+        return [seg]
+        
+    mid = len(words) // 2
+    best_idx = -1
+    best_score = -1
+    
+    connectors = {
+        'and': 3, 'but': 3, 'or': 3, 'yet': 3, 'so': 3,
+        'because': 2, 'although': 2, 'though': 2, 'while': 2, 'when': 2, 'if': 2, 'since': 2,
+        'that': 2, 'to': 2, 'with': 2, 'without': 2,
+        'in': 1, 'on': 1, 'at': 1, 'by': 1, 'of': 1, 'for': 1, 'from': 1, 'about': 1
+    }
+    
+    for i in range(4, len(words) - 4):
+        word = words[i].lower()
+        clean_word = re.sub(r'[^\w]', '', word)
+        
+        dist_to_mid = abs(i - mid)
+        weight = connectors.get(clean_word, 0)
+        if word.endswith(','):
+            weight = 4
+            
+        if weight > 0:
+            score = weight - 0.2 * dist_to_mid
+            if score > best_score:
+                best_score = score
+                best_idx = i
+                
+    if best_idx != -1:
+        if words[best_idx].endswith(','):
+            part1 = ' '.join(words[:best_idx+1])
+            part2 = ' '.join(words[best_idx+1:])
+        else:
+            part1 = ' '.join(words[:best_idx])
+            part2 = ' '.join(words[best_idx:])
+    else:
+        part1 = ' '.join(words[:mid])
+        part2 = ' '.join(words[mid:])
+        
+    return split_long_segment(part1) + split_long_segment(part2)
+
 def segment_sentence(sentence):
     sentence = re.sub(r'\s+', ' ', sentence).strip()
     if not sentence:
@@ -124,7 +168,12 @@ def segment_sentence(sentence):
         else:
             refined_segments.append(seg)
             
-    return refined_segments
+    # Step 4: Ensure no line exceeds 16 words
+    final_output = []
+    for seg in refined_segments:
+        final_output.extend(split_long_segment(seg))
+        
+    return final_output
 
 def process_file(in_path, out_path, is_preface=False):
     if not os.path.exists(in_path):
