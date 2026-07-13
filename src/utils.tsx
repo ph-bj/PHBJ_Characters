@@ -405,10 +405,26 @@ export function renderTextWithSearchHighlight(
   return nodes;
 }
 
+export function isWorkTitle(title: string): boolean {
+  const cleanTitle = title.replace(/《|》/g, "");
+  if (/[一-鿿]/.test(cleanTitle)) {
+    return cleanTitle in WORK_ENGLISH_BY_CHINESE;
+  }
+  if (ENGLISH_WORK_TITLE_SET.has(title)) return true;
+  const lower = title.toLowerCase();
+  if (CASE_STRICT_WORK_TITLES_LOWER.has(lower)) {
+    return ENGLISH_WORK_TITLE_SET.has(title);
+  }
+  return ENGLISH_WORK_TITLE_LOWERCASE.has(lower);
+}
+
 export function isWorkAnnotationToken(part: string): boolean {
   if (part === "▉" || part === "□") return false;
   if (/^《[^》\n]+》$/.test(part)) return true;
-  if (/^\*(?!\s)[^*]+(?<!\s)\*$/.test(part)) return true;
+  const starMatch = part.match(/^\*(?!\s)([^*]+)(?<!\s)\*$/);
+  if (starMatch) {
+    return isWorkTitle(starMatch[1]);
+  }
   if (ENGLISH_WORK_TITLE_SET.has(part)) return true;
   const lower = part.toLowerCase();
   // Generic-word titles ("poetry", "midnight", "crabapple") only count with
@@ -437,6 +453,7 @@ export function workKeyFromAnnotationToken(part: string): string | null {
   const starMatch = part.match(/^\*(?!\s)([^*]+)(?<!\s)\*$/);
   if (starMatch) {
     const inner = starMatch[1];
+    if (!isWorkTitle(inner)) return null;
     if (/[一-鿿]/.test(inner)) {
       return inner.replace(/《|》/g, "");
     }

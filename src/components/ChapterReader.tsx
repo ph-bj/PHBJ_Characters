@@ -684,6 +684,15 @@ export function ChapterReader({
             );
           }
 
+          const starMatch = part.match(/^\*(?!\s)([^*]+)(?<!\s)\*$/);
+          if (starMatch) {
+            return (
+              <span key={`${i}-${j}`} className="italic">
+                {highlightPlain(starMatch[1])}
+              </span>
+            );
+          }
+
           return <span key={`${i}-${j}`}>{highlightPlain(part)}</span>;
         });
       }
