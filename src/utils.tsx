@@ -124,7 +124,7 @@ export const chapterTitleTranslations: Partial<Record<number, string>> = {
   14: "Ancient heptasyllabics are recited as qin melodies return; a drinking game is innovated from four selected characters.",
   15: "The old scholar is appointed to official duty away from home; the noble young master idly seeks his beloved.",
   16: "Wei Pincai first enters Lord Hua's mansion; Mei Ziyu again visits Du Qinyan.",
-  17: "At Zhu Fangnian's banquet, poets gather in splendor; in the floral register, supreme beauty crowns all fragrance.",
+  17: "A jade banquet fetes a birthday and gathers the poets; in the floral register, supreme beauty crowns all fragrance.",
   18: "In a pleasure house, tricks are taught for exploiting performers; at a courtesan's door, willow songs are sung.",
   19: "Lewd plots and treachery hide within the wooden barrel; clever speech and quick wit deceive for gain.",
   20: "Dragon boats race for the championship; paired lovers pass cups through a playful wine game.",
@@ -278,16 +278,16 @@ export const ROLE_CHIP_ACTIVE: Record<string, string> = {
   Other: "bg-[#7a5c43] border-[#7a5c43] text-[var(--paper-bg)]",
 };
 
-export function extractChineseTokens(text: string): string[] {
-  const matches = text.match(/[\u4e00-\u9fff]+/g);
-  return matches ? matches.filter(Boolean) : [];
-}
+export * from "./nameChips";
+import {
+  segmentText,
+  getSegmentChipLabel,
+  getCharacterMentionTokens,
+  countMentionsInText,
+  extractChineseTokens,
+} from "./nameChips";
+import type { Segment } from "./nameChips";
 
-export function stripDiacritics(s: string): string {
-  return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
-
-export type Segment = string | { token: string; char: Character; chipLabel: string };
 export type LacunaConfidence = "certain" | "probable" | "speculative";
 
 export type LacunaEntry = {
@@ -338,289 +338,11 @@ export function getLocationFirstChapterId(location: NovelLocation): number | nul
   return chapterIds[0] ?? null;
 }
 
-// Tokens that are also common Chinese nouns — require context confirmation before
-// being rendered as a name chip. Add any token here that causes false positives.
-export const CONTEXT_SENSITIVE_TOKENS = new Set(["菊花"]);
-
-export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
-  庾香: ["Yuxiang", "Yu Xiang"],
-  琴官: ["Qinguan", "Qin Guan", "Master Du Qin"],
-  玉侬: ["Yunong", "Yu Nong"],
-  琴仙: ["Qinxian", "Qin Xian", "Qin Immortal"],
-  剑潭: ["Jiantan", "Jian Tan"],
-  竹君: ["Zhujun", "Zhu Jun"],
-  庸庵: ["Yongan", "Yong An"],
-  度香: ["Duxiang", "Du Xiang"],
-  静宜: ["Jingyi", "Jing Yi"],
-  前舟: ["Qianzhou", "Qian Zhou"],
-  卓然: ["Zhuoran", "Zhuo Ran"],
-  湘帆: ["Xiangfan", "Xiang Fan"],
-  金栗: ["Jinli", "Jin Li", "Jin Su"],
-  虫蛀千字文: ["Worm-eaten Primer"],
-  迭韵双声谱: ["Iterated Rhymes and Double Sounds"],
-  瑶卿: ["Yaoqing", "Yao Qing"],
-  媚香: ["Meixiang", "Mei Xiang"],
-  香畹: ["Xiangwan", "Xiang Wan"],
-  瘦香: ["Shouxiang", "Shou Xiang", "Shoufang", "Shou Fang"],
-  佩仙: ["Peixian", "Pei Xian"],
-  静芳: ["Jingfang", "Jing Fang"],
-  蕊香: ["Ruixiang", "Rui Xiang"],
-  小梅: ["Xiaomei", "Xiao Mei", "Little Mei"],
-  琪官: ["Qiguan", "Qi Guan"],
-  铁庵: ["Tiean", "Tie'an", "Tie An"],
-  富三爷: ["Fu Third", "Third Master Fu"],
-  贵大爷: ["Gui First", "Eldest Master Gui"],
-  华公子: ["Young Master Hua", "Lord Hua"],
-  星北: ["Xingbei", "Xing Bei"],
-  奚正绅: ["Xi Zhengshen", "Xi Zheng Shen"],
-  道生: ["Daosheng", "Dao Sheng"],
-  石翁: ["Shiweng", "Shi Weng"],
-  英官: ["Yingguan", "Ying Guan"],
-  道翁: ["Daoweng", "Dao Weng"],
-};
-
-export function getEnglishAliasTokens(character: Character): string[] {
-  if (character.alias === "—") return [];
-  const parts = character.alias.split("/").map((p) => p.trim());
-  const chineseAliases = parts.flatMap((part) => extractChineseTokens(part));
-  const englishAliases = parts.filter((part) => /[A-Za-z]/.test(part));
-  return [
-    ...new Set([
-      ...chineseAliases.flatMap((alias) => ENGLISH_ALIAS_TOKENS[alias] ?? []),
-      ...englishAliases,
-    ]),
-  ];
-}
-
-/**
- * Returns true if the token at [start, end) in `text` looks like a person name
- * rather than a common noun, based on surrounding characters.
- */
-export function isPersonNameContext(
-  text: string,
-  start: number,
-  end: number,
-): boolean {
-  const before = text.slice(Math.max(0, start - 6), start);
-  const after = text.slice(end, end + 8);
-
-  // Strong person indicators: followed by a dialogue/action verb
-  if (/^[道说答问笑叹嗔骂哭喊叫]/.test(after)) return true;
-  if (/^[便也都只就却]?[道说]/.test(after)) return true; // 便道/也说/就说
-
-  // Strong noun indicators: preceded by a Chinese numeral or classifier
-  if (
-    /[一二三四五六七八九十百千万两\d][层盆朵束枝株棵个只瓶碗堆]?$/.test(before)
-  )
-    return false;
-  // Noun verb: insert/arrange/pile/plant immediately before
-  if (/[插摆堆种赏采送买折剪].$/.test(before)) return false;
-  if (/[插摆堆种赏采送买折剪]$/.test(before)) return false;
-
-  // Default: not confident it's a person name — skip the chip
-  return false;
-}
-
-export const GENERIC_HONORIFICS = new Set([
-  "夫人",
-  "公子",
-  "先生",
-  "老爷",
-  "太太",
-  "小姐",
-  "姑娘",
-  "奶奶",
-  "大人",
-  "将军",
-  "夫君",
-  "大爷",
-  "二爷",
-  "三爷",
-  "少爷",
-]);
-
-function sortMentionTokensByLength(tokens: string[]): string[] {
-  return [...tokens].sort((a, b) => b.length - a.length);
-}
-
-export function getCharacterMentionTokens(character: Character): string[] {
-  const chineseName = character.name.split(" ")[0];
-  const givenName = chineseName.length > 2 ? chineseName.slice(-2) : "";
-  const aliases =
-    character.alias !== "—"
-      ? character.alias.split(/[/\s，、]+/).filter(Boolean)
-      : [];
-  const baseTokens = [...new Set([chineseName, givenName, ...aliases])].filter(Boolean);
-  const shortenedYeTokens: string[] = [];
-  for (const t of baseTokens) {
-    if (t.endsWith("爷") && t.length > 2) {
-      shortenedYeTokens.push(t.slice(0, -1));
-    }
-  }
-  return sortMentionTokensByLength(
-    [...new Set([...baseTokens, ...shortenedYeTokens])].filter(
-      (t) => t.length >= 2 && !GENERIC_HONORIFICS.has(t),
-    ),
-  );
-}
-
-/** Scan left-to-right, matching the longest token at each position. */
-export function countMentionsInText(text: string, tokens: string[]): number {
-  const sorted = sortMentionTokensByLength(tokens);
-  let count = 0;
-  let pos = 0;
-  while (pos < text.length) {
-    let matched = false;
-    for (const token of sorted) {
-      if (text.startsWith(token, pos)) {
-        count++;
-        pos += token.length;
-        matched = true;
-        break;
-      }
-    }
-    if (!matched) pos++;
-  }
-  return count;
-}
-
-export function findMentionPositionsInText(
-  text: string,
-  tokens: string[],
-): number[] {
-  const sorted = sortMentionTokensByLength(tokens);
-  const positions: number[] = [];
-  let pos = 0;
-  while (pos < text.length) {
-    let matched = false;
-    for (const token of sorted) {
-      if (text.startsWith(token, pos)) {
-        positions.push(pos);
-        pos += token.length;
-        matched = true;
-        break;
-      }
-    }
-    if (!matched) pos++;
-  }
-  return positions;
-}
-
 export function getCharacterTotalMentions(character: Character): number {
   const tokens = getCharacterMentionTokens(character);
   return chapters
     .filter((ch) => ch.id >= 1)
     .reduce((total, ch) => total + countMentionsInText(ch.content, tokens), 0);
-}
-
-export function getChineseShortFormTokens(char: Character): string[] {
-  const chineseName = char.name.split(" ")[0];
-  const givenName = chineseName.length === 3 ? chineseName.slice(1) : null;
-  const aliasTokens =
-    char.alias !== "—"
-      ? char.alias
-          .split("/")
-          .flatMap((part) => extractChineseTokens(part.trim()))
-      : [];
-  const baseTokens = [...new Set([...(givenName ? [givenName] : []), ...aliasTokens])];
-  const shortenedYeTokens: string[] = [];
-  for (const t of baseTokens) {
-    if (t.endsWith("爷") && t.length > 2) {
-      shortenedYeTokens.push(t.slice(0, -1));
-    }
-  }
-  if (chineseName.endsWith("爷") && chineseName.length > 2) {
-    shortenedYeTokens.push(chineseName.slice(0, -1));
-  }
-  return [...new Set([...baseTokens, ...shortenedYeTokens])].filter(
-    (t) => t.length >= 2 && t !== chineseName && !GENERIC_HONORIFICS.has(t),
-  );
-}
-
-export function removeTrailingSurname(
-  text: string,
-  char: Character,
-  token: string,
-): { text: string; chipLabel?: string } {
-  const chineseName = char.name.split(" ")[0];
-  const surname = chineseName[0];
-
-  if (/[\u4e00-\u9fff]/.test(token)) {
-    const shortForms = getChineseShortFormTokens(char);
-    if (shortForms.includes(token) && text.endsWith(surname)) {
-      return {
-        text: text.slice(0, -surname.length),
-        chipLabel: surname + token,
-      };
-    }
-    return { text };
-  }
-
-  const pinyinPart = char.name.slice(chineseName.length).trim();
-  if (!pinyinPart) return { text };
-
-  const plainParts = stripDiacritics(pinyinPart).split(/\s+/).filter(Boolean);
-  const pinyinSurname = plainParts[0];
-  const remainingNameParts = plainParts.slice(1);
-  const englishAliases = getEnglishAliasTokens(char);
-  if (
-    !pinyinSurname ||
-    (!remainingNameParts.includes(token) && !englishAliases.includes(token))
-  ) {
-    return { text };
-  }
-
-  return {
-    text: text.replace(new RegExp(`\\b${pinyinSurname}\\s+$`, "i"), ""),
-  };
-}
-
-export function segmentText(text: string, tokenMap: [string, Character][]): Segment[] {
-  const segments: Segment[] = [];
-  let cursor = 0;
-  while (cursor < text.length) {
-    let matched = false;
-    for (const [token, char] of tokenMap) {
-      if (text.startsWith(token, cursor)) {
-        const afterPos = cursor + token.length;
-        // ASCII tokens require a word-boundary after the match
-        const isAscii = /[a-zA-Z]/.test(token);
-        if (
-          isAscii &&
-          afterPos < text.length &&
-          /[a-zA-Z]/.test(text[afterPos])
-        )
-          continue;
-        // Context-sensitive tokens: only chip if context confirms a person name
-        if (
-          CONTEXT_SENSITIVE_TOKENS.has(token) &&
-          !isPersonNameContext(text, cursor, afterPos)
-        )
-          continue;
-        const previous = segments[segments.length - 1];
-        let chipLabel = token;
-        if (typeof previous === "string") {
-          const trimmed = removeTrailingSurname(previous, char, token);
-          segments[segments.length - 1] = trimmed.text;
-          if (trimmed.chipLabel) chipLabel = trimmed.chipLabel;
-        }
-        segments.push({ token, char, chipLabel });
-        cursor += token.length;
-        matched = true;
-        break;
-      }
-    }
-    if (!matched) {
-      const last = segments[segments.length - 1];
-      if (typeof last === "string") {
-        segments[segments.length - 1] = last + text[cursor];
-      } else {
-        segments.push(text[cursor]);
-      }
-      cursor++;
-    }
-  }
-  return segments;
 }
 
 export function countTextSearchMatches(text: string, query: string): number {
@@ -729,45 +451,6 @@ export function workKeyFromAnnotationToken(part: string): string | null {
 
 export function chapterWorkAnchorId(chapterId: number, workKey: string): string {
   return `chapter-work-${chapterId}-${encodeURIComponent(workKey)}`;
-}
-
-export function getSegmentChipLabel(
-  seg: { token: string; char: Character; chipLabel: string },
-  showBilingual: boolean,
-): string {
-  if (showBilingual) return seg.char.name;
-  const chineseName = seg.char.name.split(" ")[0];
-  const isChineseToken = /[一-鿿]/.test(seg.token);
-  return isChineseToken
-    ? seg.chipLabel
-    : seg.char.name.slice(chineseName.length).trim();
-}
-
-export const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
-  "char-87": "Madam Lu (Wang household)",
-  "char-96": "Madam Lu (Sun household)",
-  "char-99": "Miss Wang",
-  "char-108": "Page Boy",
-  "char-109": "Maidservant (Gatekeeper)",
-  "char-110": "Household Maid (Clothing)",
-  "char-111": "Young Maid (Ziyu Study)",
-  "char-116": "Escort Matron (Ba household)",
-  "char-117": "Nursemaid (Ba Laifeng)",
-  "char-118": "Attendant (Fu household)",
-  "char-120": "Retinue (Hua household, ~20-30 people)",
-};
-
-export function getCharacterNameForLanguage(
-  character: Character,
-  lang: "en" | "zh",
-): string {
-  const chineseName = character.name.split(" ")[0];
-  if (lang === "zh") return chineseName;
-
-  const pinyinOrEnglishName = character.name.slice(chineseName.length).trim();
-  if (pinyinOrEnglishName) return pinyinOrEnglishName;
-
-  return ENGLISH_CHARACTER_NAME_FALLBACKS[character.id] || character.name;
 }
 
 export function countSearchMatchesInRenderedText(

@@ -20,8 +20,8 @@ import { WORK_ENGLISH_BY_CHINESE } from "../englishWorkTitles";
 import type { Character, Chapter } from "../types";
 import {
   CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX,
-  GENERIC_HONORIFICS,
   ROLE_CHIP_IDLE,
+  buildCharacterTokenMap,
   chapterTitleTranslations,
   chapterWorkAnchorId,
   countSearchMatchesInRenderedText,
@@ -29,14 +29,11 @@ import {
   getChapterMentionedCharacters,
   getChapterReaderSubtitle,
   getChapterReaderTitle,
-  getChineseShortFormTokens,
-  getEnglishAliasTokens,
   getSegmentChipLabel,
   isChineseWorkAnnotationToken,
   isWorkAnnotationToken,
   renderTextWithSearchHighlight,
   segmentText,
-  stripDiacritics,
   translationMap,
   workKeyFromAnnotationToken,
 } from "../utils";
@@ -397,58 +394,10 @@ export function ChapterReader({
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
-  const tokenMap = useMemo<[string, Character][]>(() => {
-    const entries: [string, Character][] = [];
-    for (const char of characters) {
-      // Chinese tokens: full name + given-name shortform + aliases
-      const chineseName = char.name.split(" ")[0];
-      const shortForms = getChineseShortFormTokens(char);
-      const surname = chineseName[0];
-      const compositeTokens = shortForms
-        .filter((sf) => !sf.startsWith(surname))
-        .map((sf) => surname + sf);
-      const candidates = [chineseName, ...shortForms, ...compositeTokens];
-      const zhTokens = [...new Set(candidates)].filter(
-        (t) => t.length >= 2 && !GENERIC_HONORIFICS.has(t),
-      );
-      for (const t of zhTokens) entries.push([t, char]);
-
-      // English tokens: the full de-accented pinyin name, plus distinctive
-      // given-name parts. The surname (first part) is deliberately NOT emitted
-      // as a standalone token: bare surnames such as Wang, Tang, Yang, Zhang,
-      // Chen, Shen, Huan collide with dynasty names, place names, and historical
-      // figures throughout the text (e.g. "Zhang Lihua", "Yang Pass", the Tang
-      // dynasty), producing spurious character chips. Full names and given names
-      // stay linked; only the ambiguous surname-alone match is dropped.
-      const pinyinPart = char.name.slice(chineseName.length).trim();
-      if (pinyinPart) {
-        const plain = stripDiacritics(pinyinPart);
-        const allParts = plain
-          .split(/\s+/)
-          .filter((p) => /^[a-z]+$/i.test(p));
-        const enTokens = new Set<string>();
-        if (allParts.length >= 2) {
-          enTokens.add(allParts.join(" "));
-          // Given-name components only (skip the surname at index 0).
-          for (const p of allParts.slice(1)) {
-            if (p.length >= 4) enTokens.add(p);
-          }
-        } else if (
-          allParts.length === 1 &&
-          allParts[0].length >= 4 &&
-          chineseName.length >= 2
-        ) {
-          // A single distinctive two-syllable given name (e.g. 宝珠 Bǎozhū) —
-          // but never a bare single-character surname (e.g. 张 Zhāng).
-          enTokens.add(allParts[0]);
-        }
-        for (const alias of getEnglishAliasTokens(char)) enTokens.add(alias);
-        for (const t of enTokens) entries.push([t, char]);
-      }
-    }
-    entries.sort((a, b) => b[0].length - a[0].length);
-    return entries;
-  }, []);
+  const tokenMap = useMemo<[string, Character][]>(
+    () => buildCharacterTokenMap(characters),
+    [],
+  );
 
   const chapterSearchMatchCount = useMemo(() => {
     const query = chapterSearchQuery.trim();
