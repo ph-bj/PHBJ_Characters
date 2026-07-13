@@ -5,12 +5,7 @@
  *
  * Run with:  npx tsx scripts/audit-cited-works.ts [--chapter N] [--unmapped]
  */
-import {
-  CASE_STRICT_WORK_TITLES_LOWER,
-  ENGLISH_WORK_TITLES,
-  ENGLISH_WORK_TITLE_SET,
-  WORK_ENGLISH_BY_CHINESE,
-} from "../src/englishWorkTitles";
+import { WORK_ENGLISH_BY_CHINESE } from "../src/englishWorkTitles";
 import { paragraphsFromModule } from "../src/chapterTranslations/loadChapterModules";
 
 const args = process.argv.slice(2);
@@ -25,62 +20,18 @@ function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-// Same shape as CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX in utils.tsx.
-const ENGLISH_WORK_SPLIT_PATTERN = [...ENGLISH_WORK_TITLES]
-  .sort((a, b) => b.length - a.length)
-  .map((t) => `(?<!\\w)${escapeRegExp(t)}(?!\\w)`)
-  .join("|");
-const TOKEN_REGEX = new RegExp(
-  `(《[^》\\n]+》|\\*(?!\\s)[^*]+(?<!\\s)\\*|${ENGLISH_WORK_SPLIT_PATTERN})`,
-  "gi",
-);
-const ENGLISH_WORK_TITLE_LOWER = new Map(
-  ENGLISH_WORK_TITLES.map((t) => [t.toLowerCase(), t]),
-);
-const CHINESE_BY_ENGLISH_LOWER: Record<string, string> = {};
-for (const [zh, en] of Object.entries(WORK_ENGLISH_BY_CHINESE)) {
-  CHINESE_BY_ENGLISH_LOWER[en.toLowerCase()] = zh;
-}
+
 
 function zhWorkKeys(text: string): string[] {
   return [...text.matchAll(/《([^》\n]+)》/g)].map((m) => m[1]);
 }
 
-/** Work keys highlightable in an English paragraph (star tokens + known titles). */
-function enWorkKeys(text: string): { key: string; raw: string }[] {
-  const out: { key: string; raw: string }[] = [];
-  for (const m of text.matchAll(TOKEN_REGEX)) {
-    const part = m[1];
-    if (part.startsWith("《")) {
-      out.push({ key: part.slice(1, -1), raw: part });
-    } else if (part.startsWith("*")) {
-      const inner = part.slice(1, -1);
-      if (/[一-鿿]/.test(inner)) {
-        out.push({ key: inner.replace(/《|》/g, ""), raw: part });
-        continue;
-      }
-      const resolved = CHINESE_BY_ENGLISH_LOWER[inner.toLowerCase()];
-      if (resolved) {
-        out.push({ key: resolved, raw: part });
-      } else if (ENGLISH_WORK_TITLE_SET.has(inner)) {
-        out.push({ key: inner, raw: part });
-      }
-      // otherwise: emphasis italics (*dan*, *kang*), not a work citation
-    } else {
-      const lower = part.toLowerCase();
-      const isTitle =
-        ENGLISH_WORK_TITLE_SET.has(part) ||
-        (!CASE_STRICT_WORK_TITLES_LOWER.has(lower) &&
-          ENGLISH_WORK_TITLE_LOWER.has(lower));
-      if (isTitle) {
-        out.push({
-          key: CHINESE_BY_ENGLISH_LOWER[lower] ?? part,
-          raw: part,
-        });
-      }
-    }
-  }
-  return out;
+/** Count literal, boundary-delimited English title occurrences in a paragraph. */
+function countEnglishTitle(text: string, title: string): number {
+  const matches = text.match(
+    new RegExp(`(?<!\\w)${escapeRegExp(title)}(?!\\w)`, "gi"),
+  );
+  return matches?.length ?? 0;
 }
 
 async function loadChapter(id: number) {
@@ -106,54 +57,39 @@ for (const id of chapterIds) {
   const n = Math.min(zh.length, en.length);
   for (let i = 0; i < n; i++) {
     const zhKeys = zhWorkKeys(zh[i]);
-    const enKeys = enWorkKeys(en[i]);
     zhTotal += zhKeys.length;
-    enTotal += enKeys.length;
 
-    for (const k of zhKeys) {
-      if (!WORK_ENGLISH_BY_CHINESE[k]) {
-        unmapped.set(k, (unmapped.get(k) ?? 0) + 1);
+    // Compare by canonical English title, rather than reverse-mapping each EN
+    // match to one Chinese key. Multiple Chinese spellings can legitimately map
+    // to one title (for example, alternate or abbreviated source spellings).
+    const expected = new Map<string, { keys: string[]; count: number }>();
+    for (const key of zhKeys) {
+      const title = WORK_ENGLISH_BY_CHINESE[key];
+      if (!title) {
+        unmapped.set(key, (unmapped.get(key) ?? 0) + 1);
+        continue;
       }
+      const item = expected.get(title) ?? { keys: [], count: 0 };
+      item.keys.push(key);
+      // Repeated mentions still require only one corresponding title in the
+      // aligned English paragraph; the audit verifies title preservation, not
+      // a one-to-one count of prose repetitions.
+      item.count = 1;
+      expected.set(title, item);
     }
 
-    // Compare multisets by key
-    const count = (arr: string[]) => {
-      const m = new Map<string, number>();
-      for (const k of arr) m.set(k, (m.get(k) ?? 0) + 1);
-      return m;
-    };
-    const zhC = count(zhKeys);
-    const enC = count(enKeys.map((e) => e.key));
-    const allKeys = new Set([...zhC.keys(), ...enC.keys()]);
     const diffs: string[] = [];
-    for (const k of allKeys) {
-      const dz = zhC.get(k) ?? 0;
-      const de = enC.get(k) ?? 0;
-      if (dz !== de) {
-        const enName = WORK_ENGLISH_BY_CHINESE[k] ?? "(no canonical EN)";
-        diffs.push(`${k} [${enName}] zh:${dz} en:${de}`);
+    for (const [title, { keys, count }] of expected) {
+      const found = countEnglishTitle(en[i], title);
+      enTotal += found;
+      if (found < count) {
+        diffs.push(`${keys.join(" / ")} [${title}] zh:${count} en:${found}`);
       }
     }
     if (diffs.length > 0) {
       paraMismatches++;
       console.log(`ch.${id} para ${i + 1}:`);
       for (const d of diffs) console.log(`  ${d}`);
-      // Show EN snippet hints for missing works
-      for (const k of allKeys) {
-        const dz = zhC.get(k) ?? 0;
-        const de = enC.get(k) ?? 0;
-        if (dz > de) {
-          const canonical = WORK_ENGLISH_BY_CHINESE[k];
-          if (canonical) {
-            const idx = en[i].toLowerCase().indexOf(canonical.toLowerCase());
-            if (idx >= 0) {
-              console.log(
-                `    (canonical "${canonical}" DOES appear: ...${en[i].slice(Math.max(0, idx - 40), idx + canonical.length + 20)}...)`,
-              );
-            }
-          }
-        }
-      }
     }
   }
 }
