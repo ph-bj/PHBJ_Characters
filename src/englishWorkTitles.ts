@@ -572,6 +572,7 @@ export const CASE_STRICT_WORK_TITLES_LOWER = new Set<string>([
   "orchid pavilion",
   "hard road",
   "long yearning",
+  "exclusive possession",
 ]);
 
 /**
