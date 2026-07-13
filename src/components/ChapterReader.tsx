@@ -49,6 +49,7 @@ import {
   ChapterMidScene,
   midSceneParagraphIndex,
 } from "./illustrations/ChapterMidScene";
+import { Chapter30Para7Illustration } from "./illustrations/Chapter30Para7Illustration";
 import { SnowMountainSVG } from "./illustrations/snow/SnowMountainSVG";
 import { SnowPagodaSVG } from "./illustrations/snow/SnowPagodaSVG";
 import { SnowScreenSVG } from "./illustrations/snow/SnowScreenSVG";
@@ -1201,6 +1202,11 @@ export function ChapterReader({
                       midSceneParagraphIndex(chapter.id) === i && (
                         <ChapterMidScene chapterId={chapter.id} />
                       )}
+                    {chapter.id === 30 && i === 6 && (
+                      <div className="mt-4 mb-6 block w-full">
+                        <Chapter30Para7Illustration />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
