@@ -79,7 +79,7 @@ char-80	白姨奶奶 Bái Yínǎinai	—	—	—	minor	ch.3	Fu Lun's other quarr
 char-81	阿呆 Ā Dāi	—	—	—	minor	ch.23	Simple-minded victim who is cruelly harmed by Xi Shiyi's men in ch.23	愚笨的受害者；第23回遭奚十一手下残害。
 char-85	王大夫 Wáng Dàfū	—	—	—	minor	ch.4	Doctor who treats Sun Lianggong when the Sun household couple have a fight; mentioned by Sihui in ch.4	医生；在孙亮功夫妇吵架后为其诊治。
 char-86	颜夫人 Yán Fūrén	Lady Yan / Madam Yan	44	Jinling	female	ch.1	Wife of Mei Shixie; moral guardian of the novel; arranges Ziyu's betrothal to Wang Qionghua	梅士燮之妻；小说中的道德守护者；安排子玉与王琼华的婚事。
-char-87	陆氏夫人（王家）	Madam Lu / Wang family's Madam Lu / The Wang Madam Lu	40	—	female	ch.1	Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu	王文辉继室；王恂继母；孙家陆夫人之妹。
+char-87	陆氏夫人（王家）	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Wang family's Madam Lu / The Wang Madam Lu	40	—	female	ch.1	Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu	王文辉继室；王恂继母；孙家陆夫人之妹。
 char-88	孙氏 Sūn Shì	Madam Sun	—	—	female	ch.1	Wang Xun's wife; daughter of Sun Lianggong	王恂之妻；孙亮功之女。
 char-89	蓉华 Rónghuá	—	—	—	female	ch.1	Yan Zhongqing's wife; Wang Wenhui's daughter; sister of Wang Qionghua	颜仲清之妻；王文辉之女；王琼华之姐。
 char-90	王琼华 Wáng Qiónghúa	—	16	—	female	ch.1	Wang Wenhui's second daughter; shy; scratches Ziyu's poem; eventually betrothed and married to Ziyu	王文辉次女；害羞；涂抹子玉的诗；最终嫁给子玉。
@@ -87,7 +87,7 @@ char-91	袁夫人 Yuán Fūrén	Mrs. Yuan / Mrs Yuan / Madam Yuan	23	—	female	
 char-92	郑氏 Zhèng Shì	—	—	—	female	ch.1	Yan Zhuang's wife; fasted to death after his death; honoured for chastity; Yan Zhongqing's mother	颜庄之妻；绝食殉夫；贞节受表彰；颜仲清之母。
 char-94	许三姐 Xǔ Sānjiě	Third Sister / Sanjie	—	—	female	ch.40	Spirited elder sister of the Xu brothers; masterminds the revenge on Pan San (ch.40); enters service and recognizes her lost brother Zhou Xiaosan (ch.49)	许家三姐，泼辣有谋；第40回设计惩治潘三；第49回入府帮佣，意外与失散之弟周小三相认。
 char-95	玉天仙 Yù Tiānxiān	—	27	—	female	ch.18	Courtesan married by Wei Pincai in ch.50 after he helps revise opera texts	妓女；魏聘才改写剧本后娶其为妻。
-char-96	陆氏夫人（孙家）	Madam Lu / Sun family's Madam Lu / The Sun Madam Lu	39	—	female	ch.6	Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu	孙亮功继室；嫉妒霸道；王家陆夫人之姐。
+char-96	陆氏夫人（孙家）	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Sun family's Madam Lu / The Sun Madam Lu	39	—	female	ch.6	Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu	孙亮功继室；嫉妒霸道；王家陆夫人之姐。
 char-97	沈芸姑 Shěn Yúngū	—	—	—	female	ch.6	Sun Sihui's wife; née Shen; intelligent but miserable in marriage	孙嗣徽之妻；聪明但婚姻不幸。
 char-98	巴来风 Bā Láifēng	—	~17	—	female	ch.6	Sun Siyuan's wife; née Ba; beautiful and fierce; physically overpowers husband on wedding night	孙嗣元之妻；美丽凶悍；新婚之夜制服丈夫。
 char-99	孙大姑娘	—	~29	—	female	ch.6	Sun Lianggong's eldest daughter; prematurely white-haired and long unmarriageable; finally wed to Li Yuanmao with dyed hair in ch.39	孙亮功长女；少白头，久未字人；第39回染发假髻嫁与李元茂。
@@ -96,7 +96,7 @@ char-101	石氏 Shí Shì	—	28	—	female	ch.58	Pan Qiguan's wife, née Shi; h
 char-102	云儿 Yún'ér	—	~12	—	servant	ch.1	Ziyu's personal page; rides on horseback; runs errands and carries messages throughout	子玉的小厮；骑马；负责跑腿传信。
 char-103	俊儿 Jùn'ér	—	~12	—	servant	ch.1	Ziyu's second young page; carries lanterns; also rides on horseback alongside Yun'er	子玉的第二个小厮；打灯笼；也骑马。
 char-104	许顺 Xǔ Shùn	—	—	—	servant	ch.2	Mei household steward and accounts manager; came with Lady Yan from her natal home	梅府管家；随颜夫人从娘家来。
-char-105	许顺妻 Xǔ Shùn qī	—	—	—	servant	ch.3	Xu Shun's wife; works alongside him in household management	许顺之妻；协助管理家务。
+char-105	许顺妻 Xǔ Shùn qī	许顺夫妇	—	—	servant	ch.3	Xu Shun's wife; works alongside him in household management	许顺之妻；协助管理家务。
 char-106	梅进 Méi Jìn	—	—	—	servant	ch.2	Mei household gate attendant; called in to receive and seat guests	梅府门房；负责接待客人。
 char-107	虎儿 Hǔ'ér	—	—	—	servant	ch.8	Household page in the Mei residence; brings messages between rooms	梅府小厮；负责传话。
 char-108	书僮 (×2)	—	—	—	servant	ch.4	Two unnamed study boys; wait outside schoolroom; bring tea during the snow-appreciation gathering	书童；在书房外候着；端茶倒水。
@@ -143,7 +143,7 @@ char-148	孟七 Mèng Qī	—	—	—	servant	ch.44	Xu Ziyun household servant a
 char-149	姚贤 Yáo Xián	—	—	—	servant	ch.44	Outer attendant under Hua Guangsu's side, dispatched in retrieval and pursuit errands around Qinyan's transfer period	华光宿一侧外跟班人物，在琴言去留风波中承担追索差事。
 char-150	吴紫烟 Wú Zǐyān	—	23	—	female	ch.57	Liu Wenze's wife; one of the central ladies in Yuan Qixiang's Chapter 57 women-only drinking-game gathering	刘文泽之妻；第57回袁绮香闺阁酒令局中的核心女性成员之一。
 char-151	蔡某 Cài Mǒu	—	—	—	minor	ch.35	Named suspect in temple theft-related incident chain; appears in the investigation and blame-casting context	寺中失窃事件链条中的具名嫌疑角色，出现在追查与归责语境中。
-char-152	长庆师娘 Chángqìng Shīniáng	—	—	—	female	ch.42	Widow of troupe master Changqing; involved in maintenance-price bargaining and pressure over performer arrangements	长庆亡后相关寡妇角色；在养赡索价与伶人去留博弈中承担关键施压方。
+char-152	长庆师娘 Chángqìng Shīniáng	师娘 / 长庆媳妇	—	—	female	ch.42	Widow of troupe master Changqing; involved in maintenance-price bargaining and pressure over performer arrangements	长庆亡后相关寡妇角色；在养赡索价与伶人去留博弈中承担关键施压方。
 char-153	苏浣香 Sū Huànxiāng	—	21	—	female	ch.5	Hua Guangsu's wife, elder daughter of Marquis Su; celebrated as 'the most beautiful woman in the empire'; presides over the ten pearl-maids; joins the ladies' gathering of ch.57	华光宿之妻，苏侯长女浣香；号称“天下第一美人”，统领十珠婢女；第57回闺阁雅集成员。
 char-154	浣兰 Huànlán	苏小姐 / Miss Su	19	—	female	ch.11	Marquis Su's younger daughter and Su Huanxiang's sister; visits the Hua mansion as 'Miss Su' (ch.11); marries Tian Chunhang (ch.49); youngest of the seven ladies in ch.57	苏侯次女，浣香胞妹；第11回以“苏小姐”造访华府；第49回嫁田春航；第57回闺阁雅集中年龄最小。
 char-155	红雪 Hóng Xuě	Hongxue	—	—	servant	ch.11	Yuan Qixiang's maidservant; active participant in the dice and tongue-twister drinking games (chs.11, 57)	袁绮香的丫鬟；酒令游戏中的活跃参与者（第11、57回）。
