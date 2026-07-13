@@ -66,6 +66,7 @@ import { questions } from "./questions";
 import { QuestionAnswer } from "./QuestionAnswer";
 import worksDataJson from "./worksData.json";
 import {
+  CASE_STRICT_WORK_TITLES_LOWER,
   ENGLISH_WORK_TITLES,
   ENGLISH_WORK_TITLE_SET,
   WORK_ENGLISH_BY_CHINESE,
@@ -408,10 +409,13 @@ export function isWorkAnnotationToken(part: string): boolean {
   if (part === "▉" || part === "□") return false;
   if (/^《[^》\n]+》$/.test(part)) return true;
   if (/^\*(?!\s)[^*]+(?<!\s)\*$/.test(part)) return true;
-  return (
-    ENGLISH_WORK_TITLE_SET.has(part) ||
-    ENGLISH_WORK_TITLE_LOWERCASE.has(part.toLowerCase())
-  );
+  if (ENGLISH_WORK_TITLE_SET.has(part)) return true;
+  const lower = part.toLowerCase();
+  // Generic-word titles ("poetry", "midnight", "crabapple") only count with
+  // exact capitalization; other titles keep case-insensitive matching so
+  // mid-sentence "the Western Chamber" still highlights.
+  if (CASE_STRICT_WORK_TITLES_LOWER.has(lower)) return false;
+  return ENGLISH_WORK_TITLE_LOWERCASE.has(lower);
 }
 
 export function isChineseWorkAnnotationToken(part: string): boolean {
