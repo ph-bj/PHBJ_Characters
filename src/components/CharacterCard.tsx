@@ -38,7 +38,7 @@ export function CharacterCard({
     >
       {character.id === "char-0" && <PlumCorner />}
       <span className="absolute top-4 right-4 text-[9px] sm:text-[10px] font-serif italic opacity-40">
-        {character.chapter}
+        {character.id}
       </span>
 
       <div className="mb-4">
