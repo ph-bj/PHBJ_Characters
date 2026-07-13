@@ -100,22 +100,22 @@ char-105	许顺妻 Xǔ Shùn qī	许顺夫妇	—	—	servant	ch.3	Xu Shun's wif
 char-106	梅进 Méi Jìn	—	—	—	servant	ch.2	Mei household gate attendant; called in to receive and seat guests	梅府门房；负责接待客人。
 char-107	虎儿 Hǔ'ér	—	—	—	servant	ch.8	Household page in the Mei residence; brings messages between rooms	梅府小厮；负责传话。
 char-108	书僮 (×2)	—	—	—	servant	ch.4	Two unnamed study boys; wait outside schoolroom; bring tea during the snow-appreciation gathering	书童；在书房外候着；端茶倒水。
-char-109	仆妇（门上）	—	—	—	servant	ch.2	Doorwoman who brings calling cards from Wei Pincai and Li Yuanmao in to Mei Shixie	门上仆妇；递送名帖。
-char-110	家人媳妇（衣裳）	—	—	—	servant	ch.1	Household woman who fetches Ziyu's fur coat at Lady Yan's instruction	家里的媳妇；负责取衣物。
-char-111	小丫鬟（子玉书房）	—	—	—	servant	ch.7	Maidservant in Ziyu's study; reports that Wang Qionghua scratched out two characters from Ziyu's poem; relays betrothal gossip from Xue'er	子玉书房的小丫鬟；报告王琼华涂诗；传闲话。
+char-109	仆妇（门上）	仆妇	—	—	servant	ch.2	Doorwoman who brings calling cards from Wei Pincai and Li Yuanmao in to Mei Shixie	门上仆妇；递送名帖。
+char-110	家人媳妇（衣裳）	家人媳妇	—	—	servant	ch.1	Household woman who fetches Ziyu's fur coat at Lady Yan's instruction	家里的媳妇；负责取衣物。
+char-111	小丫鬟（子玉书房）	小丫鬟	—	—	servant	ch.7	Maidservant in Ziyu's study; reports that Wang Qionghua scratched out two characters from Ziyu's poem; relays betrothal gossip from Xue'er	子玉书房的小丫鬟；报告王琼华涂诗；传闲话。
 char-112	四儿 Sì'ér	—	—	—	servant	ch.2	Wei Pincai's personal page-boy; carries money; sits on carriage edge; receives tips from Fu Lun	魏聘才的小厮；管钱；坐车沿；收小费。
 char-113	健儿 Jiàn'ér	—	—	—	servant	ch.4	Yan Zhongqing's running-boy messenger; carries letters between the Yan and Mei households	颜仲清的跑腿；在颜梅两家间传信。
 char-114	雪儿 Xuě'ér	—	—	—	servant	ch.7	Wang Qionghua's personal maidservant; gossips about the betrothal arrangement and the jade hairpin incident	王琼华的贴身丫鬟；传关于婚约和玉簪的闲话。
 char-115	松儿 Sōng'ér	—	—	—	servant	ch.6	Originally Shen Yungu's dowry maid; taken as concubine by Sun Sihui; effectively relieves Shen Yungu	沈芸姑的陪嫁丫鬟；被孙嗣徽收为妾。
-char-116	伴送婆（巴家）	—	—	—	servant	ch.6	Bridal escort matron who accompanied Ba Laifeng to the Sun household; mediates the violent wedding night	巴家的送亲婆；调解新婚之夜的冲突。
-char-117	乳母（巴来风）	—	—	—	servant	ch.6	Ba Laifeng's childhood nanny; persuades her to accept the marriage with moral arguments	巴来风的奶妈；劝其接受婚姻。
-char-118	跟班（富家）	—	—	—	servant	ch.3	Fu Lun's neat household attendant; brings tea to Pincai; wears plain silk padded jacket	富府跟班；端茶；穿素绸棉袄。
+char-116	伴送婆（巴家）	伴送婆	—	—	servant	ch.6	Bridal escort matron who accompanied Ba Laifeng to the Sun household; mediates the violent wedding night	巴家的送亲婆；调解新婚之夜的冲突。
+char-117	乳母（巴来风）	乳母 / 奶妈	—	—	servant	ch.6	Ba Laifeng's childhood nanny; persuades her to accept the marriage with moral arguments	巴来风的奶妈；劝其接受婚姻。
+char-118	跟班（富家）	跟班 / 跟班的	—	—	servant	ch.3	Fu Lun's neat household attendant; brings tea to Pincai; wears plain silk padded jacket	富府跟班；端茶；穿素绸棉袄。
 char-119	卢大爷 Lú Dàyé	—	—	—	servant	ch.5	Hua Guangsu's stable and livestock manager; oversees 100+ horses and 70–80 large mules	华府马房总管；管理百余匹马。
-char-120	跟班队（华家，~20–30人）	—	—	—	servant	ch.5	20–30 liveried grooms and mounted escorts who accompany Hua Guangsu on outings	华府跟班队；随华光宿出巡。
+char-120	跟班队（华家，~20–30人）	跟班 / 跟班的	—	—	servant	ch.5	20–30 liveried grooms and mounted escorts who accompany Hua Guangsu on outings	华府跟班队；随华光宿出巡。
 char-121	叶茂林 Yè Màolín	—	50+	Suzhou	servant	ch.2	Impresario who bought and transported the young performers from Suzhou to Beijing by canal boat	班主；将伶人从苏州运往北京。
 char-122	金二 Jīn Èr	—	—	—	servant	ch.3	Head troupe manager (掌班) of the Lianjin troupe; negotiates booking contracts	联锦班掌班；负责签约。
 char-123	老三 Lǎo Sān	—	—	—	servant	ch.3	Restaurant server at the crockery-smashing scene; scolded for not bringing fine enough porcelain	酒楼伙计；因瓷器不够好被骂。
-char-124	掌柜的 Zhǎngguì de	—	—	—	servant	ch.3	Restaurant owner in the crockery-smashing scene; fawns on Xi Shiyi; lectures waiter on porcelain acoustics	酒楼掌柜；讨好奚十一。
+char-124	掌柜的 Zhǎngguì de	掌柜的 / 掌柜	—	—	servant	ch.3	Restaurant owner in the crockery-smashing scene; fawns on Xi Shiyi; lectures waiter on porcelain acoustics	酒楼掌柜；讨好奚十一。
 char-125	梅鼎 Méi Dǐng	—	—	—	deceased	ch.1	Mei Shixie's grandfather; former Minister of Personnel (吏部尚书)	梅士燮之祖父；前吏部尚书。
 char-126	梅羹调 Méi Gēngdiào	—	—	—	deceased	ch.1	Mei Shixie's father; former Grand Secretary (文华殿大学士)	梅士燮之父；前文华殿大学士。
 char-127	颜庄 Yán Zhuāng	—	—	—	deceased	ch.1	Hanlin compiler; Lady Yan's brother; died at 30; Yan Zhongqing's father	翰林编修；颜夫人之弟；30岁去世；颜仲清之父。
@@ -180,7 +180,7 @@ char-185	许老二 Xǔ Lǎoèr	—	—	—	minor	ch.40	Second of the Xu brothers
 char-186	许老三 Xǔ Lǎosān	许贵 / Xu Gui	16	—	servant	ch.40	Handsome young assistant in Pan San's silver shop; later renamed Xu Gui as Tian Chunhang's attendant (ch.47)	潘三银号中的清秀小伙计，年十六；后改名许贵，随田春航为跟班（第47回）。
 char-187	田安 Tián Ān	—	50+	—	servant	ch.12	Tian Chunhang's old family retainer; follows him from Nanjing and keeps his household through the lean years (chs.12–13, 48)	田春航的老家人；随行进京，穷困时仍守在身边（第12–13、48回）。
 char-188	田太夫人 Tián Tàifūrén	—	—	—	female	ch.48	Tian Chunhang's mother; brought to the capital after his success (ch.48); presides over the wedding-season gatherings (ch.52)	田春航之母；第48回被接进京，第52回操持喜庆宴集。
-char-189	缝穷婆 Féngqióng Pó	—	—	—	female	ch.51	The mending-woman outside the theatre wall; her quarrel over pilfered coppers sets off the ch.51 street brawl	戏园墙外的缝穷婆；第51回因铜钱失窃与人争闹，引出隔墙听戏一场风波。`;
+char-189	缝穷婆 Féngqióng Pó	缝穷婆 / 缝穷的	—	—	female	ch.51	The mending-woman outside the theatre wall; her quarrel over pilfered coppers sets off the ch.51 street brawl	戏园墙外的缝穷婆；第51回因铜钱失窃与人争闹，引出隔墙听戏一场风波。`;
 
 const ROLE_MAP: Record<string, string> = {
   scholar: '名士',

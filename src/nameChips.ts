@@ -23,6 +23,18 @@ export const CONTEXT_SENSITIVE_TOKENS = new Set([
   "红莲",
   "明珠",
   "掌珠",
+  "仆妇",
+  "家人媳妇",
+  "小丫鬟",
+  "伴送婆",
+  "乳母",
+  "奶妈",
+  "跟班",
+  "跟班的",
+  "掌柜的",
+  "掌柜",
+  "缝穷婆",
+  "缝穷的",
 ]);
 
 // Chinese tokens that must never chip on their own: they collide with numbers,
@@ -34,16 +46,10 @@ export const NON_CHIP_ZH_TOKENS = new Set([
   "天仙",
   "老三",
   "老二",
-  "掌柜的",
-  "柜的",
   "和尚",
   "妈妈",
   "大夫",
   "穷婆",
-  // 缝穷婆 opens as a plural/generic ("还有那些缝穷婆") and the translation
-  // never gives the ch.51 mending-woman a stable name, so chips would exist
-  // on the Chinese side only.
-  "缝穷婆",
 ]);
 
 // English tokens that must never chip: they collide with historical figures
@@ -114,9 +120,66 @@ export function isPersonNameContext(
   text: string,
   start: number,
   end: number,
+  char?: Character,
 ): boolean {
-  const before = text.slice(Math.max(0, start - 6), start);
-  const after = text.slice(end, end + 8);
+  const token = text.slice(start, end);
+  const beforeFull = text.slice(Math.max(0, start - 15), start);
+  const afterFull = text.slice(end, end + 20);
+
+  if (token === "仆妇" && char?.id === "char-109") {
+    return afterFull.includes("将帖呈上") || (beforeFull.includes("一个") && afterFull.includes("手里拿着"));
+  }
+  if (token === "家人媳妇" && char?.id === "char-110") {
+    return beforeFull.includes("便叫") || afterFull.includes("取出");
+  }
+  if (token === "小丫鬟" && char?.id === "char-111") {
+    return beforeFull.includes("即问") || afterFull.includes("前日太太");
+  }
+  if (token === "伴送婆" && char?.id === "char-116") {
+    return afterFull.includes("家人媳妇") || afterFull.includes("掩了") || beforeFull.includes("被");
+  }
+  if ((token === "乳母" || token === "奶妈") && char?.id === "char-117") {
+    return beforeFull.includes("巴姑娘") || afterFull.includes("大义");
+  }
+  if ((token === "跟班" || token === "跟班的") && char?.id === "char-118") {
+    return beforeFull.includes("一个") || beforeFull.includes("就叫") || beforeFull.includes("交与他") || afterFull.includes("给四百") || afterFull.includes("给看座");
+  }
+  if ((token === "跟班" || token === "跟班的") && char?.id === "char-120") {
+    return beforeFull.includes("二三十匹") || afterFull.includes("把这小顺儿");
+  }
+  if ((token === "掌柜" || token === "掌柜的") && char?.id === "char-124") {
+    return (
+      beforeFull.includes("进了") ||
+      beforeFull.includes("和馆") ||
+      beforeFull.includes("黄") ||
+      beforeFull.includes("老年") ||
+      beforeFull.includes("走进") ||
+      afterFull.includes("都站") ||
+      afterFull.includes("把算") ||
+      afterFull.includes("闹了一") ||
+      afterFull.includes("因不") ||
+      afterFull.includes("不晓") ||
+      afterFull.includes("招呼") ||
+      afterFull.includes("走堂") ||
+      afterFull.includes("忙出") ||
+      afterFull.includes("与掌柜")
+    );
+  }
+  if ((token === "缝穷婆" || token === "缝穷的") && char?.id === "char-189") {
+    return (
+      beforeFull.includes("一个") ||
+      beforeFull.includes("那个") ||
+      afterFull.includes("正伸") ||
+      afterFull.includes("抖着") ||
+      afterFull.includes("出来") ||
+      afterFull.includes("扭着") ||
+      afterFull.includes("实在") ||
+      afterFull.includes("把眼")
+    );
+  }
+
+  const before = beforeFull.slice(-6);
+  const after = afterFull.slice(0, 8);
 
   // Strong noun indicators first: similes ("丽若天仙", "比他为菊花") and
   // numeral + object classifier ("一盆菊花", "两枝红莲")
@@ -322,7 +385,7 @@ export function segmentText(text: string, tokenMap: [string, Character][]): Segm
         // Context-sensitive tokens: only chip if context confirms a person name
         if (
           CONTEXT_SENSITIVE_TOKENS.has(token) &&
-          !isPersonNameContext(text, cursor, afterPos)
+          !isPersonNameContext(text, cursor, afterPos, char)
         )
           continue;
         const previous = segments[segments.length - 1];
