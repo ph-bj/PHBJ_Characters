@@ -16,15 +16,15 @@ export const chapterLacunae: ChapterLacunae[] = [
     lacunae: [
       {
         context: '其演《乔醋》一出，香（□单）红酣，真令潘骑省心醉欲死矣',
-        inference: '晕',
-        confidence: 'probable',
-        note: '「晕单」指淡淡的妆晕，与「红酣」（红润酣畅）成对，描绘演员妆容。',
+        inference: '亸',
+        confidence: 'certain',
+        note: '「香亸红酣」为经典词组，「亸」（繁体「嚲」，指花枝下垂或女子娇态）与「单」字形声相近，此处因印本模糊或字形残缺被错录作「（□单）」。',
       },
       {
         context: '把方才这个保珠比他，做他的舆□，也还不配',
-        inference: '夫',
-        confidence: 'probable',
-        note: '「舆夫」即轿夫，语意为：拿保珠与他相比，即便做他的轿夫也不够格。',
+        inference: '儓',
+        confidence: 'certain',
+        note: '「舆儓」（或作「舆台」）指低贱的仆役、奴隶。',
       },
     ],
   },
