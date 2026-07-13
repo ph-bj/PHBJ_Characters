@@ -1919,14 +1919,7 @@ export default function App() {
                 </button>
               ))}
             </div>
-            <a
-              href="https://zh.wikisource.org/zh-hans/%E5%93%81%E8%8A%B1%E5%AF%B6%E9%91%92"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-1 text-[10px] text-[var(--accent)]/70 hover:text-[var(--accent)] transition-colors underline underline-offset-2"
-            >
-              {lang === "en" ? "Source: Wikisource" : "文本来源：维基文库"}
-            </a>
+            
           </div>
 
           {/* Works Cited */}
