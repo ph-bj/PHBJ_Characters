@@ -35,6 +35,9 @@ export const CONTEXT_SENSITIVE_TOKENS = new Set([
   "掌柜",
   "缝穷婆",
   "缝穷的",
+  "老三",
+  "鼎",
+  "其母",
 ]);
 
 // Chinese tokens that must never chip on their own: they collide with numbers,
@@ -44,7 +47,6 @@ export const CONTEXT_SENSITIVE_TOKENS = new Set([
 export const NON_CHIP_ZH_TOKENS = new Set([
   "十一",
   "天仙",
-  "老三",
   "老二",
   "和尚",
   "妈妈",
@@ -177,6 +179,15 @@ export function isPersonNameContext(
       afterFull.includes("把眼")
     );
   }
+  if (token === "老三" && char?.id === "char-123") {
+    return beforeFull.includes("走堂的道") || beforeFull.includes("老三，你不会伺候");
+  }
+  if (token === "鼎" && char?.id === "char-125") {
+    return beforeFull.includes("其祖名") || afterFull.includes("曾任吏部尚书");
+  }
+  if (token === "其母" && char?.id === "char-131") {
+    return beforeFull.includes("碎琴而卒") || afterFull.includes("一年之后") || afterFull.includes("亦悲痛");
+  }
 
   const before = beforeFull.slice(-6);
   const after = afterFull.slice(0, 8);
@@ -251,7 +262,7 @@ export function getCharacterMentionTokens(character: Character): string[] {
   return sortMentionTokensByLength(
     [...new Set([...baseTokens, ...shortenedYeTokens])].filter(
       (t) =>
-        t.length >= 2 &&
+        (t.length >= 2 || CONTEXT_SENSITIVE_TOKENS.has(t)) &&
         !GENERIC_HONORIFICS.has(t) &&
         !NON_CHIP_ZH_TOKENS.has(t),
     ),
@@ -321,7 +332,7 @@ export function getChineseShortFormTokens(char: Character): string[] {
   }
   return [...new Set([...baseTokens, ...shortenedYeTokens])].filter(
     (t) =>
-      t.length >= 2 &&
+      (t.length >= 2 || CONTEXT_SENSITIVE_TOKENS.has(t)) &&
       t !== chineseName &&
       !GENERIC_HONORIFICS.has(t) &&
       !NON_CHIP_ZH_TOKENS.has(t),

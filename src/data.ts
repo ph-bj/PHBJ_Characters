@@ -116,13 +116,13 @@ char-121	叶茂林 Yè Màolín	—	50+	Suzhou	servant	ch.2	Impresario who bough
 char-122	金二 Jīn Èr	—	—	—	servant	ch.3	Head troupe manager (掌班) of the Lianjin troupe; negotiates booking contracts	联锦班掌班；负责签约。
 char-123	老三 Lǎo Sān	—	—	—	servant	ch.3	Restaurant server at the crockery-smashing scene; scolded for not bringing fine enough porcelain	酒楼伙计；因瓷器不够好被骂。
 char-124	掌柜的 Zhǎngguì de	掌柜的 / 掌柜	—	—	servant	ch.3	Restaurant owner in the crockery-smashing scene; fawns on Xi Shiyi; lectures waiter on porcelain acoustics	酒楼掌柜；讨好奚十一。
-char-125	梅鼎 Méi Dǐng	—	—	—	deceased	ch.1	Mei Shixie's grandfather; former Minister of Personnel (吏部尚书)	梅士燮之祖父；前吏部尚书。
+char-125	梅鼎 Méi Dǐng	鼎	—	—	deceased	ch.1	Mei Shixie's grandfather; former Minister of Personnel (吏部尚书)	梅士燮之祖父；前吏部尚书。
 char-126	梅羹调 Méi Gēngdiào	—	—	—	deceased	ch.1	Mei Shixie's father; former Grand Secretary (文华殿大学士)	梅士燮之父；前文华殿大学士。
 char-127	颜庄 Yán Zhuāng	—	—	—	deceased	ch.1	Hanlin compiler; Lady Yan's brother; died at 30; Yan Zhongqing's father	翰林编修；颜夫人之弟；30岁去世；颜仲清之父。
 char-128	颜尧臣 Yán Yàochén	—	—	—	deceased	ch.1	Left Censor; Lady Yan's father	左都御史；颜夫人之父。
 char-129	富安世 Fù Ānshì	—	—	—	deceased	ch.3	Fu Lun's father; former Jiangnan governor; venerated as a local deity in Nanjing	富伦之父；前江南巡抚；在南京被尊为地方神。
 char-130	杜琴师 Dù Qínshī	—	—	Jiangsu	deceased	ch.5	Qinyan's father; a zither-maker; died of anger after being humiliated by a powerful man	琴言之父；琴师；受辱后气绝身亡。
-char-131	杜母 Dù Mǔ	—	—	Jiangsu	deceased	ch.5	Qinyan's mother; died of grief a year after her husband	琴言之母；夫死后一年忧郁而亡。
+char-131	杜母 Dù Mǔ	其母	—	Jiangsu	deceased	ch.5	Qinyan's mother; died of grief a year after her husband	琴言之母；夫死后一年忧郁而亡。
 char-132	杜族叔 Dù Zúshū	—	—	—	deceased	ch.5	Qinyan's clan uncle who took him in; died when Qinyan was 13	琴言族叔；收留琴言；琴言13岁时去世。
 char-133	魏老仁 Wèi Lǎorén	—	—	—	deceased	ch.2	Wei Pincai's father; a failed litigious scholar; now works in a salt bureau	魏聘才之父；落魄文人；在盐务局工作。
 char-134	刘喜 Liú Xǐ	—	40+	—	servant	ch.55	Loyal longtime attendant to Qu Daosheng; protects and supports Qinxian through illness, theft, funeral rites, and return arrangements	屈道生的老仆；在重病、失窃、丧事与返京过程中始终尽心扶持琴仙。
