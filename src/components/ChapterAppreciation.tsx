@@ -837,7 +837,7 @@ export function ChapterAppreciation({
                       return (
                         <div className="bg-[var(--paper-bg)] border border-[var(--paper-border)] p-2 rounded-sm max-w-[200px] shadow-lg">
                           <p className="font-bold text-[var(--accent)] text-xs mb-1">
-                            {data.stage} (指数: {data.sentiment})
+                            {data.stage} ({lang === "zh" ? "指数" : "Index"}: {data.sentiment})
                           </p>
                           <p className="text-[10px] text-[var(--ink-main)] leading-relaxed">
                             {data.description}
