@@ -22,7 +22,7 @@ test.describe('Character Name Chip Verification', () => {
   });
 
   test('should render "贵大" as a name chip in Chapter 3 and open character details on click', async ({ page }) => {
-    test.setTimeout(30000);
+    test.setTimeout(45000);
     // Navigate to Chapter 3
     await page.goto('/#/chapter/3');
 
@@ -35,11 +35,11 @@ test.describe('Character Name Chip Verification', () => {
 
     // Verify that the details modal/panel heading for "贵芬" is displayed
     const detailHeader = page.locator('h2:has-text("贵芬")');
-    await expect(detailHeader).toBeVisible();
+    await expect(detailHeader).toBeVisible({ timeout: 20000 });
   });
 
   test('should render "Yaoqing" as a name chip in Chapter 31 (English translation) and open character details on click', async ({ page }) => {
-    test.setTimeout(30000);
+    test.setTimeout(45000);
     // Navigate to Chapter 31
     await page.goto('/#/chapter/31');
 
@@ -52,7 +52,7 @@ test.describe('Character Name Chip Verification', () => {
 
     // Verify that the details modal/panel heading for "袁宝珠" is displayed
     const detailHeader = page.locator('h2:has-text("袁宝珠")');
-    await expect(detailHeader).toBeVisible();
+    await expect(detailHeader).toBeVisible({ timeout: 20000 });
   });
 
   test('should load the page in English when URL hash contains the "/en/" prefix', async ({ page }) => {

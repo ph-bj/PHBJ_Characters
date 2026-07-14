@@ -128,13 +128,17 @@ export function ChapterAppreciation({
   const protagonistZh = data.protagonistZh || defaultProtagonist?.zh;
   const protagonistEn = data.protagonistEn || defaultProtagonist?.en;
 
-  const icons: Record<string, React.ReactNode> = {
-    GitBranch: <GitBranch size={18} className="text-[var(--accent)]" />,
-    User: <User size={18} className="text-[var(--accent)]" />,
-    Heart: <Heart size={18} className="text-[var(--accent)]" />,
-    Eye: <Eye size={18} className="text-[var(--accent)]" />,
-    PenTool: <PenTool size={18} className="text-[var(--accent)]" />,
-    MessageSquare: <MessageSquare size={18} className="text-[var(--accent)]" />,
+  const getIcon = (type: string, className: string = "text-current") => {
+    const props = { size: 18, className };
+    switch (type) {
+      case "GitBranch": return <GitBranch {...props} />;
+      case "User": return <User {...props} />;
+      case "Heart": return <Heart {...props} />;
+      case "Eye": return <Eye {...props} />;
+      case "PenTool": return <PenTool {...props} />;
+      case "MessageSquare": return <MessageSquare {...props} />;
+      default: return null;
+    }
   };
 
   const timelineDataLocal = data.timelineData.map(d => ({
@@ -164,8 +168,8 @@ export function ChapterAppreciation({
                   setSelectedFeeling(null);
                 }}
                 className={`px-3 py-1 text-[10px] sm:text-xs font-bold font-hans transition-colors cursor-pointer ${activeTaxonomy === "lords"
-                    ? "bg-[var(--accent)] text-white"
-                    : "bg-[var(--paper-bg)] text-[var(--ink-dim-text)] hover:bg-black/5"
+                    ? "bg-[var(--accent)]/15 text-[var(--accent)]"
+                    : "bg-[var(--paper-bg)]/40 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/5 hover:text-[var(--accent)]"
                   }`}
               >
                 {lang === "zh" ? "名士十情" : "Ten Scholar Feelings"}
@@ -177,8 +181,8 @@ export function ChapterAppreciation({
                   setSelectedFeeling(null);
                 }}
                 className={`px-3 py-1 text-[10px] sm:text-xs font-bold font-hans transition-colors cursor-pointer ${activeTaxonomy === "performers"
-                    ? "bg-[var(--accent)] text-white"
-                    : "bg-[var(--paper-bg)] text-[var(--ink-dim-text)] hover:bg-black/5"
+                    ? "bg-[var(--accent)]/15 text-[var(--accent)]"
+                    : "bg-[var(--paper-bg)]/40 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/5 hover:text-[var(--accent)]"
                   }`}
               >
                 {lang === "zh" ? "优伶十情" : "Ten Actor Feelings"}
@@ -204,7 +208,7 @@ export function ChapterAppreciation({
                     : "flex items-center justify-center p-1 sm:p-2 min-h-[44px] sm:min-h-[56px]"
                 } ${
                   selectedFeeling?.char === item.char
-                    ? "border-[var(--accent)] bg-[var(--accent)] text-white scale-105 shadow-md"
+                    ? "border-[var(--accent)] bg-[var(--accent)]/15 text-[var(--accent)] scale-105 shadow-md"
                     : "border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/40 text-[var(--ink-title)] hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/5 hover:scale-102"
                 }`}
               >
@@ -265,7 +269,7 @@ export function ChapterAppreciation({
           </div>
           <div className="grid gap-3">
             {vis.flows.map(f => (
-              <div key={f.id} className="p-3 border border-l-[3px] border-[var(--paper-border)]/50 border-l-[var(--accent)] bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--paper-border)]/50 hover:border-l-[var(--accent)] transition-all duration-300 shadow-sm">
+              <div key={f.id} className="p-3 border border-l-[3px] border-[var(--paper-border)]/50 border-l-[var(--accent)] bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 hover:border-l-[var(--accent)] transition-all duration-300 shadow-sm">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="font-bold text-[var(--ink-title)]">{lang === "zh" ? f.sourceZh : f.sourceEn}</span>
                   <ArrowRight size={14} className="text-[var(--accent)]" />
@@ -292,7 +296,7 @@ export function ChapterAppreciation({
           </div>
           <div className="grid sm:grid-cols-2 gap-3">
             {vis.spaces.map(s => (
-              <div key={s.id} className="p-3 border border-l-[3px] border-[var(--paper-border)]/50 border-l-[var(--accent)] bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--paper-border)]/50 hover:border-l-[var(--accent)] transition-all duration-300 shadow-sm">
+              <div key={s.id} className="p-3 border border-l-[3px] border-[var(--paper-border)]/50 border-l-[var(--accent)] bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 hover:border-l-[var(--accent)] transition-all duration-300 shadow-sm">
                 <h5 className="font-bold text-[var(--ink-title)] mb-2">{lang === "zh" ? s.locationZh : s.locationEn}</h5>
                 <div className="text-xs space-y-1 text-[var(--ink-dim-text)]">
                   <p><span className="font-bold">{lang === "zh" ? "氛围: " : "Atmosphere: "}</span>{lang === "zh" ? s.atmosphereZh : s.atmosphereEn}</p>
@@ -447,7 +451,7 @@ export function ChapterAppreciation({
           </div>
           <div className="space-y-3">
             {vis.dynamics.map(pd => (
-              <div key={pd.id} className="p-3 border border-l-[3px] border-[var(--paper-border)]/50 border-l-[var(--accent)] bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--paper-border)]/50 hover:border-l-[var(--accent)] transition-all duration-300 shadow-sm">
+              <div key={pd.id} className="p-3 border border-l-[3px] border-[var(--paper-border)]/50 border-l-[var(--accent)] bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 hover:border-l-[var(--accent)] transition-all duration-300 shadow-sm">
                 <div className="flex justify-between items-center mb-2 ml-2">
                   <span className="font-bold font-serif text-lg">{lang === "zh" ? pd.dominatorZh : pd.dominatorEn}</span>
                   <span className="bg-[var(--accent)]/10 text-[var(--accent)] px-1.5 py-0.5 rounded-sm font-sans font-bold text-[9px] uppercase tracking-wider">DOMINANT</span>
@@ -480,8 +484,8 @@ export function ChapterAppreciation({
               <div key={o.id} className="p-4 border border-[var(--paper-border)]/50 rounded-sm bg-gradient-to-br from-[var(--paper-bg)]/40 to-[var(--accent)]/5 hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 transition-all duration-300 shadow-sm">
                 <h5 className="font-bold text-lg text-[var(--accent)] mb-2 font-serif">{lang === "zh" ? o.objectZh : o.objectEn}</h5>
                 <div className="text-xs space-y-2">
-                  <p><span className="font-bold bg-white/50 px-1">外观/场景:</span> {lang === "zh" ? o.appearanceZh : o.appearanceEn}</p>
-                  <p><span className="font-bold bg-white/50 px-1">深层隐喻:</span> {lang === "zh" ? o.meaningZh : o.meaningEn}</p>
+                  <p><span className="font-bold bg-[var(--paper-border)]/40 px-1 rounded-sm">外观/场景:</span> {lang === "zh" ? o.appearanceZh : o.appearanceEn}</p>
+                  <p><span className="font-bold bg-[var(--paper-border)]/40 px-1 rounded-sm">深层隐喻:</span> {lang === "zh" ? o.meaningZh : o.meaningEn}</p>
                 </div>
               </div>
             ))}
@@ -749,7 +753,7 @@ export function ChapterAppreciation({
                 }`}
               >
                 <div className="flex items-start gap-2">
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-white bg-[var(--accent)] px-1.5 py-0.5 rounded-sm shrink-0 mt-0.5 font-hans">
+                  <span className="text-[9px] font-bold uppercase tracking-wider text-[var(--paper-bg)] bg-[var(--accent)] px-1.5 py-0.5 rounded-sm shrink-0 mt-0.5 font-hans">
                     {lang === "zh" ? "抉择" : "CHOICE"}
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-[var(--ink-title)] leading-relaxed font-hans">
@@ -891,7 +895,7 @@ export function ChapterAppreciation({
                   : "border-[var(--paper-border)] bg-[var(--paper-bg)]/40 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/5 hover:text-[var(--accent)]"
                 }`}
             >
-              {icons[dim.iconType]}
+              {getIcon(dim.iconType, "text-current shrink-0")}
               <span className="font-hans">
                 {lang === "zh" ? dim.titleZh : dim.titleEn}
               </span>
@@ -913,7 +917,7 @@ export function ChapterAppreciation({
               >
                 <div className="flex items-center justify-between border-b border-[var(--paper-border)]/20 pb-1">
                   <span className="font-bold text-[var(--accent)] flex items-center gap-1.5">
-                    {icons[dimensions[activeTab].iconType]}
+                    {getIcon(dimensions[activeTab].iconType, "text-[var(--accent)] shrink-0")}
                     {lang === "zh" ? dimensions[activeTab].titleZh : dimensions[activeTab].titleEn}
                   </span>
                   <span className="text-[10px] font-bold text-[var(--ink-dim-text)] opacity-75">
