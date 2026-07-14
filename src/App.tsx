@@ -2127,7 +2127,7 @@ export default function App() {
       </div>
 
       {/* Floating Language Switch */}
-      <div className="fixed bottom-6 left-6 z-40">
+      <div className="fixed bottom-6 left-6 z-[120]">
         <LanguageSwitch
           lang={lang}
           setLang={setLang}
