@@ -132,15 +132,15 @@ export function GardenDetail({
         onClick={(e) => e.stopPropagation()}
         className="relative z-10 w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[var(--paper-border)] my-4 sm:my-0 flex flex-col"
       >
-        <div className="absolute top-4 right-14 sm:top-6 sm:right-16 z-10">
+        <div className="absolute top-4 sm:top-6 right-4 sm:right-6 flex items-center gap-1.5 z-10">
           <PermalinkButton lang={lang} link={{ kind: "garden", id: garden.id }} />
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)]"
+          >
+            <X size={20} />
+          </button>
         </div>
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 hover:bg-black/5 rounded-full transition-colors z-10 text-[var(--ink-title)]"
-        >
-          <X size={20} />
-        </button>
 
         <div
           data-overlay-scroll="true"

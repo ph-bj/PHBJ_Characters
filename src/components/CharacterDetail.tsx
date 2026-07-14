@@ -172,18 +172,18 @@ export function CharacterDetail({
           >
             {character.id}
           </code>
-          <div className="absolute top-3 right-12 sm:top-4 sm:right-14">
+          <div className="absolute top-3 sm:top-4 right-3 sm:right-4 flex items-center gap-1.5 z-10">
             <PermalinkButton
               lang={lang}
               link={{ kind: "character", id: character.id }}
             />
+            <button
+              onClick={onClose}
+              className="p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)]"
+            >
+              <X size={20} />
+            </button>
           </div>
-          <button
-            onClick={onClose}
-            className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)]"
-          >
-            <X size={20} />
-          </button>
         </div>
 
         <div
