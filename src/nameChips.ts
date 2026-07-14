@@ -372,9 +372,16 @@ export function removeTrailingSurname(
     return { text };
   }
 
-  return {
-    text: text.replace(new RegExp(`\\b${pinyinSurname}\\s+$`, "i"), ""),
-  };
+  const match = text.match(new RegExp(`\\b(${pinyinSurname})\\s+$`, "i"));
+  if (match) {
+    const matchedSurname = match[1];
+    return {
+      text: text.slice(0, -match[0].length),
+      chipLabel: matchedSurname + " " + token,
+    };
+  }
+
+  return { text };
 }
 
 export function segmentText(text: string, tokenMap: [string, Character][]): Segment[] {
@@ -430,11 +437,7 @@ export function getSegmentChipLabel(
   showBilingual: boolean,
 ): string {
   if (showBilingual) return seg.char.name;
-  const chineseName = seg.char.name.split(" ")[0];
-  const isChineseToken = /[\u4e00-\u9fff]/.test(seg.token);
-  return isChineseToken
-    ? seg.chipLabel
-    : seg.char.name.slice(chineseName.length).trim();
+  return seg.chipLabel;
 }
 
 export const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {

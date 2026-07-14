@@ -32,4 +32,21 @@ test.describe('Character Name Chip Verification', () => {
     const detailHeader = page.locator('h2:has-text("贵芬")');
     await expect(detailHeader).toBeVisible();
   });
+
+  test('should render "Yaoqing" as a name chip in Chapter 31 (English translation) and open character details on click', async ({ page }) => {
+    // Navigate to Chapter 31
+    await page.goto('/#/chapter/31');
+
+    // Wait for the chapter content to be rendered and locate the inline name chip button for Yaoqing
+    const yaoqingButton = page.locator('button.align-baseline:has-text("Yaoqing")').first();
+    await expect(yaoqingButton).toBeVisible();
+
+    // Click the button to open the character details modal/panel
+    await yaoqingButton.click();
+
+    // Verify that the details modal/panel heading for "袁宝珠" is displayed
+    const detailHeader = page.locator('h2:has-text("袁宝珠")');
+    await expect(detailHeader).toBeVisible();
+  });
 });
+
