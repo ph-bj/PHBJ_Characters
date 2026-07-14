@@ -21,7 +21,7 @@ export function LanguageSwitch({
     if (!isHoveredRef.current) {
       timeoutRef.current = window.setTimeout(() => {
         setIsVisible(false);
-      }, 3000);
+      }, 1000);
     }
   };
 
@@ -80,7 +80,7 @@ export function LanguageSwitch({
           setLang("en");
           resetTimer();
         }}
-        className={`px-4 py-3.5 sm:px-2.5 sm:py-0.7 text-[11px] sm:text-[10px] font-bold uppercase tracking-wider transition-all rounded-sm cursor-pointer ${
+        className={`px-2.5 py-1.5 sm:px-2.5 sm:py-0.7 text-[10px] sm:text-[10px] font-bold uppercase tracking-wider transition-all rounded-sm cursor-pointer ${
           lang === "en"
             ? "bg-[var(--accent)] text-[var(--paper-bg)] shadow-sm"
             : "text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
@@ -94,7 +94,7 @@ export function LanguageSwitch({
           setLang("zh");
           resetTimer();
         }}
-        className={`px-4 py-3.5 sm:px-2.5 sm:py-0.7 text-[11px] sm:text-[10px] font-bold transition-all rounded-sm font-hans cursor-pointer ${
+        className={`px-2.5 py-1.5 sm:px-2.5 sm:py-0.7 text-[10px] sm:text-[10px] font-bold transition-all rounded-sm font-hans cursor-pointer ${
           lang === "zh"
             ? "bg-[var(--accent)] text-[var(--paper-bg)] shadow-sm"
             : "text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
