@@ -727,12 +727,12 @@ export function ChapterReader({
         onClick={(e) => e.stopPropagation()}
         className="relative z-10 w-full max-w-none h-[100dvh] max-h-[100dvh] sm:max-w-5xl md:max-w-6xl sm:h-[90dvh] sm:max-h-[90dvh] parchment rounded-none sm:rounded-sm overflow-hidden shadow-2xl border-0 sm:border-4 border-double border-[var(--paper-border)] flex flex-col"
       >
-        <div className="p-4 sm:p-6 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] space-y-3 shrink-0">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3 min-w-0 flex-1">
-              <PlumIcon className="shrink-0" size={20} />
+        <div className="p-2.5 sm:p-6 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] space-y-2 sm:space-y-3 shrink-0">
+          <div className="flex items-center justify-between gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+              <PlumIcon className="shrink-0 w-[18px] h-[18px] sm:w-[20px] sm:h-[20px]" size={20} />
               <h2
-                className={`text-lg sm:text-xl font-bold text-[var(--ink-title)] line-clamp-2 ${lang === "en" ? "font-sans" : "font-hans"}`}
+                className={`text-base sm:text-xl font-bold text-[var(--ink-title)] line-clamp-2 ${lang === "en" ? "font-sans" : "font-hans"}`}
               >
                 {chapter.id === -1
                   ? (lang === "zh" ? "目录" : "Table of Contents")
@@ -741,12 +741,12 @@ export function ChapterReader({
                   : (lang === "zh" ? `第${chapter.id}回` : `Ch. ${chapter.id}`)}
               </h2>
             </div>
-            <div className="flex items-center gap-1.5 shrink-0">
+            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
               <div className="relative" ref={zhVoicePickerRef}>
                 <button
                   type="button"
                   onClick={() => { setShowZhVoicePicker(p => !p); setShowEnVoicePicker(false); }}
-                  className={`flex items-center gap-1 px-2 py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${
+                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${
                     selectedZhVoiceName
                       ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
                       : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
@@ -805,7 +805,7 @@ export function ChapterReader({
                 <button
                   type="button"
                   onClick={() => { setShowEnVoicePicker(p => !p); setShowZhVoicePicker(false); }}
-                  className={`flex items-center gap-1 px-2 py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${
+                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${
                     selectedEnVoiceName
                       ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
                       : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
@@ -866,14 +866,14 @@ export function ChapterReader({
               />
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)] shrink-0"
+                className="p-1 sm:p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)] shrink-0"
                 aria-label={lang === "zh" ? "关闭" : "Close"}
               >
-                <X size={20} />
+                <X size={18} className="sm:w-[20px] sm:h-[20px]" />
               </button>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <input
               type="text"
               value={chapterSearchInput}
@@ -888,13 +888,13 @@ export function ChapterReader({
                 }
               }}
               placeholder={lang === "zh" ? "搜索本章…" : "Search in chapter…"}
-              className="flex-1 min-w-0 px-3 py-1.5 text-sm bg-[#faf6ee] border border-[var(--paper-border)] rounded-sm text-[var(--ink-title)] placeholder:text-[var(--ink-dim-text)]/70 focus:outline-none focus:ring-1 focus:ring-[var(--accent)]/40 font-hans"
+              className="flex-1 min-w-0 px-2.5 py-1 sm:px-3 sm:py-1.5 text-sm bg-[#faf6ee] border border-[var(--paper-border)] rounded-sm text-[var(--ink-title)] placeholder:text-[var(--ink-dim-text)]/70 focus:outline-none focus:ring-1 focus:ring-[var(--accent)]/40 font-hans"
               aria-label={lang === "zh" ? "搜索本章" : "Search in chapter"}
             />
             <button
               type="button"
               onClick={runChapterSearch}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20 transition-colors shrink-0 text-[11px] font-bold uppercase tracking-wider"
+              className="flex items-center gap-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-sm border border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20 transition-colors shrink-0 text-[11px] font-bold uppercase tracking-wider"
               aria-label={lang === "zh" ? "搜索" : "Search"}
             >
               <Search size={14} />
@@ -907,7 +907,7 @@ export function ChapterReader({
                 type="button"
                 onClick={() => adjustFontScale(-1)}
                 disabled={fontScaleIndex === 0}
-                className="px-2 py-1.5 text-[11px] font-bold font-sans text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
+                className="px-1.5 py-1 sm:px-2 sm:py-1.5 text-[11px] font-bold font-sans text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
                 aria-label={lang === "zh" ? "缩小字号" : "Decrease text size"}
                 title={lang === "zh" ? "缩小字号" : "Decrease text size"}
               >
@@ -918,7 +918,7 @@ export function ChapterReader({
                 type="button"
                 onClick={() => adjustFontScale(1)}
                 disabled={fontScaleIndex === READER_FONT_SCALES.length - 1}
-                className="px-2 py-1.5 text-[11px] font-bold font-sans text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
+                className="px-1.5 py-1 sm:px-2 sm:py-1.5 text-[11px] font-bold font-sans text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
                 aria-label={lang === "zh" ? "放大字号" : "Increase text size"}
                 title={lang === "zh" ? "放大字号" : "Increase text size"}
               >
@@ -936,15 +936,15 @@ export function ChapterReader({
                   }
                 }}
                 title={lang === "zh" ? "跳转至本回赏析" : "Jump to chapter appreciation"}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0"
+                className="flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0"
               >
                 <Sparkles size={12} />
                 <span>{lang === "zh" ? "赏析" : "Appreciation"}</span>
               </button>
             )}
             {chapterSearchQuery.trim() && (
-              <div className="flex items-center gap-1 shrink-0">
-                <span className="text-[10px] tabular-nums text-[var(--ink-dim-text)] font-sans min-w-[2.5rem] text-center">
+              <div className="flex items-center gap-0.5 sm:gap-1 shrink-0">
+                <span className="text-[10px] tabular-nums text-[var(--ink-dim-text)] font-sans min-w-[2rem] sm:min-w-[2.5rem] text-center">
                   {chapterSearchMatchCount > 0
                     ? `${chapterSearchMatchIndex + 1}/${chapterSearchMatchCount}`
                     : lang === "zh"
@@ -955,7 +955,7 @@ export function ChapterReader({
                   type="button"
                   onClick={() => goToAdjacentSearchMatch(-1)}
                   disabled={chapterSearchMatchCount === 0}
-                  className="p-1.5 rounded-sm border border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
+                  className="p-1 sm:p-1.5 rounded-sm border border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
                   aria-label={lang === "zh" ? "上一处" : "Previous match"}
                 >
                   <ChevronUp size={14} />
@@ -964,7 +964,7 @@ export function ChapterReader({
                   type="button"
                   onClick={() => goToAdjacentSearchMatch(1)}
                   disabled={chapterSearchMatchCount === 0}
-                  className="p-1.5 rounded-sm border border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
+                  className="p-1 sm:p-1.5 rounded-sm border border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
                   aria-label={lang === "zh" ? "下一处" : "Next match"}
                 >
                   <ChevronDown size={14} />
