@@ -220,28 +220,7 @@ export function CharacterDetail({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
-            <div className="space-y-1.5">
-              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
-                {t.alias}
-              </p>
-              {character.alias === "—" ? (
-                <p className="text-sm sm:text-base italic text-[var(--ink-title)] font-hans">
-                  —
-                </p>
-              ) : (
-                <div className="flex flex-wrap gap-1">
-                  {character.alias.split(/\s*\/\s*/).map((a, i) => (
-                    <span
-                      key={i}
-                      className="text-[11px] px-2 py-0.5 bg-black/5 text-[var(--ink-dim-text)] italic font-hans rounded-sm border border-[var(--paper-border)]"
-                    >
-                      {a.trim()}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
             <div className="space-y-1">
               <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.origin}
