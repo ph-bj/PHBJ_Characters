@@ -38,6 +38,8 @@ import {
   ChapterVisualizerData
 } from "../appreciationTypes";
 
+
+
 function getProtagonist(chapterId: number): { zh: string; en: string } | null {
   const mapping: Record<number, { zh: string; en: string }> = {
     1: { zh: "梅子玉", en: "Mei Ziyu" },
@@ -190,20 +192,32 @@ export function ChapterAppreciation({
               : "* Click any glyph card to unlock the definition and critique of that specific taxonomy"}
           </p>
 
-          <div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
+          <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
             {currentTaxonomyItems.map((item, idx) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => setSelectedFeeling(item)}
-                className={`flex flex-col items-center justify-center p-2 rounded-sm border transition-all duration-300 cursor-pointer ${
+                className={`rounded-sm border transition-all duration-300 cursor-pointer ${
+                  lang === "zh"
+                    ? "flex flex-col items-center justify-center p-2 min-h-[56px]"
+                    : "flex items-center justify-center p-1 sm:p-2 min-h-[44px] sm:min-h-[56px]"
+                } ${
                   selectedFeeling?.char === item.char
                     ? "border-[var(--accent)] bg-[var(--accent)] text-white scale-105 shadow-md"
                     : "border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/40 text-[var(--ink-title)] hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/5 hover:scale-102"
                 }`}
               >
-                <span className="text-xl sm:text-2xl font-bold font-hans">{item.char}</span>
-                <span className="text-[8px] opacity-75 font-sans mt-0.5">{item.pinyin}</span>
+                <span className={
+                  lang === "zh"
+                    ? "text-xl sm:text-2xl font-bold font-hans"
+                    : "text-[7.5px] min-[360px]:text-[8.5px] min-[400px]:text-[9.5px] sm:text-xs md:text-sm tracking-tighter leading-none font-bold font-sans text-center whitespace-nowrap"
+                }>
+                  {lang === "zh" ? item.char : item.nameEn.replace(/\s+Feeling$/i, "")}
+                </span>
+                {lang === "zh" && (
+                  <span className="text-[8px] opacity-75 font-sans mt-0.5">{item.pinyin}</span>
+                )}
               </button>
             ))}
           </div>
