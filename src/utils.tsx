@@ -769,3 +769,19 @@ export function NavMenuDropdown({
     </>
   );
 }
+
+export const READER_LAST_POSITION_KEY = "phbj-reader-last-position";
+
+export function readLastReadingPosition(): { id: number; top: number } | null {
+  try {
+    const raw = localStorage.getItem(READER_LAST_POSITION_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { id?: unknown; top?: unknown };
+    if (typeof parsed?.id === "number" && typeof parsed?.top === "number") {
+      return { id: parsed.id, top: parsed.top };
+    }
+  } catch {
+    // Ignore unreadable storage; treated as "no saved position".
+  }
+  return null;
+}

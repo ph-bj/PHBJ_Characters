@@ -60,26 +60,13 @@ import { SnowShadowSVG } from "./illustrations/snow/SnowShadowSVG";
 import { SnowSoundSVG } from "./illustrations/snow/SnowSoundSVG";
 import { SnowColorSVG } from "./illustrations/snow/SnowColorSVG";
 
-export const READER_LAST_POSITION_KEY = "phbj-reader-last-position";
+import { READER_LAST_POSITION_KEY, readLastReadingPosition } from "../utils";
 const READER_FONT_SCALE_KEY = "phbj-reader-font-scale";
 const READER_FONT_SCALES = [0.85, 1, 1.15, 1.3, 1.5];
 const DEFAULT_FONT_SCALE_INDEX = 1;
 const READER_ZH_VOICE_KEY = "phbj-reader-zh-voice";
 const READER_EN_VOICE_KEY = "phbj-reader-en-voice";
 
-export function readLastReadingPosition(): { id: number; top: number } | null {
-  try {
-    const raw = localStorage.getItem(READER_LAST_POSITION_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as { id?: unknown; top?: unknown };
-    if (typeof parsed?.id === "number" && typeof parsed?.top === "number") {
-      return { id: parsed.id, top: parsed.top };
-    }
-  } catch {
-    // Ignore unreadable storage; treated as "no saved position".
-  }
-  return null;
-}
 
 function injectParagraphNumber(nodes: React.ReactNode, num: number): React.ReactNode {
   if (nodes === null || nodes === undefined) return nodes;

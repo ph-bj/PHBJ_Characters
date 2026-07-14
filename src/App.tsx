@@ -66,14 +66,14 @@ import {
 import { chapterLacunae } from "./lacunae";
 import { questions } from "./questions";
 import { QuestionAnswer } from "./QuestionAnswer";
-import worksDataJson from "./worksData.json";
+
 import {
   ENGLISH_WORK_TITLES,
   ENGLISH_WORK_TITLE_SET,
   WORK_ENGLISH_BY_CHINESE,
 } from "./englishWorkTitles";
 import type { Character, Chapter } from "./types";
-import NetworkGraph from "./components/NetworkGraph";
+const NetworkGraph = React.lazy(() => import("./components/NetworkGraph"));
 import { parseHash, formatHash, type DeepLink } from "./permalink";
 import {
   categorizeWork,
@@ -82,28 +82,25 @@ import {
 } from "./workCategories";
 import { CiteButton } from "./components/CiteButton";
 
-import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, NavSection } from "./utils";
+import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, NavSection, readLastReadingPosition } from "./utils";
 
 import { LanguageSwitch } from "./components/LanguageSwitch";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { NavMenuDropdown } from "./components/NavMenuDropdown";
-import { LacunaeModal } from "./components/LacunaeModal";
-import { QuestionsModal } from "./components/QuestionsModal";
-import { WorkModal } from "./components/WorkModal";
-import { LocationDetail } from "./components/LocationDetail";
-import {
-  ChapterReader,
-  readLastReadingPosition,
-} from "./components/ChapterReader";
-import { HometownMap } from "./components/HometownMap";
+const LacunaeModal = React.lazy(() => import("./components/LacunaeModal").then(m => ({ default: m.LacunaeModal })));
+const QuestionsModal = React.lazy(() => import("./components/QuestionsModal").then(m => ({ default: m.QuestionsModal })));
+const WorkModal = React.lazy(() => import("./components/WorkModal").then(m => ({ default: m.WorkModal })));
+const LocationDetail = React.lazy(() => import("./components/LocationDetail").then(m => ({ default: m.LocationDetail })));
+const ChapterReader = React.lazy(() => import("./components/ChapterReader").then(m => ({ default: m.ChapterReader })));
+const HometownMap = React.lazy(() => import("./components/HometownMap").then(m => ({ default: m.HometownMap })));
 import { CharacterCard } from "./components/CharacterCard";
-import { CharacterDetail } from "./components/CharacterDetail";
-import { GardenDetail } from "./components/GardenDetail";
-import { GardenStroll } from "./components/illustrations/GardenStroll";
-import { OperaNight } from "./components/illustrations/OperaNight";
-import { PlumBlossomBanquet } from "./components/illustrations/PlumBlossomBanquet";
-import { ScholarStudy } from "./components/illustrations/ScholarStudy";
-import { MainInkLandscape } from "./components/illustrations/MainInkLandscape";
+const CharacterDetail = React.lazy(() => import("./components/CharacterDetail").then(m => ({ default: m.CharacterDetail })));
+const GardenDetail = React.lazy(() => import("./components/GardenDetail").then(m => ({ default: m.GardenDetail })));
+const GardenStroll = React.lazy(() => import("./components/illustrations/GardenStroll").then(m => ({ default: m.GardenStroll })));
+const OperaNight = React.lazy(() => import("./components/illustrations/OperaNight").then(m => ({ default: m.OperaNight })));
+const PlumBlossomBanquet = React.lazy(() => import("./components/illustrations/PlumBlossomBanquet").then(m => ({ default: m.PlumBlossomBanquet })));
+const ScholarStudy = React.lazy(() => import("./components/illustrations/ScholarStudy").then(m => ({ default: m.ScholarStudy })));
+const MainInkLandscape = React.lazy(() => import("./components/illustrations/MainInkLandscape").then(m => ({ default: m.MainInkLandscape })));
 
 export default function App() {
   const tcZPHBJGitHubIoVersion = __BUILD_VERSION__; // handle github.io failures
@@ -974,6 +971,7 @@ export default function App() {
   }, [hasOpenOverlay]);
 
   return (
+    <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center text-[var(--ink-dim-text)] text-sm font-sans tracking-wide">Loading...</div>}>
     <div className="min-h-screen font-sans text-[var(--ink-main)] selection:bg-amber-900/20">
       {/* Header */}
       <div
@@ -2343,5 +2341,6 @@ export default function App() {
         )}
       </AnimatePresence>
     </div>
+    </React.Suspense>
   );
 }
