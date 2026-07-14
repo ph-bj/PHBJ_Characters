@@ -9,7 +9,7 @@ export function LanguageSwitch({
 }) {
   return (
     <div
-      className={`flex bg-black/5 p-0.5 rounded-sm border border-[var(--paper-border)] transition-all ${className}`}
+      className={`flex flex-col sm:flex-row bg-black/5 p-0.5 rounded-sm border border-[var(--paper-border)] transition-all ${className}`}
       role="group"
       aria-label={lang === "zh" ? "语言" : "Language"}
     >
