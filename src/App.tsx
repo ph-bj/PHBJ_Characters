@@ -1030,6 +1030,11 @@ export default function App() {
               </span>
             </button>
           ))}
+          <LanguageSwitch
+            lang={lang}
+            setLang={setLang}
+            className="shrink-0 mx-0.5 sm:mx-1 scale-90 sm:scale-100"
+          />
           <button
             onClick={() => setMobileMenuOpen(true)}
             className="h-8 w-8 sm:h-10 sm:w-10 rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] flex items-center justify-center border border-[var(--accent)] shadow-sm shrink-0 cursor-pointer"
@@ -2127,11 +2132,11 @@ export default function App() {
       </div>
 
       {/* Floating Language Switch */}
-      <div className="fixed right-0 top-1/4 -translate-y-1/2 sm:right-auto sm:top-auto sm:bottom-6 sm:left-6 sm:translate-y-0 z-[120]">
+      <div className="hidden md:block fixed bottom-6 left-6 z-[120]">
         <LanguageSwitch
           lang={lang}
           setLang={setLang}
-          className="parchment shadow-md sm:shadow-lg border border-[var(--paper-border)] border-r-0 rounded-l-sm rounded-r-none sm:border-r sm:rounded-sm"
+          className="parchment shadow-lg border border-[var(--paper-border)] rounded-sm"
         />
       </div>
 
