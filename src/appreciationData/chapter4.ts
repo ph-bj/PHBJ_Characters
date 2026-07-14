@@ -53,7 +53,7 @@ export const chapter4Appreciation: ChapterAppreciationData = {
       "stageEn": "Appreciating Snow Poems",
       "sentiment": 95,
       "descriptionZh": "阅读友人寄来的《雪窗八咏》，诗词之美与知己之情交融，极具审美愉悦。",
-      "descriptionEn": "Reading the 'Eight Verses on the Snow Window' sent by friends. The beauty of poetry and the sentiment of kindred spirits blend into profound aesthetic joy."
+      "descriptionEn": "Reading the 'Eight Odes from the Snow Window' sent by friends. The beauty of poetry and the sentiment of kindred spirits blend into profound aesthetic joy."
     },
     {
       "stageZh": "酒楼奇遇",
@@ -120,7 +120,7 @@ export const chapter4Appreciation: ChapterAppreciationData = {
           "labelZh": "象征与隐喻",
           "labelEn": "Symbolism",
           "textZh": "“雪”在文中不仅是自然景观，更是主人公内心纯洁无瑕、不染世俗尘埃的象征。《雪窗八咏》更是将这份冰雪之操具象化。",
-          "textEn": "'Snow' is not just a natural landscape, but a symbol of the protagonist's flawless, unpolluted inner world. The 'Eight Verses' concrete this pure integrity."
+          "textEn": "'Snow' is not just a natural landscape, but a symbol of the protagonist's flawless, unpolluted inner world. The 'Eight Odes' concrete this pure integrity."
         },
         {
           "labelZh": "作者意图",
@@ -158,7 +158,7 @@ export const chapter4Appreciation: ChapterAppreciationData = {
       "titleEn": "Stylistic Devices",
       "score": 95,
       "textZh": "本章是全书文学性最高峰之一，《雪窗八咏》及结尾的《浪淘沙》展现了作者深厚的古典诗词功底。",
-      "textEn": "This chapter is a literary peak of the novel. The 'Eight Verses on the Snow Window' and the closing 'Langtaosha' showcase the author's profound mastery of classical poetry.",
+      "textEn": "This chapter is a literary peak of the novel. The 'Eight Odes from the Snow Window' and the closing 'Langtaosha' showcase the author's profound mastery of classical poetry.",
       "subsections": [
         {
           "labelZh": "辞章美感",
