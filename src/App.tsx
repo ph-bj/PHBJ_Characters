@@ -778,7 +778,6 @@ export default function App() {
       label: lang === "zh" ? "下载" : "Download",
       icon: Download,
     },
-    { id: "lacunae", label: lang === "zh" ? "缺文" : "Lacunae", icon: Info },
     {
       id: "questions",
       label: lang === "zh" ? "问题" : "Questions",
@@ -1552,52 +1551,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Lacunae Sidebar */}
-          <div
-            id="lacunae"
-            className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24"
-          >
-            <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-4 font-bold border-b border-[var(--paper-border)] pb-2">
-              {lang === "zh" ? "缺文" : "Lacunae"}
-            </h2>
-            <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-4 xl:grid-cols-5 gap-1.5">
-              {lacunaChapterNumbers.map((chapterNumber) =>
-                (() => {
-                  const lacunaCount = lacunaCountByChapter[chapterNumber] ?? 0;
-                  const isDisabled = lacunaCount === 0;
-                  return (
-                    <button
-                      key={chapterNumber}
-                      onClick={
-                        isDisabled
-                          ? undefined
-                          : () => setActiveLacunaChapter(chapterNumber)
-                      }
-                      aria-disabled={isDisabled}
-                      className={`text-center text-[10px] font-bold px-1.5 py-1.5 rounded-sm border transition-colors ${isDisabled
-                        ? "border-[var(--paper-border)]/25 bg-black/5 text-[var(--ink-dim-text)]/45 cursor-default"
-                        : "border-[var(--paper-border)]/40 text-[var(--ink-title)] hover:bg-amber-700/10 hover:border-amber-700/40 cursor-pointer"
-                        }`}
-                      title={
-                        isDisabled
-                          ? `Chapter ${chapterNumber} (no lacunae)`
-                          : `Chapter ${chapterNumber} (${lacunaCount} lacunae)`
-                      }
-                    >
-                      <span className="block leading-tight">
-                        {chapterNumber}
-                      </span>
-                      <span
-                        className={`block text-[9px] font-sans leading-tight ${isDisabled ? "text-[var(--ink-dim-text)]/40" : "text-[var(--accent)]"}`}
-                      >
-                        {lacunaCount}
-                      </span>
-                    </button>
-                  );
-                })(),
-              )}
-            </div>
-          </div>
+
 
           <OperaNight />
 
