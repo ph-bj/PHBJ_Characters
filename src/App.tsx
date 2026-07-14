@@ -2263,6 +2263,7 @@ export default function App() {
             chapter={selectedChapter}
             onClose={() => setSelectedChapter(null)}
             lang={lang}
+            setLang={setLang}
             onSelectCharacter={(character) => setSelectedCharacter(character)}
             onSelectChapter={setSelectedChapter}
             onSelectLacuna={() => setActiveLacunaChapter(selectedChapter.id)}
@@ -2278,6 +2279,7 @@ export default function App() {
             character={selectedCharacter}
             onClose={() => setSelectedCharacter(null)}
             lang={lang}
+            setLang={setLang}
             onSelectChapter={setSelectedChapter}
             elevated={networkGraphFullscreen}
           />

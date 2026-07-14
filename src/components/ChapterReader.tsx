@@ -38,6 +38,7 @@ import {
   workKeyFromAnnotationToken,
 } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
+import { LanguageSwitch } from "./LanguageSwitch";
 import { ChapterScene } from "./illustrations/ChapterScene";
 import { ChapterEndScene } from "./illustrations/ChapterEndScene";
 import { ChapterAppreciation } from "./ChapterAppreciation";
@@ -137,6 +138,7 @@ export function ChapterReader({
   chapter,
   onClose,
   lang,
+  setLang,
   onSelectCharacter,
   onSelectChapter,
   onSelectLacuna,
@@ -145,6 +147,7 @@ export function ChapterReader({
   chapter: Chapter;
   onClose: () => void;
   lang: "en" | "zh";
+  setLang: (lang: "en" | "zh") => void;
   onSelectCharacter: (character: Character) => void;
   onSelectChapter: (chapter: Chapter) => void;
   onSelectLacuna: () => void;
@@ -860,6 +863,7 @@ export function ChapterReader({
                   )}
                 </AnimatePresence>
               </div>
+              <LanguageSwitch lang={lang} setLang={setLang} />
               <PermalinkButton
                 lang={lang}
                 link={{ kind: "chapter", id: chapter.id }}

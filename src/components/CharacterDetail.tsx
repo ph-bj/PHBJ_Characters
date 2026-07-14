@@ -19,17 +19,20 @@ import {
   getCharacterMentionTokens,
 } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
+import { LanguageSwitch } from "./LanguageSwitch";
 
 export function CharacterDetail({
   character,
   onClose,
   lang,
+  setLang,
   onSelectChapter,
   elevated = false,
 }: {
   character: Character;
   onClose: () => void;
   lang: "en" | "zh";
+  setLang: (lang: "en" | "zh") => void;
   onSelectChapter: (chapter: (typeof chapters)[0]) => void;
   elevated?: boolean;
 }) {
@@ -173,6 +176,7 @@ export function CharacterDetail({
             {character.id}
           </code>
           <div className="absolute top-3 sm:top-4 right-3 sm:right-4 flex items-center gap-1.5 z-10">
+            <LanguageSwitch lang={lang} setLang={setLang} />
             <PermalinkButton
               lang={lang}
               link={{ kind: "character", id: character.id }}
