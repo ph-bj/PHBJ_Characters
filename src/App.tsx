@@ -2127,11 +2127,11 @@ export default function App() {
       </div>
 
       {/* Floating Language Switch */}
-      <div className="fixed bottom-6 left-6 z-[120]">
+      <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-[120]">
         <LanguageSwitch
           lang={lang}
           setLang={setLang}
-          className="parchment shadow-lg border border-[var(--paper-border)]"
+          className="parchment shadow-md sm:shadow-lg border border-[var(--paper-border)]"
         />
       </div>
 
