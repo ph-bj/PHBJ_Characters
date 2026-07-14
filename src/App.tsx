@@ -1011,7 +1011,6 @@ export default function App() {
               }}
             />
             <ThemeToggle lang={lang} />
-            <LanguageSwitch lang={lang} setLang={setLang} />
           </div>
         </header>
       </div>
@@ -1033,12 +1032,6 @@ export default function App() {
               </span>
             </button>
           ))}
-          <LanguageSwitch
-            lang={lang}
-            setLang={setLang}
-            compact
-            className="shrink-0 p-0.5"
-          />
           <button
             onClick={() => setMobileMenuOpen(true)}
             className="h-10 w-10 sm:h-12 sm:w-12 rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] flex items-center justify-center border border-[var(--accent)] shadow-sm shrink-0"
@@ -2131,6 +2124,15 @@ export default function App() {
         >
           <ChevronDown size={20} />
         </motion.button>
+      </div>
+
+      {/* Floating Language Switch */}
+      <div className="fixed bottom-6 left-6 z-40">
+        <LanguageSwitch
+          lang={lang}
+          setLang={setLang}
+          className="parchment shadow-lg border border-[var(--paper-border)]"
+        />
       </div>
 
       {/* Mobile Navigation Sheet */}
