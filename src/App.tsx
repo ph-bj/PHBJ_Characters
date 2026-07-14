@@ -1013,29 +1013,29 @@ export default function App() {
         </header>
       </div>
 
-      <div className="md:hidden sticky top-0 z-30 px-2 pb-2 bg-[var(--body-bg)]/95 backdrop-blur-sm border-b border-[var(--paper-border)]/80">
+      <div className="md:hidden sticky top-0 z-30 px-2 py-1 bg-[var(--body-bg)]/95 backdrop-blur-sm border-b border-[var(--paper-border)]/80">
         <nav
-          className="parchment rounded-sm border border-[var(--paper-border)] p-1 sm:p-2 flex items-center gap-1 sm:gap-2 shadow-md"
+          className="parchment rounded-sm border border-[var(--paper-border)] p-0.5 sm:p-1 flex items-center gap-1 sm:gap-2 shadow-md"
           aria-label={lang === "zh" ? "移动导航" : "Mobile navigation"}
         >
           {mobileSections.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
               onClick={() => scrollToSection(id)}
-              className="flex-1 min-w-0 h-11 sm:h-12 rounded-sm flex flex-col items-center justify-center gap-0.5 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/8 hover:text-[var(--accent)] transition-colors"
+              className="flex-1 min-w-0 h-8 sm:h-10 rounded-sm flex flex-col items-center justify-center gap-0.5 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/8 hover:text-[var(--accent)] transition-colors"
             >
-              <Icon size={16} className="sm:w-[18px] sm:h-[18px]" />
-              <span className="text-[7px] sm:text-[10px] font-bold leading-none uppercase tracking-tighter truncate max-w-full">
+              <Icon size={14} className="sm:w-[16px] sm:h-[16px]" />
+              <span className="text-[7px] sm:text-[9px] font-bold leading-none uppercase tracking-tighter truncate max-w-full">
                 {label}
               </span>
             </button>
           ))}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="h-10 w-10 sm:h-12 sm:w-12 rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] flex items-center justify-center border border-[var(--accent)] shadow-sm shrink-0"
+            className="h-8 w-8 sm:h-10 sm:w-10 rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] flex items-center justify-center border border-[var(--accent)] shadow-sm shrink-0 cursor-pointer"
             aria-label={lang === "zh" ? "打开全部菜单" : "Open full menu"}
           >
-            <Menu size={18} />
+            <Menu size={16} />
           </button>
         </nav>
       </div>
