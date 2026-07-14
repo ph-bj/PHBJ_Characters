@@ -517,6 +517,9 @@ export default function App() {
   // --- the right panel when a deep link is pasted or navigated to.
   const applyDeepLink = useCallback(
     (link: DeepLink) => {
+      if (link.lang) {
+        setLang(link.lang);
+      }
       switch (link.kind) {
         case "character": {
           const character = characters.find((c) => c.id === link.id);
@@ -576,14 +579,14 @@ export default function App() {
   // hash reflects the most specific one so "Cite this page" stays accurate.
   const currentDeepLink: DeepLink | null = useMemo(() => {
     // Order mirrors modal stacking (later-rendered modals sit on top).
-    if (selectedQuestion) return { kind: "question", slug: selectedQuestion };
+    if (selectedQuestion) return { kind: "question", slug: selectedQuestion, lang };
     if (activeLacunaChapter !== null)
-      return { kind: "lacunae", chapter: activeLacunaChapter };
-    if (selectedLocation) return { kind: "location", id: selectedLocation.id };
-    if (selectedWork) return { kind: "work", key: selectedWork };
-    if (selectedGarden) return { kind: "garden", id: selectedGarden.id };
-    if (selectedCharacter) return { kind: "character", id: selectedCharacter.id };
-    if (selectedChapter) return { kind: "chapter", id: selectedChapter.id };
+      return { kind: "lacunae", chapter: activeLacunaChapter, lang };
+    if (selectedLocation) return { kind: "location", id: selectedLocation.id, lang };
+    if (selectedWork) return { kind: "work", key: selectedWork, lang };
+    if (selectedGarden) return { kind: "garden", id: selectedGarden.id, lang };
+    if (selectedCharacter) return { kind: "character", id: selectedCharacter.id, lang };
+    if (selectedChapter) return { kind: "chapter", id: selectedChapter.id, lang };
     return null;
   }, [
     selectedCharacter,
@@ -593,6 +596,7 @@ export default function App() {
     selectedQuestion,
     activeLacunaChapter,
     selectedChapter,
+    lang,
   ]);
 
   useEffect(() => {

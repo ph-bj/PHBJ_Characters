@@ -48,5 +48,14 @@ test.describe('Character Name Chip Verification', () => {
     const detailHeader = page.locator('h2:has-text("袁宝珠")');
     await expect(detailHeader).toBeVisible();
   });
+
+  test('should load the page in English when URL hash contains the "/en/" prefix', async ({ page }) => {
+    // Navigate using the English hash route
+    await page.goto('/#/en/chapter/31');
+
+    // Wait for the chapter title heading to be rendered and check for English prefix
+    const englishHeader = page.locator('h2:has-text("Ch. 31")');
+    await expect(englishHeader).toBeVisible();
+  });
 });
 
