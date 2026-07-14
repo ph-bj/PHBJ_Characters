@@ -64,7 +64,7 @@ export function CharacterDetail({
       gender: "性别",
       firstEntry: "首次登场",
       speeches: "发言次数",
-      wordsSpoken: "发言字数",
+      wordsSpoken: "中文发言字数",
       historicalRecord: "历史记录",
       dossier: "档案",
       archives: "皇家档案馆",
