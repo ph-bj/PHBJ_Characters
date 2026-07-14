@@ -1301,28 +1301,6 @@ export default function App() {
                     })}
                   </div>
 
-                  {continueReadingChapter && (
-                    <button
-                      type="button"
-                      onClick={() => setSelectedChapter(continueReadingChapter)}
-                      className="w-full mb-3 flex items-center gap-2 px-2.5 py-2 rounded-sm border border-[var(--accent)]/40 bg-[var(--accent)]/8 hover:bg-[var(--accent)]/15 transition-colors text-left"
-                    >
-                      <BookOpen size={14} className="text-[var(--accent)] shrink-0" />
-                      <span className="min-w-0">
-                        <span className="block text-[8px] uppercase tracking-widest text-[var(--accent)] font-bold">
-                          {lang === "zh" ? "继续阅读" : "Continue reading"}
-                        </span>
-                        <span className="block text-[11px] font-hans text-[var(--ink-title)] truncate">
-                          {continueReadingChapter.id === 0
-                            ? lang === "zh"
-                              ? "序"
-                              : "Preface"
-                            : continueReadingChapter.title}
-                        </span>
-                      </span>
-                    </button>
-                  )}
-
                   {/* Sort controls */}
                   <div className="grid grid-cols-2 gap-1 mb-3">
                     {(
@@ -1827,6 +1805,27 @@ export default function App() {
               </p>
             </div>
             <div className="flex flex-col gap-1.5">
+              {continueReadingChapter && (
+                <button
+                  type="button"
+                  onClick={() => setSelectedChapter(continueReadingChapter)}
+                  className="w-full flex items-center gap-2 px-2.5 py-2 rounded-sm border border-[var(--accent)]/40 bg-[var(--accent)]/8 hover:bg-[var(--accent)]/15 transition-colors text-left mb-1"
+                >
+                  <BookOpen size={14} className="text-[var(--accent)] shrink-0" />
+                  <span className="min-w-0">
+                    <span className="block text-[8px] uppercase tracking-widest text-[var(--accent)] font-bold">
+                      {lang === "zh" ? "继续阅读" : "Continue reading"}
+                    </span>
+                    <span className="block text-[11px] font-hans text-[var(--ink-title)] truncate">
+                      {continueReadingChapter.id === 0
+                        ? lang === "zh"
+                          ? "序"
+                          : "Preface"
+                        : continueReadingChapter.title}
+                    </span>
+                  </span>
+                </button>
+              )}
               <button
                 onClick={() =>
                   setSelectedChapter({
