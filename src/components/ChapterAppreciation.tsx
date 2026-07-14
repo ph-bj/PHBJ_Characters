@@ -166,7 +166,7 @@ export function ChapterAppreciation({
                     : "bg-[var(--paper-bg)] text-[var(--ink-dim-text)] hover:bg-black/5"
                   }`}
               >
-                {lang === "zh" ? "名士十情 (Lords)" : "Ten Scholar Feelings"}
+                {lang === "zh" ? "名士十情" : "Ten Scholar Feelings"}
               </button>
               <button
                 type="button"
@@ -179,15 +179,15 @@ export function ChapterAppreciation({
                     : "bg-[var(--paper-bg)] text-[var(--ink-dim-text)] hover:bg-black/5"
                   }`}
               >
-                {lang === "zh" ? "优伶十情 (Dan)" : "Ten Actor Feelings"}
+                {lang === "zh" ? "优伶十情" : "Ten Actor Feelings"}
               </button>
             </div>
           </div>
 
           <p className="text-[11px] sm:text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
             {lang === "zh"
-              ? "* 点击任意字格，解锁书中十种特定“情”之维度的双语定义与文学意义"
-              : "* Click any glyph card to unlock the bilingual definition and critique of that specific taxonomy"}
+              ? "* 点击任意字格，解锁书中十种特定“情”之维度的定义与文学意义"
+              : "* Click any glyph card to unlock the definition and critique of that specific taxonomy"}
           </p>
 
           <div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
@@ -220,8 +220,7 @@ export function ChapterAppreciation({
                       {lang === "zh" ? selectedFeeling.nameZh : selectedFeeling.nameEn}
                     </h5>
                     <p className="text-[9px] sm:text-[10px] text-[var(--ink-dim-text)] opacity-75 font-sans">
-                      {selectedFeeling.pinyin.toUpperCase()} ·{" "}
-                      {lang === "zh" ? selectedFeeling.nameEn : selectedFeeling.nameZh}
+                      {selectedFeeling.pinyin.toUpperCase()}
                     </p>
                   </div>
                 </div>
