@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { BarChart, Bar, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { BookOpen, Info, MapPin, User, X } from "lucide-react";
+import { BookOpen, Info, MapPin, MessageSquare, Type, User, X } from "lucide-react";
 import { chapters } from "../chapters";
 import { chapterSummaries } from "../chapterSummaries";
 import {
@@ -47,6 +47,8 @@ export function CharacterDetail({
       origin: "Origin",
       gender: "Gender",
       firstEntry: "First Entry",
+      speeches: "Speeches",
+      wordsSpoken: "Words Spoken",
       historicalRecord: "Historical Record",
       dossier: "Dossier",
       archives: "Imperial Archives",
@@ -61,6 +63,8 @@ export function CharacterDetail({
       origin: "籍贯",
       gender: "性别",
       firstEntry: "首次登场",
+      speeches: "发言次数",
+      wordsSpoken: "发言字数",
       historicalRecord: "历史记录",
       dossier: "档案",
       archives: "皇家档案馆",
@@ -216,7 +220,7 @@ export function CharacterDetail({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mb-8 sm:mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
             <div className="space-y-1.5">
               <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.alias}
@@ -279,6 +283,32 @@ export function CharacterDetail({
                   style={{ color: accentColor }}
                 />
                 <span>{character.chapter}</span>
+              </div>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+                {t.speeches}
+              </p>
+              <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+                <MessageSquare
+                  size={14}
+                  className="sm:w-4 sm:h-4 shrink-0"
+                  style={{ color: accentColor }}
+                />
+                <span>{character.speechesCount}</span>
+              </div>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+                {t.wordsSpoken}
+              </p>
+              <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+                <Type
+                  size={14}
+                  className="sm:w-4 sm:h-4 shrink-0"
+                  style={{ color: accentColor }}
+                />
+                <span>{character.speechesCharCount}</span>
               </div>
             </div>
           </div>

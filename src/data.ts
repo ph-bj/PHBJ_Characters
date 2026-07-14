@@ -372,7 +372,9 @@ const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
     description: description?.trim() || '',
     descriptionZh: descriptionZh?.trim() || '',
     gender,
-    genderZh
+    genderZh,
+    speechesCount: 0,
+    speechesCharCount: 0
   };
 });
 

@@ -13,6 +13,8 @@ export interface Character {
   descriptionZh: string;
   gender: string;
   genderZh: string;
+  speechesCount: number;
+  speechesCharCount: number;
 }
 
 export interface Relationship {
