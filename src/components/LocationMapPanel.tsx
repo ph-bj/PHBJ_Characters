@@ -58,7 +58,8 @@ function capitalStarPath(outerRadius: number, innerRatio = 0.42): string {
 
 function formatMapLabel(location: MapLocationData, lang: 'en' | 'zh'): string {
   const name = lang === 'zh' ? (location.originZh || location.origin) : location.origin;
-  const maxLen = lang === 'zh' ? 6 : 12;
+  if (lang === 'en') return name;
+  const maxLen = 6;
   if (name.length <= maxLen) return name;
   return `${name.slice(0, maxLen - 1)}…`;
 }
