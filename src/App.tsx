@@ -1031,6 +1031,7 @@ export default function App() {
               }}
             />
             <ThemeToggle lang={lang} />
+            <LanguageSwitch lang={lang} setLang={setLang} />
           </div>
         </header>
       </div>
@@ -2151,15 +2152,6 @@ export default function App() {
         >
           <ChevronDown size={20} />
         </motion.button>
-      </div>
-
-      {/* Floating Language Switch */}
-      <div className="hidden md:block fixed bottom-6 left-6 z-[120]">
-        <LanguageSwitch
-          lang={lang}
-          setLang={setLang}
-          className="parchment shadow-lg border border-[var(--paper-border)] rounded-sm"
-        />
       </div>
 
       {/* Mobile Navigation Sheet */}
