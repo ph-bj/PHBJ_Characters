@@ -2121,7 +2121,7 @@ export default function App() {
 
         <footer className="max-w-[1800px] mx-auto px-2 sm:px-5 pb-8 text-center">
           <p className="text-xs text-[var(--ink-dim-text)]">
-            Pinhua Baojian / Precious Mirror for Grading Flowers (also known as Yiqing Yishi and Qunhua Baojian) is a 60-chapter novel by Chen Sen of the Qing dynasty. Precious Vibe 品花宝境: Pinhua baojian's Vibe Literature is authored by TengChao Zhou in 2026, with the help of AI technologies, based on the aforementioned book.
+            Pinhua Baojian / Precious Mirror for Grading Flowers is a 60-chapter novel by Chen Sen of the Qing dynasty. Precious Vibe 品花宝境: Pinhua baojian's Vibe Literature is authored by TengChao Zhou in 2026, with the help of AI technologies, based on the aforementioned book.
           </p>
           <div className="mt-3 flex justify-center">
             <CiteButton lang={lang} direction="up" />
