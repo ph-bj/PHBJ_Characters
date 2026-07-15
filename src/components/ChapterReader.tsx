@@ -36,6 +36,7 @@ import {
   segmentText,
   translationMap,
   workKeyFromAnnotationToken,
+  getCharacterNameForLanguage,
 } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
@@ -1051,7 +1052,7 @@ export function ChapterReader({
                       className={`px-2 py-1 text-[11px] rounded-sm border transition-colors font-hans hover:brightness-95 ${ROLE_CHIP_IDLE[character.role] ?? ROLE_CHIP_IDLE.Other
                         }`}
                     >
-                      {character.name}
+                      {getCharacterNameForLanguage(character, lang)}
                     </button>
                   ))}
                 </div>

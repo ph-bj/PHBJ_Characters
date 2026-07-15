@@ -17,6 +17,7 @@ import {
   countMentionsInText,
   findMentionPositionsInText,
   getCharacterMentionTokens,
+  getCharacterNameForLanguage,
 } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
@@ -207,20 +208,21 @@ export function CharacterDetail({
                 {lang === "zh" ? character.roleZh : character.role} {t.dossier}
               </div>
               <h2 className="text-3xl sm:text-5xl font-bold text-[var(--ink-title)] leading-tight">
-                {character.name}
+                {getCharacterNameForLanguage(character, lang)}
               </h2>
-              {character.alias !== "—" && (
-                <div className="flex flex-wrap gap-1.5 mt-2">
-                  {character.alias.split(/\s*\/\s*/).map((a, i) => (
-                    <span
-                      key={i}
-                      className="text-[11px] px-2 py-0.5 bg-black/5 text-[var(--ink-dim-text)] italic font-hans rounded-sm border border-[var(--paper-border)]"
-                    >
-                      {a.trim()}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <div className="flex flex-wrap items-center gap-1.5 mt-2">
+                <span className="text-[11px] px-2 py-0.5 bg-black/5 text-[var(--ink-dim-text)] italic font-hans rounded-sm border border-[var(--paper-border)]">
+                  {lang === "en" ? character.name.split(" ")[0] : character.name.slice(character.name.split(" ")[0].length).trim()}
+                </span>
+                {character.alias !== "—" && character.alias.split(/\s*\/\s*/).map((a, i) => (
+                  <span
+                    key={i}
+                    className="text-[11px] px-2 py-0.5 bg-black/5 text-[var(--ink-dim-text)] italic font-hans rounded-sm border border-[var(--paper-border)]"
+                  >
+                    {a.trim()}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 

@@ -1371,19 +1371,19 @@ export default function App() {
                     </span>
                     <span className="inline-flex items-center gap-1 text-[8px] text-amber-700">
                       <span className="px-1 rounded-sm bg-amber-100 border border-amber-300 font-bold font-sans leading-tight">
-                        令
+                        {lang === "zh" ? "令" : "G"}
                       </span>
                       {lang === "zh" ? "酒令" : "Drinking game"}
                     </span>
                     <span className="inline-flex items-center gap-1 text-[8px] text-sky-700">
                       <span className="px-1 rounded-sm bg-sky-100 border border-sky-300 font-bold font-sans leading-tight">
-                        诗
+                        {lang === "zh" ? "诗" : "P"}
                       </span>
                       {lang === "zh" ? "文字游戏" : "Word game"}
                     </span>
                     <span className="inline-flex items-center gap-1 text-[8px] text-rose-700">
                       <span className="px-1 rounded-sm bg-rose-100 border border-rose-300 font-bold font-sans leading-tight">
-                        艳
+                        {lang === "zh" ? "艳" : "M"}
                       </span>
                       {lang === "zh" ? "成人内容" : "Mature"}
                     </span>
@@ -1422,7 +1422,7 @@ export default function App() {
                                 title={lang === "zh" ? "酒令" : "Drinking game"}
                                 className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm bg-amber-100 text-amber-700 border border-amber-300 leading-tight font-bold font-sans"
                               >
-                                令
+                                {lang === "zh" ? "令" : "G"}
                               </span>
                             )}
                             {c.hasWordGame && (
@@ -1430,7 +1430,7 @@ export default function App() {
                                 title={lang === "zh" ? "文字游戏" : "Word game"}
                                 className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm bg-sky-100 text-sky-700 border border-sky-300 leading-tight font-bold font-sans"
                               >
-                                诗
+                                {lang === "zh" ? "诗" : "P"}
                               </span>
                             )}
                             {c.hasMature && (
@@ -1440,7 +1440,7 @@ export default function App() {
                                 }
                                 className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm bg-rose-100 text-rose-700 border border-rose-300 leading-tight font-bold font-sans"
                               >
-                                艳
+                                {lang === "zh" ? "艳" : "M"}
                               </span>
                             )}
                           </div>
@@ -1823,9 +1823,11 @@ export default function App() {
             </h2>
             <div className="mb-6 space-y-2 pb-4 border-b border-[var(--paper-border)]">
               <p className="text-base font-bold font-hans text-[var(--ink-title)]">
-                品花宝鉴
+                {lang === "zh" ? "品花宝鉴" : "Pinhua Baojian"}
               </p>
-              <p className="text-[11px] font-hans text-[var(--ink-dim-text)]">作者：陈森</p>
+              <p className="text-[11px] font-hans text-[var(--ink-dim-text)]">
+                {lang === "zh" ? "作者：陈森" : "Author: Chen Sen"}
+              </p>
               <p className="text-[11px] font-hans text-[var(--ink-title)] leading-relaxed">
                 {lang === "en"
                   ? "Pinhua Baojian (also known as Yiqing Yishi and Qunhua Baojian) is a 60-chapter novel by Chen Sen of the Qing dynasty, depicting the culture of male entertainers. A native of Changzhou, Chen Sen repeatedly failed the imperial examinations and gave up around age 40. While living in Beijing he frequently associated with performers, gathering material for the novel."
@@ -1850,7 +1852,7 @@ export default function App() {
                           ? lang === "zh"
                             ? "序"
                             : "Preface"
-                          : continueReadingChapter.title}
+                          : (lang === "zh" ? continueReadingChapter.title : (chapterTitleTranslations[continueReadingChapter.id] || continueReadingChapter.title))}
                       </span>
                     </span>
                   </button>
@@ -2083,7 +2085,7 @@ export default function App() {
                       title={ch.title}
                       className="min-w-[1.75rem] px-1.5 py-0.5 text-center text-[9px] rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-colors font-hans font-bold"
                     >
-                      {ch.id === 0 ? "序" : ch.id}
+                      {ch.id === 0 ? (lang === "zh" ? "序" : "Pre") : ch.id}
                     </a>
                   ))}
                 </div>

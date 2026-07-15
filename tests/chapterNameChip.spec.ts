@@ -6,8 +6,8 @@ test.describe('Character Name Chip Verification', () => {
     page.on('console', msg => console.log('BROWSER LOG:', msg.text()));
     page.on('pageerror', err => console.log('BROWSER ERROR:', err.message));
 
-    // Navigate to Chapter 5
-    await page.goto('/#/chapter/5');
+    // Navigate to Chapter 5 (Chinese)
+    await page.goto('/#/zh/chapter/5');
 
     // Wait for the chapter content to be rendered and locate the inline name chip button
     const fuSanButton = page.locator('button.align-baseline:has-text("富三")').first();
@@ -23,8 +23,8 @@ test.describe('Character Name Chip Verification', () => {
 
   test('should render "贵大" as a name chip in Chapter 3 and open character details on click', async ({ page }) => {
     test.setTimeout(45000);
-    // Navigate to Chapter 3
-    await page.goto('/#/chapter/3');
+    // Navigate to Chapter 3 (Chinese)
+    await page.goto('/#/zh/chapter/3');
 
     // Wait for the chapter content to be rendered and locate the inline name chip button
     const guiDaButton = page.locator('button.align-baseline:has-text("贵大")').first();
@@ -40,8 +40,8 @@ test.describe('Character Name Chip Verification', () => {
 
   test('should render "Yaoqing" as a name chip in Chapter 31 (English translation) and open character details on click', async ({ page }) => {
     test.setTimeout(45000);
-    // Navigate to Chapter 31
-    await page.goto('/#/chapter/31');
+    // Navigate to Chapter 31 (English)
+    await page.goto('/#/en/chapter/31');
 
     // Wait for the chapter content to be rendered and locate the inline name chip button for Yaoqing
     const yaoqingButton = page.locator('button.align-baseline:has-text("Yaoqing")').first();
@@ -50,8 +50,8 @@ test.describe('Character Name Chip Verification', () => {
     // Click the button to open the character details modal/panel
     await yaoqingButton.click();
 
-    // Verify that the details modal/panel heading for "袁宝珠" is displayed
-    const detailHeader = page.locator('h2:has-text("袁宝珠")');
+    // Verify that the details modal/panel heading for "Yuán Bǎozhū" is displayed
+    const detailHeader = page.locator('h2:has-text("Yuán Bǎozhū")');
     await expect(detailHeader).toBeVisible({ timeout: 20000 });
   });
 

@@ -5,6 +5,7 @@ import { Character } from '../types';
 import { locationColors, locationTypeLabels, LocationType } from '../locations';
 import geoData from '../assets/countries.geo.json';
 import coordinates from '../assets/coordinates.json';
+import { getCharacterNameForLanguage } from '../utils';
 
 export interface MapLocationData {
   id: string;
@@ -268,7 +269,7 @@ function formatChapterList(chapterIds: number[], lang: 'en' | 'zh') {
 function formatCharacterNames(chars: Character[], lang: 'en' | 'zh') {
   if (chars.length === 0) return '';
   return chars
-    .map((c) => (lang === 'zh' ? c.name.split(' ')[0] : c.name.split(' ')[1] || c.name.split(' ')[0]))
+    .map((c) => getCharacterNameForLanguage(c, lang))
     .join(lang === 'zh' ? '、' : ', ');
 }
 
