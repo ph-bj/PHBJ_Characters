@@ -10,6 +10,7 @@ import {
 } from "../characterAppearances";
 import type { Character } from "../types";
 import {
+  ENGLISH_ALIAS_TOKENS,
   ROLE_ACCENTS,
   ROLE_ICONS,
   ROLE_TEXT_COLORS,
@@ -214,14 +215,22 @@ export function CharacterDetail({
                 <span className="text-[11px] px-2 py-0.5 bg-black/5 text-[var(--ink-dim-text)] italic font-hans rounded-sm border border-[var(--paper-border)]">
                   {lang === "en" ? character.name.split(" ")[0] : character.name.slice(character.name.split(" ")[0].length).trim()}
                 </span>
-                {character.alias !== "—" && character.alias.split(/\s*\/\s*/).map((a, i) => (
-                  <span
-                    key={i}
-                    className="text-[11px] px-2 py-0.5 bg-black/5 text-[var(--ink-dim-text)] italic font-hans rounded-sm border border-[var(--paper-border)]"
-                  >
-                    {a.trim()}
-                  </span>
-                ))}
+                {character.alias !== "—" && character.alias.split(/\s*\/\s*/).map((a, i) => {
+                  const trimmed = a.trim();
+                  const isChinese = !/[A-Za-z]/.test(trimmed);
+                  const engAliases = isChinese ? (ENGLISH_ALIAS_TOKENS[trimmed] || []) : [];
+                  const displayText = engAliases.length > 0
+                    ? `${trimmed} (${engAliases.join(" / ")})`
+                    : trimmed;
+                  return (
+                    <span
+                      key={i}
+                      className="text-[11px] px-2 py-0.5 bg-black/5 text-[var(--ink-dim-text)] italic font-hans rounded-sm border border-[var(--paper-border)]"
+                    >
+                      {displayText}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </div>
