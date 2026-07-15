@@ -19,6 +19,8 @@ import {
   findMentionPositionsInText,
   getCharacterMentionTokens,
   getCharacterNameForLanguage,
+  getEnglishMentionTokens,
+  translationMap,
 } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
@@ -99,8 +101,17 @@ export function CharacterDetail({
     const ch = chapters.find((c) => c.id === activeChapter);
     if (!ch) return null;
 
-    const tokens = getCharacterMentionTokens(character);
-    const positions = findMentionPositionsInText(ch.content, tokens);
+    const isEnglish = lang === "en";
+    const enParas = translationMap[ch.id] ?? [];
+    const text = isEnglish ? enParas.join("\n\n") : ch.content;
+    const tokens = isEnglish
+      ? getEnglishMentionTokens(character)
+      : getCharacterMentionTokens(character);
+
+    const positions = findMentionPositionsInText(text, tokens);
+
+    const contextWindow = isEnglish ? 200 : 80;
+    const clusterMergeDistance = isEnglish ? 400 : 200;
 
     const snippets: string[] = [];
     let clusterStart = -1,
@@ -109,13 +120,13 @@ export function CharacterDetail({
       if (clusterStart === -1) {
         clusterStart = pos;
         clusterEnd = pos;
-      } else if (pos - clusterEnd < 200) {
+      } else if (pos - clusterEnd < clusterMergeDistance) {
         clusterEnd = pos;
       } else {
         snippets.push(
-          ch.content.slice(
-            Math.max(0, clusterStart - 80),
-            Math.min(ch.content.length, clusterEnd + 80),
+          text.slice(
+            Math.max(0, clusterStart - contextWindow),
+            Math.min(text.length, clusterEnd + contextWindow),
           ),
         );
         clusterStart = pos;
@@ -124,9 +135,9 @@ export function CharacterDetail({
     }
     if (clusterStart !== -1) {
       snippets.push(
-        ch.content.slice(
-          Math.max(0, clusterStart - 80),
-          Math.min(ch.content.length, clusterEnd + 80),
+        text.slice(
+          Math.max(0, clusterStart - contextWindow),
+          Math.min(text.length, clusterEnd + contextWindow),
         ),
       );
     }
@@ -135,7 +146,7 @@ export function CharacterDetail({
     const sceneBullets = getCharacterSceneBullets(character.id, activeChapter);
 
     return { sceneBullets, snippets: trimmedSnippets, tokens };
-  }, [activeChapter, character]);
+  }, [activeChapter, character, lang]);
 
   const displaySceneBullets = useMemo(() => {
     if (!activeScenes) return [];
@@ -504,9 +515,9 @@ export function CharacterDetail({
                                   key={i}
                                   className="bg-black/5 rounded-sm px-3 py-2 border-l-2 border-[var(--accent)]/30"
                                 >
-                                  <p className="text-[11px] leading-relaxed text-[var(--ink-title)] font-hans">
-                                    …
-                                    {parts.map((part, j) =>
+                                  <p className={`text-[11px] leading-relaxed text-[var(--ink-title)] ${lang === "zh" ? "font-hans" : "font-sans"}`}>
+                                      …
+                                      {parts.map((part, j) =>
                                       activeScenes.tokens.includes(part) ? (
                                         <mark
                                           key={j}

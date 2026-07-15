@@ -485,6 +485,47 @@ export function isMultiSyllablePinyin(part: string): boolean {
   return (groups?.length ?? 0) >= 2;
 }
 
+/**
+ * Returns English/Pinyin search tokens for a character, suitable for
+ * searching within English translation text. Mirrors the logic used in
+ * buildCharacterTokenMap for the English side, plus fallback names.
+ */
+export function getEnglishMentionTokens(character: Character): string[] {
+  const chineseName = character.name.split(" ")[0];
+  const pinyinPart = character.name.slice(chineseName.length).trim();
+  const enTokens = new Set<string>();
+
+  if (pinyinPart) {
+    const plain = stripDiacritics(pinyinPart);
+    const allParts = plain
+      .split(/\s+/)
+      .filter((p) => /^[a-z'']+$/i.test(p));
+    if (allParts.length >= 2) {
+      enTokens.add(allParts.join(" "));
+      for (const p of allParts.slice(1)) {
+        if (p.length >= 4 && isMultiSyllablePinyin(p)) enTokens.add(p);
+      }
+    } else if (
+      allParts.length === 1 &&
+      allParts[0].length >= 4 &&
+      chineseName.length === 2 &&
+      isMultiSyllablePinyin(allParts[0])
+    ) {
+      enTokens.add(allParts[0]);
+    }
+  }
+
+  for (const alias of getEnglishAliasTokens(character)) enTokens.add(alias);
+
+  if (ENGLISH_CHARACTER_NAME_FALLBACKS[character.id]) {
+    enTokens.add(ENGLISH_CHARACTER_NAME_FALLBACKS[character.id]);
+  }
+
+  return [...enTokens]
+    .filter((t) => !NON_CHIP_EN_TOKENS.has(t))
+    .sort((a, b) => b.length - a.length);
+}
+
 export function buildCharacterTokenMap(
   chars: Character[],
 ): [string, Character][] {
