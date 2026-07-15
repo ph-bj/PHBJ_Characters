@@ -45,10 +45,13 @@ export function CharacterCard({
         <div className="text-xl sm:text-2xl font-bold text-[var(--ink-title)] group-hover:text-[var(--accent)] transition-colors leading-tight">
           {getCharacterNameForLanguage(character, lang)}
         </div>
-        <div className="text-[11px] sm:text-[12px] italic text-[var(--ink-dim-text)] mt-1 font-hans">
-          {lang === "en" ? character.name.split(" ")[0] : character.name.slice(character.name.split(" ")[0].length).trim()}
-          {character.alias !== "—" && ` · ${character.alias}`}
-        </div>
+        {(lang === "en" || character.alias !== "—") && (
+          <div className="text-[11px] sm:text-[12px] italic text-[var(--ink-dim-text)] mt-1 font-hans">
+            {lang === "en" && character.name.split(" ")[0]}
+            {lang === "en" && character.alias !== "—" && " · "}
+            {character.alias !== "—" && character.alias}
+          </div>
+        )}
       </div>
 
       <div>
