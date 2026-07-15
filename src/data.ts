@@ -67,7 +67,7 @@ char-67	侯太史 Hóu Tàishǐ	—	—	—	official	ch.56	Hanlin historian; fei
 char-68	詹事府正詹事庄 Zhuāng	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	詹事府正詹事；春节宴会宾客。
 char-69	左庶子郑 Zhèng	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	左庶子；春节宴会宾客。
 char-70	国子监司业张 Zhāng	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	国子监司业；春节宴会宾客。
-char-71	掌山西道陆 Lù	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	掌山西道；春节宴会宾客。
+char-71	掌山西道陆 Director Lu	Director of the Shanxi Circuit / Censor Lu	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	掌山西道；春节宴会宾客。
 char-72	奚十一 Xī Shíyī	奚正绅 / Xi Eleven / Xi the Eleventh / Lord Xi / Master Xi	~30	Guangdong	villain	ch.3	A violent and wealthy Cantonese merchant known as the 'Smoke-Blackened Grand Duke.' He repeatedly harasses Qinyan, ultimately suffering grotesque karmic retribution.	绰号“烟熏太岁”的广东富商。屡次纠缠迫害琴言，最终在第40及58回遭到惨烈的报应。
 char-73	潘其观 Pān Qíguān	潘三 / 潘三爷 / Pan San / Pan the Third / Pan Laosan	—	—	villain	ch.13	Known as Pan San; keeper of the Qisheng silver bureau and crony of Xi Shiyi. Harasses Su Huifang (chs.13–21) and endures degrading karmic punishments (chs.40, 47, 58).	人称潘三，起盛银号东家，奚十一的帮凶。第13–21回纠缠苏蕙芳，后段（第40、47、58回）屡遭毒打恶疾报应。
 char-74	老王 Lǎo Wáng	—	~60	—	villain	ch.3	Hunchbacked jade-vendor; tries to extort Pincai at the theatre; expelled by Xi Shiyi's men	驼背玉商；在剧场敲诈聘才；被奚十一的人赶走。
