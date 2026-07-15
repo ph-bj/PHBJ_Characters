@@ -79,7 +79,7 @@ char-80	白姨奶奶 Bái Yínǎinai	—	—	—	minor	ch.3	Fu Lun's other quarr
 char-81	阿呆 Ā Dāi	—	—	—	minor	ch.23	Simple-minded victim who is cruelly harmed by Xi Shiyi's men in ch.23	愚笨的受害者；第23回遭奚十一手下残害。
 char-85	王大夫 Wáng Dàfū	—	—	—	minor	ch.4	Doctor who treats Sun Lianggong when the Sun household couple have a fight; mentioned by Sihui in ch.4	医生；在孙亮功夫妇吵架后为其诊治。
 char-86	颜夫人 Yán Fūrén	Lady Yan / Madam Yan	44	Jinling	female	ch.1	Wife of Mei Shixie; moral guardian of the novel; arranges Ziyu's betrothal to Wang Qionghua	梅士燮之妻；小说中的道德守护者；安排子玉与王琼华的婚事。
-char-87	陆氏夫人（王家）	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Wang family's Madam Lu / The Wang Madam Lu	40	—	female	ch.1	Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu	王文辉继室；王恂继母；孙家陆夫人之妹。
+char-87	陆氏夫人（王家） Lù Shì Fūrén	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Wang family's Madam Lu / The Wang Madam Lu	40	—	female	ch.1	Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu	王文辉继室；王恂继母；孙家陆夫人之妹。
 char-88	孙氏 Sūn Shì	Madam Sun	—	—	female	ch.1	Wang Xun's wife; daughter of Sun Lianggong	王恂之妻；孙亮功之女。
 char-89	蓉华 Rónghuá	—	—	—	female	ch.1	Yan Zhongqing's wife; Wang Wenhui's daughter; sister of Wang Qionghua	颜仲清之妻；王文辉之女；王琼华之姐。
 char-90	王琼华 Wáng Qiónghúa	—	16	—	female	ch.1	Wang Wenhui's second daughter; shy; scratches Ziyu's poem; eventually betrothed and married to Ziyu	王文辉次女；害羞；涂抹子玉的诗；最终嫁给子玉。
@@ -87,7 +87,7 @@ char-91	袁夫人 Yuán Fūrén	Mrs. Yuan / Mrs Yuan / Madam Yuan	23	—	female	
 char-92	郑氏 Zhèng Shì	—	—	—	female	ch.1	Yan Zhuang's wife; fasted to death after his death; honoured for chastity; Yan Zhongqing's mother	颜庄之妻；绝食殉夫；贞节受表彰；颜仲清之母。
 char-94	许三姐 Xǔ Sānjiě	Third Sister / Sanjie	—	—	female	ch.40	Spirited elder sister of the Xu brothers; masterminds the revenge on Pan San (ch.40); enters service and recognizes her lost brother Zhou Xiaosan (ch.49)	许家三姐，泼辣有谋；第40回设计惩治潘三；第49回入府帮佣，意外与失散之弟周小三相认。
 char-95	玉天仙 Yù Tiānxiān	—	27	—	female	ch.18	Courtesan married by Wei Pincai in ch.50 after he helps revise opera texts	妓女；魏聘才改写剧本后娶其为妻。
-char-96	陆氏夫人（孙家）	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Sun family's Madam Lu / The Sun Madam Lu	39	—	female	ch.6	Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu	孙亮功继室；嫉妒霸道；王家陆夫人之姐。
+char-96	陆氏夫人（孙家） Lù Shì Fūrén	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Sun family's Madam Lu / The Sun Madam Lu	39	—	female	ch.6	Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu	孙亮功继室；嫉妒霸道；王家陆夫人之姐。
 char-97	沈芸姑 Shěn Yúngū	—	—	—	female	ch.6	Sun Sihui's wife; née Shen; intelligent but miserable in marriage	孙嗣徽之妻；聪明但婚姻不幸。
 char-98	巴来风 Bā Láifēng	—	~17	—	female	ch.6	Sun Siyuan's wife; née Ba; beautiful and fierce; physically overpowers husband on wedding night	孙嗣元之妻；美丽凶悍；新婚之夜制服丈夫。
 char-99	孙大姑娘	—	~29	—	female	ch.6	Sun Lianggong's eldest daughter; prematurely white-haired and long unmarriageable; finally wed to Li Yuanmao with dyed hair in ch.39	孙亮功长女；少白头，久未字人；第39回染发假髻嫁与李元茂。
