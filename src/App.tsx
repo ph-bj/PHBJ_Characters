@@ -121,7 +121,29 @@ export default function App() {
   const [sortBy, setSortBy] = useState<"role" | "appearance" | "mentions">(
     "mentions",
   );
-  const [lang, setLang] = useState<"en" | "zh">("zh");
+  const [lang, setLang] = useState<"en" | "zh">(() => {
+    const parsed = parseHash(window.location.hash);
+    if (parsed && parsed.lang) {
+      return parsed.lang;
+    }
+    try {
+      const saved = localStorage.getItem("phbj-language-choice");
+      if (saved === "en" || saved === "zh") {
+        return saved;
+      }
+    } catch {
+      // Ignore
+    }
+    return "en";
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("phbj-language-choice", lang);
+    } catch {
+      // Ignore
+    }
+  }, [lang]);
   const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(
     null,
   );
