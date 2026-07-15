@@ -53,7 +53,7 @@ export function CharacterDetail({
       gender: "Gender",
       firstEntry: "First Entry",
       speeches: "Speeches",
-      wordsSpoken: "Words Spoken",
+      wordsSpoken: "Chinese Words Spoken",
       historicalRecord: "Historical Record",
       dossier: "Dossier",
       archives: "Imperial Archives",
