@@ -484,8 +484,8 @@ export function ChapterAppreciation({
               <div key={o.id} className="p-4 border border-[var(--paper-border)]/50 rounded-sm bg-gradient-to-br from-[var(--paper-bg)]/40 to-[var(--accent)]/5 hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 transition-all duration-300 shadow-sm">
                 <h5 className="font-bold text-lg text-[var(--accent)] mb-2 font-serif">{lang === "zh" ? o.objectZh : o.objectEn}</h5>
                 <div className="text-xs space-y-2">
-                  <p><span className="font-bold bg-[var(--paper-border)]/40 px-1 rounded-sm">外观/场景:</span> {lang === "zh" ? o.appearanceZh : o.appearanceEn}</p>
-                  <p><span className="font-bold bg-[var(--paper-border)]/40 px-1 rounded-sm">深层隐喻:</span> {lang === "zh" ? o.meaningZh : o.meaningEn}</p>
+                  <p><span className="font-bold bg-[var(--paper-border)]/40 px-1 rounded-sm">{lang === "zh" ? "外观/场景:" : "Appearance/Scene:"}</span> {lang === "zh" ? o.appearanceZh : o.appearanceEn}</p>
+                  <p><span className="font-bold bg-[var(--paper-border)]/40 px-1 rounded-sm">{lang === "zh" ? "深层隐喻:" : "Symbolism:"}</span> {lang === "zh" ? o.meaningZh : o.meaningEn}</p>
                 </div>
               </div>
             ))}
