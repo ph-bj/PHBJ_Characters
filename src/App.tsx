@@ -2119,11 +2119,67 @@ export default function App() {
           </aside>
         </main>
 
-        <footer className="max-w-[1800px] mx-auto px-2 sm:px-5 pb-8 text-center">
-          <p className="text-xs text-[var(--ink-dim-text)]">
-            Pinhua Baojian / Precious Mirror for Grading Flowers is a 60-chapter novel by Chen Sen of the Qing dynasty. Precious Vibe 品花宝境: Pinhua baojian's Vibe Literature is authored by TengChao Zhou in 2026, with the help of AI technologies, based on the aforementioned book.
-          </p>
-          <div className="mt-3 flex justify-center">
+        <footer className="max-w-[1800px] mx-auto px-4 sm:px-8 pb-10 pt-2">
+          {/* Decorative rule */}
+          <div className="flex items-center gap-4 mb-8">
+            <div className="flex-1 border-t border-[var(--paper-border)]" />
+            <span className="text-[var(--accent)] opacity-40 text-[10px] tracking-[0.4em]">✦</span>
+            <div className="flex-1 border-t border-[var(--paper-border)]" />
+          </div>
+
+          <div className="max-w-lg mx-auto text-center space-y-6">
+            {/* Source text */}
+            <div className="space-y-1.5">
+              <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--accent)] font-bold opacity-70">
+                {lang === "zh" ? "原著" : "Source Text"}
+              </p>
+              <p className="text-[11px] text-[var(--ink-dim)] leading-relaxed font-serif">
+                <span className="font-semibold italic">
+                  {lang === "zh"
+                    ? "品花宝鉴"
+                    : "Pinhua Baojian / Precious Mirror for Grading Flowers"}
+                </span>
+              </p>
+
+              <p className="text-[10px] text-[var(--ink-dim-text)] opacity-60 tracking-wide">
+                {lang === "zh"
+                  ? "陈森著 · 清代 · 共六十回"
+                  : "A 60-chapter novel · Chen Sen · Qing dynasty"}
+              </p>
+            </div>
+
+            {/* Dot separator */}
+            <div className="text-[var(--paper-border)] text-[8px] tracking-[0.8em] opacity-60">
+              · · ·
+            </div>
+
+            {/* Project attribution */}
+            <div className="space-y-1.5">
+              <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--accent)] font-bold opacity-70">
+                {lang === "zh" ? "本项目" : "This Project"}
+              </p>
+              <p className="text-[11px] text-[var(--ink-dim)] leading-relaxed">
+                <span className="font-semibold">
+                  {lang === "zh"
+                    ? "品花宝境"
+                    : "Precious Vibe"}
+                </span>
+              </p>
+              <p className="text-[10px] text-[var(--ink-dim-text)] italic opacity-80">
+
+                {lang === "zh"
+                  ? "《品花宝鉴》之意境文学"
+                  : "Pinhua Baojian's Vibe Literature"}
+              </p>
+              <p className="text-[10px] text-[var(--ink-dim-text)] opacity-60 tracking-wide">
+                {lang === "zh"
+                  ? "周腾朝著 · 2026 · 借助AI技术创作"
+                  : "Authored by TengChao Zhou · 2026 · With the help of AI technologies"}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 flex justify-center">
             <CiteButton lang={lang} direction="up" />
           </div>
         </footer>
