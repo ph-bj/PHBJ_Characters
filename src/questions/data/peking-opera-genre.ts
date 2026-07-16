@@ -14,7 +14,7 @@ The novel's elite scholar characters strongly favor Kunqu for its refined lyrics
 
 **Chapter 4:** The contrast between the elegant characters' preference for Kunqu and the vulgarity of Luantan is explicitly discussed:
 > "Rongguan said: 'You are such an elegant person, why don't you like listening to Kunqiang, but instead love listening to Luantan?' The young man laughed and said: 'I am particular about people, not about the play. Rather than having elegant plays but vulgar people, it is better to have elegant people and vulgar plays.'"
-> ("蓉官道：……你这么一个雅人，倒怎么不爱听昆腔，倒爱听乱弹？』那少年笑道：『我是讲究人，不讲究戏，与其戏雅而人俗，不如人雅而戏俗。』")
+> ("蓉官道：……你这么一个雅人，倒怎么不爱听昆腔，倒爱听乱弹？』那少年笑道：「我是讲究人，不讲究戏，与其戏雅而人俗，不如人雅而戏俗。』")
 
 The young man further critiques Kunqu's lack of passionate emotion compared to popular string music:
 > "Listening to the sound of zheng, pipa, and strings, the rapid notes and varied rhythms have abundant lingering charm, which can make people feel impassioned and generous."
@@ -40,7 +40,7 @@ The novel is a crucial document not of Peking Opera, but of the late-stage rever
 ### 小说中的具体段落
 
 **第4回：** 书中明确讨论了雅士对昆腔的偏好与乱弹的通俗性之间的对比：
-> 「蓉官道：『……你这么一个雅人，倒怎么不爱听昆腔，倒爱听乱弹？』那少年笑道：『我是讲究人，不讲究戏，与其戏雅而人俗，不如人雅而戏俗。』」
+> 「蓉官道：「……你这么一个雅人，倒怎么不爱听昆腔，倒爱听乱弹？』那少年笑道：「我是讲究人，不讲究戏，与其戏雅而人俗，不如人雅而戏俗。』」
 
 这位少年进一步批评了昆腔过于平和，不如弦索之声能激发情感：
 > 「听筝琵弦索之声，繁音促节，绰有余情，能使人慷慨激昂」
