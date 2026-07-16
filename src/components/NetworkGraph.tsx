@@ -48,7 +48,7 @@ const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
 };
 
 function getChineseName(fullName: string): string {
-  const match = fullName.match(/^[\u3400-\u9fff（）·・、，。？！《》「」「』“”‘’\s]+/);
+  const match = fullName.match(/^[\u3400-\u9fff（）·・、，。？！《》「」「」“”‘’\s]+/);
   return match ? match[0].trim() : fullName;
 }
 
@@ -576,8 +576,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
               onClick={() => setMode(m)}
               aria-pressed={mode === m}
               className={`px-2 py-1 text-[9px] font-bold uppercase tracking-wider rounded-sm transition-colors touch-manipulation ${mode === m
-                  ? 'bg-[var(--accent)] text-[var(--paper-bg)]'
-                  : 'text-[var(--ink-dim-text)] hover:bg-black/5'
+                ? 'bg-[var(--accent)] text-[var(--paper-bg)]'
+                : 'text-[var(--ink-dim-text)] hover:bg-black/5'
                 }`}
             >
               {m === 'curated'
@@ -598,8 +598,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                 onClick={() => setMinShared(threshold)}
                 aria-pressed={minShared === threshold}
                 className={`px-1.5 py-0.5 text-[9px] font-bold rounded-sm border transition-colors touch-manipulation ${minShared === threshold
-                    ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
-                    : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
+                  ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
+                  : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
                   }`}
               >
                 ≥{threshold}
