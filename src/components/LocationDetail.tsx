@@ -3,21 +3,25 @@ import { motion } from "motion/react";
 import { X } from "lucide-react";
 import { chapters } from "../chapters";
 import { locationTypeLabels } from "../locations";
+import { chapterTranslationsById } from "../chapterTranslations";
 import type { NovelLocationWithChapters } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
+import { LanguageSwitch } from "./LanguageSwitch";
 
 export function LocationDetail({
   location,
   lang,
+  setLang,
   onClose,
 }: {
   location: NovelLocationWithChapters;
   lang: "en" | "zh";
+  setLang: (lang: "en" | "zh") => void;
   onClose: () => void;
 }) {
   const typeLabel = locationTypeLabels[location.type];
   const chapterList = location.chapterIds.join(", ");
-  const tokenList = location.searchTokens.join(" / ");
+
   const locationTokenRegex = useMemo(() => {
     const escaped = [...location.searchTokens]
       .sort((a, b) => b.length - a.length)
@@ -26,6 +30,7 @@ export function LocationDetail({
       ? new RegExp(`(${escaped.join("|")})`, "g")
       : null;
   }, [location.searchTokens]);
+
   const locationMentions = useMemo(() => {
     return location.chapterIds.map((chapterId) => {
       const chapter = chapters.find((item) => item.id === chapterId);
@@ -72,6 +77,124 @@ export function LocationDetail({
     });
   }, [location.chapterIds, location.searchTokens]);
 
+  const englishSearchTokens = useMemo(() => {
+    const tokens: string[] = [];
+
+    // Add nameEn and aliasesEn
+    if (location.nameEn) {
+      tokens.push(location.nameEn);
+    }
+    if (location.aliasesEn?.length) {
+      tokens.push(...location.aliasesEn);
+    }
+
+    // Generate English tokens from Chinese search tokens
+    // Extract surname and add common English descriptors
+    const surnameMap: Record<string, string> = {
+      '华': 'Hua', '梅': 'Mei', '徐': 'Xu', '王': 'Wang', '颜': 'Yan',
+      '孙': 'Sun', '冯': 'Feng', '陆': 'Lu', '沈': 'Shen', '刘': 'Liu',
+      '李': 'Li', '张': 'Zhang', '陈': 'Chen', '杨': 'Yang', '赵': 'Zhao',
+      '周': 'Zhou', '吴': 'Wu', '郑': 'Zheng', '钱': 'Qian', '黄': 'Huang',
+    };
+
+    for (const token of location.searchTokens) {
+      const firstChar = token.charAt(0);
+      const surname = surnameMap[firstChar];
+      if (surname) {
+        // Add common English descriptors for residences/households
+        const descriptors = ['household', 'house', 'residence', 'mansion', 'family', '宅', '府', '家'];
+        for (const desc of descriptors) {
+          const englishToken = `${surname} ${desc}`;
+          if (!tokens.includes(englishToken)) {
+            tokens.push(englishToken);
+          }
+        }
+      }
+    }
+
+    // Add lowercase variants for case-insensitive matching
+    const lowerVariants = tokens
+      .filter(t => !tokens.some(tt => tt.toLowerCase() === t.toLowerCase() && tt !== t))
+      .map(t => t.toLowerCase());
+
+    return [...tokens, ...lowerVariants];
+  }, [location.nameEn, location.aliasesEn, location.searchTokens]);
+
+  const locationTokenRegexEn = useMemo(() => {
+    if (englishSearchTokens.length === 0) return null;
+    const escaped = [...englishSearchTokens]
+      .sort((a, b) => b.length - a.length)
+      .map((token) => token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    return new RegExp(`(${escaped.join("|")})`, "g");
+  }, [englishSearchTokens]);
+
+  const locationMentionsEn = useMemo(() => {
+    if (englishSearchTokens.length === 0) return [];
+
+    return location.chapterIds.map((chapterId) => {
+      const enParagraphs = chapterTranslationsById[chapterId];
+      if (!enParagraphs || enParagraphs.length === 0) {
+        return { chapterId, snippets: [] as string[] };
+      }
+      const enText = enParagraphs.join("\n");
+
+      const positions: Array<{ start: number; end: number }> = [];
+      for (const token of englishSearchTokens) {
+        let pos = 0;
+        while ((pos = enText.indexOf(token, pos)) !== -1) {
+          positions.push({ start: pos, end: pos + token.length });
+          pos += token.length;
+        }
+      }
+      if (positions.length === 0) return { chapterId, snippets: [] as string[] };
+      positions.sort((a, b) => a.start - b.start);
+
+      const snippets: string[] = [];
+      let clusterStart = positions[0].start;
+      let clusterEnd = positions[0].end;
+      for (let i = 1; i < positions.length; i++) {
+        const current = positions[i];
+        if (current.start - clusterEnd <= 120) {
+          clusterEnd = Math.max(clusterEnd, current.end);
+        } else {
+          snippets.push(
+            enText.slice(
+              Math.max(0, clusterStart - 60),
+              Math.min(enText.length, clusterEnd + 60),
+            ),
+          );
+          clusterStart = current.start;
+          clusterEnd = current.end;
+        }
+      }
+      snippets.push(
+        enText.slice(
+          Math.max(0, clusterStart - 60),
+          Math.min(enText.length, clusterEnd + 60),
+        ),
+      );
+
+      return { chapterId, snippets };
+    });
+  }, [location.chapterIds, englishSearchTokens]);
+
+  const chineseNameAndTokens = useMemo(() => {
+    const unique = [...new Set([location.name, ...location.searchTokens])];
+    return unique.join(" / ");
+  }, [location.name, location.searchTokens]);
+
+  const chineseAltNames = useMemo(
+    () => location.searchTokens.filter((t) => t !== location.name),
+    [location.searchTokens, location.name],
+  );
+
+  const englishNameAndTokens = useMemo(() => {
+    const unique = englishSearchTokens.length > 0
+      ? [...new Set(englishSearchTokens)]
+      : [];
+    return unique.join(" / ");
+  }, [englishSearchTokens]);
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -98,7 +221,7 @@ export function LocationDetail({
               {lang === "zh" ? "地点档案" : "Location Profile"}
             </p>
             <h3 className="text-lg font-bold text-[var(--ink-title)] font-hans">
-              {location.name}
+              {lang === "zh" ? location.name : (location.nameEn || location.name)}
             </h3>
           </div>
           <div className="flex items-center gap-1.5 shrink-0">
@@ -106,6 +229,7 @@ export function LocationDetail({
               lang={lang}
               link={{ kind: "location", id: location.id }}
             />
+            <LanguageSwitch lang={lang} setLang={setLang} className="scale-90" />
             <button
               onClick={onClose}
               className="p-2 rounded-full hover:bg-black/5 transition-colors text-[var(--ink-title)]"
@@ -120,12 +244,21 @@ export function LocationDetail({
           data-overlay-scroll="true"
           className="p-5 sm:p-6 overflow-y-auto space-y-4 text-[var(--ink-title)]"
         >
-          <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
-            <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
-              {lang === "zh" ? "英文名" : "English Name"}
-            </p>
-            <p className="text-sm font-sans">{location.nameEn}</p>
-          </div>
+          {lang === "zh" ? (
+            <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
+              <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
+                地名
+              </p>
+              <p className="text-sm font-hans">{chineseNameAndTokens}</p>
+            </div>
+          ) : (
+            <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
+              <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
+                English Name
+              </p>
+              <p className="text-sm font-sans">{englishNameAndTokens}</p>
+            </div>
+          )}
 
           <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
             <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
@@ -134,13 +267,6 @@ export function LocationDetail({
             <p className="text-sm font-hans">
               {lang === "zh" ? typeLabel.zh : typeLabel.en}
             </p>
-          </div>
-
-          <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
-            <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
-              {lang === "zh" ? "检索词" : "Search Tokens"}
-            </p>
-            <p className="text-sm font-hans break-words">{tokenList}</p>
           </div>
 
           <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
@@ -160,7 +286,10 @@ export function LocationDetail({
               {lang === "zh" ? "章节提及与上下文" : "Mentions with Context"}
             </p>
             <div className="space-y-3">
-              {locationMentions.map(({ chapterId, snippets }) => (
+              {(lang === "en" && locationMentionsEn.length > 0
+                ? locationMentionsEn
+                : locationMentions
+              ).map(({ chapterId, snippets }) => (
                 <div
                   key={chapterId}
                   className="border border-[var(--paper-border)]/70 rounded-sm p-2 bg-[var(--paper-bg)]/60"
@@ -182,15 +311,24 @@ export function LocationDetail({
                       {snippets.map((snippet, idx) => (
                         <p
                           key={`${chapterId}-${idx}`}
-                          className="text-[11px] leading-relaxed font-hans text-[var(--ink-title)]"
+                          className={
+                            lang === "zh"
+                              ? "text-[11px] leading-relaxed font-hans text-[var(--ink-title)]"
+                              : "text-[11px] leading-relaxed text-[var(--ink-title)]"
+                          }
                         >
                           …
-                          {(locationTokenRegex
-                            ? snippet.split(locationTokenRegex)
-                            : [snippet]
+                          {(lang === "zh"
+                            ? locationTokenRegex
+                              ? snippet.split(locationTokenRegex)
+                              : [snippet]
+                            : locationTokenRegexEn
+                              ? snippet.split(locationTokenRegexEn)
+                              : [snippet]
                           ).map((part, partIdx) => {
-                            const isMatch =
-                              location.searchTokens.includes(part);
+                            const isMatch = lang === "zh"
+                              ? location.searchTokens.includes(part)
+                              : !!locationTokenRegexEn?.test(part);
                             return isMatch ? (
                               <mark
                                 key={`${chapterId}-${idx}-${partIdx}`}

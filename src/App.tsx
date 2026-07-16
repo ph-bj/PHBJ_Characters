@@ -2393,6 +2393,7 @@ export default function App() {
             <LocationDetail
               location={selectedLocation}
               lang={lang}
+              setLang={setLang}
               onClose={() => setSelectedLocation(null)}
             />
           )}

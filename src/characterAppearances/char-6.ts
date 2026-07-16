@@ -63,16 +63,53 @@ export const char_6Appearances: Record<number, SceneBullet[]> = {
       "zh": "聘才打算搬入华府，李元茂感到失落并试图挽留，但未能如愿。"
     }
   ],
-  "19": [
+    "18": [
     {
-      "en": "Yuanmao moves into his new quarters, expressing dissatisfaction with the small room before taking over Pingcai's former room.",
-      "zh": "李元茂搬入新住处，抱怨原定房间太小，随后霸占了魏聘才原本的房间。"
+      "en": "Li Yuanmao is spotted by Wei Pingcai loitering with Sun Sihui outside a disreputable brothel in the East Garden, hesitating to enter while watching the women.",
+      "zh": "李元茂和孙嗣徽在东园的土窑子外徘徊，被魏聘才撞见。两人色眯眯地盯着门外的妇人，却又不敢进去。"
+    },
+    {
+      "en": "Yuanmao shares a story about being robbed of his father's silver at a theatre entrance, bonding with Sun Sihui over their shared misfortunes with pickpockets.",
+      "zh": "李元茂与孙嗣徽分享了自己曾在戏园门口被偷走父亲十两银子的倒霉经历，两人同病相怜。"
     }
   ],
+  "21": [
+    {
+      "en": "When Wei Pingcai visits Mei Ziyu, who is bedridden and lovesick, Pingcai briefly considers looking for Li Yuanmao but decides to go straight to Qinyan's residence instead.",
+      "zh": "魏聘才探望相思成疾的梅子玉后，本想顺便去找李元茂，但最终决定直接去琴言的住处。"
+    }
+  ],
+  "22": [
+    {
+      "en": "Yuanmao rushes into Ziyu's study early in the morning in a fluster, wanting to discuss something urgently, but is interrupted by a messenger from Xu Ziyun.",
+      "zh": "李元茂一大早慌慌张张地跑进子玉的书房，想找他商量要事，却被徐子云派来的使者打断。"
+    }
+  ],
+  "19": [], // Note: Chapter 19 was incorrectly scaffolded due to false positive keyword matches, Li Yuanmao is not actually mentioned.
   "23": [
     {
-      "en": "Venturing into a disreputable area, Yuanmao is swindled by a woman and stripped of his clothes by local thugs in a highly embarrassing public spectacle.",
-      "zh": "李元茂在东园土窑子遇仙人跳，被流氓剥光衣服，闹出极大的丑闻。"
+      "en": "Yuanmao borrows cash from Ziyu, converts it into paper money for convenience, and tucks it securely into his clothes.",
+      "zh": "李元茂向子玉借了钱，为方便携带将其换成银票，小心翼翼地藏在衣服里。"
+    },
+    {
+      "en": "Lured by local thugs acting as shills, Yuanmao nervously pays to enter a squalid brothel in the East Garden for his very first sexual encounter.",
+      "zh": "在当地流氓的诱骗下，李元茂战战兢兢地交了钱，进入东园的一家简陋妓院，准备体验他的第一次风月之事。"
+    },
+    {
+      "en": "Just as Yuanmao prepares to consummate the act, thugs stage a fake brawl, invading the room and terrifying the participants.",
+      "zh": "正当李元茂准备行事时，流氓们假装打架冲进屋里，吓坏了众人。"
+    },
+    {
+      "en": "In the chaotic staged brawl, Yuanmao is swindled by a woman and stripped completely naked by local thugs in a highly embarrassing public spectacle.",
+      "zh": "在这场混乱的仙人跳中，李元茂被妓女骗了钱，又被流氓剥光衣服，闹出极大的丑闻。"
+    },
+    {
+      "en": "Humiliated, Yuanmao squats naked wrapped in a straw mat until his pageboy brings spare clothes, while the locals openly mock him.",
+      "zh": "李元茂羞愧难当，只能光着身子裹着草席蹲着，直到书童拿来备用衣服，期间遭到当地人的公然嘲笑。"
+    },
+    {
+      "en": "Word of Yuanmao's embarrassing ordeal spreads among his acquaintances, reaching even his future father-in-law, Sun Lianggong.",
+      "zh": "李元茂这件丢人的丑事在他认识的人中间传开了，甚至传到了他未来的岳父孙亮功耳朵里。"
     }
   ],
   "24": [
