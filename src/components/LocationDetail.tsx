@@ -22,6 +22,7 @@ export function LocationDetail({
   const typeLabel = locationTypeLabels[location.type];
   const chapterList = location.chapterIds.join(", ");
   const tokenList = location.searchTokens.join(" / ");
+
   const locationTokenRegex = useMemo(() => {
     const escaped = [...location.searchTokens]
       .sort((a, b) => b.length - a.length)
@@ -30,6 +31,7 @@ export function LocationDetail({
       ? new RegExp(`(${escaped.join("|")})`, "g")
       : null;
   }, [location.searchTokens]);
+
   const locationMentions = useMemo(() => {
     return location.chapterIds.map((chapterId) => {
       const chapter = chapters.find((item) => item.id === chapterId);
@@ -263,7 +265,7 @@ export function LocationDetail({
                           ).map((part, partIdx) => {
                             const isMatch = lang === "zh"
                               ? location.searchTokens.includes(part)
-                              : part === location.nameEn;
+                              : !!locationTokenRegexEn?.test(part);
                             return isMatch ? (
                               <mark
                                 key={`${chapterId}-${idx}-${partIdx}`}
