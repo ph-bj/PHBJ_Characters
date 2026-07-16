@@ -203,6 +203,11 @@ export const Chapter9Para11LanternMarket: React.FC = () => {
           <line x1="232" y1="272" x2="227" y2="296" stroke="#2c2420" strokeWidth="1.2" />
           {/* Chest */}
           <path d="M213 276 Q217 279, 220 277 Q223 279, 227 276" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+          {/* Abs */}
+          <line x1="220" y1="280" x2="220" y2="295" stroke="#2c2420" strokeWidth="0.5" />
+          <path d="M215 284 Q220 285, 225 284" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+          <path d="M215 288 Q220 289, 225 288" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+          <path d="M216 292 Q220 293, 224 292" fill="none" stroke="#2c2420" strokeWidth="0.4" />
           {/* Waist */}
           <path d="M213 296 Q220 299, 227 296" fill="none" stroke="#2c2420" strokeWidth="0.8" />
           {/* Left arm extended outward, gesturing */}
@@ -228,6 +233,11 @@ export const Chapter9Para11LanternMarket: React.FC = () => {
           <line x1="164" y1="275" x2="168" y2="297" stroke="#2c2420" strokeWidth="1.1" />
           <line x1="186" y1="275" x2="182" y2="297" stroke="#2c2420" strokeWidth="1.1" />
           <path d="M168 279 Q172 282, 175 280 Q178 282, 182 279" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+          {/* Abs */}
+          <line x1="175" y1="284" x2="175" y2="296" stroke="#2c2420" strokeWidth="0.5" />
+          <path d="M170 288 Q175 289, 180 288" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+          <path d="M170 292 Q175 293, 180 292" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+          <path d="M171 296 Q175 297, 179 296" fill="none" stroke="#2c2420" strokeWidth="0.4" />
           <path d="M168 297 Q175 300, 182 297" fill="none" stroke="#2c2420" strokeWidth="0.7" />
           {/* Left arm relaxed */}
           <path d="M164 275 Q158 282, 156 290" fill="none" stroke="#2c2420" strokeWidth="1" />
@@ -249,6 +259,11 @@ export const Chapter9Para11LanternMarket: React.FC = () => {
           <line x1="229" y1="262" x2="232" y2="284" stroke="#2c2420" strokeWidth="1" />
           <line x1="247" y1="262" x2="244" y2="284" stroke="#2c2420" strokeWidth="1" />
           <path d="M232 266 Q236 269, 238 267 Q240 269, 244 266" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+          {/* Abs */}
+          <line x1="238" y1="270" x2="238" y2="283" stroke="#2c2420" strokeWidth="0.5" />
+          <path d="M233 274 Q238 275, 243 274" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+          <path d="M233 278 Q238 279, 243 278" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+          <path d="M234 282 Q238 283, 242 282" fill="none" stroke="#2c2420" strokeWidth="0.4" />
           <path d="M232 284 Q238 286, 244 284" fill="none" stroke="#2c2420" strokeWidth="0.7" />
           {/* Left arm pointing toward Wang Xun */}
           <path d="M229 262 Q218 266, 210 270" fill="none" stroke="#2c2420" strokeWidth="0.9" />
@@ -271,6 +286,11 @@ export const Chapter9Para11LanternMarket: React.FC = () => {
           <line x1="268" y1="269" x2="272" y2="293" stroke="#2c2420" strokeWidth="1.2" />
           <line x1="292" y1="269" x2="288" y2="293" stroke="#2c2420" strokeWidth="1.2" />
           <path d="M272 273 Q276 276, 280 274 Q284 276, 288 273" fill="none" stroke="#2c2420" strokeWidth="0.7" />
+          {/* Abs */}
+          <line x1="280" y1="277" x2="280" y2="292" stroke="#2c2420" strokeWidth="0.5" />
+          <path d="M275 281 Q280 282, 285 281" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+          <path d="M275 285 Q280 286, 285 285" fill="none" stroke="#2c2420" strokeWidth="0.4" />
+          <path d="M276 289 Q280 290, 284 289" fill="none" stroke="#2c2420" strokeWidth="0.4" />
           <path d="M272 293 Q280 296, 288 293" fill="none" stroke="#2c2420" strokeWidth="0.8" />
           {/* Left arm raised toward lantern */}
           <path d="M268 269 Q258 262, 248 256 Q242 252, 238 248" fill="none" stroke="#2c2420" strokeWidth="1.1" />
