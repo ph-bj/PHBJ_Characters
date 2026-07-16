@@ -11,6 +11,7 @@ export interface NovelLocation {
   type: LocationType;
   typeZh: string;
   searchTokens: string[];
+  aliasesEn?: string[];
 }
 
 export const locationTypeOrder: LocationType[] = [
@@ -30,8 +31,8 @@ export const locationTypeLabels: Record<LocationType, { en: string; zh: string }
 export const novelLocations: NovelLocation[] = [
   // —— Places & origins (provinces, cities, counties, broad regions) ——
   { id: 'region-jiangnan', name: '江南', nameEn: 'Jiangnan', type: 'place', typeZh: '地方', searchTokens: ['江南'] },
-  { id: 'region-capital', name: '京师 / 京城', nameEn: 'Capital (Beijing)', type: 'place', typeZh: '地方', searchTokens: ['京师', '京城', '京中', '都中'] },
-  { id: 'region-south-city', name: '南城', nameEn: 'Southern City (Beijing)', type: 'place', typeZh: '地方', searchTokens: ['南城'] },
+  { id: 'region-capital', name: '京师 / 京城', nameEn: 'Capital (Beijing)', type: 'place', typeZh: '地方', searchTokens: ['京师', '京城', '京中', '都中'], aliasesEn: ['Capital', 'Capital City'] },
+  { id: 'region-south-city', name: '南城', nameEn: 'Southern City (Beijing)', type: 'place', typeZh: '地方', searchTokens: ['南城'], aliasesEn: ['Southern City'] },
   { id: 'province-zhejiang', name: '浙江', nameEn: 'Zhejiang', type: 'place', typeZh: '地方', searchTokens: ['浙江'] },
   { id: 'province-huguang', name: '湖广', nameEn: 'Huguang', type: 'place', typeZh: '地方', searchTokens: ['湖广'] },
   { id: 'province-guangdong', name: '广东', nameEn: 'Guangdong', type: 'place', typeZh: '地方', searchTokens: ['广东'] },
@@ -61,8 +62,8 @@ export const novelLocations: NovelLocation[] = [
   // —— Gardens & spots within them (mostly Beijing) ——
   { id: 'garden-yiyuan', name: '怡园', nameEn: 'Yiyuan / Garden of Contentment', type: 'garden', typeZh: '园林', searchTokens: ['怡园'] },
   { id: 'garden-jinchun', name: '锦春园', nameEn: 'Jinchun Garden', type: 'garden', typeZh: '园林', searchTokens: ['锦春园'] },
-  { id: 'garden-west', name: '西园', nameEn: 'West Garden (Hua mansion)', type: 'garden', typeZh: '园林', searchTokens: ['西园'] },
-  { id: 'garden-east', name: '东园', nameEn: 'East Garden', type: 'garden', typeZh: '园林', searchTokens: ['东园'] },
+  { id: 'garden-west', name: '西园', nameEn: 'West Garden (Hua mansion)', type: 'garden', typeZh: '园林', searchTokens: ['西园'], aliasesEn: ['West Garden'] },
+  { id: 'garden-east', name: '东园', nameEn: 'East Garden', type: 'garden', typeZh: '园林', searchTokens: ['东园'], aliasesEn: ['East Garden'] },
   { id: 'garden-duxiang', name: '度香园', nameEn: 'Duxiang Garden', type: 'garden', typeZh: '园林', searchTokens: ['度香园'] },
   { id: 'garden-liang', name: '梁园', nameEn: 'Liang Garden', type: 'garden', typeZh: '园林', searchTokens: ['梁园'] },
   { id: 'garden-sanle', name: '三乐园', nameEn: 'Three Joys Garden', type: 'garden', typeZh: '园林', searchTokens: ['三乐园'] },
@@ -75,7 +76,7 @@ export const novelLocations: NovelLocation[] = [
   { id: 'feature-hanwanlou', name: '含万楼', nameEn: 'Tower of Ten Thousand', type: 'garden', typeZh: '园林', searchTokens: ['含万楼'] },
   { id: 'feature-cishulou', name: '赐书楼', nameEn: 'Tower of Gifted Books', type: 'garden', typeZh: '园林', searchTokens: ['赐书楼'] },
   { id: 'feature-liuxian', name: '留仙院', nameEn: 'Fairy-Detaining Courtyard', type: 'garden', typeZh: '园林', searchTokens: ['留仙院'] },
-  { id: 'feature-haitang', name: '海棠春圃', nameEn: 'Crabapple Spring Garden', type: 'garden', typeZh: '园林', searchTokens: ['海棠春圃', '海棠圃'] },
+  { id: 'feature-haitang', name: '海棠春圃', nameEn: 'Crabapple Spring Garden', type: 'garden', typeZh: '园林', searchTokens: ['海棠春圃', '海棠圃'], aliasesEn: ['Crabapple Spring Garden', 'Crabapple Garden'] },
   { id: 'feature-hongcha', name: '红茶仙馆', nameEn: 'Red Tea Immortal Pavilion', type: 'garden', typeZh: '园林', searchTokens: ['红茶仙馆'] },
   { id: 'feature-ruizhu', name: '蕊珠仙府', nameEn: 'Palace of the Petal Immortal', type: 'garden', typeZh: '园林', searchTokens: ['蕊珠仙府'] },
   { id: 'feature-qingliang', name: '清凉诗境', nameEn: 'Cool Poetic Realm', type: 'garden', typeZh: '园林', searchTokens: ['清凉诗境'] },
@@ -83,8 +84,8 @@ export const novelLocations: NovelLocation[] = [
   { id: 'feature-mudan', name: '牡丹香国', nameEn: 'Kingdom of Peony Fragrance', type: 'garden', typeZh: '园林', searchTokens: ['牡丹香国'] },
   { id: 'feature-mudantai', name: '牡丹台', nameEn: 'Peony Terrace', type: 'garden', typeZh: '园林', searchTokens: ['牡丹台'] },
   { id: 'feature-shaoyao', name: '芍药圃', nameEn: 'Peony Garden', type: 'garden', typeZh: '园林', searchTokens: ['芍药圃'] },
-  { id: 'feature-lihuayuan', name: '梨花院', nameEn: 'Pear-Blossom Court', type: 'garden', typeZh: '园林', searchTokens: ['梨花院', '梨院'] },
-  { id: 'feature-liuqing', name: '留青精舍', nameEn: 'Quiet-Green Lodge', type: 'garden', typeZh: '园林', searchTokens: ['留青精舍', '留青舍'] },
+  { id: 'feature-lihuayuan', name: '梨花院', nameEn: 'Pear-Blossom Court', type: 'garden', typeZh: '园林', searchTokens: ['梨花院', '梨院'], aliasesEn: ['Pear Blossom Court', 'Pear Court'] },
+  { id: 'feature-liuqing', name: '留青精舍', nameEn: 'Quiet-Green Lodge', type: 'garden', typeZh: '园林', searchTokens: ['留青精舍', '留青舍'], aliasesEn: ['Quiet Green Lodge', 'Green Lodge'] },
   { id: 'feature-xiaopingshan', name: '小平山', nameEn: 'Little Level Mountain (West Garden)', type: 'garden', typeZh: '园林', searchTokens: ['小平山'] },
   { id: 'feature-dongfeng', name: '东风昨夜楼', nameEn: 'Last-Night East Wind Tower', type: 'garden', typeZh: '园林', searchTokens: ['东风昨夜楼'] },
   { id: 'feature-jiuxianglou', name: '九香楼', nameEn: 'Nine-Fragrance Tower', type: 'garden', typeZh: '园林', searchTokens: ['九香楼'] },
@@ -93,16 +94,16 @@ export const novelLocations: NovelLocation[] = [
   { id: 'water-lake', name: '湖上 / 湖中', nameEn: 'Garden lake scenes', type: 'garden', typeZh: '园林', searchTokens: ['湖上', '湖中'] },
 
   // —— Beijing houses, streets, venues & temples ——
-  { id: 'residence-mei', name: '梅宅', nameEn: 'Mei residence', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['梅宅', '梅府', '梅家'] },
-  { id: 'residence-hua', name: '华府', nameEn: 'Hua mansion', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['华府', '华公府', '华公子府'] },
+  { id: 'residence-mei', name: '梅宅', nameEn: 'Mei residence', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['梅宅', '梅府', '梅家'], aliasesEn: ['Mei house', 'Mei family'] },
+  { id: 'residence-hua', name: '华府', nameEn: 'Hua mansion', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['华府', '华公府', '华公子府'], aliasesEn: ['Hua family mansion', 'Young Master Hua residence'] },
   { id: 'residence-xu', name: '徐府', nameEn: 'Xu residence', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['徐府'] },
-  { id: 'residence-wang', name: '王家', nameEn: 'Wang household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['王家', '王宅'] },
-  { id: 'residence-yan', name: '颜家', nameEn: 'Yan household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['颜家'] },
-  { id: 'residence-sun', name: '孙家', nameEn: 'Sun household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['孙家', '孙宅'] },
+  { id: 'residence-wang', name: '王家', nameEn: 'Wang household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['王家', '王宅'], aliasesEn: ['Wang family', 'Wang house'] },
+  { id: 'residence-yan', name: '颜家', nameEn: 'Yan household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['颜家'], aliasesEn: ['Yan family'] },
+  { id: 'residence-sun', name: '孙家', nameEn: 'Sun household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['孙家', '孙宅'], aliasesEn: ['Sun family', 'Sun house'] },
   { id: 'street-mingke', name: '鸣珂里', nameEn: 'Mingke Lane', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['鸣珂里'] },
   { id: 'street-nanxiao', name: '南小街', nameEn: 'South Small Street', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['南小街'] },
   { id: 'street-xiawazi', name: '下洼子', nameEn: 'Xiawazi', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['下洼子'] },
-  { id: 'street-east-garden-quarter', name: '东园土窑子', nameEn: 'East Garden brothel quarter', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['东园土窑子', '土窑子'] },
+  { id: 'street-east-garden-quarter', name: '东园土窑子', nameEn: 'East Garden brothel quarter', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['东园土窑子', '土窑子'], aliasesEn: ['The Quarter'] },
   { id: 'street-fangli', name: '坊里', nameEn: 'The quarter', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['坊里'] },
   { id: 'venue-tianxianglou', name: '天香楼', nameEn: 'Tianxiang Tower', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['天香楼'] },
   { id: 'venue-chunyang', name: '春阳馆', nameEn: 'Chunyang House', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['春阳馆'] },
@@ -125,7 +126,7 @@ export const novelLocations: NovelLocation[] = [
   { id: 'site-hanxi-gate', name: '旱西门', nameEn: 'Hanxi Gate (Nanjing)', type: 'landscape', typeZh: '山水名胜', searchTokens: ['旱西门'] },
   { id: 'water-canal', name: '运河', nameEn: 'Grand Canal', type: 'landscape', typeZh: '山水名胜', searchTokens: ['运河'] },
   { id: 'water-yangtze', name: '长江', nameEn: 'Yangtze River', type: 'landscape', typeZh: '山水名胜', searchTokens: ['长江'] },
-  { id: 'water-qinhuai', name: '秦淮河', nameEn: 'Qinhuai River', type: 'landscape', typeZh: '山水名胜', searchTokens: ['秦淮河', '秦淮'] },
+  { id: 'water-qinhuai', name: '秦淮河', nameEn: 'Qinhuai River', type: 'landscape', typeZh: '山水名胜', searchTokens: ['秦淮河', '秦淮'], aliasesEn: ['Qinhuai'] },
   { id: 'mountain-phoenix', name: '凤凰山', nameEn: 'Phoenix Mountain (Nanjing)', type: 'landscape', typeZh: '山水名胜', searchTokens: ['凤凰山'] },
   { id: 'mountain-golden', name: '金山', nameEn: 'Jinshan / Golden Mountain', type: 'landscape', typeZh: '山水名胜', searchTokens: ['金山'] },
   { id: 'mountain-beigu', name: '北固山', nameEn: 'Beigu Mountain', type: 'landscape', typeZh: '山水名胜', searchTokens: ['北固山'] },

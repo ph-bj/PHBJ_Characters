@@ -21,7 +21,6 @@ export function LocationDetail({
 }) {
   const typeLabel = locationTypeLabels[location.type];
   const chapterList = location.chapterIds.join(", ");
-  const tokenList = location.searchTokens.join(" / ");
 
   const locationTokenRegex = useMemo(() => {
     const escaped = [...location.searchTokens]
@@ -78,61 +77,90 @@ export function LocationDetail({
     });
   }, [location.chapterIds, location.searchTokens]);
 
-  const locationTokenRegexEn = useMemo(() => {
-    const name = location.nameEn;
-    return name
-      ? new RegExp(`(${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "g")
-      : null;
-  }, [location.nameEn]);
-
-  const locationMentionsEn = useMemo(() => {
+  const englishSearchTokens = useMemo(() => {
+    if (location.aliasesEn?.length) {
+      return [location.nameEn, ...location.aliasesEn];
+    }
     if (location.nameEn) {
-      return location.chapterIds.map((chapterId) => {
-        const enParagraphs = chapterTranslationsById[chapterId];
-        if (!enParagraphs || enParagraphs.length === 0) {
-          return { chapterId, snippets: [] as string[] };
-        }
-        const enText = enParagraphs.join("\n");
-        const name = location.nameEn;
-        const positions: Array<{ start: number; end: number }> = [];
-        let pos = 0;
-        while ((pos = enText.indexOf(name, pos)) !== -1) {
-          positions.push({ start: pos, end: pos + name.length });
-          pos += name.length;
-        }
-        if (positions.length === 0) return { chapterId, snippets: [] as string[] };
-        positions.sort((a, b) => a.start - b.start);
-
-        const snippets: string[] = [];
-        let clusterStart = positions[0].start;
-        let clusterEnd = positions[0].end;
-        for (let i = 1; i < positions.length; i++) {
-          const current = positions[i];
-          if (current.start - clusterEnd <= 120) {
-            clusterEnd = Math.max(clusterEnd, current.end);
-          } else {
-            snippets.push(
-              enText.slice(
-                Math.max(0, clusterStart - 60),
-                Math.min(enText.length, clusterEnd + 60),
-              ),
-            );
-            clusterStart = current.start;
-            clusterEnd = current.end;
-          }
-        }
-        snippets.push(
-          enText.slice(
-            Math.max(0, clusterStart - 60),
-            Math.min(enText.length, clusterEnd + 60),
-          ),
-        );
-
-        return { chapterId, snippets };
-      });
+      return [location.nameEn];
     }
     return [];
-  }, [location.chapterIds, location.nameEn, location.searchTokens]);
+  }, [location.nameEn, location.aliasesEn]);
+
+  const locationTokenRegexEn = useMemo(() => {
+    if (englishSearchTokens.length === 0) return null;
+    const escaped = [...englishSearchTokens]
+      .sort((a, b) => b.length - a.length)
+      .map((token) => token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    return new RegExp(`(${escaped.join("|")})`, "g");
+  }, [englishSearchTokens]);
+
+  const locationMentionsEn = useMemo(() => {
+    if (englishSearchTokens.length === 0) return [];
+
+    return location.chapterIds.map((chapterId) => {
+      const enParagraphs = chapterTranslationsById[chapterId];
+      if (!enParagraphs || enParagraphs.length === 0) {
+        return { chapterId, snippets: [] as string[] };
+      }
+      const enText = enParagraphs.join("\n");
+
+      const positions: Array<{ start: number; end: number }> = [];
+      for (const token of englishSearchTokens) {
+        let pos = 0;
+        while ((pos = enText.indexOf(token, pos)) !== -1) {
+          positions.push({ start: pos, end: pos + token.length });
+          pos += token.length;
+        }
+      }
+      if (positions.length === 0) return { chapterId, snippets: [] as string[] };
+      positions.sort((a, b) => a.start - b.start);
+
+      const snippets: string[] = [];
+      let clusterStart = positions[0].start;
+      let clusterEnd = positions[0].end;
+      for (let i = 1; i < positions.length; i++) {
+        const current = positions[i];
+        if (current.start - clusterEnd <= 120) {
+          clusterEnd = Math.max(clusterEnd, current.end);
+        } else {
+          snippets.push(
+            enText.slice(
+              Math.max(0, clusterStart - 60),
+              Math.min(enText.length, clusterEnd + 60),
+            ),
+          );
+          clusterStart = current.start;
+          clusterEnd = current.end;
+        }
+      }
+      snippets.push(
+        enText.slice(
+          Math.max(0, clusterStart - 60),
+          Math.min(enText.length, clusterEnd + 60),
+        ),
+      );
+
+      return { chapterId, snippets };
+    });
+  }, [location.chapterIds, englishSearchTokens]);
+
+  const chineseNameAndTokens = useMemo(() => {
+    const unique = [...new Set([location.name, ...location.searchTokens])];
+    return unique.join(" / ");
+  }, [location.name, location.searchTokens]);
+
+  const chineseAltNames = useMemo(
+    () => location.searchTokens.filter((t) => t !== location.name),
+    [location.searchTokens, location.name],
+  );
+
+  const englishNameAndTokens = useMemo(() => {
+    const unique = englishSearchTokens.length > 0
+      ? [...new Set(englishSearchTokens)]
+      : [];
+    return unique.join(" / ");
+  }, [englishSearchTokens]);
 
   return (
     <div
@@ -183,12 +211,37 @@ export function LocationDetail({
           data-overlay-scroll="true"
           className="p-5 sm:p-6 overflow-y-auto space-y-4 text-[var(--ink-title)]"
         >
-          <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
-            <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
-              {lang === "zh" ? "英文名" : "English Name"}
-            </p>
-            <p className="text-sm font-sans">{location.nameEn}</p>
-          </div>
+          {lang === "zh" ? (
+            <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
+              <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
+                地名与别名
+              </p>
+              <p className="text-sm font-hans">{chineseNameAndTokens}</p>
+              {chineseAltNames.length > 0 && (
+                <p className="text-[11px] text-[var(--ink-dim-text)] mt-1.5">
+                  别名：
+                  <span className="text-[var(--ink-title)] font-hans">
+                    {chineseAltNames.join(" / ")}
+                  </span>
+                </p>
+              )}
+            </div>
+          ) : (
+            <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
+              <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
+                English Name
+              </p>
+              <p className="text-sm font-sans">{englishNameAndTokens}</p>
+              {location.aliasesEn?.length > 0 && (
+                <p className="text-[11px] text-[var(--ink-dim-text)] mt-1.5">
+                  Aliases:
+                  <span className="text-[var(--ink-title)] font-sans">
+                    {location.aliasesEn.join(" / ")}
+                  </span>
+                </p>
+              )}
+            </div>
+          )}
 
           <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
             <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
@@ -197,13 +250,6 @@ export function LocationDetail({
             <p className="text-sm font-hans">
               {lang === "zh" ? typeLabel.zh : typeLabel.en}
             </p>
-          </div>
-
-          <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
-            <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
-              {lang === "zh" ? "检索词" : "Search Tokens"}
-            </p>
-            <p className="text-sm font-hans break-words">{tokenList}</p>
           </div>
 
           <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
