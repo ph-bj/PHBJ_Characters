@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { X } from "lucide-react";
 import { chapters } from "../chapters";
 import { locationTypeLabels } from "../locations";
+import { chapterTranslationsById } from "../chapterTranslations";
 import type { NovelLocationWithChapters } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
@@ -74,6 +75,62 @@ export function LocationDetail({
       return { chapterId, snippets };
     });
   }, [location.chapterIds, location.searchTokens]);
+
+  const locationTokenRegexEn = useMemo(() => {
+    const name = location.nameEn;
+    return name
+      ? new RegExp(`(${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "g")
+      : null;
+  }, [location.nameEn]);
+
+  const locationMentionsEn = useMemo(() => {
+    if (location.nameEn) {
+      return location.chapterIds.map((chapterId) => {
+        const enParagraphs = chapterTranslationsById[chapterId];
+        if (!enParagraphs || enParagraphs.length === 0) {
+          return { chapterId, snippets: [] as string[] };
+        }
+        const enText = enParagraphs.join("\n");
+        const name = location.nameEn;
+        const positions: Array<{ start: number; end: number }> = [];
+        let pos = 0;
+        while ((pos = enText.indexOf(name, pos)) !== -1) {
+          positions.push({ start: pos, end: pos + name.length });
+          pos += name.length;
+        }
+        if (positions.length === 0) return { chapterId, snippets: [] as string[] };
+        positions.sort((a, b) => a.start - b.start);
+
+        const snippets: string[] = [];
+        let clusterStart = positions[0].start;
+        let clusterEnd = positions[0].end;
+        for (let i = 1; i < positions.length; i++) {
+          const current = positions[i];
+          if (current.start - clusterEnd <= 120) {
+            clusterEnd = Math.max(clusterEnd, current.end);
+          } else {
+            snippets.push(
+              enText.slice(
+                Math.max(0, clusterStart - 60),
+                Math.min(enText.length, clusterEnd + 60),
+              ),
+            );
+            clusterStart = current.start;
+            clusterEnd = current.end;
+          }
+        }
+        snippets.push(
+          enText.slice(
+            Math.max(0, clusterStart - 60),
+            Math.min(enText.length, clusterEnd + 60),
+          ),
+        );
+
+        return { chapterId, snippets };
+      });
+    }
+    return [];
+  }, [location.chapterIds, location.nameEn, location.searchTokens]);
 
   return (
     <div
@@ -164,7 +221,10 @@ export function LocationDetail({
               {lang === "zh" ? "章节提及与上下文" : "Mentions with Context"}
             </p>
             <div className="space-y-3">
-              {locationMentions.map(({ chapterId, snippets }) => (
+              {(lang === "en" && locationMentionsEn.length > 0
+                ? locationMentionsEn
+                : locationMentions
+              ).map(({ chapterId, snippets }) => (
                 <div
                   key={chapterId}
                   className="border border-[var(--paper-border)]/70 rounded-sm p-2 bg-[var(--paper-bg)]/60"
@@ -186,15 +246,24 @@ export function LocationDetail({
                       {snippets.map((snippet, idx) => (
                         <p
                           key={`${chapterId}-${idx}`}
-                          className="text-[11px] leading-relaxed font-hans text-[var(--ink-title)]"
+                          className={
+                            lang === "zh"
+                              ? "text-[11px] leading-relaxed font-hans text-[var(--ink-title)]"
+                              : "text-[11px] leading-relaxed text-[var(--ink-title)]"
+                          }
                         >
                           …
-                          {(locationTokenRegex
-                            ? snippet.split(locationTokenRegex)
-                            : [snippet]
+                          {(lang === "zh"
+                            ? locationTokenRegex
+                              ? snippet.split(locationTokenRegex)
+                              : [snippet]
+                            : locationTokenRegexEn
+                              ? snippet.split(locationTokenRegexEn)
+                              : [snippet]
                           ).map((part, partIdx) => {
-                            const isMatch =
-                              location.searchTokens.includes(part);
+                            const isMatch = lang === "zh"
+                              ? location.searchTokens.includes(part)
+                              : part === location.nameEn;
                             return isMatch ? (
                               <mark
                                 key={`${chapterId}-${idx}-${partIdx}`}
