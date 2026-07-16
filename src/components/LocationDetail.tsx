@@ -214,17 +214,9 @@ export function LocationDetail({
           {lang === "zh" ? (
             <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
               <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
-                地名与别名
+                地名
               </p>
               <p className="text-sm font-hans">{chineseNameAndTokens}</p>
-              {chineseAltNames.length > 0 && (
-                <p className="text-[11px] text-[var(--ink-dim-text)] mt-1.5">
-                  别名：
-                  <span className="text-[var(--ink-title)] font-hans">
-                    {chineseAltNames.join(" / ")}
-                  </span>
-                </p>
-              )}
             </div>
           ) : (
             <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
@@ -232,14 +224,6 @@ export function LocationDetail({
                 English Name
               </p>
               <p className="text-sm font-sans">{englishNameAndTokens}</p>
-              {location.aliasesEn?.length > 0 && (
-                <p className="text-[11px] text-[var(--ink-dim-text)] mt-1.5">
-                  Aliases:
-                  <span className="text-[var(--ink-title)] font-sans">
-                    {location.aliasesEn.join(" / ")}
-                  </span>
-                </p>
-              )}
             </div>
           )}
 
