@@ -5,14 +5,17 @@ import { chapters } from "../chapters";
 import { locationTypeLabels } from "../locations";
 import type { NovelLocationWithChapters } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
+import { LanguageSwitch } from "./LanguageSwitch";
 
 export function LocationDetail({
   location,
   lang,
+  setLang,
   onClose,
 }: {
   location: NovelLocationWithChapters;
   lang: "en" | "zh";
+  setLang: (lang: "en" | "zh") => void;
   onClose: () => void;
 }) {
   const typeLabel = locationTypeLabels[location.type];
@@ -106,6 +109,7 @@ export function LocationDetail({
               lang={lang}
               link={{ kind: "location", id: location.id }}
             />
+            <LanguageSwitch lang={lang} setLang={setLang} className="scale-90" />
             <button
               onClick={onClose}
               className="p-2 rounded-full hover:bg-black/5 transition-colors text-[var(--ink-title)]"
