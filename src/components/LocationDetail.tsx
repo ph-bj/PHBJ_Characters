@@ -188,7 +188,7 @@ export function LocationDetail({
               {lang === "zh" ? "地点档案" : "Location Profile"}
             </p>
             <h3 className="text-lg font-bold text-[var(--ink-title)] font-hans">
-              {location.name}
+              {lang === "zh" ? location.name : (location.nameEn || location.name)}
             </h3>
           </div>
           <div className="flex items-center gap-1.5 shrink-0">
