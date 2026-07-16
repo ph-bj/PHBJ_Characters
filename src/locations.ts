@@ -95,7 +95,7 @@ export const novelLocations: NovelLocation[] = [
 
   // —— Beijing houses, streets, venues & temples ——
   { id: 'residence-mei', name: '梅宅', nameEn: 'Mei residence', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['梅宅', '梅府', '梅家'], aliasesEn: ['Mei house', 'Mei family'] },
-  { id: 'residence-hua', name: '华府', nameEn: 'Hua mansion', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['华府', '华公府', '华公子府'], aliasesEn: ['Hua family mansion', 'Young Master Hua residence'] },
+  { id: 'residence-hua', name: '华府', nameEn: 'Hua mansion', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['华府', '华公府', '华公子府'], aliasesEn: ['Hua family mansion', 'Young Master Hua residence', 'Hua household'] },
   { id: 'residence-xu', name: '徐府', nameEn: 'Xu residence', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['徐府'] },
   { id: 'residence-wang', name: '王家', nameEn: 'Wang household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['王家', '王宅'], aliasesEn: ['Wang family', 'Wang house'] },
   { id: 'residence-yan', name: '颜家', nameEn: 'Yan household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['颜家'], aliasesEn: ['Yan family'] },

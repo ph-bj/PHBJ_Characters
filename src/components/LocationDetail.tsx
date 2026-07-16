@@ -78,14 +78,47 @@ export function LocationDetail({
   }, [location.chapterIds, location.searchTokens]);
 
   const englishSearchTokens = useMemo(() => {
-    if (location.aliasesEn?.length) {
-      return [location.nameEn, ...location.aliasesEn];
-    }
+    const tokens: string[] = [];
+
+    // Add nameEn and aliasesEn
     if (location.nameEn) {
-      return [location.nameEn];
+      tokens.push(location.nameEn);
     }
-    return [];
-  }, [location.nameEn, location.aliasesEn]);
+    if (location.aliasesEn?.length) {
+      tokens.push(...location.aliasesEn);
+    }
+
+    // Generate English tokens from Chinese search tokens
+    // Extract surname and add common English descriptors
+    const surnameMap: Record<string, string> = {
+      '华': 'Hua', '梅': 'Mei', '徐': 'Xu', '王': 'Wang', '颜': 'Yan',
+      '孙': 'Sun', '冯': 'Feng', '陆': 'Lu', '沈': 'Shen', '刘': 'Liu',
+      '李': 'Li', '张': 'Zhang', '陈': 'Chen', '杨': 'Yang', '赵': 'Zhao',
+      '周': 'Zhou', '吴': 'Wu', '郑': 'Zheng', '钱': 'Qian', '黄': 'Huang',
+    };
+
+    for (const token of location.searchTokens) {
+      const firstChar = token.charAt(0);
+      const surname = surnameMap[firstChar];
+      if (surname) {
+        // Add common English descriptors for residences/households
+        const descriptors = ['household', 'house', 'residence', 'mansion', 'family', '宅', '府', '家'];
+        for (const desc of descriptors) {
+          const englishToken = `${surname} ${desc}`;
+          if (!tokens.includes(englishToken)) {
+            tokens.push(englishToken);
+          }
+        }
+      }
+    }
+
+    // Add lowercase variants for case-insensitive matching
+    const lowerVariants = tokens
+      .filter(t => !tokens.some(tt => tt.toLowerCase() === t.toLowerCase() && tt !== t))
+      .map(t => t.toLowerCase());
+
+    return [...tokens, ...lowerVariants];
+  }, [location.nameEn, location.aliasesEn, location.searchTokens]);
 
   const locationTokenRegexEn = useMemo(() => {
     if (englishSearchTokens.length === 0) return null;
