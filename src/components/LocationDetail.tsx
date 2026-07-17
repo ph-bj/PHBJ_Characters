@@ -149,6 +149,27 @@ export function LocationDetail({
       if (positions.length === 0) return { chapterId, snippets: [] as string[] };
       positions.sort((a, b) => a.start - b.start);
 
+      const getWordAlignedExcerpt = (start: number, end: number): string => {
+        let startIdx = Math.max(0, start);
+        let endIdx = Math.min(enText.length, end);
+
+        const isWordChar = (char: string) => /[\p{L}\p{N}'\u2019]/u.test(char);
+
+        if (startIdx > 0 && isWordChar(enText[startIdx]) && isWordChar(enText[startIdx - 1])) {
+          while (startIdx > 0 && isWordChar(enText[startIdx - 1])) {
+            startIdx--;
+          }
+        }
+
+        if (endIdx < enText.length && isWordChar(enText[endIdx - 1]) && isWordChar(enText[endIdx])) {
+          while (endIdx < enText.length && isWordChar(enText[endIdx])) {
+            endIdx++;
+          }
+        }
+
+        return enText.slice(startIdx, endIdx);
+      };
+
       const snippets: string[] = [];
       let clusterStart = positions[0].start;
       let clusterEnd = positions[0].end;
@@ -158,20 +179,14 @@ export function LocationDetail({
           clusterEnd = Math.max(clusterEnd, current.end);
         } else {
           snippets.push(
-            enText.slice(
-              Math.max(0, clusterStart - 60),
-              Math.min(enText.length, clusterEnd + 60),
-            ),
+            getWordAlignedExcerpt(clusterStart - 60, clusterEnd + 60)
           );
           clusterStart = current.start;
           clusterEnd = current.end;
         }
       }
       snippets.push(
-        enText.slice(
-          Math.max(0, clusterStart - 60),
-          Math.min(enText.length, clusterEnd + 60),
-        ),
+        getWordAlignedExcerpt(clusterStart - 60, clusterEnd + 60)
       );
 
       return { chapterId, snippets };

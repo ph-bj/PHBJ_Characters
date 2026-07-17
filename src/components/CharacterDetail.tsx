@@ -113,6 +113,29 @@ export function CharacterDetail({
     const contextWindow = isEnglish ? 200 : 80;
     const clusterMergeDistance = isEnglish ? 400 : 200;
 
+    const getExcerpt = (start: number, end: number): string => {
+      let startIdx = Math.max(0, start);
+      let endIdx = Math.min(text.length, end);
+
+      if (isEnglish) {
+        const isWordChar = (char: string) => /[\p{L}\p{N}'\u2019]/u.test(char);
+
+        if (startIdx > 0 && isWordChar(text[startIdx]) && isWordChar(text[startIdx - 1])) {
+          while (startIdx > 0 && isWordChar(text[startIdx - 1])) {
+            startIdx--;
+          }
+        }
+
+        if (endIdx < text.length && isWordChar(text[endIdx - 1]) && isWordChar(text[endIdx])) {
+          while (endIdx < text.length && isWordChar(text[endIdx])) {
+            endIdx++;
+          }
+        }
+      }
+
+      return text.slice(startIdx, endIdx);
+    };
+
     const snippets: string[] = [];
     let clusterStart = -1,
       clusterEnd = -1;
@@ -124,10 +147,7 @@ export function CharacterDetail({
         clusterEnd = pos;
       } else {
         snippets.push(
-          text.slice(
-            Math.max(0, clusterStart - contextWindow),
-            Math.min(text.length, clusterEnd + contextWindow),
-          ),
+          getExcerpt(clusterStart - contextWindow, clusterEnd + contextWindow)
         );
         clusterStart = pos;
         clusterEnd = pos;
@@ -135,10 +155,7 @@ export function CharacterDetail({
     }
     if (clusterStart !== -1) {
       snippets.push(
-        text.slice(
-          Math.max(0, clusterStart - contextWindow),
-          Math.min(text.length, clusterEnd + contextWindow),
-        ),
+        getExcerpt(clusterStart - contextWindow, clusterEnd + contextWindow)
       );
     }
 
