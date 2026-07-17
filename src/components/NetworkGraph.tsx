@@ -48,7 +48,7 @@ const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
 };
 
 function getChineseName(fullName: string): string {
-  const match = fullName.match(/^[\u3400-\u9fff（）·・、，。？！《》「」『』“”‘’\s]+/);
+  const match = fullName.match(/^[\u3400-\u9fff（）·・、，。？！《》「」「」“”‘’\s]+/);
   return match ? match[0].trim() : fullName;
 }
 
@@ -325,7 +325,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .on("zoom", (event) => {
         g.attr("transform", event.transform);
       });
-    
+
     svg.call(zoom as any);
     svg.on("dblclick.zoom", null);
 
@@ -575,11 +575,10 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
               type="button"
               onClick={() => setMode(m)}
               aria-pressed={mode === m}
-              className={`px-2 py-1 text-[9px] font-bold uppercase tracking-wider rounded-sm transition-colors touch-manipulation ${
-                mode === m
-                  ? 'bg-[var(--accent)] text-[var(--paper-bg)]'
-                  : 'text-[var(--ink-dim-text)] hover:bg-black/5'
-              }`}
+              className={`px-2 py-1 text-[9px] font-bold uppercase tracking-wider rounded-sm transition-colors touch-manipulation ${mode === m
+                ? 'bg-[var(--accent)] text-[var(--paper-bg)]'
+                : 'text-[var(--ink-dim-text)] hover:bg-black/5'
+                }`}
             >
               {m === 'curated'
                 ? (lang === 'en' ? 'Curated ties' : '标注关系')
@@ -598,11 +597,10 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                 type="button"
                 onClick={() => setMinShared(threshold)}
                 aria-pressed={minShared === threshold}
-                className={`px-1.5 py-0.5 text-[9px] font-bold rounded-sm border transition-colors touch-manipulation ${
-                  minShared === threshold
-                    ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
-                    : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
-                }`}
+                className={`px-1.5 py-0.5 text-[9px] font-bold rounded-sm border transition-colors touch-manipulation ${minShared === threshold
+                  ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
+                  : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
+                  }`}
               >
                 ≥{threshold}
               </button>
@@ -637,9 +635,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                     ? (lang === 'en' ? `Hide ${labels?.en ?? role}` : `隐藏${labels?.zh ?? role}`)
                     : (lang === 'en' ? `Show ${labels?.en ?? role}` : `显示${labels?.zh ?? role}`)
                 }
-                className={`flex items-center gap-2 text-left rounded px-0.5 py-0.5 transition-all touch-manipulation ${
-                  isVisible ? 'opacity-100' : 'opacity-35'
-                } hover:opacity-100`}
+                className={`flex items-center gap-2 text-left rounded px-0.5 py-0.5 transition-all touch-manipulation ${isVisible ? 'opacity-100' : 'opacity-35'
+                  } hover:opacity-100`}
               >
                 <div
                   className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full border shrink-0 ${isVisible ? '' : 'border-dashed'}`}
@@ -649,9 +646,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                   }}
                 />
                 <span
-                  className={`text-[8px] sm:text-[10px] font-medium truncate ${
-                    isVisible ? 'text-[var(--ink-dim-text)]' : 'text-[var(--ink-dim-text)]/60 line-through'
-                  }`}
+                  className={`text-[8px] sm:text-[10px] font-medium truncate ${isVisible ? 'text-[var(--ink-dim-text)]' : 'text-[var(--ink-dim-text)]/60 line-through'
+                    }`}
                 >
                   {lang === 'en' ? (labels?.en ?? role) : (labels?.zh ?? role)}
                 </span>

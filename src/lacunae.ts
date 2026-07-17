@@ -296,7 +296,7 @@ export const chapterLacunae: ChapterLacunae[] = [
     chapterId: 38,
     lacunae: [
       {
-        context: '何异虱之处□中』为先了',
+        context: '何异虱之处□中」为先了',
         inference: '裈',
         confidence: 'certain',
         note: '直接引用阮籍《大人先生传》原文：「何异夫虱之处裈中乎」——裈（kūn），古代裤裆。此句极为著名。',
@@ -344,13 +344,13 @@ export const chapterLacunae: ChapterLacunae[] = [
         note: '《禽经》记载鸟类化生之说。楚鸠（布谷鸟）与鹊有关联（鸠占鹊巢）。待考。',
       },
       {
-        context: '先曰：『硕人其颀，衣锦□衣。』',
+        context: '先曰：「硕人其颀，衣锦□衣。」',
         inference: '褧',
         confidence: 'certain',
         note: '直引《诗经·卫风·硕人》原文：「衣锦褧衣」（褧，kǒng，罩在锦衣外的麻布罩衫，避免炫耀）。',
       },
       {
-        context: '『领如蝤蛴』，至『美目□兮』',
+        context: '「领如蝤蛴」，至「美目□兮」',
         inference: '盼',
         confidence: 'certain',
         note: '直引《诗经·卫风·硕人》原文：「美目盼兮」——美丽的眼睛顾盼流转，为《诗经》最脍炙人口的名句之一。',
@@ -361,7 +361,7 @@ export const chapterLacunae: ChapterLacunae[] = [
     chapterId: 39,
     lacunae: [
       {
-        context: '真所谓『无感我▉兮，无使龙也吠。』',
+        context: '真所谓「无感我▉兮，无使龙也吠。」',
         inference: '帨',
         confidence: 'certain',
         note: '引《诗经·召南·野有死麕》：「无感我帨兮，使犬也吠」（帨，shuì，佩巾）。原诗用「犬」，此处改「犬」为「龙」作戏谑，「帨」字确定无疑。',
@@ -708,13 +708,13 @@ export const chapterLacunae: ChapterLacunae[] = [
     chapterId: 54,
     lacunae: [
       {
-        context: '温飞卿之『冰□银床梦不成』',
+        context: '温飞卿之「冰□银床梦不成」',
         inference: '簟',
         confidence: 'certain',
         note: '直引温庭筠（飞卿）《瑶瑟怨》名句：「冰簟银床梦不成，碧天如水夜云轻」——簟（diàn，竹席），「冰簟」即清凉的竹席。第54回同句两见，皆为「簟」。',
       },
       {
-        context: '七律如崔颢之『□荛太华俯咸京』',
+        context: '七律如崔颢之「□荛太华俯咸京」',
         inference: '采',
         confidence: 'speculative',
         note: '「采荛太华俯咸京」——采荛（割草薪），在华山采薪而俯瞰咸阳，描写隐逸之志。「采荛」为古语，借指隐居樵采。待确认崔颢具体诗句。',

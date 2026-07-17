@@ -447,7 +447,7 @@ export default function App() {
         const paragraphs = ch.content
           .split(/\n\n+/)
           .filter((p) => p.trim().length > 0).length;
-        const conversations = (ch.content.match(/[「『]/g) ?? []).length;
+        const conversations = (ch.content.match(/[「]/g) ?? []).length;
         const works = new Set(
           (ch.content.match(/《[^》\n]{1,40}》/g) ?? []).map((w) => w.trim()),
         );
