@@ -8,3 +8,5 @@ coverage/
 .env*
 !.env.example
 .claude/worktrees/
+public/downloads/chinese/
+public/downloads/english/

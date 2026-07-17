@@ -149,25 +149,71 @@ export function LocationDetail({
       if (positions.length === 0) return { chapterId, snippets: [] as string[] };
       positions.sort((a, b) => a.start - b.start);
 
-      const getWordAlignedExcerpt = (start: number, end: number): string => {
+      const getSentenceAlignedExcerpt = (start: number, end: number, matchStart: number, matchEnd: number): string => {
         let startIdx = Math.max(0, start);
         let endIdx = Math.min(enText.length, end);
 
-        const isWordChar = (char: string) => /[\p{L}\p{N}'\u2019]/u.test(char);
-
-        if (startIdx > 0 && isWordChar(enText[startIdx]) && isWordChar(enText[startIdx - 1])) {
-          while (startIdx > 0 && isWordChar(enText[startIdx - 1])) {
-            startIdx--;
+        // Find the start of the sentence containing startIdx
+        if (startIdx > 0) {
+          let foundStart = false;
+          for (let i = startIdx - 1; i >= 0; i--) {
+            const char = enText[i];
+            if (char === "\n") {
+              startIdx = i + 1;
+              foundStart = true;
+              break;
+            }
+            if (["." , "?" , "!"].includes(char)) {
+              let termEnd = i;
+              while (termEnd + 1 < enText.length && ["\"" , "'" , "”" , "’" , ")"].includes(enText[termEnd + 1])) {
+                termEnd++;
+              }
+              if (termEnd + 1 < enText.length && /\s/.test(enText[termEnd + 1])) {
+                let nextStart = termEnd + 1;
+                while (nextStart < enText.length && /\s/.test(enText[nextStart])) {
+                  nextStart++;
+                }
+                if (nextStart <= matchStart) {
+                  startIdx = nextStart;
+                  foundStart = true;
+                  break;
+                }
+              }
+            }
+          }
+          if (!foundStart) {
+            startIdx = 0;
           }
         }
 
-        if (endIdx < enText.length && isWordChar(enText[endIdx - 1]) && isWordChar(enText[endIdx])) {
-          while (endIdx < enText.length && isWordChar(enText[endIdx])) {
-            endIdx++;
+        // Find the end of the sentence containing endIdx
+        if (endIdx < enText.length) {
+          let foundEnd = false;
+          for (let i = endIdx; i < enText.length; i++) {
+            const char = enText[i];
+            if (char === "\n") {
+              endIdx = i;
+              foundEnd = true;
+              break;
+            }
+            if (["." , "?" , "!"].includes(char)) {
+              let termEnd = i;
+              while (termEnd + 1 < enText.length && ["\"" , "'" , "”" , "’" , ")"].includes(enText[termEnd + 1])) {
+                termEnd++;
+              }
+              if (termEnd + 1 >= matchEnd) {
+                endIdx = termEnd + 1;
+                foundEnd = true;
+                break;
+              }
+            }
+          }
+          if (!foundEnd) {
+            endIdx = enText.length;
           }
         }
 
-        return enText.slice(startIdx, endIdx);
+        return enText.slice(startIdx, endIdx).trim();
       };
 
       const snippets: string[] = [];
@@ -179,14 +225,14 @@ export function LocationDetail({
           clusterEnd = Math.max(clusterEnd, current.end);
         } else {
           snippets.push(
-            getWordAlignedExcerpt(clusterStart - 60, clusterEnd + 60)
+            getSentenceAlignedExcerpt(clusterStart - 60, clusterEnd + 60, clusterStart, clusterEnd)
           );
           clusterStart = current.start;
           clusterEnd = current.end;
         }
       }
       snippets.push(
-        getWordAlignedExcerpt(clusterStart - 60, clusterEnd + 60)
+        getSentenceAlignedExcerpt(clusterStart - 60, clusterEnd + 60, clusterStart, clusterEnd)
       );
 
       return { chapterId, snippets };
@@ -332,7 +378,7 @@ export function LocationDetail({
                               : "text-[11px] leading-relaxed text-[var(--ink-title)]"
                           }
                         >
-                          …
+                          {lang === "zh" && "…"}
                           {(lang === "zh"
                             ? locationTokenRegex
                               ? snippet.split(locationTokenRegex)
@@ -357,7 +403,7 @@ export function LocationDetail({
                               </span>
                             );
                           })}
-                          …
+                          {lang === "zh" && "…"}
                         </p>
                       ))}
                     </div>

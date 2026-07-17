@@ -113,24 +113,71 @@ export function CharacterDetail({
     const contextWindow = isEnglish ? 200 : 80;
     const clusterMergeDistance = isEnglish ? 400 : 200;
 
-    const getExcerpt = (start: number, end: number): string => {
+    const getExcerpt = (start: number, end: number, matchStart: number, matchEnd: number): string => {
       let startIdx = Math.max(0, start);
       let endIdx = Math.min(text.length, end);
 
       if (isEnglish) {
-        const isWordChar = (char: string) => /[\p{L}\p{N}'\u2019]/u.test(char);
-
-        if (startIdx > 0 && isWordChar(text[startIdx]) && isWordChar(text[startIdx - 1])) {
-          while (startIdx > 0 && isWordChar(text[startIdx - 1])) {
-            startIdx--;
+        // Find the start of the sentence containing startIdx
+        if (startIdx > 0) {
+          let foundStart = false;
+          for (let i = startIdx - 1; i >= 0; i--) {
+            const char = text[i];
+            if (char === "\n") {
+              startIdx = i + 1;
+              foundStart = true;
+              break;
+            }
+            if (["." , "?" , "!"].includes(char)) {
+              let termEnd = i;
+              while (termEnd + 1 < text.length && ["\"" , "'" , "”" , "’" , ")"].includes(text[termEnd + 1])) {
+                termEnd++;
+              }
+              if (termEnd + 1 < text.length && /\s/.test(text[termEnd + 1])) {
+                let nextStart = termEnd + 1;
+                while (nextStart < text.length && /\s/.test(text[nextStart])) {
+                  nextStart++;
+                }
+                if (nextStart <= matchStart) {
+                  startIdx = nextStart;
+                  foundStart = true;
+                  break;
+                }
+              }
+            }
+          }
+          if (!foundStart) {
+            startIdx = 0;
           }
         }
 
-        if (endIdx < text.length && isWordChar(text[endIdx - 1]) && isWordChar(text[endIdx])) {
-          while (endIdx < text.length && isWordChar(text[endIdx])) {
-            endIdx++;
+        // Find the end of the sentence containing endIdx
+        if (endIdx < text.length) {
+          let foundEnd = false;
+          for (let i = endIdx; i < text.length; i++) {
+            const char = text[i];
+            if (char === "\n") {
+              endIdx = i;
+              foundEnd = true;
+              break;
+            }
+            if (["." , "?" , "!"].includes(char)) {
+              let termEnd = i;
+              while (termEnd + 1 < text.length && ["\"" , "'" , "”" , "’" , ")"].includes(text[termEnd + 1])) {
+                termEnd++;
+              }
+              if (termEnd + 1 >= matchEnd) {
+                endIdx = termEnd + 1;
+                foundEnd = true;
+                break;
+              }
+            }
+          }
+          if (!foundEnd) {
+            endIdx = text.length;
           }
         }
+        return text.slice(startIdx, endIdx).trim();
       }
 
       return text.slice(startIdx, endIdx);
@@ -147,7 +194,7 @@ export function CharacterDetail({
         clusterEnd = pos;
       } else {
         snippets.push(
-          getExcerpt(clusterStart - contextWindow, clusterEnd + contextWindow)
+          getExcerpt(clusterStart - contextWindow, clusterEnd + contextWindow, clusterStart, clusterEnd)
         );
         clusterStart = pos;
         clusterEnd = pos;
@@ -155,7 +202,7 @@ export function CharacterDetail({
     }
     if (clusterStart !== -1) {
       snippets.push(
-        getExcerpt(clusterStart - contextWindow, clusterEnd + contextWindow)
+        getExcerpt(clusterStart - contextWindow, clusterEnd + contextWindow, clusterStart, clusterEnd)
       );
     }
 
@@ -533,7 +580,7 @@ export function CharacterDetail({
                                   className="bg-black/5 rounded-sm px-3 py-2 border-l-2 border-[var(--accent)]/30"
                                 >
                                   <p className={`text-[11px] leading-relaxed text-[var(--ink-title)] ${lang === "zh" ? "font-hans" : "font-sans"}`}>
-                                      …
+                                      {lang === "zh" && "…"}
                                       {parts.map((part, j) =>
                                       activeScenes.tokens.includes(part) ? (
                                         <mark
@@ -550,7 +597,7 @@ export function CharacterDetail({
                                         part
                                       ),
                                     )}
-                                    …
+                                    {lang === "zh" && "…"}
                                   </p>
                                 </div>
                               );
