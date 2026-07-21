@@ -334,7 +334,7 @@ export function HometownMap({
                 <LocationMapPanel
                   mapData={mapDataByType[resolvedActiveType]}
                   lang={lang}
-                  locationType={resolvedActiveType === 'hometown' ? 'place' : resolvedActiveType}
+                  locationType={resolvedActiveType === 'hometown' ? 'site' : resolvedActiveType}
                   title={lang === 'zh'
                     ? mapCategoryLabels[resolvedActiveType].zh
                     : mapCategoryLabels[resolvedActiveType].en}
@@ -378,11 +378,11 @@ export function HometownMap({
             {mapDataByType.hometown.length > 0 && (
               <div>
                 <div className="mb-2.5 flex items-center gap-2">
-                  <Users size={11} className="text-[#a0522d]" />
+                  <Users size={11} className="text-[var(--accent)]" />
                   <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[var(--ink-dim-text)]">
                     {lang === 'zh' ? '人物籍贯' : 'Character Hometowns'}
                   </p>
-                  <span className="ml-auto rounded-full bg-[#a0522d]/10 px-1.5 py-0.5 text-[8px] font-bold tabular-nums text-[#a0522d]">
+                  <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-1.5 py-0.5 text-[8px] font-bold tabular-nums text-[var(--accent)]">
                     {mapDataByType.hometown.length}
                   </span>
                 </div>
