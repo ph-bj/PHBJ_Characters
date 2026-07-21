@@ -1,5 +1,14 @@
 import React, { useMemo, useState } from 'react';
-import { MapPin, Trees, Home, Mountain } from 'lucide-react';
+import {
+  BookOpen,
+  ChevronRight,
+  Compass,
+  Home,
+  MapPin,
+  Mountain,
+  Trees,
+  Users,
+} from 'lucide-react';
 import { Character } from '../types';
 import coordinates from '../assets/coordinates.json';
 import {
@@ -164,251 +173,376 @@ export function HometownMap({
     0,
   );
 
+  const summaryItems = [
+    {
+      icon: Compass,
+      value: totalLocations,
+      label: lang === 'zh' ? '地图点' : 'Map points',
+    },
+    {
+      icon: Users,
+      value: originStats.length,
+      label: lang === 'zh' ? '人物籍贯' : 'Hometowns',
+    },
+    {
+      icon: Trees,
+      value: gardens.length,
+      label: lang === 'zh' ? '园林场所' : 'Garden spaces',
+    },
+    {
+      icon: BookOpen,
+      value: locationCount,
+      label: lang === 'zh' ? '命名地点' : 'Named locations',
+    },
+  ];
+
   return (
     <div
-      className="parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] mt-6 scroll-mt-24"
+      className="parchment relative mt-6 scroll-mt-24 overflow-hidden rounded-sm border-double border-4 border-[var(--paper-border)]"
       id="hometown-map"
     >
-      <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between border-b border-[var(--paper-border)] pb-3 mb-4">
-        <div>
-          <h2 className="text-sm uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
-            {lang === 'zh' ? '籍贯、园林与地点总图' : 'Hometowns, Gardens & Locations'}
-          </h2>
-          <p className="text-[11px] text-[var(--ink-dim-text)] italic mt-1">
-            {lang === 'zh'
-              ? '整合人物籍贯、园林场所、章回地点与地理分布的交互式索引。'
-              : 'An integrated index of character hometowns, gardens, named locations, and their chapter distribution.'}
-          </p>
-        </div>
-        <span className="text-[12px] sm:text-[14px] text-[var(--ink-dim-text)] italic">
-          {lang === 'zh'
-            ? `${totalLocations} 个地图点 · ${locationCount} 处命名地点`
-            : `${totalLocations} map points · ${locationCount} named locations`}
-        </span>
-      </div>
+      <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full border border-[var(--accent)]/10" />
+      <div className="pointer-events-none absolute -right-8 -top-12 h-40 w-40 rounded-full border border-[var(--accent)]/10" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-5">
-        <section className="lg:col-span-2 rounded-sm border border-[var(--paper-border)]/60 bg-white/10 p-4">
-          <div className="flex items-center justify-between gap-3 mb-3 border-b border-[var(--paper-border)]/60 pb-2">
-            <div className="flex items-center gap-2">
-              <Home size={11} className="text-[var(--accent)]" />
-              <h3 className="text-[11px] uppercase tracking-[0.15em] text-[var(--ink-dim-text)] font-bold">
-                {lang === 'zh' ? '人物籍贯' : 'Character Hometowns'}
-              </h3>
+      <header className="relative border-b border-[var(--paper-border)] bg-[var(--accent)]/[0.035] px-4 py-5 sm:px-6 sm:py-6">
+        <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
+          <div className="flex items-start gap-3.5">
+            <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--accent)]/25 bg-[var(--accent)]/10 text-[var(--accent)] shadow-sm">
+              <Compass size={20} strokeWidth={1.7} />
             </div>
-            <span className="text-[11px] text-[var(--ink-dim-text)] italic">
-              {lang === 'zh' ? `${originStats.length} 处` : `${originStats.length} origins`}
-            </span>
+            <div>
+              <p className="mb-1.5 text-[9px] font-bold uppercase tracking-[0.28em] text-[var(--accent)]">
+                {lang === 'zh' ? '小说地理志' : 'An atlas of the novel'}
+              </p>
+              <h2 className="font-hans text-xl font-bold leading-tight tracking-tight text-[var(--ink-title)] sm:text-2xl">
+                {lang === 'zh' ? '籍贯、园林与地点' : 'Hometowns, Gardens & Locations'}
+              </h2>
+              <p className="mt-2 max-w-2xl text-[11px] leading-relaxed text-[var(--ink-dim-text)] sm:text-xs">
+                {lang === 'zh'
+                  ? '循地图探索人物来处、名园胜景与章回中出现的地点。'
+                  : 'Trace where characters come from and explore the gardens, landmarks, and landscapes that shape the story.'}
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-3 max-h-[26rem] overflow-y-auto pr-1">
-            {originStats.map((stat) => (
-              <div key={stat.name} className="space-y-1.5">
-                <div className="flex justify-between text-[12px] gap-3">
-                  <span className="truncate pr-2 font-hans text-[var(--ink-title)]">
-                    {lang === 'zh'
-                      ? stat.name === 'Unknown'
-                        ? '未知'
-                        : stat.chars[0]?.originZh || stat.name
-                      : stat.name}
+          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-[var(--paper-border)] bg-[var(--paper-border)] sm:grid-cols-4 xl:min-w-[29rem]">
+            {summaryItems.map(({ icon: Icon, value, label }) => (
+              <div key={label} className="bg-[var(--paper-bg)]/95 px-3 py-2.5 sm:px-4">
+                <dt className="flex items-center gap-1.5 text-[8px] font-bold uppercase tracking-[0.12em] text-[var(--ink-dim-text)]">
+                  <Icon size={10} className="text-[var(--accent)]" />
+                  {label}
+                </dt>
+                <dd className="mt-1 text-lg font-bold tabular-nums leading-none text-[var(--ink-title)]">
+                  {value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </header>
+
+      <div className="relative space-y-6 p-4 sm:p-6">
+        <section aria-labelledby="map-explorer-title">
+          <div className="mb-3 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-[0.24em] text-[var(--accent)]">
+                {lang === 'zh' ? '交互地图' : 'Interactive map'}
+              </p>
+              <h3 id="map-explorer-title" className="mt-1 text-sm font-bold text-[var(--ink-title)]">
+                {lang === 'zh' ? '按地点类型探索' : 'Explore by location type'}
+              </h3>
+            </div>
+            <p className="hidden text-[10px] italic text-[var(--ink-dim-text)] sm:block">
+              {lang === 'zh' ? '选择类别以更新地图' : 'Choose a category to update the map'}
+            </p>
+          </div>
+
+          <div
+            className="grid grid-cols-2 gap-1.5 rounded-sm border border-[var(--paper-border)] bg-black/[0.025] p-1.5 sm:grid-cols-4"
+            role="tablist"
+            aria-label={lang === 'zh' ? '地点类型' : 'Location types'}
+          >
+            {activeTypes.map((type) => {
+              const label = locationTypeLabels[type];
+              const count = mapDataByType[type].length;
+              const isActive = resolvedActiveType === type;
+              const Icon = typeIcons[type];
+
+              return (
+                <button
+                  key={type}
+                  type="button"
+                  role="tab"
+                  id={`location-tab-${type}`}
+                  aria-selected={isActive}
+                  aria-controls="location-map-panel"
+                  onClick={() => setActiveType(type)}
+                  className={`group flex min-h-[50px] items-center gap-2.5 rounded-sm border px-3 py-2 text-left transition-all ${
+                    isActive
+                      ? 'border-[var(--accent)] bg-[var(--accent)] text-[var(--paper-bg)] shadow-sm'
+                      : 'border-transparent bg-[var(--paper-bg)]/70 text-[var(--ink-dim-text)] hover:border-[var(--paper-border)] hover:bg-[var(--paper-bg)] hover:text-[var(--ink-title)]'
+                  }`}
+                >
+                  <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
+                    isActive ? 'bg-[var(--paper-bg)]/15' : 'bg-[var(--accent)]/10 text-[var(--accent)]'
+                  }`}>
+                    <Icon size={14} />
                   </span>
-                  <span className="text-[var(--ink-dim-text)] flex-shrink-0">
-                    {stat.count}
+                  <span className="min-w-0">
+                    <span className="block truncate text-[11px] font-bold leading-tight">
+                      {lang === 'zh' ? label.zh : label.en}
+                    </span>
+                    <span className={`mt-0.5 block text-[9px] ${
+                      isActive ? 'text-[var(--paper-bg)]/75' : 'text-[var(--ink-dim-text)]/70'
+                    }`}>
+                      {lang === 'zh' ? `${count} 处地点` : `${count} map ${count === 1 ? 'point' : 'points'}`}
+                    </span>
                   </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div
+            id="location-map-panel"
+            role="tabpanel"
+            aria-labelledby={`location-tab-${resolvedActiveType}`}
+            className="mt-3 overflow-hidden rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/50 shadow-sm"
+          >
+            {activeTypes.length > 0 ? (
+              <div key={resolvedActiveType}>
+                <LocationMapPanel
+                  mapData={mapDataByType[resolvedActiveType]}
+                  lang={lang}
+                  locationType={resolvedActiveType}
+                  title={lang === 'zh'
+                    ? locationTypeLabels[resolvedActiveType].zh
+                    : locationTypeLabels[resolvedActiveType].en}
+                />
+              </div>
+            ) : (
+              <div className="p-8 text-center text-sm italic text-[var(--ink-dim-text)]">
+                {lang === 'zh' ? '暂无地点数据' : 'No location data available'}
+              </div>
+            )}
+          </div>
+        </section>
+
+        <div className="h-px bg-[var(--paper-border)]" />
+
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-5">
+          <section
+            className="rounded-sm border border-[var(--paper-border)] bg-white/10 p-4 lg:col-span-3 sm:p-5"
+            aria-labelledby="hometowns-title"
+          >
+            <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/70 pb-3">
+              <div className="flex items-center gap-2.5">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--accent)]/10 text-[var(--accent)]">
+                  <Home size={13} />
+                </span>
+                <div>
+                  <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+                    {lang === 'zh' ? '人物来处' : 'Origins'}
+                  </p>
+                  <h3 id="hometowns-title" className="text-xs font-bold text-[var(--ink-title)]">
+                    {lang === 'zh' ? '人物籍贯' : 'Character Hometowns'}
+                  </h3>
                 </div>
-                <div className="h-1 bg-black/5 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-[var(--accent)] opacity-60"
-                    style={{ width: `${stat.percentage}%` }}
-                  />
+              </div>
+              <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2.5 py-1 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
+                {lang === 'zh' ? `${originStats.length} 处` : `${originStats.length} origins`}
+              </span>
+            </div>
+
+            <div className="max-h-[26rem] space-y-2.5 overflow-y-auto pr-1">
+              {originStats.map((stat, index) => (
+                <div
+                  key={stat.name}
+                  className="rounded-sm border border-transparent px-2.5 py-2 transition-colors hover:border-[var(--paper-border)]/70 hover:bg-[var(--paper-bg)]/60"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-4 shrink-0 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]/50">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="truncate font-hans text-[11px] font-bold text-[var(--ink-title)]">
+                          {lang === 'zh'
+                            ? stat.name === 'Unknown'
+                              ? '未知'
+                              : stat.chars[0]?.originZh || stat.name
+                            : stat.name}
+                        </span>
+                        <span className="shrink-0 text-[9px] font-bold tabular-nums text-[var(--accent)]">
+                          {lang === 'zh' ? `${stat.count} 人` : `${stat.count} ${stat.count === 1 ? 'person' : 'people'}`}
+                        </span>
+                      </div>
+                      <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-black/[0.06]">
+                        <div
+                          className="h-full rounded-full bg-[var(--accent)]/65"
+                          style={{ width: `${stat.percentage}%` }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="ml-6 mt-2 flex flex-wrap gap-1">
+                    {stat.chars.map((character) => (
+                      <button
+                        key={character.id}
+                        type="button"
+                        onClick={() => onSelectCharacter(character)}
+                        className="rounded-full border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/70 px-2 py-0.5 font-hans text-[9px] leading-tight text-[var(--ink-dim-text)] transition-all hover:border-[var(--accent)]/35 hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
+                      >
+                        {getCharacterNameForLanguage(character, lang)}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-1 pt-0.5">
-                  {stat.chars.map((character) => (
+              ))}
+            </div>
+          </section>
+
+          <section
+            className="rounded-sm border border-[var(--paper-border)] bg-white/10 p-4 lg:col-span-2 sm:p-5"
+            aria-labelledby="gardens-title"
+          >
+            <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/70 pb-3">
+              <div className="flex items-center gap-2.5">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#4d6a3a]/10 text-[#4d6a3a]">
+                  <Trees size={13} />
+                </span>
+                <div>
+                  <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-[#4d6a3a]">
+                    {lang === 'zh' ? '园中游' : 'Within the walls'}
+                  </p>
+                  <h3 id="gardens-title" className="text-xs font-bold text-[var(--ink-title)]">
+                    {lang === 'zh' ? '园林与场所' : 'Gardens & Spaces'}
+                  </h3>
+                </div>
+              </div>
+              <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2.5 py-1 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
+                {lang === 'zh' ? `${gardens.length} 处` : `${gardens.length} spaces`}
+              </span>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
+                  {lang === 'zh' ? '主要园林' : 'Major Gardens'}
+                </p>
+                <div className="space-y-1.5">
+                  {majorGardens.map((garden) => (
                     <button
-                      key={character.id}
-                      onClick={() => onSelectCharacter(character)}
-                      className="text-[9px] px-1.5 py-0.5 bg-black/5 hover:bg-[var(--accent)]/15 text-[var(--ink-dim-text)] hover:text-[var(--accent)] rounded-sm transition-colors font-sans leading-tight"
+                      key={garden.id}
+                      type="button"
+                      onClick={() => onSelectGarden(garden)}
+                      className="group flex w-full items-center gap-3 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 px-3 py-2.5 text-left transition-all hover:border-[#4d6a3a]/40 hover:bg-[#4d6a3a]/[0.06]"
                     >
-                      {getCharacterNameForLanguage(character, lang)}
+                      <Trees size={13} className="shrink-0 text-[#4d6a3a]/70" />
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate font-hans text-[11px] font-bold text-[var(--ink-title)] group-hover:text-[#4d6a3a]">
+                          {lang === 'zh' ? garden.name : garden.nameEn}
+                        </span>
+                        <span className="mt-0.5 block truncate text-[9px] text-[var(--ink-dim-text)]">
+                          {lang === 'zh' ? garden.location : garden.locationEn}
+                        </span>
+                      </span>
+                      <ChevronRight size={13} className="shrink-0 text-[var(--ink-dim-text)]/35 transition-transform group-hover:translate-x-0.5 group-hover:text-[#4d6a3a]" />
                     </button>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
 
-        <section className="rounded-sm border border-[var(--paper-border)]/60 bg-white/10 p-4">
-          <div className="flex items-center justify-between gap-3 mb-3 border-b border-[var(--paper-border)]/60 pb-2">
-            <div className="flex items-center gap-2">
-              <Trees size={11} className="text-[#4d6a3a]" />
-              <h3 className="text-[11px] uppercase tracking-[0.15em] text-[var(--ink-dim-text)] font-bold">
-                {lang === 'zh' ? '园林与场所' : 'Gardens & Spaces'}
-              </h3>
+              {[
+                {
+                  label: lang === 'zh' ? '园中胜景' : 'Sub-Locations',
+                  items: subLocations,
+                },
+                {
+                  label: lang === 'zh' ? '其他场所' : 'Other Spaces',
+                  items: otherSpaces,
+                },
+              ].map((group) => (
+                <div key={group.label}>
+                  <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
+                    {group.label}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {group.items.map((garden) => (
+                      <button
+                        key={garden.id}
+                        type="button"
+                        onClick={() => onSelectGarden(garden)}
+                        className="rounded-full border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/55 px-2.5 py-1 font-hans text-[9px] leading-tight text-[var(--ink-dim-text)] transition-all hover:border-[#4d6a3a]/40 hover:bg-[#4d6a3a]/[0.07] hover:text-[#4d6a3a]"
+                      >
+                        {lang === 'zh' ? garden.name : garden.nameEn}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
-            <span className="text-[11px] text-[var(--ink-dim-text)] italic">
-              {lang === 'zh' ? `${gardens.length} 处` : `${gardens.length} spaces`}
+          </section>
+        </div>
+
+        <section
+          className="rounded-sm border border-[var(--paper-border)] bg-white/10 p-4 sm:p-5"
+          aria-labelledby="locations-title"
+        >
+          <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/70 pb-3">
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--accent)]/10 text-[var(--accent)]">
+                <MapPin size={13} />
+              </span>
+              <div>
+                <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+                  {lang === 'zh' ? '章回地理' : 'Story geography'}
+                </p>
+                <h3 id="locations-title" className="text-xs font-bold text-[var(--ink-title)]">
+                  {lang === 'zh' ? '地点索引' : 'Location Index'}
+                </h3>
+              </div>
+            </div>
+            <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2.5 py-1 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
+              {lang === 'zh' ? `${locationCount} 处` : `${locationCount} places`}
             </span>
           </div>
 
-          <div className="space-y-4">
-            <div>
-              <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-2 font-bold">
-                {lang === 'zh' ? '主要园林' : 'Major Gardens'}
-              </p>
-              <div className="flex flex-col gap-1.5">
-                {majorGardens.map((garden) => (
-                  <button
-                    key={garden.id}
-                    onClick={() => onSelectGarden(garden)}
-                    className="text-left px-2.5 py-2 rounded-sm border border-[var(--paper-border)]/60 hover:border-[#4d6a3a]/50 hover:bg-[#4d6a3a]/5 transition-all group flex items-center gap-2"
-                  >
-                    <Trees
-                      size={10}
-                      className="text-[#4d6a3a]/50 group-hover:text-[#4d6a3a] shrink-0"
-                    />
-                    <div className="min-w-0">
-                      <span className="text-[12px] font-hans font-bold text-[var(--ink-title)] block leading-tight">
-                        {lang === 'zh' ? garden.name : garden.nameEn}
-                      </span>
-                      <span className="text-[9px] text-[var(--ink-dim-text)] leading-tight">
-                        {lang === 'zh' ? garden.location : garden.locationEn}
-                      </span>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-2 font-bold">
-                {lang === 'zh' ? '园中胜景' : 'Sub-Locations'}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {subLocations.map((garden) => (
-                  <button
-                    key={garden.id}
-                    onClick={() => onSelectGarden(garden)}
-                    className="text-[10px] px-2 py-1 rounded-sm border border-[var(--paper-border)]/60 hover:border-[var(--accent)]/40 bg-white/20 hover:bg-[var(--accent)]/5 text-[var(--ink-dim-text)] hover:text-[var(--accent)] transition-all font-hans leading-tight"
-                  >
-                    {lang === 'zh' ? garden.name : garden.nameEn}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-2 font-bold">
-                {lang === 'zh' ? '其他场所' : 'Other Spaces'}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {otherSpaces.map((garden) => (
-                  <button
-                    key={garden.id}
-                    onClick={() => onSelectGarden(garden)}
-                    className="text-[10px] px-2 py-1 rounded-sm border border-[var(--paper-border)]/60 hover:border-[var(--accent)]/40 bg-white/20 hover:bg-[var(--accent)]/5 text-[var(--ink-dim-text)] hover:text-[var(--accent)] transition-all font-hans leading-tight"
-                  >
-                    {lang === 'zh' ? garden.name : garden.nameEn}
-                  </button>
-                ))}
-              </div>
-            </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            {locationsByType.map((group) => {
+              const Icon = typeIcons[group.type];
+              return (
+                <div key={group.type}>
+                  <div className="mb-2.5 flex items-center gap-2">
+                    <Icon size={11} className="text-[var(--accent)]" />
+                    <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[var(--ink-dim-text)]">
+                      {lang === 'zh' ? group.label.zh : group.label.en}
+                    </p>
+                    <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-1.5 py-0.5 text-[8px] font-bold tabular-nums text-[var(--accent)]">
+                      {group.locations.length}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {group.locations.map((location) => (
+                      <button
+                        key={location.id}
+                        type="button"
+                        onClick={() => onSelectLocation(location)}
+                        className="group rounded-sm border border-[var(--paper-border)]/65 bg-[var(--paper-bg)]/45 px-2.5 py-1.5 text-left transition-all hover:-translate-y-px hover:border-[var(--accent)]/35 hover:bg-[var(--accent)]/[0.06] hover:shadow-sm"
+                        title={lang === 'zh' ? location.name : location.nameEn}
+                      >
+                        <span className="whitespace-nowrap font-hans text-[10px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
+                          {lang === 'zh' ? location.name : location.nameEn}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
       </div>
-
-      <section className="rounded-sm border border-[var(--paper-border)]/60 bg-white/10 p-4 mb-5">
-        <div className="flex items-center justify-between gap-3 mb-3 border-b border-[var(--paper-border)]/60 pb-2">
-          <div className="flex items-center gap-2">
-            <MapPin size={11} className="text-[var(--accent)]" />
-            <h3 className="text-[11px] uppercase tracking-[0.15em] text-[var(--ink-dim-text)] font-bold">
-              {lang === 'zh' ? '地点索引' : 'Locations'}
-            </h3>
-          </div>
-          <span className="text-[11px] text-[var(--ink-dim-text)] italic">
-            {lang === 'zh' ? `${locationCount} 处` : `${locationCount} places`}
-          </span>
-        </div>
-
-        <div className="space-y-4">
-          {locationsByType.map((group) => (
-            <div key={group.type}>
-              <div className="flex items-center justify-between gap-3 mb-2">
-                <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
-                  {lang === 'zh' ? group.label.zh : group.label.en}
-                </p>
-                <span className="text-[9px] text-[var(--accent)] font-sans font-bold">
-                  {group.locations.length}
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {group.locations.map((location) => (
-                  <button
-                    key={location.id}
-                    onClick={() => onSelectLocation(location)}
-                    className="px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)]/50 bg-white/10 hover:bg-[var(--accent)]/5 hover:border-[var(--accent)]/30 transition-all group"
-                    title={lang === 'zh' ? `${location.name}` : location.nameEn}
-                  >
-                    <p className="text-[11px] font-bold text-[var(--ink-title)] font-hans leading-tight group-hover:text-[var(--accent)] transition-colors whitespace-nowrap">
-                      {lang === 'zh' ? location.name : location.nameEn}
-                    </p>
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1.5 sm:gap-2 mb-4">
-        {activeTypes.map((type) => {
-          const label = locationTypeLabels[type];
-          const count = mapDataByType[type].length;
-          const isActive = resolvedActiveType === type;
-
-          const Icon = typeIcons[type];
-
-          return (
-            <button
-              key={type}
-              type="button"
-              onClick={() => setActiveType(type)}
-              className={`w-full min-h-[45px] px-2 py-1.5 rounded-sm border text-[14px] sm:text-[14px] leading-tight text-center transition-all flex flex-col items-center justify-center gap-1 ${
-                isActive
-                  ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)] shadow-sm'
-                  : 'bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] border-[var(--paper-border)] hover:bg-[var(--paper-bg)] hover:text-[var(--ink-title)] hover:border-[var(--accent)]/50'
-              }`}
-            >
-              <div className="flex items-center justify-center gap-1.5 font-semibold">
-                {Icon && <Icon size={14} className={isActive ? "text-[var(--paper-bg)]" : "text-[var(--accent)]"} />}
-                <span>
-                  {lang === 'zh' ? label.zh : label.en}
-                </span>
-              </div>
-              <span className={`block text-[11px] ${isActive ? 'text-[var(--paper-bg)]/80' : 'text-[var(--ink-dim-text)]/60'}`}>
-                {count} {lang === 'zh' ? '处' : 'pts'}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      {activeTypes.length > 0 ? (
-        <div key={resolvedActiveType}>
-          <LocationMapPanel
-            mapData={mapDataByType[resolvedActiveType]}
-            lang={lang}
-            locationType={resolvedActiveType}
-            title={lang === 'zh'
-              ? locationTypeLabels[resolvedActiveType].zh
-              : locationTypeLabels[resolvedActiveType].en}
-          />
-        </div>
-      ) : (
-        <div className="rounded border border-[var(--paper-border)]/50 bg-[var(--body-bg)]/50 p-8 text-center text-sm text-[var(--ink-dim-text)] italic">
-          {lang === 'zh' ? '暂无地点数据' : 'No location data available'}
-        </div>
-      )}
     </div>
   );
 }
