@@ -2189,6 +2189,7 @@ export default function App() {
               garden={selectedGarden}
               onClose={() => setSelectedGarden(null)}
               lang={lang}
+              setLang={setLang}
               onSelectChapter={setSelectedChapter}
               onSelectGarden={setSelectedGarden}
             />

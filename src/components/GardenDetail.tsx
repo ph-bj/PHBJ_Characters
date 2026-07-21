@@ -5,17 +5,20 @@ import { chapters } from "../chapters";
 import { getGardenById, type Garden } from "../gardens";
 import type { Chapter } from "../types";
 import { PermalinkButton } from "./PermalinkButton";
+import { LanguageSwitch } from "./LanguageSwitch";
 
 export function GardenDetail({
   garden,
   onClose,
   lang,
+  setLang,
   onSelectChapter,
   onSelectGarden,
 }: {
   garden: Garden;
   onClose: () => void;
   lang: "en" | "zh";
+  setLang: (lang: "en" | "zh") => void;
   onSelectChapter: (ch: Chapter) => void;
   onSelectGarden: (g: Garden) => void;
 }) {
@@ -133,6 +136,7 @@ export function GardenDetail({
         className="relative z-10 w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[var(--paper-border)] my-4 sm:my-0 flex flex-col"
       >
         <div className="absolute top-4 sm:top-6 right-4 sm:right-6 flex items-center gap-1.5 z-10">
+          <LanguageSwitch lang={lang} setLang={setLang} className="scale-90" />
           <PermalinkButton lang={lang} link={{ kind: "garden", id: garden.id }} />
           <button
             onClick={onClose}
