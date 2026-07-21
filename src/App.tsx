@@ -101,7 +101,6 @@ const OperaNight = React.lazy(() => import("./components/illustrations/OperaNigh
 const PlumBlossomBanquet = React.lazy(() => import("./components/illustrations/PlumBlossomBanquet").then(m => ({ default: m.PlumBlossomBanquet })));
 const ScholarStudy = React.lazy(() => import("./components/illustrations/ScholarStudy").then(m => ({ default: m.ScholarStudy })));
 const MainInkLandscape = React.lazy(() => import("./components/illustrations/MainInkLandscape").then(m => ({ default: m.MainInkLandscape })));
-
 export default function App() {
   const tcZPHBJGitHubIoVersion = __BUILD_VERSION__; // handle github.io failures
   const [searchQuery, setSearchQuery] = useState("");
@@ -775,7 +774,7 @@ export default function App() {
       label: lang === "zh" ? "章节" : "Chapters",
       icon: BookOpen,
     },
-    { id: "gardens", label: lang === "zh" ? "园林" : "Gardens", icon: Leaf },
+    { id: "hometown-map", label: lang === "zh" ? "地图" : "Map", icon: MapIcon },
   ];
 
   const mobileMenuSections = [
@@ -786,11 +785,6 @@ export default function App() {
       icon: Activity,
     },
     { id: "works", label: lang === "zh" ? "引书" : "Works Cited", icon: Book },
-    {
-      id: "locations",
-      label: lang === "zh" ? "地点" : "Locations",
-      icon: MapPin,
-    },
     {
       id: "hometown-map",
       label: lang === "zh" ? "分布地图" : "Distribution Map",
@@ -1469,91 +1463,6 @@ export default function App() {
 
             <GardenStroll />
 
-            {/* Gardens Section */}
-            <div
-              id="gardens"
-              className="relative parchment p-4 sm:p-8 rounded-sm flex flex-col gap-5 border-double border-4 border-[var(--paper-border)] scroll-mt-24"
-            >
-              <div>
-                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-1 font-bold border-b border-[var(--paper-border)] pb-2 flex items-center gap-2">
-                  <Leaf size={11} className="text-[#4d6a3a]" />
-                  {lang === "zh" ? "园林与场所" : "Gardens & Spaces"}
-                </h2>
-                <p className="text-[10px] text-[var(--ink-dim-text)] italic mt-2 mb-4 font-hans leading-relaxed">
-                  {lang === "zh"
-                    ? "小说中出现的13处命名园林与建筑空间"
-                    : "13 named locations across the 60 chapters"}
-                </p>
-
-                {/* Major gardens */}
-                <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-2 font-bold">
-                  {lang === "zh" ? "主要园林" : "Major Gardens"}
-                </p>
-                <div className="flex flex-col gap-1.5 mb-4">
-                  {gardens
-                    .filter((g) => g.type === "major")
-                    .map((g) => (
-                      <button
-                        key={g.id}
-                        onClick={() => setSelectedGarden(g)}
-                        className="text-left px-2.5 py-2 rounded-sm border border-[var(--paper-border)]/60 hover:border-[#4d6a3a]/50 hover:bg-[#4d6a3a]/5 transition-all group flex items-center gap-2"
-                      >
-                        <Leaf
-                          size={10}
-                          className="text-[#4d6a3a]/50 group-hover:text-[#4d6a3a] shrink-0"
-                        />
-                        <div className="min-w-0">
-                          <span className="text-[12px] font-hans font-bold text-[var(--ink-title)] block leading-tight">
-                            {lang === "zh" ? g.name : g.nameEn}
-                          </span>
-                          <span className="text-[9px] text-[var(--ink-dim-text)] leading-tight">
-                            {lang === "zh" ? g.location : g.locationEn}
-                          </span>
-                        </div>
-                      </button>
-                    ))}
-                </div>
-
-                {/* Sub-locations */}
-                <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-2 font-bold">
-                  {lang === "zh" ? "园中胜景" : "Sub-Locations"}
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {gardens
-                    .filter((g) => g.type === "sublocation")
-                    .map((g) => (
-                      <button
-                        key={g.id}
-                        onClick={() => setSelectedGarden(g)}
-                        className="text-[10px] px-2 py-1 rounded-sm border border-[var(--paper-border)]/60 hover:border-[var(--accent)]/40 bg-white/20 hover:bg-[var(--accent)]/5 text-[var(--ink-dim-text)] hover:text-[var(--accent)] transition-all font-hans leading-tight"
-                      >
-                        {lang === "zh" ? g.name : g.nameEn}
-                      </button>
-                    ))}
-                </div>
-
-                {/* Other */}
-                <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-2 font-bold">
-                  {lang === "zh" ? "其他场所" : "Other Spaces"}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {gardens
-                    .filter((g) => g.type === "other")
-                    .map((g) => (
-                      <button
-                        key={g.id}
-                        onClick={() => setSelectedGarden(g)}
-                        className="text-[10px] px-2 py-1 rounded-sm border border-[var(--paper-border)]/60 hover:border-[var(--accent)]/40 bg-white/20 hover:bg-[var(--accent)]/5 text-[var(--ink-dim-text)] hover:text-[var(--accent)] transition-all font-hans leading-tight"
-                      >
-                        {lang === "zh" ? g.name : g.nameEn}
-                      </button>
-                    ))}
-                </div>
-              </div>
-            </div>
-
-
-
             <OperaNight />
 
             {/* Questions Sidebar */}
@@ -1641,12 +1550,12 @@ export default function App() {
                   <Leaf size={12} className="text-[var(--accent)] shrink-0 translate-y-[1px]" />
                   <div>
                     <dt className="inline text-[11px] font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
-                      {lang === "en" ? "Gardens & Locations" : "园林与地点"}
+                      {lang === "en" ? "Integrated Map Feature" : "综合地图功能"}
                     </dt>
                     <dd className="inline text-[11px] text-[var(--ink-dim)]/75 leading-snug">
                       — {lang === "en"
-                        ? "Named gardens, residences, and districts, each linked to the chapters where they appear."
-                        : "小说中的名园、宅邸与街区，每处均关联其出现的章回。"}
+                        ? "Character hometowns, named gardens, locations, and chapter-linked geography presented in one map feature."
+                        : "人物籍贯、名园、地点与章回地理整合为一个地图功能。"}
                     </dd>
                   </div>
                 </div>
@@ -1669,12 +1578,12 @@ export default function App() {
                   <MapIcon size={12} className="text-[var(--accent)] shrink-0 translate-y-[1px]" />
                   <div>
                     <dt className="inline text-[11px] font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
-                      {lang === "en" ? "Hometown Map" : "籍贯地图"}
+                      {lang === "en" ? "Hometowns, Gardens & Locations" : "籍贯、园林与地点"}
                     </dt>
                     <dd className="inline text-[11px] text-[var(--ink-dim)]/75 leading-snug">
                       — {lang === "en"
-                        ? "A geographic map pinpointing each character's hometown, revealing the regional spread of the cast."
-                        : "地理地图标注每位人物的籍贯，直观呈现全书人物的地域分布。"}
+                        ? "An integrated map and index for character hometowns, gardens, and named locations."
+                        : "整合人物籍贯、园林与命名地点的交互式地图与索引。"}
                     </dd>
                   </div>
                 </div>
@@ -1808,7 +1717,16 @@ export default function App() {
                 <p className="text-[var(--ink-dim-text)] italic font-hans">{t.noRecords}</p>
               </div>
             )}
-            <HometownMap characters={filteredCharacters} lang={lang} />
+            <HometownMap
+              characters={filteredCharacters}
+              originStats={stats.topOrigins}
+              gardens={gardens}
+              locationsByType={locationsByType}
+              lang={lang}
+              onSelectCharacter={setSelectedCharacter}
+              onSelectGarden={setSelectedGarden}
+              onSelectLocation={setSelectedLocation}
+            />
           </section>
 
           {/* Right Sidebar - Chapters */}
@@ -1961,56 +1879,6 @@ export default function App() {
                           </button>
                         );
                       })}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Locations */}
-            <div
-              id="locations"
-              className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24"
-            >
-              <div className="flex items-baseline justify-between border-b border-[var(--paper-border)] pb-2 mb-4">
-                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold flex items-center gap-2">
-                  <MapPin size={12} className="text-[var(--accent)]" />
-                  {lang === "zh" ? "地点索引" : "Locations"}
-                </h2>
-                <span className="text-[10px] text-[var(--accent)] font-sans font-bold">
-                  {locationsByType.reduce(
-                    (sum, group) => sum + group.locations.length,
-                    0,
-                  )}{" "}
-                  {lang === "zh" ? "处" : "places"}
-                </span>
-              </div>
-              <div className="space-y-5">
-                {locationsByType.map((group) => (
-                  <div key={group.type}>
-                    <div className="flex items-center justify-between gap-3 mb-2">
-                      <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
-                        {lang === "zh" ? group.label.zh : group.label.en}
-                      </p>
-                      <span className="text-[9px] text-[var(--accent)] font-sans font-bold">
-                        {group.locations.length}
-                      </span>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {group.locations.map((location) => (
-                        <button
-                          key={location.id}
-                          onClick={() => setSelectedLocation(location)}
-                          className="px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)]/50 bg-white/10 hover:bg-[var(--accent)]/5 hover:border-[var(--accent)]/30 transition-all group"
-                          title={
-                            lang === "zh" ? `${location.name}` : location.nameEn
-                          }
-                        >
-                          <p className="text-[11px] font-bold text-[var(--ink-title)] font-hans leading-tight group-hover:text-[var(--accent)] transition-colors whitespace-nowrap">
-                            {lang === "zh" ? location.name : location.nameEn}
-                          </p>
-                        </button>
-                      ))}
                     </div>
                   </div>
                 ))}
