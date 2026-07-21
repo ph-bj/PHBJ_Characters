@@ -4,20 +4,25 @@ import { X } from "lucide-react";
 import { chapters } from "../chapters";
 import { locationTypeLabels } from "../locations";
 import { chapterTranslationsById } from "../chapterTranslations";
-import type { NovelLocationWithChapters } from "../utils";
+import { getCharacterNameForLanguage, type NovelLocationWithChapters } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
+import type { Character } from "../types";
 
 export function LocationDetail({
   location,
   lang,
   setLang,
   onClose,
+  characters = [],
+  onSelectCharacter,
 }: {
   location: NovelLocationWithChapters;
   lang: "en" | "zh";
   setLang: (lang: "en" | "zh") => void;
   onClose: () => void;
+  characters?: Character[];
+  onSelectCharacter?: (char: Character) => void;
 }) {
   const typeLabel = locationTypeLabels[location.type];
   const chapterList = location.chapterIds.join(", ");
@@ -256,6 +261,19 @@ export function LocationDetail({
     return unique.join(" / ");
   }, [englishSearchTokens]);
 
+  const relatedCharacters = useMemo(() => {
+    if (!characters) return [];
+    return characters.filter((c) => {
+      if (!c.origin || c.origin === "—") return false;
+      if (c.origin === location.nameEn || c.originZh === location.name) return true;
+      if (location.id.startsWith("hometown-")) {
+        const originFromId = location.id.replace("hometown-", "");
+        if (c.origin.toLowerCase() === originFromId.toLowerCase() || c.originZh === location.name) return true;
+      }
+      return false;
+    });
+  }, [location, characters]);
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -330,6 +348,29 @@ export function LocationDetail({
             </p>
           </div>
 
+          {relatedCharacters.length > 0 && (
+            <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
+              <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-2">
+                {lang === "zh" ? "同乡人物" : "Characters from this Hometown"}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {relatedCharacters.map((char) => {
+                  const charName = getCharacterNameForLanguage(char, lang);
+                  return (
+                    <button
+                      key={char.id}
+                      onClick={() => onSelectCharacter?.(char)}
+                      className="px-2.5 py-1 rounded-sm border border-[var(--paper-border)]/80 bg-[var(--paper-bg)] text-[11px] font-hans hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5 transition-all cursor-pointer flex items-center gap-1.5"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
+                      {charName}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
             <div className="flex items-center justify-between gap-2 mb-1">
               <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)]">
@@ -342,76 +383,78 @@ export function LocationDetail({
             <p className="text-sm font-sans">{chapterList}</p>
           </div>
 
-          <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5 space-y-3">
-            <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)]">
-              {lang === "zh" ? "章节提及与上下文" : "Mentions with Context"}
-            </p>
-            <div className="space-y-3">
-              {(lang === "en" && locationMentionsEn.length > 0
-                ? locationMentionsEn
-                : locationMentions
-              ).map(({ chapterId, snippets }) => (
-                <div
-                  key={chapterId}
-                  className="border border-[var(--paper-border)]/70 rounded-sm p-2 bg-[var(--paper-bg)]/60"
-                >
-                  <p className="text-[10px] font-bold text-[var(--accent)] mb-1">
-                    {lang === "zh"
-                      ? `第 ${chapterId} 回`
-                      : `Chapter ${chapterId}`}{" "}
-                    ({snippets.length})
-                  </p>
-                  {snippets.length === 0 ? (
-                    <p className="text-[11px] text-[var(--ink-dim-text)] italic">
+          {location.chapterIds.length > 0 && (
+            <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5 space-y-3">
+              <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)]">
+                {lang === "zh" ? "章节提及与上下文" : "Mentions with Context"}
+              </p>
+              <div className="space-y-3">
+                {(lang === "en" && locationMentionsEn.length > 0
+                  ? locationMentionsEn
+                  : locationMentions
+                ).map(({ chapterId, snippets }) => (
+                  <div
+                    key={chapterId}
+                    className="border border-[var(--paper-border)]/70 rounded-sm p-2 bg-[var(--paper-bg)]/60"
+                  >
+                    <p className="text-[10px] font-bold text-[var(--accent)] mb-1">
                       {lang === "zh"
-                        ? "无上下文摘录。"
-                        : "No surrounding snippet found."}
+                        ? `第 ${chapterId} 回`
+                        : `Chapter ${chapterId}`}{" "}
+                      ({snippets.length})
                     </p>
-                  ) : (
-                    <div className="space-y-1.5">
-                      {snippets.map((snippet, idx) => (
-                        <p
-                          key={`${chapterId}-${idx}`}
-                          className={
-                            lang === "zh"
-                              ? "text-[11px] leading-relaxed font-hans text-[var(--ink-title)]"
-                              : "text-[11px] leading-relaxed text-[var(--ink-title)]"
-                          }
-                        >
-                          {lang === "zh" && "…"}
-                          {(lang === "zh"
-                            ? locationTokenRegex
-                              ? snippet.split(locationTokenRegex)
-                              : [snippet]
-                            : locationTokenRegexEn
-                              ? snippet.split(locationTokenRegexEn)
-                              : [snippet]
-                          ).map((part, partIdx) => {
-                            const isMatch = lang === "zh"
-                              ? location.searchTokens.includes(part)
-                              : !!locationTokenRegexEn?.test(part);
-                            return isMatch ? (
-                              <mark
-                                key={`${chapterId}-${idx}-${partIdx}`}
-                                className="bg-amber-300/70 text-[var(--ink-title)] px-0.5 rounded-sm"
-                              >
-                                {part}
-                              </mark>
-                            ) : (
-                              <span key={`${chapterId}-${idx}-${partIdx}`}>
-                                {part}
-                              </span>
-                            );
-                          })}
-                          {lang === "zh" && "…"}
-                        </p>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
+                    {snippets.length === 0 ? (
+                      <p className="text-[11px] text-[var(--ink-dim-text)] italic">
+                        {lang === "zh"
+                          ? "无上下文摘录。"
+                          : "No surrounding snippet found."}
+                      </p>
+                    ) : (
+                      <div className="space-y-1.5">
+                        {snippets.map((snippet, idx) => (
+                          <p
+                            key={`${chapterId}-${idx}`}
+                            className={
+                              lang === "zh"
+                                ? "text-[11px] leading-relaxed font-hans text-[var(--ink-title)]"
+                                : "text-[11px] leading-relaxed text-[var(--ink-title)]"
+                            }
+                          >
+                            {lang === "zh" && "…"}
+                            {(lang === "zh"
+                              ? locationTokenRegex
+                                ? snippet.split(locationTokenRegex)
+                                : [snippet]
+                              : locationTokenRegexEn
+                                ? snippet.split(locationTokenRegexEn)
+                                : [snippet]
+                            ).map((part, partIdx) => {
+                              const isMatch = lang === "zh"
+                                ? location.searchTokens.includes(part)
+                                : !!locationTokenRegexEn?.test(part);
+                              return isMatch ? (
+                                <mark
+                                  key={`${chapterId}-${idx}-${partIdx}`}
+                                  className="bg-amber-300/70 text-[var(--ink-title)] px-0.5 rounded-sm"
+                                >
+                                  {part}
+                                </mark>
+                              ) : (
+                                <span key={`${chapterId}-${idx}-${partIdx}`}>
+                                  {part}
+                                </span>
+                              );
+                            })}
+                            {lang === "zh" && "…"}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </motion.div>
     </div>

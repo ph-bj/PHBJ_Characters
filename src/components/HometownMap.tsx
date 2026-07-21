@@ -374,6 +374,53 @@ export function HometownMap({
           </div>
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            {/* Character Hometowns Section */}
+            {mapDataByType.hometown.length > 0 && (
+              <div>
+                <div className="mb-2.5 flex items-center gap-2">
+                  <Users size={11} className="text-[#a0522d]" />
+                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[var(--ink-dim-text)]">
+                    {lang === 'zh' ? '人物籍贯' : 'Character Hometowns'}
+                  </p>
+                  <span className="ml-auto rounded-full bg-[#a0522d]/10 px-1.5 py-0.5 text-[8px] font-bold tabular-nums text-[#a0522d]">
+                    {mapDataByType.hometown.length}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {mapDataByType.hometown.map((hometown) => {
+                    const name = lang === 'zh' ? (hometown.originZh || hometown.origin) : hometown.origin;
+                    return (
+                      <button
+                        key={hometown.id}
+                        type="button"
+                        onClick={() => {
+                          const hometownLocation: NovelLocationWithChapters = {
+                            id: hometown.id,
+                            name: hometown.originZh || hometown.origin,
+                            nameEn: hometown.origin,
+                            type: 'place',
+                            typeZh: lang === 'zh' ? '地方' : 'Place',
+                            searchTokens: hometown.searchTokens || [hometown.originZh || hometown.origin, hometown.origin],
+                            chapterIds: hometown.chapterIds || [],
+                          };
+                          onSelectLocation(hometownLocation);
+                        }}
+                        className="group rounded-sm border border-[var(--paper-border)]/65 bg-[var(--paper-bg)]/45 px-2.5 py-1.5 text-left transition-all hover:-translate-y-px hover:border-[var(--accent)]/35 hover:bg-[var(--accent)]/[0.06] hover:shadow-sm cursor-pointer"
+                        title={lang === 'zh' ? `${name} (共 ${hometown.count} 人)` : `${name} (${hometown.count} ${hometown.count === 1 ? 'character' : 'characters'})`}
+                      >
+                        <span className="whitespace-nowrap font-hans text-[10px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
+                          {name}
+                          <span className="ml-1 text-[8px] font-normal text-[var(--ink-dim-text)]">
+                            ({hometown.count})
+                          </span>
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             {locationsByType.map((group) => {
               const Icon = typeIcons[group.type];
 

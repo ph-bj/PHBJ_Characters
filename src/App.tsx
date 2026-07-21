@@ -555,11 +555,28 @@ export default function App() {
           break;
         }
         case "location": {
+          let found = false;
           for (const group of locationsByType) {
             const location = group.locations.find((l) => l.id === link.id);
             if (location) {
               setSelectedLocation(location);
+              found = true;
               break;
+            }
+          }
+          if (!found && link.id.startsWith("hometown-")) {
+            const origin = link.id.replace("hometown-", "");
+            const chars = characters.filter((c) => c.origin === origin);
+            if (chars.length > 0) {
+              setSelectedLocation({
+                id: link.id,
+                name: chars[0].originZh || origin,
+                nameEn: origin,
+                type: "place",
+                typeZh: "地方",
+                searchTokens: [chars[0].originZh || origin, origin],
+                chapterIds: [],
+              });
             }
           }
           break;
@@ -2221,6 +2238,11 @@ export default function App() {
               lang={lang}
               setLang={setLang}
               onClose={() => setSelectedLocation(null)}
+              characters={characters}
+              onSelectCharacter={(character) => {
+                setSelectedLocation(null);
+                setSelectedCharacter(character);
+              }}
             />
           )}
         </AnimatePresence>
