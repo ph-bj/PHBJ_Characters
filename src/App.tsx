@@ -1078,48 +1078,6 @@ export default function App() {
             >
               <div>
                 <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
-                  {t.hometown}
-                </h2>
-                <div className="space-y-4">
-                  {stats.topOrigins.map((stat, i) => (
-                    <div key={i} className="space-y-1.5">
-                      <div className="flex justify-between text-[12px]">
-                        <span className="truncate pr-2 font-hans">
-                          {lang === "zh"
-                            ? stat.name === "Unknown"
-                              ? "未知"
-                              : stat.chars[0]?.originZh || stat.name
-                            : stat.name}
-                        </span>
-                        <span className="text-[var(--ink-dim-text)] flex-shrink-0">
-                          {stat.count}
-                        </span>
-                      </div>
-                      <div className="h-1 bg-black/5 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={{ width: `${stat.percentage}%` }}
-                          className="h-full bg-[var(--accent)] opacity-60"
-                        />
-                      </div>
-                      <div className="flex flex-wrap gap-1 pt-0.5">
-                        {stat.chars.map((c) => (
-                          <button
-                            key={c.id}
-                            onClick={() => setSelectedCharacter(c)}
-                            className="text-[9px] px-1.5 py-0.5 bg-black/5 hover:bg-[var(--accent)]/15 text-[var(--ink-dim-text)] hover:text-[var(--accent)] rounded-sm transition-colors font-sans leading-tight"
-                          >
-                            {getCharacterNameForLanguage(c, lang)}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
                   {t.ageDist}
                 </h2>
                 <div className="space-y-4">
