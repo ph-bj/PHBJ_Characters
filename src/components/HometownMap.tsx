@@ -180,6 +180,18 @@ export function HometownMap({
     (sum, group) => sum + group.locations.length,
     0,
   );
+  const gardenLocationGroup = locationsByType.find((group) => group.type === 'garden');
+  const additionalGardenLocations = (gardenLocationGroup?.locations ?? []).filter(
+    (location) => !gardens.some(
+      (garden) => garden.name === location.name
+        || garden.nameEn === location.nameEn
+        || garden.searchTokens.some((token) => location.searchTokens.includes(token)),
+    ),
+  );
+  const mergedGardenCount = gardens.length + additionalGardenLocations.length;
+  const storyGeographyCount = locationCount
+    - (gardenLocationGroup?.locations.length ?? 0)
+    + mergedGardenCount;
 
   const summaryItems = [
     {
@@ -340,88 +352,6 @@ export function HometownMap({
 
         <section
           className="rounded-sm border border-[var(--paper-border)] bg-white/10 p-4 sm:p-5"
-          aria-labelledby="gardens-title"
-        >
-            <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/70 pb-3">
-              <div className="flex items-center gap-2.5">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#4d6a3a]/10 text-[#4d6a3a]">
-                  <Trees size={13} />
-                </span>
-                <div>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-[#4d6a3a]">
-                    {lang === 'zh' ? '园中游' : 'Within the walls'}
-                  </p>
-                  <h3 id="gardens-title" className="text-xs font-bold text-[var(--ink-title)]">
-                    {lang === 'zh' ? '园林与场所' : 'Gardens & Spaces'}
-                  </h3>
-                </div>
-              </div>
-              <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2.5 py-1 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
-                {lang === 'zh' ? `${gardens.length} 处` : `${gardens.length} spaces`}
-              </span>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
-                  {lang === 'zh' ? '主要园林' : 'Major Gardens'}
-                </p>
-                <div className="space-y-1.5">
-                  {majorGardens.map((garden) => (
-                    <button
-                      key={garden.id}
-                      type="button"
-                      onClick={() => onSelectGarden(garden)}
-                      className="group flex w-full items-center gap-3 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 px-3 py-2.5 text-left transition-all hover:border-[#4d6a3a]/40 hover:bg-[#4d6a3a]/[0.06]"
-                    >
-                      <Trees size={13} className="shrink-0 text-[#4d6a3a]/70" />
-                      <span className="min-w-0 flex-1">
-                        <span className="block truncate font-hans text-[11px] font-bold text-[var(--ink-title)] group-hover:text-[#4d6a3a]">
-                          {lang === 'zh' ? garden.name : garden.nameEn}
-                        </span>
-                        <span className="mt-0.5 block truncate text-[9px] text-[var(--ink-dim-text)]">
-                          {lang === 'zh' ? garden.location : garden.locationEn}
-                        </span>
-                      </span>
-                      <ChevronRight size={13} className="shrink-0 text-[var(--ink-dim-text)]/35 transition-transform group-hover:translate-x-0.5 group-hover:text-[#4d6a3a]" />
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {[
-                {
-                  label: lang === 'zh' ? '园中胜景' : 'Sub-Locations',
-                  items: subLocations,
-                },
-                {
-                  label: lang === 'zh' ? '其他场所' : 'Other Spaces',
-                  items: otherSpaces,
-                },
-              ].map((group) => (
-                <div key={group.label}>
-                  <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
-                    {group.label}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {group.items.map((garden) => (
-                      <button
-                        key={garden.id}
-                        type="button"
-                        onClick={() => onSelectGarden(garden)}
-                        className="rounded-full border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/55 px-2.5 py-1 font-hans text-[9px] leading-tight text-[var(--ink-dim-text)] transition-all hover:border-[#4d6a3a]/40 hover:bg-[#4d6a3a]/[0.07] hover:text-[#4d6a3a]"
-                      >
-                        {lang === 'zh' ? garden.name : garden.nameEn}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-        </section>
-
-        <section
-          className="rounded-sm border border-[var(--paper-border)] bg-white/10 p-4 sm:p-5"
           aria-labelledby="locations-title"
         >
           <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/70 pb-3">
@@ -439,13 +369,115 @@ export function HometownMap({
               </div>
             </div>
             <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2.5 py-1 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
-              {lang === 'zh' ? `${locationCount} 处` : `${locationCount} places`}
+              {lang === 'zh' ? `${storyGeographyCount} 处` : `${storyGeographyCount} places`}
             </span>
           </div>
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             {locationsByType.map((group) => {
               const Icon = typeIcons[group.type];
+
+              if (group.type === 'garden') {
+                return (
+                  <div key={group.type} className="sm:col-span-2">
+                    <div className="mb-3 flex items-center gap-2">
+                      <Trees size={11} className="text-[#4d6a3a]" />
+                      <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[var(--ink-dim-text)]">
+                        {lang === 'zh' ? group.label.zh : group.label.en}
+                      </p>
+                      <span className="ml-auto rounded-full bg-[#4d6a3a]/10 px-1.5 py-0.5 text-[8px] font-bold tabular-nums text-[#4d6a3a]">
+                        {mergedGardenCount}
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <div>
+                        <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
+                          {lang === 'zh' ? '主要园林' : 'Major Gardens'}
+                        </p>
+                        <div className="space-y-1.5">
+                          {majorGardens.map((garden) => (
+                            <button
+                              key={garden.id}
+                              type="button"
+                              onClick={() => onSelectGarden(garden)}
+                              className="group flex w-full items-center gap-3 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 px-3 py-2.5 text-left transition-all hover:border-[#4d6a3a]/40 hover:bg-[#4d6a3a]/[0.06]"
+                            >
+                              <Trees size={13} className="shrink-0 text-[#4d6a3a]/70" />
+                              <span className="min-w-0 flex-1">
+                                <span className="block truncate font-hans text-[11px] font-bold text-[var(--ink-title)] group-hover:text-[#4d6a3a]">
+                                  {lang === 'zh' ? garden.name : garden.nameEn}
+                                </span>
+                                <span className="mt-0.5 block truncate text-[9px] text-[var(--ink-dim-text)]">
+                                  {lang === 'zh' ? garden.location : garden.locationEn}
+                                </span>
+                              </span>
+                              <ChevronRight size={13} className="shrink-0 text-[var(--ink-dim-text)]/35 transition-transform group-hover:translate-x-0.5 group-hover:text-[#4d6a3a]" />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="space-y-4">
+                        {[
+                          {
+                            label: lang === 'zh' ? '园中胜景' : 'Sub-Locations',
+                            items: subLocations,
+                          },
+                          {
+                            label: lang === 'zh' ? '其他场所' : 'Other Spaces',
+                            items: otherSpaces,
+                          },
+                        ].map((gardenGroup) => (
+                          <div key={gardenGroup.label}>
+                            <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
+                              {gardenGroup.label}
+                            </p>
+                            <div className="flex flex-wrap gap-1.5">
+                              {gardenGroup.items.map((garden) => (
+                                <button
+                                  key={garden.id}
+                                  type="button"
+                                  onClick={() => onSelectGarden(garden)}
+                                  className="rounded-full border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/55 px-2.5 py-1 font-hans text-[9px] leading-tight text-[var(--ink-dim-text)] transition-all hover:border-[#4d6a3a]/40 hover:bg-[#4d6a3a]/[0.07] hover:text-[#4d6a3a]"
+                                >
+                                  {lang === 'zh' ? garden.name : garden.nameEn}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {additionalGardenLocations.length > 0 && (
+                      <div className="mt-4 border-t border-[var(--paper-border)]/60 pt-4">
+                        <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
+                          {lang === 'zh' ? '其他园林地点' : 'Additional Garden Sites'}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {additionalGardenLocations.map((location) => (
+                            <button
+                              key={location.id}
+                              type="button"
+                              onClick={() => onSelectLocation(location)}
+                              className="group flex items-center gap-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 px-2.5 py-1.5 text-left transition-all hover:border-[#4d6a3a]/40 hover:bg-[#4d6a3a]/[0.06]"
+                              title={lang === 'zh' ? location.name : location.nameEn}
+                            >
+                              <Trees size={10} className="shrink-0 text-[#4d6a3a]/60" />
+                              <span className="whitespace-nowrap font-hans text-[9px] font-bold text-[var(--ink-title)] group-hover:text-[#4d6a3a]">
+                                {lang === 'zh' ? location.name : location.nameEn}
+                              </span>
+                              <ChevronRight size={10} className="text-[var(--ink-dim-text)]/30" />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
               return (
                 <div key={group.type}>
                   <div className="mb-2.5 flex items-center gap-2">
