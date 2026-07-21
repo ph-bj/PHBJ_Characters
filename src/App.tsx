@@ -1421,8 +1421,6 @@ export default function App() {
 
             <GardenStroll />
 
-            <OperaNight />
-
             {/* Questions Sidebar */}
             <div
               id="questions"
@@ -1778,6 +1776,8 @@ export default function App() {
               </div>
 
             </div>
+
+            <OperaNight />
 
             {/* Works Cited */}
             <div
