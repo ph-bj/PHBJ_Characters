@@ -1679,7 +1679,6 @@ export default function App() {
               gardens={gardens}
               locationsByType={locationsByType}
               lang={lang}
-              onSelectCharacter={setSelectedCharacter}
               onSelectGarden={setSelectedGarden}
               onSelectLocation={setSelectedLocation}
             />

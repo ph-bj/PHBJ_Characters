@@ -23,15 +23,27 @@ import {
   getLocationChapterIds,
   getLocationFirstChapterId,
   getLocationFirstSnippet,
-  getCharacterNameForLanguage,
 } from '../utils';
 import type { NovelLocationWithChapters } from '../utils';
 
-const typeIcons: Record<LocationType, React.ComponentType<{ size?: number; className?: string }>> = {
+type MapCategory = LocationType | 'hometown';
+
+const mapCategoryOrder: MapCategory[] = ['hometown', ...locationTypeOrder];
+
+const typeIcons: Record<MapCategory, React.ComponentType<{ size?: number; className?: string }>> = {
+  hometown: Users,
   place: MapPin,
   garden: Trees,
   site: Home,
   landscape: Mountain,
+};
+
+const mapCategoryLabels: Record<MapCategory, { en: string; zh: string }> = {
+  hometown: { en: 'Character Hometowns', zh: '人物籍贯' },
+  place: { en: 'Places', zh: '地方' },
+  garden: locationTypeLabels.garden,
+  site: locationTypeLabels.site,
+  landscape: locationTypeLabels.landscape,
 };
 
 function bookInfoForLocation(loc: (typeof novelLocations)[number]) {
@@ -58,7 +70,6 @@ interface HometownMapProps {
     locations: NovelLocationWithChapters[];
   }>;
   lang: 'en' | 'zh';
-  onSelectCharacter: (character: Character) => void;
   onSelectGarden: (garden: Garden) => void;
   onSelectLocation: (location: NovelLocationWithChapters) => void;
 }
@@ -69,7 +80,6 @@ export function HometownMap({
   gardens,
   locationsByType,
   lang,
-  onSelectCharacter,
   onSelectGarden,
   onSelectLocation,
 }: HometownMapProps) {
@@ -102,64 +112,62 @@ export function HometownMap({
       charOriginMap[char.origin].chars.push(char);
     }
 
-    Object.entries(charOriginMap).forEach(([origin, data]) => {
+    const hometownData = Object.entries(charOriginMap).map(([origin, data]) => {
       const locMatch = novelLocations.find(
-        (l) => l.id.includes(origin.toLowerCase())
-          || origin.toLowerCase().includes(l.nameEn.toLowerCase())
-          || l.nameEn.toLowerCase().includes(origin.toLowerCase())
-          || l.name === origin
-          || origin === l.id,
+        (location) => location.id.includes(origin.toLowerCase())
+          || origin.toLowerCase().includes(location.nameEn.toLowerCase())
+          || location.nameEn.toLowerCase().includes(origin.toLowerCase())
+          || location.name === origin
+          || origin === location.id,
       );
+      let coords = locMatch ? (coordinates as any)[locMatch.id] : undefined;
+      coords ||= (coordinates as any)[origin]
+        || (coordinates as any)[`city-${origin.toLowerCase()}`];
 
-      if (locMatch && locationMap[locMatch.id]) {
-        locationMap[locMatch.id].count += data.count;
-        locationMap[locMatch.id].chars.push(...data.chars);
-      } else {
-        let coords = (coordinates as any)[origin]
-          || (coordinates as any)[`city-${origin.toLowerCase()}`];
-        if (!coords) {
-          const matchingKey = Object.keys(coordinates).find(
-            (k) => k.includes(origin) || origin.includes(k),
-          );
-          if (matchingKey) coords = (coordinates as any)[matchingKey];
-          else coords = [105, 35];
-        }
-        locationMap[origin] = {
-          id: origin,
-          origin,
-          originZh: data.originZh,
-          type: 'place',
-          count: data.count,
-          chars: data.chars,
-          coords,
-          ...(locMatch ? bookInfoForLocation(locMatch) : {}),
-        };
+      if (!coords) {
+        const matchingKey = Object.keys(coordinates).find(
+          (key) => key.includes(origin) || origin.includes(key),
+        );
+        coords = matchingKey ? (coordinates as any)[matchingKey] : [105, 35];
       }
+
+      return {
+        id: `hometown-${origin}`,
+        origin,
+        originZh: data.originZh,
+        type: 'place',
+        count: data.count,
+        chars: data.chars,
+        coords,
+        ...(locMatch ? bookInfoForLocation(locMatch) : {}),
+      } satisfies MapLocationData;
     });
 
-    const allData = Object.values(locationMap);
-    const grouped = {} as Record<LocationType, MapLocationData[]>;
+    const allLocations = Object.values(locationMap);
+    const grouped = { hometown: hometownData } as Record<MapCategory, MapLocationData[]>;
 
     for (const type of locationTypeOrder) {
-      grouped[type] = allData
-        .filter((d) => d.type === type)
-        .sort((a, b) => b.count - a.count);
+      grouped[type] = allLocations.filter((data) => data.type === type);
+    }
+
+    for (const category of mapCategoryOrder) {
+      grouped[category].sort((a, b) => b.count - a.count);
     }
 
     return grouped;
   }, [characters]);
 
-  const activeTypes = locationTypeOrder.filter(
-    (type) => mapDataByType[type].length > 0,
+  const activeTypes = mapCategoryOrder.filter(
+    (category) => mapDataByType[category].length > 0,
   );
 
-  const [activeType, setActiveType] = useState<LocationType>(
-    () => activeTypes[0] ?? 'site',
+  const [activeType, setActiveType] = useState<MapCategory>(
+    () => activeTypes[0] ?? 'hometown',
   );
 
   const resolvedActiveType = activeTypes.includes(activeType)
     ? activeType
-    : activeTypes[0] ?? 'site';
+    : activeTypes[0] ?? 'hometown';
 
   const totalLocations = activeTypes.reduce(
     (sum, type) => sum + mapDataByType[type].length,
@@ -258,12 +266,12 @@ export function HometownMap({
           </div>
 
           <div
-            className="grid grid-cols-2 gap-1.5 rounded-sm border border-[var(--paper-border)] bg-black/[0.025] p-1.5 sm:grid-cols-4"
+            className="grid grid-cols-2 gap-1.5 rounded-sm border border-[var(--paper-border)] bg-black/[0.025] p-1.5 sm:grid-cols-3"
             role="tablist"
             aria-label={lang === 'zh' ? '地点类型' : 'Location types'}
           >
             {activeTypes.map((type) => {
-              const label = locationTypeLabels[type];
+              const label = mapCategoryLabels[type];
               const count = mapDataByType[type].length;
               const isActive = resolvedActiveType === type;
               const Icon = typeIcons[type];
@@ -314,10 +322,10 @@ export function HometownMap({
                 <LocationMapPanel
                   mapData={mapDataByType[resolvedActiveType]}
                   lang={lang}
-                  locationType={resolvedActiveType}
+                  locationType={resolvedActiveType === 'hometown' ? 'place' : resolvedActiveType}
                   title={lang === 'zh'
-                    ? locationTypeLabels[resolvedActiveType].zh
-                    : locationTypeLabels[resolvedActiveType].en}
+                    ? mapCategoryLabels[resolvedActiveType].zh
+                    : mapCategoryLabels[resolvedActiveType].en}
                 />
               </div>
             ) : (
@@ -330,82 +338,10 @@ export function HometownMap({
 
         <div className="h-px bg-[var(--paper-border)]" />
 
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-5">
-          <section
-            className="rounded-sm border border-[var(--paper-border)] bg-white/10 p-4 lg:col-span-3 sm:p-5"
-            aria-labelledby="hometowns-title"
-          >
-            <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/70 pb-3">
-              <div className="flex items-center gap-2.5">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--accent)]/10 text-[var(--accent)]">
-                  <Home size={13} />
-                </span>
-                <div>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
-                    {lang === 'zh' ? '人物来处' : 'Origins'}
-                  </p>
-                  <h3 id="hometowns-title" className="text-xs font-bold text-[var(--ink-title)]">
-                    {lang === 'zh' ? '人物籍贯' : 'Character Hometowns'}
-                  </h3>
-                </div>
-              </div>
-              <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2.5 py-1 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
-                {lang === 'zh' ? `${originStats.length} 处` : `${originStats.length} origins`}
-              </span>
-            </div>
-
-            <div className="max-h-[26rem] space-y-2.5 overflow-y-auto pr-1">
-              {originStats.map((stat, index) => (
-                <div
-                  key={stat.name}
-                  className="rounded-sm border border-transparent px-2.5 py-2 transition-colors hover:border-[var(--paper-border)]/70 hover:bg-[var(--paper-bg)]/60"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-4 shrink-0 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]/50">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between gap-3">
-                        <span className="truncate font-hans text-[11px] font-bold text-[var(--ink-title)]">
-                          {lang === 'zh'
-                            ? stat.name === 'Unknown'
-                              ? '未知'
-                              : stat.chars[0]?.originZh || stat.name
-                            : stat.name}
-                        </span>
-                        <span className="shrink-0 text-[9px] font-bold tabular-nums text-[var(--accent)]">
-                          {lang === 'zh' ? `${stat.count} 人` : `${stat.count} ${stat.count === 1 ? 'person' : 'people'}`}
-                        </span>
-                      </div>
-                      <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-black/[0.06]">
-                        <div
-                          className="h-full rounded-full bg-[var(--accent)]/65"
-                          style={{ width: `${stat.percentage}%` }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="ml-6 mt-2 flex flex-wrap gap-1">
-                    {stat.chars.map((character) => (
-                      <button
-                        key={character.id}
-                        type="button"
-                        onClick={() => onSelectCharacter(character)}
-                        className="rounded-full border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/70 px-2 py-0.5 font-hans text-[9px] leading-tight text-[var(--ink-dim-text)] transition-all hover:border-[var(--accent)]/35 hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
-                      >
-                        {getCharacterNameForLanguage(character, lang)}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section
-            className="rounded-sm border border-[var(--paper-border)] bg-white/10 p-4 lg:col-span-2 sm:p-5"
-            aria-labelledby="gardens-title"
-          >
+        <section
+          className="rounded-sm border border-[var(--paper-border)] bg-white/10 p-4 sm:p-5"
+          aria-labelledby="gardens-title"
+        >
             <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/70 pb-3">
               <div className="flex items-center gap-2.5">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#4d6a3a]/10 text-[#4d6a3a]">
@@ -482,8 +418,7 @@ export function HometownMap({
                 </div>
               ))}
             </div>
-          </section>
-        </div>
+        </section>
 
         <section
           className="rounded-sm border border-[var(--paper-border)] bg-white/10 p-4 sm:p-5"
