@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { BookOpen, Home, Leaf, X } from "lucide-react";
 import { chapters } from "../chapters";
@@ -114,6 +114,19 @@ export function GardenDetail({
     .map((id) => getGardenById(id))
     .filter((g): g is NonNullable<typeof g> => g !== undefined);
   const accentColor = garden.accentColor;
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const preservedScrollTopRef = useRef(0);
+
+  useLayoutEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    el.scrollTop = preservedScrollTopRef.current;
+
+    return () => {
+      preservedScrollTopRef.current = el.scrollTop;
+    };
+  }, [garden.id]);
 
   return (
     <div
@@ -148,6 +161,7 @@ export function GardenDetail({
 
         <div
           data-overlay-scroll="true"
+          ref={scrollContainerRef}
           className="flex-1 overflow-y-auto p-6 sm:p-10 md:p-16 flex flex-col gap-8"
         >
           {/* Header */}
