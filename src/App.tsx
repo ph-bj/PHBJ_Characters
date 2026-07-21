@@ -1076,78 +1076,6 @@ export default function App() {
               id="stats"
               className="relative parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm flex flex-col gap-6 md:gap-8 lg:gap-10 border-double border-4 border-[var(--paper-border)] scroll-mt-24"
             >
-              <div>
-                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
-                  {t.ageDist}
-                </h2>
-                <div className="space-y-4">
-                  {stats.ageData.map((stat, i) => (
-                    <div key={i} className="space-y-1.5">
-                      <div className="flex justify-between text-[12px]">
-                        <span className="font-sans">
-                          {stat.group === "?"
-                            ? lang === "zh"
-                              ? "未知"
-                              : "Unknown"
-                            : stat.group}
-                        </span>
-                        <span className="text-[var(--ink-dim-text)] flex-shrink-0">
-                          {stat.count}
-                        </span>
-                      </div>
-                      <div className="h-1 bg-black/5 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={{ width: `${stat.percentage}%` }}
-                          className={`h-full opacity-60 ${stat.group === "?" ? "bg-[var(--ink-dim-text)]" : "bg-[var(--accent)]"}`}
-                        />
-                      </div>
-                      <div className="flex flex-wrap gap-1 pt-0.5">
-                        {stat.chars.map((c) => (
-                          <button
-                            key={c.id}
-                            onClick={() => setSelectedCharacter(c)}
-                            className="text-[9px] px-1.5 py-0.5 bg-black/5 hover:bg-[var(--accent)]/15 text-[var(--ink-dim-text)] hover:text-[var(--accent)] rounded-sm transition-colors font-sans leading-tight"
-                          >
-                            {getCharacterNameForLanguage(c, lang)}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
-                  {t.roleDist}
-                </h2>
-                <div className="space-y-4">
-                  {stats.topRoles.map((stat, i) => (
-                    <div key={i} className="space-y-1.5">
-                      <div className="flex justify-between text-[12px]">
-                        <span className="capitalize truncate pr-2 font-hans">
-                          {lang === "zh"
-                            ? characters.find((c) => c.role === stat.name)
-                              ?.roleZh || stat.name
-                            : stat.name}
-                        </span>
-                        <span className="text-[var(--ink-dim-text)] flex-shrink-0">
-                          {stat.count}
-                        </span>
-                      </div>
-                      <div className="h-1 bg-black/5 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={{ width: `${stat.percentage}%` }}
-                          className="h-full bg-[var(--ink-title)] opacity-40"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
               {/* Chapter Statistics */}
               {(() => {
                 const totalChineseChars = chapterStats.reduce(
@@ -1210,7 +1138,7 @@ export default function App() {
                 const paraLabel = lang === "zh" ? "段" : "para";
                 return (
                   <div>
-                    <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mt-6 mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
+                    <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
                       {lang === "zh" ? "章回统计" : "Chapter Statistics"}
                     </h2>
 
@@ -1417,6 +1345,78 @@ export default function App() {
                   </div>
                 );
               })()}
+
+              <div>
+                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
+                  {t.ageDist}
+                </h2>
+                <div className="space-y-4">
+                  {stats.ageData.map((stat, i) => (
+                    <div key={i} className="space-y-1.5">
+                      <div className="flex justify-between text-[12px]">
+                        <span className="font-sans">
+                          {stat.group === "?"
+                            ? lang === "zh"
+                              ? "未知"
+                              : "Unknown"
+                            : stat.group}
+                        </span>
+                        <span className="text-[var(--ink-dim-text)] flex-shrink-0">
+                          {stat.count}
+                        </span>
+                      </div>
+                      <div className="h-1 bg-black/5 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${stat.percentage}%` }}
+                          className={`h-full opacity-60 ${stat.group === "?" ? "bg-[var(--ink-dim-text)]" : "bg-[var(--accent)]"}`}
+                        />
+                      </div>
+                      <div className="flex flex-wrap gap-1 pt-0.5">
+                        {stat.chars.map((c) => (
+                          <button
+                            key={c.id}
+                            onClick={() => setSelectedCharacter(c)}
+                            className="text-[9px] px-1.5 py-0.5 bg-black/5 hover:bg-[var(--accent)]/15 text-[var(--ink-dim-text)] hover:text-[var(--accent)] rounded-sm transition-colors font-sans leading-tight"
+                          >
+                            {getCharacterNameForLanguage(c, lang)}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
+                  {t.roleDist}
+                </h2>
+                <div className="space-y-4">
+                  {stats.topRoles.map((stat, i) => (
+                    <div key={i} className="space-y-1.5">
+                      <div className="flex justify-between text-[12px]">
+                        <span className="capitalize truncate pr-2 font-hans">
+                          {lang === "zh"
+                            ? characters.find((c) => c.role === stat.name)
+                              ?.roleZh || stat.name
+                            : stat.name}
+                        </span>
+                        <span className="text-[var(--ink-dim-text)] flex-shrink-0">
+                          {stat.count}
+                        </span>
+                      </div>
+                      <div className="h-1 bg-black/5 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${stat.percentage}%` }}
+                          className="h-full bg-[var(--ink-title)] opacity-40"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <GardenStroll />
