@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { BookOpen, Home, Leaf, X } from "lucide-react";
+import { BookOpen, ChevronRight, Home, Leaf, X } from "lucide-react";
 import { chapters } from "../chapters";
 import { getGardenById, type Garden } from "../gardens";
 import type { Chapter } from "../types";
@@ -268,13 +268,16 @@ export function GardenDetail({
                   <button
                     key={child.id}
                     onClick={() => onSelectGarden(child)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[var(--paper-border)]/60 hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/5 text-[var(--ink-title)] hover:text-[var(--accent)] transition-all text-[11px] font-hans"
+                    className="group flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] text-[var(--ink-title)] hover:text-[var(--accent)] transition-all text-[11px] font-hans cursor-pointer"
                   >
-                    <Home size={10} className="shrink-0" />
-                    {lang === "zh" ? child.name : child.nameEn}
+                    <Leaf size={10} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
+                    <span className="leading-tight transition-colors group-hover:text-[var(--accent)]">
+                      {lang === "zh" ? child.name : child.nameEn}
+                    </span>
                     <span className="text-[9px] text-[var(--ink-dim-text)]">
                       · {child.pinyin}
                     </span>
+                    <ChevronRight size={10} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
                   </button>
                 ))}
               </div>

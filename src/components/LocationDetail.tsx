@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { BookOpen, Building, Compass, Leaf, MapPin, Users, X } from "lucide-react";
+import { BookOpen, Building, ChevronRight, Compass, Leaf, MapPin, Users, X } from "lucide-react";
 import { chapters } from "../chapters";
 import { locationColors, locationTypeLabels } from "../locations";
 import { chapterTranslationsById } from "../chapterTranslations";
@@ -359,10 +359,13 @@ export function LocationDetail({
                     <button
                       key={char.id}
                       onClick={() => onSelectCharacter?.(char)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[var(--paper-border)]/60 hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/5 text-[var(--ink-title)] hover:text-[var(--accent)] transition-all text-[11px] font-hans"
+                      className="group flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] text-[var(--ink-title)] hover:text-[var(--accent)] transition-all text-[11px] font-hans cursor-pointer"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
-                      {charName}
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shrink-0 transition-transform group-hover:scale-125" />
+                      <span className="leading-tight transition-colors group-hover:text-[var(--accent)]">
+                        {charName}
+                      </span>
+                      <ChevronRight size={10} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
                     </button>
                   );
                 })}
