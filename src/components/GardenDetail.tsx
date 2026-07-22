@@ -199,11 +199,6 @@ export function GardenDetail({
               <h2 className="text-3xl font-bold text-[var(--ink-title)] font-hans leading-tight">
                 {lang === "zh" ? garden.name : garden.nameEn}
               </h2>
-              <p className="text-sm text-[var(--ink-dim-text)] mt-0.5 italic">
-                {lang === "zh"
-                  ? `${garden.pinyin} · ${garden.nameEn}`
-                  : garden.pinyin}
-              </p>
             </div>
           </div>
 
@@ -229,12 +224,16 @@ export function GardenDetail({
 
           {/* Description */}
           <div className="flex flex-col gap-3">
-            <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2">
-              {lang === "zh" ? "园林志 · 英文" : "Garden Record · English"}
-            </p>
-            <p className="text-[12px] leading-relaxed text-[var(--ink-title)]">
-              {garden.description}
-            </p>
+            {lang === "en" && (
+              <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2">
+                Garden Record · English
+              </p>
+            )}
+            {lang === "en" && (
+              <p className="text-[12px] leading-relaxed text-[var(--ink-title)]">
+                {garden.description}
+              </p>
+            )}
             {lang === "zh" && (
               <>
                 <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2 mt-2">
