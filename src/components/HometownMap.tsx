@@ -349,14 +349,9 @@ export function HometownMap({
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--accent)]/10 text-[var(--accent)]">
                 <MapPin size={13} />
               </span>
-              <div>
-                <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
-                  {lang === 'zh' ? '章回地理' : 'Story geography'}
-                </p>
-                <h3 id="locations-title" className="text-xs font-bold text-[var(--ink-title)]">
-                  {lang === 'zh' ? '地点索引' : 'Location Index'}
-                </h3>
-              </div>
+              <h3 id="locations-title" className="text-xs font-bold text-[var(--ink-title)]">
+                {lang === 'zh' ? '地点索引' : 'Location Index'}
+              </h3>
             </div>
             <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2.5 py-1 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
               {lang === 'zh' ? `${storyGeographyCount} 处` : `${storyGeographyCount} places`}
