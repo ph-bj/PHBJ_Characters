@@ -865,10 +865,22 @@ export default function App() {
     mobileMenuOpen,
   ]);
 
+  const lastScrollYRef = useRef(0);
+
+  useLayoutEffect(() => {
+    const handleScroll = () => {
+      if (!hasOpenOverlay) {
+        lastScrollYRef.current = window.scrollY;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [hasOpenOverlay]);
+
   useLayoutEffect(() => {
     if (!hasOpenOverlay) return;
 
-    const scrollY = window.scrollY;
+    const scrollY = window.scrollY > 0 ? window.scrollY : lastScrollYRef.current;
     const bodyStyle = document.body.style;
     const htmlStyle = document.documentElement.style;
     const previousBody = {
@@ -956,7 +968,13 @@ export default function App() {
       bodyStyle.paddingRight = previousBody.paddingRight;
       htmlStyle.overflow = previousHtml.overflow;
       htmlStyle.overscrollBehavior = previousHtml.overscrollBehavior;
-      window.scrollTo(0, scrollY);
+      
+      // Force layout reflow so document scrollHeight expands back to full height before scrolling
+      void document.body.offsetHeight;
+      window.scrollTo({ top: scrollY, behavior: "instant" });
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: scrollY, behavior: "instant" });
+      });
     };
   }, [hasOpenOverlay]);
 

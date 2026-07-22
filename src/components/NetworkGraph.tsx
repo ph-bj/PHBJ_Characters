@@ -202,7 +202,13 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       bodyStyle.overscrollBehavior = previousBody.overscrollBehavior;
       htmlStyle.overflow = previousHtml.overflow;
       htmlStyle.overscrollBehavior = previousHtml.overscrollBehavior;
-      window.scrollTo(0, scrollY);
+      
+      // Force layout reflow so document scrollHeight expands back to full height before scrolling
+      void document.body.offsetHeight;
+      window.scrollTo({ top: scrollY, behavior: "instant" });
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: scrollY, behavior: "instant" });
+      });
     };
   }, [isFullscreen]);
 
