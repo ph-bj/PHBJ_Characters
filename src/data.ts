@@ -198,6 +198,7 @@ const ORIGIN_MAP: Record<string, string> = {
   'Suzhou': '苏州',
   'Yangzhou': '扬州',
   'Jinling': '金陵',
+  'Nanjing': '南京',
   'Beijing': '北京',
   'Zhejiang': '浙江',
   'Hangzhou': '杭州',
