@@ -1,13 +1,13 @@
-import { useMemo } from "react";
-import { motion } from "motion/react";
-import { X } from "lucide-react";
+import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { BookOpen, Building, Compass, Leaf, MapPin, Users, X } from "lucide-react";
 import { chapters } from "../chapters";
-import { locationTypeLabels } from "../locations";
+import { locationColors, locationTypeLabels } from "../locations";
 import { chapterTranslationsById } from "../chapterTranslations";
 import { getCharacterNameForLanguage, type NovelLocationWithChapters } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
-import type { Character } from "../types";
+import type { Character, Chapter } from "../types";
 
 export function LocationDetail({
   location,
@@ -16,6 +16,7 @@ export function LocationDetail({
   onClose,
   characters = [],
   onSelectCharacter,
+  onSelectChapter,
 }: {
   location: NovelLocationWithChapters;
   lang: "en" | "zh";
@@ -23,77 +24,12 @@ export function LocationDetail({
   onClose: () => void;
   characters?: Character[];
   onSelectCharacter?: (char: Character) => void;
+  onSelectChapter?: (ch: Chapter) => void;
 }) {
-  const typeLabel = locationTypeLabels[location.type];
-  const chapterList = location.chapterIds.join(", ");
-
-  const locationTokenRegex = useMemo(() => {
-    const escaped = [...location.searchTokens]
-      .sort((a, b) => b.length - a.length)
-      .map((token) => token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-    return escaped.length > 0
-      ? new RegExp(`(${escaped.join("|")})`, "g")
-      : null;
-  }, [location.searchTokens]);
-
-  const locationMentions = useMemo(() => {
-    const sortedTokens = [...location.searchTokens].sort((a, b) => b.length - a.length);
-
-    return location.chapterIds.map((chapterId) => {
-      const chapter = chapters.find((item) => item.id === chapterId);
-      if (!chapter) return { chapterId, snippets: [] as string[] };
-
-      const matchedRanges: Array<{ start: number; end: number }> = [];
-      for (const token of sortedTokens) {
-        let pos = 0;
-        while ((pos = chapter.content.indexOf(token, pos)) !== -1) {
-          const end = pos + token.length;
-          const overlaps = matchedRanges.some(
-            (r) => Math.max(r.start, pos) < Math.min(r.end, end)
-          );
-          if (!overlaps) {
-            matchedRanges.push({ start: pos, end });
-          }
-          pos += token.length;
-        }
-      }
-      matchedRanges.sort((a, b) => a.start - b.start);
-      if (matchedRanges.length === 0)
-        return { chapterId, snippets: [] as string[] };
-
-      const snippets: string[] = [];
-      let clusterStart = matchedRanges[0].start;
-      let clusterEnd = matchedRanges[0].end;
-      for (let i = 1; i < matchedRanges.length; i++) {
-        const current = matchedRanges[i];
-        if (current.start - clusterEnd <= 120) {
-          clusterEnd = Math.max(clusterEnd, current.end);
-        } else {
-          snippets.push(
-            chapter.content.slice(
-              Math.max(0, clusterStart - 60),
-              Math.min(chapter.content.length, clusterEnd + 60),
-            ),
-          );
-          clusterStart = current.start;
-          clusterEnd = current.end;
-        }
-      }
-      snippets.push(
-        chapter.content.slice(
-          Math.max(0, clusterStart - 60),
-          Math.min(chapter.content.length, clusterEnd + 60),
-        ),
-      );
-
-      return { chapterId, snippets };
-    });
-  }, [location.chapterIds, location.searchTokens]);
+  const [activeChapter, setActiveChapter] = useState<number | null>(null);
 
   const englishSearchTokens = useMemo(() => {
     const tokens: string[] = [];
-
-    // Add nameEn and aliasesEn
     if (location.nameEn) {
       tokens.push(location.nameEn);
     }
@@ -101,21 +37,18 @@ export function LocationDetail({
       tokens.push(...location.aliasesEn);
     }
 
-    // Generate English tokens from Chinese search tokens
-    // Extract surname and add common English descriptors
     const surnameMap: Record<string, string> = {
-      '华': 'Hua', '梅': 'Mei', '徐': 'Xu', '王': 'Wang', '颜': 'Yan',
-      '孙': 'Sun', '冯': 'Feng', '陆': 'Lu', '沈': 'Shen', '刘': 'Liu',
-      '李': 'Li', '张': 'Zhang', '陈': 'Chen', '杨': 'Yang', '赵': 'Zhao',
-      '周': 'Zhou', '吴': 'Wu', '郑': 'Zheng', '钱': 'Qian', '黄': 'Huang',
+      华: "Hua", 梅: "Mei", 徐: "Xu", 王: "Wang", 颜: "Yan",
+      孙: "Sun", 冯: "Feng", 陆: "Lu", 沈: "Shen", 刘: "Liu",
+      李: "Li", 张: "Zhang", 陈: "Chen", 杨: "Yang", 赵: "Zhao",
+      周: "Zhou", 吴: "Wu", 郑: "Zheng", 钱: "Qian", 黄: "Huang",
     };
 
     for (const token of location.searchTokens) {
       const firstChar = token.charAt(0);
       const surname = surnameMap[firstChar];
       if (surname) {
-        // Add common English descriptors for residences/households
-        const descriptors = ['household', 'house', 'residence', 'mansion', 'family', '宅', '府', '家'];
+        const descriptors = ["household", "house", "residence", "mansion", "family", "宅", "府", "家"];
         for (const desc of descriptors) {
           const englishToken = `${surname} ${desc}`;
           if (!tokens.includes(englishToken)) {
@@ -125,147 +58,158 @@ export function LocationDetail({
       }
     }
 
-    // Add lowercase variants for case-insensitive matching
     const lowerVariants = tokens
-      .filter(t => !tokens.some(tt => tt.toLowerCase() === t.toLowerCase() && tt !== t))
-      .map(t => t.toLowerCase());
+      .filter((t) => !tokens.some((tt) => tt.toLowerCase() === t.toLowerCase() && tt !== t))
+      .map((t) => t.toLowerCase());
 
     return [...tokens, ...lowerVariants];
   }, [location.nameEn, location.aliasesEn, location.searchTokens]);
 
-  const locationTokenRegexEn = useMemo(() => {
-    if (englishSearchTokens.length === 0) return null;
-    const escaped = [...englishSearchTokens]
-      .sort((a, b) => b.length - a.length)
-      .map((token) => token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-    return new RegExp(`(${escaped.join("|")})`, "g");
-  }, [englishSearchTokens]);
-
-  const locationMentionsEn = useMemo(() => {
-    if (englishSearchTokens.length === 0) return [];
-
-    return location.chapterIds.map((chapterId) => {
-      const enParagraphs = chapterTranslationsById[chapterId];
-      if (!enParagraphs || enParagraphs.length === 0) {
-        return { chapterId, snippets: [] as string[] };
-      }
-      const enText = enParagraphs.join("\n");
-
-      const positions: Array<{ start: number; end: number }> = [];
-      for (const token of englishSearchTokens) {
-        let pos = 0;
-        while ((pos = enText.indexOf(token, pos)) !== -1) {
-          positions.push({ start: pos, end: pos + token.length });
-          pos += token.length;
-        }
-      }
-      if (positions.length === 0) return { chapterId, snippets: [] as string[] };
-      positions.sort((a, b) => a.start - b.start);
-
-      const getSentenceAlignedExcerpt = (start: number, end: number, matchStart: number, matchEnd: number): string => {
-        let startIdx = Math.max(0, start);
-        let endIdx = Math.min(enText.length, end);
-
-        // Find the start of the sentence containing startIdx
-        if (startIdx > 0) {
-          let foundStart = false;
-          for (let i = startIdx - 1; i >= 0; i--) {
-            const char = enText[i];
-            if (char === "\n") {
-              startIdx = i + 1;
-              foundStart = true;
-              break;
+  const mentionData = useMemo(() => {
+    const sortedTokens = [...location.searchTokens].sort((a, b) => b.length - a.length);
+    return chapters
+      .filter((ch) => ch.id >= 1)
+      .map((ch) => {
+        const matchedRanges: Array<{ start: number; end: number }> = [];
+        for (const token of sortedTokens) {
+          let pos = 0;
+          while ((pos = ch.content.indexOf(token, pos)) !== -1) {
+            const end = pos + token.length;
+            const overlaps = matchedRanges.some(
+              (r) => Math.max(r.start, pos) < Math.min(r.end, end)
+            );
+            if (!overlaps) {
+              matchedRanges.push({ start: pos, end });
             }
-            if (["." , "?" , "!"].includes(char)) {
-              let termEnd = i;
-              while (termEnd + 1 < enText.length && ["\"" , "'" , "”" , "’" , ")"].includes(enText[termEnd + 1])) {
-                termEnd++;
-              }
-              if (termEnd + 1 < enText.length && /\s/.test(enText[termEnd + 1])) {
-                let nextStart = termEnd + 1;
-                while (nextStart < enText.length && /\s/.test(enText[nextStart])) {
-                  nextStart++;
-                }
-                if (nextStart <= matchStart) {
-                  startIdx = nextStart;
-                  foundStart = true;
-                  break;
-                }
-              }
-            }
-          }
-          if (!foundStart) {
-            startIdx = 0;
+            pos += token.length;
           }
         }
+        const isKnownChapter = location.chapterIds.includes(ch.id);
+        const count = Math.max(matchedRanges.length, isKnownChapter ? 1 : 0);
+        return { ch: ch.id, count };
+      });
+  }, [location]);
 
-        // Find the end of the sentence containing endIdx
-        if (endIdx < enText.length) {
-          let foundEnd = false;
-          for (let i = endIdx; i < enText.length; i++) {
-            const char = enText[i];
-            if (char === "\n") {
-              endIdx = i;
-              foundEnd = true;
-              break;
-            }
-            if (["." , "?" , "!"].includes(char)) {
-              let termEnd = i;
-              while (termEnd + 1 < enText.length && ["\"" , "'" , "”" , "’" , ")"].includes(enText[termEnd + 1])) {
-                termEnd++;
-              }
-              if (termEnd + 1 >= matchEnd) {
-                endIdx = termEnd + 1;
-                foundEnd = true;
-                break;
-              }
-            }
-          }
-          if (!foundEnd) {
-            endIdx = enText.length;
+  const mentionedChapters = useMemo(
+    () => mentionData.filter((d) => d.count > 0),
+    [mentionData]
+  );
+  const maxCount = useMemo(
+    () => Math.max(...mentionData.map((d) => d.count), 1),
+    [mentionData]
+  );
+
+  const activeSnippets = useMemo(() => {
+    if (activeChapter === null) return null;
+    const ch = chapters.find((c) => c.id === activeChapter);
+    if (!ch) return null;
+
+    if (lang === "en" && englishSearchTokens.length > 0) {
+      const enParagraphs = chapterTranslationsById[activeChapter];
+      if (enParagraphs && enParagraphs.length > 0) {
+        const enText = enParagraphs.join("\n");
+        const positions: Array<{ start: number; end: number }> = [];
+        for (const token of englishSearchTokens) {
+          let pos = 0;
+          while ((pos = enText.indexOf(token, pos)) !== -1) {
+            positions.push({ start: pos, end: pos + token.length });
+            pos += token.length;
           }
         }
-
-        return enText.slice(startIdx, endIdx).trim();
-      };
-
-      const snippets: string[] = [];
-      let clusterStart = positions[0].start;
-      let clusterEnd = positions[0].end;
-      for (let i = 1; i < positions.length; i++) {
-        const current = positions[i];
-        if (current.start - clusterEnd <= 120) {
-          clusterEnd = Math.max(clusterEnd, current.end);
-        } else {
+        if (positions.length > 0) {
+          positions.sort((a, b) => a.start - b.start);
+          const snippets: string[] = [];
+          let clusterStart = positions[0].start;
+          let clusterEnd = positions[0].end;
+          for (let i = 1; i < positions.length; i++) {
+            const current = positions[i];
+            if (current.start - clusterEnd <= 120) {
+              clusterEnd = Math.max(clusterEnd, current.end);
+            } else {
+              snippets.push(
+                enText.slice(Math.max(0, clusterStart - 60), Math.min(enText.length, clusterEnd + 60))
+              );
+              clusterStart = current.start;
+              clusterEnd = current.end;
+            }
+          }
           snippets.push(
-            getSentenceAlignedExcerpt(clusterStart - 60, clusterEnd + 60, clusterStart, clusterEnd)
+            enText.slice(Math.max(0, clusterStart - 60), Math.min(enText.length, clusterEnd + 60))
           );
-          clusterStart = current.start;
-          clusterEnd = current.end;
+          return { snippets: snippets.slice(0, 8), tokens: englishSearchTokens, isEnglish: true };
         }
       }
-      snippets.push(
-        getSentenceAlignedExcerpt(clusterStart - 60, clusterEnd + 60, clusterStart, clusterEnd)
-      );
+    }
 
-      return { chapterId, snippets };
-    });
-  }, [location.chapterIds, englishSearchTokens]);
+    const sortedTokens = [...location.searchTokens].sort((a, b) => b.length - a.length);
+    const matchedRanges: Array<{ start: number; end: number }> = [];
+    for (const token of sortedTokens) {
+      let pos = 0;
+      while ((pos = ch.content.indexOf(token, pos)) !== -1) {
+        const end = pos + token.length;
+        const overlaps = matchedRanges.some(
+          (r) => Math.max(r.start, pos) < Math.min(r.end, end)
+        );
+        if (!overlaps) {
+          matchedRanges.push({ start: pos, end });
+        }
+        pos += token.length;
+      }
+    }
+    matchedRanges.sort((a, b) => a.start - b.start);
+    const snippets: string[] = [];
+    let clusterStart = -1,
+      clusterEnd = -1;
+    for (const range of matchedRanges) {
+      if (clusterStart === -1) {
+        clusterStart = range.start;
+        clusterEnd = range.end;
+      } else if (range.start - clusterEnd < 200) {
+        clusterEnd = Math.max(clusterEnd, range.end);
+      } else {
+        snippets.push(
+          ch.content.slice(
+            Math.max(0, clusterStart - 80),
+            Math.min(ch.content.length, clusterEnd + 80),
+          )
+        );
+        clusterStart = range.start;
+        clusterEnd = range.end;
+      }
+    }
+    if (clusterStart !== -1) {
+      snippets.push(
+        ch.content.slice(
+          Math.max(0, clusterStart - 80),
+          Math.min(ch.content.length, clusterEnd + 80),
+        )
+      );
+    }
+    return { snippets: snippets.slice(0, 8), tokens: sortedTokens, isEnglish: false };
+  }, [location, activeChapter, lang, englishSearchTokens]);
+
+  const typeLabel = locationTypeLabels[location.type] || { en: location.typeZh, zh: location.typeZh };
+
+  const t = {
+    en: {
+      chapterAbbr: "Ch.",
+      mentions: (count: number) => `mention${count !== 1 ? "s" : ""}`,
+      readChapter: "Read Chapter",
+    },
+    zh: {
+      chapterAbbr: "第",
+      mentions: (count: number) => `次提及`,
+      readChapter: "阅读全回",
+    },
+  }[lang];
 
   const chineseNameAndTokens = useMemo(() => {
     const unique = [...new Set([location.name, ...location.searchTokens])];
     return unique.join(" / ");
   }, [location.name, location.searchTokens]);
 
-  const chineseAltNames = useMemo(
-    () => location.searchTokens.filter((t) => t !== location.name),
-    [location.searchTokens, location.name],
-  );
-
   const englishNameAndTokens = useMemo(() => {
-    const unique = englishSearchTokens.length > 0
-      ? [...new Set(englishSearchTokens)]
-      : [];
+    const unique = englishSearchTokens.length > 0 ? [...new Set(englishSearchTokens)] : [];
     return unique.join(" / ");
   }, [englishSearchTokens]);
 
@@ -282,6 +226,37 @@ export function LocationDetail({
     });
   }, [location, characters]);
 
+  const accentColor = locationColors[location.type] || "var(--accent)";
+
+  const TypeIcon = useMemo(() => {
+    switch (location.type) {
+      case "garden":
+        return Leaf;
+      case "place":
+        return MapPin;
+      case "site":
+        return Building;
+      case "landscape":
+        return Compass;
+      default:
+        return MapPin;
+    }
+  }, [location.type]);
+
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const preservedScrollTopRef = useRef(0);
+
+  useLayoutEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    el.scrollTop = preservedScrollTopRef.current;
+
+    return () => {
+      preservedScrollTopRef.current = el.scrollTop;
+    };
+  }, [location.id]);
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -292,74 +267,90 @@ export function LocationDetail({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         aria-hidden
-        className="absolute inset-0 z-0 bg-black/55 backdrop-blur-sm pointer-events-none"
+        className="absolute inset-0 z-0 bg-black/40 backdrop-blur-sm pointer-events-none"
       />
 
       <motion.div
-        initial={{ opacity: 0, y: 20, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 20, scale: 0.98 }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[var(--paper-border)] shadow-2xl flex flex-col"
+        className="relative z-10 w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[var(--paper-border)] my-4 sm:my-0 flex flex-col"
       >
-        <div className="p-4 sm:p-5 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] flex items-center justify-between">
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[var(--ink-dim-text)]">
-              {lang === "zh" ? "地点档案" : "Location Profile"}
-            </p>
-            <h3 className="text-lg font-bold text-[var(--ink-title)] font-hans">
-              {lang === "zh" ? location.name : (location.nameEn || location.name)}
-            </h3>
-          </div>
-          <div className="flex items-center gap-1.5 shrink-0">
-            <PermalinkButton
-              lang={lang}
-              link={{ kind: "location", id: location.id }}
-            />
-            <LanguageSwitch lang={lang} setLang={setLang} className="scale-90" />
-            <button
-              onClick={onClose}
-              className="p-2 rounded-full hover:bg-black/5 transition-colors text-[var(--ink-title)]"
-              aria-label="Close location modal"
-            >
-              <X size={20} />
-            </button>
-          </div>
+        <div className="absolute top-4 sm:top-6 right-4 sm:right-6 flex items-center gap-1.5 z-10">
+          <LanguageSwitch lang={lang} setLang={setLang} className="scale-90" />
+          <PermalinkButton lang={lang} link={{ kind: "location", id: location.id }} />
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)]"
+          >
+            <X size={20} />
+          </button>
         </div>
 
         <div
           data-overlay-scroll="true"
-          className="p-5 sm:p-6 overflow-y-auto space-y-4 text-[var(--ink-title)]"
+          ref={scrollContainerRef}
+          className="flex-1 overflow-y-auto p-6 sm:p-10 md:p-16 flex flex-col gap-8"
         >
-          {lang === "zh" ? (
-            <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
-              <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
-                地名
-              </p>
-              <p className="text-sm font-hans">{chineseNameAndTokens}</p>
+          {/* Header */}
+          <div className="flex items-start gap-4 pr-10">
+            <div
+              className="w-12 h-12 rounded-sm flex items-center justify-center shrink-0 border"
+              style={{
+                backgroundColor: accentColor + "18",
+                borderColor: accentColor + "40",
+              }}
+            >
+              <TypeIcon size={22} style={{ color: accentColor }} />
             </div>
-          ) : (
-            <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
-              <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
-                English Name
-              </p>
-              <p className="text-sm font-sans">{englishNameAndTokens}</p>
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                <span
+                  className="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm border"
+                  style={{
+                    color: accentColor,
+                    borderColor: accentColor + "40",
+                    backgroundColor: accentColor + "12",
+                  }}
+                >
+                  {lang === "zh" ? typeLabel.zh : typeLabel.en}
+                </span>
+              </div>
+              <h2 className="text-3xl font-bold text-[var(--ink-title)] font-hans leading-tight">
+                {lang === "zh" ? location.name : (location.nameEn || location.name)}
+              </h2>
             </div>
-          )}
-
-          <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
-            <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-1">
-              {lang === "zh" ? "类型" : "Type"}
-            </p>
-            <p className="text-sm font-hans">
-              {lang === "zh" ? typeLabel.zh : typeLabel.en}
-            </p>
           </div>
 
+          {/* Metadata Cards */}
+          <div className="grid grid-cols-2 gap-3 text-[11px]">
+            <div className="bg-black/3 border border-[var(--paper-border)]/60 rounded-sm p-3">
+              <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-1 font-bold">
+                {lang === "zh" ? "地名 / 搜索词" : "Location Name / Tokens"}
+              </p>
+              <p className="font-hans text-[var(--ink-title)] font-semibold">
+                {lang === "zh" ? chineseNameAndTokens : englishNameAndTokens}
+              </p>
+            </div>
+            <div className="bg-black/3 border border-[var(--paper-border)]/60 rounded-sm p-3">
+              <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-1 font-bold">
+                {lang === "zh" ? "类型" : "Type"}
+              </p>
+              <p className="font-hans text-[var(--ink-title)] font-semibold">
+                {lang === "zh" ? typeLabel.zh : typeLabel.en}
+              </p>
+            </div>
+          </div>
+
+          {/* Related Characters */}
           {relatedCharacters.length > 0 && (
-            <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
-              <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)] mb-2">
-                {lang === "zh" ? "同乡人物" : "Characters from this Hometown"}
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2 mb-3 flex items-center gap-1.5">
+                <Users size={10} />
+                {lang === "zh"
+                  ? `同乡人物 · 共${relatedCharacters.length}人`
+                  : `Characters from this Hometown · ${relatedCharacters.length}`}
               </p>
               <div className="flex flex-wrap gap-2">
                 {relatedCharacters.map((char) => {
@@ -368,7 +359,7 @@ export function LocationDetail({
                     <button
                       key={char.id}
                       onClick={() => onSelectCharacter?.(char)}
-                      className="px-2.5 py-1 rounded-sm border border-[var(--paper-border)]/80 bg-[var(--paper-bg)] text-[11px] font-hans hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/5 transition-all cursor-pointer flex items-center gap-1.5"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[var(--paper-border)]/60 hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/5 text-[var(--ink-title)] hover:text-[var(--accent)] transition-all text-[11px] font-hans"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
                       {charName}
@@ -379,90 +370,173 @@ export function LocationDetail({
             </div>
           )}
 
-          <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5">
-            <div className="flex items-center justify-between gap-2 mb-1">
-              <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)]">
-                {lang === "zh" ? "出现回目" : "Chapter Appearances"}
-              </p>
-              <span className="text-[10px] font-bold text-[var(--accent)]">
-                {location.chapterIds.length}
-              </span>
-            </div>
-            <p className="text-sm font-sans">{chapterList}</p>
-          </div>
+          {/* Chapter Appearances */}
+          <div>
+            <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2 mb-3 flex items-center gap-2">
+              <BookOpen size={10} />
+              {lang === "zh"
+                ? `章回出现 · 共${mentionedChapters.length}回`
+                : `Chapter Appearances · ${mentionedChapters.length} of 60 chapters`}
+            </p>
 
-          {location.chapterIds.length > 0 && (
-            <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5 space-y-3">
-              <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)]">
-                {lang === "zh" ? "章节提及与上下文" : "Mentions with Context"}
-              </p>
-              <div className="space-y-3">
-                {(lang === "en" && locationMentionsEn.length > 0
-                  ? locationMentionsEn
-                  : locationMentions
-                ).map(({ chapterId, snippets }) => (
+            <div className="flex items-end gap-[2px] h-10 mb-4">
+              {mentionData.map((d) => (
+                <div
+                  key={d.ch}
+                  className="flex-1 rounded-t-sm transition-all cursor-pointer hover:opacity-80"
+                  style={{
+                    height:
+                      d.count > 0
+                        ? `${Math.max(15, (d.count / maxCount) * 100)}%`
+                        : "2px",
+                    backgroundColor:
+                      d.count > 0
+                        ? activeChapter === d.ch
+                          ? accentColor
+                          : accentColor + "70"
+                        : "var(--paper-border)60",
+                  }}
+                  title={`${t.chapterAbbr}${lang === "zh" ? ` ${d.ch} 回` : d.ch}: ${d.count} ${t.mentions(d.count)}`}
+                  onClick={() => {
+                    if (d.count > 0)
+                      setActiveChapter((prev) => (prev === d.ch ? null : d.ch));
+                  }}
+                />
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-1.5">
+              {mentionedChapters.map((d) => (
+                <button
+                  key={d.ch}
+                  onClick={() =>
+                    setActiveChapter((prev) => (prev === d.ch ? null : d.ch))
+                  }
+                  className={`text-[10px] px-2.5 py-1 rounded-sm border font-bold transition-all ${
+                    activeChapter === d.ch
+                      ? "text-[var(--paper-bg)] border-transparent"
+                      : "border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)]"
+                  }`}
+                  style={
+                    activeChapter === d.ch
+                      ? {
+                          backgroundColor: accentColor,
+                          borderColor: accentColor,
+                        }
+                      : {}
+                  }
+                >
+                  {t.chapterAbbr}
+                  {lang === "zh" ? ` ${d.ch} 回` : d.ch}
+                </button>
+              ))}
+            </div>
+
+            <AnimatePresence>
+              {activeChapter !== null && activeSnippets && (
+                <motion.div
+                  key={activeChapter}
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.15 }}
+                  className="mt-4 border border-[var(--paper-border)] rounded-sm overflow-hidden"
+                >
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-black/3 border-b border-[var(--paper-border)]">
+                    <div>
+                      <span
+                        className="text-[10px] font-bold uppercase tracking-widest font-hans"
+                        style={{ color: accentColor }}
+                      >
+                        {t.chapterAbbr}
+                        {lang === "zh" ? ` ${activeChapter} 回` : activeChapter}
+                      </span>
+                      <span className="text-[10px] text-[var(--ink-dim-text)] ml-2 font-hans">
+                        {chapters.find((c) => c.id === activeChapter)?.title}
+                      </span>
+                    </div>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => {
+                          const ch = chapters.find(
+                            (c) => c.id === activeChapter,
+                          );
+                          if (ch) {
+                            onSelectChapter?.(ch);
+                            onClose();
+                          }
+                        }}
+                        className="text-[9px] px-2 py-1 rounded-sm border text-[var(--ink-dim-text)] border-[var(--paper-border)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors uppercase tracking-widest font-bold"
+                      >
+                        {t.readChapter}
+                      </button>
+                      <button
+                        onClick={() => setActiveChapter(null)}
+                        className="text-[var(--ink-dim-text)] hover:text-[var(--ink-title)]"
+                      >
+                        <X size={12} />
+                      </button>
+                    </div>
+                  </div>
                   <div
-                    key={chapterId}
-                    className="border border-[var(--paper-border)]/70 rounded-sm p-2 bg-[var(--paper-bg)]/60"
+                    data-overlay-scroll="true"
+                    className="p-4 space-y-3 max-h-80 overflow-y-auto"
                   >
-                    <p className="text-[10px] font-bold text-[var(--accent)] mb-1">
-                      {lang === "zh"
-                        ? `第 ${chapterId} 回`
-                        : `Chapter ${chapterId}`}{" "}
-                      ({snippets.length})
-                    </p>
-                    {snippets.length === 0 ? (
-                      <p className="text-[11px] text-[var(--ink-dim-text)] italic">
+                    {activeSnippets.snippets.length === 0 ? (
+                      <p className="text-[11px] italic text-[var(--ink-dim-text)] font-hans">
                         {lang === "zh"
-                          ? "无上下文摘录。"
-                          : "No surrounding snippet found."}
+                          ? "无文本摘录。"
+                          : "No text excerpts found."}
                       </p>
                     ) : (
-                      <div className="space-y-1.5">
-                        {snippets.map((snippet, idx) => (
-                          <p
-                            key={`${chapterId}-${idx}`}
-                            className={
-                              lang === "zh"
-                                ? "text-[11px] leading-relaxed font-hans text-[var(--ink-title)]"
-                                : "text-[11px] leading-relaxed text-[var(--ink-title)]"
-                            }
+                      activeSnippets.snippets.map((snippet, i) => {
+                        const regex = new RegExp(
+                          `(${activeSnippets.tokens.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`,
+                          "gi"
+                        );
+                        const parts = snippet.split(regex);
+                        return (
+                          <div
+                            key={i}
+                            className="bg-black/5 rounded-sm px-3 py-2 border-l-2"
+                            style={{ borderColor: accentColor + "50" }}
                           >
-                            {lang === "zh" && "…"}
-                            {(lang === "zh"
-                              ? locationTokenRegex
-                                ? snippet.split(locationTokenRegex)
-                                : [snippet]
-                              : locationTokenRegexEn
-                                ? snippet.split(locationTokenRegexEn)
-                                : [snippet]
-                            ).map((part, partIdx) => {
-                              const isMatch = lang === "zh"
-                                ? location.searchTokens.includes(part)
-                                : !!locationTokenRegexEn?.test(part);
-                              return isMatch ? (
-                                <mark
-                                  key={`${chapterId}-${idx}-${partIdx}`}
-                                  className="bg-amber-300/70 text-[var(--ink-title)] px-0.5 rounded-sm"
-                                >
-                                  {part}
-                                </mark>
-                              ) : (
-                                <span key={`${chapterId}-${idx}-${partIdx}`}>
-                                  {part}
-                                </span>
-                              );
-                            })}
-                            {lang === "zh" && "…"}
-                          </p>
-                        ))}
-                      </div>
+                            <p className="text-[11px] leading-relaxed text-[var(--ink-title)] font-hans">
+                              …
+                              {parts.map((part, j) => {
+                                const isMatch = activeSnippets.tokens.some(
+                                  (t) => t.toLowerCase() === part.toLowerCase()
+                                );
+                                return isMatch ? (
+                                  <mark
+                                    key={j}
+                                    style={{
+                                      backgroundColor: accentColor + "33",
+                                      color: accentColor,
+                                    }}
+                                    className="rounded-sm px-0.5 not-italic font-bold"
+                                  >
+                                    {part}
+                                  </mark>
+                                ) : (
+                                  part
+                                );
+                              })}
+                              …
+                            </p>
+                          </div>
+                        );
+                      })
                     )}
                   </div>
-                ))}
-              </div>
-            </div>
-          )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+
+        <div className="bg-[var(--paper-border)]/20 p-4 text-[var(--ink-dim-text)] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[var(--paper-border)] font-hans shrink-0">
+          Precious Vibe 品花宝境
         </div>
       </motion.div>
     </div>

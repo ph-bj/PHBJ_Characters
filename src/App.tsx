@@ -2217,6 +2217,7 @@ export default function App() {
                 setSelectedLocation(null);
                 setSelectedCharacter(character);
               }}
+              onSelectChapter={setSelectedChapter}
             />
           )}
         </AnimatePresence>
