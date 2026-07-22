@@ -463,11 +463,6 @@ export function HometownMap({
                                 <Trees size={10} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
                                 <span className="whitespace-nowrap font-hans text-[9px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
                                   {lang === 'zh' ? garden.name : garden.nameEn}
-                                  {gardenGroup.isMajor && (
-                                    <span className="ml-1 text-[8px] font-normal text-[var(--ink-dim-text)]">
-                                      ({lang === 'zh' ? garden.location : garden.locationEn})
-                                    </span>
-                                  )}
                                 </span>
                                 <ChevronRight size={10} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
                               </button>
