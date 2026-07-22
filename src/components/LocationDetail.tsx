@@ -296,13 +296,14 @@ export function LocationDetail({
           {/* Header */}
           <div className="flex items-start gap-4 pr-10">
             <div
-              className="w-12 h-12 rounded-sm flex items-center justify-center shrink-0 border shadow-xs"
+              className="w-12 h-12 rounded-sm flex items-center justify-center shrink-0 border"
               style={{
-                backgroundColor: accentColor,
-                borderColor: accentColor,
+                color: accentColor,
+                borderColor: accentColor + "40",
+                backgroundColor: accentColor + "12",
               }}
             >
-              <TypeIcon size={22} className="text-[var(--paper-bg)]" />
+              <TypeIcon size={22} style={{ color: accentColor }} />
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2 mb-1">
