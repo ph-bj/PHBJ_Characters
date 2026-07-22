@@ -178,13 +178,13 @@ export function GardenDetail({
           {/* Header */}
           <div className="flex items-start gap-4 pr-10">
             <div
-              className="w-12 h-12 rounded-sm flex items-center justify-center shrink-0 border"
+              className="w-12 h-12 rounded-sm flex items-center justify-center shrink-0 border shadow-xs"
               style={{
-                backgroundColor: accentColor + "18",
-                borderColor: accentColor + "40",
+                backgroundColor: accentColor,
+                borderColor: accentColor,
               }}
             >
-              <Leaf size={22} style={{ color: accentColor }} />
+              <Leaf size={22} className="text-[var(--paper-bg)]" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2 mb-1">
