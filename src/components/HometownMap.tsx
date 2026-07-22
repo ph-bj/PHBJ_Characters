@@ -331,37 +331,37 @@ export function HometownMap({
         </section>
 
         <section
-          className="rounded-sm border border-[var(--paper-border)] bg-white/10 p-4 sm:p-5"
+          className="rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/40 p-5 sm:p-6 shadow-xs"
           aria-labelledby="locations-title"
         >
-          <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/70 pb-3">
+          <div className="mb-6 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/70 pb-4">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--accent)]/10 text-[var(--accent)]">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--accent)]/10 text-[var(--accent)] shadow-xs">
                 <MapPin size={13} />
               </span>
-              <h3 id="locations-title" className="text-xs font-bold text-[var(--ink-title)]">
+              <h3 id="locations-title" className="text-xs sm:text-sm font-bold text-[var(--ink-title)]">
                 {lang === 'zh' ? '地点索引' : 'Location Index'}
               </h3>
             </div>
-            <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2.5 py-1 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
+            <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-3 py-1 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)] shadow-xs">
               {lang === 'zh' ? `${storyGeographyCount} 处` : `${storyGeographyCount} places`}
             </span>
           </div>
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-7">
             {/* Character Hometowns Section */}
             {mapDataByType.hometown.length > 0 && (
               <div>
-                <div className="mb-2.5 flex items-center gap-2">
-                  <Users size={11} className="text-[var(--accent)]" />
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[var(--ink-dim-text)]">
+                <div className="mb-3.5 flex items-center gap-2 border-b border-[var(--paper-border)]/40 pb-2">
+                  <Users size={12} className="text-[var(--accent)]" />
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ink-title)]">
                     {lang === 'zh' ? '人物籍贯' : 'Character Hometowns'}
                   </p>
-                  <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-1.5 py-0.5 text-[8px] font-bold tabular-nums text-[var(--accent)]">
+                  <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-2 py-0.5 text-[8px] font-bold tabular-nums text-[var(--accent)]">
                     {mapDataByType.hometown.length}
                   </span>
                 </div>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2 sm:gap-2.5">
                   {mapDataByType.hometown.map((hometown) => {
                     const name = lang === 'zh' ? (hometown.originZh || hometown.origin) : hometown.origin;
                     return (
@@ -380,17 +380,17 @@ export function HometownMap({
                           };
                           onSelectLocation(hometownLocation);
                         }}
-                        className="group flex items-center gap-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 px-2.5 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] cursor-pointer"
+                        className="group flex items-center gap-2 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/60 px-3 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] hover:shadow-xs cursor-pointer"
                         title={lang === 'zh' ? `${name} (共 ${hometown.count} 人)` : `${name} (${hometown.count} ${hometown.count === 1 ? 'character' : 'characters'})`}
                       >
-                        <Users size={10} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
-                        <span className="whitespace-nowrap font-hans text-[9px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
+                        <Users size={11} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
+                        <span className="whitespace-nowrap font-hans text-[10px] sm:text-[11px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
                           {name}
-                          <span className="ml-1 text-[8px] font-normal text-[var(--ink-dim-text)]">
+                          <span className="ml-1 text-[9px] font-normal text-[var(--ink-dim-text)]">
                             ({hometown.count})
                           </span>
                         </span>
-                        <ChevronRight size={10} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
+                        <ChevronRight size={11} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
                       </button>
                     );
                   })}
@@ -404,52 +404,49 @@ export function HometownMap({
               if (group.type === 'garden') {
                 return (
                   <div key={group.type}>
-                    <div className="mb-3 flex items-center gap-2">
-                      <Trees size={11} className="text-[var(--accent)]" />
-                      <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[var(--ink-dim-text)]">
+                    <div className="mb-3.5 flex items-center gap-2 border-b border-[var(--paper-border)]/40 pb-2">
+                      <Trees size={12} className="text-[var(--accent)]" />
+                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ink-title)]">
                         {lang === 'zh' ? group.label.zh : group.label.en}
                       </p>
-                      <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-1.5 py-0.5 text-[8px] font-bold tabular-nums text-[var(--accent)]">
+                      <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-2 py-0.5 text-[8px] font-bold tabular-nums text-[var(--accent)]">
                         {mergedGardenCount}
                       </span>
                     </div>
 
-                    <div className="space-y-4">
+                    <div className="space-y-5">
                       {[
                         {
                           label: lang === 'zh' ? '主要园林' : 'Major Gardens',
                           items: majorGardens,
-                          isMajor: true,
                         },
                         {
                           label: lang === 'zh' ? '园中胜景' : 'Sub-Locations',
                           items: subLocations,
-                          isMajor: false,
                         },
                         {
                           label: lang === 'zh' ? '其他场所' : 'Other Spaces',
                           items: otherSpaces,
-                          isMajor: false,
                         },
                       ].map((gardenGroup) => (
                         <div key={gardenGroup.label}>
-                          <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
+                          <p className="mb-2.5 text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
                             {gardenGroup.label}
                           </p>
-                          <div className="flex flex-wrap gap-1.5">
+                          <div className="flex flex-wrap gap-2 sm:gap-2.5">
                             {gardenGroup.items.map((garden) => (
                               <button
                                 key={garden.id}
                                 type="button"
                                 onClick={() => onSelectGarden(garden)}
-                                className="group flex items-center gap-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 px-2.5 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] cursor-pointer"
+                                className="group flex items-center gap-2 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/60 px-3 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] hover:shadow-xs cursor-pointer"
                                 title={lang === 'zh' ? `${garden.name} (${garden.location})` : `${garden.nameEn} (${garden.locationEn})`}
                               >
-                                <Trees size={10} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
-                                <span className="whitespace-nowrap font-hans text-[9px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
+                                <Trees size={11} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
+                                <span className="whitespace-nowrap font-hans text-[10px] sm:text-[11px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
                                   {lang === 'zh' ? garden.name : garden.nameEn}
                                 </span>
-                                <ChevronRight size={10} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
+                                <ChevronRight size={11} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
                               </button>
                             ))}
                           </div>
@@ -458,24 +455,24 @@ export function HometownMap({
                     </div>
 
                     {additionalGardenLocations.length > 0 && (
-                      <div className="mt-4">
-                        <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
+                      <div className="mt-5 border-t border-[var(--paper-border)]/30 pt-4">
+                        <p className="mb-2.5 text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
                           {lang === 'zh' ? '其他园林地点' : 'Additional Garden Sites'}
                         </p>
-                        <div className="flex flex-wrap gap-1.5">
+                        <div className="flex flex-wrap gap-2 sm:gap-2.5">
                           {additionalGardenLocations.map((location) => (
                             <button
                               key={location.id}
                               type="button"
                               onClick={() => onSelectLocation(location)}
-                              className="group flex items-center gap-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 px-2.5 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] cursor-pointer"
+                              className="group flex items-center gap-2 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/60 px-3 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] hover:shadow-xs cursor-pointer"
                               title={lang === 'zh' ? location.name : location.nameEn}
                             >
-                              <Trees size={10} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
-                              <span className="whitespace-nowrap font-hans text-[9px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
+                              <Trees size={11} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
+                              <span className="whitespace-nowrap font-hans text-[10px] sm:text-[11px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
                                 {lang === 'zh' ? location.name : location.nameEn}
                               </span>
-                              <ChevronRight size={10} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
+                              <ChevronRight size={11} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
                             </button>
                           ))}
                         </div>
@@ -487,29 +484,29 @@ export function HometownMap({
 
               return (
                 <div key={group.type}>
-                  <div className="mb-2.5 flex items-center gap-2">
-                    <Icon size={11} className="text-[var(--accent)]" />
-                    <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[var(--ink-dim-text)]">
+                  <div className="mb-3.5 flex items-center gap-2 border-b border-[var(--paper-border)]/40 pb-2">
+                    <Icon size={12} className="text-[var(--accent)]" />
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ink-title)]">
                       {lang === 'zh' ? group.label.zh : group.label.en}
                     </p>
-                    <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-1.5 py-0.5 text-[8px] font-bold tabular-nums text-[var(--accent)]">
+                    <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-2 py-0.5 text-[8px] font-bold tabular-nums text-[var(--accent)]">
                       {group.locations.length}
                     </span>
                   </div>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-2 sm:gap-2.5">
                     {group.locations.map((location) => (
                       <button
                         key={location.id}
                         type="button"
                         onClick={() => onSelectLocation(location)}
-                        className="group flex items-center gap-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 px-2.5 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] cursor-pointer"
+                        className="group flex items-center gap-2 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/60 px-3 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] hover:shadow-xs cursor-pointer"
                         title={lang === 'zh' ? location.name : location.nameEn}
                       >
-                        <Icon size={10} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
-                        <span className="whitespace-nowrap font-hans text-[9px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
+                        <Icon size={11} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
+                        <span className="whitespace-nowrap font-hans text-[10px] sm:text-[11px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
                           {lang === 'zh' ? location.name : location.nameEn}
                         </span>
-                        <ChevronRight size={10} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
+                        <ChevronRight size={11} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
                       </button>
                     ))}
                   </div>
