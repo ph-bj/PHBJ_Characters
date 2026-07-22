@@ -365,7 +365,7 @@ export function HometownMap({
             </span>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="flex flex-col gap-6">
             {/* Character Hometowns Section */}
             {mapDataByType.hometown.length > 0 && (
               <div>
@@ -420,7 +420,7 @@ export function HometownMap({
 
               if (group.type === 'garden') {
                 return (
-                  <div key={group.type} className="sm:col-span-2">
+                  <div key={group.type}>
                     <div className="mb-3 flex items-center gap-2">
                       <Trees size={11} className="text-[var(--accent)]" />
                       <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[var(--ink-dim-text)]">
