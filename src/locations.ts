@@ -146,8 +146,23 @@ export const novelLocations: NovelLocation[] = [
 ];
 
 export const locationColors: Record<LocationType, string> = {
-  place: 'var(--legend-place)',
-  garden: 'var(--legend-garden)',
-  site: 'var(--legend-site)',
-  landscape: 'var(--legend-landscape)',
+  place: '#2d4a68',
+  garden: '#2e6f40',
+  site: '#9e462a',
+  landscape: '#1f6f8a',
 };
+
+export function hexToRgba(hex: string, alpha: number): string {
+  if (!hex || typeof hex !== 'string') return `rgba(0, 0, 0, ${alpha})`;
+  if (hex.startsWith('rgba') || hex.startsWith('rgb')) return hex;
+  if (hex.startsWith('var(')) return hex;
+  const cleanHex = hex.replace('#', '');
+  const fullHex = cleanHex.length === 3
+    ? cleanHex.split('').map((c) => c + c).join('')
+    : cleanHex;
+  const r = parseInt(fullHex.substring(0, 2), 16);
+  const g = parseInt(fullHex.substring(2, 4), 16);
+  const b = parseInt(fullHex.substring(4, 6), 16);
+  if (isNaN(r) || isNaN(g) || isNaN(b)) return `rgba(0, 0, 0, ${alpha})`;
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}

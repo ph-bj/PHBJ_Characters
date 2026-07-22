@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { BookOpen, ChevronRight, Home, Leaf, X } from "lucide-react";
 import { chapters } from "../chapters";
 import { getGardenById, type Garden } from "../gardens";
+import { hexToRgba } from "../locations";
 import type { Chapter } from "../types";
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
@@ -181,8 +182,8 @@ export function GardenDetail({
               className="w-12 h-12 rounded-sm flex items-center justify-center shrink-0 border"
               style={{
                 color: accentColor,
-                borderColor: accentColor + "40",
-                backgroundColor: accentColor + "12",
+                borderColor: hexToRgba(accentColor, 0.25),
+                backgroundColor: hexToRgba(accentColor, 0.07),
               }}
             >
               <Leaf size={22} style={{ color: accentColor }} />
@@ -193,8 +194,8 @@ export function GardenDetail({
                   className="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm border"
                   style={{
                     color: accentColor,
-                    borderColor: accentColor + "40",
-                    backgroundColor: accentColor + "12",
+                    borderColor: hexToRgba(accentColor, 0.25),
+                    backgroundColor: hexToRgba(accentColor, 0.07),
                   }}
                 >
                   {typeBadge}

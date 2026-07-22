@@ -2,7 +2,7 @@ import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { BookOpen, Building, ChevronRight, Compass, Leaf, MapPin, Users, X } from "lucide-react";
 import { chapters } from "../chapters";
-import { locationColors, locationTypeLabels } from "../locations";
+import { hexToRgba, locationColors, locationTypeLabels } from "../locations";
 import { chapterTranslationsById } from "../chapterTranslations";
 import { getCharacterNameForLanguage, type NovelLocationWithChapters } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
@@ -299,8 +299,8 @@ export function LocationDetail({
               className="w-12 h-12 rounded-sm flex items-center justify-center shrink-0 border"
               style={{
                 color: accentColor,
-                borderColor: accentColor + "40",
-                backgroundColor: accentColor + "12",
+                borderColor: hexToRgba(accentColor, 0.25),
+                backgroundColor: hexToRgba(accentColor, 0.07),
               }}
             >
               <TypeIcon size={22} style={{ color: accentColor }} />
@@ -311,8 +311,8 @@ export function LocationDetail({
                   className="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm border"
                   style={{
                     color: accentColor,
-                    borderColor: accentColor + "40",
-                    backgroundColor: accentColor + "12",
+                    borderColor: hexToRgba(accentColor, 0.25),
+                    backgroundColor: hexToRgba(accentColor, 0.07),
                   }}
                 >
                   {lang === "zh" ? typeLabel.zh : typeLabel.en}
