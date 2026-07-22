@@ -512,12 +512,13 @@ export default function App() {
           if (chapter) setSelectedChapter(chapter);
           break;
         }
-        case "garden": {
-          const garden = getGardenById(link.id);
-          if (garden) setSelectedGarden(garden);
-          break;
-        }
+        case "garden":
         case "location": {
+          const garden = getGardenById(link.id);
+          if (garden) {
+            setSelectedGarden(garden);
+            break;
+          }
           let found = false;
           for (const group of locationsByType) {
             const location = group.locations.find((l) => l.id === link.id);
@@ -582,7 +583,7 @@ export default function App() {
       return { kind: "lacunae", chapter: activeLacunaChapter, lang };
     if (selectedLocation) return { kind: "location", id: selectedLocation.id, lang };
     if (selectedWork) return { kind: "work", key: selectedWork, lang };
-    if (selectedGarden) return { kind: "garden", id: selectedGarden.id, lang };
+    if (selectedGarden) return { kind: "location", id: selectedGarden.id, lang };
     if (selectedCharacter) return { kind: "character", id: selectedCharacter.id, lang };
     if (selectedChapter) return { kind: "chapter", id: selectedChapter.id, lang };
     return null;

@@ -18,7 +18,7 @@ export function formatHash(link: DeepLink | null): string {
   switch (link.kind) {
     case 'character': return `${prefix}/character/${encodeURIComponent(link.id)}`;
     case 'chapter': return `${prefix}/chapter/${link.id}`;
-    case 'garden': return `${prefix}/garden/${encodeURIComponent(link.id)}`;
+    case 'garden': return `${prefix}/location/${encodeURIComponent(link.id)}`;
     case 'location': return `${prefix}/location/${encodeURIComponent(link.id)}`;
     case 'work': return `${prefix}/work/${encodeURIComponent(link.key)}`;
     case 'question': return `${prefix}/question/${encodeURIComponent(link.slug)}`;
@@ -41,7 +41,7 @@ export function parseHash(hash: string): DeepLink | null {
   let link: DeepLink | null = null;
   switch (kind) {
     case 'character': link = { kind: 'character', id }; break;
-    case 'garden': link = { kind: 'garden', id }; break;
+    case 'garden': link = { kind: 'location', id }; break;
     case 'location': link = { kind: 'location', id }; break;
     case 'work': link = { kind: 'work', key: id }; break;
     case 'question': link = { kind: 'question', slug: id }; break;

@@ -161,7 +161,7 @@ export function GardenDetail({
       >
         <div className="absolute top-4 sm:top-6 right-4 sm:right-6 flex items-center gap-1.5 z-10">
           <LanguageSwitch lang={lang} setLang={setLang} className="scale-90" />
-          <PermalinkButton lang={lang} link={{ kind: "garden", id: garden.id }} />
+          <PermalinkButton lang={lang} link={{ kind: "location", id: garden.id }} />
           <button
             onClick={onClose}
             className="p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)]"
