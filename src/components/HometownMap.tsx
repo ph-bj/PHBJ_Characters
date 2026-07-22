@@ -277,10 +277,10 @@ export function HometownMap({
                   aria-selected={isActive}
                   aria-controls="location-map-panel"
                   onClick={() => setActiveType(type)}
-                  className={`group flex min-h-[50px] items-center gap-2.5 rounded-sm border px-3 py-2 text-left transition-all ${
+                  className={`group flex items-center gap-2.5 rounded-sm border px-3 py-2.5 text-left transition-all cursor-pointer ${
                     isActive
-                      ? 'border-[var(--accent)] bg-[var(--accent)] text-[var(--paper-bg)] shadow-sm'
-                      : 'border-transparent bg-[var(--paper-bg)]/70 text-[var(--ink-dim-text)] hover:border-[var(--paper-border)] hover:bg-[var(--paper-bg)] hover:text-[var(--ink-title)]'
+                      ? 'border-[var(--accent)] bg-[var(--accent)] text-[var(--paper-bg)] shadow-xs'
+                      : 'border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/70 text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.04] hover:text-[var(--ink-title)]'
                   }`}
                 >
                   <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
@@ -288,14 +288,14 @@ export function HometownMap({
                   }`}>
                     <Icon size={14} />
                   </span>
-                  <span className="min-w-0">
-                    <span className="block truncate text-[11px] font-bold leading-tight">
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-[11px] font-bold leading-snug text-[var(--ink-title)]" style={{ color: isActive ? 'inherit' : undefined }}>
                       {lang === 'zh' ? label.zh : label.en}
                     </span>
-                    <span className={`mt-0.5 block text-[9px] ${
-                      isActive ? 'text-[var(--paper-bg)]/75' : 'text-[var(--ink-dim-text)]/70'
+                    <span className={`mt-1 block text-[9px] font-normal leading-none ${
+                      isActive ? 'text-[var(--paper-bg)]/80' : 'text-[var(--ink-dim-text)]'
                     }`}>
-                      {lang === 'zh' ? `${count} 处图例与按钮` : `${count} ${count === 1 ? 'legend & button' : 'legends & buttons'}`}
+                      {lang === 'zh' ? `${count} 个图例标记` : `${count} ${count === 1 ? 'legend marker' : 'legend markers'}`}
                     </span>
                   </span>
                 </button>
