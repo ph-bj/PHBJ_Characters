@@ -146,16 +146,35 @@ export const novelLocations: NovelLocation[] = [
 ];
 
 export const locationColors: Record<LocationType, string> = {
-  place: '#2d4a68',
-  garden: '#2e6f40',
-  site: '#9e462a',
-  landscape: '#1f6f8a',
+  place: 'var(--legend-place)',
+  garden: 'var(--legend-garden)',
+  site: 'var(--legend-site)',
+  landscape: 'var(--legend-landscape)',
 };
 
-export function hexToRgba(hex: string, alpha: number): string {
+export function resolveColor(color: string): string {
+  if (!color || typeof color !== 'string') return '#8b4513';
+  if (color.startsWith('var(')) {
+    const varName = color.slice(4, -1).trim();
+    const computed = typeof window !== 'undefined'
+      ? getComputedStyle(document.documentElement).getPropertyValue(varName).trim()
+      : '';
+    if (computed) return computed;
+    const fallbacks: Record<string, string> = {
+      '--legend-place': '#2d4a68',
+      '--legend-garden': '#2e6f40',
+      '--legend-site': '#9e462a',
+      '--legend-landscape': '#1f6f8a',
+    };
+    return fallbacks[varName] || '#8b4513';
+  }
+  return color;
+}
+
+export function hexToRgba(color: string, alpha: number): string {
+  const hex = resolveColor(color);
   if (!hex || typeof hex !== 'string') return `rgba(0, 0, 0, ${alpha})`;
   if (hex.startsWith('rgba') || hex.startsWith('rgb')) return hex;
-  if (hex.startsWith('var(')) return hex;
   const cleanHex = hex.replace('#', '');
   const fullHex = cleanHex.length === 3
     ? cleanHex.split('').map((c) => c + c).join('')
