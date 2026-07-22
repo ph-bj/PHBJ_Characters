@@ -307,7 +307,7 @@ export function HometownMap({
             id="location-map-panel"
             role="tabpanel"
             aria-labelledby={`location-tab-${resolvedActiveType}`}
-            className="mt-3 overflow-hidden rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/50 shadow-sm"
+            className="mt-4 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 p-3.5 sm:p-4 shadow-xs"
           >
             {activeTypes.length > 0 ? (
               <div key={resolvedActiveType}>

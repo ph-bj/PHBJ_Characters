@@ -505,28 +505,30 @@ export function LocationMapPanel({
 
   return (
     <div>
-      <div className="flex items-center gap-2 mb-2">
-        <span
-          className="w-3 h-3 rounded-full border border-[var(--ink-dim-text)] opacity-80 shrink-0"
-          style={{ backgroundColor: locationColors[locationType] }}
-        />
-        <h3 className="text-[11px] uppercase tracking-[0.15em] text-[var(--ink-dim-text)] font-bold">
-          {title}
-        </h3>
-        <span className="text-[12px] text-[var(--ink-dim-text)] italic ml-auto">
+      <div className="mb-3 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/40 pb-2.5">
+        <div className="flex items-center gap-2">
+          <span
+            className="h-2.5 w-2.5 rounded-full border border-[var(--paper-border)] shrink-0 shadow-xs"
+            style={{ backgroundColor: locationColors[locationType] }}
+          />
+          <h3 className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--ink-title)]">
+            {title}
+          </h3>
+        </div>
+        <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2 py-0.5 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
           {lang === 'zh' ? `${mapData.length} 个图例标记` : `${mapData.length} legend markers`}
         </span>
       </div>
 
       <div
         ref={containerRef}
-        className="w-full relative overflow-hidden rounded border border-[var(--paper-border)]/50 bg-[var(--body-bg)]"
-        style={{ aspectRatio: '4/3', maxHeight: '420px' }}
+        className="relative w-full overflow-hidden rounded-sm border border-[var(--paper-border)]/60 bg-[var(--body-bg)] shadow-xs"
+        style={{ aspectRatio: '16/9', minHeight: '320px', maxHeight: '440px' }}
       >
-        <svg ref={svgRef} className="w-full h-full" />
+        <svg ref={svgRef} className="h-full w-full" />
 
-        <div className="absolute bottom-2 left-2 text-[9px] text-[var(--ink-dim-text)] opacity-70 pointer-events-none">
-          {lang === 'zh' ? '点击圆点打开档案，滚动缩放' : 'Click dots to open profile, scroll to zoom'}
+        <div className="pointer-events-none absolute bottom-2.5 left-3 rounded-sm border border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/85 px-2 py-0.5 text-[9px] font-medium text-[var(--ink-dim-text)] shadow-xs backdrop-blur-xs">
+          {lang === 'zh' ? '点击图标打开档案 · 鼠标滚动与拖拽缩放' : 'Click icon to view profile · Scroll & drag to zoom'}
         </div>
       </div>
     </div>
