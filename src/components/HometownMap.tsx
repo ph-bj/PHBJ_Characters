@@ -340,8 +340,6 @@ export function HometownMap({
           </div>
         </section>
 
-        <div className="h-px bg-[var(--paper-border)]" />
-
         <section
           className="rounded-sm border border-[var(--paper-border)] bg-white/10 p-4 sm:p-5"
           aria-labelledby="locations-title"
@@ -480,7 +478,7 @@ export function HometownMap({
                     </div>
 
                     {additionalGardenLocations.length > 0 && (
-                      <div className="mt-4 border-t border-[var(--paper-border)]/60 pt-4">
+                      <div className="mt-4">
                         <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
                           {lang === 'zh' ? '其他园林地点' : 'Additional Garden Sites'}
                         </p>
