@@ -75,6 +75,24 @@ export function HometownMap({
   onSelectGarden,
   onSelectLocation,
 }: HometownMapProps) {
+  const hometownLocationIds = useMemo(() => {
+    const ids = new Set<string>();
+    for (const char of characters) {
+      if (!char.origin || char.origin === '—') continue;
+      const locMatch = novelLocations.find(
+        (location) => location.id.includes(char.origin.toLowerCase())
+          || char.origin.toLowerCase().includes(location.nameEn.toLowerCase())
+          || location.nameEn.toLowerCase().includes(char.origin.toLowerCase())
+          || location.name === char.origin
+          || char.origin === location.id,
+      );
+      if (locMatch) {
+        ids.add(locMatch.id);
+      }
+    }
+    return ids;
+  }, [characters]);
+
   const mapDataByType = useMemo(() => {
     const locationMap: Record<string, MapLocationData> = {};
 
@@ -139,7 +157,13 @@ export function HometownMap({
     const grouped = { hometown: hometownData } as Record<MapCategory, MapLocationData[]>;
 
     for (const type of locationTypeOrder) {
-      grouped[type] = allLocations.filter((data) => data.type === type);
+      if (type === 'place') {
+        grouped['place'] = allLocations.filter(
+          (data) => data.type === 'place' && !hometownLocationIds.has(data.id),
+        );
+      } else {
+        grouped[type] = allLocations.filter((data) => data.type === type);
+      }
     }
 
     for (const category of mapCategoryOrder) {
@@ -147,7 +171,21 @@ export function HometownMap({
     }
 
     return grouped;
-  }, [characters]);
+  }, [characters, hometownLocationIds]);
+
+  const filteredLocationsByType = useMemo(() => {
+    return locationsByType
+      .map((group) => {
+        if (group.type === 'place') {
+          return {
+            ...group,
+            locations: group.locations.filter((loc) => !hometownLocationIds.has(loc.id)),
+          };
+        }
+        return group;
+      })
+      .filter((group) => group.locations.length > 0);
+  }, [locationsByType, hometownLocationIds]);
 
   const activeTypes = mapCategoryOrder.filter(
     (category) => mapDataByType[category].length > 0,
@@ -164,11 +202,11 @@ export function HometownMap({
   const majorGardens = gardens.filter((garden) => garden.type === 'major');
   const subLocations = gardens.filter((garden) => garden.type === 'sublocation');
   const otherSpaces = gardens.filter((garden) => garden.type === 'other');
-  const locationCount = locationsByType.reduce(
+  const locationCount = filteredLocationsByType.reduce(
     (sum, group) => sum + group.locations.length,
     0,
   );
-  const gardenLocationGroup = locationsByType.find((group) => group.type === 'garden');
+  const gardenLocationGroup = filteredLocationsByType.find((group) => group.type === 'garden');
   const additionalGardenLocations = (gardenLocationGroup?.locations ?? []).filter(
     (location) => !gardens.some(
       (garden) => garden.name === location.name
@@ -179,7 +217,8 @@ export function HometownMap({
   const mergedGardenCount = gardens.length + additionalGardenLocations.length;
   const storyGeographyCount = locationCount
     - (gardenLocationGroup?.locations.length ?? 0)
-    + mergedGardenCount;
+    + mergedGardenCount
+    + mapDataByType.hometown.length;
 
   return (
     <div
@@ -376,7 +415,7 @@ export function HometownMap({
               </div>
             )}
 
-            {locationsByType.map((group) => {
+            {filteredLocationsByType.map((group) => {
               const Icon = typeIcons[group.type];
 
               if (group.type === 'garden') {
