@@ -431,68 +431,52 @@ export function HometownMap({
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                      <div>
-                        <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
-                          {lang === 'zh' ? '主要园林' : 'Major Gardens'}
-                        </p>
-                        <div className="space-y-1.5">
-                          {majorGardens.map((garden) => (
-                            <button
-                              key={garden.id}
-                              type="button"
-                              onClick={() => onSelectGarden(garden)}
-                              className="group flex w-full items-center gap-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 px-2.5 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] cursor-pointer"
-                            >
-                              <Trees size={10} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
-                              <span className="min-w-0 flex-1">
-                                <span className="block truncate font-hans text-[9px] font-bold text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
+                    <div className="space-y-4">
+                      {[
+                        {
+                          label: lang === 'zh' ? '主要园林' : 'Major Gardens',
+                          items: majorGardens,
+                          isMajor: true,
+                        },
+                        {
+                          label: lang === 'zh' ? '园中胜景' : 'Sub-Locations',
+                          items: subLocations,
+                          isMajor: false,
+                        },
+                        {
+                          label: lang === 'zh' ? '其他场所' : 'Other Spaces',
+                          items: otherSpaces,
+                          isMajor: false,
+                        },
+                      ].map((gardenGroup) => (
+                        <div key={gardenGroup.label}>
+                          <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
+                            {gardenGroup.label}
+                          </p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {gardenGroup.items.map((garden) => (
+                              <button
+                                key={garden.id}
+                                type="button"
+                                onClick={() => onSelectGarden(garden)}
+                                className="group flex items-center gap-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 px-2.5 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] cursor-pointer"
+                                title={lang === 'zh' ? `${garden.name} (${garden.location})` : `${garden.nameEn} (${garden.locationEn})`}
+                              >
+                                <Trees size={10} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
+                                <span className="whitespace-nowrap font-hans text-[9px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
                                   {lang === 'zh' ? garden.name : garden.nameEn}
+                                  {gardenGroup.isMajor && (
+                                    <span className="ml-1 text-[8px] font-normal text-[var(--ink-dim-text)]">
+                                      ({lang === 'zh' ? garden.location : garden.locationEn})
+                                    </span>
+                                  )}
                                 </span>
-                                <span className="mt-0.5 block truncate text-[8px] text-[var(--ink-dim-text)]">
-                                  {lang === 'zh' ? garden.location : garden.locationEn}
-                                </span>
-                              </span>
-                              <ChevronRight size={10} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="space-y-4">
-                        {[
-                          {
-                            label: lang === 'zh' ? '园中胜景' : 'Sub-Locations',
-                            items: subLocations,
-                          },
-                          {
-                            label: lang === 'zh' ? '其他场所' : 'Other Spaces',
-                            items: otherSpaces,
-                          },
-                        ].map((gardenGroup) => (
-                          <div key={gardenGroup.label}>
-                            <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]">
-                              {gardenGroup.label}
-                            </p>
-                            <div className="flex flex-wrap gap-1.5">
-                              {gardenGroup.items.map((garden) => (
-                                <button
-                                  key={garden.id}
-                                  type="button"
-                                  onClick={() => onSelectGarden(garden)}
-                                  className="group flex items-center gap-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 px-2.5 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] cursor-pointer"
-                                >
-                                  <Trees size={10} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
-                                  <span className="whitespace-nowrap font-hans text-[9px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
-                                    {lang === 'zh' ? garden.name : garden.nameEn}
-                                  </span>
-                                  <ChevronRight size={10} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
-                                </button>
-                              ))}
-                            </div>
+                                <ChevronRight size={10} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
+                              </button>
+                            ))}
                           </div>
-                        ))}
-                      </div>
+                        </div>
+                      ))}
                     </div>
 
                     {additionalGardenLocations.length > 0 && (
