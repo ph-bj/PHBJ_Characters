@@ -469,16 +469,16 @@ export default function App() {
     const chapterList = chapters.filter((ch) => ch.id >= 1);
     const entries = novelLocations
       .map((location) => {
+        const sortedTokens = [...location.searchTokens].sort((a, b) => b.length - a.length);
         const chapterIds = chapterList
           .filter((chapter) =>
-            location.searchTokens.some((token) =>
+            sortedTokens.some((token) =>
               chapter.content.includes(token),
             ),
           )
           .map((chapter) => chapter.id);
         return { ...location, chapterIds };
       })
-      .filter((location) => location.chapterIds.length > 0)
       .sort(
         (a, b) =>
           b.chapterIds.length - a.chapterIds.length ||

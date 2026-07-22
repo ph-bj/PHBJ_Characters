@@ -302,10 +302,11 @@ export type LacunaEntry = {
 export type NovelLocationWithChapters = NovelLocation & { chapterIds: number[] };
 
 export function getLocationChapterIds(location: NovelLocation): number[] {
+  const sortedTokens = [...location.searchTokens].sort((a, b) => b.length - a.length);
   return chapters
     .filter((ch) => ch.id >= 1)
     .filter((chapter) =>
-      location.searchTokens.some((token) => chapter.content.includes(token)),
+      sortedTokens.some((token) => chapter.content.includes(token)),
     )
     .map((chapter) => chapter.id);
 }
@@ -317,20 +318,30 @@ export function getLocationFirstSnippet(location: NovelLocation): string | null 
   const chapter = chapters.find((ch) => ch.id === chapterIds[0]);
   if (!chapter) return null;
 
-  let earliest = chapter.content.length;
-  let matchEnd = 0;
-  for (const token of location.searchTokens) {
-    const pos = chapter.content.indexOf(token);
-    if (pos !== -1 && pos < earliest) {
-      earliest = pos;
-      matchEnd = pos + token.length;
+  const sortedTokens = [...location.searchTokens].sort((a, b) => b.length - a.length);
+  const matchedRanges: Array<{ start: number; end: number }> = [];
+
+  for (const token of sortedTokens) {
+    let pos = 0;
+    while ((pos = chapter.content.indexOf(token, pos)) !== -1) {
+      const end = pos + token.length;
+      const overlaps = matchedRanges.some(
+        (r) => Math.max(r.start, pos) < Math.min(r.end, end)
+      );
+      if (!overlaps) {
+        matchedRanges.push({ start: pos, end });
+      }
+      pos += token.length;
     }
   }
-  if (earliest === chapter.content.length) return null;
 
+  if (matchedRanges.length === 0) return null;
+  matchedRanges.sort((a, b) => a.start - b.start);
+
+  const earliest = matchedRanges[0];
   return chapter.content.slice(
-    Math.max(0, earliest - 60),
-    Math.min(chapter.content.length, matchEnd + 60),
+    Math.max(0, earliest.start - 60),
+    Math.min(chapter.content.length, earliest.end + 60),
   );
 }
 

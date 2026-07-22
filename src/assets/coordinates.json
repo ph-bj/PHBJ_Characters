@@ -458,5 +458,41 @@
   "venue-fuyin": [
     116.3612,
     39.8866
+  ],
+  "venue-qiushui": [
+    116.425,
+    39.92
+  ],
+  "site-baonensi": [
+    118.775,
+    32.012
+  ],
+  "site-xuanwuhu": [
+    118.796,
+    32.074
+  ],
+  "residence-tian": [
+    116.415,
+    39.931
+  ],
+  "venue-feicui": [
+    116.412,
+    39.928
+  ],
+  "gate-qianmen": [
+    116.398,
+    39.899
+  ],
+  "water-taihu": [
+    120.12,
+    31.2
+  ],
+  "site-shizilin": [
+    120.625,
+    31.323
+  ],
+  "feature-chunfeng": [
+    116.4245,
+    39.863
   ]
 }

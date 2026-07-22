@@ -40,7 +40,7 @@ export const gardens: Garden[] = [
     searchTokens: ['怡园'],
     subLocationIds: [
       'garden-meian', 'garden-hanwanlou', 'garden-liuxianyuan',
-      'garden-haitang', 'garden-hongcha', 'garden-qingliang', 'garden-mudan'
+      'garden-haitang', 'garden-hongcha', 'garden-qingliang', 'garden-mudan', 'garden-chunfeng'
     ],
     accentColor: '#4d6a3a',
   },
@@ -234,6 +234,24 @@ export const gardens: Garden[] = [
       '屈道翁游园至此，驻足称赏，连叹"果然不凡"。',
     searchTokens: ['牡丹香国', '牡丹台', '芍药圃'],
     accentColor: '#6b4a7d',
+  },
+  {
+    id: 'garden-chunfeng',
+    name: '春风沉醉轩',
+    pinyin: 'Chūnfēng Chénzuì Xuān',
+    nameEn: 'Spring Breeze Lodge',
+    type: 'sublocation',
+    parentId: 'garden-yiyuan',
+    owner: '萧次贤',
+    ownerEn: 'Xiao Cixian',
+    location: '怡园内',
+    locationEn: 'Within Yiyuan',
+    description:
+      'An elegant pavilion studio within Yiyuan, often used by Xiao Cixian and Xu Ziyun for receiving refined guests and poetry exchanges.',
+    descriptionZh:
+      '怡园内一处雅致的轩馆，萧次贤与徐子云常在此接待佳客、诗酒吟咏。',
+    searchTokens: ['春风沉醉轩'],
+    accentColor: '#3f6b63',
   },
 
   // ── Sub-locations of 锦春园 ───────────────────────────────────────────────

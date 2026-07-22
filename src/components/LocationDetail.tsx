@@ -37,27 +37,35 @@ export function LocationDetail({
   }, [location.searchTokens]);
 
   const locationMentions = useMemo(() => {
+    const sortedTokens = [...location.searchTokens].sort((a, b) => b.length - a.length);
+
     return location.chapterIds.map((chapterId) => {
       const chapter = chapters.find((item) => item.id === chapterId);
       if (!chapter) return { chapterId, snippets: [] as string[] };
 
-      const positions: Array<{ start: number; end: number }> = [];
-      for (const token of location.searchTokens) {
+      const matchedRanges: Array<{ start: number; end: number }> = [];
+      for (const token of sortedTokens) {
         let pos = 0;
         while ((pos = chapter.content.indexOf(token, pos)) !== -1) {
-          positions.push({ start: pos, end: pos + token.length });
+          const end = pos + token.length;
+          const overlaps = matchedRanges.some(
+            (r) => Math.max(r.start, pos) < Math.min(r.end, end)
+          );
+          if (!overlaps) {
+            matchedRanges.push({ start: pos, end });
+          }
           pos += token.length;
         }
       }
-      positions.sort((a, b) => a.start - b.start);
-      if (positions.length === 0)
+      matchedRanges.sort((a, b) => a.start - b.start);
+      if (matchedRanges.length === 0)
         return { chapterId, snippets: [] as string[] };
 
       const snippets: string[] = [];
-      let clusterStart = positions[0].start;
-      let clusterEnd = positions[0].end;
-      for (let i = 1; i < positions.length; i++) {
-        const current = positions[i];
+      let clusterStart = matchedRanges[0].start;
+      let clusterEnd = matchedRanges[0].end;
+      for (let i = 1; i < matchedRanges.length; i++) {
+        const current = matchedRanges[i];
         if (current.start - clusterEnd <= 120) {
           clusterEnd = Math.max(clusterEnd, current.end);
         } else {

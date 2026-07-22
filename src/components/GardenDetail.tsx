@@ -25,20 +25,25 @@ export function GardenDetail({
   const [activeChapter, setActiveChapter] = useState<number | null>(null);
 
   const mentionData = useMemo(() => {
-    const tokens = garden.searchTokens;
+    const sortedTokens = [...garden.searchTokens].sort((a, b) => b.length - a.length);
     return chapters
       .filter((ch) => ch.id >= 1)
       .map((ch) => {
-        const count = tokens.reduce((sum, token) => {
-          let n = 0,
-            pos = 0;
+        const matchedRanges: Array<{ start: number; end: number }> = [];
+        for (const token of sortedTokens) {
+          let pos = 0;
           while ((pos = ch.content.indexOf(token, pos)) !== -1) {
-            n++;
-            pos++;
+            const end = pos + token.length;
+            const overlaps = matchedRanges.some(
+              (r) => Math.max(r.start, pos) < Math.min(r.end, end)
+            );
+            if (!overlaps) {
+              matchedRanges.push({ start: pos, end });
+            }
+            pos += token.length;
           }
-          return sum + n;
-        }, 0);
-        return { ch: ch.id, count };
+        }
+        return { ch: ch.id, count: matchedRanges.length };
       });
   }, [garden]);
 
@@ -49,25 +54,31 @@ export function GardenDetail({
     if (activeChapter === null) return null;
     const ch = chapters.find((c) => c.id === activeChapter);
     if (!ch) return null;
-    const tokens = garden.searchTokens;
-    const positions: number[] = [];
-    for (const token of tokens) {
+    const sortedTokens = [...garden.searchTokens].sort((a, b) => b.length - a.length);
+    const matchedRanges: Array<{ start: number; end: number }> = [];
+    for (const token of sortedTokens) {
       let pos = 0;
       while ((pos = ch.content.indexOf(token, pos)) !== -1) {
-        positions.push(pos);
-        pos++;
+        const end = pos + token.length;
+        const overlaps = matchedRanges.some(
+          (r) => Math.max(r.start, pos) < Math.min(r.end, end)
+        );
+        if (!overlaps) {
+          matchedRanges.push({ start: pos, end });
+        }
+        pos += token.length;
       }
     }
-    positions.sort((a, b) => a - b);
+    matchedRanges.sort((a, b) => a.start - b.start);
     const snippets: string[] = [];
     let clusterStart = -1,
       clusterEnd = -1;
-    for (const pos of positions) {
+    for (const range of matchedRanges) {
       if (clusterStart === -1) {
-        clusterStart = pos;
-        clusterEnd = pos;
-      } else if (pos - clusterEnd < 200) {
-        clusterEnd = pos;
+        clusterStart = range.start;
+        clusterEnd = range.end;
+      } else if (range.start - clusterEnd < 200) {
+        clusterEnd = Math.max(clusterEnd, range.end);
       } else {
         snippets.push(
           ch.content.slice(
@@ -75,8 +86,8 @@ export function GardenDetail({
             Math.min(ch.content.length, clusterEnd + 80),
           ),
         );
-        clusterStart = pos;
-        clusterEnd = pos;
+        clusterStart = range.start;
+        clusterEnd = range.end;
       }
     }
     if (clusterStart !== -1) {
@@ -87,7 +98,7 @@ export function GardenDetail({
         ),
       );
     }
-    return { snippets: snippets.slice(0, 8), tokens };
+    return { snippets: snippets.slice(0, 8), tokens: sortedTokens };
   }, [garden, activeChapter]);
 
   const typeBadge = {
