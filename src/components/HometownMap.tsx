@@ -305,7 +305,7 @@ export function HometownMap({
                     <span className={`mt-0.5 block text-[9px] ${
                       isActive ? 'text-[var(--paper-bg)]/75' : 'text-[var(--ink-dim-text)]/70'
                     }`}>
-                      {lang === 'zh' ? `${count} 处地点` : `${count} map ${count === 1 ? 'point' : 'points'}`}
+                      {lang === 'zh' ? `${count} 处图例与按钮` : `${count} ${count === 1 ? 'legend & button' : 'legends & buttons'}`}
                     </span>
                   </span>
                 </button>

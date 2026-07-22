@@ -518,7 +518,7 @@ export function LocationMapPanel({
           {title}
         </h3>
         <span className="text-[12px] text-[var(--ink-dim-text)] italic ml-auto">
-          {lang === 'zh' ? `${mapData.length} 个地点` : `${mapData.length} locations`}
+          {lang === 'zh' ? `${mapData.length} 个图例标记` : `${mapData.length} legend markers`}
         </span>
       </div>
 
