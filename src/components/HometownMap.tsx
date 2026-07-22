@@ -243,17 +243,17 @@ export function HometownMap({
 
       <div className="relative space-y-6 p-4 sm:p-6">
         <section aria-labelledby="map-explorer-title">
-          <div className="mb-3 flex items-end justify-between gap-4">
+          <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2 border-b border-[var(--paper-border)]/40 pb-2.5">
             <div>
-              <p className="text-[9px] font-bold uppercase tracking-[0.24em] text-[var(--accent)]">
+              <p className="text-[8px] font-bold uppercase tracking-[0.22em] text-[var(--accent)]">
                 {lang === 'zh' ? '交互地图' : 'Interactive map'}
               </p>
-              <h3 id="map-explorer-title" className="mt-1 text-sm font-bold text-[var(--ink-title)]">
+              <h3 id="map-explorer-title" className="mt-0.5 text-xs font-bold text-[var(--ink-title)]">
                 {lang === 'zh' ? '按地点类型探索' : 'Explore by location type'}
               </h3>
             </div>
-            <p className="hidden text-[10px] italic text-[var(--ink-dim-text)] sm:block">
-              {lang === 'zh' ? '选择类别以更新地图' : 'Choose a category to update the map'}
+            <p className="text-[10px] text-[var(--ink-dim-text)] font-medium bg-[var(--paper-bg)]/80 px-2.5 py-1 rounded-sm border border-[var(--paper-border)]/60">
+              {lang === 'zh' ? '选择类别以更新地图' : 'Choose a category to update map'}
             </p>
           </div>
 
