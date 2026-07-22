@@ -230,23 +230,13 @@ export function HometownMap({
 
       <header className="relative border-b border-[var(--paper-border)] bg-[var(--accent)]/[0.035] px-4 py-5 sm:px-6 sm:py-6">
         <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
-          <div className="flex items-start gap-3.5">
-            <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--accent)]/25 bg-[var(--accent)]/10 text-[var(--accent)] shadow-sm">
-              <Compass size={20} strokeWidth={1.7} />
+          <div className="flex items-center gap-3 sm:gap-3.5">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--accent)]/25 bg-[var(--accent)]/10 text-[var(--accent)] shadow-sm">
+              <Compass size={18} strokeWidth={1.7} />
             </div>
-            <div>
-              <p className="mb-1.5 text-[9px] font-bold uppercase tracking-[0.28em] text-[var(--accent)]">
-                {lang === 'zh' ? '小说地理志' : 'An atlas of the novel'}
-              </p>
-              <h2 className="font-hans text-xl font-bold leading-tight tracking-tight text-[var(--ink-title)] sm:text-2xl">
-                {lang === 'zh' ? '籍贯、园林与地点' : 'Hometowns, Gardens & Locations'}
-              </h2>
-              <p className="mt-2 max-w-2xl text-[11px] leading-relaxed text-[var(--ink-dim-text)] sm:text-xs">
-                {lang === 'zh'
-                  ? '循地图探索人物来处、名园胜景与章回中出现的地点。'
-                  : 'Trace where characters come from and explore the gardens, landmarks, and landscapes that shape the story.'}
-              </p>
-            </div>
+            <h2 className="font-hans text-xl font-bold leading-none tracking-tight text-[var(--ink-title)] sm:text-2xl">
+              {lang === 'zh' ? '籍贯、园林与地点' : 'Hometowns, Gardens & Locations'}
+            </h2>
           </div>
         </div>
       </header>
