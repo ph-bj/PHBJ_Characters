@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react';
 import {
-  BookOpen,
   ChevronRight,
   Compass,
   Home,
@@ -57,12 +56,6 @@ function bookInfoForLocation(loc: (typeof novelLocations)[number]) {
 
 interface HometownMapProps {
   characters: Character[];
-  originStats: Array<{
-    name: string;
-    count: number;
-    chars: Character[];
-    percentage: number;
-  }>;
   gardens: Garden[];
   locationsByType: Array<{
     type: LocationType;
@@ -76,7 +69,6 @@ interface HometownMapProps {
 
 export function HometownMap({
   characters,
-  originStats,
   gardens,
   locationsByType,
   lang,
@@ -169,10 +161,6 @@ export function HometownMap({
     ? activeType
     : activeTypes[0] ?? 'hometown';
 
-  const totalLocations = activeTypes.reduce(
-    (sum, type) => sum + mapDataByType[type].length,
-    0,
-  );
   const majorGardens = gardens.filter((garden) => garden.type === 'major');
   const subLocations = gardens.filter((garden) => garden.type === 'sublocation');
   const otherSpaces = gardens.filter((garden) => garden.type === 'other');
@@ -192,29 +180,6 @@ export function HometownMap({
   const storyGeographyCount = locationCount
     - (gardenLocationGroup?.locations.length ?? 0)
     + mergedGardenCount;
-
-  const summaryItems = [
-    {
-      icon: Compass,
-      value: totalLocations,
-      label: lang === 'zh' ? '地图点' : 'Map points',
-    },
-    {
-      icon: Users,
-      value: originStats.length,
-      label: lang === 'zh' ? '人物籍贯' : 'Hometowns',
-    },
-    {
-      icon: Trees,
-      value: gardens.length,
-      label: lang === 'zh' ? '园林场所' : 'Garden spaces',
-    },
-    {
-      icon: BookOpen,
-      value: locationCount,
-      label: lang === 'zh' ? '命名地点' : 'Named locations',
-    },
-  ];
 
   return (
     <div
@@ -244,20 +209,6 @@ export function HometownMap({
               </p>
             </div>
           </div>
-
-          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-[var(--paper-border)] bg-[var(--paper-border)] sm:grid-cols-4 xl:min-w-[29rem]">
-            {summaryItems.map(({ icon: Icon, value, label }) => (
-              <div key={label} className="bg-[var(--paper-bg)]/95 px-3 py-2.5 sm:px-4">
-                <dt className="flex items-center gap-1.5 text-[8px] font-bold uppercase tracking-[0.12em] text-[var(--ink-dim-text)]">
-                  <Icon size={10} className="text-[var(--accent)]" />
-                  {label}
-                </dt>
-                <dd className="mt-1 text-lg font-bold tabular-nums leading-none text-[var(--ink-title)]">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </header>
 

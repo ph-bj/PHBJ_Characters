@@ -302,8 +302,6 @@ export default function App() {
   // Calculate Stats
   const stats = useMemo(() => {
     type CharList = { count: number; chars: typeof characters };
-    const originMap: Record<string, CharList> = {};
-    const unknownOriginChars: typeof characters = [];
     const rolesCount: Record<string, number> = {};
     const ageGroupOrder = ["<15", "15-19", "20-24", "25-29", "30+"];
     const ageGroupMap: Record<string, CharList> = Object.fromEntries(
@@ -312,13 +310,6 @@ export default function App() {
     const unknownAgeChars: typeof characters = [];
 
     characters.forEach((c) => {
-      if (c.origin === "—") {
-        unknownOriginChars.push(c);
-      } else {
-        if (!originMap[c.origin]) originMap[c.origin] = { count: 0, chars: [] };
-        originMap[c.origin].count++;
-        originMap[c.origin].chars.push(c);
-      }
       rolesCount[c.role] = (rolesCount[c.role] || 0) + 1;
 
       // Parse Age
@@ -337,34 +328,6 @@ export default function App() {
         unknownAgeChars.push(c);
       }
     });
-
-    const maxOriginCount = Math.max(
-      ...Object.values(originMap).map((v) => v.count),
-      unknownOriginChars.length,
-      1,
-    );
-    const topOrigins = [
-      ...Object.entries(originMap)
-        .sort((a, b) => b[1].count - a[1].count)
-        .map(([name, { count, chars }]) => ({
-          name,
-          count,
-          chars,
-          percentage: Math.round((count / maxOriginCount) * 100),
-        })),
-      ...(unknownOriginChars.length > 0
-        ? [
-          {
-            name: "Unknown",
-            count: unknownOriginChars.length,
-            chars: unknownOriginChars,
-            percentage: Math.round(
-              (unknownOriginChars.length / maxOriginCount) * 100,
-            ),
-          },
-        ]
-        : []),
-    ];
 
     const maxRoleCount = Math.max(...Object.values(rolesCount), 1);
     const topRoles = Object.entries(rolesCount)
@@ -400,7 +363,7 @@ export default function App() {
         : []),
     ];
 
-    return { topOrigins, topRoles, ageData };
+    return { topRoles, ageData };
   }, []);
 
   const DRINKING_KEYWORDS = [
@@ -1692,7 +1655,6 @@ export default function App() {
             )}
             <HometownMap
               characters={filteredCharacters}
-              originStats={stats.topOrigins}
               gardens={gardens}
               locationsByType={locationsByType}
               lang={lang}
