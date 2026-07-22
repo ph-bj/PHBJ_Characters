@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
-import { X } from 'lucide-react';
 import { Character } from '../types';
 import { locationColors, locationTypeLabels, LocationType } from '../locations';
 import geoData from '../assets/countries.geo.json';
 import coordinates from '../assets/coordinates.json';
-import { getCharacterNameForLanguage } from '../utils';
+import { getCharacterNameForLanguage, type NovelLocationWithChapters } from '../utils';
+import { getGardenById, type Garden } from '../gardens';
 
 export interface MapLocationData {
   id: string;
@@ -35,6 +35,8 @@ interface LocationMapPanelProps {
   lang: 'en' | 'zh';
   title: string;
   locationType: LocationType;
+  onSelectLocation: (location: NovelLocationWithChapters) => void;
+  onSelectGarden: (garden: Garden) => void;
 }
 
 const MARKER_RADIUS_PX = 9;
@@ -252,169 +254,17 @@ function layoutMapMarkers(
   return markers;
 }
 
-function formatChapterList(chapterIds: number[], lang: 'en' | 'zh') {
-  if (chapterIds.length === 0) return '';
-  if (chapterIds.length <= 12) {
-    return chapterIds.map((id) => (lang === 'zh' ? `第${id}回` : `Ch.${id}`)).join(lang === 'zh' ? '、' : ', ');
-  }
-  const preview = chapterIds
-    .slice(0, 10)
-    .map((id) => (lang === 'zh' ? `第${id}回` : `Ch.${id}`))
-    .join(lang === 'zh' ? '、' : ', ');
-  const suffix = lang === 'zh'
-    ? ` 等 ${chapterIds.length} 回`
-    : `, … (${chapterIds.length} chapters)`;
-  return preview + suffix;
-}
 
-function formatCharacterNames(chars: Character[], lang: 'en' | 'zh') {
-  if (chars.length === 0) return '';
-  return chars
-    .map((c) => getCharacterNameForLanguage(c, lang))
-    .join(lang === 'zh' ? '、' : ', ');
-}
-
-function LocationTooltipSection({
-  location,
+export function LocationMapPanel({
+  mapData,
   lang,
-  showDivider,
-}: {
-  location: MapLocationData;
-  lang: 'en' | 'zh';
-  showDivider: boolean;
-}) {
-  const altNames = (location.searchTokens ?? []).filter(
-    (token) => token !== location.originZh && token !== location.origin,
-  );
-  const names = formatCharacterNames(location.chars, lang);
-
-  return (
-    <div className={showDivider ? 'border-t border-[var(--paper-border)]/60 pt-3 mt-3' : ''}>
-      <div className="flex items-center gap-2 mb-1">
-        <span
-          className="w-2.5 h-2.5 rounded-full border border-[var(--ink-dim-text)]/30 shadow-sm shrink-0"
-          style={{ backgroundColor: locationColors[location.type as LocationType] || 'var(--accent)' }}
-        />
-        <p className="font-bold text-sm leading-tight text-[var(--ink-title)]">
-          {lang === 'zh' ? (location.originZh || location.origin) : location.origin}
-        </p>
-      </div>
-
-      {lang === 'en' && location.originZh && location.originZh !== location.origin && (
-        <p className="text-[12px] text-[var(--accent)] mb-1 font-hans">{location.originZh}</p>
-      )}
-
-      <p className="text-[12px] text-[var(--ink-dim-text)] mb-1.5 font-medium">
-        {lang === 'zh'
-          ? locationTypeLabels[location.type as LocationType]?.zh || location.type
-          : locationTypeLabels[location.type as LocationType]?.en || location.type}
-        {location.count > 0 && (
-          <span className="ml-2">
-            · {location.count} {lang === 'zh' ? '人籍贯' : 'characters'}
-          </span>
-        )}
-      </p>
-
-      {altNames.length > 0 && (
-        <p className="text-[12px] text-[var(--ink-title)]/80 mb-2 leading-relaxed">
-          <span className="text-[var(--accent)]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
-            {lang === 'zh' ? '书中称谓' : 'In the text'}
-          </span>
-          {altNames.join(' / ')}
-        </p>
-      )}
-
-      {(location.chapterIds?.length ?? 0) > 0 && (
-        <p className="text-[12px] text-[var(--ink-title)]/90 mb-2 leading-relaxed">
-          <span className="text-[var(--accent)]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
-            {lang === 'zh' ? '出现回目' : 'Chapter appearances'}
-          </span>
-          {formatChapterList(location.chapterIds ?? [], lang)}
-        </p>
-      )}
-
-      {location.firstSnippet && (location.searchTokens?.length ?? 0) > 0 && (
-        <p className="text-[12px] leading-relaxed font-hans text-[var(--ink-title)]/90 mb-2">
-          <span className="text-[var(--accent)]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
-            {lang === 'zh'
-              ? `书中摘录${location.firstChapterId ? `（第${location.firstChapterId}回）` : ''}`
-              : `From the novel${location.firstChapterId ? ` (Ch.${location.firstChapterId})` : ''}`}
-          </span>
-          …{location.firstSnippet.split(
-            new RegExp(`(${(location.searchTokens ?? [])
-              .sort((a, b) => b.length - a.length)
-              .map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-              .join('|')})`),
-          ).map((part, i) =>
-            (location.searchTokens ?? []).includes(part) ? (
-              <mark key={i} className="bg-amber-200 text-[var(--ink-title)] px-0.5 rounded-sm ring-1 ring-amber-300/40">{part}</mark>
-            ) : (
-              <span key={i}>{part}</span>
-            ),
-          )}…
-        </p>
-      )}
-
-      {names && (
-        <p className="text-[12px] text-[var(--ink-title)]/80 leading-relaxed">
-          <span className="text-[var(--accent)]/70 uppercase tracking-wider text-[11px] block mb-0.5 font-semibold">
-            {lang === 'zh' ? '相关人物' : 'Characters'}
-          </span>
-          {names}
-        </p>
-      )}
-    </div>
-  );
-}
-
-function LocationInfoPanel({
-  lang,
-  locations,
-  onClose,
-}: {
-  lang: 'en' | 'zh';
-  locations: MapLocationData[];
-  onClose: () => void;
-}) {
-  const isCluster = locations.length > 1;
-
-  return (
-    <div className="mt-2 bg-[var(--paper-bg)] text-[var(--ink-title)] p-4 rounded shadow-md border border-[var(--paper-border)] relative parchment">
-      <button
-        onClick={onClose}
-        className="absolute top-2 right-2 p-1 rounded transition-colors bg-[var(--accent)] hover:bg-[#a0522d] text-[var(--paper-bg)] border border-[var(--accent)] shadow-sm flex items-center justify-center cursor-pointer"
-        aria-label="Close"
-      >
-        <X size={16} />
-      </button>
-
-      {isCluster && (
-        <p className="text-xs uppercase tracking-wider text-[var(--accent)] mb-3 pb-2 border-b border-[var(--paper-border)]/60 font-semibold">
-          {lang === 'zh'
-            ? `${locations.length} 个邻近地点`
-            : `${locations.length} nearby locations`}
-        </p>
-      )}
-
-      <div className="flex flex-col gap-4">
-        {locations.map((location, index) => (
-          <div key={location.id}>
-            <LocationTooltipSection
-              location={location}
-              lang={lang}
-              showDivider={index > 0}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-export function LocationMapPanel({ mapData, lang, title, locationType }: LocationMapPanelProps) {
+  title,
+  locationType,
+  onSelectLocation,
+  onSelectGarden,
+}: LocationMapPanelProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [selectedLocations, setSelectedLocations] = useState<MapLocationData[]>([]);
 
   useEffect(() => {
     if (!svgRef.current || !containerRef.current || mapData.length === 0) return;
@@ -608,22 +458,32 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
       .text((marker) => formatMapLabel(marker.location, lang));
 
     markerGroups.on('click', (event, marker) => {
-      markerGroups.classed('is-selected', false);
-      markerGroups.select('.marker-symbol')
-        .attr('stroke-width', 1.5);
-      markerGroups.select('.marker-label')
-        .attr('fill', 'var(--ink-dim-text)')
-        .attr('font-weight', 400);
-
-      const target = d3.select(event.currentTarget);
-      target.classed('is-selected', true);
-      target.select('.marker-symbol')
-        .attr('stroke-width', 2.5);
-      target.select('.marker-label')
-        .attr('fill', 'var(--ink-title)')
-        .attr('font-weight', 600);
-
-      setSelectedLocations([marker.location]);
+      console.log('CLICKED MARKER ID:', marker.location.id);
+      const garden = getGardenById(marker.location.id);
+      console.log('FOUND GARDEN:', garden);
+      if (garden) {
+        console.log('CALLING onSelectGarden');
+        onSelectGarden(garden);
+      } else {
+        const isHometown = marker.location.id.startsWith('hometown-');
+        const typeLabels: Record<string, string> = {
+          place: lang === 'zh' ? '地方' : 'Place',
+          garden: lang === 'zh' ? '园林' : 'Garden',
+          site: lang === 'zh' ? '住宅/街场' : 'Site',
+          landscape: lang === 'zh' ? '山水名胜' : 'Landscape',
+        };
+        const location: NovelLocationWithChapters = {
+          id: marker.location.id,
+          name: marker.location.originZh || marker.location.origin,
+          nameEn: marker.location.origin,
+          type: isHometown ? 'place' : (marker.location.type as any || 'place'),
+          typeZh: typeLabels[marker.location.type] || (lang === 'zh' ? '地方' : 'Place'),
+          searchTokens: marker.location.searchTokens || [marker.location.originZh || marker.location.origin, marker.location.origin],
+          chapterIds: marker.location.chapterIds || [],
+        };
+        console.log('CALLING onSelectLocation', location);
+        onSelectLocation(location);
+      }
     });
 
     const zoom = d3.zoom<SVGSVGElement, unknown>()
@@ -670,26 +530,9 @@ export function LocationMapPanel({ mapData, lang, title, locationType }: Locatio
         <svg ref={svgRef} className="w-full h-full" />
 
         <div className="absolute bottom-2 left-2 text-[9px] text-[var(--ink-dim-text)] opacity-70 pointer-events-none">
-          {lang === 'zh' ? '点击圆点查看详情，滚动缩放' : 'Click dots for details, scroll to zoom'}
+          {lang === 'zh' ? '点击圆点打开档案，滚动缩放' : 'Click dots to open profile, scroll to zoom'}
         </div>
       </div>
-
-      {selectedLocations.length > 0 && (
-        <LocationInfoPanel
-          lang={lang}
-          locations={selectedLocations}
-          onClose={() => {
-            setSelectedLocations([]);
-            const svg = d3.select(svgRef.current);
-            svg.selectAll('.marker').classed('is-selected', false);
-            svg.selectAll('.marker-symbol')
-              .attr('stroke-width', 1.5);
-            svg.selectAll('.marker-label')
-              .attr('fill', 'var(--ink-dim-text)')
-              .attr('font-weight', 400);
-          }}
-        />
-      )}
     </div>
   );
 }

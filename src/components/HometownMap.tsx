@@ -289,6 +289,8 @@ export function HometownMap({
                   title={lang === 'zh'
                     ? mapCategoryLabels[resolvedActiveType].zh
                     : mapCategoryLabels[resolvedActiveType].en}
+                  onSelectLocation={onSelectLocation}
+                  onSelectGarden={onSelectGarden}
                 />
               </div>
             ) : (
