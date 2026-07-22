@@ -884,8 +884,6 @@ export default function App() {
     };
     const previousHtml = {
       overflow: htmlStyle.overflow,
-      position: htmlStyle.position,
-      width: htmlStyle.width,
       overscrollBehavior: htmlStyle.overscrollBehavior,
     };
 
@@ -928,8 +926,6 @@ export default function App() {
     bodyStyle.overflow = "hidden";
     bodyStyle.overscrollBehavior = "none";
     htmlStyle.overflow = "hidden";
-    htmlStyle.position = "fixed";
-    htmlStyle.width = "100%";
     htmlStyle.overscrollBehavior = "none";
 
     window.addEventListener("wheel", preventScrollOutsideOverlay, {
@@ -959,8 +955,6 @@ export default function App() {
       bodyStyle.overscrollBehavior = previousBody.overscrollBehavior;
       bodyStyle.paddingRight = previousBody.paddingRight;
       htmlStyle.overflow = previousHtml.overflow;
-      htmlStyle.position = previousHtml.position;
-      htmlStyle.width = previousHtml.width;
       htmlStyle.overscrollBehavior = previousHtml.overscrollBehavior;
       window.scrollTo(0, scrollY);
     };

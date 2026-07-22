@@ -165,8 +165,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     };
     const previousHtml = {
       overflow: htmlStyle.overflow,
-      position: htmlStyle.position,
-      width: htmlStyle.width,
       overscrollBehavior: htmlStyle.overscrollBehavior,
     };
 
@@ -186,8 +184,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     bodyStyle.overflow = 'hidden';
     bodyStyle.overscrollBehavior = 'none';
     htmlStyle.overflow = 'hidden';
-    htmlStyle.position = 'fixed';
-    htmlStyle.width = '100%';
     htmlStyle.overscrollBehavior = 'none';
 
     window.addEventListener('touchmove', preventBackgroundScroll, { passive: false });
@@ -205,8 +201,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       bodyStyle.touchAction = previousBody.touchAction;
       bodyStyle.overscrollBehavior = previousBody.overscrollBehavior;
       htmlStyle.overflow = previousHtml.overflow;
-      htmlStyle.position = previousHtml.position;
-      htmlStyle.width = previousHtml.width;
       htmlStyle.overscrollBehavior = previousHtml.overscrollBehavior;
       window.scrollTo(0, scrollY);
     };
