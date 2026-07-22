@@ -4,6 +4,9 @@ import { join } from 'path';
 
 const TARGET = 'E:/projects/ph-bj.github.io'; // Update this path to your target directory
 
+console.log('Pulling latest changes from remote...');
+execSync(`git -C "${TARGET}" pull`, { stdio: 'inherit', shell: true });
+
 console.log('Building...');
 execSync('npm run build', { stdio: 'inherit', shell: true });
 
