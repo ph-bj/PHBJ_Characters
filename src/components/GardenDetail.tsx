@@ -297,18 +297,14 @@ export function GardenDetail({
               {mentionData.map((d) => (
                 <div
                   key={d.ch}
-                  className="flex-1 rounded-t-sm transition-all cursor-pointer hover:opacity-80"
+                  className="flex-1 rounded-t-sm transition-all cursor-pointer hover:opacity-100"
                   style={{
                     height:
                       d.count > 0
                         ? `${Math.max(15, (d.count / maxCount) * 100)}%`
-                        : "2px",
-                    backgroundColor:
-                      d.count > 0
-                        ? activeChapter === d.ch
-                          ? accentColor
-                          : accentColor + "70"
-                        : "var(--paper-border)60",
+                        : "3px",
+                    backgroundColor: d.count > 0 ? accentColor : "var(--paper-border)",
+                    opacity: d.count > 0 ? (activeChapter === d.ch ? 1 : 0.65) : 0.35,
                   }}
                   title={`${t.chapterAbbr}${lang === "zh" ? ` ${d.ch} 回` : d.ch}: ${d.count} ${t.mentions(d.count)}`}
                   onClick={() => {
