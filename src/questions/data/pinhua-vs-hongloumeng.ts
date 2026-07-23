@@ -4,7 +4,7 @@ export const question: QuestionDefinition = {
   categoryZh: "版本历史与比较文学",
   categoryEn: "Editions, History & Comparisons",
   questionEn: "How does 'Pinhua Baojian' compare to 'Dream of the Red Chamber' in terms of word count, similar passages, character count, historical era, character origins, story time span, plot, character fates, and character personalities, with specific excerpts?",
-  questionZh: "《品花宝鉴》和《红楼梦》比较，从这些角度：字数、相似段落、人物数量、时代、人物籍贯、故事时间跨度、故事剧情、人物命运、人物性格，引用具体的《品花宝鉴》和《红楼梦》段落说明",
+  questionZh: "《品花宝鉴》和《红楼梦》比较",
   answerEn: `"Pinhua Baojian" (A Precious Mirror for Judging Flowers) is often considered a spiritual successor or counterpart to "Dream of the Red Chamber" (Honglou Meng). The author of Pinhua Baojian, Chen Sen, explicitly admired Honglou Meng, and this influence is visible throughout the novel. Here is a detailed comparison across multiple dimensions:
 
 ### 1. Word Count and Scale
