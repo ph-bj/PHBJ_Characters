@@ -46,6 +46,10 @@ import {
   Network,
   Download,
   Map as MapIcon,
+  HelpCircle,
+  List,
+  Palette,
+  Globe,
 } from "lucide-react";
 import { characters, relationships, identityLinksById } from "./data";
 import { chapters } from "./chapters";
@@ -148,8 +152,38 @@ export default function App() {
   );
   const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null);
   const [selectedQuestionCategory, setSelectedQuestionCategory] = useState<string | null>(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [networkGraphFullscreen, setNetworkGraphFullscreen] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState<"parchment" | "plum">(() => {
+    try {
+      const stored = localStorage.getItem("phbj-theme");
+      if (stored === "parchment" || stored === "plum") return stored;
+    } catch {}
+    return "plum";
+  });
+
+  useEffect(() => {
+    const checkTheme = () => {
+      const isPlum = document.documentElement.getAttribute("data-theme") === "plum";
+      setCurrentTheme(isPlum ? "plum" : "parchment");
+    };
+    checkTheme();
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => observer.disconnect();
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = currentTheme === "parchment" ? "plum" : "parchment";
+    setCurrentTheme(nextTheme);
+    if (nextTheme === "plum") {
+      document.documentElement.setAttribute("data-theme", "plum");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+    try {
+      localStorage.setItem("phbj-theme", nextTheme);
+    } catch {}
+  };
 
   const questionCategories = useMemo(() => {
     const map = new Map<string, { zh: string; en: string; count: number }>();
@@ -726,19 +760,9 @@ export default function App() {
   };
 
   const scrollToSection = (id: string) => {
-    if (!mobileMenuOpen) {
-      document
-        .getElementById(id)
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-      return;
-    }
-
-    setMobileMenuOpen(false);
-    window.setTimeout(() => {
-      document
-        .getElementById(id)
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 0);
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const openContents = () => {
@@ -750,47 +774,46 @@ export default function App() {
         .map((c) => c.title)
         .join("\n"),
     });
-    setMobileMenuOpen(false);
   };
 
-  const mobileSections = [
+  const mobileRow1 = [
     { id: "overview", label: lang === "zh" ? "总览" : "Overview", icon: Home },
-    {
-      id: "network",
-      label: lang === "zh" ? "关系网络" : "Network",
-      icon: Network,
-    },
-    {
-      id: "characters",
-      label: lang === "zh" ? "人物" : "Characters",
-      icon: Users,
-    },
-    {
-      id: "chapters",
-      label: lang === "zh" ? "章节" : "Chapters",
-      icon: BookOpen,
-    },
+    { id: "network", label: lang === "zh" ? "关系" : "Network", icon: Network },
+    { id: "characters", label: lang === "zh" ? "人物" : "People", icon: Users },
+    { id: "chapters", label: lang === "zh" ? "章节" : "Chapters", icon: BookOpen },
     { id: "hometown-map", label: lang === "zh" ? "地图" : "Map", icon: MapIcon },
+    { id: "questions", label: lang === "zh" ? "问题" : "Q&A", icon: HelpCircle },
+  ];
+
+  const mobileRow2 = [
+    { id: "works", label: lang === "zh" ? "引书" : "Works", icon: Book },
+    { id: "stats", label: lang === "zh" ? "统计" : "Stats", icon: Activity },
+    { id: "downloads", label: lang === "zh" ? "下载" : "Export", icon: Download },
+    { id: "contents", label: lang === "zh" ? "目录" : "Index", icon: List, onClick: openContents },
+    {
+      id: "theme",
+      label: currentTheme === "plum" ? (lang === "zh" ? "青梅" : "Plum") : (lang === "zh" ? "古卷" : "Parchment"),
+      icon: Palette,
+      onClick: toggleTheme,
+    },
+    {
+      id: "lang",
+      label: lang === "zh" ? "中/EN" : "EN/中",
+      icon: Globe,
+      onClick: () => setLang(lang === "zh" ? "en" : "zh"),
+    },
   ];
 
   const mobileMenuSections = [
-    ...mobileSections,
-    {
-      id: "questions",
-      label: lang === "zh" ? "问题" : "Questions",
-      icon: BookOpen,
-    },
+    { id: "overview", label: lang === "zh" ? "总览" : "Overview", icon: Home },
+    { id: "network", label: lang === "zh" ? "关系网络" : "Network", icon: Network },
+    { id: "characters", label: lang === "zh" ? "人物" : "Characters", icon: Users },
+    { id: "chapters", label: lang === "zh" ? "章节" : "Chapters", icon: BookOpen },
+    { id: "hometown-map", label: lang === "zh" ? "地图" : "Map", icon: MapIcon },
+    { id: "questions", label: lang === "zh" ? "问题" : "Questions", icon: HelpCircle },
     { id: "works", label: lang === "zh" ? "引书" : "Works Cited", icon: Book },
-    {
-      id: "stats",
-      label: lang === "zh" ? "统计" : "Statistics",
-      icon: Activity,
-    },
-    {
-      id: "downloads",
-      label: lang === "zh" ? "下载" : "Download",
-      icon: Download,
-    },
+    { id: "stats", label: lang === "zh" ? "统计" : "Statistics", icon: Activity },
+    { id: "downloads", label: lang === "zh" ? "下载" : "Download", icon: Download },
   ];
 
   const hasOpenModal = Boolean(
@@ -802,7 +825,7 @@ export default function App() {
     activeLacunaChapter !== null ||
     selectedQuestion !== null,
   );
-  const hasOpenOverlay = hasOpenModal || mobileMenuOpen;
+  const hasOpenOverlay = hasOpenModal;
 
   // True while a modal is stacked above the chapter reader, so the reader's
   // own keyboard shortcuts stay quiet.
@@ -854,8 +877,6 @@ export default function App() {
           setSelectedLocation(null);
         } else if (selectedChapter) {
           setSelectedChapter(null);
-        } else if (mobileMenuOpen) {
-          setMobileMenuOpen(false);
         } else {
           return false;
         }
@@ -873,7 +894,6 @@ export default function App() {
     selectedGarden,
     selectedLocation,
     selectedChapter,
-    mobileMenuOpen,
   ]);
 
   const lastScrollYRef = useRef(0);
@@ -1033,35 +1053,42 @@ export default function App() {
           </header>
         </div>
 
-        <div className="md:hidden sticky top-0 z-30 px-2 py-1 bg-[var(--body-bg)]/95 backdrop-blur-sm border-b border-[var(--paper-border)]/80">
+        <div className="md:hidden sticky top-0 z-30 px-1 sm:px-2 py-1 bg-[var(--body-bg)]/95 backdrop-blur-sm border-b border-[var(--paper-border)]/80">
           <nav
-            className="parchment rounded-sm border border-[var(--paper-border)] p-0.5 sm:p-1 flex items-center gap-1 sm:gap-2 shadow-md"
+            className="parchment rounded-sm border border-[var(--paper-border)] p-1 flex flex-col gap-1 shadow-md"
             aria-label={lang === "zh" ? "移动导航" : "Mobile navigation"}
           >
-            {mobileSections.map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className="flex-1 min-w-0 h-8 sm:h-10 rounded-sm flex flex-col items-center justify-center gap-0.5 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/8 hover:text-[var(--accent)] transition-colors"
-              >
-                <Icon size={14} className="sm:w-[16px] sm:h-[16px]" />
-                <span className="text-[7px] sm:text-[9px] font-bold leading-none uppercase tracking-tighter truncate max-w-full">
-                  {label}
-                </span>
-              </button>
-            ))}
-            <LanguageSwitch
-              lang={lang}
-              setLang={setLang}
-              className="shrink-0 mx-0.5 sm:mx-1 scale-90 sm:scale-100"
-            />
-            <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="h-8 w-8 sm:h-10 sm:w-10 rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] flex items-center justify-center border border-[var(--accent)] shadow-sm shrink-0 cursor-pointer"
-              aria-label={lang === "zh" ? "打开全部菜单" : "Open full menu"}
-            >
-              <Menu size={16} />
-            </button>
+            <div className="grid grid-cols-6 gap-0.5 sm:gap-1">
+              {mobileRow1.map(({ id, label, icon: Icon }) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => scrollToSection(id)}
+                  className="flex flex-col items-center justify-center py-1 px-0.5 rounded-sm text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] active:bg-[var(--accent)]/20 transition-colors min-w-0 cursor-pointer"
+                >
+                  <Icon size={14} className="text-[var(--accent)] shrink-0" />
+                  <span className="text-[7.5px] sm:text-[9px] font-bold leading-none uppercase tracking-tighter truncate max-w-full mt-0.5">
+                    {label}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-6 gap-0.5 sm:gap-1 border-t border-[var(--paper-border)]/50 pt-1">
+              {mobileRow2.map(({ id, label, icon: Icon, onClick }) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={onClick ? onClick : () => scrollToSection(id)}
+                  className="flex flex-col items-center justify-center py-1 px-0.5 rounded-sm text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] active:bg-[var(--accent)]/20 transition-colors min-w-0 cursor-pointer"
+                >
+                  <Icon size={14} className="text-[var(--accent)] shrink-0" />
+                  <span className="text-[7.5px] sm:text-[9px] font-bold leading-none uppercase tracking-tighter truncate max-w-full mt-0.5">
+                    {label}
+                  </span>
+                </button>
+              ))}
+            </div>
           </nav>
         </div>
 
@@ -2144,121 +2171,7 @@ export default function App() {
           </motion.button>
         </div>
 
-        {/* Mobile Navigation Sheet */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <div
-              className="md:hidden fixed inset-0 z-50 flex items-end sm:items-center sm:justify-center sm:p-6"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                aria-hidden
-                className="absolute inset-0 z-0 bg-black/45 backdrop-blur-sm pointer-events-none"
-              />
-              <motion.div
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                exit={{ y: "100%" }}
-                transition={{ type: "spring", damping: 28, stiffness: 260 }}
-                data-overlay-scroll="true"
-                onClick={(e) => e.stopPropagation()}
-                className="relative z-10 w-full sm:max-w-lg sm:max-h-[85vh] sm:rounded-sm max-h-[86vh] overflow-y-auto parchment rounded-t-sm sm:rounded-sm border-t-4 sm:border-4 border-x-4 border-double border-[var(--paper-border)] shadow-2xl p-4 sm:p-5"
-              >
-                <div className="flex items-center justify-between gap-3 border-b border-[var(--paper-border)] pb-3 mb-4">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-[var(--ink-dim-text)] font-bold">
-                      {lang === "zh" ? "快速前往" : "Go To"}
-                    </p>
-                    <h2 className="text-lg font-bold text-[var(--ink-title)]">
-                      {lang === "zh" ? "品花宝鉴数据库" : "Pinhua Baojian"}
-                    </h2>
-                  </div>
-                  <div className="flex items-center gap-2 shrink-0">
-                    <ThemeToggle lang={lang} />
-                    <button
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="h-10 w-10 rounded-sm border border-[var(--paper-border)] bg-white/20 text-[var(--ink-title)] flex items-center justify-center hover:bg-black/5 transition-colors"
-                      aria-label={lang === "zh" ? "关闭菜单" : "Close menu"}
-                    >
-                      <X size={18} />
-                    </button>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 mb-4">
-                  {mobileMenuSections.map(({ id, label, icon: Icon }) => (
-                    <button
-                      key={id}
-                      onClick={() => scrollToSection(id)}
-                      className="min-h-14 text-left rounded-sm border border-[var(--paper-border)]/70 bg-white/15 hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all px-3 py-2 flex items-center gap-3"
-                    >
-                      <Icon size={17} className="text-[var(--accent)] shrink-0" />
-                      <span className="text-[12px] font-bold uppercase tracking-wide text-[var(--ink-title)] leading-tight">
-                        {label}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 mb-4">
-                  <button
-                    onClick={openContents}
-                    className="min-h-12 rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] px-3 py-2 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-wider"
-                  >
-                    <Book size={15} />
-                    {lang === "zh" ? "打开目录" : "Open Contents"}
-                  </button>
-                  <button
-                    onClick={() => {
-                      const firstChapter = chapters.find(
-                        (chapter) => chapter.id === 1,
-                      );
-                      if (firstChapter) setSelectedChapter(firstChapter);
-                      setMobileMenuOpen(false);
-                    }}
-                    className="min-h-12 rounded-sm border border-[var(--accent)]/50 text-[var(--accent)] bg-[var(--accent)]/5 px-3 py-2 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-wider"
-                  >
-                    <BookOpen size={15} />
-                    {lang === "zh" ? "读第一回" : "Read Ch. 1"}
-                  </button>
-                </div>
-
-                <div className="border-t border-[var(--paper-border)] pt-4">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold mb-2">
-                    {lang === "zh" ? "常用章节" : "Common Chapters"}
-                  </p>
-                  <div className="grid grid-cols-6 gap-1.5">
-                    {[0, 1, 10, 20, 30, 40, 50, 60].map((chapterId) => {
-                      const chapter = chapters.find(
-                        (item) => item.id === chapterId,
-                      );
-                      if (!chapter) return null;
-                      return (
-                        <button
-                          key={chapter.id}
-                          onClick={() => {
-                            setSelectedChapter(chapter);
-                            setMobileMenuOpen(false);
-                          }}
-                          className="h-10 rounded-sm border border-[var(--paper-border)] bg-white/15 text-[10px] font-bold text-[var(--ink-title)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-colors"
-                        >
-                          {chapter.id === 0
-                            ? lang === "zh"
-                              ? "序"
-                              : "Pre"
-                            : chapter.id}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
+        {/* Mobile Navigation Sheet Removed */}
 
         {/* Chapter Reader Modal */}
         <AnimatePresence>
