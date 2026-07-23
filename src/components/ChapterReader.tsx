@@ -1183,7 +1183,7 @@ export function ChapterReader({
                         <Chapter9Para11LanternMarket />
                       </div>
                     )}
-                    {chapter.id === 56 && i === 3 && (
+                    {chapter.id === 56 && (i === 3 || para.includes("租了旱西门内一个护国寺养病")) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter56Para4Illustration />
                       </div>
@@ -1193,22 +1193,22 @@ export function ChapterReader({
                         <Chapter56Para7Illustration />
                       </div>
                     )}
-                    {((chapter.id === 56 && (i === 9 || para.includes("忽见自己肩上有三寸来长的一条蝎虎"))) || (chapter.id === 10 && i === 9)) && (
+                    {((chapter.id === 56 && para.includes("忽见自己肩上有三寸来长的一条蝎虎")) || (chapter.id === 10 && i === 9)) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter56Para10Illustration />
                       </div>
                     )}
-                    {((chapter.id === 56 && (i === 14 || para.includes("忽听得道翁叫人")))) && (
+                    {(chapter.id === 56 && para.includes("忽听得道翁叫人")) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter56Para15Illustration />
                       </div>
                     )}
-                    {((chapter.id === 56 && (i === 18 || para.includes("入殓之后")))) && (
+                    {(chapter.id === 56 && para.includes("入殓之后")) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter56Para19Illustration />
                       </div>
                     )}
-                    {((chapter.id === 56 && i === 21)) && (
+                    {(chapter.id === 56 && para.includes("琴仙也只得睡下")) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter56Para22Illustration />
                       </div>
