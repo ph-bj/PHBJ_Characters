@@ -58,7 +58,7 @@ export const NON_CHIP_ZH_TOKENS = new Set([
 // mentioned in the text (the Tang poet Du Mu vs 杜母 "Du's mother") or are
 // ambiguous between characters ("Laosan" alone may be Pan San or Xu Laosan,
 // mirroring the blocked Chinese 老三).
-export const NON_CHIP_EN_TOKENS = new Set(["Du Mu", "Laosan"]);
+export const NON_CHIP_EN_TOKENS = new Set(["Du Mu", "Laosan", "Zhengchang", "Zhanggui", "Shupu"]);
 
 export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   庾香: ["Yuxiang", "Yu Xiang"],
@@ -102,6 +102,9 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   屈少君: ["Qu Shaojun"],
   李大夫: ["Doctor Li"],
   王大夫: ["Doctor Wang"],
+  老年掌柜: ["elderly shopkeeper", "Elderly shopkeeper"],
+  华正昌掌柜: ["Hua Zhengchang Manager", "Hua Zhengchang shopkeeper"],
+  华正昌书铺掌柜: ["Hua Zhengchang Bookshop Manager", "Hua Zhengchang Manager"],
 };
 
 
