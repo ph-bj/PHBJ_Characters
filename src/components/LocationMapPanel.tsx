@@ -493,6 +493,27 @@ export function LocationMapPanel({
     svg.call(zoom);
     svg.call(zoom.transform, initialTransform);
     updateMarkerTransforms(initialTransform.k);
+
+    let resizeTimer: ReturnType<typeof setTimeout> | null = null;
+    const resizeObserver = new ResizeObserver(() => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (!containerRef.current || !svgRef.current) return;
+        const w = containerRef.current.clientWidth;
+        const h = Math.min(w * 0.75, 420);
+        if (w > 0 && h > 0) {
+          svg.attr('viewBox', `0 0 ${w} ${h}`);
+        }
+      }, 150);
+    });
+    resizeObserver.observe(container);
+
+    return () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeObserver.disconnect();
+      svg.on('.zoom', null);
+      svg.selectAll('*').remove();
+    };
   }, [mapData, lang, locationType]);
 
   if (mapData.length === 0) {

@@ -282,13 +282,27 @@ export function ChapterReader({
 
   // Load available speech synthesis voices
   useEffect(() => {
-    if (typeof speechSynthesis === "undefined") return;
-    const loadVoices = () => {
-      setAvailableVoices(speechSynthesis.getVoices());
-    };
-    loadVoices();
-    speechSynthesis.addEventListener("voiceschanged", loadVoices);
-    return () => speechSynthesis.removeEventListener("voiceschanged", loadVoices);
+    try {
+      if (typeof window === "undefined" || !('speechSynthesis' in window) || typeof speechSynthesis === "undefined") return;
+      const loadVoices = () => {
+        try {
+          setAvailableVoices(speechSynthesis.getVoices());
+        } catch {
+          // Ignore speech API errors on restricted mobile engines
+        }
+      };
+      loadVoices();
+      speechSynthesis.addEventListener?.("voiceschanged", loadVoices);
+      return () => {
+        try {
+          speechSynthesis.removeEventListener?.("voiceschanged", loadVoices);
+        } catch {
+          // Ignore cleanup errors
+        }
+      };
+    } catch {
+      // Speech synthesis unsupported or restricted on mobile browser
+    }
   }, []);
 
   // Close voice pickers when clicking outside

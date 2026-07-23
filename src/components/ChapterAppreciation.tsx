@@ -828,8 +828,8 @@ export function ChapterAppreciation({
               ? "* 纵轴代表情感的正向度(狂喜/威严至极度失落/狼狈)"
               : "* Y-axis represents sentiment (High: Joy/Authority, Low: Despair/Panic)"}
           </p>
-          <div className="h-full w-full pb-12">
-            <ResponsiveContainer width="100%" height="100%">
+          <div className="h-full w-full min-h-[180px] pb-12 relative">
+            <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={150} debounce={100}>
               <AreaChart data={timelineDataLocal} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorSentiment" x1="0" y1="0" x2="0" y2="1">

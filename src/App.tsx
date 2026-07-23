@@ -1754,11 +1754,10 @@ export default function App() {
             </div>
 
             {/* Grid */}
-            <motion.div
-              layout={!hasOpenOverlay}
+            <div
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-5 lg:gap-6"
             >
-              <AnimatePresence mode="popLayout">
+              <AnimatePresence mode="popLayout" initial={false}>
                 {filteredCharacters.map((char) => (
                   <CharacterCard
                     key={char.id}
@@ -1766,7 +1765,7 @@ export default function App() {
                     isActive={selectedCharacter?.id === char.id}
                     onClick={() => setSelectedCharacter(char)}
                     lang={lang}
-                    lockMotion={hasOpenOverlay}
+                    lockMotion={hasOpenOverlay || filteredCharacters.length > 16}
                     mentionCount={
                       sortBy === "mentions"
                         ? mentionCountByCharacterId.get(char.id)
@@ -1775,7 +1774,7 @@ export default function App() {
                   />
                 ))}
               </AnimatePresence>
-            </motion.div>
+            </div>
 
             {filteredCharacters.length === 0 && (
               <div className="parchment p-20 text-center rounded-sm border-double border-4 border-[var(--paper-border)]">

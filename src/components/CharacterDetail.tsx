@@ -418,62 +418,64 @@ export function CharacterDetail({
                 </p>
               </div>
               <div className="bg-black/5 p-4 rounded-sm border border-[var(--paper-border)]">
-                <ResponsiveContainer width="100%" height={90}>
-                  <BarChart
-                    data={mentionData}
-                    margin={{ top: 4, right: 4, left: -28, bottom: 0 }}
-                  >
-                    <XAxis
-                      dataKey="ch"
-                      tick={{ fill: "#8b7355", fontSize: 9 }}
-                      tickLine={false}
-                      axisLine={{ stroke: "var(--paper-border)" }}
-                      interval={9}
-                    />
-                    <YAxis hide domain={[0, maxCount]} />
-                    <Tooltip
-                      cursor={{ fill: "rgba(0,0,0,0.04)" }}
-                      content={({ active, payload }) => {
-                        if (!active || !payload?.length) return null;
-                        const { ch, count } = payload[0].payload as {
-                          ch: number;
-                          count: number;
-                        };
-                        if (count === 0) return null;
-                        const summary = chapterSummaries[ch];
-                        return (
-                          <div className="bg-[var(--paper-bg)] border border-[var(--paper-border)] p-2 text-[var(--ink-title)] text-[10px] max-w-[220px] shadow-md">
-                            <p className="font-bold mb-1">
-                              {t.chapterAbbr}
-                              {lang === "zh" ? ` ${ch} 回` : ch} — {count}{" "}
-                              {t.mentions(count)}
-                            </p>
-                            {summary && (
-                              <p className="text-[var(--ink-dim-text)] leading-snug italic">
-                                {(lang === "zh"
-                                  ? summary.zh
-                                  : summary.en
-                                ).slice(0, 120)}
-                                …
+                <div className="w-full h-[90px] min-h-[90px] relative">
+                  <ResponsiveContainer width="100%" height={90} minWidth={100} minHeight={90} debounce={100}>
+                    <BarChart
+                      data={mentionData}
+                      margin={{ top: 4, right: 4, left: -28, bottom: 0 }}
+                    >
+                      <XAxis
+                        dataKey="ch"
+                        tick={{ fill: "#8b7355", fontSize: 9 }}
+                        tickLine={false}
+                        axisLine={{ stroke: "var(--paper-border)" }}
+                        interval={9}
+                      />
+                      <YAxis hide domain={[0, maxCount]} />
+                      <Tooltip
+                        cursor={{ fill: "rgba(0,0,0,0.04)" }}
+                        content={({ active, payload }) => {
+                          if (!active || !payload?.length) return null;
+                          const { ch, count } = payload[0].payload as {
+                            ch: number;
+                            count: number;
+                          };
+                          if (count === 0) return null;
+                          const summary = chapterSummaries[ch];
+                          return (
+                            <div className="bg-[var(--paper-bg)] border border-[var(--paper-border)] p-2 text-[var(--ink-title)] text-[10px] max-w-[220px] shadow-md">
+                              <p className="font-bold mb-1">
+                                {t.chapterAbbr}
+                                {lang === "zh" ? ` ${ch} 回` : ch} — {count}{" "}
+                                {t.mentions(count)}
                               </p>
-                            )}
-                          </div>
-                        );
-                      }}
-                    />
-                    <Bar dataKey="count" maxBarSize={12}>
-                      {mentionData.map(({ ch, count }) => (
-                        <Cell
-                          key={`cell-${ch}`}
-                          fill={count > 0 ? "var(--accent)" : "#e8dcc8"}
-                          opacity={
-                            count > 0 ? 0.4 + 0.6 * (count / maxCount) : 1
-                          }
-                        />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+                              {summary && (
+                                <p className="text-[var(--ink-dim-text)] leading-snug italic">
+                                  {(lang === "zh"
+                                    ? summary.zh
+                                    : summary.en
+                                  ).slice(0, 120)}
+                                  …
+                                </p>
+                              )}
+                            </div>
+                          );
+                        }}
+                      />
+                      <Bar dataKey="count" maxBarSize={12}>
+                        {mentionData.map(({ ch, count }) => (
+                          <Cell
+                            key={`cell-${ch}`}
+                            fill={count > 0 ? "var(--accent)" : "#e8dcc8"}
+                            opacity={
+                              count > 0 ? 0.4 + 0.6 * (count / maxCount) : 1
+                            }
+                          />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
 
                 {/* Chapter pills */}
                 <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-[var(--paper-border)]">

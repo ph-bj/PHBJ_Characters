@@ -298,23 +298,47 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
     const updateDimensions = () => {
       const rect = container.getBoundingClientRect();
-      width = rect.width;
-      height = rect.height;
-      if (width <= 0 || height <= 0) return;
+      const newWidth = rect.width;
+      const newHeight = rect.height;
+      if (newWidth <= 0 || newHeight <= 0) return;
+      if (Math.abs(newWidth - width) < 5 && Math.abs(newHeight - height) < 5) return;
+      width = newWidth;
+      height = newHeight;
       svg.attr("viewBox", `0 0 ${width} ${height}`);
       simulation.force("center", d3.forceCenter(width / 2, height / 2));
-      simulation.alpha(0.3).restart();
+      simulation.alpha(0.2).restart();
     };
 
-    const resizeObserver = new ResizeObserver(() => {
-      updateDimensions();
-    });
+    let resizeTimer: ReturnType<typeof setTimeout> | null = null;
+    const handleResize = () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        updateDimensions();
+      }, 150);
+    };
 
+    const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(container);
 
-    const onVisualViewportChange = () => updateDimensions();
-    window.visualViewport?.addEventListener('resize', onVisualViewportChange);
-    window.visualViewport?.addEventListener('scroll', onVisualViewportChange);
+    window.visualViewport?.addEventListener('resize', handleResize);
+
+    let isVisible = true;
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry) {
+          if (!entry.isIntersecting && isVisible) {
+            isVisible = false;
+            simulation.stop();
+          } else if (entry.isIntersecting && !isVisible) {
+            isVisible = true;
+            simulation.alpha(0.15).restart();
+          }
+        }
+      },
+      { threshold: 0.05 }
+    );
+    intersectionObserver.observe(container);
 
     // Add zoom
     const zoom = d3.zoom()
@@ -345,8 +369,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         });
     }
 
-    // Co-occurrence edges are too numerous to label all at once; their
-    // weight labels appear only when a node is hovered/selected.
     const linkText = g.append("g")
       .selectAll("text")
       .data(links)
@@ -381,7 +403,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       })
       .on("click", (event, d: any) => {
         if (event.pointerType === 'touch') {
-          // pointerup handles most touch taps; click is a fallback (e.g. iOS fullscreen).
           if (Date.now() - lastTouchPointerUpTime < 500) return;
           handleTouchTap(event, d);
           return;
@@ -399,7 +420,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .on("drag", dragged)
         .on("end", dragended) as any);
 
-    // Opaque background circle to hide lines behind the node
     node.append("circle")
       .attr("r", nodeRadius)
       .attr("fill", "var(--paper-bg)");
@@ -450,69 +470,59 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .attr("stroke-opacity", (d: any) => {
           const sourceId = getNodeId(d.source);
           const targetId = getNodeId(d.target);
-          return sourceId === hoveredId || targetId === hoveredId ? 0.95 : 0.08;
+          const isConnected = sourceId === hoveredId || targetId === hoveredId;
+          if (!isConnected) return 0.05;
+          return mode === 'cooccurrence' ? 0.8 : 0.7;
         })
-        .attr("stroke-width", baseLinkWidth);
+        .attr("stroke-width", (d: any) => {
+          const sourceId = getNodeId(d.source);
+          const targetId = getNodeId(d.target);
+          const isConnected = sourceId === hoveredId || targetId === hoveredId;
+          const baseW = baseLinkWidth(d);
+          return isConnected ? baseW * 1.8 : baseW;
+        });
 
       linkText
         .style("opacity", (d: any) => {
           const sourceId = getNodeId(d.source);
           const targetId = getNodeId(d.target);
-          const connected = sourceId === hoveredId || targetId === hoveredId;
-          if (mode === 'cooccurrence') return connected ? 1 : 0;
-          return connected ? 1 : 0.1;
+          return sourceId === hoveredId || targetId === hoveredId ? 1 : 0.1;
         });
     };
 
     node
-      .on("mouseenter", (_event, d: any) => {
+      .on("pointerenter", (_event, d: any) => {
         if (lockedNodeId) return;
         applyHoverStyles(d.id);
       })
-      .on("mouseleave", () => {
+      .on("pointerleave", () => {
         if (lockedNodeId) return;
         resetHoverStyles();
       });
 
-    // Click empty canvas to clear locked highlight.
     svg.on("click", () => {
-      lockedNodeId = null;
-      resetHoverStyles();
+      if (lockedNodeId) {
+        lockedNodeId = null;
+        resetHoverStyles();
+      }
     });
 
     simulation.on("tick", () => {
       link
-        .attr("x1", (d: any) => {
-          const dx = d.target.x - d.source.x;
-          const dy = d.target.y - d.source.y;
-          const dist = Math.hypot(dx, dy) || 1;
-          return d.source.x + (dx / dist) * nodeRadius;
-        })
-        .attr("y1", (d: any) => {
-          const dx = d.target.x - d.source.x;
-          const dy = d.target.y - d.source.y;
-          const dist = Math.hypot(dx, dy) || 1;
-          return d.source.y + (dy / dist) * nodeRadius;
-        })
-        .attr("x2", (d: any) => {
-          const dx = d.target.x - d.source.x;
-          const dy = d.target.y - d.source.y;
-          const dist = Math.hypot(dx, dy) || 1;
-          return d.target.x - (dx / dist) * nodeRadius;
-        })
-        .attr("y2", (d: any) => {
-          const dx = d.target.x - d.source.x;
-          const dy = d.target.y - d.source.y;
-          const dist = Math.hypot(dx, dy) || 1;
-          return d.target.y - (dy / dist) * nodeRadius;
-        });
+        .attr("x1", (d: any) => d.source.x)
+        .attr("y1", (d: any) => d.source.y)
+        .attr("x2", (d: any) => d.target.x)
+        .attr("y2", (d: any) => d.target.y);
 
       linkText
         .attr("x", (d: any) => (d.source.x + d.target.x) / 2)
         .attr("y", (d: any) => (d.source.y + d.target.y) / 2);
 
-      node
-        .attr("transform", (d: any) => `translate(${d.x},${d.y})`);
+      node.attr("transform", (d: any) => {
+        const x = Math.max(nodeRadius, Math.min(width - nodeRadius, d.x));
+        const y = Math.max(nodeRadius, Math.min(height - nodeRadius, d.y));
+        return `translate(${x},${y})`;
+      });
     });
 
     function dragstarted(event: any) {
@@ -536,10 +546,11 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     requestAnimationFrame(updateDimensions);
 
     return () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
       simulation.stop();
       resizeObserver.disconnect();
-      window.visualViewport?.removeEventListener('resize', onVisualViewportChange);
-      window.visualViewport?.removeEventListener('scroll', onVisualViewportChange);
+      intersectionObserver.disconnect();
+      window.visualViewport?.removeEventListener('resize', handleResize);
     };
   }, [graphCharacters, filteredRelationships, filteredCoEdges, mode, minShared, lang, isFullscreen, onNodeClick]);
 
