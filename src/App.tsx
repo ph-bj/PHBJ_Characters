@@ -1046,7 +1046,7 @@ export default function App() {
                 }}
               />
               <ThemeToggle lang={lang} />
-              <LanguageSwitch lang={lang} setLang={setLang} />
+              <LanguageSwitch lang={lang} setLang={setLang} className="h-[32px] p-1" />
             </div>
           </header>
         </div>

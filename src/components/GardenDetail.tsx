@@ -161,7 +161,7 @@ export function GardenDetail({
         className="relative z-10 w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[var(--paper-border)] my-4 sm:my-0 flex flex-col"
       >
         <div className="absolute top-4 sm:top-6 right-4 sm:right-6 flex items-center gap-1.5 z-10">
-          <LanguageSwitch lang={lang} setLang={setLang} className="scale-90" />
+          <LanguageSwitch lang={lang} setLang={setLang} />
           <PermalinkButton lang={lang} link={{ kind: "location", id: garden.id }} />
           <button
             onClick={onClose}
