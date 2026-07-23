@@ -1161,7 +1161,8 @@ export function ChapterReader({
                       </>
                     )}
                     {chapter.id >= 1 &&
-                      midSceneParagraphIndex(chapter.id) === i && (
+                      midSceneParagraphIndex(chapter.id) === i &&
+                      !(chapter.id === 56 && i === 6) && (
                         <ChapterMidScene chapterId={chapter.id} />
                       )}
                     {chapter.id === 30 && i === 6 && (
