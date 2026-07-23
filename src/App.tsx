@@ -37,8 +37,6 @@ import {
   SortAsc,
   BarChart2,
   Clock,
-  ChevronUp,
-  ChevronDown,
   Book,
   Leaf,
   Home,
@@ -2141,33 +2139,6 @@ export default function App() {
             <CiteButton lang={lang} direction="up" />
           </div>
         </footer>
-
-        {/* Floating Scroll Buttons */}
-        <div className="fixed bottom-6 right-6 flex flex-col gap-2 z-40">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="p-3 bg-[var(--accent)] text-[var(--paper-bg)] rounded-full shadow-lg border-2 border-[var(--paper-border)] hover:bg-[var(--ink-title)] transition-colors"
-            title="Scroll to Top"
-          >
-            <ChevronUp size={20} />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() =>
-              window.scrollTo({
-                top: document.documentElement.scrollHeight,
-                behavior: "smooth",
-              })
-            }
-            className="p-3 bg-[var(--accent)] text-[var(--paper-bg)] rounded-full shadow-lg border-2 border-[var(--paper-border)] hover:bg-[var(--ink-title)] transition-colors"
-            title="Scroll to Bottom"
-          >
-            <ChevronDown size={20} />
-          </motion.button>
-        </div>
 
         {/* Mobile Navigation Sheet Removed */}
 
