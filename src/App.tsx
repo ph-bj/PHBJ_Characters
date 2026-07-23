@@ -47,7 +47,6 @@ import {
   Download,
   Map as MapIcon,
   HelpCircle,
-  List,
   Palette,
   Globe,
 } from "lucide-react";
@@ -789,7 +788,6 @@ export default function App() {
     { id: "works", label: lang === "zh" ? "引书" : "Works", icon: Book },
     { id: "stats", label: lang === "zh" ? "统计" : "Stats", icon: Activity },
     { id: "downloads", label: lang === "zh" ? "下载" : "Export", icon: Download },
-    { id: "contents", label: lang === "zh" ? "目录" : "Index", icon: List, onClick: openContents },
     {
       id: "theme",
       label: currentTheme === "plum" ? (lang === "zh" ? "青梅" : "Plum") : (lang === "zh" ? "古卷" : "Parchment"),
@@ -1074,7 +1072,7 @@ export default function App() {
               ))}
             </div>
 
-            <div className="grid grid-cols-6 gap-0.5 sm:gap-1 border-t border-[var(--paper-border)]/50 pt-1">
+            <div className="grid grid-cols-5 gap-0.5 sm:gap-1 border-t border-[var(--paper-border)]/50 pt-1">
               {mobileRow2.map(({ id, label, icon: Icon, onClick }) => (
                 <button
                   key={id}
