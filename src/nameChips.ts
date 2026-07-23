@@ -98,6 +98,7 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   佩秋: ["Peiqiu", "Pei Qiu"],
   金粟: ["Jin Su", "Jinsu"],
   珊枝: ["Shanzhi", "Shan Zhi"],
+  屈本立: ["Qu Benli", "Qu Ben Li"],
   屈少君: ["Qu Shaojun"],
   李大夫: ["Doctor Li"],
   王大夫: ["Doctor Wang"],
