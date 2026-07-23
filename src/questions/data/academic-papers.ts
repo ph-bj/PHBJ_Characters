@@ -23,10 +23,10 @@ These papers explore various themes within the novel, including gender boundarie
 
 1. 史嘉柏 (Starr, Chloe). "边界游移：《品花宝鉴》中的性别". *NAN NÜ*, 卷 1, 期 2, 1999, 页 268-302. [link](https://doi.org/10.1163/156852699x00036)
 2. 葛良彦 (Ge, Liangyan). "女性化、性别错位与《品花宝鉴》中的社会降级". *Late Imperial China*, 卷 29, 期 1, 2008, 页 41-72. [link](https://doi.org/10.1353/late.0.0011)
-3. 麦林迪 (Mark, Lindy Li). "异装小说《品花宝鉴》中的昆剧与戏曲". *CHINOPERL*, 卷 14, 期 1, 1986, 页 37-59. [link](https://doi.org/10.1179/chi.1986.14.1.37)
+3. 李林德 (Mark, Lindy Li). "异装小说《品花宝鉴》中的昆剧与戏曲". *CHINOPERL*, 卷 14, 期 1, 1986, 页 37-59. [link](https://doi.org/10.1179/chi.1986.14.1.37)
 4. 罗鹏 (Rojas, Carlos). "《品花宝鉴》中的性别硬币". *Dynastic Crisis and Cultural Innovation*, 哈佛大学亚洲中心, 2005, 页 297-324. [link](https://doi.org/10.1163/9781684174140_010)
 5. 冯乃希 (Feng, Naixi). "北京戏园的激情空间：《品花宝鉴》选段译注". *CHINOPERL*, 卷 40, 期 2, 2021, 页 128-143. [link](https://doi.org/10.1353/cop.2021.a840224)
-6. 史得文 (Stevenson, Mark) 与 吴存存 (编). "陈森《品花宝鉴》（1849）选段". *Homoeroticism in Imperial China*, Routledge, 2013, 页 243-250. [link](https://doi.org/10.4324/9780203077443-30)
+6. 史麻稞 (Stevenson, Mark) 与 吴存存 (编). "陈森《品花宝鉴》（1849）选段". *Homoeroticism in Imperial China*, Routledge, 2013, 页 243-250. [link](https://doi.org/10.4324/9780203077443-30)
 7. 卢盈秀 (Lu, Ying-Hsiu). "十九世纪中国同性恋小说《品花宝鉴》中的男性情谊与同性社会欲望". *New Zealand Journal of Asian Studies*, 卷 25, 期 1, 2023, 页 69-90. [link](https://www.nzasia.org.nz/uploads/1/3/2/1/132180707/4._lu.pdf)
 8. 罗莎莉亚 (Sinaguglia, Rosalia). "《品花宝鉴》与晚清时期的演员描写". *About Gender*, 卷 2, 期 3, 2013. [link](https://doi.org/10.15167/2279-5057/ag.2013.2.3.49)
 9. 毛文芳 (Mao, Wenfang). "谱名花而俪色：「花谱」及《品花笺》的知识递转与类应谱系." *中正汉学研究*, 卷 37, 期 37, 2021, 页 1-43. [link](https://doi.org/10.53106/2306036020210600370001)
