@@ -761,15 +761,15 @@ export default function App() {
   const mobileMenuSections = [
     ...mobileSections,
     {
-      id: "stats",
-      label: lang === "zh" ? "统计" : "Statistics",
-      icon: Activity,
-    },
-    { id: "works", label: lang === "zh" ? "引书" : "Works Cited", icon: Book },
-    {
       id: "questions",
       label: lang === "zh" ? "问题" : "Questions",
       icon: BookOpen,
+    },
+    { id: "works", label: lang === "zh" ? "引书" : "Works Cited", icon: Book },
+    {
+      id: "stats",
+      label: lang === "zh" ? "统计" : "Statistics",
+      icon: Activity,
     },
     {
       id: "downloads",
@@ -1060,6 +1060,31 @@ export default function App() {
             <div className="hidden md:block">
               <MainInkLandscape />
             </div>
+            {/* Questions Sidebar */}
+            <div
+              id="questions"
+              className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24"
+            >
+              <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-4 font-bold border-b border-[var(--paper-border)] pb-2">
+                {lang === "zh" ? "问题" : "Questions"}
+              </h2>
+              <div className="space-y-2">
+                {questions.map((q) => (
+                  <button
+                    key={q.slug}
+                    onClick={() => setSelectedQuestion(q.slug)}
+                    className="w-full text-left p-3 rounded-sm border border-[var(--paper-border)]/40 bg-black/5 hover:bg-amber-700/10 hover:border-amber-700/40 transition-colors cursor-pointer"
+                  >
+                    <p className="text-[11px] font-bold text-[var(--ink-title)] leading-relaxed">
+                      {lang === "zh" ? q.questionZh : q.questionEn}
+                    </p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <GardenStroll />
+
             <div
               id="stats"
               className="relative parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm flex flex-col gap-6 md:gap-8 lg:gap-10 border-double border-4 border-[var(--paper-border)] scroll-mt-24"
@@ -1441,31 +1466,6 @@ export default function App() {
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-
-            <GardenStroll />
-
-            {/* Questions Sidebar */}
-            <div
-              id="questions"
-              className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24"
-            >
-              <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-4 font-bold border-b border-[var(--paper-border)] pb-2">
-                {lang === "zh" ? "问题" : "Questions"}
-              </h2>
-              <div className="space-y-2">
-                {questions.map((q) => (
-                  <button
-                    key={q.slug}
-                    onClick={() => setSelectedQuestion(q.slug)}
-                    className="w-full text-left p-3 rounded-sm border border-[var(--paper-border)]/40 bg-black/5 hover:bg-amber-700/10 hover:border-amber-700/40 transition-colors cursor-pointer"
-                  >
-                    <p className="text-[11px] font-bold text-[var(--ink-title)] leading-relaxed">
-                      {lang === "zh" ? q.questionZh : q.questionEn}
-                    </p>
-                  </button>
-                ))}
               </div>
             </div>
           </aside>
