@@ -767,14 +767,14 @@ export default function App() {
     },
     { id: "works", label: lang === "zh" ? "引书" : "Works Cited", icon: Book },
     {
-      id: "downloads",
-      label: lang === "zh" ? "下载" : "Download",
-      icon: Download,
-    },
-    {
       id: "questions",
       label: lang === "zh" ? "问题" : "Questions",
       icon: BookOpen,
+    },
+    {
+      id: "downloads",
+      label: lang === "zh" ? "下载" : "Download",
+      icon: Download,
     },
   ];
 
