@@ -52,6 +52,9 @@ const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
   'char-191': 'Zhang Gui',
   'char-192': 'Wang Sheng',
   'char-193': 'Qian De',
+  'char-194': 'Huang Zhanggui',
+  'char-195': 'Silver Bank Manager',
+  'char-196': 'Hua Zhengchang Manager',
 };
 
 

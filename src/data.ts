@@ -115,7 +115,7 @@ char-120	跟班队（华家，~20–30人）	跟班 / 跟班的	—	—	servant	
 char-121	叶茂林 Yè Màolín	—	50+	Suzhou	servant	ch.2	Impresario who bought and transported the young performers from Suzhou to Beijing by canal boat	班主；将伶人从苏州运往北京。
 char-122	金二 Jīn Èr	—	—	—	servant	ch.3	Head troupe manager (掌班) of the Lianjin troupe; negotiates booking contracts	联锦班掌班；负责签约。
 char-123	老三 Lǎo Sān	—	—	—	servant	ch.3	Restaurant server at the crockery-smashing scene; scolded for not bringing fine enough porcelain	酒楼伙计；因瓷器不够好被骂。
-char-124	掌柜的 Zhǎngguì de	掌柜的 / 掌柜	—	—	servant	ch.3	Restaurant owner in the crockery-smashing scene; fawns on Xi Shiyi; lectures waiter on porcelain acoustics	酒楼掌柜；讨好奚十一。
+char-124	酒楼掌柜 Zhǎngguì de	酒楼掌柜 / 掌柜的	—	—	servant	ch.3	Restaurant owner in the crockery-smashing scene in Chapter 3; fawns on Xi Eleven and lectures waiter Lao San on porcelain acoustics.	酒楼掌柜；第3回砸瓷器事件中讨好奚十一，训斥伙计老三。
 char-125	梅鼎 Méi Dǐng	鼎	—	—	deceased	ch.1	Mei Shixie's grandfather; former Minister of Personnel (吏部尚书)	梅士燮之祖父；前吏部尚书。
 char-126	梅羹调 Méi Gēngdiào	—	—	—	deceased	ch.1	Mei Shixie's father; former Grand Secretary (文华殿大学士)	梅士燮之父；前文华殿大学士。
 char-127	颜庄 Yán Zhuāng	—	—	—	deceased	ch.1	Hanlin compiler; Lady Yan's brother; died at 30; Yan Zhongqing's father	翰林编修；颜夫人之弟；30岁去世；颜仲清之父。
@@ -184,7 +184,10 @@ char-189	缝穷婆 Féngqióng Pó	缝穷婆 / 缝穷的	—	—	female	ch.51	Th
 char-190	李大夫 Lǐ Dàfū	Doctor Li	—	Nanjing	minor	ch.56	Doctor in Nanjing summoned by Liu Xi to treat Qu Daoweng when Doctor Wang was away in Yizheng County; arrives after Daoweng's death.	南京医生；王大夫去仪征县后，被刘喜请来为屈道翁诊治，次日赶到时道翁已故。
 char-191	张贵 Zhāng Guì	—	—	—	villain	ch.56	Treacherous servant of Qu Daoweng; absconded with silver, luggage, and official credentials in ch.56; captured in Ji'an in ch.59.	屈道翁的背主恶仆；第56回乘道翁危重私匿白银、衣箱及文凭潜逃，第59回于吉安府落网。
 char-192	汪升 Wāng Shēng	—	—	—	villain	ch.56	Treacherous servant of Qu Daoweng; participated in the ch.56 theft and flight; died on the run before ch.59.	屈道翁的背主恶仆；第56回参与盗窃逃跑，于第59回前在逃亡途中身故。
-char-193	钱德 Qián Dé	—	—	—	villain	ch.56	Treacherous servant of Qu Daoweng; absconded with Zhang Gui in ch.56; captured in Ji'an in ch.59.	屈道翁的背主恶仆；第56回与张贵等人合谋盗宝潜逃，第59回于吉安府落网。`;
+char-193	钱德 Qián Dé	—	—	—	villain	ch.56	Treacherous servant of Qu Daoweng; absconded with Zhang Gui in ch.56; captured in Ji'an in ch.59.	屈道翁的背主恶仆；第56回与张贵等人合谋盗宝潜逃，第59回于吉安府落网。
+char-194	黄掌柜 Huáng Zhǎngguì	黄掌柜 / 春阳馆掌柜	—	Beijing	minor	ch.8	Manager of Chunyang Restaurant who greets patrons, gets into a dispute with Wei Pincai over unpaid bills, and later co-founds Anji Hall with Monk Tang.	春阳馆掌柜；后与唐和尚合伙开安吉堂。
+char-195	银号掌柜 Yínhào Zhǎngguì	银号掌柜 / 掌柜的	—	Beijing	minor	ch.34	Manager of a Beijing silver draft bank who issues 1,400 taels in silver drafts to Fu Third near the end of the year.	京城银号掌柜；第34回年关为富三开立一千四百两银票。
+char-196	华正昌书铺掌柜 Huá Zhèngchāng Shūpù Zhǎngguì	华正昌掌柜 / 老年掌柜	—	—	minor	ch.56	Elderly shopkeeper of the 'Hua Zhengchang' bookshop who greets Qinxian in his dream in Chapter 56.	“华正昌”书铺老年掌柜；第56回在琴仙梦境中出现。`;
 
 
 const ROLE_MAP: Record<string, string> = {
@@ -342,6 +345,11 @@ const baseRelationships: Relationship[] = [
   { source: 'char-191', target: 'char-134', type: 'Fellow Servant', typeZh: '同僚' },
   { source: 'char-192', target: 'char-141', type: 'Master/Servant', typeZh: '主仆' },
   { source: 'char-193', target: 'char-141', type: 'Master/Servant', typeZh: '主仆' },
+  { source: 'char-5', target: 'char-194', type: 'Conflict', typeZh: '冲突' },
+  { source: 'char-11', target: 'char-194', type: 'Acquaintance', typeZh: '相识' },
+  { source: 'char-134', target: 'char-194', type: 'Business Partner', typeZh: '合作/合伙' },
+  { source: 'char-53', target: 'char-195', type: 'Customer & Banker', typeZh: '客户与银号掌柜' },
+  { source: 'char-1', target: 'char-196', type: 'Dream Encounter', typeZh: '梦中相识' },
 ];
 
 

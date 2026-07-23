@@ -156,21 +156,38 @@ export function isPersonNameContext(
   }
   if ((token === "掌柜" || token === "掌柜的") && char?.id === "char-124") {
     return (
-      beforeFull.includes("进了") ||
-      beforeFull.includes("和馆") ||
+      beforeFull.includes("交代掌柜") ||
+      afterFull.includes("一齐进来劝解") ||
+      afterFull.includes("又去安慰") ||
+      afterFull.includes("代这相公") ||
+      afterFull.includes("说那走堂") ||
+      afterFull.includes("为什么巴结")
+    );
+  }
+  if ((token === "掌柜" || token === "掌柜的" || token === "黄掌柜") && char?.id === "char-194") {
+    return (
       beforeFull.includes("黄") ||
-      beforeFull.includes("老年") ||
-      beforeFull.includes("走进") ||
+      beforeFull.includes("春阳") ||
+      beforeFull.includes("进了馆子") ||
       afterFull.includes("都站") ||
       afterFull.includes("把算") ||
       afterFull.includes("闹了一") ||
       afterFull.includes("因不") ||
       afterFull.includes("不晓") ||
-      afterFull.includes("招呼") ||
-      afterFull.includes("走堂") ||
       afterFull.includes("忙出") ||
       afterFull.includes("与掌柜")
     );
+  }
+  if ((token === "掌柜" || token === "掌柜的") && char?.id === "char-195") {
+    return (
+      beforeFull.includes("银号") ||
+      afterFull.includes("招呼到里面") ||
+      afterFull.includes("只得应了") ||
+      beforeFull.includes("别了掌柜")
+    );
+  }
+  if ((token === "掌柜" || token === "掌柜的") && char?.id === "char-196") {
+    return beforeFull.includes("老年") || beforeFull.includes("华正昌");
   }
   if ((token === "缝穷婆" || token === "缝穷的") && char?.id === "char-189") {
     return (
@@ -463,6 +480,9 @@ export const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
   "char-191": "Zhang Gui",
   "char-192": "Wang Sheng",
   "char-193": "Qian De",
+  "char-194": "Huang Zhanggui",
+  "char-195": "Silver Bank Manager",
+  "char-196": "Hua Zhengchang Manager",
 };
 
 
