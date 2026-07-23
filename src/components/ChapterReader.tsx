@@ -1189,7 +1189,7 @@ export function ChapterReader({
                         <Chapter56Para7Illustration />
                       </div>
                     )}
-                    {((chapter.id === 56 && (i === 9 || i === 10 || para.includes("忽见自己肩上有三寸来长的一条蝎虎"))) || (chapter.id === 10 && (i === 9 || i === 55))) && (
+                    {((chapter.id === 56 && (i === 9 || para.includes("忽见自己肩上有三寸来长的一条蝎虎"))) || (chapter.id === 10 && i === 9)) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter56Para10Illustration />
                       </div>
