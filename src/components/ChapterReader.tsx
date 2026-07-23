@@ -53,6 +53,7 @@ import { Chapter36Para3Illustration } from "./illustrations/Chapter36Para3Illust
 import { Chapter9Para11LanternMarket } from "./illustrations/Chapter9Para11LanternMarket";
 import { Chapter56Para4Illustration } from "./illustrations/Chapter56Para4Illustration";
 import { Chapter56Para7Illustration } from "./illustrations/Chapter56Para7Illustration";
+import { Chapter56Para13Illustration } from "./illustrations/Chapter56Para13Illustration";
 import { SnowMountainSVG } from "./illustrations/snow/SnowMountainSVG";
 import { SnowPagodaSVG } from "./illustrations/snow/SnowPagodaSVG";
 import { SnowScreenSVG } from "./illustrations/snow/SnowScreenSVG";
@@ -530,11 +531,10 @@ export function ChapterReader({
           e.stopPropagation();
           speakParagraph(text, paraKey, speechLang);
         }}
-        className={`inline-flex items-center justify-center shrink-0 rounded-full border transition-all duration-200 mr-1.5 align-middle select-none ${
-          isActive
+        className={`inline-flex items-center justify-center shrink-0 rounded-full border transition-all duration-200 mr-1.5 align-middle select-none ${isActive
             ? "w-6 h-6 bg-[var(--accent)] border-[var(--accent)] text-white shadow-sm hover:bg-red-600 hover:border-red-600"
             : "w-5 h-5 bg-[var(--paper-bg)]/80 border-[var(--paper-border)] text-[var(--ink-dim-text)]/60 hover:text-[var(--accent)] hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/10"
-        }`}
+          }`}
         title={
           isActive
             ? lang === "zh" ? "停止朗读" : "Stop reading"
@@ -622,9 +622,9 @@ export function ChapterReader({
       return (
         <React.Fragment key={idx}>
           {idx > 0 && !isEnglish ? (
-             <span className="block mt-4">{renderAnnotated(chunk, showBilingual, idx === 0 ? paragraphNumber : undefined)}</span>
+            <span className="block mt-4">{renderAnnotated(chunk, showBilingual, idx === 0 ? paragraphNumber : undefined)}</span>
           ) : (
-             <>{renderAnnotated(chunk, showBilingual, idx === 0 ? paragraphNumber : undefined)}{isEnglish && idx < chunks.length - 1 && <br/>}{isEnglish && idx < chunks.length - 1 && <br/>}</>
+            <>{renderAnnotated(chunk, showBilingual, idx === 0 ? paragraphNumber : undefined)}{isEnglish && idx < chunks.length - 1 && <br />}{isEnglish && idx < chunks.length - 1 && <br />}</>
           )}
           {injectSvgs && SvgCmp && (
             <div className="mt-4 mb-8 block w-full">
@@ -759,8 +759,8 @@ export function ChapterReader({
                 {chapter.id === -1
                   ? (lang === "zh" ? "目录" : "Contents")
                   : chapter.id === 0
-                  ? (lang === "zh" ? "序" : "Preface")
-                  : (lang === "zh" ? `第${chapter.id}回` : `Ch. ${chapter.id}`)}
+                    ? (lang === "zh" ? "序" : "Preface")
+                    : (lang === "zh" ? `第${chapter.id}回` : `Ch. ${chapter.id}`)}
               </h2>
             </div>
             <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
@@ -768,11 +768,10 @@ export function ChapterReader({
                 <button
                   type="button"
                   onClick={() => { setShowZhVoicePicker(p => !p); setShowEnVoicePicker(false); }}
-                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${
-                    selectedZhVoiceName
+                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedZhVoiceName
                       ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
                       : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
-                  }`}
+                    }`}
                   title={lang === "zh" ? "选择中文语音" : "Choose Chinese voice"}
                   aria-label={lang === "zh" ? "选择中文语音" : "Choose Chinese voice"}
                 >
@@ -792,11 +791,10 @@ export function ChapterReader({
                       <button
                         type="button"
                         onClick={() => selectZhVoice("")}
-                        className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/50 ${
-                          !selectedZhVoiceName
+                        className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/50 ${!selectedZhVoiceName
                             ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
                             : "text-[var(--ink-dim-text)] hover:bg-black/5"
-                        }`}
+                          }`}
                       >
                         {lang === "zh" ? "默认语音" : "Default voice"}
                       </button>
@@ -809,11 +807,10 @@ export function ChapterReader({
                           key={v.name}
                           type="button"
                           onClick={() => selectZhVoice(v.name)}
-                          className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${
-                            selectedZhVoiceName === v.name
+                          className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${selectedZhVoiceName === v.name
                               ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
                               : "text-[var(--ink-title)] hover:bg-black/5"
-                          }`}
+                            }`}
                         >
                           <span className="block truncate">{v.name}</span>
                           <span className="block text-[9px] text-[var(--ink-dim-text)] mt-0.5">{v.lang}{v.localService ? "" : " · remote"}</span>
@@ -827,11 +824,10 @@ export function ChapterReader({
                 <button
                   type="button"
                   onClick={() => { setShowEnVoicePicker(p => !p); setShowZhVoicePicker(false); }}
-                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${
-                    selectedEnVoiceName
+                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedEnVoiceName
                       ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
                       : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
-                  }`}
+                    }`}
                   title={lang === "zh" ? "选择英文语音" : "Choose English voice"}
                   aria-label={lang === "zh" ? "选择英文语音" : "Choose English voice"}
                 >
@@ -851,11 +847,10 @@ export function ChapterReader({
                       <button
                         type="button"
                         onClick={() => selectEnVoice("")}
-                        className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/50 ${
-                          !selectedEnVoiceName
+                        className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/50 ${!selectedEnVoiceName
                             ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
                             : "text-[var(--ink-dim-text)] hover:bg-black/5"
-                        }`}
+                          }`}
                       >
                         {lang === "zh" ? "默认语音" : "Default voice"}
                       </button>
@@ -868,11 +863,10 @@ export function ChapterReader({
                           key={v.name}
                           type="button"
                           onClick={() => selectEnVoice(v.name)}
-                          className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${
-                            selectedEnVoiceName === v.name
+                          className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${selectedEnVoiceName === v.name
                               ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
                               : "text-[var(--ink-title)] hover:bg-black/5"
-                          }`}
+                            }`}
                         >
                           <span className="block truncate">{v.name}</span>
                           <span className="block text-[9px] text-[var(--ink-dim-text)] mt-0.5">{v.lang}{v.localService ? "" : " · remote"}</span>
@@ -1167,8 +1161,7 @@ export function ChapterReader({
                       </>
                     )}
                     {chapter.id >= 1 &&
-                      midSceneParagraphIndex(chapter.id) === i &&
-                      !(chapter.id === 56 && i === 6) && (
+                      midSceneParagraphIndex(chapter.id) === i && (
                         <ChapterMidScene chapterId={chapter.id} />
                       )}
                     {chapter.id === 30 && i === 6 && (
@@ -1194,6 +1187,11 @@ export function ChapterReader({
                     {((chapter.id === 56 && (i === 6 || para.includes("琴仙方寸已乱"))) || (chapter.id === 7 && i === 55)) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter56Para7Illustration />
+                      </div>
+                    )}
+                    {((chapter.id === 56 && (i === 9 || i === 10 || para.includes("忽见自己肩上有三寸来长的一条蝎虎"))) || (chapter.id === 10 && (i === 9 || i === 55))) && (
+                      <div className="mt-4 mb-6 block w-full">
+                        <Chapter56Para13Illustration />
                       </div>
                     )}
                   </div>
