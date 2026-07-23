@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "同性情欲与性别研究",
+  categoryEn: "Queer & Gender Studies",
   questionEn: "How would the novel evaluate contemporary male homosexual relationships characterized by free physical and spiritual love/companionship?",
   questionZh: "小说会如何评价当代的男同性恋之间的自由的肉体和精神的恋爱和陪伴关系呢？",
   answerEn: `If the novel were to evaluate contemporary male homosexual relationships that freely combine physical intimacy and spiritual companionship, it would likely view them with a critical and highly divided lens, ultimately condemning the physical aspect while potentially praising the spiritual bond. The novel strictly dichotomizes spiritual love (情 - qing/sentiment) and physical lust (淫 - yin/debauchery) in male-male dynamics, rather than seeing them as a unified whole.

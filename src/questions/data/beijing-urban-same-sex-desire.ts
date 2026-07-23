@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "同性情欲与性别研究",
+  categoryEn: "Queer & Gender Studies",
   questionEn:
     "Was male same-sex desire prevalent in the urban society of Qing dynasty Beijing? What are the specific spaces, relationship forms, vocabulary, or cultural symbols?",
   questionZh:

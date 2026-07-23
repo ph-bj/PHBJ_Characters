@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "情节与人物",
+  categoryEn: "Plot & Characters",
   questionEn: "In which chapters of the entire book do Ziyu and Qinyan have meetings?",
   questionZh: "全书中有哪些章节子玉和琴言是有会面的？",
   answerEn: `After carefully reviewing the full text of the application, there are **8 specific chapters** where Mei Ziyu and Du Qinyan have physical, face-to-face meetings.

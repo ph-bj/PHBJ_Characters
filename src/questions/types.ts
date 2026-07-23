@@ -1,4 +1,6 @@
 export interface QuestionContent {
+  categoryZh: string;
+  categoryEn: string;
   questionEn: string;
   questionZh: string;
   answerEn: string;

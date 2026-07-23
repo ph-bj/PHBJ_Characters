@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "同性情欲与性别研究",
+  categoryEn: "Queer & Gender Studies",
   questionEn: "What is the significance of discussing Pinhua Baojian today for envisioning future gay culture? Answer based on the entire book.",
   questionZh: "在当代重新谈论品花宝鉴对展望未来的男同性恋文化有什么意义吗？结合全书回答",
   answerEn: `Discussing *Pinhua Baojian* today offers significant insights for envisioning the future of gay culture by serving as a historical mirror that reflects both the enduring pursuit of spiritual connection and the boundaries of its era.

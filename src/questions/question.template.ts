@@ -7,6 +7,8 @@
 import type { QuestionDefinition } from "./types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "",
+  categoryEn: "",
   questionEn: "",
   questionZh: "",
   answerEn: "",

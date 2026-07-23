@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "情节与人物",
+  categoryEn: "Plot & Characters",
   questionEn:
     'What happened in Chapter 36, and why did Qinyan go home crying in Chapter 37?',
   questionZh:

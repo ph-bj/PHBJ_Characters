@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "版本历史与比较文学",
+  categoryEn: "Editions, History & Comparisons",
   questionEn: "List 10 famous academic papers about Pinhua Baojian",
   questionZh: "列举10篇有关《品花宝鉴》的知名论文",
   answerEn: `Here are 10 notable academic papers and scholarly works related to *Pinhua Baojian* (A Precious Mirror for Grading Flowers):

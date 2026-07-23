@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "版本历史与比较文学",
+  categoryEn: "Editions, History & Comparisons",
   questionEn: "Does 'Pinhua Baojian' describe the story of Peking Opera? If not, what genre does it depict?",
   questionZh: "品花宝鉴描写的是京剧的故事吗？如果不是，那是什么剧种？",
   answerEn: `No, *Pinhua Baojian* does not describe the story of Peking Opera (京剧). Instead, it primarily depicts the elegant art of **Kunqu** (昆曲/昆腔), set against the historical backdrop of the "Clash of Elegance and Popularity" (花雅之争).

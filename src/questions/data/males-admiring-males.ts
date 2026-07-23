@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "同性情欲与性别研究",
+  categoryEn: "Queer & Gender Studies",
   questionEn: "What does the novel think about males admiring other males?",
   questionZh: "小说如何看待男性爱慕男性？",
   answerEn: `The novel presents a complex view on males admiring other males, distinguishing between pure appreciation of beauty and base lust. Several characters articulate philosophies defending this admiration:

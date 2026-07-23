@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "同性情欲与性别研究",
+  categoryEn: "Queer & Gender Studies",
   questionEn:
     "Are the aesthetics of men who favored male same-sex relations in the Qing dynasty the same as those of contemporary gay men? If different, what caused these aesthetic differences? How is the Qing dynasty male same-sex aesthetic specifically reflected in *Pinhua Baojian*?",
   questionZh:

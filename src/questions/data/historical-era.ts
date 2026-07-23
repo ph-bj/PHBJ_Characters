@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "版本历史与比较文学",
+  categoryEn: "Editions, History & Comparisons",
   questionEn: "What historical era is the story of Pinhua Baojian set in?",
   questionZh: "《品花宝鉴》里描写的故事是什么年代的？",
   answerEn: `While the author famously states in Chapter 1 that "this book does not record any names, and it is unknown what era, what year, what place, or who wrote it" (此书不着姓名，究不知何代何年何地何人所作), internal textual evidence clearly sets the story during the **Qing Dynasty**. 

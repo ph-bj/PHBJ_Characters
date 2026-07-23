@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "同性情欲与性别研究",
+  categoryEn: "Queer & Gender Studies",
   questionEn: "Does the novel have a negative attitude towards male homosexuality?",
   questionZh: "小说对男性同性恋持负面态度吗？",
   answerEn: `Yes, the novel frequently portrays the physical and debauched aspects of male-male relationships in a very negative light, contrasting them sharply with its idealized 'pure love' (情) that strictly separates spiritual appreciation of beauty from base lust. Across the novel, characters who engage in physical exploitation, sodomy, or treat performers purely as sexual objects are mocked, condemned, or depicted as morally corrupt.

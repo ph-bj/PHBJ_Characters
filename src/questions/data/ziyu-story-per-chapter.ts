@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "情节与人物",
+  categoryEn: "Plot & Characters",
   questionEn: "What is Ziyu's story in each chapter? Note: Answer by referencing the full text of all chapters in this application and extracting all relevant paragraphs.",
   questionZh: "子玉在每一章里的故事是怎么样的？注意：结合这个应用中的所有章节全文回答，引用具体的段落，做到收集所有相关段落。",
   answerEn: `Here are all the paragraphs related to Ziyu in each chapter (in Chinese as requested):

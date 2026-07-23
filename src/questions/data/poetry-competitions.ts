@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "酒令诗会与意象",
+  categoryEn: "Games & Literary Motifs",
   questionEn:
     "Which chapters in the novel involve character poetry/versification competitions or joint poetry sessions? Explain with specific paragraphs.",
   questionZh: "哪些章节涉及小说中的人物吟诗作赋比赛？结合具体段落说明",

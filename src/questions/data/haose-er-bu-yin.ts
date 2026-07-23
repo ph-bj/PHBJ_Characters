@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "同性情欲与性别研究",
+  categoryEn: "Queer & Gender Studies",
   questionEn:
     "Based on the culture of Qing dynasty Beijing, why did the author write a book advocating for a love of beauty between men that is 'not lewd' (haose er bu yin)? Answer using 5 specific excerpts from the novel.",
   questionZh:

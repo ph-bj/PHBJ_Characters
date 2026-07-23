@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "版本历史与比较文学",
+  categoryEn: "Editions, History & Comparisons",
   questionEn: "Based on the whole book, discuss the relationship between 'Pinhua Baojian' and the place Jiangxi.",
   questionZh: "结合全书，说说《品花宝鉴》和江西这个地方的关系",
   answerEn: "In *Pinhua Baojian*, Jiangxi is portrayed primarily as a place of official duty and political career advancement for the older generation, acting as a contrast to the leisure and romance found in Beijing. For example, Mei Shixie, the father of Mei Ziyu, was appointed as the Educational Commissioner (学政) of Jiangxi. His tenure there was marked by such high integrity and strict refusal of bribes that the local people compared him to historical figures like Sima Guang and Wen Yanbo. Similarly, Qu Benli (Qu Daosheng) served as a magistrate in Jiangxi, where he tackled severe corruption by taking down local tyrants and corrupt officials (the 'tiger', 'wolf', 'snake', and 'scorpion' of the East and West townships). Through these narratives, Jiangxi represents the serious sphere of civil service, official responsibility, and moral governance, standing apart from the theatrical and social life in the capital.",

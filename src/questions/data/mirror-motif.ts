@@ -1,6 +1,8 @@
 import { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "酒令诗会与意象",
+  categoryEn: "Games & Literary Motifs",
   questionEn: "What role do mirrors play in the novel, and what is their literary significance? Analyze with specific paragraphs.",
   questionZh: "全书有哪些写到镜子的内容，用意是什么？结合具体段落分析",
   answerEn: `Mirrors appear not only as everyday objects but also as a central literary motif that directly ties into the novel's title, *Pinhua baojian* (*A Precious Mirror for Judging Flowers*). Throughout the book, the mirror carries multiple metaphors, functioning as a symbol of romantic intimacy, a medium for exploring fluid identities, and a reflection of the illusory nature of life.

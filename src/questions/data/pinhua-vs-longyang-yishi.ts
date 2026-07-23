@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "版本历史与比较文学",
+  categoryEn: "Editions, History & Comparisons",
   questionEn: "How does 'Pinhua Baojian' compare to 'Longyang Yishi' in terms of word count, similar passages, character count, historical era, character origins, story time span, plot, character fates, and character personalities, with specific excerpts?",
   questionZh: "《品花宝鉴》和《龙阳逸史》比较，从这些角度：字数、相似段落、人物数量、时代、人物籍贯、故事时间跨度、故事剧情、人物命运、人物性格，引用具体的《品花宝鉴》和《龙阳逸史》段落说明",
   answerEn: `"Pinhua Baojian" (A Precious Mirror for Judging Flowers) and "Longyang Yishi" (The Forgotten History of Longyang) are both Chinese literary works that depict male same-sex relationships, but they belong to different genres, eras, and cultural contexts. "Longyang Yishi" is a late Ming dynasty collection of short vernacular stories (huaben) focusing on the darker, often transactional aspects of male prostitution. In contrast, "Pinhua Baojian" is a mid-Qing dynasty full-length novel that presents an idealized, panoramic view of the Beijing theater world and the refined, emotional connections between scholars and actors.

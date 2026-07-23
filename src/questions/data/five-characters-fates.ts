@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "情节与人物",
+  categoryEn: "Plot & Characters",
   questionEn: "Based on the whole book, discuss how the fates of Mei Ziyu, Du Qinyan, Wang Xun, Su Huifang, and Xiao Cixian are intertwined.",
   questionZh: "结合全书，谈谈梅子玉、杜琴言、王恂、苏蕙芳、萧次贤这个五个人的命运如何交织在一起",
   answerEn: "In *Pinhua Baojian*, the fates of these five individuals intersect deeply within the literary and theatrical circles of Beijing, centering around their shared appreciation for art, refined emotions, and mutual respect. \n\nMei Ziyu and Du Qinyan form the core of this network, connected by a profound, almost spiritual bond of understanding and admiration. Wang Xun, as Ziyu's cousin and a key social organizer, frequently facilitates the gatherings where these characters interact, weaving their social lives together. Su Huifang, a high-principled performer and peer to Qinyan, plays a crucial role in supporting him; her intelligence and resourcefulness are pivotal in Qinyan's eventual redemption and liberation from his hardships. Xiao Cixian, a brilliant scholar and close friend of Xu Ziyun (who redeems Qinyan), acts as a philosophical and artistic guide to the group. Xiao Cixian's involvement culminates in his creation of the 'Nine Fragrances Flower History' (九香花史) portraits, immortalizing Qinyan, Huifang, and their peers as flower deities, while Ziyu contributes the commemorative texts. \n\nUltimately, their intertwined destinies represent the novel's ideal of 'Qing' (情) – pure, respectful devotion – where scholars and performers uplift one another through poetry, painting, and moral integrity, transcending their different social statuses to form an enduring, idealized community.",

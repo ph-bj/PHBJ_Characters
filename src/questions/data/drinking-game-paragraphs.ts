@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "酒令诗会与意象",
+  categoryEn: "Games & Literary Motifs",
   questionEn: "List all paragraphs in Pinhua Baojian that depict playing drinking games.",
   questionZh: "列出《品花宝鉴》中所有描写玩酒令（行令、猜拳等）的段落。",
   answerEn: `Here are the paragraphs in Pinhua Baojian that depict playing drinking games:

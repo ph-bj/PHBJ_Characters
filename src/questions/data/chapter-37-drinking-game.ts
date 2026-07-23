@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "酒令诗会与意象",
+  categoryEn: "Games & Literary Motifs",
   questionEn:
     'What are the details of the drinking game in Chapter 37? (Location, participants, win/loss, rules, individual performances, and highlights)',
   questionZh:

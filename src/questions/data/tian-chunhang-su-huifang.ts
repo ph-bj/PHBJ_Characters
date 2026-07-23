@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "情节与人物",
+  categoryEn: "Plot & Characters",
   questionEn: "Summarize the storyline between Tian Chunhang and Su Huifang.",
   questionZh: "梳理一下田春航×苏蕙芳的故事线",
   answerEn: `The story line between the scholar Tian Chunhang and the famous actor Su Huifang is one of the most important and touching plots in *Pinhua Baojian*. 

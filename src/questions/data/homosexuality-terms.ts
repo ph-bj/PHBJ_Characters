@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "同性情欲与性别研究",
+  categoryEn: "Queer & Gender Studies",
   questionEn:
     "What are the terms corresponding to male homosexuality (gay) in Pinhua Baojian?",
   questionZh: "在《品花宝鉴》里和男同性恋(gay)对应的术语有哪些？",

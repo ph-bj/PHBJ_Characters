@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "翻译与数字人文",
+  categoryEn: "Translation & Digital Humanities",
   questionEn:
     "What role did vibe coding AI play in this project? Provide specific examples.",
   questionZh: "vibe coding ai在这个项目中起到了哪些作用，结合具体例子说明。",

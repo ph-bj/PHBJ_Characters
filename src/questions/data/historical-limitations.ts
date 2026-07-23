@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "同性情欲与性别研究",
+  categoryEn: "Queer & Gender Studies",
   questionEn: "From the perspective of contemporary Chinese and Western gay life, what are the historical limitations of \"Pinhua Baojian\"? Analyze specifically based on all chapters.",
   questionZh: "从当代中国和西方的男同性恋生活视角看品花宝鉴，这部小说有哪些时代的局限性？结合全部章节具体分析",
   answerEn: `From a contemporary LGBTQ+ perspective, *Pinhua Baojian* has several stark historical limitations, primarily stemming from its deeply entrenched classism, its strict dichotomy between emotion and sexuality, and its ultimate adherence to patriarchal heteronormativity.

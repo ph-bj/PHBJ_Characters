@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "翻译与数字人文",
+  categoryEn: "Translation & Digital Humanities",
   questionEn:
     "How does the English translation make the wordplay in the novel easier to understand? Provide 5 typical paragraph quotes.",
   questionZh:

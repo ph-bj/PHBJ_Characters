@@ -147,8 +147,23 @@ export default function App() {
     null,
   );
   const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null);
+  const [selectedQuestionCategory, setSelectedQuestionCategory] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [networkGraphFullscreen, setNetworkGraphFullscreen] = useState(false);
+
+  const questionCategories = useMemo(() => {
+    const map = new Map<string, { zh: string; en: string; count: number }>();
+    for (const q of questions) {
+      const key = q.categoryZh;
+      const existing = map.get(key);
+      if (existing) {
+        existing.count++;
+      } else {
+        map.set(key, { zh: q.categoryZh, en: q.categoryEn, count: 1 });
+      }
+    }
+    return Array.from(map.values());
+  }, []);
 
   const lacunaChapterNumbers = useMemo(
     () =>
@@ -1063,23 +1078,93 @@ export default function App() {
             {/* Questions Sidebar */}
             <div
               id="questions"
-              className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24"
+              className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 flex flex-col gap-4"
             >
-              <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-4 font-bold border-b border-[var(--paper-border)] pb-2">
-                {lang === "zh" ? "问题" : "Questions"}
-              </h2>
-              <div className="space-y-2">
-                {questions.map((q) => (
-                  <button
-                    key={q.slug}
-                    onClick={() => setSelectedQuestion(q.slug)}
-                    className="w-full text-left p-3 rounded-sm border border-[var(--paper-border)]/40 bg-black/5 hover:bg-amber-700/10 hover:border-amber-700/40 transition-colors cursor-pointer"
-                  >
-                    <p className="text-[11px] font-bold text-[var(--ink-title)] leading-relaxed">
-                      {lang === "zh" ? q.questionZh : q.questionEn}
-                    </p>
-                  </button>
-                ))}
+              <div className="flex items-center justify-between border-b border-[var(--paper-border)] pb-2">
+                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
+                  {lang === "zh" ? "问题探讨" : "Questions & Topics"}
+                </h2>
+                <span className="text-[9px] px-2 py-0.5 rounded-full bg-black/5 text-[var(--ink-dim-text)] font-bold font-sans">
+                  {questions.length} {lang === "zh" ? "问" : "Q&As"}
+                </span>
+              </div>
+
+              {/* Category Filter Pills */}
+              <div className="flex flex-wrap gap-1.5 pb-2 border-b border-[var(--paper-border)]/50">
+                <button
+                  onClick={() => setSelectedQuestionCategory(null)}
+                  className={`text-[9px] px-2 py-1 rounded-sm border uppercase tracking-wider font-bold transition-all ${
+                    selectedQuestionCategory === null
+                      ? "bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]"
+                      : "border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)] bg-black/5"
+                  }`}
+                >
+                  {lang === "zh" ? "全部" : "All"} ({questions.length})
+                </button>
+                {questionCategories.map((cat) => {
+                  const isSelected = selectedQuestionCategory === cat.zh;
+                  return (
+                    <button
+                      key={cat.zh}
+                      onClick={() => setSelectedQuestionCategory(isSelected ? null : cat.zh)}
+                      className={`text-[9px] px-2 py-1 rounded-sm border tracking-wider font-bold transition-all flex items-center gap-1 ${
+                        isSelected
+                          ? "bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]"
+                          : "border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)] bg-black/5"
+                      }`}
+                    >
+                      <span>{lang === "zh" ? cat.zh : cat.en}</span>
+                      <span className={`text-[8px] opacity-75 ${isSelected ? "text-white" : "text-[var(--ink-dim-text)]"}`}>
+                        ({cat.count})
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Categorized Question List */}
+              <div className="space-y-5">
+                {questionCategories
+                  .filter((cat) => selectedQuestionCategory === null || selectedQuestionCategory === cat.zh)
+                  .map((cat) => {
+                    const categoryQuestions = questions.filter(
+                      (q) => q.categoryZh === cat.zh
+                    );
+                    if (categoryQuestions.length === 0) return null;
+                    return (
+                      <div key={cat.zh} className="space-y-2">
+                        {selectedQuestionCategory === null && (
+                          <div className="flex items-center justify-between pt-1 pb-1 border-b border-[var(--paper-border)]/40">
+                            <h3 className="text-[10px] font-bold text-[var(--accent)] uppercase tracking-wider flex items-center gap-1.5 font-sans">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] inline-block"></span>
+                              {lang === "zh" ? cat.zh : cat.en}
+                            </h3>
+                            <span className="text-[9px] text-[var(--ink-dim-text)] font-sans">
+                              {categoryQuestions.length}
+                            </span>
+                          </div>
+                        )}
+                        <div className="space-y-2">
+                          {categoryQuestions.map((q) => (
+                            <button
+                              key={q.slug}
+                              onClick={() => setSelectedQuestion(q.slug)}
+                              className="w-full text-left p-2.5 rounded-sm border border-[var(--paper-border)]/40 bg-black/5 hover:bg-amber-700/10 hover:border-amber-700/40 transition-all cursor-pointer group flex flex-col gap-1"
+                            >
+                              <p className="text-[11px] font-bold text-[var(--ink-title)] group-hover:text-[var(--accent)] transition-colors leading-relaxed">
+                                {lang === "zh" ? q.questionZh : q.questionEn}
+                              </p>
+                              {selectedQuestionCategory !== null && (
+                                <span className="text-[8px] text-[var(--ink-dim-text)] italic">
+                                  {lang === "zh" ? cat.zh : cat.en}
+                                </span>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
 

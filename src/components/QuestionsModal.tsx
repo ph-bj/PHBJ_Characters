@@ -38,9 +38,14 @@ export function QuestionsModal({
       >
         <div className="p-4 sm:p-5 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] flex items-center justify-between">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[var(--ink-dim-text)]">
-              {lang === "zh" ? "问题" : "Question"}
-            </p>
+            <div className="flex items-center gap-2 mb-1 flex-wrap">
+              <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-[var(--ink-dim-text)]">
+                {lang === "zh" ? "问题" : "Question"}
+              </span>
+              <span className="text-[9px] px-2 py-0.5 rounded-sm bg-amber-900/10 text-amber-800 border border-amber-800/30 font-bold font-sans">
+                {lang === "zh" ? question.categoryZh : question.categoryEn}
+              </span>
+            </div>
             <h3 className="text-lg font-bold text-[var(--ink-title)]">
               {lang === "zh" ? question.questionZh : question.questionEn}
             </h3>

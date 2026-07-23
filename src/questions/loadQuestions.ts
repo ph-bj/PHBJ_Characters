@@ -9,6 +9,8 @@ function isQuestionContent(value: unknown): value is QuestionContent {
   return (
     typeof value === "object" &&
     value !== null &&
+    "categoryZh" in value &&
+    "categoryEn" in value &&
     "questionEn" in value &&
     "questionZh" in value &&
     "answerEn" in value &&

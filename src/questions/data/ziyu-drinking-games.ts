@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "酒令诗会与意象",
+  categoryEn: "Games & Literary Motifs",
   questionEn: "What drinking games (酒令) did Ziyu participate in across the chapters? What were the rules? Who were the participants? Who won and who lost?",
   questionZh: "子玉参加了哪些章节中的酒令游戏？游戏规则是怎么样的？参与者有哪些？谁胜出？谁输了？",
   answerEn: `Based on the full text of *Pinhua Baojian*, Mei Ziyu (Yuxiang) actively participates in drinking games in **Chapter 7**, **Chapter 35**, **Chapter 37**, and a more casual dice game in **Chapter 48**.

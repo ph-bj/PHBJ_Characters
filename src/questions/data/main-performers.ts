@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "情节与人物",
+  categoryEn: "Plot & Characters",
   questionEn: "Who are the main performers in the novel?",
   questionZh: "小说中的主要表演者（伶人）有哪些？",
   answerEn: `The main performers (伶人) in the novel are:

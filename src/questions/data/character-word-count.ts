@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "翻译与数字人文",
+  categoryEn: "Translation & Digital Humanities",
   questionEn: "How many characters are there in the entire novel Pinhua Baojian, and how many in each chapter?",
   questionZh: "《品花宝鉴》全书共有多少字？每一章各有多少字？",
   answerEn: `The entire novel *Pinhua Baojian* contains approximately 512,765 characters.

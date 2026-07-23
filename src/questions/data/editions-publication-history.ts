@@ -1,6 +1,8 @@
 import type { QuestionDefinition } from "../types";
 
 export const question: QuestionDefinition = {
+  categoryZh: "版本历史与比较文学",
+  categoryEn: "Editions, History & Comparisons",
   questionEn:
     "What editions of Pinhua Baojian have existed historically — years, publishers, and main features, with evidence and sources?",
   questionZh: "《品花宝鉴》历史上有哪些版本？年份、出版社、主要特征，并提供证据来源",
