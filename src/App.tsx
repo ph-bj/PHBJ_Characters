@@ -1188,15 +1188,15 @@ export default function App() {
                           value: avgEnglishWords.toLocaleString(),
                         },
                         {
-                          label: lang === "zh" ? "段" : "para",
+                          label: lang === "zh" ? "段落数" : "paragraphs",
                           value: avgParagraphs.toLocaleString(),
                         },
                         {
-                          label: lang === "zh" ? "对话" : "dlg",
+                          label: lang === "zh" ? "对话数" : "dialogues",
                           value: avgConversations.toLocaleString(),
                         },
                         {
-                          label: lang === "zh" ? "书" : "works",
+                          label: lang === "zh" ? "引用数" : "works cited",
                           value: avgWorks.toLocaleString(),
                         },
                       ].map(({ label, value }) => (
