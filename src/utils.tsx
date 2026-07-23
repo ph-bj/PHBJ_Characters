@@ -562,14 +562,14 @@ export function LanguageSwitch({
 }) {
   return (
     <div
-      className={`flex bg-black/5 p-1 rounded-sm border border-[var(--paper-border)] ${className}`}
+      className={`flex items-center h-[32px] bg-black/5 p-1 rounded-sm border border-[var(--paper-border)] box-border ${className}`}
       role="group"
       aria-label={lang === "zh" ? "语言" : "Language"}
     >
       <button
         type="button"
         onClick={() => setLang("en")}
-        className={`${compact ? "px-1.5 py-1 text-[8px]" : "px-3 py-1 text-[10px]"} font-bold uppercase tracking-widest transition-all rounded-sm ${
+        className={`h-full ${compact ? "px-1.5 text-[8px]" : "px-3 text-[10px]"} flex items-center justify-center font-bold uppercase tracking-widest transition-all rounded-sm ${
           lang === "en"
             ? "bg-[var(--accent)] text-[var(--paper-bg)]"
             : "text-[var(--ink-dim-text)] hover:bg-black/5"
@@ -580,7 +580,7 @@ export function LanguageSwitch({
       <button
         type="button"
         onClick={() => setLang("zh")}
-        className={`${compact ? "px-1.5 py-1 text-[8px]" : "px-3 py-1 text-[10px]"} font-bold uppercase tracking-widest transition-all rounded-sm font-hans ${
+        className={`h-full ${compact ? "px-1.5 text-[8px]" : "px-3 text-[10px]"} flex items-center justify-center font-bold uppercase tracking-widest transition-all rounded-sm font-hans ${
           lang === "zh"
             ? "bg-[var(--accent)] text-[var(--paper-bg)]"
             : "text-[var(--ink-dim-text)] hover:bg-black/5"

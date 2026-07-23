@@ -178,7 +178,7 @@ export function NavMenuDropdown({
           updateMenuPosition();
           setOpen(true);
         }}
-        className="flex items-center gap-1.5 px-3 py-[7px] bg-black/5 rounded-sm border border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:bg-black/5 transition-all"
+        className="h-[32px] flex items-center gap-1.5 px-3 bg-black/5 rounded-sm border border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:bg-black/5 transition-all box-border cursor-pointer"
         aria-expanded={open}
         aria-haspopup="menu"
         aria-label={lang === "zh" ? "打开菜单" : "Open menu"}

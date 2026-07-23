@@ -52,14 +52,14 @@ export function ThemeToggle({
 
   return (
     <div
-      className={`flex bg-black/5 p-1 rounded-sm border border-[var(--paper-border)] ${className}`}
+      className={`flex items-center h-[32px] bg-black/5 p-1 rounded-sm border border-[var(--paper-border)] box-border ${className}`}
       role="group"
       aria-label={lang === "zh" ? "主题" : "Theme"}
     >
       <button
         type="button"
         onClick={() => toggle("parchment")}
-        className={`px-2 py-1 text-[10px] font-bold tracking-wider transition-all rounded-sm ${
+        className={`h-full px-2 flex items-center justify-center text-[10px] font-bold tracking-wider transition-all rounded-sm cursor-pointer ${
           theme === "parchment"
             ? "bg-[var(--accent)] text-[var(--paper-bg)]"
             : "text-[var(--ink-dim-text)] hover:bg-black/5"
@@ -71,7 +71,7 @@ export function ThemeToggle({
       <button
         type="button"
         onClick={() => toggle("plum")}
-        className={`px-2 py-1 text-[10px] font-bold tracking-wider transition-all rounded-sm ${
+        className={`h-full px-2 flex items-center justify-center text-[10px] font-bold tracking-wider transition-all rounded-sm cursor-pointer ${
           theme === "plum"
             ? "bg-[var(--accent)] text-[var(--paper-bg)]"
             : "text-[var(--ink-dim-text)] hover:bg-black/5"
