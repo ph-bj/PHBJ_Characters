@@ -100,7 +100,9 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   珊枝: ["Shanzhi", "Shan Zhi"],
   屈少君: ["Qu Shaojun"],
   李大夫: ["Doctor Li"],
+  王大夫: ["Doctor Wang"],
 };
+
 
 
 export function getEnglishAliasTokens(character: Character): string[] {
@@ -443,7 +445,9 @@ export function getSegmentChipLabel(
 }
 
 export const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
+  "char-85": "Doctor Wang",
   "char-87": "Madam Lu (Wang household)",
+
   "char-96": "Madam Lu (Sun household)",
   "char-99": "Eldest Miss Sun",
   "char-108": "Page Boy",

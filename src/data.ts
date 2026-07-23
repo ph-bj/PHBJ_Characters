@@ -77,7 +77,7 @@ char-78	华夫人 Huá Fūrén	Lady Hua / Madam Hua	—	—	minor	ch.5	"Hua Guan
 char-79	青姨奶奶 Qīng Yínǎinai	—	—	—	minor	ch.3	One of Fu Lun's two quarrelling concubines; fights with Bai Yinainai; mentioned by Rong Guan	富伦的姨太太；与白姨奶奶争吵。
 char-80	白姨奶奶 Bái Yínǎinai	—	—	—	minor	ch.3	Fu Lun's other quarrelling concubine; fights with Qing Yinainai; mentioned by Rong Guan	富伦的另一位姨太太；与青姨奶奶争吵。
 char-81	阿呆 Ā Dāi	—	—	—	minor	ch.23	Simple-minded victim who is cruelly harmed by Xi Shiyi's men in ch.23	愚笨的受害者；第23回遭奚十一手下残害。
-char-85	王大夫 Wáng Dàfū	—	—	—	minor	ch.4	Doctor who treats Sun Lianggong when the Sun household couple have a fight; mentioned by Sihui in ch.4	医生；在孙亮功夫妇吵架后为其诊治。
+char-85	王大夫 Wáng Dàfū	Doctor Wang	—	—	minor	ch.4	Doctor who treats Sun Lianggong when the Sun household couple have a fight; mentioned by Sihui in ch.4	医生；在孙亮功夫妇吵架后为其诊治。
 char-86	颜夫人 Yán Fūrén	Lady Yan / Madam Yan	44	Jinling	female	ch.1	Wife of Mei Shixie; moral guardian of the novel; arranges Ziyu's betrothal to Wang Qionghua	梅士燮之妻；小说中的道德守护者；安排子玉与王琼华的婚事。
 char-87	陆氏夫人（王家） Lù Shì Fūrén	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Wang family's Madam Lu / The Wang Madam Lu	40	—	female	ch.1	Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu	王文辉继室；王恂继母；孙家陆夫人之妹。
 char-88	孙氏 Sūn Shì	Madam Sun	—	—	female	ch.1	Wang Xun's wife; daughter of Sun Lianggong	王恂之妻；孙亮功之女。

@@ -35,7 +35,9 @@ const getRoleBgColorVar = (role: string) => {
 };
 
 const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
+  'char-85': 'Doctor Wang',
   'char-87': 'Madam Lu (Wang household)',
+
   'char-96': 'Madam Lu (Sun household)',
   'char-99': 'Miss Wang',
   'char-108': 'Page Boy',
