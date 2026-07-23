@@ -1072,7 +1072,7 @@ export default function App() {
               ))}
             </div>
 
-            <div className="grid grid-cols-5 gap-0.5 sm:gap-1 border-t border-[var(--paper-border)]/50 pt-1">
+            <div className="grid grid-cols-6 gap-0.5 sm:gap-1 border-t border-[var(--paper-border)]/50 pt-1">
               {mobileRow2.map(({ id, label, icon: Icon, onClick }) => (
                 <button
                   key={id}
