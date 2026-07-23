@@ -767,11 +767,6 @@ export default function App() {
     },
     { id: "works", label: lang === "zh" ? "引书" : "Works Cited", icon: Book },
     {
-      id: "hometown-map",
-      label: lang === "zh" ? "分布地图" : "Distribution Map",
-      icon: MapIcon,
-    },
-    {
       id: "downloads",
       label: lang === "zh" ? "下载" : "Download",
       icon: Download,
