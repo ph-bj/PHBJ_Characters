@@ -1171,56 +1171,56 @@ export default function App() {
                           </p>
                         </div>
                       ))}
+                    </div>
 
-                      {/* Average per chapter - split into separate cards */}
-                      <p className="text-[8px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-2 mt-1">
-                        {lang === "zh" ? "每回均值" : "Avg / chapter"}
-                      </p>
-                      <div className="grid grid-cols-2 gap-2">
-                        {[
-                          {
-                            label: lang === "zh" ? "中文字" : "CN chars",
-                            value: avgChineseChars.toLocaleString(),
-                          },
-                          {
-                            label: lang === "zh" ? "英文词" : "EN words",
-                            value: avgEnglishWords.toLocaleString(),
-                          },
-                          {
-                            label: lang === "zh" ? "段" : "para",
-                            value: avgParagraphs.toLocaleString(),
-                          },
-                          {
-                            label: lang === "zh" ? "对话" : "dlg",
-                            value: avgConversations.toLocaleString(),
-                          },
-                          {
-                            label: lang === "zh" ? "书" : "works",
-                            value: avgWorks.toLocaleString(),
-                          },
-                        ].map(({ label, value }) => (
-                          <div
-                            key={label}
-                            className="bg-black/3 rounded-sm p-2 border border-[var(--paper-border)]/50"
-                          >
-                            <p className="text-[8px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-0.5 leading-tight">
-                              {label}
-                            </p>
-                            <p className="text-[10px] font-bold text-[var(--ink-title)] font-sans leading-tight">
-                              {value}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
+                    {/* Average per chapter */}
+                    <p className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-3 mt-5 font-bold border-b border-[var(--paper-border)] pb-1">
+                      {lang === "zh" ? "每回均值" : "Avg / chapter"}
+                    </p>
+                    <div className="grid grid-cols-2 gap-2 mb-5">
+                      {[
+                        {
+                          label: lang === "zh" ? "中文字" : "CN chars",
+                          value: avgChineseChars.toLocaleString(),
+                        },
+                        {
+                          label: lang === "zh" ? "英文词" : "EN words",
+                          value: avgEnglishWords.toLocaleString(),
+                        },
+                        {
+                          label: lang === "zh" ? "段" : "para",
+                          value: avgParagraphs.toLocaleString(),
+                        },
+                        {
+                          label: lang === "zh" ? "对话" : "dlg",
+                          value: avgConversations.toLocaleString(),
+                        },
+                        {
+                          label: lang === "zh" ? "书" : "works",
+                          value: avgWorks.toLocaleString(),
+                        },
+                      ].map(({ label, value }) => (
+                        <div
+                          key={label}
+                          className="flex flex-col justify-center bg-black/3 rounded-sm p-2 border border-[var(--paper-border)]/50"
+                        >
+                          <p className="text-[8px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-1">
+                            {label}
+                          </p>
+                          <p className="text-[10px] font-bold text-[var(--ink-title)] font-sans">
+                            {value}
+                          </p>
+                        </div>
+                      ))}
                     </div>
 
                     {/* Sparkline */}
-                    <p className="text-[8px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-1.5">
-                      {lang === "zh"
-                        ? "各回中文字数"
-                        : "Chinese chars per chapter"}
-                    </p>
-                    <div className="flex items-end gap-[1.5px] h-12 mb-5">
+                      <p className="text-[8px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-1.5">
+                        {lang === "zh"
+                          ? "各回中文字数"
+                          : "Chinese chars per chapter"}
+                      </p>
+                      <div className="flex items-end gap-[1.5px] h-12 mb-5">
                       {chapterStats.map((c) => {
                         const ch = chapters.find((ch) => ch.id === c.id)!;
                         return (
