@@ -459,6 +459,9 @@ export const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
   "char-118": "Attendant (Fu household)",
   "char-120": "Retinue (Hua household, ~20-30 people)",
   "char-190": "Doctor Li",
+  "char-191": "Zhang Gui",
+  "char-192": "Wang Sheng",
+  "char-193": "Qian De",
 };
 
 

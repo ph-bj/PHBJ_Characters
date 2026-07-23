@@ -181,7 +181,10 @@ char-186	许老三 Xǔ Lǎosān	许贵 / Xu Gui	16	—	servant	ch.40	Handsome yo
 char-187	田安 Tián Ān	—	50+	—	servant	ch.12	Tian Chunhang's old family retainer; follows him from Nanjing and keeps his household through the lean years (chs.12–13, 48)	田春航的老家人；随行进京，穷困时仍守在身边（第12–13、48回）。
 char-188	田太夫人 Tián Tàifūrén	—	—	—	female	ch.48	Tian Chunhang's mother; brought to the capital after his success (ch.48); presides over the wedding-season gatherings (ch.52)	田春航之母；第48回被接进京，第52回操持喜庆宴集。
 char-189	缝穷婆 Féngqióng Pó	缝穷婆 / 缝穷的	—	—	female	ch.51	The mending-woman outside the theatre wall; her quarrel over pilfered coppers sets off the ch.51 street brawl	戏园墙外的缝穷婆；第51回因铜钱失窃与人争闹，引出隔墙听戏一场风波。
-char-190	李大夫 Lǐ Dàfū	Doctor Li	—	Nanjing	minor	ch.56	Doctor in Nanjing summoned by Liu Xi to treat Qu Daoweng when Doctor Wang was away in Yizheng County; arrives after Daoweng's death.	南京医生；王大夫去仪征县后，被刘喜请来为屈道翁诊治，次日赶到时道翁已故。`;
+char-190	李大夫 Lǐ Dàfū	Doctor Li	—	Nanjing	minor	ch.56	Doctor in Nanjing summoned by Liu Xi to treat Qu Daoweng when Doctor Wang was away in Yizheng County; arrives after Daoweng's death.	南京医生；王大夫去仪征县后，被刘喜请来为屈道翁诊治，次日赶到时道翁已故。
+char-191	张贵 Zhāng Guì	—	—	—	villain	ch.56	Treacherous servant of Qu Daoweng; absconded with silver, luggage, and official credentials in ch.56; captured in Ji'an in ch.59.	屈道翁的背主恶仆；第56回乘道翁危重私匿白银、衣箱及文凭潜逃，第59回于吉安府落网。
+char-192	汪升 Wāng Shēng	—	—	—	villain	ch.56	Treacherous servant of Qu Daoweng; participated in the ch.56 theft and flight; died on the run before ch.59.	屈道翁的背主恶仆；第56回参与盗窃逃跑，于第59回前在逃亡途中身故。
+char-193	钱德 Qián Dé	—	—	—	villain	ch.56	Treacherous servant of Qu Daoweng; absconded with Zhang Gui in ch.56; captured in Ji'an in ch.59.	屈道翁的背主恶仆；第56回与张贵等人合谋盗宝潜逃，第59回于吉安府落网。`;
 
 
 const ROLE_MAP: Record<string, string> = {
@@ -335,6 +338,10 @@ const baseRelationships: Relationship[] = [
   { source: 'char-2', target: 'char-113', type: 'Master/Servant', typeZh: '主仆' },
   { source: 'char-190', target: 'char-141', type: 'Doctor & Patient', typeZh: '医患' },
   { source: 'char-190', target: 'char-134', type: 'Acquaintance', typeZh: '相识' },
+  { source: 'char-191', target: 'char-141', type: 'Master/Servant', typeZh: '主仆' },
+  { source: 'char-191', target: 'char-134', type: 'Fellow Servant', typeZh: '同僚' },
+  { source: 'char-192', target: 'char-141', type: 'Master/Servant', typeZh: '主仆' },
+  { source: 'char-193', target: 'char-141', type: 'Master/Servant', typeZh: '主仆' },
 ];
 
 

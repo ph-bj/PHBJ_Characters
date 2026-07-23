@@ -156,6 +156,9 @@ import { char_159Appearances } from './characterAppearances/char-159';
 import { char_160Appearances } from './characterAppearances/char-160';
 import { char_161Appearances } from './characterAppearances/char-161';
 import { char_190Appearances } from './characterAppearances/char-190';
+import { char_191Appearances } from './characterAppearances/char-191';
+import { char_192Appearances } from './characterAppearances/char-192';
+import { char_193Appearances } from './characterAppearances/char-193';
 
 export type { SceneBullet };
 
@@ -317,6 +320,9 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
   'char-160': char_160Appearances,
   'char-161': char_161Appearances,
   'char-190': char_190Appearances,
+  'char-191': char_191Appearances,
+  'char-192': char_192Appearances,
+  'char-193': char_193Appearances,
 };
 
 
