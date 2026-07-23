@@ -52,6 +52,7 @@ import { Chapter30Para7Illustration } from "./illustrations/Chapter30Para7Illust
 import { Chapter36Para3Illustration } from "./illustrations/Chapter36Para3Illustration";
 import { Chapter9Para11LanternMarket } from "./illustrations/Chapter9Para11LanternMarket";
 import { Chapter56Para4Illustration } from "./illustrations/Chapter56Para4Illustration";
+import { Chapter56Para7Illustration } from "./illustrations/Chapter56Para7Illustration";
 import { SnowMountainSVG } from "./illustrations/snow/SnowMountainSVG";
 import { SnowPagodaSVG } from "./illustrations/snow/SnowPagodaSVG";
 import { SnowScreenSVG } from "./illustrations/snow/SnowScreenSVG";
@@ -1187,6 +1188,11 @@ export function ChapterReader({
                     {chapter.id === 56 && i === 3 && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter56Para4Illustration />
+                      </div>
+                    )}
+                    {((chapter.id === 56 && (i === 6 || para.includes("琴仙方寸已乱"))) || (chapter.id === 7 && i === 55)) && (
+                      <div className="mt-4 mb-6 block w-full">
+                        <Chapter56Para7Illustration />
                       </div>
                     )}
                   </div>
