@@ -756,10 +756,20 @@ export default function App() {
     }
   };
 
+  const [activeMobileTab, setActiveMobileTab] = useState<string>("overview");
+
   const scrollToSection = (id: string) => {
-    document
-      .getElementById(id)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setActiveMobileTab(id);
+    requestAnimationFrame(() => {
+      const targetId = id === "overview" ? "about" : id;
+      const el =
+        document.getElementById(targetId) || document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
   };
 
   const openContents = () => {
@@ -1055,42 +1065,56 @@ export default function App() {
             aria-label={lang === "zh" ? "移动导航" : "Mobile navigation"}
           >
             <div className="grid grid-cols-6 gap-0.5 sm:gap-1">
-              {mobileRow1.map(({ id, label, icon: Icon }) => (
-                <button
-                  key={id}
-                  type="button"
-                  onClick={() => scrollToSection(id)}
-                  className="flex flex-col items-center justify-center py-1 px-0.5 rounded-sm text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] active:bg-[var(--accent)]/20 transition-colors min-w-0 cursor-pointer"
-                >
-                  <Icon size={14} className="text-[var(--accent)] shrink-0" />
-                  <span className="text-[7.5px] sm:text-[9px] font-bold leading-none uppercase tracking-tighter truncate max-w-full mt-0.5">
-                    {label}
-                  </span>
-                </button>
-              ))}
+              {mobileRow1.map(({ id, label, icon: Icon }) => {
+                const isActive = activeMobileTab === id;
+                return (
+                  <button
+                    key={id}
+                    type="button"
+                    onClick={() => scrollToSection(id)}
+                    className={`flex flex-col items-center justify-center py-1 px-0.5 rounded-sm transition-colors min-w-0 cursor-pointer ${
+                      isActive
+                        ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold shadow-xs"
+                        : "text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] active:bg-[var(--accent)]/20"
+                    }`}
+                  >
+                    <Icon size={14} className={`${isActive ? "text-[var(--paper-bg)]" : "text-[var(--accent)]"} shrink-0`} />
+                    <span className="text-[7.5px] sm:text-[9px] font-bold leading-none uppercase tracking-tighter truncate max-w-full mt-0.5">
+                      {label}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
 
             <div className="grid grid-cols-6 gap-0.5 sm:gap-1 border-t border-[var(--paper-border)]/50 pt-1">
-              {mobileRow2.map(({ id, label, icon: Icon, onClick }) => (
-                <button
-                  key={id}
-                  type="button"
-                  onClick={onClick ? onClick : () => scrollToSection(id)}
-                  className="flex flex-col items-center justify-center py-1 px-0.5 rounded-sm text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] active:bg-[var(--accent)]/20 transition-colors min-w-0 cursor-pointer"
-                >
-                  <Icon size={14} className="text-[var(--accent)] shrink-0" />
-                  <span className="text-[7.5px] sm:text-[9px] font-bold leading-none uppercase tracking-tighter truncate max-w-full mt-0.5">
-                    {label}
-                  </span>
-                </button>
-              ))}
+              {mobileRow2.map(({ id, label, icon: Icon, onClick }) => {
+                const isActive = activeMobileTab === id;
+                return (
+                  <button
+                    key={id}
+                    type="button"
+                    onClick={onClick ? onClick : () => scrollToSection(id)}
+                    className={`flex flex-col items-center justify-center py-1 px-0.5 rounded-sm transition-colors min-w-0 cursor-pointer ${
+                      isActive
+                        ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold shadow-xs"
+                        : "text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] active:bg-[var(--accent)]/20"
+                    }`}
+                  >
+                    <Icon size={14} className={`${isActive ? "text-[var(--paper-bg)]" : "text-[var(--accent)]"} shrink-0`} />
+                    <span className="text-[7.5px] sm:text-[9px] font-bold leading-none uppercase tracking-tighter truncate max-w-full mt-0.5">
+                      {label}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </nav>
         </div>
 
         <main className="max-w-[1800px] mx-auto p-2 sm:p-4 md:p-4 lg:p-5 grid grid-cols-1 md:grid-cols-[minmax(200px,240px)_1fr] lg:grid-cols-[240px_1fr_260px] xl:grid-cols-[280px_1fr_300px] gap-4 md:gap-5 lg:gap-6">
           {/* Mobile Landscape Illustration */}
-          <div className="block md:hidden">
+          <div className={activeMobileTab === "overview" ? "block md:hidden" : "hidden"}>
             <MainInkLandscape />
           </div>
           {/* Left Sidebar */}
@@ -1101,7 +1125,9 @@ export default function App() {
             {/* Questions Sidebar */}
             <div
               id="questions"
-              className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 flex flex-col gap-4"
+              className={`relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+                activeMobileTab === "questions" ? "flex flex-col gap-4" : "hidden md:flex md:flex-col md:gap-4"
+              }`}
             >
               <div className="flex items-center justify-between border-b border-[var(--paper-border)] pb-2">
                 <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
@@ -1191,11 +1217,17 @@ export default function App() {
               </div>
             </div>
 
-            <GardenStroll />
+            <div className={activeMobileTab === "questions" ? "block" : "hidden md:block"}>
+              <GardenStroll />
+            </div>
 
             <div
               id="stats"
-              className="relative parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm flex flex-col gap-6 md:gap-8 lg:gap-10 border-double border-4 border-[var(--paper-border)] scroll-mt-24"
+              className={`relative parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+                activeMobileTab === "stats"
+                  ? "flex flex-col gap-6 md:gap-8 lg:gap-10"
+                  : "hidden md:flex md:flex-col md:gap-6 lg:gap-10"
+              }`}
             >
               {/* Chapter Statistics */}
               {(() => {
@@ -1582,7 +1614,12 @@ export default function App() {
           <section className="flex flex-col gap-4 md:gap-5 order-1 md:order-2 min-w-0">
 
             {/* About Section */}
-            <div id="about" className="relative parchment p-5 sm:p-8 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24">
+            <div
+              id="about"
+              className={`relative parchment p-5 sm:p-8 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+                activeMobileTab === "overview" ? "block" : "hidden md:block"
+              }`}
+            >
               <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-4 font-bold border-b border-[var(--paper-border)] pb-2">
                 {lang === "en" ? "About Precious Vibe" : "关于品花宝境"}
               </h2>
@@ -1682,7 +1719,10 @@ export default function App() {
 
 
             {/* Network Graph Section */}
-            <div id="network" className="scroll-mt-24">
+            <div
+              id="network"
+              className={`scroll-mt-24 ${activeMobileTab === "network" ? "block" : "hidden md:block"}`}
+            >
               <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
                 {lang === "en"
                   ? "Character Relationship Network"
@@ -1698,11 +1738,12 @@ export default function App() {
               />
             </div>
 
-            {/* Search & Filters */}
-            <div
-              id="characters"
-              className="relative parchment p-4 sm:p-6 rounded-sm flex flex-col gap-4 sm:gap-6 border-double border-4 border-[var(--paper-border)] scroll-mt-24"
-            >
+            {/* Search & Filters + Characters Grid */}
+            <div className={activeMobileTab === "characters" ? "flex flex-col gap-4 md:gap-5" : "hidden md:flex md:flex-col md:gap-5"}>
+              <div
+                id="characters"
+                className="relative parchment p-4 sm:p-6 rounded-sm flex flex-col gap-4 sm:gap-6 border-double border-4 border-[var(--paper-border)] scroll-mt-24"
+              >
               <div className="flex flex-col md:flex-row gap-4 items-center">
                 <div className="relative flex-1 w-full">
                   <Search
@@ -1799,28 +1840,35 @@ export default function App() {
               </AnimatePresence>
             </div>
 
-            {filteredCharacters.length === 0 && (
-              <div className="parchment p-20 text-center rounded-sm border-double border-4 border-[var(--paper-border)]">
-                <Search size={40} className="mx-auto mb-4 text-[var(--ink-dim-text)]" />
-                <p className="text-[var(--ink-dim-text)] italic font-hans">{t.noRecords}</p>
-              </div>
-            )}
-            <HometownMap
-              characters={filteredCharacters}
-              gardens={gardens}
-              locationsByType={locationsByType}
-              lang={lang}
-              onSelectGarden={setSelectedGarden}
-              onSelectLocation={setSelectedLocation}
-            />
+              {filteredCharacters.length === 0 && (
+                <div className="parchment p-20 text-center rounded-sm border-double border-4 border-[var(--paper-border)]">
+                  <Search size={40} className="mx-auto mb-4 text-[var(--ink-dim-text)]" />
+                  <p className="text-[var(--ink-dim-text)] italic font-hans">{t.noRecords}</p>
+                </div>
+              )}
+            </div>
+            <div className={activeMobileTab === "hometown-map" ? "block" : "hidden md:block"}>
+              <HometownMap
+                characters={filteredCharacters}
+                gardens={gardens}
+                locationsByType={locationsByType}
+                lang={lang}
+                onSelectGarden={setSelectedGarden}
+                onSelectLocation={setSelectedLocation}
+              />
+            </div>
           </section>
 
           {/* Right Sidebar - Chapters */}
           <aside className="order-3 md:col-span-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 md:gap-5 h-fit lg:col-span-1 lg:self-start">
-            <PlumBlossomBanquet />
+            <div className={activeMobileTab === "chapters" ? "block" : "hidden md:block"}>
+              <PlumBlossomBanquet />
+            </div>
             <div
               id="chapters"
-              className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24"
+              className={`relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+                activeMobileTab === "chapters" ? "block" : "hidden md:block"
+              }`}
             >
               <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
                 {t.chapters}
@@ -1907,12 +1955,16 @@ export default function App() {
 
             </div>
 
-            <OperaNight />
+            <div className={activeMobileTab === "chapters" ? "block" : "hidden md:block"}>
+              <OperaNight />
+            </div>
 
             {/* Works Cited */}
             <div
               id="works"
-              className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24"
+              className={`relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+                activeMobileTab === "works" ? "block" : "hidden md:block"
+              }`}
             >
               <div className="flex items-baseline justify-between border-b border-[var(--paper-border)] pb-2 mb-4">
                 <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
@@ -1973,12 +2025,16 @@ export default function App() {
               </div>
             </div>
 
-            <ScholarStudy />
+            <div className={activeMobileTab === "works" ? "block" : "hidden md:block"}>
+              <ScholarStudy />
+            </div>
 
             {/* Downloads */}
             <div
               id="downloads"
-              className="relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24"
+              className={`relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+                activeMobileTab === "downloads" ? "block" : "hidden md:block"
+              }`}
             >
               <div className="flex items-baseline justify-between border-b border-[var(--paper-border)] pb-2 mb-4">
                 <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold flex items-center gap-2">
