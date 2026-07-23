@@ -53,7 +53,7 @@ import { Chapter36Para3Illustration } from "./illustrations/Chapter36Para3Illust
 import { Chapter9Para11LanternMarket } from "./illustrations/Chapter9Para11LanternMarket";
 import { Chapter56Para4Illustration } from "./illustrations/Chapter56Para4Illustration";
 import { Chapter56Para7Illustration } from "./illustrations/Chapter56Para7Illustration";
-import { Chapter56Para13Illustration } from "./illustrations/Chapter56Para13Illustration";
+import { Chapter56Para10Illustration } from "./illustrations/Chapter56Para10Illustration";
 import { SnowMountainSVG } from "./illustrations/snow/SnowMountainSVG";
 import { SnowPagodaSVG } from "./illustrations/snow/SnowPagodaSVG";
 import { SnowScreenSVG } from "./illustrations/snow/SnowScreenSVG";
@@ -1191,7 +1191,7 @@ export function ChapterReader({
                     )}
                     {((chapter.id === 56 && (i === 9 || i === 10 || para.includes("忽见自己肩上有三寸来长的一条蝎虎"))) || (chapter.id === 10 && (i === 9 || i === 55))) && (
                       <div className="mt-4 mb-6 block w-full">
-                        <Chapter56Para13Illustration />
+                        <Chapter56Para10Illustration />
                       </div>
                     )}
                   </div>
