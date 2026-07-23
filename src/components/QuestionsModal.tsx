@@ -3,15 +3,18 @@ import { X } from "lucide-react";
 import { QuestionAnswer } from "../QuestionAnswer";
 import { questions } from "../questions";
 import { PermalinkButton } from "./PermalinkButton";
+import { LanguageSwitch } from "./LanguageSwitch";
 
 export function QuestionsModal({
   questionSlug,
   onClose,
   lang,
+  setLang,
 }: {
   questionSlug: string;
   onClose: () => void;
   lang: "en" | "zh";
+  setLang: (lang: "en" | "zh") => void;
 }) {
   const question = questions.find((q) => q.slug === questionSlug);
   if (!question) return null;
@@ -51,6 +54,7 @@ export function QuestionsModal({
             </h3>
           </div>
           <div className="flex items-center gap-1.5 shrink-0">
+            <LanguageSwitch lang={lang} setLang={setLang} />
             <PermalinkButton
               lang={lang}
               link={{ kind: "question", slug: questionSlug }}

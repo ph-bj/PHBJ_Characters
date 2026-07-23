@@ -2359,6 +2359,7 @@ export default function App() {
               questionSlug={selectedQuestion}
               onClose={() => setSelectedQuestion(null)}
               lang={lang}
+              setLang={setLang}
             />
           )}
         </AnimatePresence>
