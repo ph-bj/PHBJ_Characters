@@ -155,6 +155,7 @@ import { char_158Appearances } from './characterAppearances/char-158';
 import { char_159Appearances } from './characterAppearances/char-159';
 import { char_160Appearances } from './characterAppearances/char-160';
 import { char_161Appearances } from './characterAppearances/char-161';
+import { char_190Appearances } from './characterAppearances/char-190';
 
 export type { SceneBullet };
 
@@ -315,7 +316,9 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
   'char-159': char_159Appearances,
   'char-160': char_160Appearances,
   'char-161': char_161Appearances,
+  'char-190': char_190Appearances,
 };
+
 
 /** Curated scene bullets from characterAppearances; empty when none exist for this chapter. */
 export function getCharacterSceneBullets(

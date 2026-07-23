@@ -46,7 +46,9 @@ const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
   'char-117': 'Nursemaid (Ba Laifeng)',
   'char-118': 'Attendant (Fu household)',
   'char-120': 'Retinue (Hua household, ~20-30 people)',
+  'char-190': 'Doctor Li',
 };
+
 
 function getChineseName(fullName: string): string {
   const match = fullName.match(/^[\u3400-\u9fff（）·・、，。？！《》「」「」“”‘’\s]+/);

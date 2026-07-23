@@ -180,7 +180,9 @@ char-185	许老二 Xǔ Lǎoèr	—	—	—	minor	ch.40	Second of the Xu brothers
 char-186	许老三 Xǔ Lǎosān	许贵 / Xu Gui	16	—	servant	ch.40	Handsome young assistant in Pan San's silver shop; later renamed Xu Gui as Tian Chunhang's attendant (ch.47)	潘三银号中的清秀小伙计，年十六；后改名许贵，随田春航为跟班（第47回）。
 char-187	田安 Tián Ān	—	50+	—	servant	ch.12	Tian Chunhang's old family retainer; follows him from Nanjing and keeps his household through the lean years (chs.12–13, 48)	田春航的老家人；随行进京，穷困时仍守在身边（第12–13、48回）。
 char-188	田太夫人 Tián Tàifūrén	—	—	—	female	ch.48	Tian Chunhang's mother; brought to the capital after his success (ch.48); presides over the wedding-season gatherings (ch.52)	田春航之母；第48回被接进京，第52回操持喜庆宴集。
-char-189	缝穷婆 Féngqióng Pó	缝穷婆 / 缝穷的	—	—	female	ch.51	The mending-woman outside the theatre wall; her quarrel over pilfered coppers sets off the ch.51 street brawl	戏园墙外的缝穷婆；第51回因铜钱失窃与人争闹，引出隔墙听戏一场风波。`;
+char-189	缝穷婆 Féngqióng Pó	缝穷婆 / 缝穷的	—	—	female	ch.51	The mending-woman outside the theatre wall; her quarrel over pilfered coppers sets off the ch.51 street brawl	戏园墙外的缝穷婆；第51回因铜钱失窃与人争闹，引出隔墙听戏一场风波。
+char-190	李大夫 Lǐ Dàfū	Doctor Li	—	Nanjing	minor	ch.56	Doctor in Nanjing summoned by Liu Xi to treat Qu Daoweng when Doctor Wang was away in Yizheng County; arrives after Daoweng's death.	南京医生；王大夫去仪征县后，被刘喜请来为屈道翁诊治，次日赶到时道翁已故。`;
+
 
 const ROLE_MAP: Record<string, string> = {
   scholar: '名士',
@@ -331,7 +333,10 @@ const baseRelationships: Relationship[] = [
   { source: 'char-104', target: 'char-105', type: 'Marriage', typeZh: '夫妻' },
   { source: 'char-90', target: 'char-114', type: 'Master/Servant', typeZh: '主仆' },
   { source: 'char-2', target: 'char-113', type: 'Master/Servant', typeZh: '主仆' },
+  { source: 'char-190', target: 'char-141', type: 'Doctor & Patient', typeZh: '医患' },
+  { source: 'char-190', target: 'char-134', type: 'Acquaintance', typeZh: '相识' },
 ];
+
 
 const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
   const [id, nameRaw, alias, age, originRaw, roleRaw, chapter, description, descriptionZh] = line.split('\t');

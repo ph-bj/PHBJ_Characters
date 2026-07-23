@@ -99,7 +99,9 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   金粟: ["Jin Su", "Jinsu"],
   珊枝: ["Shanzhi", "Shan Zhi"],
   屈少君: ["Qu Shaojun"],
+  李大夫: ["Doctor Li"],
 };
+
 
 export function getEnglishAliasTokens(character: Character): string[] {
   if (character.alias === "—") return [];
@@ -452,7 +454,9 @@ export const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
   "char-117": "Nursemaid (Ba Laifeng)",
   "char-118": "Attendant (Fu household)",
   "char-120": "Retinue (Hua household, ~20-30 people)",
+  "char-190": "Doctor Li",
 };
+
 
 export function getCharacterNameForLanguage(
   character: Character,
