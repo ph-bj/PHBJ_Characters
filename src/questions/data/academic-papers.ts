@@ -17,9 +17,6 @@ export const question: QuestionDefinition = {
 8. Sinaguglia, Rosalia. "Pinhua Baojian and the Description of Actors in the Late Qing Period." *About Gender*, vol. 2, no. 3, 2013. [link](https://doi.org/10.15167/2279-5057/ag.2013.2.3.49)
 9. Mao, Wenfang. "Ranking Famous Flowers and Matching Beauties: The Knowledge Transfer and Genealogical Categorization of 'Flower Registers' and 'Pinhua jian'." *Zhongzheng Hanxue Yanjiu*, vol. 37, no. 37, 2021, pp. 1-43. [link](https://doi.org/10.53106/2306036020210600370001)
 10. Wu, Cuncun. "Pinhua Baojian: The Literary Retelling of Beijing's Theater Culture." *Xi wai zhi xi*, Hong Kong University Press, 2017, pp. 119-144. [link](https://doi.org/10.5790/9789888390472-004)
-8. Lu, Ying-Hsiu. "Male Bonding and Homosocial Desire in the Nineteenth-Century Chinese Homoerotic Novel, Pinhua baojian." *New Zealand Journal of Asian Studies*, 2023.
-9. Wang, David Der-wei. "Fin-de-Siècle Splendor: Repressed Modernities of Late Qing Fiction, 1849-1911." Stanford University Press, 1997.
-10. Wu, Cuncun. "Homoerotic Sensibilities in Late Imperial China." Routledge, 2004.
 
 These papers explore various themes within the novel, including gender boundaries, transvestitism, Beijing's theater culture, and literary analysis.`,
   answerZh: `以下是 10 篇与《品花宝鉴》相关的知名学术论文和学术著作：
