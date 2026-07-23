@@ -176,7 +176,7 @@ import { Character, Chapter } from "./types";
 
 export function getChapterReaderTitle(chapter: Chapter, lang: "en" | "zh"): string {
   if (lang === "zh") return chapter.title;
-  if (chapter.id === -1) return "Table of Contents";
+  if (chapter.id === -1) return "Contents";
   if (chapter.id === 0) return "Preface";
   const en = chapterTitleTranslations[chapter.id];
   return en

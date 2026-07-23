@@ -755,7 +755,7 @@ export function ChapterReader({
                 className={`text-base sm:text-xl font-bold text-[var(--ink-title)] line-clamp-2 ${lang === "en" ? "font-sans" : "font-hans"}`}
               >
                 {chapter.id === -1
-                  ? (lang === "zh" ? "目录" : "Table of Contents")
+                  ? (lang === "zh" ? "目录" : "Contents")
                   : chapter.id === 0
                   ? (lang === "zh" ? "序" : "Preface")
                   : (lang === "zh" ? `第${chapter.id}回` : `Ch. ${chapter.id}`)}
