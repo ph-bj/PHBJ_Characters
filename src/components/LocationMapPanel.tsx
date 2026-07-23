@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import { Compass } from 'lucide-react';
 import { Character } from '../types';
 import { locationColors, locationTypeLabels, LocationType } from '../locations';
 import geoData from '../assets/countries.geo.json';
 import coordinates from '../assets/coordinates.json';
 import { getCharacterNameForLanguage, type NovelLocationWithChapters } from '../utils';
 import { getGardenById, type Garden } from '../gardens';
+import { useMobileUnload } from '../hooks/useMobileUnload';
 
 export interface MapLocationData {
   id: string;
@@ -261,8 +263,10 @@ export function LocationMapPanel({
 }: LocationMapPanelProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { isUnloaded, reload } = useMobileUnload(containerRef);
 
   useEffect(() => {
+    if (isUnloaded) return;
     if (!svgRef.current || !containerRef.current || mapData.length === 0) return;
 
     const container = containerRef.current;
@@ -514,12 +518,58 @@ export function LocationMapPanel({
       svg.on('.zoom', null);
       svg.selectAll('*').remove();
     };
-  }, [mapData, lang, locationType]);
+  }, [mapData, lang, locationType, isUnloaded]);
 
   if (mapData.length === 0) {
     return (
       <div className="rounded border border-[var(--paper-border)]/50 bg-[var(--body-bg)]/50 p-8 text-center text-sm text-[var(--ink-dim-text)] italic">
         {lang === 'zh' ? '此类别暂无地点' : 'No locations in this category'}
+      </div>
+    );
+  }
+
+  if (isUnloaded) {
+    return (
+      <div>
+        <div className="mb-3 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/40 pb-2.5">
+          <div className="flex items-center gap-2">
+            <span
+              className="h-2.5 w-2.5 rounded-full border border-[var(--paper-border)] shrink-0 shadow-xs"
+              style={{ backgroundColor: locationColors[locationType] }}
+            />
+            <h3 className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--ink-title)]">
+              {title}
+            </h3>
+          </div>
+          <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2 py-0.5 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
+            {lang === 'zh' ? `${mapData.length} 个图例标记` : `${mapData.length} legend markers`}
+          </span>
+        </div>
+
+        <div
+          ref={containerRef}
+          className="relative w-full overflow-hidden rounded-sm border border-[var(--paper-border)]/60 bg-[var(--body-bg)] shadow-xs flex flex-col items-center justify-center p-6 text-center"
+          style={{ aspectRatio: '16/9', minHeight: '320px', maxHeight: '440px' }}
+        >
+          <div className="p-2.5 rounded-full bg-[var(--paper-border)]/20 mb-2 text-[var(--ink-dim-text)]">
+            <Compass size={28} />
+          </div>
+          <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--ink-title)] mb-1">
+            {lang === 'zh' ? '地图已暂存 (内存已释放)' : 'Map Unloaded'}
+          </h4>
+          <p className="text-[10px] text-[var(--ink-dim-text)] italic mb-3 max-w-xs">
+            {lang === 'zh'
+              ? '已滚动离开本区域。为防手机卡顿，地图 D3 元素已自动暂停并释放内存。'
+              : 'Scrolled out of view. Map D3 elements unloaded to save memory.'}
+          </p>
+          <button
+            type="button"
+            onClick={reload}
+            className="px-3.5 py-1.5 text-[11px] font-bold rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] hover:opacity-90 transition-opacity cursor-pointer shadow-xs"
+          >
+            {lang === 'zh' ? '重新加载地图' : 'Reload Map'}
+          </button>
+        </div>
       </div>
     );
   }

@@ -1,9 +1,10 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import * as d3 from 'd3';
-import { Maximize, Minimize } from 'lucide-react';
+import { Activity, Maximize, Minimize } from 'lucide-react';
 import { Character, Relationship } from '../types';
 import { getCoOccurrenceEdges } from '../cooccurrence';
+import { useMobileUnload } from '../hooks/useMobileUnload';
 
 type GraphMode = 'curated' | 'cooccurrence';
 
@@ -82,6 +83,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
   const [hiddenRoles, setHiddenRoles] = useState<Set<string>>(() => new Set());
   const [mode, setMode] = useState<GraphMode>('curated');
   const [minShared, setMinShared] = useState(5);
+
+  const { isUnloaded, reload } = useMobileUnload(containerRef, !isFullscreen);
 
   const availableRoles = useMemo(() => {
     const seen = new Set<string>();
@@ -227,6 +230,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
   }, [isFullscreen]);
 
   useEffect(() => {
+    if (isUnloaded) return;
     if (!svgRef.current || !containerRef.current) return;
 
     const container = containerRef.current;
@@ -551,10 +555,42 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
       window.visualViewport?.removeEventListener('resize', handleResize);
+      if (svgRef.current) {
+        d3.select(svgRef.current).selectAll('*').remove();
+      }
     };
-  }, [graphCharacters, filteredRelationships, filteredCoEdges, mode, minShared, lang, isFullscreen, onNodeClick]);
+  }, [graphCharacters, filteredRelationships, filteredCoEdges, mode, minShared, lang, isFullscreen, onNodeClick, isUnloaded]);
 
   const toggleFullscreen = () => setIsFullscreen((current) => !current);
+
+  if (isUnloaded && !isFullscreen) {
+    return (
+      <div
+        ref={containerRef}
+        data-network-graph="true"
+        className="w-full h-[400px] sm:h-[520px] md:h-[580px] lg:h-[650px] xl:h-[800px] parchment border-4 border-double border-[var(--paper-border)] rounded-sm overflow-hidden relative flex flex-col items-center justify-center p-6 text-center"
+      >
+        <div className="p-3.5 rounded-full bg-[var(--paper-border)]/20 mb-3 text-[var(--ink-dim-text)]">
+          <Activity size={32} />
+        </div>
+        <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--ink-title)] mb-1">
+          {lang === 'en' ? 'Character Network Unloaded' : '图谱已暂存 (内存已释放)'}
+        </h4>
+        <p className="text-[11px] text-[var(--ink-dim-text)] italic mb-4 max-w-xs">
+          {lang === 'en'
+            ? 'Network graph unloaded while scrolled out of view to save memory.'
+            : '已滚动离开本区域。为防手机卡顿，D3 元素及图谱模拟已自动暂停并释放内存。'}
+        </p>
+        <button
+          type="button"
+          onClick={reload}
+          className="px-4 py-2 text-xs font-bold rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] hover:opacity-90 transition-opacity cursor-pointer shadow-xs"
+        >
+          {lang === 'en' ? 'Reload Network Graph' : '重新加载关系图谱'}
+        </button>
+      </div>
+    );
+  }
 
   const graphMarkup = (
     <div
