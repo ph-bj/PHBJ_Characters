@@ -292,11 +292,13 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       selectNode(event, d);
     };
 
+    const isMobileDevice = typeof window !== 'undefined' && (window.innerWidth <= 768 || width <= 640);
+
     const simulation = d3.forceSimulation(nodes as any)
-      .force("link", d3.forceLink(links).id((d: any) => d.id).distance(100))
-      .force("charge", d3.forceManyBody().strength(-150))
+      .force("link", d3.forceLink(links).id((d: any) => d.id).distance(isMobileDevice ? 75 : 100))
+      .force("charge", d3.forceManyBody().strength(isMobileDevice ? -100 : -150))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collision", d3.forceCollide().radius(40));
+      .force("collision", d3.forceCollide().radius(isMobileDevice ? 32 : 40));
 
     const g = svg.append("g");
 
@@ -344,8 +346,11 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     );
     intersectionObserver.observe(container);
 
-    // Add zoom
+    // Add zoom with zoomed-out default scale for mobile devices
+    const initialScale = isMobileDevice ? 0.5 : 1.0;
+
     const zoom = d3.zoom()
+      .scaleExtent([0.15, 5])
       .filter((event) => {
         if (event.type === 'dblclick') return false;
         return (!event.ctrlKey || event.type === 'wheel') && !event.button;
@@ -354,7 +359,13 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         g.attr("transform", event.transform);
       });
 
+    const initialTransform = d3.zoomIdentity
+      .translate(width / 2, height / 2)
+      .scale(initialScale)
+      .translate(-width / 2, -height / 2);
+
     svg.call(zoom as any);
+    svg.call(zoom.transform as any, initialTransform);
     svg.on("dblclick.zoom", null);
 
     const link = g.append("g")
@@ -522,11 +533,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .attr("x", (d: any) => (d.source.x + d.target.x) / 2)
         .attr("y", (d: any) => (d.source.y + d.target.y) / 2);
 
-      node.attr("transform", (d: any) => {
-        const x = Math.max(nodeRadius, Math.min(width - nodeRadius, d.x));
-        const y = Math.max(nodeRadius, Math.min(height - nodeRadius, d.y));
-        return `translate(${x},${y})`;
-      });
+      node.attr("transform", (d: any) => `translate(${d.x},${d.y})`);
     });
 
     function dragstarted(event: any) {
