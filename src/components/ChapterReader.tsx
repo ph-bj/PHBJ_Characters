@@ -60,7 +60,6 @@ import { Chapter56Para22Illustration } from "./illustrations/Chapter56Para22Illu
 import { Chapter56Para29Illustration } from "./illustrations/Chapter56Para29Illustration";
 import { Chapter60Para4Illustration } from "./illustrations/Chapter60Para4Illustration";
 import { Chapter60Para10Illustration } from "./illustrations/Chapter60Para10Illustration";
-import { Chapter60Para13Illustration } from "./illustrations/Chapter60Para13Illustration";
 import { SnowMountainSVG } from "./illustrations/snow/SnowMountainSVG";
 import { SnowPagodaSVG } from "./illustrations/snow/SnowPagodaSVG";
 import { SnowScreenSVG } from "./illustrations/snow/SnowScreenSVG";
@@ -1230,11 +1229,6 @@ function ChapterReaderComponent({
                     {(chapter.id === 60 && para.includes("琴仙看东楹嵌的第一方画")) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter60Para10Illustration />
-                      </div>
-                    )}
-                    {(chapter.id === 60 && para.includes("公气为云，公神为水")) && (
-                      <div className="mt-4 mb-6 block w-full">
-                        <Chapter60Para13Illustration />
                       </div>
                     )}
                   </div>
