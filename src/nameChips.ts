@@ -54,6 +54,7 @@ export const NON_CHIP_ZH_TOKENS = new Set([
   "穷婆",
   "皂隶",
   "屈才",
+  "屈老",
 ]);
 
 
@@ -103,6 +104,7 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   珊枝: ["Shanzhi", "Shan Zhi"],
   屈本立: ["Qu Benli", "Qu Ben Li"],
   屈才爷: ["Qu"],
+  屈老爷: ["Qu"],
   屈少君: ["Qu Shaojun"],
   李大夫: ["Doctor Li"],
   王大夫: ["Doctor Wang"],
