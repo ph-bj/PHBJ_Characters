@@ -11,19 +11,16 @@ import React from "react";
  * - East Pillar (东楹) framed stone carving inset in Nine Fragrance Garden (九香楼)
  * - Upper celestial clouds ("云生九霄") & churning deep waters ("水出重渊")
  * - Swirling ethereal Ink Dragon hidden amidst mist & waves ("隐着一龙")
- * - Dragon extending a claw ("露出一爪") supporting the radiant spirit mirror ("托着一面镜子")
  * - Mirror inscribed with 《品花宝鉴》 with gold/silver light illuminating good & revealing evil ("烛微照幽，隐奸显贤")
- * - Xiao Cixian's eulogy verse carved in vertical calligraphic seal script
- * - Male opera actor Qin Xian (杜琴言) & male scholar Xiao Cixian with draped open silk robes revealing defined 6-pack abdominal muscles (abs)
  */
 export const Chapter60Para10Illustration: React.FC = () => {
   return (
     <div className="mt-4 mb-6 block w-full parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center select-none">
       <svg
-        viewBox="0 0 540 420"
+        viewBox="0 0 430 380"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full"
-        style={{ maxHeight: "380px" }}
+        style={{ maxHeight: "360px" }}
       >
         {/* ===== DEFS: Filters & Gradients in MainInkLandscape style ===== */}
         <defs>
@@ -87,15 +84,15 @@ export const Chapter60Para10Illustration: React.FC = () => {
         </defs>
 
         {/* ===== SCROLL DOUBLE BORDER ===== */}
-        <rect x="3" y="3" width="534" height="414" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="2" />
-        <rect x="8" y="8" width="524" height="404" fill="none" stroke="#2c2420" strokeWidth="1.8" rx="3" />
+        <rect x="3" y="3" width="424" height="374" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="2" />
+        <rect x="8" y="8" width="414" height="364" fill="none" stroke="#2c2420" strokeWidth="1.8" rx="3" />
 
         {/* ===== BACKGROUND INK WASHES (远景云雾与墨韵) ===== */}
         <g filter="url(#c60p10-mlBleedFar)">
           {/* Swirling celestial sky ink wash */}
-          <path d="M12 12 L528 12 L528 160 Q360 110, 240 145 Q120 110, 12 155 Z" fill="url(#c60p10-cloudSky)" opacity="0.3" />
+          <path d="M12 12 L418 12 L418 160 Q270 110, 215 145 Q120 110, 12 155 Z" fill="url(#c60p10-cloudSky)" opacity="0.3" />
           {/* Deep water abyss wash at bottom */}
-          <path d="M12 280 Q180 260, 360 275 Q460 265, 528 290 L528 408 L12 408 Z" fill="url(#c60p10-waterAbyss)" opacity="0.25" />
+          <path d="M12 280 Q180 260, 300 275 Q380 265, 418 290 L418 368 L12 368 Z" fill="url(#c60p10-waterAbyss)" opacity="0.25" />
           {/* Distant pavilion roof & garden trees silhouette */}
           <path d="M12 170 Q70 140, 130 160 Q200 135, 270 155 L270 240 L12 240 Z" fill="#2c2420" opacity="0.08" />
         </g>
@@ -111,10 +108,10 @@ export const Chapter60Para10Illustration: React.FC = () => {
 
           {/* ===== ARCHITECTURE: NINE FRAGRANCE PAVILION & EAST PILLAR (九香楼东楹) ===== */}
           {/* Corridor Floor / Terrace */}
-          <path d="M12 360 L528 360" stroke="#2c2420" strokeWidth="1.5" fill="none" />
-          <path d="M12 375 L528 375" stroke="#2c2420" strokeWidth="0.8" strokeDasharray="6,4" fill="none" />
+          <path d="M12 360 L418 360" stroke="#2c2420" strokeWidth="1.5" fill="none" />
+          <path d="M12 375 L418 375" stroke="#2c2420" strokeWidth="0.8" strokeDasharray="6,4" fill="none" />
 
-          {/* East Pillar (东楹) Frame on Left-Center (x: 45 to 375, y: 25 to 355) */}
+          {/* East Pillar (东楹) Frame on Left-Center (x: 40 to 385, y: 20 to 360) */}
           {/* Pillar Wooden Column */}
           <rect x="40" y="20" width="345" height="340" fill="none" stroke="#2c2420" strokeWidth="2" rx="2" />
           <rect x="44" y="24" width="337" height="332" fill="none" stroke="#2c2420" strokeWidth="0.8" strokeDasharray="3,3" />
@@ -201,7 +198,7 @@ export const Chapter60Para10Illustration: React.FC = () => {
             {/* Dragon Back Dorsal Fins (龙脊鳍) */}
             <path d="M120 178 L123 170 L128 180 M135 180 L139 172 L143 182 M150 185 L155 177 L160 188 M225 178 L230 170 L234 180 M240 172 L245 163 L250 174 M300 162 L306 153 L310 165" stroke="#2c2420" strokeWidth="1.2" fill="#2c2420" opacity="0.8" />
 
-            {/* Dragon Head emerging from clouds (x: 130, y: 155) */}
+            {/* Dragon Head emerging from clouds (x: 135, y: 140) */}
             <g transform="translate(135, 140)">
               {/* Head Base */}
               <path d="M0 0 Q15 -18, 32 -10 Q45 0, 38 18 Q20 28, -5 20 Q-15 10, 0 0 Z" fill="#2c2420" opacity="0.9" stroke="#2c2420" strokeWidth="1.5" />
@@ -274,110 +271,6 @@ export const Chapter60Para10Illustration: React.FC = () => {
                 <line x1="-28" y1="0" x2="-45" y2="0" strokeDasharray="3,2" />
               </g>
             </g>
-          </g>
-
-          {/* CHARACTER 1: QIN XIAN (琴仙 / 杜琴言) - Handsome Male Opera Actor / Scholar */}
-          {/* Position: Standing at right foreground (x: 435, y: 220), admiring the pillar artwork */}
-          <g transform="translate(435, 215)">
-            {/* Shadow beneath feet */}
-            <ellipse cx="0" cy="142" rx="22" ry="5" fill="#2c2420" opacity="0.2" />
-
-            {/* Hair Topknot & Scholar Cap (纶巾) */}
-            <path d="M-8 -68 L8 -68 L6 -56 L-6 -56 Z" fill="#2c2420" stroke="#2c2420" strokeWidth="1" />
-            <path d="M-4 -76 L4 -76 L6 -68 L-6 -68 Z" fill="#2c2420" />
-            <path d="M6 -62 Q16 -50, 20 -40" stroke="#2c2420" strokeWidth="1.2" fill="none" /> {/* Cap ribbons */}
-
-            {/* Head & Facial Profile looking left towards pillar */}
-            <ellipse cx="0" cy="-45" rx="9" ry="11" fill="none" stroke="#2c2420" strokeWidth="1.4" />
-            {/* Eye looking up with admiration */}
-            <path d="M-5 -47 Q-2 -49, 0 -46" stroke="#2c2420" strokeWidth="1" fill="none" />
-            <circle cx="-3" cy="-47" r="1" fill="#2c2420" />
-            {/* Nose & Lips */}
-            <path d="M-9 -45 L-11 -41 L-8 -39" stroke="#2c2420" strokeWidth="1" fill="none" />
-            <path d="M-9 -37 Q-7 -36, -5 -37" stroke="#2c2420" strokeWidth="0.8" fill="none" />
-
-            {/* Lower Robe Skirt (下裳) */}
-            <path d="M-18 45 L-26 140 L26 140 L18 45 Z" fill="#f5efe0" stroke="#2c2420" strokeWidth="1.5" />
-            <path d="M-10 45 L-14 140 M10 45 L14 140 M0 45 L0 140" stroke="#2c2420" strokeWidth="0.7" strokeDasharray="5,3" fill="none" />
-
-            {/* ===== OPEN SCHOLAR ROBE SHOWING DEFINED PECTORALS & 6-PACK ABS ===== */}
-            {/* Outer Silk Robe draped wide open around shoulders & torso */}
-            <path d="M-18 -34 L-28 45 L-18 45 L-8 -20 Z" fill="#2c2420" opacity="0.15" stroke="#2c2420" strokeWidth="1.3" />
-            <path d="M18 -34 L28 45 L18 45 L8 -20 Z" fill="#2c2420" opacity="0.15" stroke="#2c2420" strokeWidth="1.3" />
-
-            {/* Bare Muscular Neck & Shoulders */}
-            <path d="M-14 -34 Q-8 -32, 0 -30 Q8 -32, 14 -34" stroke="#2c2420" strokeWidth="1.2" fill="none" />
-            <path d="M-8 -32 L-10 -20 M8 -32 L10 -20" stroke="#2c2420" strokeWidth="1" fill="none" />
-            
-            {/* Clavicle Bones (锁骨) */}
-            <path d="M-11 -24 Q-5 -21, 0 -23 Q5 -21, 11 -24" stroke="#2c2420" strokeWidth="0.9" fill="none" />
-
-            {/* Pectoral Chest Muscles (胸肌) */}
-            <path d="M-12 -18 Q-6 -10, 0 -13 Q6 -10, 12 -18" stroke="#2c2420" strokeWidth="1.2" fill="none" />
-            <path d="M-11 -12 Q-6 -4, 0 -6 Q6 -4, 11 -12" stroke="#2c2420" strokeWidth="1.1" fill="none" />
-
-            {/* Linea Alba Center Line (腹白线) */}
-            <line x1="0" y1="-6" x2="0" y2="42" stroke="#2c2420" strokeWidth="1.1" />
-
-            {/* DEFINED 6-PACK ABDOMINAL MUSCLES (ABS / 腹肌) */}
-            {/* Upper Abs Pair */}
-            <path d="M-9 -2 Q0 2, 9 -2" stroke="#2c2420" strokeWidth="1" fill="none" />
-            <path d="M-8 6 Q0 9, 8 6" stroke="#2c2420" strokeWidth="1" fill="none" />
-            
-            {/* Middle Abs Pair */}
-            <path d="M-9 14 Q0 18, 9 14" stroke="#2c2420" strokeWidth="1" fill="none" />
-            <path d="M-8 22 Q0 25, 8 22" stroke="#2c2420" strokeWidth="1" fill="none" />
-
-            {/* Lower Abs Pair */}
-            <path d="M-8 30 Q0 33, 8 30" stroke="#2c2420" strokeWidth="0.9" fill="none" />
-            <path d="M-7 37 Q0 40, 7 37" stroke="#2c2420" strokeWidth="0.8" fill="none" />
-
-            {/* Serratus Anterior & External Obliques (肋间肌与斜肌) */}
-            <path d="M-14 -2 Q-10 2, -9 8 M14 -2 Q10 2, 9 8" stroke="#2c2420" strokeWidth="0.7" fill="none" />
-            <path d="M-13 12 Q-10 16, -9 20 M13 12 Q10 16, 9 20" stroke="#2c2420" strokeWidth="0.7" fill="none" />
-
-            {/* Arms & Hands holding folding fan pointing toward painting */}
-            {/* Left Arm raised pointing toward pillar */}
-            <path d="M-18 -32 L-36 -10 L-28 15" stroke="#2c2420" strokeWidth="1.4" fill="none" />
-            {/* Holding Fan (折扇) */}
-            <path d="M-36 -10 L-52 -28 L-42 -35 L-32 -18 Z" fill="#f5efe0" stroke="#2c2420" strokeWidth="1" />
-            <line x1="-36" y1="-10" x2="-47" y2="-31" stroke="#2c2420" strokeWidth="0.6" />
-            <line x1="-36" y1="-10" x2="-42" y2="-33" stroke="#2c2420" strokeWidth="0.6" />
-
-            {/* Right Arm hanging relaxed */}
-            <path d="M18 -32 L28 10 L22 35" stroke="#2c2420" strokeWidth="1.4" fill="none" />
-          </g>
-
-          {/* CHARACTER 2: XIAO CIXIAN (萧次贤) - Male Scholar & Author of the Eulogy */}
-          {/* Position: Standing behind Qin Xian (x: 492, y: 228) */}
-          <g transform="translate(492, 225)">
-            {/* Shadow */}
-            <ellipse cx="0" cy="132" rx="18" ry="4" fill="#2c2420" opacity="0.2" />
-
-            {/* Scholar Cap (方巾) */}
-            <path d="M-7 -62 L7 -62 L5 -52 L-5 -52 Z" fill="#2c2420" stroke="#2c2420" strokeWidth="1" />
-            <ellipse cx="0" cy="-42" rx="8" ry="10" fill="none" stroke="#2c2420" strokeWidth="1.3" />
-            {/* Profile facing left */}
-            <path d="M-8 -42 L-10 -38 L-7 -36" stroke="#2c2420" strokeWidth="0.9" fill="none" />
-
-            {/* Robe Skirt */}
-            <path d="M-15 40 L-22 130 L22 130 L15 40 Z" fill="#f5efe0" stroke="#2c2420" strokeWidth="1.3" />
-
-            {/* Open Silk Robe showing Muscular Pectorals & ABS */}
-            <path d="M-15 -30 L-24 40 L-15 40 L-6 -18 Z" fill="#2c2420" opacity="0.12" stroke="#2c2420" strokeWidth="1.2" />
-            <path d="M15 -30 L24 40 L15 40 L6 -18 Z" fill="#2c2420" opacity="0.12" stroke="#2c2420" strokeWidth="1.2" />
-
-            {/* Pectorals & Defined Abs */}
-            <path d="M-9 -14 Q-4 -8, 0 -10 Q4 -8, 9 -14" stroke="#2c2420" strokeWidth="1" fill="none" />
-            <line x1="0" y1="-10" x2="0" y2="36" stroke="#2c2420" strokeWidth="1" />
-            {/* 6-pack abs lines */}
-            <path d="M-7 -2 Q0 1, 7 -2" stroke="#2c2420" strokeWidth="0.8" fill="none" />
-            <path d="M-7 7 Q0 10, 7 7" stroke="#2c2420" strokeWidth="0.8" fill="none" />
-            <path d="M-7 16 Q0 19, 7 16" stroke="#2c2420" strokeWidth="0.8" fill="none" />
-            <path d="M-6 25 Q0 28, 6 25" stroke="#2c2420" strokeWidth="0.7" fill="none" />
-
-            {/* Hands folded in front */}
-            <path d="M-15 -30 L-8 10 M15 -30 L8 10" stroke="#2c2420" strokeWidth="1.2" />
           </g>
 
           {/* Traditional Red Seals (朱砂印章) on Painting Margins */}
