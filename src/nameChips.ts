@@ -96,8 +96,8 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   星北: ["Xingbei", "Xing Bei"],
   奚正绅: ["Xi Zhengshen", "Xi Zheng Shen"],
   道生: ["Daosheng", "Dao Sheng"],
-  石翁: ["Shiweng", "Shi Weng", "Lord Hou", "Hou"],
-  侯石翁: ["Lord Hou", "Hou"],
+  石翁: ["Shiweng", "Shi Weng", "Lord Hou", "Hou", "Hou Shi Weng", "Hou Shiweng"],
+  侯石翁: ["Hou Shi Weng", "Hou Shiweng", "Lord Hou", "Hou"],
   英官: ["Yingguan", "Ying Guan"],
   道翁: ["Daoweng", "Dao Weng"],
   佩秋: ["Peiqiu", "Pei Qiu"],
@@ -117,9 +117,15 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
 
 
 export function getEnglishAliasTokens(character: Character): string[] {
-  if (character.alias === "—") return [];
-  const parts = character.alias.split("/").map((p) => p.trim());
-  const chineseAliases = parts.flatMap((part) => extractChineseTokens(part));
+  const chineseName = character.name.split(" ")[0];
+  const parts =
+    character.alias !== "—"
+      ? character.alias.split("/").map((p) => p.trim())
+      : [];
+  const chineseAliases = [
+    chineseName,
+    ...parts.flatMap((part) => extractChineseTokens(part)),
+  ];
   const englishAliases = parts.filter((part) => /[A-Za-z]/.test(part));
   return [
     ...new Set([
