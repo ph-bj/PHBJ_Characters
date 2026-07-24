@@ -7,14 +7,13 @@ import React from 'react';
  * 左英琼瑶，右青珊瑚。一气二气，同归殊途。
  * 五色炫彩，九华流香。心花意蕊，文运之祥。
  *
- * 100% Consistent with MainInkLandscape.tsx Style:
- * - Pure traditional Chinese ink landscape (水墨山水) palette & technique: #2c2420 ink, #b4494e pale plum tint, #f5efe0 mist.
- * - Exact filter & gradient defs (inkTexture, mlBleed, mlBleedFar, inkMountain, moonHalo, mistFade, waterWash).
- * - Distant mountain ranges with cun fa (皴法) texture strokes, moon with halo, mist fade layer, plum blossom branch.
- * - Central Master scholar figure (三闾道君/司花曰主/司文曰郎) flanked by male scholar & opera actor attendants.
- * - All male scholars/actors feature sculpted, defined 6-pack abdominal muscles (abs) in signature ink linework.
- * - Sacred treasures: White jade (左英琼瑶) & ink coral branch (右青珊瑚).
- * - Taihu garden rocks (太湖石), water waves ("公神为水"), clouds ("公气为云"), vertical calligraphy & red seal stamp (#8b2500).
+ * 100% Consistent with `Chapter60Para10Illustration.tsx` & `MainInkLandscape.tsx` Style:
+ * - Traditional Chinese ink landscape (水墨山水) palette & technique: #2c2420 ink, #b4494e pale plum tint, #f5efe0 mist/parchment, #8b2500 vermilion seals, #2e7d70 cyan coral.
+ * - Exact filter & gradient defs (c60p13-inkTexture, c60p13-mlBleed, c60p13-mlBleedFar, c60p13-inkMountain, c60p13-moonHalo, c60p13-mistFade, c60p13-waterWash, c60p13-jadeGlow, c60p13-coralTint).
+ * - Distant mountain ranges with cun fa (皴法) texture strokes, glowing moon with halo, mist fade layer, plum blossom branch.
+ * - Central Master scholar figure (三闾道君/司花曰主/司文曰郎) flanked by male scholar & opera actor attendants with defined 6-pack abs.
+ * - Sacred treasures: White jade disk (左英琼瑶) with jade glow & green coral branch (右青珊瑚) with cyan jewel tips.
+ * - Taihu garden rocks (太湖石), water waves & lotus pond ("公神为水"), clouds ("公气为云"), vertical calligraphy & dual red seal stamps (#8b2500).
  */
 export const Chapter60Para13Illustration: React.FC = () => {
   return (
@@ -25,94 +24,120 @@ export const Chapter60Para13Illustration: React.FC = () => {
         className="w-full"
         style={{ maxHeight: '320px' }}
       >
-        {/* ===== DEFS: Exact Ink Wash Gradients & Filters from MainInkLandscape.tsx ===== */}
+        {/* ===== DEFS: Exact Ink Wash Gradients & Color Tints from Chapter60Para10Illustration ===== */}
         <defs>
           {/* Ink wash gradient for mountains */}
-          <linearGradient id="inkMountain" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="c60p13-inkMountain" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#2c2420" stopOpacity="0.6" />
             <stop offset="100%" stopColor="#2c2420" stopOpacity="0.08" />
           </linearGradient>
 
           {/* Radial wash for moon halo */}
-          <radialGradient id="moonHalo" cx="50%" cy="50%" r="50%">
+          <radialGradient id="c60p13-moonHalo" cx="50%" cy="50%" r="50%">
             <stop offset="40%" stopColor="#2c2420" stopOpacity="0" />
             <stop offset="100%" stopColor="#2c2420" stopOpacity="0.06" />
           </radialGradient>
 
           {/* Mist gradient */}
-          <linearGradient id="mistFade" x1="0" y1="0" x2="1" y2="0">
+          <linearGradient id="c60p13-mistFade" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#f5efe0" stopOpacity="0.9" />
             <stop offset="50%" stopColor="#f5efe0" stopOpacity="0.3" />
             <stop offset="100%" stopColor="#f5efe0" stopOpacity="0.8" />
           </linearGradient>
 
           {/* Water wash */}
-          <linearGradient id="waterWash" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="c60p13-waterWash" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#2c2420" stopOpacity="0.04" />
             <stop offset="100%" stopColor="#2c2420" stopOpacity="0.12" />
           </linearGradient>
 
           {/* Brush wobble - makes strokes waver like a hand-held brush */}
-          <filter id="inkTexture" x="-5%" y="-5%" width="110%" height="110%">
+          <filter id="c60p13-inkTexture" x="-5%" y="-5%" width="110%" height="110%">
             <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="7" result="noise" />
             <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
           </filter>
 
           {/* Ink bleed - soft feathered edges like wet ink on rice paper (洇墨) */}
-          <filter id="mlBleed" x="-15%" y="-15%" width="130%" height="130%">
+          <filter id="c60p13-mlBleed" x="-15%" y="-15%" width="130%" height="130%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur" />
             <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="3" result="noise" />
             <feDisplacementMap in="blur" in2="noise" scale="9" />
           </filter>
 
           {/* Heavier bleed for the farthest mountain wash */}
-          <filter id="mlBleedFar" x="-20%" y="-20%" width="140%" height="140%">
+          <filter id="c60p13-mlBleedFar" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
             <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="11" result="noise" />
             <feDisplacementMap in="blur" in2="noise" scale="12" />
           </filter>
 
           {/* Pale plum-blossom tint (淡彩) */}
-          <radialGradient id="mlPlumTint" cx="50%" cy="50%" r="50%">
+          <radialGradient id="c60p13-mlPlumTint" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#b4494e" stopOpacity="0.45" />
             <stop offset="100%" stopColor="#b4494e" stopOpacity="0.08" />
           </radialGradient>
+
+          {/* White Jade Disk Soft Glow (左英琼瑶) */}
+          <radialGradient id="c60p13-jadeGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#f5efe0" stopOpacity="0.9" />
+            <stop offset="60%" stopColor="#e2eee2" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#2c2420" stopOpacity="0" />
+          </radialGradient>
+
+          {/* Green Coral Branch Soft Tint (右青珊瑚 - 碧青) */}
+          <radialGradient id="c60p13-coralTint" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#2e7d70" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#2e7d70" stopOpacity="0.05" />
+          </radialGradient>
+
+          {/* Divine Daojun Gold Aura */}
+          <radialGradient id="c60p13-goldGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#f5efe0" stopOpacity="0.85" />
+            <stop offset="70%" stopColor="#d4c5a9" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="#2c2420" stopOpacity="0" />
+          </radialGradient>
+
+          {/* Lotus Leaf Pale Green Wash */}
+          <radialGradient id="c60p13-lotusTint" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#4a7c59" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#2c2420" stopOpacity="0.08" />
+          </radialGradient>
         </defs>
 
-        {/* ===== BACKGROUND FRAME (Identical to MainInkLandscape.tsx) ===== */}
+        {/* ===== BACKGROUND FRAME (Identical to Chapter60Para10Illustration.tsx) ===== */}
         <rect x="3" y="3" width="514" height="394" fill="none" stroke="#2c2420" strokeWidth="0.5" rx="2" />
         <rect x="8" y="8" width="504" height="384" fill="none" stroke="#2c2420" strokeWidth="1.8" rx="3" />
 
         {/* ===== LAYERED INK WASHES (墨分五色) ===== */}
         {/* Farthest range - palest wash, heavily bled */}
-        <g filter="url(#mlBleedFar)">
+        <g filter="url(#c60p13-mlBleedFar)">
           <path d="M12 172 Q50 102, 100 157 Q130 122, 175 152 Q210 102, 270 147 Q310 92, 370 142 Q410 107, 460 137 Q480 122, 515 167 L515 185 L12 185 Z" fill="#2c2420" opacity="0.14" />
         </g>
 
         {/* Mid range - bled washes hugging the ridge lines & figure aura */}
-        <g filter="url(#mlBleed)">
+        <g filter="url(#c60p13-mlBleed)">
           <path d="M12 170 Q50 100, 100 155 Q130 120, 175 150 Q210 100, 270 145 Q310 90, 370 140 Q410 105, 460 135 Q480 120, 515 165" fill="#2c2420" opacity="0.16" />
           <path d="M12 180 Q90 140, 160 175 Q220 145, 280 172 Q340 150, 400 168 Q440 155, 515 178" fill="#2c2420" opacity="0.09" />
           {/* Central aura wash behind Daojun */}
-          <ellipse cx="260" cy="220" rx="60" ry="80" fill="#2c2420" opacity="0.08" />
+          <ellipse cx="260" cy="220" rx="65" ry="85" fill="url(#c60p13-goldGlow)" opacity="0.6" />
           {/* Garden rock mass wash */}
           <ellipse cx="110" cy="275" rx="35" ry="25" fill="#2c2420" opacity="0.1" />
           {/* Bank shadow along pond edge */}
           <path d="M12 322 Q150 314, 300 320 Q420 324, 508 318 L508 334 L12 334 Z" fill="#2c2420" opacity="0.12" />
         </g>
 
-        {/* ALL LINEWORK PASSES THROUGH BRUSH WOBBLE FILTER (#inkTexture) */}
-        <g filter="url(#inkTexture)">
+        {/* ALL LINEWORK PASSES THROUGH BRUSH WOBBLE FILTER (#c60p13-inkTexture) */}
+        <g filter="url(#c60p13-inkTexture)">
 
           {/* ===== MOON WITH HALO (明月) ===== */}
-          <circle cx="430" cy="60" r="38" fill="url(#moonHalo)" />
-          <circle cx="430" cy="60" r="24" fill="none" stroke="#2c2420" strokeWidth="1.5" />
+          <circle cx="430" cy="60" r="38" fill="url(#c60p13-moonHalo)" />
+          <circle cx="430" cy="60" r="24" fill="#f5efe0" opacity="0.6" stroke="#2c2420" strokeWidth="1.5" />
           <circle cx="426" cy="57" r="19" fill="none" stroke="#2c2420" strokeWidth="0.5" strokeDasharray="2,4" />
 
           {/* ===== DISTANT MOUNTAINS WITH INK WASH ===== */}
-          <path d="M12 170 Q50 100, 100 155 Q130 120, 175 150 Q210 100, 270 145 Q310 90, 370 140 Q410 105, 460 135 Q480 120, 515 165" fill="url(#inkMountain)" stroke="none" opacity="0.3" />
+          <path d="M12 170 Q50 100, 100 155 Q130 120, 175 150 Q210 100, 270 145 Q310 90, 370 140 Q410 105, 460 135 Q480 120, 515 165" fill="url(#c60p13-inkMountain)" stroke="none" opacity="0.3" />
           <path d="M12 170 Q50 100, 100 155 Q130 120, 175 150 Q210 100, 270 145 Q310 90, 370 140 Q410 105, 460 135 Q480 120, 515 165" fill="none" stroke="#2c2420" strokeWidth="1.2" />
-          <path d="M12 180 Q90 140, 160 175 Q220 145, 280 172 Q340 150, 400 168 Q440 155, 515 178" fill="url(#inkMountain)" stroke="none" opacity="0.15" />
+          <path d="M12 180 Q90 140, 160 175 Q220 145, 280 172 Q340 150, 400 168 Q440 155, 515 178" fill="url(#c60p13-inkMountain)" stroke="none" opacity="0.15" />
           <path d="M12 180 Q90 140, 160 175 Q220 145, 280 172 Q340 150, 400 168 Q440 155, 515 178" fill="none" stroke="#2c2420" strokeWidth="0.8" strokeDasharray="4,3" />
 
           {/* Mountain Texture Strokes (皴法 - cun fa) */}
@@ -122,7 +147,7 @@ export const Chapter60Para13Illustration: React.FC = () => {
           <path d="M450 130 Q453 136, 451 142" fill="none" stroke="#2c2420" strokeWidth="0.3" opacity="0.4" />
 
           {/* ===== MIST LAYER (云雾) ===== */}
-          <rect x="10" y="165" width="500" height="20" fill="url(#mistFade)" />
+          <rect x="10" y="165" width="500" height="20" fill="url(#c60p13-mistFade)" />
 
           {/* ===== CLOUD WISPS (公气为云 / 祥云) ===== */}
           <path d="M120 55 Q135 42, 155 48 Q168 38, 185 48 Q198 40, 212 50 Q222 42, 235 52" fill="none" stroke="#2c2420" strokeWidth="0.7" opacity="0.5" />
@@ -135,11 +160,11 @@ export const Chapter60Para13Illustration: React.FC = () => {
           <path d="M55 48 Q62 32, 78 28" fill="none" stroke="#2c2420" strokeWidth="1" />
           <path d="M100 47 Q108 38, 118 35" fill="none" stroke="#2c2420" strokeWidth="0.8" />
           {/* Blossoms - 5 petal style with pale rouge wash (淡彩) */}
-          <circle cx="72" cy="46" r="6" fill="url(#mlPlumTint)" stroke="none" />
-          <circle cx="92" cy="48" r="5.5" fill="url(#mlPlumTint)" stroke="none" />
-          <circle cx="112" cy="44" r="5" fill="url(#mlPlumTint)" stroke="none" />
-          <circle cx="78" cy="28" r="4.5" fill="url(#mlPlumTint)" stroke="none" />
-          <circle cx="130" cy="43" r="4.5" fill="url(#mlPlumTint)" stroke="none" />
+          <circle cx="72" cy="46" r="6" fill="url(#c60p13-mlPlumTint)" stroke="none" />
+          <circle cx="92" cy="48" r="5.5" fill="url(#c60p13-mlPlumTint)" stroke="none" />
+          <circle cx="112" cy="44" r="5" fill="url(#c60p13-mlPlumTint)" stroke="none" />
+          <circle cx="78" cy="28" r="4.5" fill="url(#c60p13-mlPlumTint)" stroke="none" />
+          <circle cx="130" cy="43" r="4.5" fill="url(#c60p13-mlPlumTint)" stroke="none" />
           <circle cx="72" cy="46" r="5" fill="none" stroke="#2c2420" strokeWidth="0.9" />
           <circle cx="72" cy="46" r="2" fill="#2c2420" />
           <circle cx="92" cy="48" r="4.5" fill="none" stroke="#2c2420" strokeWidth="0.9" />
@@ -153,36 +178,43 @@ export const Chapter60Para13Illustration: React.FC = () => {
 
           {/* ===== TAIHU GARDEN ROCKS (太湖石 - left & right background) ===== */}
           {/* Left Rock */}
-          <path d="M85 300 Q78 278, 92 268 Q98 256, 112 264 Q122 254, 132 268 Q142 274, 136 292 Q126 308, 108 312 Q90 310, 85 300" fill="none" stroke="#2c2420" strokeWidth="1.4" />
+          <path d="M85 300 Q78 278, 92 268 Q98 256, 112 264 Q122 254, 132 268 Q142 274, 136 292 Q126 308, 108 312 Q90 310, 85 300" fill="#2c2420" opacity="0.04" stroke="#2c2420" strokeWidth="1.4" />
           <ellipse cx="100" cy="278" rx="5" ry="6" fill="none" stroke="#2c2420" strokeWidth="0.8" />
           <ellipse cx="118" cy="284" rx="4" ry="4" fill="none" stroke="#2c2420" strokeWidth="0.7" />
           <path d="M90 288 Q94 285, 96 290" fill="none" stroke="#2c2420" strokeWidth="0.5" />
 
           {/* Right Rock */}
-          <path d="M380 310 Q377 295, 386 288 Q394 292, 400 304 Q394 316, 383 312 Z" fill="none" stroke="#2c2420" strokeWidth="1.2" />
+          <path d="M380 310 Q377 295, 386 288 Q394 292, 400 304 Q394 316, 383 312 Z" fill="#2c2420" opacity="0.04" stroke="#2c2420" strokeWidth="1.2" />
           <ellipse cx="388" cy="298" rx="3" ry="3.5" fill="none" stroke="#2c2420" strokeWidth="0.6" />
 
 
           {/* ===== SACRED TREASURES: WHITE JADE DISK (左英琼瑶) & CORAL BRANCH (右青珊瑚) ===== */}
           {/* Left White Jade Disk (左英琼瑶) floating gently */}
           <g transform="translate(165, 175)">
-            <circle cx="0" cy="0" r="14" fill="none" stroke="#2c2420" strokeWidth="1.3" />
-            <circle cx="0" cy="0" r="5" fill="none" stroke="#2c2420" strokeWidth="0.9" />
-            <circle cx="-6" cy="-3" r="0.8" fill="#2c2420" opacity="0.6" />
-            <circle cx="6" cy="3" r="0.8" fill="#2c2420" opacity="0.6" />
+            {/* Soft Jade Aura Glow */}
+            <circle cx="0" cy="0" r="22" fill="url(#c60p13-jadeGlow)" />
+            <circle cx="0" cy="0" r="14" fill="#f5efe0" stroke="#2c2420" strokeWidth="1.3" />
+            <circle cx="0" cy="0" r="10" fill="url(#c60p13-mlPlumTint)" opacity="0.4" stroke="none" />
+            <circle cx="0" cy="0" r="5" fill="#f5efe0" stroke="#2c2420" strokeWidth="0.9" />
+            <circle cx="-6" cy="-3" r="0.9" fill="#2c2420" opacity="0.6" />
+            <circle cx="6" cy="3" r="0.9" fill="#2c2420" opacity="0.6" />
             <line x1="-18" y1="0" x2="-24" y2="0" stroke="#2c2420" strokeWidth="0.5" strokeDasharray="2,2" opacity="0.6" />
             <line x1="18" y1="0" x2="24" y2="0" stroke="#2c2420" strokeWidth="0.5" strokeDasharray="2,2" opacity="0.6" />
           </g>
 
           {/* Right Coral Branch (右青珊瑚) held / floating */}
           <g transform="translate(350, 170)">
+            {/* Green Coral Soft Wash Background */}
+            <ellipse cx="6" cy="-10" rx="22" ry="24" fill="url(#c60p13-coralTint)" />
             <path d="M0 20 Q2 5, 5 -10 Q10 -20, 8 -30" fill="none" stroke="#2c2420" strokeWidth="1.6" />
             <path d="M5 -10 Q14 -15, 20 -22" fill="none" stroke="#2c2420" strokeWidth="1.1" />
             <path d="M2 -18 Q-8 -24, -12 -30" fill="none" stroke="#2c2420" strokeWidth="1" />
             <path d="M0 5 Q10 0, 16 5" fill="none" stroke="#2c2420" strokeWidth="0.9" />
-            <circle cx="8" cy="-30" r="1.5" fill="#2c2420" />
-            <circle cx="20" cy="-22" r="1.3" fill="#2c2420" />
-            <circle cx="-12" cy="-30" r="1.3" fill="#2c2420" />
+            {/* Coral Jewels / Buds in Deep Emerald/Cyan (#2e7d70 & #8b2500) */}
+            <circle cx="8" cy="-30" r="2.2" fill="#2e7d70" stroke="#2c2420" strokeWidth="0.6" />
+            <circle cx="20" cy="-22" r="1.8" fill="#2e7d70" stroke="#2c2420" strokeWidth="0.6" />
+            <circle cx="-12" cy="-30" r="1.8" fill="#2e7d70" stroke="#2c2420" strokeWidth="0.6" />
+            <circle cx="16" cy="5" r="1.5" fill="#8b2500" stroke="#2c2420" strokeWidth="0.5" />
           </g>
 
 
@@ -209,6 +241,9 @@ export const Chapter60Para13Illustration: React.FC = () => {
             <path d="M245 194 Q238 220, 230 260 L225 295" fill="none" stroke="#2c2420" strokeWidth="1.4" />
             <path d="M275 194 Q282 220, 290 260 L295 295" fill="none" stroke="#2c2420" strokeWidth="1.4" />
 
+            {/* Skin Tone Parchment Fill for Exposed Chest & ABS */}
+            <path d="M245 194 Q260 190, 275 194 L272 225 Q260 228, 248 225 Z" fill="#f5efe0" opacity="0.5" />
+
             {/* EXPOSED CHEST MUSCLES (胸肌 - MainInkLandscape style) */}
             <path d="M250 198 Q255 202, 260 199 Q265 202, 270 198" fill="none" stroke="#2c2420" strokeWidth="0.8" />
 
@@ -220,7 +255,7 @@ export const Chapter60Para13Illustration: React.FC = () => {
             <path d="M255 218 Q260 219, 265 218" fill="none" stroke="#2c2420" strokeWidth="0.4" />
 
             {/* Waist Sash & Knot (腰带) */}
-            <path d="M248 225 Q260 228, 272 225" fill="none" stroke="#2c2420" strokeWidth="0.9" />
+            <path d="M248 225 Q260 228, 272 225" fill="#f5efe0" stroke="#2c2420" strokeWidth="0.9" />
             <path d="M258 225 Q256 250, 254 275" fill="none" stroke="#2c2420" strokeWidth="1" />
             <path d="M262 225 Q264 250, 266 275" fill="none" stroke="#2c2420" strokeWidth="1" />
 
@@ -253,6 +288,9 @@ export const Chapter60Para13Illustration: React.FC = () => {
             {/* Broad Shoulders */}
             <path d="M163 237 Q169 233, 175 234 Q181 233, 187 237" fill="none" stroke="#2c2420" strokeWidth="1.3" />
 
+            {/* Skin Tone Parchment Fill for Exposed Chest & ABS */}
+            <path d="M163 237 Q175 234, 187 237 L183 262 Q175 264, 167 262 Z" fill="#f5efe0" opacity="0.5" />
+
             {/* Torso V-Taper */}
             <line x1="163" y1="237" x2="167" y2="262" stroke="#2c2420" strokeWidth="1.2" />
             <line x1="187" y1="237" x2="183" y2="262" stroke="#2c2420" strokeWidth="1.2" />
@@ -274,7 +312,7 @@ export const Chapter60Para13Illustration: React.FC = () => {
             <path d="M187 237 Q192 245, 195 252" fill="none" stroke="#2c2420" strokeWidth="1.1" />
             {/* Flower branch in hands */}
             <path d="M148 250 Q160 246, 172 242" fill="none" stroke="#2c2420" strokeWidth="0.8" />
-            <circle cx="146" cy="249" r="3" fill="url(#mlPlumTint)" stroke="none" />
+            <circle cx="146" cy="249" r="3.5" fill="url(#c60p13-mlPlumTint)" stroke="none" />
             <circle cx="146" cy="249" r="2.5" fill="none" stroke="#2c2420" strokeWidth="0.6" />
 
             {/* Legs Stance */}
@@ -300,6 +338,9 @@ export const Chapter60Para13Illustration: React.FC = () => {
             {/* Broad Shoulders */}
             <path d="M323 237 Q329 233, 335 234 Q341 233, 347 237" fill="none" stroke="#2c2420" strokeWidth="1.3" />
 
+            {/* Skin Tone Parchment Fill for Exposed Chest & ABS */}
+            <path d="M323 237 Q335 234, 347 237 L343 262 Q335 264, 327 262 Z" fill="#f5efe0" opacity="0.5" />
+
             {/* Torso V-Taper */}
             <line x1="323" y1="237" x2="327" y2="262" stroke="#2c2420" strokeWidth="1.2" />
             <line x1="347" y1="237" x2="343" y2="262" stroke="#2c2420" strokeWidth="1.2" />
@@ -319,8 +360,9 @@ export const Chapter60Para13Illustration: React.FC = () => {
             {/* Arms - Holding literary scroll (文运之祥) */}
             <path d="M323 237 Q316 244, 312 252" fill="none" stroke="#2c2420" strokeWidth="1.1" />
             <path d="M347 237 Q352 245, 355 252" fill="none" stroke="#2c2420" strokeWidth="1.1" />
-            {/* Scroll roll */}
-            <rect x="306" y="246" width="10" height="18" rx="1.5" fill="none" stroke="#2c2420" strokeWidth="0.8" />
+            {/* Scroll roll with parchment fill and red ribbon */}
+            <rect x="306" y="246" width="10" height="18" rx="1.5" fill="#f5efe0" stroke="#2c2420" strokeWidth="0.8" />
+            <line x1="306" y1="255" x2="316" y2="255" stroke="#8b2500" strokeWidth="1" />
 
             {/* Legs Stance */}
             <line x1="330" y1="262" x2="327" y2="288" stroke="#2c2420" strokeWidth="1.2" />
@@ -331,7 +373,7 @@ export const Chapter60Para13Illustration: React.FC = () => {
 
 
           {/* ===== WATER / POND (公神为水 / 池塘) ===== */}
-          <rect x="12" y="325" width="496" height="60" fill="url(#waterWash)" />
+          <rect x="12" y="325" width="496" height="60" fill="url(#c60p13-waterWash)" />
           <path d="M12 325 Q60 319, 120 325 Q180 331, 240 325 Q300 319, 360 325 Q420 331, 508 325" fill="none" stroke="#2c2420" strokeWidth="0.8" />
           <path d="M30 333 Q80 329, 140 333 Q200 337, 260 333 Q320 329, 380 333 Q430 337, 490 333" fill="none" stroke="#2c2420" strokeWidth="0.5" />
           <path d="M50 341 Q100 338, 160 341 Q220 344, 280 341 Q340 338, 400 341 Q450 344, 500 341" fill="none" stroke="#2c2420" strokeWidth="0.3" opacity="0.6" />
@@ -341,14 +383,14 @@ export const Chapter60Para13Illustration: React.FC = () => {
           <path d="M310 352 Q320 350, 330 352 Q340 354, 350 352" fill="none" stroke="#2c2420" strokeWidth="0.3" opacity="0.4" />
 
           {/* Lotus leaves in water */}
-          <ellipse cx="140" cy="340" rx="10" ry="4" fill="none" stroke="#2c2420" strokeWidth="0.6" />
+          <ellipse cx="140" cy="340" rx="10" ry="4" fill="url(#c60p13-lotusTint)" stroke="#2c2420" strokeWidth="0.6" />
           <line x1="140" y1="336" x2="140" y2="344" stroke="#2c2420" strokeWidth="0.3" />
-          <ellipse cx="370" cy="343" rx="8" ry="3" fill="none" stroke="#2c2420" strokeWidth="0.5" />
+          <ellipse cx="370" cy="343" rx="8" ry="3" fill="url(#c60p13-lotusTint)" stroke="#2c2420" strokeWidth="0.5" />
           <line x1="370" y1="340" x2="370" y2="346" stroke="#2c2420" strokeWidth="0.3" />
 
           {/* Lotus bud - tipped with plum rouge */}
           <line x1="165" y1="335" x2="165" y2="325" stroke="#2c2420" strokeWidth="0.5" />
-          <path d="M162 325 Q165 319, 168 325 Q165 327, 162 325 Z" fill="url(#mlPlumTint)" stroke="none" />
+          <path d="M162 325 Q165 319, 168 325 Q165 327, 162 325 Z" fill="url(#c60p13-mlPlumTint)" stroke="none" />
           <path d="M162 325 Q165 319, 168 325" fill="none" stroke="#2c2420" strokeWidth="0.6" />
 
           {/* ===== FLYING BIRDS (飞鸟) ===== */}
@@ -362,13 +404,20 @@ export const Chapter60Para13Illustration: React.FC = () => {
           <path d="M470 310 Q473 305, 475 310" fill="none" stroke="#2c2420" strokeWidth="0.3" />
         </g>
 
-        {/* ===== RED SEAL STAMP (印章 - Exact style from MainInkLandscape.tsx) ===== */}
+        {/* ===== RED SEAL STAMPS (印章 - Exact style from Chapter60Para10Illustration.tsx) ===== */}
+        {/* Primary Seal ("司花") */}
         <rect x="475" y="352" width="22" height="22" fill="none" stroke="#8b2500" strokeWidth="1.5" rx="1" />
+        <rect x="477" y="354" width="18" height="18" fill="#8b2500" opacity="0.12" rx="1" />
         <text x="486" y="367" textAnchor="middle" fill="#8b2500" fontSize="10" fontFamily="serif" fontWeight="bold">花</text>
 
-        {/* ===== CALLIGRAPHY TITLE (题字 - Exact vertical-rl style from MainInkLandscape.tsx) ===== */}
-        <text x="488" y="160" textAnchor="middle" fill="#2c2420" fontSize="13" fontFamily="serif" writingMode="vertical-rl" opacity="0.7">司文司花</text>
-        <text x="502" y="160" textAnchor="middle" fill="#2c2420" fontSize="8" fontFamily="serif" writingMode="vertical-rl" opacity="0.5">九香花史</text>
+        {/* Secondary Seal ("司文") */}
+        <rect x="475" y="326" width="22" height="22" fill="none" stroke="#8b2500" strokeWidth="1.5" rx="1" />
+        <rect x="477" y="328" width="18" height="18" fill="#8b2500" opacity="0.12" rx="1" />
+        <text x="486" y="341" textAnchor="middle" fill="#8b2500" fontSize="10" fontFamily="serif" fontWeight="bold">文</text>
+
+        {/* ===== CALLIGRAPHY TITLE (题字 - Exact vertical-rl style from Chapter60Para10Illustration.tsx) ===== */}
+        <text x="488" y="160" textAnchor="middle" fill="#2c2420" fontSize="13" fontFamily="serif" writingMode="vertical-rl" opacity="0.75">司文司花</text>
+        <text x="502" y="160" textAnchor="middle" fill="#2c2420" fontSize="8" fontFamily="serif" writingMode="vertical-rl" opacity="0.55">九香花史</text>
       </svg>
     </div>
   );
