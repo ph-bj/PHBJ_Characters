@@ -57,6 +57,7 @@ import { Chapter56Para10Illustration } from "./illustrations/Chapter56Para10Illu
 import { Chapter56Para15Illustration } from "./illustrations/Chapter56Para15Illustration";
 import { Chapter56Para19Illustration } from "./illustrations/Chapter56Para19Illustration";
 import { Chapter56Para22Illustration } from "./illustrations/Chapter56Para22Illustration";
+import { Chapter56Para29Illustration } from "./illustrations/Chapter56Para29Illustration";
 import { SnowMountainSVG } from "./illustrations/snow/SnowMountainSVG";
 import { SnowPagodaSVG } from "./illustrations/snow/SnowPagodaSVG";
 import { SnowScreenSVG } from "./illustrations/snow/SnowScreenSVG";
@@ -1211,6 +1212,11 @@ export function ChapterReader({
                     {(chapter.id === 56 && para.includes("琴仙也只得睡下")) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter56Para22Illustration />
+                      </div>
+                    )}
+                    {(chapter.id === 56 && para.includes("琴仙拾起镜子来一照")) && (
+                      <div className="mt-4 mb-6 block w-full">
+                        <Chapter56Para29Illustration />
                       </div>
                     )}
                   </div>
