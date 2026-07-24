@@ -1226,7 +1226,7 @@ function ChapterReaderComponent({
                         <Chapter60Para4Illustration />
                       </div>
                     )}
-                    {(chapter.id === 60 && (para.includes("琴仙看东楹嵌的第一方画") || para.includes("上不在天，下不在田"))) && (
+                    {(chapter.id === 60 && para.includes("琴仙看东楹嵌的第一方画")) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter60Para10Illustration />
                       </div>
