@@ -52,7 +52,9 @@ export const NON_CHIP_ZH_TOKENS = new Set([
   "妈妈",
   "大夫",
   "穷婆",
+  "皂隶",
 ]);
+
 
 // English tokens that must never chip: they collide with historical figures
 // mentioned in the text (the Tang poet Du Mu vs 杜母 "Du's mother") or are
