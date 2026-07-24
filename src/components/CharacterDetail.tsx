@@ -25,6 +25,8 @@ import {
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
 
+const characterMentionDataCache = new Map<string, { ch: number; count: number }[]>();
+
 export function CharacterDetail({
   character,
   onClose,
@@ -81,13 +83,17 @@ export function CharacterDetail({
   }[lang];
 
   const mentionData = useMemo(() => {
+    const cached = characterMentionDataCache.get(character.id);
+    if (cached) return cached;
     const tokens = getCharacterMentionTokens(character);
-    return chapters
+    const data = chapters
       .filter((ch) => ch.id >= 1)
       .map((ch) => ({
         ch: ch.id,
         count: countMentionsInText(ch.content, tokens),
       }));
+    characterMentionDataCache.set(character.id, data);
+    return data;
   }, [character]);
 
   const mentionedChapters = mentionData.filter((d) => d.count > 0);

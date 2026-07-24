@@ -144,7 +144,7 @@ const PlumIcon: React.FC<{ className?: string; size?: number }> = ({ className =
   );
 };
 
-export function ChapterReader({
+function ChapterReaderComponent({
   chapter,
   onClose,
   lang,
@@ -1348,3 +1348,11 @@ export function ChapterReader({
     </div>
   );
 }
+
+export const ChapterReader = React.memo(
+  ChapterReaderComponent,
+  (prev, next) =>
+    prev.chapter.id === next.chapter.id &&
+    prev.lang === next.lang &&
+    prev.keysSuspended === next.keysSuspended,
+);

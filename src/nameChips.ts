@@ -411,7 +411,12 @@ export function removeTrailingSurname(
   return { text };
 }
 
+const segmentCache = new Map<string, Segment[]>();
+
 export function segmentText(text: string, tokenMap: [string, Character][]): Segment[] {
+  const cached = segmentCache.get(text);
+  if (cached) return cached;
+
   const segments: Segment[] = [];
   let cursor = 0;
   while (cursor < text.length) {
@@ -456,6 +461,7 @@ export function segmentText(text: string, tokenMap: [string, Character][]): Segm
       cursor++;
     }
   }
+  segmentCache.set(text, segments);
   return segments;
 }
 

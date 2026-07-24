@@ -2206,7 +2206,7 @@ export default function App() {
               onClose={() => setSelectedChapter(null)}
               lang={lang}
               setLang={setLang}
-              onSelectCharacter={(character) => setSelectedCharacter(character)}
+              onSelectCharacter={setSelectedCharacter}
               onSelectChapter={setSelectedChapter}
               onSelectLacuna={() => setActiveLacunaChapter(selectedChapter.id)}
               keysSuspended={readerObscured}
