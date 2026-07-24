@@ -58,6 +58,7 @@ import { Chapter56Para15Illustration } from "./illustrations/Chapter56Para15Illu
 import { Chapter56Para19Illustration } from "./illustrations/Chapter56Para19Illustration";
 import { Chapter56Para22Illustration } from "./illustrations/Chapter56Para22Illustration";
 import { Chapter56Para29Illustration } from "./illustrations/Chapter56Para29Illustration";
+import { Chapter60Para4Illustration } from "./illustrations/Chapter60Para4Illustration";
 import { SnowMountainSVG } from "./illustrations/snow/SnowMountainSVG";
 import { SnowPagodaSVG } from "./illustrations/snow/SnowPagodaSVG";
 import { SnowScreenSVG } from "./illustrations/snow/SnowScreenSVG";
@@ -1217,6 +1218,11 @@ function ChapterReaderComponent({
                     {(chapter.id === 56 && para.includes("琴仙拾起镜子来一照")) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter56Para29Illustration />
+                      </div>
+                    )}
+                    {(chapter.id === 60 && (i === 3 || para.includes("做两块好，就镶嵌在东西两楹"))) && (
+                      <div className="mt-4 mb-6 block w-full">
+                        <Chapter60Para4Illustration />
                       </div>
                     )}
                   </div>
