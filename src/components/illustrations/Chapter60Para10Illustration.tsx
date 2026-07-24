@@ -276,40 +276,6 @@ export const Chapter60Para10Illustration: React.FC = () => {
             </g>
           </g>
 
-          {/* 5. ENGRAVED EULOGY VERSE BY XIAO CIXIAN (次贤赞语) */}
-          {/* Vertical Calligraphic Text Columns engraved on the right side of the stone slab */}
-          <g transform="translate(305, 75)" fill="#2c2420" fontFamily="serif" fontSize="7.5" fontWeight="bold" opacity="0.85">
-            {/* Column 1 */}
-            <text x="0" y="10" textAnchor="middle">上不在天</text>
-            <text x="0" y="22" textAnchor="middle">下不在田</text>
-            <text x="0" y="34" textAnchor="middle">云生九霄</text>
-            <text x="0" y="46" textAnchor="middle">水出重渊</text>
-            
-            {/* Column 2 */}
-            <text x="-14" y="60" textAnchor="middle">神奇变化</text>
-            <text x="-14" y="72" textAnchor="middle">气象万千</text>
-            <text x="-14" y="84" textAnchor="middle">灵珠之圆</text>
-            <text x="-14" y="96" textAnchor="middle">明镜之悬</text>
-
-            {/* Column 3 */}
-            <text x="-28" y="110" textAnchor="middle">烛微照幽</text>
-            <text x="-28" y="122" textAnchor="middle">隐奸显贤</text>
-            <text x="-28" y="134" textAnchor="middle">如月之临</text>
-            <text x="-28" y="146" textAnchor="middle">如水之鲜</text>
-
-            {/* Column 4 */}
-            <text x="-42" y="160" textAnchor="middle">亦曰媸其</text>
-            <text x="-42" y="172" textAnchor="middle">媸媸而妍</text>
-            <text x="-42" y="184" textAnchor="middle">其妍次贤</text>
-
-            {/* Engraved Red Stamp Seal */}
-            <rect x="-48" y="194" width="12" height="14" fill="#b4494e" opacity="0.8" rx="1" />
-            <text x="-42" y="204" textAnchor="middle" fill="#f5efe0" fontSize="6.5" fontWeight="bold">次</text>
-          </g>
-
-
-          {/* ===== CHARACTERS ADMIRING THE PAINTING (琴仙与次贤) ===== */}
-          
           {/* CHARACTER 1: QIN XIAN (琴仙 / 杜琴言) - Handsome Male Opera Actor / Scholar */}
           {/* Position: Standing at right foreground (x: 435, y: 220), admiring the pillar artwork */}
           <g transform="translate(435, 215)">
@@ -380,14 +346,6 @@ export const Chapter60Para10Illustration: React.FC = () => {
 
             {/* Right Arm hanging relaxed */}
             <path d="M18 -32 L28 10 L22 35" stroke="#2c2420" strokeWidth="1.4" fill="none" />
-
-            {/* Character Name Tag / Label */}
-            <g transform="translate(0, 152)">
-              <rect x="-18" y="-9" width="36" height="15" fill="#f5efe0" stroke="#2c2420" strokeWidth="0.8" rx="2" />
-              <text x="0" y="2" textAnchor="middle" fill="#2c2420" fontSize="8.5" fontWeight="bold" fontFamily="serif">
-                琴仙
-              </text>
-            </g>
           </g>
 
           {/* CHARACTER 2: XIAO CIXIAN (萧次贤) - Male Scholar & Author of the Eulogy */}
@@ -420,14 +378,6 @@ export const Chapter60Para10Illustration: React.FC = () => {
 
             {/* Hands folded in front */}
             <path d="M-15 -30 L-8 10 M15 -30 L8 10" stroke="#2c2420" strokeWidth="1.2" />
-
-            {/* Name Tag */}
-            <g transform="translate(0, 142)">
-              <rect x="-18" y="-9" width="36" height="15" fill="#f5efe0" stroke="#2c2420" strokeWidth="0.8" rx="2" />
-              <text x="0" y="2" textAnchor="middle" fill="#2c2420" fontSize="8.5" fontWeight="bold" fontFamily="serif">
-                次贤
-              </text>
-            </g>
           </g>
 
           {/* Traditional Red Seals (朱砂印章) on Painting Margins */}
@@ -443,16 +393,6 @@ export const Chapter60Para10Illustration: React.FC = () => {
 
         </g>
       </svg>
-
-      {/* Title & Paragraph Caption below illustration */}
-      <div className="mt-2 text-center">
-        <p className="text-xs font-bold tracking-widest text-[#2c2420] font-serif">
-          《品花宝鉴》第六十回 · 东楹云龙托镜图
-        </p>
-        <p className="text-[11px] italic text-[#57493e] mt-1 max-w-xl font-serif">
-          「琴仙看东楹嵌的第一方画，上云下水，云水中间，隐着一龙，露出一爪，托着一面镜子，上题曰：《品花宝鉴》。刻着次贤的赞语是：上不在天，下不在田。云生九霄，水出重渊。神奇变化，气象万千。灵珠之圆，明镜之悬。烛微照幽，隐奸显贤。如月之临，如水之鲜。亦曰媸其媸媸，而妍其妍。」
-        </p>
-      </div>
     </div>
   );
 };
