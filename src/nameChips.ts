@@ -108,6 +108,9 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   屈才爷: ["Qu"],
   屈老爷: ["Qu"],
   屈少君: ["Qu Shaojun"],
+  季十矮子: ["Ji Shi the Dwarf", "Ji Shi Aizi", "Ji the Little Dwarf"],
+  季矮子: ["Ji the Dwarf", "Ji Aizi", "Ji the Little Dwarf"],
+  季十: ["Ji Shi"],
   屈琴仙: ["Qu Qinxian", "Qu Qin Xian"],
   屈勤先: ["Qu Qinxian", "Qu Qin Xian"],
   杜仙女: ["Du Xiannv", "Fairy Du"],
@@ -541,6 +544,7 @@ export const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
   "char-194": "Huang Zhanggui",
   "char-195": "Silver Bank Manager",
   "char-196": "Hua Zhengchang Manager",
+  "char-197": "Ji Shi the Dwarf",
 };
 
 

@@ -137,8 +137,8 @@ export const char_26Appearances: Record<number, SceneBullet[]> = {
   ],
   "60": [
     {
-      en: "Included in the final poetic register of characters, celebrating the assembled talents.",
-      zh: "在最终的群芳名册中被提及，作为众才子佳人之一。",
+      en: "In the drawing of lots for biographies and portraits, Cixian draws Jin Shufang (referred to in the original text via a scribal error as Shoujiu/Shujiu 漱久 for 漱芳). Shufang later composes the four-character eulogy for Xiao Cixian as the 'Escaped Grade Among Immortals'.",
+      zh: "在抽签撰写文星传记与画像时，次贤抽中金漱芳（原刻本因“芳”字形近笔误而写作“漱久”）。漱芳随后为萧次贤撰写了《仙中逸品萧文星》赞语。",
     },
   ],
 };

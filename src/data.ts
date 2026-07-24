@@ -24,7 +24,7 @@ char-22	孙嗣元 Sūn Sìyuán	迭韵双声谱	~24	Jinling	scholar	ch.2	Younger
 char-23	袁宝珠 Yuán Bǎozhū	瑶卿	16	Suzhou	performer	ch.1	Top-ranked performer, celebrated for painting and poetry. A close confidant of Xu Ziyun and a loyal friend who supports Qinyan during hardships.	花榜状元，以书画诗词见长。是徐子云的知音，也是琴言最可靠的盟友。
 char-24	苏蕙芳 Sū Huìfāng	媚香	17	Suzhou	performer	ch.1	High-principled performer of official descent; soulmate to Tian Chunhang. Known for her wit and integrity, helping secure Qinyan's freedom (ch. 43).	花榜榜眼，官宦之后。与田春航情投意合，第43回以机智助琴言赎身。
 char-25	陆素兰 Lù Sùlán	香畹	16	Suzhou	performer	ch.1	A talented performer and calligrapher, loved by Shi Nanxiang. Known for her righteousness, she actively assists in the Ziyu-Qinyan reunion (ch. 22).	花榜探花，精通书法。史南湘之知己，第22回苦心促成子玉与琴言重逢。
-char-26	金漱芳 Jīn Shùfāng	瘦香 / 漱芳 / 漱久	15	Suzhou	performer	ch.1	#4; plays flute and chess; Lianzhu troupe	花榜第四；擅长吹笛下棋；联珠班。
+char-26	金漱芳 Jīn Shùfāng	瘦香 / 漱芳 / 漱久	15	Suzhou	performer	ch.1	#4; plays flute and chess; Lianzhu troupe; referred to as 漱久 via scribal error in ch.60	花榜第四；擅长吹笛下棋；联珠班（第60回原刻本笔误为“漱久”）。
 char-27	李玉林 Lǐ Yùlín	佩仙	15	Yangzhou	performer	ch.1	#5; musician; famous for 《折柳阳关》; Lianzhu troupe	花榜第五；乐师；以《折柳阳关》闻名；联珠班。
 char-28	王兰保 Wáng Lánbǎo	静芳	17	Yangzhou	performer	ch.1	#6; martial arts; refuses powerful patrons; elder brother of Guibao; Lianjin troupe	花榜第六；擅长武术；拒绝权贵；桂保之兄；联锦班。
 char-29	王桂保 Wáng Guìbǎo	蕊香	15	Yangzhou	performer	ch.1	A charming and witty performer, younger brother of Lanbao. A steady presence in social and literary scenes throughout the novel.	兰保之弟，排行花榜第七，为人机智讨喜。是文人雅集中的常客，贯穿全书始终。
@@ -187,7 +187,8 @@ char-192	汪升 Wāng Shēng	—	—	—	villain	ch.56	Treacherous servant of Qu
 char-193	钱德 Qián Dé	—	—	—	villain	ch.56	Treacherous servant of Qu Daoweng; absconded with Zhang Gui in ch.56; captured in Ji'an in ch.59.	屈道翁的背主恶仆；第56回与张贵等人合谋盗宝潜逃，第59回于吉安府落网。
 char-194	黄掌柜 Huáng Zhǎngguì	黄掌柜 / 春阳馆掌柜	—	Beijing	minor	ch.8	Manager of Chunyang Restaurant who greets patrons, gets into a dispute with Wei Pincai over unpaid bills, and later co-founds Anji Hall with Monk Tang.	春阳馆掌柜；后与唐和尚合伙开安吉堂。
 char-195	银号掌柜 Yínhào Zhǎngguì	银号掌柜 / 掌柜的	—	Beijing	minor	ch.34	Manager of a Beijing silver draft bank who issues 1,400 taels in silver drafts to Fu Third near the end of the year.	京城银号掌柜；第34回年关为富三开立一千四百两银票。
-char-196	华正昌书铺掌柜 Huá Zhèngchāng Shūpù Zhǎngguì	华正昌掌柜 / 老年掌柜	—	—	minor	ch.56	Elderly shopkeeper of the 'Hua Zhengchang' bookshop who greets Qinxian in his dream in Chapter 56.	“华正昌”书铺老年掌柜；第56回在琴仙梦境中出现。`;
+char-196	华正昌书铺掌柜 Huá Zhèngchāng Shūpù Zhǎngguì	华正昌掌柜 / 老年掌柜	—	—	minor	ch.56	Elderly shopkeeper of the 'Hua Zhengchang' bookshop who greets Qinxian in his dream in Chapter 56.	“华正昌”书铺老年掌柜；第56回在琴仙梦境中出现。
+char-197	季十矮子 Jì Shí Ǎizi	季十 / 季矮子	—	Beijing	minor	ch.46	Skilled stone and wood carver/engraver recommended by Jin Jifu; engraved Qu Daoweng's calligraphy for Yiyuan screens in ch.46-47 and arranged stone carvers for Jiuxiang Garden steles in ch.60.	精明熟练的刻工/石刻匠人；金吉甫推荐；第46-47回在怡园刻含万楼屏风，第60回负责找人雕刻九香园十图石碑。`;
 
 
 const ROLE_MAP: Record<string, string> = {
@@ -350,6 +351,8 @@ const baseRelationships: Relationship[] = [
   { source: 'char-134', target: 'char-194', type: 'Business Partner', typeZh: '合作/合伙' },
   { source: 'char-53', target: 'char-195', type: 'Customer & Banker', typeZh: '客户与银号掌柜' },
   { source: 'char-1', target: 'char-196', type: 'Dream Encounter', typeZh: '梦中相识' },
+  { source: 'char-17', target: 'char-197', type: 'Patron & Artisan', typeZh: '推荐与刻工' },
+  { source: 'char-7', target: 'char-197', type: 'Employer & Artisan', typeZh: '雇佣与刻工' },
 ];
 
 
