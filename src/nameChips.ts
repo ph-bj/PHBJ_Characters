@@ -84,7 +84,6 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   媚香: ["Meixiang", "Mei Xiang"],
   香畹: ["Xiangwan", "Xiang Wan"],
   瘦香: ["Shouxiang", "Shou Xiang", "Shoufang", "Shou Fang"],
-  漱久: ["Shujiu", "Shu Jiu", "Shoujiu", "Shou Jiu"],
   佩仙: ["Peixian", "Pei Xian"],
   静芳: ["Jingfang", "Jing Fang"],
   蕊香: ["Ruixiang", "Rui Xiang"],

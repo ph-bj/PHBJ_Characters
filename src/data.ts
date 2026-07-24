@@ -24,7 +24,7 @@ char-22	孙嗣元 Sūn Sìyuán	迭韵双声谱	~24	Jinling	scholar	ch.2	Younger
 char-23	袁宝珠 Yuán Bǎozhū	瑶卿	16	Suzhou	performer	ch.1	Top-ranked performer, celebrated for painting and poetry. A close confidant of Xu Ziyun and a loyal friend who supports Qinyan during hardships.	花榜状元，以书画诗词见长。是徐子云的知音，也是琴言最可靠的盟友。
 char-24	苏蕙芳 Sū Huìfāng	媚香	17	Suzhou	performer	ch.1	High-principled performer of official descent; soulmate to Tian Chunhang. Known for her wit and integrity, helping secure Qinyan's freedom (ch. 43).	花榜榜眼，官宦之后。与田春航情投意合，第43回以机智助琴言赎身。
 char-25	陆素兰 Lù Sùlán	香畹	16	Suzhou	performer	ch.1	A talented performer and calligrapher, loved by Shi Nanxiang. Known for her righteousness, she actively assists in the Ziyu-Qinyan reunion (ch. 22).	花榜探花，精通书法。史南湘之知己，第22回苦心促成子玉与琴言重逢。
-char-26	金漱芳 Jīn Shùfāng	瘦香 / 漱芳 / 漱久	15	Suzhou	performer	ch.1	#4; plays flute and chess; Lianzhu troupe; referred to as 漱久 via scribal error in ch.60	花榜第四；擅长吹笛下棋；联珠班（第60回原刻本笔误为“漱久”）。
+char-26	金漱芳 Jīn Shùfāng	瘦香 / 漱芳	15	Suzhou	performer	ch.1	#4; plays flute and chess; Lianzhu troupe	花榜第四；擅长吹笛下棋；联珠班。
 char-27	李玉林 Lǐ Yùlín	佩仙	15	Yangzhou	performer	ch.1	#5; musician; famous for 《折柳阳关》; Lianzhu troupe	花榜第五；乐师；以《折柳阳关》闻名；联珠班。
 char-28	王兰保 Wáng Lánbǎo	静芳	17	Yangzhou	performer	ch.1	#6; martial arts; refuses powerful patrons; elder brother of Guibao; Lianjin troupe	花榜第六；擅长武术；拒绝权贵；桂保之兄；联锦班。
 char-29	王桂保 Wáng Guìbǎo	蕊香	15	Yangzhou	performer	ch.1	A charming and witty performer, younger brother of Lanbao. A steady presence in social and literary scenes throughout the novel.	兰保之弟，排行花榜第七，为人机智讨喜。是文人雅集中的常客，贯穿全书始终。
