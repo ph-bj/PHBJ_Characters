@@ -53,6 +53,7 @@ export const NON_CHIP_ZH_TOKENS = new Set([
   "大夫",
   "穷婆",
   "皂隶",
+  "屈才",
 ]);
 
 
@@ -101,6 +102,7 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   金粟: ["Jin Su", "Jinsu"],
   珊枝: ["Shanzhi", "Shan Zhi"],
   屈本立: ["Qu Benli", "Qu Ben Li"],
+  屈才爷: ["Qu"],
   屈少君: ["Qu Shaojun"],
   李大夫: ["Doctor Li"],
   王大夫: ["Doctor Wang"],
@@ -424,14 +426,30 @@ export function segmentText(text: string, tokenMap: [string, Character][]): Segm
     for (const [token, char] of tokenMap) {
       if (text.startsWith(token, cursor)) {
         const afterPos = cursor + token.length;
-        // ASCII tokens require a word-boundary after the match
+        // ASCII tokens require a word-boundary before and after the match
         const isAscii = /[a-zA-Z]/.test(token);
-        if (
-          isAscii &&
-          afterPos < text.length &&
-          /[a-zA-Z]/.test(text[afterPos])
-        )
-          continue;
+        if (isAscii) {
+          if (
+            cursor > 0 &&
+            /[a-zA-Z\u00C0-\u024F]/.test(text[cursor - 1])
+          )
+            continue;
+          if (
+            afterPos < text.length &&
+            /[a-zA-Z]/.test(text[afterPos])
+          )
+            continue;
+          if (token === "Qu") {
+            const rest = text.slice(cursor);
+            const before = text.slice(Math.max(0, cursor - 15), cursor);
+            if (
+              rest.startsWith("Qu Yuan") ||
+              rest.startsWith("Qu Shrine") ||
+              before.includes("Jinlü")
+            )
+              continue;
+          }
+        }
         // Context-sensitive tokens: only chip if context confirms a person name
         if (
           CONTEXT_SENSITIVE_TOKENS.has(token) &&
