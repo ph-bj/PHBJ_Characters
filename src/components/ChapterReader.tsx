@@ -60,6 +60,7 @@ import { Chapter56Para22Illustration } from "./illustrations/Chapter56Para22Illu
 import { Chapter56Para29Illustration } from "./illustrations/Chapter56Para29Illustration";
 import { Chapter60Para4Illustration } from "./illustrations/Chapter60Para4Illustration";
 import { Chapter60Para10Illustration } from "./illustrations/Chapter60Para10Illustration";
+import { Chapter60Para13Illustration } from "./illustrations/Chapter60Para13Illustration";
 import { SnowMountainSVG } from "./illustrations/snow/SnowMountainSVG";
 import { SnowPagodaSVG } from "./illustrations/snow/SnowPagodaSVG";
 import { SnowScreenSVG } from "./illustrations/snow/SnowScreenSVG";
@@ -538,8 +539,8 @@ function ChapterReaderComponent({
           speakParagraph(text, paraKey, speechLang);
         }}
         className={`inline-flex items-center justify-center shrink-0 rounded-full border transition-all duration-200 mr-1.5 align-middle select-none ${isActive
-            ? "w-6 h-6 bg-[var(--accent)] border-[var(--accent)] text-white shadow-sm hover:bg-red-600 hover:border-red-600"
-            : "w-5 h-5 bg-[var(--paper-bg)]/80 border-[var(--paper-border)] text-[var(--ink-dim-text)]/60 hover:text-[var(--accent)] hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/10"
+          ? "w-6 h-6 bg-[var(--accent)] border-[var(--accent)] text-white shadow-sm hover:bg-red-600 hover:border-red-600"
+          : "w-5 h-5 bg-[var(--paper-bg)]/80 border-[var(--paper-border)] text-[var(--ink-dim-text)]/60 hover:text-[var(--accent)] hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/10"
           }`}
         title={
           isActive
@@ -775,8 +776,8 @@ function ChapterReaderComponent({
                   type="button"
                   onClick={() => { setShowZhVoicePicker(p => !p); setShowEnVoicePicker(false); }}
                   className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedZhVoiceName
-                      ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
-                      : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
+                    ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
+                    : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
                     }`}
                   title={lang === "zh" ? "选择中文语音" : "Choose Chinese voice"}
                   aria-label={lang === "zh" ? "选择中文语音" : "Choose Chinese voice"}
@@ -798,8 +799,8 @@ function ChapterReaderComponent({
                         type="button"
                         onClick={() => selectZhVoice("")}
                         className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/50 ${!selectedZhVoiceName
-                            ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
-                            : "text-[var(--ink-dim-text)] hover:bg-black/5"
+                          ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
+                          : "text-[var(--ink-dim-text)] hover:bg-black/5"
                           }`}
                       >
                         {lang === "zh" ? "默认语音" : "Default voice"}
@@ -814,8 +815,8 @@ function ChapterReaderComponent({
                           type="button"
                           onClick={() => selectZhVoice(v.name)}
                           className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${selectedZhVoiceName === v.name
-                              ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
-                              : "text-[var(--ink-title)] hover:bg-black/5"
+                            ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
+                            : "text-[var(--ink-title)] hover:bg-black/5"
                             }`}
                         >
                           <span className="block truncate">{v.name}</span>
@@ -831,8 +832,8 @@ function ChapterReaderComponent({
                   type="button"
                   onClick={() => { setShowEnVoicePicker(p => !p); setShowZhVoicePicker(false); }}
                   className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedEnVoiceName
-                      ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
-                      : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
+                    ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
+                    : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
                     }`}
                   title={lang === "zh" ? "选择英文语音" : "Choose English voice"}
                   aria-label={lang === "zh" ? "选择英文语音" : "Choose English voice"}
@@ -854,8 +855,8 @@ function ChapterReaderComponent({
                         type="button"
                         onClick={() => selectEnVoice("")}
                         className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/50 ${!selectedEnVoiceName
-                            ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
-                            : "text-[var(--ink-dim-text)] hover:bg-black/5"
+                          ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
+                          : "text-[var(--ink-dim-text)] hover:bg-black/5"
                           }`}
                       >
                         {lang === "zh" ? "默认语音" : "Default voice"}
@@ -870,8 +871,8 @@ function ChapterReaderComponent({
                           type="button"
                           onClick={() => selectEnVoice(v.name)}
                           className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${selectedEnVoiceName === v.name
-                              ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
-                              : "text-[var(--ink-title)] hover:bg-black/5"
+                            ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
+                            : "text-[var(--ink-title)] hover:bg-black/5"
                             }`}
                         >
                           <span className="block truncate">{v.name}</span>
@@ -1229,6 +1230,11 @@ function ChapterReaderComponent({
                     {(chapter.id === 60 && para.includes("琴仙看东楹嵌的第一方画")) && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter60Para10Illustration />
+                      </div>
+                    )}
+                    {(chapter.id === 60 && para.includes("公气为云")) && (
+                      <div className="mt-4 mb-6 block w-full">
+                        <Chapter60Para13Illustration />
                       </div>
                     )}
                   </div>
