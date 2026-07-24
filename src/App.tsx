@@ -1899,12 +1899,8 @@ export default function App() {
                         <span className="block text-[8px] uppercase tracking-widest text-[var(--accent)] font-bold">
                           {lang === "zh" ? "继续阅读" : "Continue reading"}
                         </span>
-                        <span className="block text-[11px] font-hans text-[var(--ink-title)] truncate">
-                          {continueReadingChapter.id === 0
-                            ? lang === "zh"
-                              ? "序"
-                              : "Preface"
-                            : (lang === "zh" ? continueReadingChapter.title : (chapterTitleTranslations[continueReadingChapter.id] || continueReadingChapter.title))}
+                        <span className="block text-[11px] font-hans text-[var(--ink-title)] leading-tight">
+                          {getChapterReaderTitle(continueReadingChapter, lang)}
                         </span>
                       </span>
                     </button>
