@@ -96,8 +96,8 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   星北: ["Xingbei", "Xing Bei"],
   奚正绅: ["Xi Zhengshen", "Xi Zheng Shen"],
   道生: ["Daosheng", "Dao Sheng"],
-  石翁: ["Shiweng", "Shi Weng", "Lord Hou"],
-  侯石翁: ["Lord Hou"],
+  石翁: ["Shiweng", "Shi Weng", "Lord Hou", "Hou"],
+  侯石翁: ["Lord Hou", "Hou"],
   英官: ["Yingguan", "Ying Guan"],
   道翁: ["Daoweng", "Dao Weng"],
   佩秋: ["Peiqiu", "Pei Qiu"],
@@ -449,6 +449,18 @@ export function segmentText(text: string, tokenMap: [string, Character][]): Segm
               rest.startsWith("Qu Yuan") ||
               rest.startsWith("Qu Shrine") ||
               before.includes("Jinlü")
+            )
+              continue;
+          }
+          if (token === "Hou") {
+            const rest = text.slice(cursor);
+            const before = text.slice(Math.max(0, cursor - 15), cursor);
+            if (
+              rest.startsWith("Hou Yi") ||
+              rest.startsWith("Hou Sheng") ||
+              rest.startsWith("Hou' (") ||
+              before.endsWith("matched '") ||
+              before.toLowerCase().endsWith("su ")
             )
               continue;
           }

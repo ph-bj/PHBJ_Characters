@@ -126,7 +126,7 @@ char-131	杜母 Dù Mǔ	其母	—	Jiangsu	deceased	ch.5	Qinyan's mother; died o
 char-132	杜族叔 Dù Zúshū	—	—	—	deceased	ch.5	Qinyan's clan uncle who took him in; died when Qinyan was 13	琴言族叔；收留琴言；琴言13岁时去世。
 char-133	魏老仁 Wèi Lǎorén	—	—	—	deceased	ch.2	Wei Pincai's father; a failed litigious scholar; now works in a salt bureau	魏聘才之父；落魄文人；在盐务局工作。
 char-134	刘喜 Liú Xǐ	—	40+	—	servant	ch.55	Loyal longtime attendant to Qu Daosheng; protects and supports Qinxian through illness, theft, funeral rites, and return arrangements	屈道生的老仆；在重病、失窃、丧事与返京过程中始终尽心扶持琴仙。
-char-135	侯石翁 Hóu Shíwēng	石翁 / Lord Hou	74	Nanjing	scholar	ch.55	Elder literary celebrity at Phoenix Mountain; outwardly patronizing but morally ambiguous in his treatment of Qinxian after Daosheng's death	凤凰山文坛名宿；在道翁身后对琴仙“照应”中显出复杂且暧昧的真实面目。
+char-135	侯石翁 Hóu Shíwēng	石翁 / Lord Hou / Hou	74	Nanjing	scholar	ch.55	Elder literary celebrity at Phoenix Mountain; outwardly patronizing but morally ambiguous in his treatment of Qinxian after Daosheng's death	凤凰山文坛名宿；在道翁身后对琴仙“照应”中显出复杂且暧昧的真实面目。
 char-136	巴英官 Bā Yīngguān	英官	~15	—	servant	ch.40	Youth attached to Xi Shiyi's household; central to Xi's late-stage debauchery arc and ensuing bodily retribution	奚十一身边少年；卷入其后期淫乱与报应情节，是关键当事人之一。
 char-137	菊花 Júhuā	白菊花 / White Chrysanthemum	20+	Guangxi	minor	ch.17	Courtesan from Wuzhou, Guangxi, at Madam Tao's East Garden house, known as White Chrysanthemum; becomes Xi Shiyi's intimate companion through his decline and retribution arcs	广西梧州人，东园陶家妓女，人称白菊花；后成为奚十一的亲近之人，见证其衰败与报应线。
 char-138	得月 Déyuè	—	~17	—	performer	ch.40	Young novice/performance-world youth linked with Xi Shiyi, Wei Pincai, and Pan Qiguan; pivotal in major karmic episodes in later chapters	与奚十一、魏聘才、潘其观等线索相连的重要少年人物；在后段多起报应事件中居关键位置。
