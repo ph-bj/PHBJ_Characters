@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { BarChart, Bar, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { BookOpen, Info, MapPin, MessageSquare, Type, User, X } from "lucide-react";
+import { BookOpen, Calendar, Info, MapPin, MessageSquare, Type, User, X } from "lucide-react";
 import { chapters } from "../chapters";
 import { chapterSummaries } from "../chapterSummaries";
 import {
@@ -55,6 +55,7 @@ export function CharacterDetail({
       readChapter: "Read Chapter",
       origin: "Origin",
       gender: "Gender",
+      age: "Age",
       firstEntry: "First Entry",
       speeches: "Speeches",
       wordsSpoken: "Chinese Words Spoken",
@@ -71,6 +72,7 @@ export function CharacterDetail({
       readChapter: "阅读全回",
       origin: "籍贯",
       gender: "性别",
+      age: "年龄",
       firstEntry: "首次登场",
       speeches: "发言次数",
       wordsSpoken: "中文发言字数",
@@ -316,7 +318,7 @@ export function CharacterDetail({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
             <div className="space-y-1">
               <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.origin}
@@ -330,6 +332,19 @@ export function CharacterDetail({
                 <span>
                   {lang === "zh" ? character.originZh : character.origin}
                 </span>
+              </div>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+                {t.age}
+              </p>
+              <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+                <Calendar
+                  size={14}
+                  className="sm:w-4 sm:h-4 shrink-0"
+                  style={{ color: accentColor }}
+                />
+                <span>{character.age}</span>
               </div>
             </div>
             <div className="space-y-1">
