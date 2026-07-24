@@ -50,7 +50,9 @@ function joinParagraphs(paras: string[]): string {
         let idx = suffix.indexOf(token);
         while (idx !== -1) {
           const alreadyCovered = matches.some(
-            (m) => idx >= m.index && idx < m.index + m.token.length
+            (m) =>
+              Math.max(idx, m.index) <
+              Math.min(idx + token.length, m.index + m.token.length)
           );
           if (!alreadyCovered) {
             matches.push({ charId: char.id, token, index: idx });

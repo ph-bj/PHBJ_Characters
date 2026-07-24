@@ -532,9 +532,11 @@ export function getChapterMentionedCharacters(content: string): Character[] {
         shortenedYeTokens.push(t.slice(0, -1));
       }
     }
-    const tokens = Array.from(new Set([...baseTokens, ...shortenedYeTokens])).filter(
-      (token) => token.length >= 2,
-    );
+    const tokens = Array.from(
+      new Set([...baseTokens, ...shortenedYeTokens]),
+    )
+      .filter((token) => token.length >= 2)
+      .sort((a, b) => b.length - a.length);
 
     if (tokens.some((token) => content.includes(token))) {
       if (!hitIds.has(character.id)) {

@@ -129,12 +129,12 @@ export function getEnglishAliasTokens(character: Character): string[] {
     ...parts.flatMap((part) => extractChineseTokens(part)),
   ];
   const englishAliases = parts.filter((part) => /[A-Za-z]/.test(part));
-  return [
+  return sortMentionTokensByLength([
     ...new Set([
       ...chineseAliases.flatMap((alias) => ENGLISH_ALIAS_TOKENS[alias] ?? []),
       ...englishAliases,
     ]),
-  ];
+  ]);
 }
 
 /**
@@ -370,12 +370,14 @@ export function getChineseShortFormTokens(char: Character): string[] {
   if (chineseName.endsWith("爷") && chineseName.length > 2) {
     shortenedYeTokens.push(chineseName.slice(0, -1));
   }
-  return [...new Set([...baseTokens, ...shortenedYeTokens])].filter(
-    (t) =>
-      (t.length >= 2 || CONTEXT_SENSITIVE_TOKENS.has(t)) &&
-      t !== chineseName &&
-      !GENERIC_HONORIFICS.has(t) &&
-      !NON_CHIP_ZH_TOKENS.has(t),
+  return sortMentionTokensByLength(
+    [...new Set([...baseTokens, ...shortenedYeTokens])].filter(
+      (t) =>
+        (t.length >= 2 || CONTEXT_SENSITIVE_TOKENS.has(t)) &&
+        t !== chineseName &&
+        !GENERIC_HONORIFICS.has(t) &&
+        !NON_CHIP_ZH_TOKENS.has(t),
+    ),
   );
 }
 
@@ -430,11 +432,13 @@ export function segmentText(text: string, tokenMap: [string, Character][]): Segm
   const cached = segmentCache.get(text);
   if (cached) return cached;
 
+  const sortedTokenMap = [...tokenMap].sort((a, b) => b[0].length - a[0].length);
+
   const segments: Segment[] = [];
   let cursor = 0;
   while (cursor < text.length) {
     let matched = false;
-    for (const [token, char] of tokenMap) {
+    for (const [token, char] of sortedTokenMap) {
       if (text.startsWith(token, cursor)) {
         const afterPos = cursor + token.length;
         // ASCII tokens require a word-boundary before and after the match
