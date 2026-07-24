@@ -437,8 +437,8 @@ export const char_1Appearances: Record<number, SceneBullet[]> = {
       zh: "于大型重聚中复见士林友朋，此时已非伶人之身，而为清雅文人矣。",
     },
     {
-      en: "Referenced (as 玉侬) among those to be commemorated in the planned flower-goddess portrait collection celebrating nine celebrated beauties.",
-      zh: "以玉侬之名列于拟绘之《花神图》中，与九位佳人并存青史。",
+      en: "Referenced (as 玉侬 and 杜仙女) in the planned Flower Deities collection for Jiuxiang Tower, where Mei Ziyu draws the lot for the joint biography of Qinyan and Fairy Du (杜仙女).",
+      zh: "以玉侬与杜仙女（前生女仙）之名列于九香楼《花神图》中，梅子玉拈阄恰得琴仙与杜仙女合传。",
     },
   ],
 };

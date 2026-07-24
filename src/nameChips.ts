@@ -108,6 +108,7 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   屈老爷: ["Qu"],
   屈少君: ["Qu Shaojun"],
   屈勤先: ["Qu Qinxian", "Qu Qin Xian"],
+  杜仙女: ["Du Xiannv", "Fairy Du"],
   李大夫: ["Doctor Li"],
   王大夫: ["Doctor Wang"],
   老年掌柜: ["elderly shopkeeper", "Elderly shopkeeper"],
