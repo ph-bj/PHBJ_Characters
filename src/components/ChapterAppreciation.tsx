@@ -1062,10 +1062,10 @@ export function ChapterAppreciation({
                 </div>
               </div>
 
-              {/* Two Column Grid: Visual Imagery & Inscribed Text */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+              {/* Vertical Stack: Visual Imagery & Inscribed Text */}
+              <div className="space-y-4">
                 {/* Visual Imagery Box */}
-                <div className="lg:col-span-5 bg-[var(--paper-bg)] border border-[var(--paper-border)]/80 p-4 rounded-sm space-y-2.5 shadow-inner">
+                <div className="bg-[var(--paper-bg)] border border-[var(--paper-border)]/80 p-4 rounded-sm space-y-2.5 shadow-inner">
                   <div className="flex items-center gap-2 text-xs font-bold text-[var(--accent)] font-hans border-b border-[var(--paper-border)]/40 pb-2">
                     <Sparkles size={16} />
                     <span>{lang === "zh" ? "刻画画面意境" : "Carved Painting Imagery"}</span>
@@ -1076,7 +1076,7 @@ export function ChapterAppreciation({
                 </div>
 
                 {/* Inscribed Text Box */}
-                <div className="lg:col-span-7 bg-[var(--paper-bg)] border border-[var(--paper-border)]/80 p-4 rounded-sm space-y-2.5 shadow-inner">
+                <div className="bg-[var(--paper-bg)] border border-[var(--paper-border)]/80 p-4 rounded-sm space-y-2.5 shadow-inner">
                   <div className="flex items-center justify-between border-b border-[var(--paper-border)]/40 pb-2 text-xs font-bold text-[var(--ink-title)] font-hans">
                     <div className="flex items-center gap-2">
                       <Scroll size={16} className="text-[var(--accent)]" />
