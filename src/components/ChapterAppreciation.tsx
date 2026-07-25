@@ -813,8 +813,9 @@ export function ChapterAppreciation({
 
       return (
         <div className="space-y-6">
-          {/* Gallery Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--paper-border)]/40 pb-3">
+          {/* Gallery Header & Filter Controls Bar */}
+          <div className="space-y-3 border-b border-[var(--paper-border)]/40 pb-3">
+            {/* Header Info */}
             <div className="flex items-center gap-2.5">
               <div className="p-2 bg-[var(--accent)]/10 rounded-sm border border-[var(--accent)]/30 text-[var(--accent)] shrink-0">
                 <Palette size={20} />
@@ -834,41 +835,43 @@ export function ChapterAppreciation({
               </div>
             </div>
 
-            {/* Pillar Filter Controls */}
-            <div className="flex items-center gap-1.5 self-start sm:self-auto bg-[var(--paper-bg)] border border-[var(--paper-border)]/60 p-1 rounded-sm text-xs font-hans shadow-inner">
-              <button
-                type="button"
-                onClick={() => setPaintingFilter("all")}
-                className={`px-2.5 py-1 rounded-sm transition-all cursor-pointer font-medium ${
-                  paintingFilter === "all"
-                    ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold shadow-sm"
-                    : "text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] hover:bg-[var(--accent)]/5"
-                }`}
-              >
-                {lang === "zh" ? "双楹全景 (11方)" : "Both Pillars (11)"}
-              </button>
-              <button
-                type="button"
-                onClick={() => setPaintingFilter("east")}
-                className={`px-2.5 py-1 rounded-sm transition-all cursor-pointer font-medium ${
-                  paintingFilter === "east"
-                    ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold shadow-sm"
-                    : "text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] hover:bg-[var(--accent)]/5"
-                }`}
-              >
-                {lang === "zh" ? "东楹 (1-5方)" : "East Pillar (1-5)"}
-              </button>
-              <button
-                type="button"
-                onClick={() => setPaintingFilter("west")}
-                className={`px-2.5 py-1 rounded-sm transition-all cursor-pointer font-medium ${
-                  paintingFilter === "west"
-                    ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold shadow-sm"
-                    : "text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] hover:bg-[var(--accent)]/5"
-                }`}
-              >
-                {lang === "zh" ? "西楹 (6-11方)" : "West Pillar (6-11)"}
-              </button>
+            {/* Pillar Filter Controls Bar (Dedicated New Line) */}
+            <div className="flex flex-wrap items-center gap-2 pt-1 font-hans">
+              <div className="inline-flex items-center gap-1.5 bg-[var(--paper-bg)] border border-[var(--paper-border)]/60 p-1 rounded-sm text-xs shadow-inner">
+                <button
+                  type="button"
+                  onClick={() => setPaintingFilter("all")}
+                  className={`px-3 py-1 rounded-sm transition-all cursor-pointer font-medium whitespace-nowrap ${
+                    paintingFilter === "all"
+                      ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold shadow-sm"
+                      : "text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] hover:bg-[var(--accent)]/5"
+                  }`}
+                >
+                  {lang === "zh" ? "双楹全景（11方）" : "Both Pillars (11)"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPaintingFilter("east")}
+                  className={`px-3 py-1 rounded-sm transition-all cursor-pointer font-medium whitespace-nowrap ${
+                    paintingFilter === "east"
+                      ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold shadow-sm"
+                      : "text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] hover:bg-[var(--accent)]/5"
+                  }`}
+                >
+                  {lang === "zh" ? "东楹（1-5方）" : "East Pillar (1-5)"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPaintingFilter("west")}
+                  className={`px-3 py-1 rounded-sm transition-all cursor-pointer font-medium whitespace-nowrap ${
+                    paintingFilter === "west"
+                      ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold shadow-sm"
+                      : "text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] hover:bg-[var(--accent)]/5"
+                  }`}
+                >
+                  {lang === "zh" ? "西楹（6-11方）" : "West Pillar (6-11)"}
+                </button>
+              </div>
             </div>
           </div>
 
