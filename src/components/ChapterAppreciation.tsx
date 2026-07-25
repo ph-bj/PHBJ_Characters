@@ -20,7 +20,8 @@ import {
   Gem,
   Users,
   Waves,
-
+  Palette,
+  Scroll,
 } from "lucide-react";
 import {
   ResponsiveContainer,
@@ -121,6 +122,8 @@ export function ChapterAppreciation({
   const [selectedCup, setSelectedCup] = useState<number | null>(null);
   const [selectedArchetype, setSelectedArchetype] = useState<number | null>(null);
   const [selectedEcho, setSelectedEcho] = useState<number | null>(null);
+  const [selectedPainting, setSelectedPainting] = useState<number>(1);
+  const [paintingFilter, setPaintingFilter] = useState<"all" | "east" | "west">("all");
 
   if (!data) return null;
 
@@ -785,6 +788,183 @@ export function ChapterAppreciation({
               </button>
             ))}
           </div>
+        </div>
+      );
+    }
+
+    if (vis.type === "flowerDeityPaintings") {
+      const activePainting = vis.paintings.find(p => p.id === selectedPainting) || vis.paintings[0];
+      const filteredPaintings = vis.paintings.filter(p => {
+        if (paintingFilter === "east") return p.pillarZh === "东楹";
+        if (paintingFilter === "west") return p.pillarZh === "西楹";
+        return true;
+      });
+
+      return (
+        <div className="space-y-6">
+          {/* Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--paper-border)]/30 pb-3">
+            <div className="flex items-center gap-2">
+              <Palette className="text-[var(--accent)] shrink-0" size={20} />
+              <div>
+                <h4 className="text-sm sm:text-base font-bold text-[var(--ink-title)] font-hans">
+                  {lang === "zh" ? "九香楼石刻花神图画赏析 (第一方至第十一方)" : "Jiuxiang Tower Flower Deity Stone Relief Paintings (Tablets 1-11)"}
+                </h4>
+                <p className="text-[11px] text-[var(--ink-dim-text)] font-hans">
+                  {lang === "zh" 
+                    ? "第六十章核心意象：嵌于东西二楹的十一方石刻画赞，将品花提升为灵魂封神" 
+                    : "Chapter 60 Core Imagery: 11 stone relief paintings embedded in east/west pillars, enshrining performers into flower deities"}
+                </p>
+              </div>
+            </div>
+
+            {/* Filter controls */}
+            <div className="flex items-center gap-1.5 self-start sm:self-auto bg-[var(--paper-bg)] border border-[var(--paper-border)]/50 p-1 rounded-sm text-xs font-hans">
+              <button
+                type="button"
+                onClick={() => setPaintingFilter("all")}
+                className={`px-2 py-0.5 rounded-sm transition-colors cursor-pointer ${
+                  paintingFilter === "all"
+                    ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold"
+                    : "text-[var(--ink-dim-text)] hover:text-[var(--ink-title)]"
+                }`}
+              >
+                {lang === "zh" ? "全部 (11方)" : "All (11)"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setPaintingFilter("east")}
+                className={`px-2 py-0.5 rounded-sm transition-colors cursor-pointer ${
+                  paintingFilter === "east"
+                    ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold"
+                    : "text-[var(--ink-dim-text)] hover:text-[var(--ink-title)]"
+                }`}
+              >
+                {lang === "zh" ? "东楹 (1-5方)" : "East Pillar (1-5)"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setPaintingFilter("west")}
+                className={`px-2 py-0.5 rounded-sm transition-colors cursor-pointer ${
+                  paintingFilter === "west"
+                    ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold"
+                    : "text-[var(--ink-dim-text)] hover:text-[var(--ink-title)]"
+                }`}
+              >
+                {lang === "zh" ? "西楹 (6-11方)" : "West Pillar (6-11)"}
+              </button>
+            </div>
+          </div>
+
+          {/* Painting Selection Grid/Chips */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-2">
+            {filteredPaintings.map((p) => {
+              const isSelected = selectedPainting === p.id;
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => setSelectedPainting(p.id)}
+                  className={`p-2.5 rounded-sm border text-left transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+                    isSelected
+                      ? "border-[var(--accent)] bg-[var(--accent)]/15 shadow-sm ring-1 ring-[var(--accent)]/50"
+                      : "border-[var(--paper-border)]/60 bg-[var(--paper-bg)]/40 hover:bg-[var(--accent)]/5 hover:border-[var(--accent)]/40"
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <span className="text-[10px] font-bold text-[var(--accent)] bg-[var(--accent)]/10 px-1.5 py-0.2 rounded-sm font-hans">
+                      {lang === "zh" ? p.ordinalZh : p.ordinalEn}
+                    </span>
+                    <span className="text-[9px] text-[var(--ink-dim-text)] font-hans">
+                      {lang === "zh" ? p.pillarZh : p.pillarEn}
+                    </span>
+                  </div>
+                  <h5 className="text-xs font-bold text-[var(--ink-title)] truncate font-serif mt-0.5">
+                    {lang === "zh" ? p.titleZh : p.titleEn}
+                  </h5>
+                  <p className="text-[10px] text-[var(--ink-dim-text)] truncate mt-1 font-hans">
+                    {lang === "zh" ? p.subjectZh : p.subjectEn}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Detailed Inspector Display for Active Painting */}
+          {activePainting && (
+            <div className="border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 rounded-sm p-4 sm:p-6 space-y-5 shadow-sm relative overflow-hidden">
+              {/* Top watermark / background badge */}
+              <div className="absolute top-3 right-4 opacity-10 pointer-events-none text-4xl sm:text-6xl font-serif text-[var(--accent)] font-bold">
+                {activePainting.ordinalZh}
+              </div>
+
+              {/* Title & Metadata row */}
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--paper-border)]/30 pb-3">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-bold px-2 py-0.5 bg-[var(--accent)] text-[var(--paper-bg)] rounded-sm font-hans">
+                      {lang === "zh" ? `${activePainting.pillarZh} · ${activePainting.ordinalZh}` : `${activePainting.pillarEn} · ${activePainting.ordinalEn}`}
+                    </span>
+                    <span className="text-xs font-bold text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 rounded-sm border border-[var(--accent)]/30 font-hans">
+                      {lang === "zh" ? activePainting.flowerTitleZh : activePainting.flowerTitleEn}
+                    </span>
+                    <span className="text-xs text-[var(--ink-dim-text)] font-hans border border-[var(--paper-border)] px-1.5 py-0.5 rounded-sm">
+                      {lang === "zh" ? activePainting.genreZh : activePainting.genreEn}
+                    </span>
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-bold text-[var(--ink-title)] font-serif mt-1">
+                    {lang === "zh" ? activePainting.titleZh : activePainting.titleEn}
+                  </h4>
+                </div>
+
+                <div className="text-xs text-[var(--ink-dim-text)] sm:text-right font-hans space-y-0.5">
+                  <p><span className="font-bold text-[var(--ink-title)]">{lang === "zh" ? "核心对象：" : "Subject: "}</span>{lang === "zh" ? activePainting.subjectZh : activePainting.subjectEn}</p>
+                  <p><span className="font-bold text-[var(--ink-title)]">{lang === "zh" ? "撰者/作者：" : "Author: "}</span>{lang === "zh" ? activePainting.authorZh : activePainting.authorEn}</p>
+                </div>
+              </div>
+
+              {/* Two Column Grid: Visual Imagery & Inscribed Text */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Visual Imagery Box */}
+                <div className="bg-[var(--accent)]/5 border-l-4 border-[var(--accent)] p-3.5 rounded-sm space-y-2">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--accent)] font-hans">
+                    <Sparkles size={14} />
+                    <span>{lang === "zh" ? "刻画画面意境" : "Carved Painting Imagery"}</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[var(--ink-main)] leading-relaxed font-serif">
+                    {lang === "zh" ? activePainting.imageryZh : activePainting.imageryEn}
+                  </p>
+                </div>
+
+                {/* Inscribed Text Box */}
+                <div className="bg-[var(--paper-bg)] border border-[var(--paper-border)]/60 p-3.5 rounded-sm space-y-2 shadow-inner">
+                  <div className="flex items-center justify-between border-b border-[var(--paper-border)]/30 pb-1 text-xs font-bold text-[var(--ink-title)] font-hans">
+                    <div className="flex items-center gap-1.5">
+                      <Scroll size={14} className="text-[var(--accent)]" />
+                      <span>{lang === "zh" ? "石刻铭文赞语/诗词" : "Inscribed Text Excerpt"}</span>
+                    </div>
+                    <span className="text-[10px] text-[var(--ink-dim-text)] font-sans">
+                      {lang === "zh" ? `撰者: ${activePainting.authorZh}` : `By: ${activePainting.authorEn}`}
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[var(--ink-main)] leading-relaxed font-serif whitespace-pre-wrap">
+                    {lang === "zh" ? activePainting.textZh : activePainting.textEn}
+                  </p>
+                </div>
+              </div>
+
+              {/* Deep Analysis Section */}
+              <div className="border-t border-dashed border-[var(--paper-border)]/40 pt-3 space-y-1.5">
+                <h5 className="text-xs font-bold text-[var(--accent)] font-hans uppercase tracking-wider flex items-center gap-1.5">
+                  <Compass size={14} />
+                  <span>{lang === "zh" ? "深度文学与美学解构" : "Deep Literary & Aesthetic Analysis"}</span>
+                </h5>
+                <p className="text-xs sm:text-sm text-[var(--ink-main)] leading-relaxed font-serif">
+                  {lang === "zh" ? activePainting.analysisZh : activePainting.analysisEn}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       );
     }
