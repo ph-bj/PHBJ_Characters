@@ -1068,7 +1068,7 @@ export function ChapterAppreciation({
                 <div className="bg-[var(--paper-bg)] border border-[var(--paper-border)]/80 p-4 rounded-sm space-y-2.5 shadow-inner">
                   <div className="flex items-center gap-2 text-xs font-bold text-[var(--accent)] font-hans border-b border-[var(--paper-border)]/40 pb-2">
                     <Sparkles size={16} />
-                    <span>{lang === "zh" ? "刻画画面意境 (Carved Imagery)" : "Carved Painting Imagery"}</span>
+                    <span>{lang === "zh" ? "刻画画面意境" : "Carved Painting Imagery"}</span>
                   </div>
                   <p className="text-xs sm:text-sm text-[var(--ink-main)] leading-relaxed font-serif pt-1">
                     {lang === "zh" ? activePainting.imageryZh : activePainting.imageryEn}
@@ -1080,7 +1080,7 @@ export function ChapterAppreciation({
                   <div className="flex items-center justify-between border-b border-[var(--paper-border)]/40 pb-2 text-xs font-bold text-[var(--ink-title)] font-hans">
                     <div className="flex items-center gap-2">
                       <Scroll size={16} className="text-[var(--accent)]" />
-                      <span>{lang === "zh" ? "石刻铭文赞语/诗词 (Inscriptions)" : "Inscribed Text Excerpt"}</span>
+                      <span>{lang === "zh" ? "石刻铭文赞语/诗词" : "Inscribed Text Excerpt"}</span>
                     </div>
                     <span className="text-[10px] text-[var(--ink-dim-text)] font-sans">
                       {lang === "zh" ? `撰者: ${activePainting.authorZh}` : `By: ${activePainting.authorEn}`}
