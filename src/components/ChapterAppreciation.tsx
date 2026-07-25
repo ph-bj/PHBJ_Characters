@@ -1086,7 +1086,9 @@ export function ChapterAppreciation({
                       {lang === "zh" ? `撰者: ${activePainting.authorZh}` : `By: ${activePainting.authorEn}`}
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-[var(--ink-main)] leading-relaxed font-serif whitespace-pre-wrap pt-1 bg-[var(--accent)]/5 p-3 rounded-sm border border-[var(--accent)]/10">
+                  <p className={`text-xs sm:text-sm text-[var(--ink-main)] font-serif whitespace-pre-wrap bg-[var(--accent)]/5 p-3.5 rounded-sm border border-[var(--accent)]/10 ${
+                    lang === "zh" ? "tracking-widest text-center leading-loose text-sm sm:text-base font-semibold" : "leading-relaxed pt-1"
+                  }`}>
                     {lang === "zh" ? activePainting.textZh : activePainting.textEn}
                   </p>
                 </div>

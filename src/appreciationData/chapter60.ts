@@ -179,7 +179,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           genreEn: "4-Character Eulogy",
           imageryZh: "上云下水，云水中间隐现一巨龙，露出一爪托着一面明镜，上题《品花宝鉴》。",
           imageryEn: "Clouds above and waters below; amidst the swirling mist a dragon reveals a claw holding a radiant mirror inscribed 'Precious Mirror of Ranking Flowers'.",
-          textZh: "上不在天，下不在田。云生九霄，水出重渊。\n神奇变化，气象万千。灵珠之圆，明镜之悬。\n烛微照幽，隐奸显贤。如月之临，如水之鲜。\n亦曰媸其媸媸，而妍其妍。",
+          textZh: "上不在天，下不在田。\n云生九霄，水出重渊。\n神奇变化，气象万千。\n灵珠之圆，明镜之悬。\n烛微照幽，隐奸显贤。\n如月之临，如水之鲜。\n亦曰媸其媸媸，而妍其妍。",
           textEn: "Neither above in heaven nor below in the fields; clouds born in nine skies, waters from deep abysses...\nIlluminating the subtle and shining into darkness, hiding villainy and revealing virtue. Rendering ugly as ugly, and beautiful as beautiful.",
           analysisZh: "第一方画将书名直接入石刻。云龙执镜寓意全书的审判与昭雪功能——“烛微照幽，隐奸显贤”，超越流俗花评，为被世俗践踏的灵魂树立道德明镜。",
           analysisEn: "The first stone relief directly embeds the title into the artwork. The dragon holding the mirror symbolizes the book's core moral and aesthetic imperative: shining into darkness to distinguish true nobility from hypocrisy."
@@ -202,7 +202,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           genreEn: "4-Character Eulogy",
           imageryZh: "主人翁身著纶巾道服，左右各侍立采莲仙女（杜仙女）与清雅士人（杜琴仙），前世仙缘与今生人格合一。",
           imageryEn: "The central lord wears scholar headgear and Taoist robes, flanked by a lotus-picking fairy maiden (Fairy Du) and a refined scholar (Du Qinxian).",
-          textZh: "公气为云，公神为水；在天在地，靡尽靡止。\n司文曰郎，司花曰主。列宿之精，群芳之祖。\n左英琼瑶，右青珊瑚。一气二气，同归殊途。\n五色炫彩，九华流香。心花意蕊，文运之祥。",
+          textZh: "公气为云，公神为水；\n在天在地，靡尽靡止。\n司文曰郎，司花曰主。\n列宿之精，群芳之祖。\n左英琼瑶，右青珊瑚。\n一气二气，同归殊途。\n五色炫彩，九华流香。\n心花意蕊，文运之祥。",
           textEn: "His spirit forms clouds, his soul becomes water... Administrator of literature as a scholar, lord of flowers as master. The essence of constellations, ancestral spirit of blossoms...",
           analysisZh: "子玉拈阄得琴仙与杜仙女，将屈道翁奉为“九香花主”。此画将原本边缘化的戏曲伶人提升至神格化花史地位，完成了整部小说的灵魂拯救与封神。",
           analysisEn: "Mei Ziyu draws the lot for Qinxian and Fairy Du, framing Qu Dao-ong as the Lord of Flowers. This artwork completes the spiritual apotheosis, transcending class barriers between performers and scholars."
@@ -225,7 +225,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           genreEn: "Parallel Prose Postscript",
           imageryZh: "仙女云鬟雾縠，清艳绝伦，手拈一枝蕙花，神态超凡脱俗。",
           imageryEn: "A fairy with misty tresses and floating silks, holding a branch of Huifang orchid with otherworldly grace.",
-          textZh: "锦文花史苏仙，性灵彗警悟，色如瑶瑜。抟雪作肤，镂月为骨。常散花而翦彩，亦掷米以成珠。狡狯神通，均出三昧。曾游戏人间，使留恨于碧桃花者有焉。江皋仙影，时去时来；洛浦神光，乍离乍合。",
+          textZh: "锦文花史苏仙，性灵彗警悟，色如瑶瑜。\n抟雪作肤，镂月为骨。\n常散花而翦彩，亦掷米以成珠。\n狡狯神通，均出三昧。\n曾游戏人间，使留恨于碧桃花者有焉。\n江皋仙影，时去时来；\n洛浦神光，乍离乍合。",
           textEn: "Su Xian of Silk-Patterned Flowers, endowed with razor-sharp wit and jade-like elegance... Molding snow for skin, carving the moon for bones. Scattering petals and cutting silks...",
           analysisZh: "田春航在跋语中称赞蕙芳“狡狯神通均出三昧”。蕙芳以智慧与从容游刃于戏局与世俗之间，成功跳出菊部苦海，代表了极高的世俗生存与审美艺术智慧。",
           analysisEn: "Tian Chunhang praises Su Huifang's sharp intellect and divine adaptability. Named after the orchid, Huifang safely emerges from the opera world, symbolizing artistic brilliance joined with practical wisdom."
@@ -248,7 +248,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           genreEn: "4-Character Eulogy",
           imageryZh: "仙女月佩霓裳，十分娇艳，手捧一颗灿烂夜明珠，光芒逼人。",
           imageryEn: "A fairy adorned with moon pendants and rainbow robes, holding a radiant night-pearl that illuminates all surroundings.",
-          textZh: "仙露在霄，明珠出海；和神当春，秀气成彩。\n不胫而走，不夜而光。琼花瑶蕊，国色天香。\n珍珠饰车，云锦缝裳。金枝翠羽，玉佩明璫。\n华月光满，蓬山路长。既美且都，亦风而雅。",
+          textZh: "仙露在霄，明珠出海；\n和神当春，秀气成彩。\n不胫而走，不夜而光。\n琼花瑶蕊，国色天香。\n珍珠饰车，云锦缝裳。\n金枝翠羽，玉佩明璫。\n华月光满，蓬山路长。\n既美且都，亦风而雅。",
           textEn: "Celestial dew in the skies, precious pearl from the sea; mild spirit matching spring, elegance forming colors... Radiant without night, glowing afar; peerless beauty and true refinement.",
           analysisZh: "画作突出袁宝珠“明珠出海、不夜而光”的大舍风范。宝珠在第60章率先提出为众名士立文星禄位、焚烧歌衫首饰，展露了卓越的领袖格局与慷慨赤心。",
           analysisEn: "Jin Jifu depicts Yuan Baozhu as a radiant pearl shining in the dark. In Chapter 60, Baozhu takes the lead in establishing the Star Monuments for the scholars and burning the opera costumes, showing true leadership and generosity."
@@ -271,7 +271,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           genreEn: "Prose Biography",
           imageryZh: "仙女身着紫绡衣，于风露间行吟，意致飘洒，手拈一朵清幽兰花。",
           imageryEn: "A fairy clad in violet silk, chanting poetry amidst wind and dew with a carefree gait, holding a solitary orchid flower.",
-          textZh: "陆仙性敏悟，姿容绝世，才艺过人。常衣紫绡衣，行吟风露间。其竟体之清芬，与兰香蕙馥相表里也。工词善书，流露人间，购之者千缗不获焉。昔钟嵘评诗，谓颜延之镂金错彩，不如谢康乐初日芙蓉。素面风流，是为绝艳，仙殆莲花化身者欤？",
+          textZh: "陆仙性敏悟，姿容绝世，才艺过人。\n常衣紫绡衣，行吟风露间。\n其竟体之清芬，与兰香蕙馥相表里也。\n工词善书，流露人间，购之者千缗不获焉。\n昔钟嵘评诗，谓颜延之镂金错彩，不如谢康乐初日芙蓉。\n素面风流，是为绝艳，仙殆莲花化身者欤？",
           textEn: "Lu Xian was perceptively brilliant and matchlessly elegant. Wearing violet silk, he chanted amidst wind and dew... Like Xie Kangle's lotus blooming under early sun, his unadorned elegance represents supreme beauty.",
           analysisZh: "华公子称赞素兰“素面风流，是为绝艳”，比为“初日芙蓉”。素兰才情绝顶却不求世俗缠绵，紫绡行吟的画像精确还原了他清旷绝俗的君子品格。",
           analysisEn: "Young Master Hua crafts a biography praising Lu Sulan as 'lotus under early sun' for his unadorned elegance. Despite his fame in Beijing, Sulan maintains pristine integrity above worldly vulgarity."
@@ -294,7 +294,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           genreEn: "7-Character Octave",
           imageryZh: "仙女纤纤弱质，乘风舞动，步态轻盈如掌上飞燕，金步摇随风摇曳。",
           imageryEn: "A delicate fairy with a slender frame dancing upon the winds, lightweight as Zhao Feiyan, her golden step-shake hairpins swaying delicately.",
-          textZh: "蛾眉新月露纤纤，光彩天然不用添。\n鸳锦裁成九华帐，鲛珠穿作十重帘。\n隐身阆苑依琼树，返劫归真典玉签。\n只恐留仙留不住，晓风吹上绿云尖。",
+          textZh: "蛾眉新月露纤纤，\n光彩天然不用添。\n鸳锦裁成九华帐，\n鲛珠穿作十重帘。\n隐身阆苑依琼树，\n返劫归真典玉签。\n只恐留仙留不住，\n晓风吹上绿云尖。",
           textEn: "Moth eyebrows like a slender crescent moon, natural luster needing no cosmetics... Hidden in fairy realms beside jade trees, returning from trials to ultimate truth.",
           analysisZh: "萧次贤诗中“返劫归真”四字寄托了对金漱芳的深切关怀。漱芳形体瘦弱纤纤，内藏至贞至纯之性，脱离名利场后宛如羽化登仙。",
           analysisEn: "Xiao Cixian captures Jin Shoufang's delicate poise. The line 'returning from trials to ultimate truth' signifies her spiritual purification after surviving the turmoil of the theatrical world."
@@ -317,7 +317,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           genreEn: "7-Character Quatrain",
           imageryZh: "仙女立于双株玉树之下，玉树临风，姿态袅娜秀逸，满盈幽香。",
           imageryEn: "A fairy standing between twin pristine jade trees, swaying gracefully in the breeze, exuding an aura of rich elegance.",
-          textZh: "花情月色想娟娟，玉树临风更袅然。\n帐里不知兰麝贵，梦中羞作雨云仙。\n珊瑚枕上生红晕，翡翠楼头锁绿烟。\n谪往天台守孤另，碧桃流水自年年。",
+          textZh: "花情月色想娟娟，\n玉树临风更袅然。\n帐里不知兰麝贵，\n梦中羞作雨云仙。\n珊瑚枕上生红晕，\n翡翠楼头锁绿烟。\n谪往天台守孤另，\n碧桃流水自年年。",
           textEn: "Flower charm and moon light envision her grace, like a jade tree swaying in the breeze... Red blushes rise on coral pillows, green mists lock the emerald tower.",
           analysisZh: "毒舌高品在此诗中展现出难得的真情尊崇。以“玉树临风”形容李玉林（佩仙），赞其在繁华与尊贵中保持了傲骨秀韵，不沦于寻常烟花。",
           analysisEn: "Gao Pin sets aside his cynical tongue to write a luxurious poem for Li Yulin. The imagery of a 'jade tree in the breeze' captures Peixian's grand aesthetic poise after enduring worldly storms."
@@ -340,7 +340,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           genreEn: "7-Character Ancient Verse",
           imageryZh: "仙女玉貌锦衣，腰悬秋水佩剑，手挥寒泉剑气，如公孙大娘舞剑器，电掣风生。",
           imageryEn: "A fairy with jade face and brocade robes, an autumn-water sword at her waist, wielding glowing sword currents like Lady Gongsun's legendary sword dance.",
-          textZh: "我观王仙舞神剑，手掣寒泉一匹线。冬冬羯鼓始三挝，溜亮风生已迎面。\n彩虹映水合成团，流电穿云曲如线。破开点点绿沉枪，拨落纷纷大羽箭。\n锦衣玉貌何聘婷，白咽红颊长眉青。云裾轻曳锦靴起，去如飞鸟来如霆。\n四方观者围成堵，不羡英雄羡媚妩。绿云堆鬓翠鬟新，九梁插花步摇古。\n妾借防身不爱名，娇娆我自惜轻生。请看世上黄衫客，多少恩仇报不成。",
+          textZh: "我观王仙舞神剑，\n手掣寒泉一匹线。\n冬冬羯鼓始三挝，\n溜亮风生已迎面。\n彩虹映水合成团，\n流电穿云曲如线。\n破开点点绿沉枪，\n拨落纷纷大羽箭。\n锦衣玉貌何聘婷，\n白咽红颊长眉青。\n云裾轻曳锦靴起，\n去如飞鸟来如霆。\n四方观者围成堵，\n不羡英雄羡媚妩。\n绿云堆鬓翠鬟新，\n九梁插花步摇古。\n妾借防身不爱名，\n娇娆我自惜轻生。\n请看世上黄衫客，\n多少恩仇报不成。",
           textEn: "I watch Wang Xian dance with a divine sword, drawing a line of icy spring water... Flying away like a bird, striking like thunder. Why envy heroes when one can marvel at such graceful valor?",
           analysisZh: "史南湘七古酣畅淋漓地刻画了王兰保的侠客风骨。兰保曾挺身而出威慑恶霸奚十一，画作将其刚勇侠义与旦角娇妩完美结合，堪称红楼菊部中的独一侠品。",
           analysisEn: "Shi Nanxiang's 7-character poem celebrates Wang Lanbao's martial heroism. Lanbao once defended his peers against the bully Xi Shiyi; this portrait fuses martial chivalry with performing artistry."
@@ -363,7 +363,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           genreEn: "Lyrical Rhapsody (Fu)",
           imageryZh: "梅花树下倚立着素衣仙女，枝上喜鹊高歌报春，翠袖翩跹，自然天然。",
           imageryEn: "Under an ancient plum tree stands a fair maiden fairy; on a branch above, a magpie sings to announce spring.",
-          textZh: "梅花枝上鸟报春，梅花树下倚玉人。杜兰香嫁不可见，绿萼华来幸接真。\n翠袖翩跹，缟衣自妍。韵生骨里，秀出天然。却珠钿而愈美，洗脂粉而尤娟。\n纤纤兮云间新月，淡淡兮花外晴烟。秋水盈浦，朝霞丽天。",
+          textZh: "梅花枝上鸟报春，\n梅花树下倚玉人。\n杜兰香嫁不可见，\n绿萼华来幸接真。\n翠袖翩跹，缟衣自妍。\n韵生骨里，秀出天然。\n却珠钿而愈美，\n洗脂粉而尤娟。\n纤纤兮云间新月，\n淡淡兮花外晴烟。\n秋水盈浦，朝霞丽天。",
           textEn: "A bird heralds spring on the plum branch, a jade figure leans beneath... Shedding jewels to grow more beautiful, washing off makeup to reveal supreme purity.",
           analysisZh: "刘文泽作小赋极赞林春喜“却珠钿而愈美，洗脂粉而尤娟”。春喜性格纯真如报春寒梅，洗尽铅华之后更见天真烂漫，代表着最纯粹的自然之美。",
           analysisEn: "Liu Wenze's prose-poem portrays Lin Chunxi's natural purity: 'shedding jewels to grow more beautiful, washing off makeup to reveal supreme purity.' Spring-bringing plum symbolizes uncorrupted vitality."
@@ -386,7 +386,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           genreEn: "5-Character Ancient Verse",
           imageryZh: "苍翠桂树下有一仙女临镜自照，青眸善盼，姿致风流，如广寒宫中的嫦娥仙子。",
           imageryEn: "Under a lush cassia tree, a fairy gazes into a mirror with vibrant dark eyes, resembling Chang'e in the Moon Palace looking across the Milky Way.",
-          textZh: "青青月中挂，花开已及秋。皎皎蟾宫女，临镜常自愁。\n自从窃药奔，与世无因由。广寒二万户，珍珠十二楼。\n圆圆复缺缺，轮转日一周。世人徒仰望，不见蛾眉修。\n蓬莱水清浅，或可操神舟。",
+          textZh: "青青月中挂，\n花开已及秋。\n皎皎蟾宫女，\n临镜常自愁。\n自从窃药奔，\n与世无因由。\n广寒二万户，\n珍珠十二楼。\n圆圆复缺缺，\n轮转日一周。\n世人徒仰望，\n不见蛾眉修。\n蓬莱水清浅，\n或可操神舟。",
           textEn: "Hanging green in the moon, flowers blooming in autumn... A bright maiden in the Toad Palace, gazing into her mirror with gentle melancholy...",
           analysisZh: "王恂将王桂保（蕊香）喻为蟾宫嫦娥。桂保姿容风流而情怀隐秘，秋桂与蟾宫的意象寄托了他在名利热闹背后的孤高与深沉之愁。",
           analysisEn: "Wang Xun compares Wang Guibao to Chang'e under the cassia tree. Guibao's charm and autumn wistfulness convey a refined, distant beauty detached from mundane noise."
@@ -409,7 +409,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
           genreEn: "Parallel Prose Preface",
           imageryZh: "繁花盛开的杏花树下，仙女珠腰玉衱，无比妩媚娇艳，如“红杏枝头春意闹”。",
           imageryEn: "Under vibrant blooming apricot trees, a fairy with jeweled waistbands stands in stunning allure, exemplifying 'spring bursts atop red apricot boughs'.",
-          textZh: "及第花史秦仙，嬉戏人间，见之者有「红杏枝头春意闹」之比。明眸善睐，笑靥常开；艳粉萦情，断红映肉；袅钗雀化，明镜鸾飞。然而久心未许，烈性常存。谁不曰人间绝世，亦何愧仙处无双。",
+          textZh: "及第花史秦仙，嬉戏人间，\n见之者有「红杏枝头春意闹」之比。\n明眸善睐，笑靥常开；\n艳粉萦情，断红映肉；\n袅钗雀化，明镜鸾飞。\n然而久心未许，烈性常存。\n谁不曰人间绝世，亦何愧仙处无双。",
           textEn: "Qin Xian of Top-Graduate Flowers... Brilliant eyes and ever-ready smiles... Yet despite such charm, a fierce unyielding integrity forever remains within.",
           analysisZh: "颜仲清撰写序言，赞秦琪官“艳冠一时”而又“烈性常存”。及第杏花寓意其绝代才艺如高中状元，而坚守底线则赋予了这绝世娇艳以沉甸甸的人格重量。",
           analysisEn: "Yan Zhongqing's preface praises Qin Qiguan's matchless charm while emphasizing his unyielding moral backbone ('a fierce integrity forever remains'). The top-graduate apricot tree symbolizes supreme artistry backed by uncompromising pride."
