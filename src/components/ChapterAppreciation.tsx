@@ -1087,7 +1087,7 @@ export function ChapterAppreciation({
                     </span>
                   </div>
                   <p className={`text-xs sm:text-sm text-[var(--ink-main)] font-serif whitespace-pre-wrap bg-[var(--accent)]/5 p-3.5 rounded-sm border border-[var(--accent)]/10 ${
-                    lang === "zh" ? "tracking-widest text-center leading-loose text-sm sm:text-base font-semibold" : "leading-relaxed pt-1"
+                    lang === "zh" ? "tracking-widest text-center leading-loose text-sm sm:text-base font-normal" : "leading-relaxed pt-1"
                   }`}>
                     {lang === "zh" ? activePainting.textZh : activePainting.textEn}
                   </p>
