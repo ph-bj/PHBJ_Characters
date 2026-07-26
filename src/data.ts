@@ -242,7 +242,7 @@ const ORIGIN_MAP: Record<string, string> = {
 
 const baseRelationships: Relationship[] = [
   // Core Protagonists: Mei Ziyu (char-0)
-  { source: 'char-0', target: 'char-1', type: 'Soulmate', typeZh: '情定知己' },
+  { source: 'char-0', target: 'char-1', type: 'Platonic Soulmates', typeZh: '精神知己与生死契' },
   { source: 'char-0', target: 'char-90', type: 'Marriage', typeZh: '明媒正娶' },
   { source: 'char-0', target: 'char-4', type: 'Cousin', typeZh: '中表之亲' },
   { source: 'char-0', target: 'char-2', type: 'Close Cousin', typeZh: '姑侄同袍' },
