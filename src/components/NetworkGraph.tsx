@@ -678,7 +678,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       if (lockedNodeId) {
         const isConnectedToLocked = adjMap.get(lockedNodeId)?.has(draggedId);
         if (isConnectedToLocked || draggedId === lockedNodeId) {
-          linkTextGroup.raise();
           linkText.filter((d: any) => {
             const sId = getNodeId(d.source);
             const tId = getNodeId(d.target);
@@ -686,7 +685,9 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
               return sId === lockedNodeId || tId === lockedNodeId;
             }
             return (sId === lockedNodeId && tId === draggedId) || (sId === draggedId && tId === lockedNodeId);
-          }).raise();
+          }).each(function() {
+            g.node()?.appendChild(this);
+          });
         }
       }
     }
@@ -700,6 +701,11 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       if (!event.active) simulation.alphaTarget(0);
       event.subject.fx = null;
       event.subject.fy = null;
+      linkText.each(function() {
+        if (this.parentNode !== linkTextGroup.node()) {
+          linkTextGroup.node()?.appendChild(this);
+        }
+      });
       nodeGroup.raise();
     }
 
