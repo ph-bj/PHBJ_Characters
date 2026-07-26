@@ -86,11 +86,21 @@ interface NetworkGraphProps {
   onFullscreenChange?: (isFullscreen: boolean) => void;
 }
 
+const DEFAULT_VISIBLE_ROLES = new Set(['performer', 'scholar', 'villain']);
+
 export default function NetworkGraph({ characters, relationships, lang, onNodeClick, onFullscreenChange }: NetworkGraphProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [hiddenRoles, setHiddenRoles] = useState<Set<string>>(() => new Set());
+  const [hiddenRoles, setHiddenRoles] = useState<Set<string>>(() => {
+    const hidden = new Set<string>();
+    characters.forEach((c) => {
+      if (!DEFAULT_VISIBLE_ROLES.has(c.role)) {
+        hidden.add(c.role);
+      }
+    });
+    return hidden;
+  });
   const [mode, setMode] = useState<GraphMode>('curated');
   const [minShared, setMinShared] = useState(5);
 
@@ -306,9 +316,15 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
     const simulation = d3.forceSimulation(nodes as any)
       .force("link", d3.forceLink(links).id((d: any) => d.id).distance(isMobileDevice ? 75 : 100))
-      .force("charge", d3.forceManyBody().strength(isMobileDevice ? -100 : -150))
+      .force("charge", d3.forceManyBody().strength(isMobileDevice ? -100 : -150).distanceMax(350).theta(0.9))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collision", d3.forceCollide().radius(isMobileDevice ? 32 : 40));
+      .force("collision", d3.forceCollide().radius(isMobileDevice ? 32 : 40))
+      .alphaDecay(0.045);
+
+    // Pre-warm force simulation synchronously for fast initial render layout
+    for (let i = 0; i < 60; ++i) {
+      simulation.tick();
+    }
 
     const g = svg.append("g");
 
@@ -384,7 +400,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .join("line")
       .attr("stroke", "var(--accent)")
       .attr("stroke-opacity", baseLinkOpacity)
-      .attr("stroke-width", baseLinkWidth);
+      .attr("stroke-width", baseLinkWidth)
+      .attr("vector-effect", "non-scaling-stroke");
 
     if (mode === 'cooccurrence') {
       link.append("title")
@@ -466,9 +483,21 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     const getNodeId = (endpoint: any) =>
       typeof endpoint === 'string' ? endpoint : endpoint?.id;
 
+    // Fast adjacency lookup map for hover interactions
+    const adjMap = new Map<string, Set<string>>();
+    links.forEach((l: any) => {
+      const s = getNodeId(l.source);
+      const t = getNodeId(l.target);
+      if (s && t) {
+        if (!adjMap.has(s)) adjMap.set(s, new Set());
+        if (!adjMap.has(t)) adjMap.set(t, new Set());
+        adjMap.get(s)!.add(t);
+        adjMap.get(t)!.add(s);
+      }
+    });
+
     const resetHoverStyles = () => {
-      node
-        .style("opacity", 1);
+      node.style("opacity", 1);
       link
         .attr("stroke-opacity", baseLinkOpacity)
         .attr("stroke-width", baseLinkWidth);
@@ -477,19 +506,9 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     };
 
     const applyHoverStyles = (hoveredId: string) => {
-      const connectedIds = new Set<string>([hoveredId]);
+      const connectedIds = adjMap.get(hoveredId) || new Set<string>();
 
-      links.forEach((l: any) => {
-        const sourceId = getNodeId(l.source);
-        const targetId = getNodeId(l.target);
-        if (sourceId === hoveredId || targetId === hoveredId) {
-          if (sourceId) connectedIds.add(sourceId);
-          if (targetId) connectedIds.add(targetId);
-        }
-      });
-
-      node
-        .style("opacity", (d: any) => (connectedIds.has(d.id) ? 1 : 0.2));
+      node.style("opacity", (d: any) => (d.id === hoveredId || connectedIds.has(d.id) ? 1 : 0.2));
 
       link
         .attr("stroke-opacity", (d: any) => {
@@ -539,9 +558,11 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .attr("x2", (d: any) => d.target.x)
         .attr("y2", (d: any) => d.target.y);
 
-      linkText
-        .attr("x", (d: any) => (d.source.x + d.target.x) / 2)
-        .attr("y", (d: any) => (d.source.y + d.target.y) / 2);
+      if (mode === 'curated') {
+        linkText
+          .attr("x", (d: any) => (d.source.x + d.target.x) / 2)
+          .attr("y", (d: any) => (d.source.y + d.target.y) / 2);
+      }
 
       node.attr("transform", (d: any) => `translate(${d.x},${d.y})`);
     });
