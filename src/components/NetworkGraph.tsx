@@ -132,15 +132,66 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
   const filteredRelationships = useMemo(() => {
     const visibleIds = new Set(filteredCharacters.map((c) => c.id));
-    return relationships.filter((r) => {
-      if (!visibleIds.has(r.source) || !visibleIds.has(r.target)) return false;
-      if (minCoOccurrence > 0) {
-        const pairKey = r.source < r.target ? `${r.source}|${r.target}` : `${r.target}|${r.source}`;
-        const co = coOccurrenceMap.get(pairKey);
-        return co ? co.weight >= minCoOccurrence : false;
+    const candidateMap = new Map<string, { rel: Relationship; score: number }>();
+
+    const getScore = (rel: Relationship): number => {
+      let score = 0;
+      const typeLow = (rel.type || '').toLowerCase();
+      const typeZh = rel.typeZh || '';
+
+      if (
+        typeLow.includes('soulmate') || typeZh.includes('知己') ||
+        typeLow.includes('romantic') || typeZh.includes('挚爱') || typeZh.includes('情感') ||
+        typeLow.includes('spouse') || typeZh.includes('夫妻') ||
+        typeLow.includes('marriage') || typeZh.includes('姻亲') ||
+        typeLow.includes('betrothed') || typeZh.includes('婚约') ||
+        typeLow.includes('redeemer') || typeZh.includes('赎身') ||
+        typeLow.includes('adoptive') || typeZh.includes('义父') || typeZh.includes('义子')
+      ) {
+        score += 100;
+      } else if (
+        typeLow.includes('master') || typeZh.includes('主仆') || typeZh.includes('师徒') ||
+        typeLow.includes('family') || typeZh.includes('家属') || typeZh.includes('亲眷') || typeZh.includes('父子') || typeZh.includes('兄妹') ||
+        typeLow.includes('antagonistic') || typeZh.includes('结怨') || typeZh.includes('算计') ||
+        typeLow.includes('patron') || typeZh.includes('赞助') || typeZh.includes('看重')
+      ) {
+        score += 70;
+      } else if (
+        typeLow.includes('peer') || typeZh.includes('同好文人') || typeZh.includes('文人') ||
+        typeLow.includes('allied') || typeZh.includes('盟友') ||
+        typeLow.includes('colleague') || typeZh.includes('同台') || typeZh.includes('同班')
+      ) {
+        score += 40;
+      } else if (
+        typeLow.includes('acquaintance') || typeZh.includes('泛泛之交') ||
+        typeLow.includes('guest') || typeZh.includes('宾客')
+      ) {
+        score += 10;
+      } else {
+        score += 20;
       }
-      return true;
-    });
+
+      return score;
+    };
+
+    for (const r of relationships) {
+      if (!visibleIds.has(r.source) || !visibleIds.has(r.target)) continue;
+
+      const pairKey = r.source < r.target ? `${r.source}|${r.target}` : `${r.target}|${r.source}`;
+
+      if (minCoOccurrence > 0) {
+        const co = coOccurrenceMap.get(pairKey);
+        if (!co || co.weight < minCoOccurrence) continue;
+      }
+
+      const score = getScore(r);
+      const existing = candidateMap.get(pairKey);
+      if (!existing || score > existing.score) {
+        candidateMap.set(pairKey, { rel: r, score });
+      }
+    }
+
+    return Array.from(candidateMap.values()).map((entry) => entry.rel);
   }, [relationships, filteredCharacters, minCoOccurrence, coOccurrenceMap]);
 
   // Drop floating unanchored characters with no visible connections
