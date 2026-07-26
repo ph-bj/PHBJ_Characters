@@ -39,7 +39,7 @@ const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
   'char-87': 'Madam Lu (Wang household)',
 
   'char-96': 'Madam Lu (Sun household)',
-  'char-99': 'Miss Wang',
+  'char-99': 'Miss Sun',
   'char-108': 'Page Boy',
   'char-109': 'Maidservant (Gatekeeper)',
   'char-110': 'Household Maid (Clothing)',
@@ -64,9 +64,12 @@ function getChineseName(fullName: string): string {
 }
 
 function getEnglishOrRomanizedName(id: string, fullName: string): string {
+  if (ENGLISH_CHARACTER_NAME_FALLBACKS[id]) {
+    return ENGLISH_CHARACTER_NAME_FALLBACKS[id];
+  }
   const chineseName = getChineseName(fullName);
   const remainder = fullName.slice(chineseName.length).trim();
-  return remainder || ENGLISH_CHARACTER_NAME_FALLBACKS[id] || fullName;
+  return remainder || fullName;
 }
 
 function getNodeLabel(node: { id: string; name: string }, lang: 'en' | 'zh'): string {
