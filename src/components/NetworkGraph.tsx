@@ -436,7 +436,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     svg.call(zoom.transform as any, initialTransform);
     svg.on("dblclick.zoom", null);
 
-    const link = g.append("g")
+    const linkGroup = g.append("g");
+    const link = linkGroup
       .selectAll("line")
       .data(links)
       .join("line")
@@ -461,7 +462,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         return relName;
       });
 
-    const linkText = g.append("g")
+    const linkTextGroup = g.append("g");
+    const linkText = linkTextGroup
       .selectAll("text")
       .data(links)
       .join("text")
@@ -478,7 +480,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .style("opacity", 1)
       .text(linkLabel);
 
-    const node = g.append("g")
+    const nodeGroup = g.append("g");
+    const node = nodeGroup
       .selectAll("g")
       .data(nodes)
       .join("g")
@@ -555,6 +558,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .attr("stroke-width", baseLinkWidth);
       linkText
         .style("opacity", 1);
+      nodeGroup.raise();
     };
 
     const applyHoverStyles = (hoveredId: string) => {
@@ -623,6 +627,22 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       if (!event.active) simulation.alphaTarget(0.3).restart();
       event.subject.fx = event.subject.x;
       event.subject.fy = event.subject.y;
+
+      const draggedId = event.subject.id;
+      if (lockedNodeId) {
+        const isConnectedToLocked = adjMap.get(lockedNodeId)?.has(draggedId);
+        if (isConnectedToLocked || draggedId === lockedNodeId) {
+          linkTextGroup.raise();
+          linkText.filter((d: any) => {
+            const sId = getNodeId(d.source);
+            const tId = getNodeId(d.target);
+            if (draggedId === lockedNodeId) {
+              return sId === lockedNodeId || tId === lockedNodeId;
+            }
+            return (sId === lockedNodeId && tId === draggedId) || (sId === draggedId && tId === lockedNodeId);
+          }).raise();
+        }
+      }
     }
 
     function dragged(event: any) {
