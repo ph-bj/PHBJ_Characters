@@ -281,13 +281,22 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       ? filteredCoEdges.map(e => ({ ...e, chapters: [...e.chapters] }))
       : filteredRelationships.map(r => ({ ...r }));
 
+    const getLinkNodeId = (endpoint: any): string => {
+      if (!endpoint) return '';
+      if (typeof endpoint === 'string') return endpoint;
+      if (typeof endpoint === 'object' && endpoint.id) return endpoint.id;
+      return String(endpoint);
+    };
+
     const maxWeight = mode === 'cooccurrence'
       ? Math.max(minShared, d3.max(links, (d: any) => d.weight as number) ?? minShared)
       : 1;
     const weightWidth = d3.scaleSqrt().domain([minShared, Math.max(minShared + 1, maxWeight)]).range([1, 5.5]);
     const baseLinkWidth = (d: any) => {
       if (mode === 'cooccurrence') return weightWidth(d.weight);
-      const pairKey = d.source < d.target ? `${d.source}|${d.target}` : `${d.target}|${d.source}`;
+      const sId = getLinkNodeId(d.source);
+      const tId = getLinkNodeId(d.target);
+      const pairKey = sId < tId ? `${sId}|${tId}` : `${tId}|${sId}`;
       const co = coOccurrenceMap.get(pairKey);
       const w = co ? co.weight : 0;
       return 1.5 + Math.min(w, 15) * 0.25;
@@ -297,7 +306,9 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       if (mode === 'cooccurrence') {
         return lang === 'zh' ? `${d.weight}回` : `${d.weight} ch`;
       }
-      const pairKey = d.source < d.target ? `${d.source}|${d.target}` : `${d.target}|${d.source}`;
+      const sId = getLinkNodeId(d.source);
+      const tId = getLinkNodeId(d.target);
+      const pairKey = sId < tId ? `${sId}|${tId}` : `${tId}|${sId}`;
       const co = coOccurrenceMap.get(pairKey);
       const relName = lang === 'zh' ? d.typeZh : d.type;
       if (co && co.weight > 0) {
@@ -440,7 +451,9 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           const list = d.chapters.join(', ');
           return lang === 'zh' ? `同回出现：第 ${list} 回` : `Shared chapters: ${list}`;
         }
-        const pairKey = d.source < d.target ? `${d.source}|${d.target}` : `${d.target}|${d.source}`;
+        const sId = getLinkNodeId(d.source);
+        const tId = getLinkNodeId(d.target);
+        const pairKey = sId < tId ? `${sId}|${tId}` : `${tId}|${sId}`;
         const co = coOccurrenceMap.get(pairKey);
         const relName = lang === 'zh' ? d.typeZh : d.type;
         if (co && co.weight > 0) {
@@ -456,6 +469,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .selectAll("text")
       .data(links)
       .join("text")
+      .attr("x", (d: any) => ((d.source.x ?? 0) + (d.target.x ?? 0)) / 2)
+      .attr("y", (d: any) => ((d.source.y ?? 0) + (d.target.y ?? 0)) / 2)
       .attr("font-size", "8px")
       .attr("font-weight", "700")
       .attr("fill", "var(--ink-dim-text)")
@@ -592,7 +607,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       }
     });
 
-    simulation.on("tick", () => {
+    const updatePositions = () => {
       link
         .attr("x1", (d: any) => d.source.x)
         .attr("y1", (d: any) => d.source.y)
@@ -606,7 +621,10 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       }
 
       node.attr("transform", (d: any) => `translate(${d.x},${d.y})`);
-    });
+    };
+
+    updatePositions();
+    simulation.on("tick", updatePositions);
 
     function dragstarted(event: any) {
       if (!event.active) simulation.alphaTarget(0.3).restart();
