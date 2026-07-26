@@ -167,6 +167,26 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     });
   };
 
+  const defaultHiddenRoles = useMemo(() => {
+    const hidden = new Set<string>();
+    characters.forEach((c) => {
+      if (!DEFAULT_VISIBLE_ROLES.has(c.role)) {
+        hidden.add(c.role);
+      }
+    });
+    return hidden;
+  }, [characters]);
+
+  const isDefaultRoles = useMemo(() => {
+    if (hiddenRoles.size !== defaultHiddenRoles.size) return false;
+    for (const r of hiddenRoles) {
+      if (!defaultHiddenRoles.has(r)) return false;
+    }
+    return true;
+  }, [hiddenRoles, defaultHiddenRoles]);
+
+  const resetToDefaultRoles = () => setHiddenRoles(defaultHiddenRoles);
+
   const showAllRoles = () => setHiddenRoles(new Set());
 
   useEffect(() => {
@@ -693,21 +713,33 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
               aria-expanded={!isRoleFilterMinimized}
             >
               <span>{lang === 'en' ? 'Role Filter' : '角色图例'}</span>
-              {hiddenRoles.size > 0 && (
-                <span className="text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 truncate">
-                  ({lang === 'en' ? `${hiddenRoles.size} hidden` : `已隐${hiddenRoles.size}`})
-                </span>
-              )}
+              <span className="text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 truncate">
+                {isDefaultRoles
+                  ? (lang === 'en' ? '(Default)' : '(默认)')
+                  : (lang === 'en' ? `(${hiddenRoles.size} hidden)` : `(已隐${hiddenRoles.size})`)}
+              </span>
             </button>
             <div className="flex items-center gap-1 shrink-0">
-              {hiddenRoles.size > 0 && !isRoleFilterMinimized && (
-                <button
-                  type="button"
-                  onClick={showAllRoles}
-                  className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer mr-0.5"
-                >
-                  {lang === 'en' ? 'Reset' : '重置'}
-                </button>
+              {!isRoleFilterMinimized && (
+                isDefaultRoles ? (
+                  <button
+                    type="button"
+                    onClick={showAllRoles}
+                    className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer mr-0.5"
+                    title={lang === 'en' ? 'Show all roles' : '显示所有角色'}
+                  >
+                    {lang === 'en' ? 'Show all' : '全选'}
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={resetToDefaultRoles}
+                    className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer mr-0.5"
+                    title={lang === 'en' ? 'Reset to default roles (Performers, Scholars, Villains)' : '重置为默认角色（伶人、名士、反派）'}
+                  >
+                    {lang === 'en' ? 'Reset' : '重置'}
+                  </button>
+                )
               )}
               <button
                 type="button"
