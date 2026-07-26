@@ -101,7 +101,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     });
     return hidden;
   });
-  const [minCoOccurrence, setMinCoOccurrence] = useState<number>(0);
+  const [minCoOccurrence, setMinCoOccurrence] = useState<number>(3);
 
   const { isUnloaded, reload } = useMobileUnload(containerRef, !isFullscreen);
 
