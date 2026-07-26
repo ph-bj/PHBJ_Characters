@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import * as d3 from 'd3';
-import { Activity, Maximize, Minimize } from 'lucide-react';
+import { Activity, ChevronDown, ChevronUp, Maximize, Minimize } from 'lucide-react';
 import { Character, Relationship } from '../types';
 import { getCoOccurrenceEdges } from '../cooccurrence';
 import { useMobileUnload } from '../hooks/useMobileUnload';
@@ -102,6 +102,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     return hidden;
   });
   const [minCoOccurrence, setMinCoOccurrence] = useState<number>(15);
+  const [isRoleFilterMinimized, setIsRoleFilterMinimized] = useState(false);
+  const [isCoOccurrenceMinimized, setIsCoOccurrenceMinimized] = useState(false);
 
   const { isUnloaded, reload } = useMobileUnload(containerRef, !isFullscreen);
 
@@ -682,84 +684,145 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       </div>
       <div className="absolute top-4 right-4 z-10 flex flex-col items-end gap-2 max-w-[150px] sm:max-w-[190px] md:max-w-[230px]">
         {/* Role Legend Box */}
-        <div className="bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm w-full">
-          {hiddenRoles.size > 0 && (
+        <div className="bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm w-full transition-all">
+          <div className="flex items-center justify-between text-left select-none gap-1">
             <button
               type="button"
-              onClick={showAllRoles}
-              className="mb-1.5 w-full text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation"
+              onClick={() => setIsRoleFilterMinimized((prev) => !prev)}
+              className="flex items-center gap-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left"
+              aria-expanded={!isRoleFilterMinimized}
             >
-              {lang === 'en' ? 'Show all' : '显示全部'}
+              <span>{lang === 'en' ? 'Role Filter' : '角色图例'}</span>
+              {hiddenRoles.size > 0 && (
+                <span className="text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 truncate">
+                  ({lang === 'en' ? `${hiddenRoles.size} hidden` : `已隐${hiddenRoles.size}`})
+                </span>
+              )}
             </button>
-          )}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1">
-            {availableRoles.map((role) => {
-              const labels = ROLE_LABELS[role];
-              const isVisible = !hiddenRoles.has(role);
-              const colorVar = getRoleColorVar(role);
-              const bgColorVar = getRoleBgColorVar(role);
-              return (
+            <div className="flex items-center gap-1 shrink-0">
+              {hiddenRoles.size > 0 && !isRoleFilterMinimized && (
                 <button
-                  key={role}
                   type="button"
-                  onClick={() => toggleRoleFilter(role)}
-                  aria-pressed={isVisible}
-                  title={
-                    isVisible
-                      ? (lang === 'en' ? `Hide ${labels?.en ?? role}` : `隐藏${labels?.zh ?? role}`)
-                      : (lang === 'en' ? `Show ${labels?.en ?? role}` : `显示${labels?.zh ?? role}`)
-                  }
-                  className={`flex items-center gap-1.5 text-left rounded px-0.5 py-0.5 transition-all touch-manipulation ${isVisible ? 'opacity-100' : 'opacity-35'
-                    } hover:opacity-100`}
+                  onClick={showAllRoles}
+                  className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer mr-0.5"
                 >
-                  <div
-                    className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border shrink-0 ${isVisible ? '' : 'border-dashed'}`}
-                    style={{
-                      backgroundColor: isVisible ? bgColorVar : 'transparent',
-                      borderColor: colorVar,
-                    }}
-                  />
-                  <span
-                    className={`text-[8px] sm:text-[9px] font-medium truncate ${isVisible ? 'text-[var(--ink-dim-text)]' : 'text-[var(--ink-dim-text)]/60 line-through'
-                      }`}
-                  >
-                    {lang === 'en' ? (labels?.en ?? role) : (labels?.zh ?? role)}
-                  </span>
+                  {lang === 'en' ? 'Reset' : '重置'}
                 </button>
-              );
-            })}
+              )}
+              <button
+                type="button"
+                onClick={() => setIsRoleFilterMinimized((prev) => !prev)}
+                className="p-0.5 text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer"
+                aria-label={
+                  isRoleFilterMinimized
+                    ? (lang === 'en' ? 'Expand role filter' : '展开角色图例')
+                    : (lang === 'en' ? 'Minimize role filter' : '收起角色图例')
+                }
+              >
+                {isRoleFilterMinimized ? <ChevronDown size={14} /> : <ChevronUp size={14} />}
+              </button>
+            </div>
           </div>
+
+          {!isRoleFilterMinimized && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1 mt-1.5 pt-1.5 border-t border-[var(--paper-border)]/50">
+              {availableRoles.map((role) => {
+                const labels = ROLE_LABELS[role];
+                const isVisible = !hiddenRoles.has(role);
+                const colorVar = getRoleColorVar(role);
+                const bgColorVar = getRoleBgColorVar(role);
+                return (
+                  <button
+                    key={role}
+                    type="button"
+                    onClick={() => toggleRoleFilter(role)}
+                    aria-pressed={isVisible}
+                    title={
+                      isVisible
+                        ? (lang === 'en' ? `Hide ${labels?.en ?? role}` : `隐藏${labels?.zh ?? role}`)
+                        : (lang === 'en' ? `Show ${labels?.en ?? role}` : `显示${labels?.zh ?? role}`)
+                    }
+                    className={`flex items-center gap-1.5 text-left rounded px-0.5 py-0.5 transition-all touch-manipulation cursor-pointer ${
+                      isVisible ? 'opacity-100' : 'opacity-35'
+                    } hover:opacity-100`}
+                  >
+                    <div
+                      className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border shrink-0 ${
+                        isVisible ? '' : 'border-dashed'
+                      }`}
+                      style={{
+                        backgroundColor: isVisible ? bgColorVar : 'transparent',
+                        borderColor: colorVar,
+                      }}
+                    />
+                    <span
+                      className={`text-[8px] sm:text-[9px] font-medium truncate ${
+                        isVisible ? 'text-[var(--ink-dim-text)]' : 'text-[var(--ink-dim-text)]/60 line-through'
+                      }`}
+                    >
+                      {lang === 'en' ? (labels?.en ?? role) : (labels?.zh ?? role)}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* Co-occurrence Filter Box (Below Legend Box) */}
-        <div className="bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm w-full">
-          <div className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] mb-1 text-left">
-            {lang === 'en' ? 'Co-occurrence Filter' : '同回共现筛选'}
+        <div className="bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm w-full transition-all">
+          <div className="flex items-center justify-between text-left select-none gap-1">
+            <button
+              type="button"
+              onClick={() => setIsCoOccurrenceMinimized((prev) => !prev)}
+              className="flex items-center gap-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left"
+              aria-expanded={!isCoOccurrenceMinimized}
+            >
+              <span>{lang === 'en' ? 'Co-occurrence' : '同回共现'}</span>
+              <span className="text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 truncate">
+                ({minCoOccurrence === 0 ? (lang === 'en' ? 'All' : '全部') : `≥${minCoOccurrence}${lang === 'en' ? '' : '回'}`})
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsCoOccurrenceMinimized((prev) => !prev)}
+              className="p-0.5 text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer"
+              aria-label={
+                isCoOccurrenceMinimized
+                  ? (lang === 'en' ? 'Expand co-occurrence filter' : '展开共现筛选')
+                  : (lang === 'en' ? 'Minimize co-occurrence filter' : '收起共现筛选')
+              }
+            >
+              {isCoOccurrenceMinimized ? <ChevronDown size={14} /> : <ChevronUp size={14} />}
+            </button>
           </div>
-          <div className="flex flex-wrap items-center gap-1">
-            {[
-              { labelEn: 'All', labelZh: '全部', val: 0 },
-              { labelEn: '≥1', labelZh: '≥1回', val: 1 },
-              { labelEn: '≥3', labelZh: '≥3回', val: 3 },
-              { labelEn: '≥5', labelZh: '≥5回', val: 5 },
-              { labelEn: '≥8', labelZh: '≥8回', val: 8 },
-              { labelEn: '≥15', labelZh: '≥15回', val: 15 },
-            ].map((btn) => (
-              <button
-                key={btn.val}
-                type="button"
-                onClick={() => setMinCoOccurrence(btn.val)}
-                aria-pressed={minCoOccurrence === btn.val}
-                className={`px-1.5 py-0.5 text-[8px] sm:text-[9px] font-bold rounded-sm border transition-colors touch-manipulation ${
-                  minCoOccurrence === btn.val
-                    ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
-                    : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
-                }`}
-              >
-                {lang === 'en' ? btn.labelEn : btn.labelZh}
-              </button>
-            ))}
-          </div>
+
+          {!isCoOccurrenceMinimized && (
+            <div className="flex flex-wrap items-center gap-1 mt-1.5 pt-1.5 border-t border-[var(--paper-border)]/50">
+              {[
+                { labelEn: 'All', labelZh: '全部', val: 0 },
+                { labelEn: '≥1', labelZh: '≥1回', val: 1 },
+                { labelEn: '≥3', labelZh: '≥3回', val: 3 },
+                { labelEn: '≥5', labelZh: '≥5回', val: 5 },
+                { labelEn: '≥8', labelZh: '≥8回', val: 8 },
+                { labelEn: '≥15', labelZh: '≥15回', val: 15 },
+              ].map((btn) => (
+                <button
+                  key={btn.val}
+                  type="button"
+                  onClick={() => setMinCoOccurrence(btn.val)}
+                  aria-pressed={minCoOccurrence === btn.val}
+                  className={`px-1.5 py-0.5 text-[8px] sm:text-[9px] font-bold rounded-sm border transition-colors touch-manipulation cursor-pointer ${
+                    minCoOccurrence === btn.val
+                      ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
+                      : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
+                  }`}
+                >
+                  {lang === 'en' ? btn.labelEn : btn.labelZh}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <button
