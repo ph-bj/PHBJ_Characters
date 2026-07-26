@@ -1,4 +1,5 @@
 import { Character, Relationship } from './types';
+import { cooccurrenceSpecificRelationships } from './cooccurrenceRelationships';
 
 const rawData = `char-0	梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male protagonist; scholar-gentry; falls for Qinyan; later marries Wang Qionghua; promoted examiner (ch.15); builds Qu shrine (ch.59)	男主角；书生士绅；钟情于琴言；后娶王琼华；第15回升任主考官；第59回为屈道翁修建祠堂。
 char-1	杜琴言 Dù Qínyán	琴官 / 玉侬 / 琴仙 / 屈琴仙 / 屈勤先 / 屈少君 / 杜仙女	15	Jiangsu	performer	ch.1	Central romantic figure; orphaned; renamed by Xu Ziyun (ch.5); redeemed in ch.43; reunites with Ziyu	核心浪漫人物；孤儿；第5回由徐子云改名；第43回赎身；最终与子玉重逢。
@@ -2453,7 +2454,7 @@ export const relationships: Relationship[] = (() => {
   const seen = new Set<string>();
   const result: Relationship[] = [];
   const manual = buildValidatedRelationshipsFromSpecs(chapterValidatedRelationshipSpecs);
-  const allCandidates = [...baseRelationships, ...manual, ...generatedRelationships];
+  const allCandidates = [...baseRelationships, ...manual, ...cooccurrenceSpecificRelationships, ...generatedRelationships];
 
   for (const rel of allCandidates) {
     const source = idRemap[rel.source] || rel.source;
