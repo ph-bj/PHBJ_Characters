@@ -705,21 +705,21 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       <div className="absolute top-4 right-4 z-10 flex flex-col items-end gap-2 max-w-[150px] sm:max-w-[190px] md:max-w-[230px]">
         {/* Role Legend Box */}
         <div className="bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm w-full transition-all">
-          <div className="flex items-center justify-between text-left select-none gap-1">
+          <div className="flex items-start justify-between text-left select-none gap-1">
             <button
               type="button"
               onClick={() => setIsRoleFilterMinimized((prev) => !prev)}
-              className="flex items-center gap-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left"
+              className={`flex ${isRoleFilterMinimized ? 'items-center gap-1' : 'flex-col items-start gap-0.5'} text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left`}
               aria-expanded={!isRoleFilterMinimized}
             >
               <span>{lang === 'en' ? 'Role Filter' : '角色图例'}</span>
-              <span className="text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 truncate">
+              <span className={`text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 ${isRoleFilterMinimized ? 'truncate' : 'whitespace-normal'}`}>
                 {isDefaultRoles
                   ? (lang === 'en' ? '(Default)' : '(默认)')
                   : (lang === 'en' ? `(${hiddenRoles.size} hidden)` : `(已隐${hiddenRoles.size})`)}
               </span>
             </button>
-            <div className="flex items-center gap-1 shrink-0">
+            <div className="flex items-center gap-1 shrink-0 pt-0.5">
               {!isRoleFilterMinimized && (
                 isDefaultRoles ? (
                   <button
@@ -803,22 +803,22 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
         {/* Co-occurrence Filter Box (Below Legend Box) */}
         <div className="bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm w-full transition-all">
-          <div className="flex items-center justify-between text-left select-none gap-1">
+          <div className="flex items-start justify-between text-left select-none gap-1">
             <button
               type="button"
               onClick={() => setIsCoOccurrenceMinimized((prev) => !prev)}
-              className="flex items-center gap-1 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left"
+              className={`flex ${isCoOccurrenceMinimized ? 'items-center gap-1' : 'flex-col items-start gap-0.5'} text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left`}
               aria-expanded={!isCoOccurrenceMinimized}
             >
               <span>{lang === 'en' ? 'Co-occurrence' : '同回共现'}</span>
-              <span className="text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 truncate">
+              <span className={`text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 ${isCoOccurrenceMinimized ? 'truncate' : 'whitespace-normal'}`}>
                 ({minCoOccurrence === 0 ? (lang === 'en' ? 'All' : '全部') : `≥${minCoOccurrence}${lang === 'en' ? '' : '回'}`})
               </span>
             </button>
             <button
               type="button"
               onClick={() => setIsCoOccurrenceMinimized((prev) => !prev)}
-              className="p-0.5 text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer"
+              className="p-0.5 text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer pt-0.5"
               aria-label={
                 isCoOccurrenceMinimized
                   ? (lang === 'en' ? 'Expand co-occurrence filter' : '展开共现筛选')
