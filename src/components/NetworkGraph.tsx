@@ -133,76 +133,20 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     [characters, hiddenRoles]
   );
 
+  // `relationships` already holds exactly one edge per character pair, so this
+  // only has to drop the pairs the current filters hide.
   const filteredRelationships = useMemo(() => {
     const visibleIds = new Set(filteredCharacters.map((c) => c.id));
-    const candidateMap = new Map<string, { rel: Relationship; score: number }>();
 
-    const getScore = (rel: Relationship): number => {
-      let score = 0;
-      const typeLow = (rel.type || '').toLowerCase();
-      const typeZh = rel.typeZh || '';
-
-      if (
-        typeLow.includes('soulmate') || typeZh.includes('知己') || typeZh.includes('契') ||
-        typeLow.includes('romantic') || typeZh.includes('挚爱') || typeZh.includes('情感') || typeZh.includes('知音') ||
-        typeLow.includes('spouse') || typeZh.includes('夫妻') ||
-        typeLow.includes('marriage') || typeZh.includes('姻亲') ||
-        typeLow.includes('betrothed') || typeZh.includes('婚约') ||
-        typeLow.includes('redeemer') || typeZh.includes('赎身') ||
-        typeLow.includes('adoptive') || typeZh.includes('义父') || typeZh.includes('义子') ||
-        typeZh.includes('霸占') || typeZh.includes('受害者') || typeZh.includes('宿敌') || typeZh.includes('恶少')
-      ) {
-        score += 100;
-      } else if (
-        typeLow.includes('master') || typeZh.includes('主仆') || typeZh.includes('师徒') ||
-        typeLow.includes('family') || typeZh.includes('家属') || typeZh.includes('亲眷') || typeZh.includes('父子') || typeZh.includes('兄妹') ||
-        typeLow.includes('antagonistic') || typeZh.includes('结怨') || typeZh.includes('算计') ||
-        typeLow.includes('patron') || typeZh.includes('赞助') || typeZh.includes('看重') ||
-        typeZh.includes('同道') || typeZh.includes('同恶') || typeZh.includes('追捧') || typeZh.includes('招赘')
-      ) {
-        score += 70;
-      } else if (
-        typeLow.includes('peer') || typeZh.includes('同好文人') || typeZh.includes('文人') ||
-        typeLow.includes('allied') || typeZh.includes('盟友') ||
-        typeLow.includes('colleague') || typeZh.includes('同台') || typeZh.includes('同班') ||
-        typeZh.includes('场友') || typeZh.includes('雅集') || typeZh.includes('名伶')
-      ) {
-        score += 40;
-      } else if (
-        typeLow.includes('acquaintance') || typeZh.includes('泛泛之交') ||
-        typeLow.includes('guest') || typeZh.includes('宾客')
-      ) {
-        score += 10;
-      } else {
-        score += 30;
-      }
-
-      const isGeneric = ['同好文人', '名士与伶人', '结怨/算计', '泛泛之交', '主仆/雇佣', '同台伶人', '戏班/府上', '官员与名士', '官员与伶人', '狐朋狗友', '死敌宿仇', '同府仆从', '家属/内眷'].includes(typeZh);
-      if (!isGeneric && typeZh.length > 4) {
-        score += 15;
-      }
-
-      return score;
-    };
-
-    for (const r of relationships) {
-      if (!visibleIds.has(r.source) || !visibleIds.has(r.target)) continue;
-
-      const pairKey = r.source < r.target ? `${r.source}|${r.target}` : `${r.target}|${r.source}`;
-
+    return relationships.filter((r) => {
+      if (!visibleIds.has(r.source) || !visibleIds.has(r.target)) return false;
       if (minCoOccurrence > 0) {
+        const pairKey = r.source < r.target ? `${r.source}|${r.target}` : `${r.target}|${r.source}`;
         const co = coOccurrenceMap.get(pairKey);
-        if (!co || co.weight < minCoOccurrence) continue;
+        if (!co || co.weight < minCoOccurrence) return false;
       }
-
-      const score = getScore(r);
-      const existing = candidateMap.get(pairKey);
-      if (!existing || score >= existing.score) {
-        candidateMap.set(pairKey, { rel: r, score });
-      }
-    }
-
-    return Array.from(candidateMap.values()).map((entry) => entry.rel);
+      return true;
+    });
   }, [relationships, filteredCharacters, minCoOccurrence, coOccurrenceMap]);
 
   // Drop floating unanchored characters with no visible connections
