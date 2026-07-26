@@ -705,6 +705,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       if (!event.active) simulation.alphaTarget(0);
       event.subject.fx = null;
       event.subject.fy = null;
+      nodeGroup.raise();
     }
 
     // iOS Safari may report 0 dimensions until the next frame after entering fullscreen.
