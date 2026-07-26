@@ -103,8 +103,19 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
   });
   const [mode, setMode] = useState<GraphMode>('curated');
   const [minShared, setMinShared] = useState(5);
+  const [minCoOccurrence, setMinCoOccurrence] = useState<number>(0);
 
   const { isUnloaded, reload } = useMobileUnload(containerRef, !isFullscreen);
+
+  const coOccurrenceMap = useMemo(() => {
+    const edges = getCoOccurrenceEdges();
+    const map = new Map<string, { weight: number; chapters: number[] }>();
+    for (const edge of edges) {
+      const key = edge.source < edge.target ? `${edge.source}|${edge.target}` : `${edge.target}|${edge.source}`;
+      map.set(key, { weight: edge.weight, chapters: edge.chapters });
+    }
+    return map;
+  }, []);
 
   const availableRoles = useMemo(() => {
     const seen = new Set<string>();
@@ -121,28 +132,36 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
   const filteredRelationships = useMemo(() => {
     const visibleIds = new Set(filteredCharacters.map((c) => c.id));
-    return relationships.filter((r) => visibleIds.has(r.source) && visibleIds.has(r.target));
-  }, [relationships, filteredCharacters]);
+    return relationships.filter((r) => {
+      if (!visibleIds.has(r.source) || !visibleIds.has(r.target)) return false;
+      if (minCoOccurrence > 0) {
+        const pairKey = r.source < r.target ? `${r.source}|${r.target}` : `${r.target}|${r.source}`;
+        const co = coOccurrenceMap.get(pairKey);
+        return co ? co.weight >= minCoOccurrence : false;
+      }
+      return true;
+    });
+  }, [relationships, filteredCharacters, minCoOccurrence, coOccurrenceMap]);
 
   const filteredCoEdges = useMemo(() => {
     if (mode !== 'cooccurrence') return [];
     const visibleIds = new Set(filteredCharacters.map((c) => c.id));
+    const threshold = minCoOccurrence > 0 ? minCoOccurrence : minShared;
     return getCoOccurrenceEdges().filter(
-      (e) => e.weight >= minShared && visibleIds.has(e.source) && visibleIds.has(e.target)
+      (e) => e.weight >= threshold && visibleIds.has(e.source) && visibleIds.has(e.target)
     );
-  }, [mode, minShared, filteredCharacters]);
+  }, [mode, minShared, minCoOccurrence, filteredCharacters]);
 
-  // In co-occurrence mode, characters with no shared chapter above the
-  // threshold would float unanchored — drop them from the view instead.
+  // Drop floating unanchored characters with no visible connections
   const graphCharacters = useMemo(() => {
-    if (mode !== 'cooccurrence') return filteredCharacters;
     const connectedIds = new Set<string>();
-    filteredCoEdges.forEach((e) => {
-      connectedIds.add(e.source);
-      connectedIds.add(e.target);
+    const activeLinks = mode === 'cooccurrence' ? filteredCoEdges : filteredRelationships;
+    activeLinks.forEach((e) => {
+      connectedIds.add(typeof e.source === 'string' ? e.source : e.source.id);
+      connectedIds.add(typeof e.target === 'string' ? e.target : e.target.id);
     });
     return filteredCharacters.filter((c) => connectedIds.has(c.id));
-  }, [mode, filteredCharacters, filteredCoEdges]);
+  }, [mode, filteredCharacters, filteredCoEdges, filteredRelationships]);
 
   const toggleRoleFilter = (role: string) => {
     setHiddenRoles((prev) => {
@@ -266,13 +285,25 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       ? Math.max(minShared, d3.max(links, (d: any) => d.weight as number) ?? minShared)
       : 1;
     const weightWidth = d3.scaleSqrt().domain([minShared, Math.max(minShared + 1, maxWeight)]).range([1, 5.5]);
-    const baseLinkWidth = (d: any) => (mode === 'cooccurrence' ? weightWidth(d.weight) : 1.5);
+    const baseLinkWidth = (d: any) => {
+      if (mode === 'cooccurrence') return weightWidth(d.weight);
+      const pairKey = d.source < d.target ? `${d.source}|${d.target}` : `${d.target}|${d.source}`;
+      const co = coOccurrenceMap.get(pairKey);
+      const w = co ? co.weight : 0;
+      return 1.5 + Math.min(w, 15) * 0.25;
+    };
     const baseLinkOpacity = mode === 'cooccurrence' ? 0.22 : 0.3;
     const linkLabel = (d: any) => {
       if (mode === 'cooccurrence') {
         return lang === 'zh' ? `${d.weight}回` : `${d.weight} ch`;
       }
-      return lang === 'zh' ? d.typeZh : d.type;
+      const pairKey = d.source < d.target ? `${d.source}|${d.target}` : `${d.target}|${d.source}`;
+      const co = coOccurrenceMap.get(pairKey);
+      const relName = lang === 'zh' ? d.typeZh : d.type;
+      if (co && co.weight > 0) {
+        return lang === 'zh' ? `${relName} (${co.weight}回)` : `${relName} (${co.weight} ch)`;
+      }
+      return relName;
     };
 
     const svg = d3.select(svgRef.current);
@@ -403,13 +434,23 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .attr("stroke-width", baseLinkWidth)
       .attr("vector-effect", "non-scaling-stroke");
 
-    if (mode === 'cooccurrence') {
-      link.append("title")
-        .text((d: any) => {
+    link.append("title")
+      .text((d: any) => {
+        if (mode === 'cooccurrence') {
           const list = d.chapters.join(', ');
           return lang === 'zh' ? `同回出现：第 ${list} 回` : `Shared chapters: ${list}`;
-        });
-    }
+        }
+        const pairKey = d.source < d.target ? `${d.source}|${d.target}` : `${d.target}|${d.source}`;
+        const co = coOccurrenceMap.get(pairKey);
+        const relName = lang === 'zh' ? d.typeZh : d.type;
+        if (co && co.weight > 0) {
+          const list = co.chapters.join(', ');
+          return lang === 'zh'
+            ? `${relName} | 同回出现：第 ${list} 回 (${co.weight}回)`
+            : `${relName} | Shared chapters: ${list} (${co.weight} ch)`;
+        }
+        return relName;
+      });
 
     const linkText = g.append("g")
       .selectAll("text")
@@ -693,52 +734,91 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           </div>
         )}
       </div>
-      <div className="absolute top-4 right-4 z-10 bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm max-w-[120px] md:max-w-[160px] lg:max-w-none">
-        {hiddenRoles.size > 0 && (
-          <button
-            type="button"
-            onClick={showAllRoles}
-            className="mb-1.5 w-full text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation"
-          >
-            {lang === 'en' ? 'Show all' : '显示全部'}
-          </button>
-        )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-3 gap-y-1">
-          {availableRoles.map((role) => {
-            const labels = ROLE_LABELS[role];
-            const isVisible = !hiddenRoles.has(role);
-            const colorVar = getRoleColorVar(role);
-            const bgColorVar = getRoleBgColorVar(role);
-            return (
-              <button
-                key={role}
-                type="button"
-                onClick={() => toggleRoleFilter(role)}
-                aria-pressed={isVisible}
-                title={
-                  isVisible
-                    ? (lang === 'en' ? `Hide ${labels?.en ?? role}` : `隐藏${labels?.zh ?? role}`)
-                    : (lang === 'en' ? `Show ${labels?.en ?? role}` : `显示${labels?.zh ?? role}`)
-                }
-                className={`flex items-center gap-2 text-left rounded px-0.5 py-0.5 transition-all touch-manipulation ${isVisible ? 'opacity-100' : 'opacity-35'
-                  } hover:opacity-100`}
-              >
-                <div
-                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full border shrink-0 ${isVisible ? '' : 'border-dashed'}`}
-                  style={{
-                    backgroundColor: isVisible ? bgColorVar : 'transparent',
-                    borderColor: colorVar,
-                  }}
-                />
-                <span
-                  className={`text-[8px] sm:text-[10px] font-medium truncate ${isVisible ? 'text-[var(--ink-dim-text)]' : 'text-[var(--ink-dim-text)]/60 line-through'
-                    }`}
+      <div className="absolute top-4 right-4 z-10 flex flex-col items-end gap-2 max-w-[150px] sm:max-w-[190px] md:max-w-[230px]">
+        {/* Role Legend Box */}
+        <div className="bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm w-full">
+          {hiddenRoles.size > 0 && (
+            <button
+              type="button"
+              onClick={showAllRoles}
+              className="mb-1.5 w-full text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation"
+            >
+              {lang === 'en' ? 'Show all' : '显示全部'}
+            </button>
+          )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1">
+            {availableRoles.map((role) => {
+              const labels = ROLE_LABELS[role];
+              const isVisible = !hiddenRoles.has(role);
+              const colorVar = getRoleColorVar(role);
+              const bgColorVar = getRoleBgColorVar(role);
+              return (
+                <button
+                  key={role}
+                  type="button"
+                  onClick={() => toggleRoleFilter(role)}
+                  aria-pressed={isVisible}
+                  title={
+                    isVisible
+                      ? (lang === 'en' ? `Hide ${labels?.en ?? role}` : `隐藏${labels?.zh ?? role}`)
+                      : (lang === 'en' ? `Show ${labels?.en ?? role}` : `显示${labels?.zh ?? role}`)
+                  }
+                  className={`flex items-center gap-1.5 text-left rounded px-0.5 py-0.5 transition-all touch-manipulation ${isVisible ? 'opacity-100' : 'opacity-35'
+                    } hover:opacity-100`}
                 >
-                  {lang === 'en' ? (labels?.en ?? role) : (labels?.zh ?? role)}
-                </span>
+                  <div
+                    className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border shrink-0 ${isVisible ? '' : 'border-dashed'}`}
+                    style={{
+                      backgroundColor: isVisible ? bgColorVar : 'transparent',
+                      borderColor: colorVar,
+                    }}
+                  />
+                  <span
+                    className={`text-[8px] sm:text-[9px] font-medium truncate ${isVisible ? 'text-[var(--ink-dim-text)]' : 'text-[var(--ink-dim-text)]/60 line-through'
+                      }`}
+                  >
+                    {lang === 'en' ? (labels?.en ?? role) : (labels?.zh ?? role)}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Co-occurrence Filter Box (Below Legend Box) */}
+        <div className="bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm w-full">
+          <div className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] mb-1 text-left">
+            {lang === 'en' ? 'Co-occurrence Filter' : '同回共现筛选'}
+          </div>
+          <div className="flex flex-wrap items-center gap-1">
+            {[
+              { labelEn: 'All', labelZh: '全部', val: 0 },
+              { labelEn: '≥1', labelZh: '≥1回', val: 1 },
+              { labelEn: '≥3', labelZh: '≥3回', val: 3 },
+              { labelEn: '≥5', labelZh: '≥5回', val: 5 },
+              { labelEn: '≥8', labelZh: '≥8回', val: 8 },
+              { labelEn: '≥15', labelZh: '≥15回', val: 15 },
+            ].map((btn) => (
+              <button
+                key={btn.val}
+                type="button"
+                onClick={() => {
+                  setMinCoOccurrence(btn.val);
+                  if (mode === 'cooccurrence' && btn.val > 0) {
+                    setMinShared(btn.val);
+                  }
+                }}
+                aria-pressed={mode === 'cooccurrence' ? minShared === btn.val : minCoOccurrence === btn.val}
+                className={`px-1.5 py-0.5 text-[8px] sm:text-[9px] font-bold rounded-sm border transition-colors touch-manipulation ${
+                  (mode === 'cooccurrence' ? minShared === btn.val : minCoOccurrence === btn.val)
+                    ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
+                    : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
+                }`}
+              >
+                {lang === 'en' ? btn.labelEn : btn.labelZh}
               </button>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
       <button
