@@ -102,8 +102,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     return hidden;
   });
   const [minCoOccurrence, setMinCoOccurrence] = useState<number>(15);
-  const [isRoleFilterMinimized, setIsRoleFilterMinimized] = useState(false);
-  const [isCoOccurrenceMinimized, setIsCoOccurrenceMinimized] = useState(false);
+  const [isRoleFilterMinimized, setIsRoleFilterMinimized] = useState(true);
+  const [isCoOccurrenceMinimized, setIsCoOccurrenceMinimized] = useState(true);
 
   const { isUnloaded, reload } = useMobileUnload(containerRef, !isFullscreen);
 
