@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
-      chunkSizeWarningLimit: 2000,
+      chunkSizeWarningLimit: 4500,
       rollupOptions: {
         output: {
           manualChunks(id) {
@@ -38,31 +38,13 @@ export default defineConfig(({ mode }) => {
               return 'vendor-d3';
             }
 
-            // --- Chapter translations: split into groups of 10 ---
-            if (id.includes('/chapterTranslations/')) {
-              const m = id.match(/chapterTranslations(\d+)\.ts/);
-              if (m) {
-                const num = parseInt(m[1], 10);
-                const group = Math.ceil(num / 10); // 1-10, 11-20, etc.
-                return `data-translations-${group}`;
-              }
-              return 'data-translations-index';
-            }
-
-            // --- Questions data: isolate the 3 massive files ---
-            if (id.includes('/questions/data/qinyan-story-per-chapter.ts')) {
-              return 'data-q-qinyan-story';
-            }
-            if (id.includes('/questions/data/ziyu-story-per-chapter.ts')) {
-              return 'data-q-ziyu-story';
-            }
-            if (id.includes('/questions/data/tian-chunhang-su-huifang.ts')) {
-              return 'data-q-tian-chunhang';
+            // --- Eagerly-globbed data directories (kept together to avoid cross-chunk TDZ) ---
+            if (id.includes('/chapterTranslations/') || id.includes('/prefaceTranslation.ts')) {
+              return 'data-translations';
             }
             if (id.includes('/questions/')) {
               return 'data-questions';
             }
-
             if (id.includes('/appreciationData/')) {
               return 'data-appreciation';
             }
