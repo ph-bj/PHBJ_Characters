@@ -101,8 +101,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     });
     return hidden;
   });
-  const [mode, setMode] = useState<GraphMode>('curated');
-  const [minShared, setMinShared] = useState(5);
   const [minCoOccurrence, setMinCoOccurrence] = useState<number>(0);
 
   const { isUnloaded, reload } = useMobileUnload(containerRef, !isFullscreen);
@@ -143,25 +141,15 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     });
   }, [relationships, filteredCharacters, minCoOccurrence, coOccurrenceMap]);
 
-  const filteredCoEdges = useMemo(() => {
-    if (mode !== 'cooccurrence') return [];
-    const visibleIds = new Set(filteredCharacters.map((c) => c.id));
-    const threshold = minCoOccurrence > 0 ? minCoOccurrence : minShared;
-    return getCoOccurrenceEdges().filter(
-      (e) => e.weight >= threshold && visibleIds.has(e.source) && visibleIds.has(e.target)
-    );
-  }, [mode, minShared, minCoOccurrence, filteredCharacters]);
-
   // Drop floating unanchored characters with no visible connections
   const graphCharacters = useMemo(() => {
     const connectedIds = new Set<string>();
-    const activeLinks = mode === 'cooccurrence' ? filteredCoEdges : filteredRelationships;
-    activeLinks.forEach((e) => {
+    filteredRelationships.forEach((e) => {
       connectedIds.add(typeof e.source === 'string' ? e.source : e.source.id);
       connectedIds.add(typeof e.target === 'string' ? e.target : e.target.id);
     });
     return filteredCharacters.filter((c) => connectedIds.has(c.id));
-  }, [mode, filteredCharacters, filteredCoEdges, filteredRelationships]);
+  }, [filteredCharacters, filteredRelationships]);
 
   const toggleRoleFilter = (role: string) => {
     setHiddenRoles((prev) => {
@@ -277,9 +265,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     const nodeRadius = 25;
 
     const nodes = graphCharacters.map(c => ({ ...c }));
-    const links: any[] = mode === 'cooccurrence'
-      ? filteredCoEdges.map(e => ({ ...e, chapters: [...e.chapters] }))
-      : filteredRelationships.map(r => ({ ...r }));
+    const links: any[] = filteredRelationships.map(r => ({ ...r }));
 
     const getLinkNodeId = (endpoint: any): string => {
       if (!endpoint) return '';
@@ -288,12 +274,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       return String(endpoint);
     };
 
-    const maxWeight = mode === 'cooccurrence'
-      ? Math.max(minShared, d3.max(links, (d: any) => d.weight as number) ?? minShared)
-      : 1;
-    const weightWidth = d3.scaleSqrt().domain([minShared, Math.max(minShared + 1, maxWeight)]).range([1, 5.5]);
     const baseLinkWidth = (d: any) => {
-      if (mode === 'cooccurrence') return weightWidth(d.weight);
       const sId = getLinkNodeId(d.source);
       const tId = getLinkNodeId(d.target);
       const pairKey = sId < tId ? `${sId}|${tId}` : `${tId}|${sId}`;
@@ -301,11 +282,8 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       const w = co ? co.weight : 0;
       return 1.5 + Math.min(w, 15) * 0.25;
     };
-    const baseLinkOpacity = mode === 'cooccurrence' ? 0.22 : 0.3;
+    const baseLinkOpacity = 0.3;
     const linkLabel = (d: any) => {
-      if (mode === 'cooccurrence') {
-        return lang === 'zh' ? `${d.weight}回` : `${d.weight} ch`;
-      }
       const sId = getLinkNodeId(d.source);
       const tId = getLinkNodeId(d.target);
       const pairKey = sId < tId ? `${sId}|${tId}` : `${tId}|${sId}`;
@@ -447,10 +425,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
 
     link.append("title")
       .text((d: any) => {
-        if (mode === 'cooccurrence') {
-          const list = d.chapters.join(', ');
-          return lang === 'zh' ? `同回出现：第 ${list} 回` : `Shared chapters: ${list}`;
-        }
         const sId = getLinkNodeId(d.source);
         const tId = getLinkNodeId(d.target);
         const pairKey = sId < tId ? `${sId}|${tId}` : `${tId}|${sId}`;
@@ -479,7 +453,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .attr("paint-order", "stroke")
       .attr("stroke", "var(--paper-bg)")
       .attr("stroke-width", 1.5)
-      .style("opacity", mode === 'cooccurrence' ? 0 : 1)
+      .style("opacity", 1)
       .text(linkLabel);
 
     const node = g.append("g")
@@ -558,7 +532,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .attr("stroke-opacity", baseLinkOpacity)
         .attr("stroke-width", baseLinkWidth);
       linkText
-        .style("opacity", mode === 'cooccurrence' ? 0 : 1);
+        .style("opacity", 1);
     };
 
     const applyHoverStyles = (hoveredId: string) => {
@@ -571,8 +545,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           const sourceId = getNodeId(d.source);
           const targetId = getNodeId(d.target);
           const isConnected = sourceId === hoveredId || targetId === hoveredId;
-          if (!isConnected) return 0.05;
-          return mode === 'cooccurrence' ? 0.8 : 0.7;
+          return isConnected ? 0.7 : 0.05;
         })
         .attr("stroke-width", (d: any) => {
           const sourceId = getNodeId(d.source);
@@ -614,11 +587,9 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .attr("x2", (d: any) => d.target.x)
         .attr("y2", (d: any) => d.target.y);
 
-      if (mode === 'curated') {
-        linkText
-          .attr("x", (d: any) => (d.source.x + d.target.x) / 2)
-          .attr("y", (d: any) => (d.source.y + d.target.y) / 2);
-      }
+      linkText
+        .attr("x", (d: any) => (d.source.x + d.target.x) / 2)
+        .attr("y", (d: any) => (d.source.y + d.target.y) / 2);
 
       node.attr("transform", (d: any) => `translate(${d.x},${d.y})`);
     };
@@ -656,7 +627,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         d3.select(svgRef.current).selectAll('*').remove();
       }
     };
-  }, [graphCharacters, filteredRelationships, filteredCoEdges, mode, minShared, lang, isFullscreen, onNodeClick, isUnloaded]);
+  }, [graphCharacters, filteredRelationships, lang, isFullscreen, onNodeClick, isUnloaded]);
 
   const toggleFullscreen = () => setIsFullscreen((current) => !current);
 
@@ -704,53 +675,10 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           {lang === 'en' ? 'Character Network' : '人物关系图谱'}
         </h3>
         <p className="text-[10px] text-[var(--ink-dim-text)] italic">
-          {mode === 'curated'
-            ? (lang === 'en'
-              ? 'Drag nodes · Double-click profile · Click legend to filter'
-              : '拖动节点 · 双击打开详情 · 点击图例筛选角色')
-            : (lang === 'en'
-              ? 'Edge = shared chapters · Thicker = more chapters together'
-              : '连线=同回出现 · 线越粗共现回数越多')}
+          {lang === 'en'
+            ? 'Drag nodes · Double-click profile · Click legend to filter'
+            : '拖动节点 · 双击打开详情 · 点击图例筛选角色'}
         </p>
-        <div className="pointer-events-auto mt-2 inline-flex items-center gap-1 bg-[var(--paper-bg)]/90 border border-[var(--paper-border)] rounded-sm p-0.5 backdrop-blur-sm">
-          {(['curated', 'cooccurrence'] as GraphMode[]).map((m) => (
-            <button
-              key={m}
-              type="button"
-              onClick={() => setMode(m)}
-              aria-pressed={mode === m}
-              className={`px-2 py-1 text-[9px] font-bold uppercase tracking-wider rounded-sm transition-colors touch-manipulation ${mode === m
-                ? 'bg-[var(--accent)] text-[var(--paper-bg)]'
-                : 'text-[var(--ink-dim-text)] hover:bg-black/5'
-                }`}
-            >
-              {m === 'curated'
-                ? (lang === 'en' ? 'Curated ties' : '标注关系')
-                : (lang === 'en' ? 'Co-occurrence' : '同回共现')}
-            </button>
-          ))}
-        </div>
-        {mode === 'cooccurrence' && (
-          <div className="pointer-events-auto mt-1.5 flex items-center gap-1">
-            <span className="text-[9px] font-bold uppercase tracking-wider text-[var(--ink-dim-text)]">
-              {lang === 'en' ? 'Min shared' : '共现回数'}
-            </span>
-            {CO_OCCURRENCE_THRESHOLDS.map((threshold) => (
-              <button
-                key={threshold}
-                type="button"
-                onClick={() => setMinShared(threshold)}
-                aria-pressed={minShared === threshold}
-                className={`px-1.5 py-0.5 text-[9px] font-bold rounded-sm border transition-colors touch-manipulation ${minShared === threshold
-                  ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
-                  : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
-                  }`}
-              >
-                ≥{threshold}
-              </button>
-            ))}
-          </div>
-        )}
       </div>
       <div className="absolute top-4 right-4 z-10 flex flex-col items-end gap-2 max-w-[150px] sm:max-w-[190px] md:max-w-[230px]">
         {/* Role Legend Box */}
@@ -820,15 +748,10 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
               <button
                 key={btn.val}
                 type="button"
-                onClick={() => {
-                  setMinCoOccurrence(btn.val);
-                  if (mode === 'cooccurrence' && btn.val > 0) {
-                    setMinShared(btn.val);
-                  }
-                }}
-                aria-pressed={mode === 'cooccurrence' ? minShared === btn.val : minCoOccurrence === btn.val}
+                onClick={() => setMinCoOccurrence(btn.val)}
+                aria-pressed={minCoOccurrence === btn.val}
                 className={`px-1.5 py-0.5 text-[8px] sm:text-[9px] font-bold rounded-sm border transition-colors touch-manipulation ${
-                  (mode === 'cooccurrence' ? minShared === btn.val : minCoOccurrence === btn.val)
+                  minCoOccurrence === btn.val
                     ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
                     : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
                 }`}
