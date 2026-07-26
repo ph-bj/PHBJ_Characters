@@ -396,22 +396,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       applyHoverStyles(d.id);
     };
 
-    const handleTouchTap = (event: any, d: any) => {
-      if (event.defaultPrevented) return;
-      event.stopPropagation();
 
-      const now = Date.now();
-      if (lastTapNodeId === d.id && now - lastTapTime < DOUBLE_TAP_MS) {
-        lastTapTime = 0;
-        lastTapNodeId = null;
-        onNodeClick(d);
-        return;
-      }
-
-      lastTapTime = now;
-      lastTapNodeId = d.id;
-      selectNode(event, d);
-    };
 
     const isMobileDevice = typeof window !== 'undefined' && (window.innerWidth <= 768 || width <= 640);
 
@@ -545,8 +530,17 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .data(nodes)
       .join("g")
       .attr("cursor", "pointer")
-      .on("pointerdown", (_event, d: any) => {
-        tapStart = { id: d.id, x: _event.clientX, y: _event.clientY };
+      .on("pointerdown", (event, d: any) => {
+        tapStart = { id: d.id, x: event.clientX, y: event.clientY };
+        const now = Date.now();
+        if (lastTapNodeId === d.id && now - lastTapTime < DOUBLE_TAP_MS) {
+          lastTapTime = 0;
+          lastTapNodeId = null;
+          onNodeClick(d);
+        } else {
+          lastTapTime = now;
+          lastTapNodeId = d.id;
+        }
       })
       .on("pointerup", (event, d: any) => {
         if (event.pointerType !== 'touch') return;
@@ -555,20 +549,13 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         tapStart = null;
         if (moved > TAP_MOVE_THRESHOLD) return;
         lastTouchPointerUpTime = Date.now();
-        handleTouchTap(event, d);
+        selectNode(event, d);
       })
       .on("click", (event, d: any) => {
         if (event.pointerType === 'touch') {
           if (Date.now() - lastTouchPointerUpTime < 500) return;
-          handleTouchTap(event, d);
-          return;
         }
         selectNode(event, d);
-      })
-      .on("dblclick", (event, d: any) => {
-        if (event.defaultPrevented) return;
-        event.stopPropagation();
-        onNodeClick(d);
       })
       .call(d3.drag()
         .clickDistance(TAP_MOVE_THRESHOLD)
