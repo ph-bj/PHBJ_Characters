@@ -8,15 +8,18 @@ import { getWorkSceneLinks } from "../workLinks";
 import { characters } from "../data";
 import type { Character } from "../types";
 import { PermalinkButton } from "./PermalinkButton";
+import { LanguageSwitch } from "./LanguageSwitch";
 
 export function WorkModal({
   work,
   lang,
+  setLang,
   onClose,
   onSelectCharacter,
 }: {
   work: string;
   lang: "en" | "zh";
+  setLang: (lang: "en" | "zh") => void;
   onClose: () => void;
   onSelectCharacter?: (character: Character) => void;
 }) {
@@ -115,6 +118,7 @@ export function WorkModal({
               </h2>
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
+              <LanguageSwitch lang={lang} setLang={setLang} />
               <PermalinkButton lang={lang} link={{ kind: "work", key: work }} />
               <button
                 onClick={onClose}

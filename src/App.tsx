@@ -2244,6 +2244,7 @@ export default function App() {
             <WorkModal
               work={selectedWork}
               lang={lang}
+              setLang={setLang}
               onClose={() => setSelectedWork(null)}
               onSelectCharacter={(character) => {
                 // The work modal stacks above the character modal, so close it

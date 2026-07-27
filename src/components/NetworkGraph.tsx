@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import * as d3 from 'd3';
-import { Activity, Maximize, Minimize } from 'lucide-react';
+import { Activity, ChevronDown, ChevronUp, Maximize, Minimize } from 'lucide-react';
 import { Character, Relationship } from '../types';
 import { getCoOccurrenceEdges } from '../cooccurrence';
 import { useMobileUnload } from '../hooks/useMobileUnload';
@@ -39,7 +39,7 @@ const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
   'char-87': 'Madam Lu (Wang household)',
 
   'char-96': 'Madam Lu (Sun household)',
-  'char-99': 'Miss Wang',
+  'char-99': 'Miss Sun',
   'char-108': 'Page Boy',
   'char-109': 'Maidservant (Gatekeeper)',
   'char-110': 'Household Maid (Clothing)',
@@ -64,9 +64,12 @@ function getChineseName(fullName: string): string {
 }
 
 function getEnglishOrRomanizedName(id: string, fullName: string): string {
+  if (ENGLISH_CHARACTER_NAME_FALLBACKS[id]) {
+    return ENGLISH_CHARACTER_NAME_FALLBACKS[id];
+  }
   const chineseName = getChineseName(fullName);
   const remainder = fullName.slice(chineseName.length).trim();
-  return remainder || ENGLISH_CHARACTER_NAME_FALLBACKS[id] || fullName;
+  return remainder || fullName;
 }
 
 function getNodeLabel(node: { id: string; name: string }, lang: 'en' | 'zh'): string {
@@ -86,15 +89,36 @@ interface NetworkGraphProps {
   onFullscreenChange?: (isFullscreen: boolean) => void;
 }
 
+const DEFAULT_VISIBLE_ROLES = new Set(['performer', 'scholar', 'villain']);
+
 export default function NetworkGraph({ characters, relationships, lang, onNodeClick, onFullscreenChange }: NetworkGraphProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [hiddenRoles, setHiddenRoles] = useState<Set<string>>(() => new Set());
-  const [mode, setMode] = useState<GraphMode>('curated');
-  const [minShared, setMinShared] = useState(5);
+  const [hiddenRoles, setHiddenRoles] = useState<Set<string>>(() => {
+    const hidden = new Set<string>();
+    characters.forEach((c) => {
+      if (!DEFAULT_VISIBLE_ROLES.has(c.role)) {
+        hidden.add(c.role);
+      }
+    });
+    return hidden;
+  });
+  const [minCoOccurrence, setMinCoOccurrence] = useState<number>(15);
+  const [isRoleFilterMinimized, setIsRoleFilterMinimized] = useState(true);
+  const [isCoOccurrenceMinimized, setIsCoOccurrenceMinimized] = useState(true);
 
   const { isUnloaded, reload } = useMobileUnload(containerRef, !isFullscreen);
+
+  const coOccurrenceMap = useMemo(() => {
+    const edges = getCoOccurrenceEdges();
+    const map = new Map<string, { weight: number; chapters: number[] }>();
+    for (const edge of edges) {
+      const key = edge.source < edge.target ? `${edge.source}|${edge.target}` : `${edge.target}|${edge.source}`;
+      map.set(key, { weight: edge.weight, chapters: edge.chapters });
+    }
+    return map;
+  }, []);
 
   const availableRoles = useMemo(() => {
     const seen = new Set<string>();
@@ -109,30 +133,31 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     [characters, hiddenRoles]
   );
 
+  // `relationships` already holds exactly one edge per character pair, so this
+  // only has to drop the pairs the current filters hide.
   const filteredRelationships = useMemo(() => {
     const visibleIds = new Set(filteredCharacters.map((c) => c.id));
-    return relationships.filter((r) => visibleIds.has(r.source) && visibleIds.has(r.target));
-  }, [relationships, filteredCharacters]);
 
-  const filteredCoEdges = useMemo(() => {
-    if (mode !== 'cooccurrence') return [];
-    const visibleIds = new Set(filteredCharacters.map((c) => c.id));
-    return getCoOccurrenceEdges().filter(
-      (e) => e.weight >= minShared && visibleIds.has(e.source) && visibleIds.has(e.target)
-    );
-  }, [mode, minShared, filteredCharacters]);
+    return relationships.filter((r) => {
+      if (!visibleIds.has(r.source) || !visibleIds.has(r.target)) return false;
+      if (minCoOccurrence > 0) {
+        const pairKey = r.source < r.target ? `${r.source}|${r.target}` : `${r.target}|${r.source}`;
+        const co = coOccurrenceMap.get(pairKey);
+        if (!co || co.weight < minCoOccurrence) return false;
+      }
+      return true;
+    });
+  }, [relationships, filteredCharacters, minCoOccurrence, coOccurrenceMap]);
 
-  // In co-occurrence mode, characters with no shared chapter above the
-  // threshold would float unanchored — drop them from the view instead.
+  // Drop floating unanchored characters with no visible connections
   const graphCharacters = useMemo(() => {
-    if (mode !== 'cooccurrence') return filteredCharacters;
     const connectedIds = new Set<string>();
-    filteredCoEdges.forEach((e) => {
-      connectedIds.add(e.source);
-      connectedIds.add(e.target);
+    filteredRelationships.forEach((e) => {
+      connectedIds.add(typeof e.source === 'string' ? e.source : e.source.id);
+      connectedIds.add(typeof e.target === 'string' ? e.target : e.target.id);
     });
     return filteredCharacters.filter((c) => connectedIds.has(c.id));
-  }, [mode, filteredCharacters, filteredCoEdges]);
+  }, [filteredCharacters, filteredRelationships]);
 
   const toggleRoleFilter = (role: string) => {
     setHiddenRoles((prev) => {
@@ -147,6 +172,26 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       return next;
     });
   };
+
+  const defaultHiddenRoles = useMemo(() => {
+    const hidden = new Set<string>();
+    characters.forEach((c) => {
+      if (!DEFAULT_VISIBLE_ROLES.has(c.role)) {
+        hidden.add(c.role);
+      }
+    });
+    return hidden;
+  }, [characters]);
+
+  const isDefaultRoles = useMemo(() => {
+    if (hiddenRoles.size !== defaultHiddenRoles.size) return false;
+    for (const r of hiddenRoles) {
+      if (!defaultHiddenRoles.has(r)) return false;
+    }
+    return true;
+  }, [hiddenRoles, defaultHiddenRoles]);
+
+  const resetToDefaultRoles = () => setHiddenRoles(defaultHiddenRoles);
 
   const showAllRoles = () => setHiddenRoles(new Set());
 
@@ -248,21 +293,34 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     const nodeRadius = 25;
 
     const nodes = graphCharacters.map(c => ({ ...c }));
-    const links: any[] = mode === 'cooccurrence'
-      ? filteredCoEdges.map(e => ({ ...e, chapters: [...e.chapters] }))
-      : filteredRelationships.map(r => ({ ...r }));
+    const links: any[] = filteredRelationships.map(r => ({ ...r }));
 
-    const maxWeight = mode === 'cooccurrence'
-      ? Math.max(minShared, d3.max(links, (d: any) => d.weight as number) ?? minShared)
-      : 1;
-    const weightWidth = d3.scaleSqrt().domain([minShared, Math.max(minShared + 1, maxWeight)]).range([1, 5.5]);
-    const baseLinkWidth = (d: any) => (mode === 'cooccurrence' ? weightWidth(d.weight) : 1.5);
-    const baseLinkOpacity = mode === 'cooccurrence' ? 0.22 : 0.3;
+    const getLinkNodeId = (endpoint: any): string => {
+      if (!endpoint) return '';
+      if (typeof endpoint === 'string') return endpoint;
+      if (typeof endpoint === 'object' && endpoint.id) return endpoint.id;
+      return String(endpoint);
+    };
+
+    const baseLinkWidth = (d: any) => {
+      const sId = getLinkNodeId(d.source);
+      const tId = getLinkNodeId(d.target);
+      const pairKey = sId < tId ? `${sId}|${tId}` : `${tId}|${sId}`;
+      const co = coOccurrenceMap.get(pairKey);
+      const w = co ? co.weight : 0;
+      return 1.5 + Math.min(w, 15) * 0.25;
+    };
+    const baseLinkOpacity = 0.3;
     const linkLabel = (d: any) => {
-      if (mode === 'cooccurrence') {
-        return lang === 'zh' ? `${d.weight}回` : `${d.weight} ch`;
+      const sId = getLinkNodeId(d.source);
+      const tId = getLinkNodeId(d.target);
+      const pairKey = sId < tId ? `${sId}|${tId}` : `${tId}|${sId}`;
+      const co = coOccurrenceMap.get(pairKey);
+      const relName = lang === 'zh' ? d.typeZh : d.type;
+      if (co && co.weight > 0) {
+        return lang === 'zh' ? `${relName} (${co.weight}回)` : `${relName} (${co.weight} ch)`;
       }
-      return lang === 'zh' ? d.typeZh : d.type;
+      return relName;
     };
 
     const svg = d3.select(svgRef.current);
@@ -285,30 +343,21 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       applyHoverStyles(d.id);
     };
 
-    const handleTouchTap = (event: any, d: any) => {
-      if (event.defaultPrevented) return;
-      event.stopPropagation();
 
-      const now = Date.now();
-      if (lastTapNodeId === d.id && now - lastTapTime < DOUBLE_TAP_MS) {
-        lastTapTime = 0;
-        lastTapNodeId = null;
-        onNodeClick(d);
-        return;
-      }
-
-      lastTapTime = now;
-      lastTapNodeId = d.id;
-      selectNode(event, d);
-    };
 
     const isMobileDevice = typeof window !== 'undefined' && (window.innerWidth <= 768 || width <= 640);
 
     const simulation = d3.forceSimulation(nodes as any)
       .force("link", d3.forceLink(links).id((d: any) => d.id).distance(isMobileDevice ? 75 : 100))
-      .force("charge", d3.forceManyBody().strength(isMobileDevice ? -100 : -150))
+      .force("charge", d3.forceManyBody().strength(isMobileDevice ? -100 : -150).distanceMax(350).theta(0.9))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collision", d3.forceCollide().radius(isMobileDevice ? 32 : 40));
+      .force("collision", d3.forceCollide().radius(isMobileDevice ? 32 : 40))
+      .alphaDecay(0.045);
+
+    // Pre-warm force simulation synchronously for fast initial render layout
+    for (let i = 0; i < 60; ++i) {
+      simulation.tick();
+    }
 
     const g = svg.append("g");
 
@@ -378,26 +427,39 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     svg.call(zoom.transform as any, initialTransform);
     svg.on("dblclick.zoom", null);
 
-    const link = g.append("g")
+    const linkGroup = g.append("g");
+    const link = linkGroup
       .selectAll("line")
       .data(links)
       .join("line")
       .attr("stroke", "var(--accent)")
       .attr("stroke-opacity", baseLinkOpacity)
-      .attr("stroke-width", baseLinkWidth);
+      .attr("stroke-width", baseLinkWidth)
+      .attr("vector-effect", "non-scaling-stroke");
 
-    if (mode === 'cooccurrence') {
-      link.append("title")
-        .text((d: any) => {
-          const list = d.chapters.join(', ');
-          return lang === 'zh' ? `同回出现：第 ${list} 回` : `Shared chapters: ${list}`;
-        });
-    }
+    link.append("title")
+      .text((d: any) => {
+        const sId = getLinkNodeId(d.source);
+        const tId = getLinkNodeId(d.target);
+        const pairKey = sId < tId ? `${sId}|${tId}` : `${tId}|${sId}`;
+        const co = coOccurrenceMap.get(pairKey);
+        const relName = lang === 'zh' ? d.typeZh : d.type;
+        if (co && co.weight > 0) {
+          const list = co.chapters.join(', ');
+          return lang === 'zh'
+            ? `${relName} | 同回出现：第 ${list} 回 (${co.weight}回)`
+            : `${relName} | Shared chapters: ${list} (${co.weight} ch)`;
+        }
+        return relName;
+      });
 
-    const linkText = g.append("g")
+    const linkTextGroup = g.append("g");
+    const linkText = linkTextGroup
       .selectAll("text")
       .data(links)
       .join("text")
+      .attr("x", (d: any) => ((d.source.x ?? 0) + (d.target.x ?? 0)) / 2)
+      .attr("y", (d: any) => ((d.source.y ?? 0) + (d.target.y ?? 0)) / 2)
       .attr("font-size", "8px")
       .attr("font-weight", "700")
       .attr("fill", "var(--ink-dim-text)")
@@ -406,16 +468,26 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .attr("paint-order", "stroke")
       .attr("stroke", "var(--paper-bg)")
       .attr("stroke-width", 1.5)
-      .style("opacity", mode === 'cooccurrence' ? 0 : 1)
+      .style("opacity", 1)
       .text(linkLabel);
 
-    const node = g.append("g")
+    const nodeGroup = g.append("g");
+    const node = nodeGroup
       .selectAll("g")
       .data(nodes)
       .join("g")
       .attr("cursor", "pointer")
-      .on("pointerdown", (_event, d: any) => {
-        tapStart = { id: d.id, x: _event.clientX, y: _event.clientY };
+      .on("pointerdown", (event, d: any) => {
+        tapStart = { id: d.id, x: event.clientX, y: event.clientY };
+        const now = Date.now();
+        if (lastTapNodeId === d.id && now - lastTapTime < DOUBLE_TAP_MS) {
+          lastTapTime = 0;
+          lastTapNodeId = null;
+          onNodeClick(d);
+        } else {
+          lastTapTime = now;
+          lastTapNodeId = d.id;
+        }
       })
       .on("pointerup", (event, d: any) => {
         if (event.pointerType !== 'touch') return;
@@ -424,20 +496,13 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         tapStart = null;
         if (moved > TAP_MOVE_THRESHOLD) return;
         lastTouchPointerUpTime = Date.now();
-        handleTouchTap(event, d);
+        selectNode(event, d);
       })
       .on("click", (event, d: any) => {
         if (event.pointerType === 'touch') {
           if (Date.now() - lastTouchPointerUpTime < 500) return;
-          handleTouchTap(event, d);
-          return;
         }
         selectNode(event, d);
-      })
-      .on("dblclick", (event, d: any) => {
-        if (event.defaultPrevented) return;
-        event.stopPropagation();
-        onNodeClick(d);
       })
       .call(d3.drag()
         .clickDistance(TAP_MOVE_THRESHOLD)
@@ -466,38 +531,40 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
     const getNodeId = (endpoint: any) =>
       typeof endpoint === 'string' ? endpoint : endpoint?.id;
 
+    // Fast adjacency lookup map for hover interactions
+    const adjMap = new Map<string, Set<string>>();
+    links.forEach((l: any) => {
+      const s = getNodeId(l.source);
+      const t = getNodeId(l.target);
+      if (s && t) {
+        if (!adjMap.has(s)) adjMap.set(s, new Set());
+        if (!adjMap.has(t)) adjMap.set(t, new Set());
+        adjMap.get(s)!.add(t);
+        adjMap.get(t)!.add(s);
+      }
+    });
+
     const resetHoverStyles = () => {
-      node
-        .style("opacity", 1);
+      node.style("opacity", 1);
       link
         .attr("stroke-opacity", baseLinkOpacity)
         .attr("stroke-width", baseLinkWidth);
       linkText
-        .style("opacity", mode === 'cooccurrence' ? 0 : 1);
+        .style("opacity", 1);
+      nodeGroup.raise();
     };
 
     const applyHoverStyles = (hoveredId: string) => {
-      const connectedIds = new Set<string>([hoveredId]);
+      const connectedIds = adjMap.get(hoveredId) || new Set<string>();
 
-      links.forEach((l: any) => {
-        const sourceId = getNodeId(l.source);
-        const targetId = getNodeId(l.target);
-        if (sourceId === hoveredId || targetId === hoveredId) {
-          if (sourceId) connectedIds.add(sourceId);
-          if (targetId) connectedIds.add(targetId);
-        }
-      });
-
-      node
-        .style("opacity", (d: any) => (connectedIds.has(d.id) ? 1 : 0.2));
+      node.style("opacity", (d: any) => (d.id === hoveredId || connectedIds.has(d.id) ? 1 : 0.2));
 
       link
         .attr("stroke-opacity", (d: any) => {
           const sourceId = getNodeId(d.source);
           const targetId = getNodeId(d.target);
           const isConnected = sourceId === hoveredId || targetId === hoveredId;
-          if (!isConnected) return 0.05;
-          return mode === 'cooccurrence' ? 0.8 : 0.7;
+          return isConnected ? 0.7 : 0.05;
         })
         .attr("stroke-width", (d: any) => {
           const sourceId = getNodeId(d.source);
@@ -532,7 +599,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       }
     });
 
-    simulation.on("tick", () => {
+    const updatePositions = () => {
       link
         .attr("x1", (d: any) => d.source.x)
         .attr("y1", (d: any) => d.source.y)
@@ -544,12 +611,32 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .attr("y", (d: any) => (d.source.y + d.target.y) / 2);
 
       node.attr("transform", (d: any) => `translate(${d.x},${d.y})`);
-    });
+    };
+
+    updatePositions();
+    simulation.on("tick", updatePositions);
 
     function dragstarted(event: any) {
       if (!event.active) simulation.alphaTarget(0.3).restart();
       event.subject.fx = event.subject.x;
       event.subject.fy = event.subject.y;
+
+      const draggedId = event.subject.id;
+      if (lockedNodeId) {
+        const isConnectedToLocked = adjMap.get(lockedNodeId)?.has(draggedId);
+        if (isConnectedToLocked || draggedId === lockedNodeId) {
+          linkText.filter((d: any) => {
+            const sId = getNodeId(d.source);
+            const tId = getNodeId(d.target);
+            if (draggedId === lockedNodeId) {
+              return sId === lockedNodeId || tId === lockedNodeId;
+            }
+            return (sId === lockedNodeId && tId === draggedId) || (sId === draggedId && tId === lockedNodeId);
+          }).each(function() {
+            g.node()?.appendChild(this);
+          });
+        }
+      }
     }
 
     function dragged(event: any) {
@@ -561,6 +648,12 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       if (!event.active) simulation.alphaTarget(0);
       event.subject.fx = null;
       event.subject.fy = null;
+      linkText.each(function() {
+        if (this.parentNode !== linkTextGroup.node()) {
+          linkTextGroup.node()?.appendChild(this);
+        }
+      });
+      nodeGroup.raise();
     }
 
     // iOS Safari may report 0 dimensions until the next frame after entering fullscreen.
@@ -576,7 +669,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         d3.select(svgRef.current).selectAll('*').remove();
       }
     };
-  }, [graphCharacters, filteredRelationships, filteredCoEdges, mode, minShared, lang, isFullscreen, onNodeClick, isUnloaded]);
+  }, [graphCharacters, filteredRelationships, lang, isFullscreen, onNodeClick, isUnloaded]);
 
   const toggleFullscreen = () => setIsFullscreen((current) => !current);
 
@@ -624,100 +717,164 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
           {lang === 'en' ? 'Character Network' : '人物关系图谱'}
         </h3>
         <p className="text-[10px] text-[var(--ink-dim-text)] italic">
-          {mode === 'curated'
-            ? (lang === 'en'
-              ? 'Drag nodes · Double-click profile · Click legend to filter'
-              : '拖动节点 · 双击打开详情 · 点击图例筛选角色')
-            : (lang === 'en'
-              ? 'Edge = shared chapters · Thicker = more chapters together'
-              : '连线=同回出现 · 线越粗共现回数越多')}
+          {lang === 'en'
+            ? 'Drag nodes · Double-click profile · Click legend to filter'
+            : '拖动节点 · 双击打开详情 · 点击图例筛选角色'}
         </p>
-        <div className="pointer-events-auto mt-2 inline-flex items-center gap-1 bg-[var(--paper-bg)]/90 border border-[var(--paper-border)] rounded-sm p-0.5 backdrop-blur-sm">
-          {(['curated', 'cooccurrence'] as GraphMode[]).map((m) => (
-            <button
-              key={m}
-              type="button"
-              onClick={() => setMode(m)}
-              aria-pressed={mode === m}
-              className={`px-2 py-1 text-[9px] font-bold uppercase tracking-wider rounded-sm transition-colors touch-manipulation ${mode === m
-                ? 'bg-[var(--accent)] text-[var(--paper-bg)]'
-                : 'text-[var(--ink-dim-text)] hover:bg-black/5'
-                }`}
-            >
-              {m === 'curated'
-                ? (lang === 'en' ? 'Curated ties' : '标注关系')
-                : (lang === 'en' ? 'Co-occurrence' : '同回共现')}
-            </button>
-          ))}
-        </div>
-        {mode === 'cooccurrence' && (
-          <div className="pointer-events-auto mt-1.5 flex items-center gap-1">
-            <span className="text-[9px] font-bold uppercase tracking-wider text-[var(--ink-dim-text)]">
-              {lang === 'en' ? 'Min shared' : '共现回数'}
-            </span>
-            {CO_OCCURRENCE_THRESHOLDS.map((threshold) => (
-              <button
-                key={threshold}
-                type="button"
-                onClick={() => setMinShared(threshold)}
-                aria-pressed={minShared === threshold}
-                className={`px-1.5 py-0.5 text-[9px] font-bold rounded-sm border transition-colors touch-manipulation ${minShared === threshold
-                  ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
-                  : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
-                  }`}
-              >
-                ≥{threshold}
-              </button>
-            ))}
-          </div>
-        )}
       </div>
-      <div className="absolute top-4 right-4 z-10 bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm max-w-[120px] md:max-w-[160px] lg:max-w-none">
-        {hiddenRoles.size > 0 && (
-          <button
-            type="button"
-            onClick={showAllRoles}
-            className="mb-1.5 w-full text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation"
-          >
-            {lang === 'en' ? 'Show all' : '显示全部'}
-          </button>
-        )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-3 gap-y-1">
-          {availableRoles.map((role) => {
-            const labels = ROLE_LABELS[role];
-            const isVisible = !hiddenRoles.has(role);
-            const colorVar = getRoleColorVar(role);
-            const bgColorVar = getRoleBgColorVar(role);
-            return (
+      <div className="absolute top-4 right-4 z-10 flex flex-col items-end gap-2 max-w-[150px] sm:max-w-[190px] md:max-w-[230px]">
+        {/* Role Legend Box */}
+        <div className="bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm w-full transition-all">
+          <div className="flex items-start justify-between text-left select-none gap-1">
+            <button
+              type="button"
+              onClick={() => setIsRoleFilterMinimized((prev) => !prev)}
+              className={`flex ${isRoleFilterMinimized ? 'items-center gap-1' : 'flex-col items-start gap-0.5'} text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left`}
+              aria-expanded={!isRoleFilterMinimized}
+            >
+              <span>{lang === 'en' ? 'Role Filter' : '角色图例'}</span>
+              <span className={`text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 ${isRoleFilterMinimized ? 'truncate' : 'whitespace-normal'}`}>
+                {isDefaultRoles
+                  ? (lang === 'en' ? '(Default)' : '(默认)')
+                  : (lang === 'en' ? `(${hiddenRoles.size} hidden)` : `(已隐${hiddenRoles.size})`)}
+              </span>
+            </button>
+            <div className="flex items-center gap-1 shrink-0 pt-0.5">
+              {!isRoleFilterMinimized && (
+                isDefaultRoles ? (
+                  <button
+                    type="button"
+                    onClick={showAllRoles}
+                    className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer mr-0.5"
+                    title={lang === 'en' ? 'Show all roles' : '显示所有角色'}
+                  >
+                    {lang === 'en' ? 'Show all' : '全选'}
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={resetToDefaultRoles}
+                    className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer mr-0.5"
+                    title={lang === 'en' ? 'Reset to default roles (Performers, Scholars, Villains)' : '重置为默认角色（伶人、名士、反派）'}
+                  >
+                    {lang === 'en' ? 'Reset' : '重置'}
+                  </button>
+                )
+              )}
               <button
-                key={role}
                 type="button"
-                onClick={() => toggleRoleFilter(role)}
-                aria-pressed={isVisible}
-                title={
-                  isVisible
-                    ? (lang === 'en' ? `Hide ${labels?.en ?? role}` : `隐藏${labels?.zh ?? role}`)
-                    : (lang === 'en' ? `Show ${labels?.en ?? role}` : `显示${labels?.zh ?? role}`)
+                onClick={() => setIsRoleFilterMinimized((prev) => !prev)}
+                className="p-0.5 text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer"
+                aria-label={
+                  isRoleFilterMinimized
+                    ? (lang === 'en' ? 'Expand role filter' : '展开角色图例')
+                    : (lang === 'en' ? 'Minimize role filter' : '收起角色图例')
                 }
-                className={`flex items-center gap-2 text-left rounded px-0.5 py-0.5 transition-all touch-manipulation ${isVisible ? 'opacity-100' : 'opacity-35'
-                  } hover:opacity-100`}
               >
-                <div
-                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full border shrink-0 ${isVisible ? '' : 'border-dashed'}`}
-                  style={{
-                    backgroundColor: isVisible ? bgColorVar : 'transparent',
-                    borderColor: colorVar,
-                  }}
-                />
-                <span
-                  className={`text-[8px] sm:text-[10px] font-medium truncate ${isVisible ? 'text-[var(--ink-dim-text)]' : 'text-[var(--ink-dim-text)]/60 line-through'
-                    }`}
-                >
-                  {lang === 'en' ? (labels?.en ?? role) : (labels?.zh ?? role)}
-                </span>
+                {isRoleFilterMinimized ? <ChevronDown size={14} /> : <ChevronUp size={14} />}
               </button>
-            );
-          })}
+            </div>
+          </div>
+
+          {!isRoleFilterMinimized && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1 mt-1.5 pt-1.5 border-t border-[var(--paper-border)]/50">
+              {availableRoles.map((role) => {
+                const labels = ROLE_LABELS[role];
+                const isVisible = !hiddenRoles.has(role);
+                const colorVar = getRoleColorVar(role);
+                const bgColorVar = getRoleBgColorVar(role);
+                return (
+                  <button
+                    key={role}
+                    type="button"
+                    onClick={() => toggleRoleFilter(role)}
+                    aria-pressed={isVisible}
+                    title={
+                      isVisible
+                        ? (lang === 'en' ? `Hide ${labels?.en ?? role}` : `隐藏${labels?.zh ?? role}`)
+                        : (lang === 'en' ? `Show ${labels?.en ?? role}` : `显示${labels?.zh ?? role}`)
+                    }
+                    className={`flex items-center gap-1.5 text-left rounded px-0.5 py-0.5 transition-all touch-manipulation cursor-pointer ${
+                      isVisible ? 'opacity-100' : 'opacity-35'
+                    } hover:opacity-100`}
+                  >
+                    <div
+                      className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border shrink-0 ${
+                        isVisible ? '' : 'border-dashed'
+                      }`}
+                      style={{
+                        backgroundColor: isVisible ? bgColorVar : 'transparent',
+                        borderColor: colorVar,
+                      }}
+                    />
+                    <span
+                      className={`text-[8px] sm:text-[9px] font-medium truncate ${
+                        isVisible ? 'text-[var(--ink-dim-text)]' : 'text-[var(--ink-dim-text)]/60 line-through'
+                      }`}
+                    >
+                      {lang === 'en' ? (labels?.en ?? role) : (labels?.zh ?? role)}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* Co-occurrence Filter Box (Below Legend Box) */}
+        <div className="bg-[var(--paper-bg)]/90 p-2 rounded border border-[var(--paper-border)] backdrop-blur-sm w-full transition-all">
+          <div className="flex items-start justify-between text-left select-none gap-1">
+            <button
+              type="button"
+              onClick={() => setIsCoOccurrenceMinimized((prev) => !prev)}
+              className={`flex ${isCoOccurrenceMinimized ? 'items-center gap-1' : 'flex-col items-start gap-0.5'} text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left`}
+              aria-expanded={!isCoOccurrenceMinimized}
+            >
+              <span>{lang === 'en' ? 'Co-occurrence' : '同回共现'}</span>
+              <span className={`text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 ${isCoOccurrenceMinimized ? 'truncate' : 'whitespace-normal'}`}>
+                ({minCoOccurrence === 0 ? (lang === 'en' ? 'All' : '全部') : `≥${minCoOccurrence}${lang === 'en' ? '' : '回'}`})
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsCoOccurrenceMinimized((prev) => !prev)}
+              className="p-0.5 text-[var(--ink-dim-text)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer pt-0.5"
+              aria-label={
+                isCoOccurrenceMinimized
+                  ? (lang === 'en' ? 'Expand co-occurrence filter' : '展开共现筛选')
+                  : (lang === 'en' ? 'Minimize co-occurrence filter' : '收起共现筛选')
+              }
+            >
+              {isCoOccurrenceMinimized ? <ChevronDown size={14} /> : <ChevronUp size={14} />}
+            </button>
+          </div>
+
+          {!isCoOccurrenceMinimized && (
+            <div className="flex flex-wrap items-center gap-1 mt-1.5 pt-1.5 border-t border-[var(--paper-border)]/50">
+              {[
+                { labelEn: 'All', labelZh: '全部', val: 0 },
+                { labelEn: '≥1', labelZh: '≥1回', val: 1 },
+                { labelEn: '≥3', labelZh: '≥3回', val: 3 },
+                { labelEn: '≥5', labelZh: '≥5回', val: 5 },
+                { labelEn: '≥8', labelZh: '≥8回', val: 8 },
+                { labelEn: '≥15', labelZh: '≥15回', val: 15 },
+              ].map((btn) => (
+                <button
+                  key={btn.val}
+                  type="button"
+                  onClick={() => setMinCoOccurrence(btn.val)}
+                  aria-pressed={minCoOccurrence === btn.val}
+                  className={`px-1.5 py-0.5 text-[8px] sm:text-[9px] font-bold rounded-sm border transition-colors touch-manipulation cursor-pointer ${
+                    minCoOccurrence === btn.val
+                      ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
+                      : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'
+                  }`}
+                >
+                  {lang === 'en' ? btn.labelEn : btn.labelZh}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <button

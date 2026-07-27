@@ -17,7 +17,66 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
-      chunkSizeWarningLimit: 2000,
+      chunkSizeWarningLimit: 4500,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            // --- Vendor libraries ---
+            if (id.includes('node_modules/react-dom/') || id.includes('node_modules/react/')) {
+              return 'vendor-react';
+            }
+            if (id.includes('node_modules/recharts/') || id.includes('node_modules/victory-')) {
+              return 'vendor-recharts';
+            }
+            if (id.includes('node_modules/motion/') || id.includes('node_modules/framer-motion/')) {
+              return 'vendor-motion';
+            }
+            if (id.includes('node_modules/lucide-react/')) {
+              return 'vendor-lucide';
+            }
+            if (id.includes('node_modules/d3') || id.includes('node_modules/internmap') || id.includes('node_modules/delaunator') || id.includes('node_modules/robust-predicates')) {
+              return 'vendor-d3';
+            }
+
+            // --- Eagerly-globbed data directories (kept together to avoid cross-chunk TDZ) ---
+            if (id.includes('/chapterTranslations/') || id.includes('/prefaceTranslation.ts')) {
+              return 'data-translations';
+            }
+            if (id.includes('/questions/')) {
+              return 'data-questions';
+            }
+            if (id.includes('/appreciationData/')) {
+              return 'data-appreciation';
+            }
+
+            // --- Large individual data modules ---
+            if (id.includes('/relationships.ts')) {
+              return 'data-relationships';
+            }
+            if (id.includes('/worksData.json')) {
+              return 'data-works';
+            }
+            if (id.includes('/characterAppearances.ts')) {
+              return 'data-appearances';
+            }
+            if (id.includes('/lacunae.ts')) {
+              return 'data-lacunae';
+            }
+            if (id.includes('/data.ts') && id.includes('/src/')) {
+              return 'data-core';
+            }
+            if (id.includes('/englishWorkTitles.ts') || id.includes('/nameChips.ts')) {
+              return 'data-core';
+            }
+            if (id.match(/\/summaries_\d+to\d+\.ts/) || id.includes('/chapterSummaries.ts')) {
+              return 'data-summaries';
+            }
+            if (id.includes('/prefaceTranslation.ts') || id.includes('/chapterMeta.json') || id.includes('/chapters.ts')) {
+              return 'data-chapters';
+            }
+          },
+        },
+      },
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.

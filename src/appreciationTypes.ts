@@ -253,6 +253,35 @@ export interface EchoesVisualizerData {
   echoes: EchoItem[];
 }
 
+export interface PaintingItem {
+  id: number;
+  ordinalZh: string;
+  ordinalEn: string;
+  pillarZh: string;
+  pillarEn: string;
+  titleZh: string;
+  titleEn: string;
+  flowerTitleZh: string;
+  flowerTitleEn: string;
+  subjectZh: string;
+  subjectEn: string;
+  authorZh: string;
+  authorEn: string;
+  genreZh: string;
+  genreEn: string;
+  imageryZh: string;
+  imageryEn: string;
+  textZh: string;
+  textEn: string;
+  analysisZh: string;
+  analysisEn: string;
+}
+
+export interface FlowerDeityPaintingsVisualizerData {
+  type: "flowerDeityPaintings";
+  paintings: PaintingItem[];
+}
+
 export type ChapterVisualizerData =
   | TaxonomyVisualizerData
   | DrinkingCupsVisualizerData
@@ -267,6 +296,7 @@ export type ChapterVisualizerData =
   | ObjectSymbolismVisualizerData
   | RelationCompassVisualizerData
   | EchoesVisualizerData
+  | FlowerDeityPaintingsVisualizerData
   | { type: "none" };
 
 export interface ChapterAppreciationData {
