@@ -1026,11 +1026,11 @@ export default function App() {
           <header className="parchment mt-2 sm:mt-5 mb-2 px-4 sm:px-8 md:px-6 lg:px-10 py-4 md:py-3 lg:py-4 md:min-h-[4.5rem] lg:min-h-[6rem] flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4 rounded-sm border-double border-4 border-[var(--paper-border)] overflow-visible">
             <div className="hidden md:block flex-1" />
             <div className="flex flex-col items-center text-center gap-0.5 sm:gap-1 flex-1">
-              <h1 className="flex flex-col items-center gap-0.5 sm:gap-1 leading-tight">
-                <span className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold tracking-tight text-[var(--ink-title)]">
+              <h1 className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 leading-none py-1">
+                <span className="font-vibe-en text-2xl sm:text-3xl md:text-4xl font-normal text-[var(--ink-title)] vibe-title-shadow">
                   {t.titleEn}
                 </span>
-                <span className="text-base sm:text-lg md:text-lg lg:text-xl font-bold font-hans tracking-wide text-[var(--ink-dim-text)]">
+                <span className="font-vibe-zh text-2xl sm:text-3xl md:text-3xl font-normal tracking-widest text-[var(--accent)] vibe-title-shadow">
                   {t.titleZh}
                 </span>
               </h1>
@@ -2166,12 +2166,9 @@ export default function App() {
               <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--accent)] font-bold opacity-70">
                 {lang === "zh" ? "本项目" : "This Project"}
               </p>
-              <p className="text-[11px] text-[var(--ink-dim)] leading-relaxed">
-                <span className="font-semibold">
-                  {lang === "zh"
-                    ? "品花宝境"
-                    : "Precious Vibe"}
-                </span>
+              <p className="text-sm leading-relaxed flex items-center justify-center gap-1.5">
+                <span className="font-vibe-en text-lg text-[var(--ink-title)]">Precious Vibe</span>
+                <span className="font-vibe-zh text-base text-[var(--accent)]">品花宝境</span>
               </p>
               <p className="text-[10px] text-[var(--ink-dim-text)] italic opacity-80">
 

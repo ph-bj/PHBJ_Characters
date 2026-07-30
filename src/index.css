@@ -1,10 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Zhi+Mang+Xing&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-serif: "Inter", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-hans: "Inter", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-sans: "Inter", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-vibe-en: "Great Vibes", "Alex Brush", cursive, serif;
+  --font-vibe-zh: "Zhi Mang Xing", "Ma Shan Zheng", "Long Cang", "STKaiti", "KaiTi", cursive, serif;
+}
+
+.font-vibe-en {
+  font-family: 'Great Vibes', 'Alex Brush', cursive, serif;
+}
+
+.font-vibe-zh {
+  font-family: 'Zhi Mang Xing', 'Ma Shan Zheng', 'Long Cang', 'STKaiti', 'KaiTi', cursive, serif;
+}
+
+.font-vibe-title {
+  font-family: 'Great Vibes', 'Zhi Mang Xing', 'Ma Shan Zheng', cursive, serif;
+}
+
+.vibe-title-shadow {
+  text-shadow: 0 1px 3px rgba(20, 13, 11, 0.15);
 }
 
 /* ── Parchment theme (warm brown) ── */

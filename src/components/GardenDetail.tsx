@@ -441,8 +441,10 @@ export function GardenDetail({
           </div>
         </div>
 
-        <div className="bg-[var(--paper-border)]/20 p-4 text-[var(--ink-dim-text)] text-[10px] font-bold uppercase tracking-[0.5em] text-center border-t border-[var(--paper-border)] font-hans shrink-0">
-          Precious Vibe 品花宝境</div>
+        <div className="bg-[var(--paper-border)]/20 p-3 flex items-center justify-center gap-1.5 border-t border-[var(--paper-border)] shrink-0 opacity-80">
+          <span className="font-vibe-en text-sm text-[var(--ink-title)]">Precious Vibe</span>
+          <span className="font-vibe-zh text-xs text-[var(--accent)]">品花宝境</span>
+        </div>
       </motion.div>
     </div>
   );

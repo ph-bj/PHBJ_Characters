@@ -1053,8 +1053,9 @@ function ChapterReaderComponent({
                   {getChapterReaderSubtitle(chapter, lang)}
                 </p>
               )}
-              <div className="text-[10px] uppercase tracking-[0.5em] text-[var(--ink-dim-text)] opacity-60">
-                Precious Vibe 品花宝境
+              <div className="flex items-center justify-center gap-1.5 opacity-80">
+                <span className="font-vibe-en text-sm sm:text-base text-[var(--ink-title)]">Precious Vibe</span>
+                <span className="font-vibe-zh text-xs sm:text-sm text-[var(--accent)]">品花宝境</span>
               </div>
             </div>
             {chapterSummary && (
@@ -1379,8 +1380,9 @@ function ChapterReaderComponent({
               <span>{lang === "zh" ? "目录" : "Contents"}</span>
             </button>
           ) : (
-            <div className="min-w-0 truncate text-[var(--ink-dim-text)] text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.5em] text-center font-hans">
-              Precious Vibe 品花宝境
+            <div className="min-w-0 truncate flex items-center justify-center gap-1.5 opacity-80">
+              <span className="font-vibe-en text-sm text-[var(--ink-title)]">Precious Vibe</span>
+              <span className="font-vibe-zh text-xs text-[var(--accent)]">品花宝境</span>
             </div>
           )}
           {nextChapter ? (
