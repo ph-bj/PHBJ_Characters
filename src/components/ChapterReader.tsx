@@ -49,6 +49,7 @@ import {
   midSceneParagraphIndex,
 } from "./illustrations/ChapterMidScene";
 import { Chapter30Para7Illustration } from "./illustrations/Chapter30Para7Illustration";
+import { Chapter1Para57Illustration } from "./illustrations/Chapter1Para57Illustration";
 import { Chapter36Para3Illustration } from "./illustrations/Chapter36Para3Illustration";
 import { Chapter9Para11LanternMarket } from "./illustrations/Chapter9Para11LanternMarket";
 import { Chapter56Para4Illustration } from "./illustrations/Chapter56Para4Illustration";
@@ -1201,6 +1202,11 @@ function ChapterReaderComponent({
                       !(chapter.id === 56 && i === 6) && (
                         <ChapterMidScene chapterId={chapter.id} />
                       )}
+                    {chapter.id === 1 && (i === 54 || para.includes("一个已似海棠花")) && (
+                      <div className="mt-4 mb-6 block w-full">
+                        <Chapter1Para57Illustration />
+                      </div>
+                    )}
                     {chapter.id === 30 && i === 6 && (
                       <div className="mt-4 mb-6 block w-full">
                         <Chapter30Para7Illustration />
