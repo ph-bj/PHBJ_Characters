@@ -184,6 +184,7 @@ function ChapterReaderComponent({
   const enVoicePickerRef = useRef<HTMLDivElement | null>(null);
   const chapterSearchMatchCounter = useRef(0);
   const chapterWorkAnchorIdsRef = useRef<Map<string, string>>(new Map());
+  const chapterCharAnchorIdsRef = useRef<Map<string, string>>(new Map());
   const contentScrollRef = useRef<HTMLDivElement | null>(null);
   const progressBarRef = useRef<HTMLDivElement | null>(null);
   const savePositionTimer = useRef<number | null>(null);
@@ -409,6 +410,20 @@ function ChapterReaderComponent({
     document
       .getElementById(id ?? "")
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  const scrollToChapterCharacter = (charId: string) => {
+    const id = chapterCharAnchorIdsRef.current.get(charId);
+    if (id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        el.classList.add("ring-2", "ring-[var(--accent)]", "ring-offset-1");
+        setTimeout(() => {
+          el.classList.remove("ring-2", "ring-[var(--accent)]", "ring-offset-1");
+        }, 2000);
+      }
+    }
   };
 
   const tokenMap = useMemo<[string, Character][]>(
@@ -647,6 +662,7 @@ function ChapterReaderComponent({
     text: string,
     showBilingual = false,
     paragraphNumber?: number,
+    skipCharAnchor = false,
   ) => {
     if (!text) return null;
 
@@ -716,9 +732,15 @@ function ChapterReaderComponent({
       const roleChipClass =
         ROLE_CHIP_IDLE[seg.char.role] ?? ROLE_CHIP_IDLE.Other;
       const chipLabel = getSegmentChipLabel(seg, showBilingual);
+      let anchorId: string | undefined;
+      if (!skipCharAnchor && !chapterCharAnchorIdsRef.current.has(seg.char.id)) {
+        anchorId = `chapter-${chapter.id}-char-${seg.char.id}`;
+        chapterCharAnchorIdsRef.current.set(seg.char.id, anchorId);
+      }
       return (
         <button
           key={i}
+          id={anchorId}
           onClick={() => onSelectCharacter(seg.char)}
           className={`inline-flex items-center rounded-sm border px-1 py-[1px] mx-[1px] align-baseline cursor-pointer transition-all hover:brightness-95 ${roleChipClass}`}
         >
@@ -735,6 +757,7 @@ function ChapterReaderComponent({
 
   chapterSearchMatchCounter.current = 0;
   chapterWorkAnchorIdsRef.current = new Map();
+  chapterCharAnchorIdsRef.current = new Map();
 
   return (
     <div
@@ -1043,7 +1066,7 @@ function ChapterReaderComponent({
                     {lang === "zh" ? "英文" : "English"}
                   </p>
                   <p className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-relaxed font-sans whitespace-pre-line">
-                    {renderAnnotated(chapterSummary.en)}
+                    {renderAnnotated(chapterSummary.en, false, undefined, true)}
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -1051,7 +1074,7 @@ function ChapterReaderComponent({
                     {lang === "zh" ? "中文" : "Chinese"}
                   </p>
                   <p className="text-[0.8em] text-[var(--ink-title)] font-hans leading-relaxed whitespace-pre-line">
-                    {renderAnnotated(chapterSummary.zh)}
+                    {renderAnnotated(chapterSummary.zh, false, undefined, true)}
                   </p>
                 </div>
               </div>
@@ -1067,7 +1090,13 @@ function ChapterReaderComponent({
                   {chapterMentionedCharacters.map((character) => (
                     <button
                       key={character.id}
-                      onClick={() => onSelectCharacter(character)}
+                      type="button"
+                      onClick={() => scrollToChapterCharacter(character.id)}
+                      title={
+                        lang === "zh"
+                          ? "跳至文中首次出现处"
+                          : "Jump to first appearance in chapter"
+                      }
                       className={`px-2 py-1 text-[11px] rounded-sm border transition-colors font-hans hover:brightness-95 ${ROLE_CHIP_IDLE[character.role] ?? ROLE_CHIP_IDLE.Other
                         }`}
                     >
