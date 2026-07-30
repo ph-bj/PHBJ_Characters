@@ -18,8 +18,6 @@ const MID_SCENES: Record<number, MidScene> = {
   2: { para: 34, scene: { seal: '席', wash: [], els: [['ground', 140, 124], ['screen', 55, 116, 0.8], ['figSit', 105, 122, 0.9], ['tableRound', 140, 122, 0.95], ['figSit', 140, 117, 0.8], ['figSit', 175, 122, 0.9], ['figStand', 214, 122, 0.85], ['candle', 243, 110, 0.7]] } },
   // 戏园楼上京官如云，帘内小旦露半面，攒三聚五上去请安
   3: { para: 8, scene: { seal: '伶', els: [['ground', 140, 122], ['stage', 90, 120], ['lanterns', 90, 64, 0.75], ['figStand', 155, 122, 0.85], ['figBow', 183, 122, 0.8], ['figStand', 210, 122, 0.85], ['birds', 250, 40]] } },
-  // 咏雪诗：飞来雪山如白玉芙蓉，着屐好吟亭畔絮
-  4: { para: 7, scene: { seal: '吟', els: [['ground', 140, 122], ['snow', 140, 55], ['pavilion', 75, 118, 0.9], ['figStand', 128, 122, 0.9], ['rock', 168, 124, 0.7], ['plum', 200, 26, 0.85]] } },
   // 怡园：驱云排岳，崇楼迭阁，大山连络，曲水湾环
   5: { para: 4, scene: { seal: '怡', els: [['ground', 140, 124], ['mansion', 70, 120, 0.9], ['pavilion', 138, 118, 0.75], ['rock', 178, 124, 0.7], ['water', 140, 134, 0.9], ['bridge', 215, 128, 0.8], ['willow', 252, 122, 0.85]] } },
   // 猞猁裘大毛貂冠，两辆车四匹马，一径来到姑苏会馆
