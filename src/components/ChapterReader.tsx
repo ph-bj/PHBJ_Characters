@@ -1053,9 +1053,9 @@ function ChapterReaderComponent({
                   {getChapterReaderSubtitle(chapter, lang)}
                 </p>
               )}
-              <div className="flex items-center justify-center gap-1.5 opacity-80">
-                <span className="font-vibe-en text-sm sm:text-base text-[var(--ink-title)]">Precious Vibe</span>
-                <span className="font-vibe-zh text-xs sm:text-sm text-[var(--accent)]">品花宝境</span>
+              <div className="flex items-center justify-center gap-1.5 opacity-80 text-[var(--ink-dim-text)]">
+                <span className="font-vibe-en text-sm sm:text-base">Precious Vibe</span>
+                <span className="font-vibe-zh text-xs sm:text-sm">品花宝境</span>
               </div>
             </div>
             {chapterSummary && (
@@ -1380,9 +1380,9 @@ function ChapterReaderComponent({
               <span>{lang === "zh" ? "目录" : "Contents"}</span>
             </button>
           ) : (
-            <div className="min-w-0 truncate flex items-center justify-center gap-1.5 opacity-80">
-              <span className="font-vibe-en text-sm text-[var(--ink-title)]">Precious Vibe</span>
-              <span className="font-vibe-zh text-xs text-[var(--accent)]">品花宝境</span>
+            <div className="min-w-0 truncate flex items-center justify-center gap-1.5 opacity-80 text-[var(--ink-dim-text)]">
+              <span className="font-vibe-en text-sm">Precious Vibe</span>
+              <span className="font-vibe-zh text-xs">品花宝境</span>
             </div>
           )}
           {nextChapter ? (
