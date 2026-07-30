@@ -352,10 +352,15 @@ export function getLocationFirstChapterId(location: NovelLocation): number | nul
 }
 
 export function getCharacterTotalMentions(character: Character): number {
-  const tokens = getCharacterMentionTokens(character);
+  const tokenMap = buildCharacterTokenMap(characters);
   return chapters
     .filter((ch) => ch.id >= 1)
-    .reduce((total, ch) => total + countMentionsInText(ch.content, tokens), 0);
+    .reduce((total, ch) => {
+      const count = segmentText(ch.content, tokenMap).filter(
+        (seg) => typeof seg !== "string" && seg.char.id === character.id
+      ).length;
+      return total + count;
+    }, 0);
 }
 
 export function countTextSearchMatches(text: string, query: string): number {

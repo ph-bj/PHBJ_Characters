@@ -9,17 +9,20 @@ import {
   type SceneBullet,
 } from "../characterAppearances";
 import type { Character } from "../types";
+import { characters } from "../data";
 import {
   ENGLISH_ALIAS_TOKENS,
   ROLE_ACCENTS,
   ROLE_ICONS,
   ROLE_TEXT_COLORS,
   ROLE_TINTS,
+  buildCharacterTokenMap,
   countMentionsInText,
   findMentionPositionsInText,
   getCharacterMentionTokens,
   getCharacterNameForLanguage,
   getEnglishMentionTokens,
+  segmentText,
   translationMap,
 } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
@@ -87,12 +90,14 @@ export function CharacterDetail({
   const mentionData = useMemo(() => {
     const cached = characterMentionDataCache.get(character.id);
     if (cached) return cached;
-    const tokens = getCharacterMentionTokens(character);
+    const tokenMap = buildCharacterTokenMap(characters);
     const data = chapters
       .filter((ch) => ch.id >= 1)
       .map((ch) => ({
         ch: ch.id,
-        count: countMentionsInText(ch.content, tokens),
+        count: segmentText(ch.content, tokenMap).filter(
+          (seg) => typeof seg !== "string" && seg.char.id === character.id
+        ).length,
       }));
     characterMentionDataCache.set(character.id, data);
     return data;
@@ -116,7 +121,24 @@ export function CharacterDetail({
       ? getEnglishMentionTokens(character)
       : getCharacterMentionTokens(character);
 
-    const positions = findMentionPositionsInText(text, tokens);
+    const tokenMap = buildCharacterTokenMap(characters);
+    const positions = !isEnglish
+      ? (() => {
+          const posList: number[] = [];
+          let cursor = 0;
+          for (const seg of segmentText(text, tokenMap)) {
+            if (typeof seg === "string") {
+              cursor += seg.length;
+            } else {
+              if (seg.char.id === character.id) {
+                posList.push(cursor);
+              }
+              cursor += seg.token.length;
+            }
+          }
+          return posList;
+        })()
+      : findMentionPositionsInText(text, tokens);
 
     const contextWindow = isEnglish ? 200 : 80;
     const clusterMergeDistance = isEnglish ? 400 : 200;
