@@ -118,6 +118,32 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   老年掌柜: ["elderly shopkeeper", "Elderly shopkeeper"],
   华正昌掌柜: ["Hua Zhengchang Manager", "Hua Zhengchang shopkeeper"],
   华正昌书铺掌柜: ["Hua Zhengchang Bookshop Manager", "Hua Zhengchang Manager"],
+  长庆师娘: [
+    "Changqing's widow",
+    "Changqing’s widow",
+    "master's widow",
+    "master’s widow",
+    "teacher's wife",
+    "teacher’s wife",
+    "Changqing's wife",
+    "Changqing’s wife",
+    "wife of Changqing",
+  ],
+  师娘: [
+    "teacher's wife",
+    "teacher’s wife",
+    "master's wife",
+    "master’s wife",
+    "master's widow",
+    "master’s widow",
+  ],
+  长庆媳妇: [
+    "Changqing's widow",
+    "Changqing’s widow",
+    "Changqing's wife",
+    "Changqing’s wife",
+    "wife of Changqing",
+  ],
 };
 
 
@@ -536,6 +562,7 @@ export const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
   "char-117": "Nursemaid (Ba Laifeng)",
   "char-118": "Attendant (Fu household)",
   "char-120": "Retinue (Hua household, ~20-30 people)",
+  "char-152": "Changqing's widow",
   "char-190": "Doctor Li",
   "char-191": "Zhang Gui",
   "char-192": "Wang Sheng",

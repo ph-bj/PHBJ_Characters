@@ -48,6 +48,7 @@ const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
   'char-117': 'Nursemaid (Ba Laifeng)',
   'char-118': 'Attendant (Fu household)',
   'char-120': 'Retinue (Hua household, ~20-30 people)',
+  'char-152': "Changqing's widow",
   'char-190': 'Doctor Li',
   'char-191': 'Zhang Gui',
   'char-192': 'Wang Sheng',
