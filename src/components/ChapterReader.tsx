@@ -643,6 +643,28 @@ function ChapterReaderComponent({
           break;
         }
       }
+
+      if (injectSvgs && SvgCmp && !isEnglish) {
+        const proseMatch = chunk.match(/\n(?=(?:庸庵|剑潭|子玉|王恂|仲清|当下看完))/);
+        if (proseMatch && proseMatch.index !== undefined) {
+          const poemPart = chunk.slice(0, proseMatch.index);
+          const prosePart = chunk.slice(proseMatch.index + 1);
+          return (
+            <React.Fragment key={idx}>
+              {idx > 0 ? (
+                <span className="block mt-4">{renderAnnotated(poemPart, showBilingual, idx === 0 ? paragraphNumber : undefined)}</span>
+              ) : (
+                <>{renderAnnotated(poemPart, showBilingual, idx === 0 ? paragraphNumber : undefined)}</>
+              )}
+              <div className="mt-4 mb-8 block w-full">
+                <SvgCmp />
+              </div>
+              <span className="block mt-4">{renderAnnotated(prosePart, showBilingual, undefined)}</span>
+            </React.Fragment>
+          );
+        }
+      }
+
       return (
         <React.Fragment key={idx}>
           {idx > 0 && !isEnglish ? (
