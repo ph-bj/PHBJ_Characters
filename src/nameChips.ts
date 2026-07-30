@@ -507,6 +507,10 @@ export function segmentText(text: string, tokenMap: [string, Character][]): Segm
               continue;
           }
         }
+        if (token === "珊枝") {
+          const before = text.slice(Math.max(0, cursor - 15), cursor);
+          if (before.endsWith("碧海")) continue;
+        }
         // Context-sensitive tokens: only chip if context confirms a person name
         if (
           CONTEXT_SENSITIVE_TOKENS.has(token) &&

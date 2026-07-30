@@ -282,6 +282,7 @@ export const ROLE_CHIP_ACTIVE: Record<string, string> = {
 export * from "./nameChips";
 import {
   segmentText,
+  buildCharacterTokenMap,
   getSegmentChipLabel,
   getCharacterMentionTokens,
   countMentionsInText,
@@ -518,30 +519,13 @@ export function countSearchMatchesInRenderedText(
 export function getChapterMentionedCharacters(content: string): Character[] {
   const hitIds = new Set<string>();
   const hits: Character[] = [];
+  const tokenMap = buildCharacterTokenMap(characters);
 
-  for (const character of characters) {
-    const nameTokens = extractChineseTokens(character.name);
-    const aliasTokens = character.alias
-      .split("/")
-      .flatMap((part) => extractChineseTokens(part))
-      .filter((token) => token !== "—");
-    const baseTokens = [...new Set([...nameTokens, ...aliasTokens])];
-    const shortenedYeTokens: string[] = [];
-    for (const t of baseTokens) {
-      if (t.endsWith("爷") && t.length > 2) {
-        shortenedYeTokens.push(t.slice(0, -1));
-      }
-    }
-    const tokens = Array.from(
-      new Set([...baseTokens, ...shortenedYeTokens]),
-    )
-      .filter((token) => token.length >= 2)
-      .sort((a, b) => b.length - a.length);
-
-    if (tokens.some((token) => content.includes(token))) {
-      if (!hitIds.has(character.id)) {
-        hitIds.add(character.id);
-        hits.push(character);
+  for (const seg of segmentText(content, tokenMap)) {
+    if (typeof seg !== "string") {
+      if (!hitIds.has(seg.char.id)) {
+        hitIds.add(seg.char.id);
+        hits.push(seg.char);
       }
     }
   }

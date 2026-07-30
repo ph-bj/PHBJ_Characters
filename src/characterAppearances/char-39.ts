@@ -1,14 +1,8 @@
 // Character: 珊枝 Shānzhī
-// Chapter Appearances: 1, 5, 16, 18, 19, 21, 25, 26, 28, 29, 30, 31, 33, 36, 41, 44, 45, 52, 53
+// Chapter Appearances: 5, 16, 18, 19, 21, 25, 26, 28, 29, 30, 31, 33, 36, 41, 44, 45, 52, 53
 import type { SceneBullet } from './types';
 
 export const char_39Appearances: Record<number, SceneBullet[]> = {
-  "1": [
-    {
-      en: "Listed among the lower-tier figures in the theatrical world.",
-      zh: "在梨园人物中被提及。"
-    }
-  ],
   "5": [
     {
       en: "Appears briefly in the background during the gathering at Yi Garden.",

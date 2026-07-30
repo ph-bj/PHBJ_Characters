@@ -1,14 +1,8 @@
 // Character: 林珊枝 Lín Shānzhī
-// Chapter Appearances: 1, 5, 16, 18, 19, 21, 25, 26, 28, 29, 30, 31, 33, 36, 41, 44, 45, 52, 53
+// Chapter Appearances: 5, 16, 18, 19, 21, 25, 26, 28, 29, 30, 31, 33, 36, 41, 44, 45, 52, 53
 import type { SceneBullet } from './types';
 
 export const char_42Appearances: Record<number, SceneBullet[]> = {
-  1: [
-    {
-      en: "Briefly introduced as a performer originally from Suzhou.",
-      zh: "被简略介绍为一位来自姑苏的优伶。"
-    }
-  ],
   5: [
     {
       en: "Mentioned as Young Master Hua Guangsu's highly favored personal attendant, who was purchased for the lavish sum of 8,000 taels.",
