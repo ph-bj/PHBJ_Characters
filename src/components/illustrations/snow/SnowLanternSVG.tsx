@@ -2,7 +2,7 @@ import React from 'react';
 
 export function SnowLanternSVG() {
   return (
-    <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center my-6 opacity-90 transition-opacity hover:opacity-100 max-w-md mx-auto">
+    <div className="parchment p-3 rounded-sm border-double border-4 border-[var(--paper-border)] flex flex-col items-center my-6 opacity-90 transition-opacity hover:opacity-100 max-w-md mx-auto">
       <svg viewBox="0 0 400 240" className="w-full" style={{ maxHeight: '320px' }}>
         <defs>
           <filter id="snow-lantern-wobble">
@@ -20,7 +20,7 @@ export function SnowLanternSVG() {
         {/* Glow behind lantern */}
         <circle cx="200" cy="120" r="60" fill="url(#lantern-glow)" />
         
-        <g filter="url(#snow-lantern-wobble)" stroke="#2c2420" fill="none">
+        <g filter="url(#snow-lantern-wobble)" stroke="var(--art-ink)" fill="none">
           {/* Hanging rod */}
           <path d="M 200 0 L 200 50" strokeWidth="2" />
           
@@ -30,7 +30,7 @@ export function SnowLanternSVG() {
           <path d="M 145 60 Q 155 50 170 55 Q 185 45 200 50 Q 215 45 230 55 Q 245 50 255 60 Z" fill="#f8f9fa" />
           
           {/* Lantern Body */}
-          <path d="M 160 60 L 160 160 Q 200 170 240 160 L 240 60" fill="#faf6ee" />
+          <path d="M 160 60 L 160 160 Q 200 170 240 160 L 240 60" fill="var(--art-paper-alt)" />
           <path d="M 180 60 L 180 163 M 220 60 L 220 163" opacity="0.3" />
           <path d="M 160 110 L 240 110" opacity="0.3" />
           
@@ -44,19 +44,19 @@ export function SnowLanternSVG() {
           <path d="M 205 210 Q 210 230 215 240" />
           
           {/* Falling Snowflakes */}
-          <circle cx="100" cy="80" r="1.5" fill="#2c2420" />
-          <circle cx="120" cy="150" r="2" fill="#2c2420" />
-          <circle cx="280" cy="90" r="1" fill="#2c2420" />
-          <circle cx="300" cy="170" r="2" fill="#2c2420" />
-          <circle cx="240" cy="40" r="1.5" fill="#2c2420" />
+          <circle cx="100" cy="80" r="1.5" fill="var(--art-ink)" />
+          <circle cx="120" cy="150" r="2" fill="var(--art-ink)" />
+          <circle cx="280" cy="90" r="1" fill="var(--art-ink)" />
+          <circle cx="300" cy="170" r="2" fill="var(--art-ink)" />
+          <circle cx="240" cy="40" r="1.5" fill="var(--art-ink)" />
         </g>
       
       {/* ===== RED SEAL STAMP (印章) ===== */}
-      <rect x="365" y="205" width="22" height="22" fill="none" stroke="#8b2500" strokeWidth="1.5" rx="1" />
-      <text x="376" y="220" textAnchor="middle" fill="#8b2500" fontSize="10" fontFamily="serif" fontWeight="bold">灯</text>
+      <rect x="365" y="205" width="22" height="22" fill="none" stroke="var(--art-seal)" strokeWidth="1.5" rx="1" />
+      <text x="376" y="220" textAnchor="middle" fill="var(--art-seal)" fontSize="10" fontFamily="serif" fontWeight="bold">灯</text>
 
       {/* ===== CALLIGRAPHY TITLE (题字) ===== */}
-      <text x="382" y="30" textAnchor="middle" fill="#2c2420" fontSize="14" fontFamily="serif" writingMode="vertical-rl" opacity="0.7">雪灯</text>
+      <text x="382" y="30" textAnchor="middle" fill="var(--art-ink)" fontSize="14" fontFamily="serif" writingMode="vertical-rl" opacity="0.7">雪灯</text>
     </svg>
     </div>
   );

@@ -687,7 +687,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--ink-title)] mb-1">
           {lang === 'en' ? 'Character Network Unloaded' : '图谱已暂存 (内存已释放)'}
         </h4>
-        <p className="text-[11px] text-[var(--ink-dim-text)] italic mb-4 max-w-xs">
+        <p className="text-xs text-[var(--ink-dim-text)] italic mb-4 max-w-xs">
           {lang === 'en'
             ? 'Network graph unloaded while scrolled out of view to save memory.'
             : '已滚动离开本区域。为防手机卡顿，D3 元素及图谱模拟已自动暂停并释放内存。'}
@@ -717,7 +717,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         <h3 className="text-xs font-bold uppercase tracking-widest text-[var(--accent)]">
           {lang === 'en' ? 'Character Network' : '人物关系图谱'}
         </h3>
-        <p className="text-[10px] text-[var(--ink-dim-text)] italic">
+        <p className="text-xs text-[var(--ink-dim-text)] italic">
           {lang === 'en'
             ? 'Drag nodes · Double-click profile · Click legend to filter'
             : '拖动节点 · 双击打开详情 · 点击图例筛选角色'}
@@ -730,11 +730,11 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
             <button
               type="button"
               onClick={() => setIsRoleFilterMinimized((prev) => !prev)}
-              className={`flex ${isRoleFilterMinimized ? 'items-center gap-1' : 'flex-col items-start gap-0.5'} text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left`}
+              className={`flex ${isRoleFilterMinimized ? 'items-center gap-1' : 'flex-col items-start gap-0.5'} text-xs font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left`}
               aria-expanded={!isRoleFilterMinimized}
             >
               <span>{lang === 'en' ? 'Role Filter' : '角色图例'}</span>
-              <span className={`text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 ${isRoleFilterMinimized ? 'truncate' : 'whitespace-normal'}`}>
+              <span className={`text-xs font-normal normal-case text-[var(--ink-dim-text)]  ${isRoleFilterMinimized ? 'truncate' : 'whitespace-normal'}`}>
                 {isDefaultRoles
                   ? (lang === 'en' ? '(Default)' : '(默认)')
                   : (lang === 'en' ? `(${hiddenRoles.size} hidden)` : `(已隐${hiddenRoles.size})`)}
@@ -746,7 +746,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                   <button
                     type="button"
                     onClick={showAllRoles}
-                    className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer mr-0.5"
+                    className="text-xs font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer mr-0.5"
                     title={lang === 'en' ? 'Show all roles' : '显示所有角色'}
                   >
                     {lang === 'en' ? 'Show all' : '全选'}
@@ -755,7 +755,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                   <button
                     type="button"
                     onClick={resetToDefaultRoles}
-                    className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer mr-0.5"
+                    className="text-xs font-bold uppercase tracking-wider text-[var(--accent)] hover:text-[var(--ink-title)] transition-colors touch-manipulation cursor-pointer mr-0.5"
                     title={lang === 'en' ? 'Reset to default roles (Performers, Scholars, Villains)' : '重置为默认角色（伶人、名士、反派）'}
                   >
                     {lang === 'en' ? 'Reset' : '重置'}
@@ -809,7 +809,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                       }}
                     />
                     <span
-                      className={`text-[8px] sm:text-[9px] font-medium truncate ${
+                      className={`text-xs font-medium truncate ${
                         isVisible ? 'text-[var(--ink-dim-text)]' : 'text-[var(--ink-dim-text)]/60 line-through'
                       }`}
                     >
@@ -828,11 +828,11 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
             <button
               type="button"
               onClick={() => setIsCoOccurrenceMinimized((prev) => !prev)}
-              className={`flex ${isCoOccurrenceMinimized ? 'items-center gap-1' : 'flex-col items-start gap-0.5'} text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left`}
+              className={`flex ${isCoOccurrenceMinimized ? 'items-center gap-1' : 'flex-col items-start gap-0.5'} text-xs font-bold uppercase tracking-wider text-[var(--accent)] hover:opacity-80 transition-opacity touch-manipulation cursor-pointer flex-1 text-left`}
               aria-expanded={!isCoOccurrenceMinimized}
             >
               <span>{lang === 'en' ? 'Co-occurrence' : '同回共现'}</span>
-              <span className={`text-[8px] font-normal normal-case text-[var(--ink-dim-text)] opacity-75 ${isCoOccurrenceMinimized ? 'truncate' : 'whitespace-normal'}`}>
+              <span className={`text-xs font-normal normal-case text-[var(--ink-dim-text)]  ${isCoOccurrenceMinimized ? 'truncate' : 'whitespace-normal'}`}>
                 ({minCoOccurrence === 0 ? (lang === 'en' ? 'All' : '全部') : `≥${minCoOccurrence}${lang === 'en' ? '' : '回'}`})
               </span>
             </button>
@@ -865,7 +865,7 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
                   type="button"
                   onClick={() => setMinCoOccurrence(btn.val)}
                   aria-pressed={minCoOccurrence === btn.val}
-                  className={`px-1.5 py-0.5 text-[8px] sm:text-[9px] font-bold rounded-sm border transition-colors touch-manipulation cursor-pointer ${
+                  className={`px-1.5 py-0.5 text-xs font-bold rounded-sm border transition-colors touch-manipulation cursor-pointer ${
                     minCoOccurrence === btn.val
                       ? 'bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]'
                       : 'text-[var(--ink-dim-text)] border-[var(--paper-border)] bg-[var(--paper-bg)]/90 hover:bg-black/5'

@@ -7,8 +7,8 @@ import React from 'react';
  * the same parchment tile style as the five standalone illustrations.
  */
 
-const INK = '#2c2420';
-const RED = '#8b2500';
+const INK = 'var(--art-ink)';
+const RED = 'var(--art-seal)';
 
 /* ---- Element vocabulary ----------------------------------------------- */
 /* Every element is a static fragment drawn around a local origin (ground   */
@@ -642,7 +642,7 @@ export const InkSceneCard: React.FC<{ scene: Scene; className?: string }> = ({
   const washEls = scene.wash ?? OUTDOOR_WASH;
 
   return (
-    <div className={`parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center${className ? ` ${className}` : ''}`}>
+    <div className={`parchment p-3 rounded-sm border-double border-4 border-[var(--paper-border)] flex flex-col items-center${className ? ` ${className}` : ''}`}>
       <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '150px' }}>
         <defs>
           <linearGradient id="csWash" x1="0" y1="0" x2="0" y2="1">
@@ -658,8 +658,8 @@ export const InkSceneCard: React.FC<{ scene: Scene; className?: string }> = ({
             <stop offset="100%" stopColor={RED} stopOpacity="0" />
           </radialGradient>
           <radialGradient id="csPlum" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#b4494e" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="#b4494e" stopOpacity="0.08" />
+            <stop offset="0%" stopColor="var(--art-bloom)" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="var(--art-bloom)" stopOpacity="0.08" />
           </radialGradient>
           <filter id="csBrush" x="-5%" y="-5%" width="110%" height="110%">
             <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="7" result="noise" />

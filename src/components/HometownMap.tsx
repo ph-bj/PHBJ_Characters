@@ -245,14 +245,14 @@ export function HometownMap({
         <section aria-labelledby="map-explorer-title">
           <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2 border-b border-[var(--paper-border)]/40 pb-2.5">
             <div>
-              <p className="text-[8px] font-bold uppercase tracking-[0.22em] text-[var(--accent)]">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--accent)]">
                 {lang === 'zh' ? '交互地图' : 'Interactive map'}
               </p>
               <h3 id="map-explorer-title" className="mt-0.5 text-xs font-bold text-[var(--ink-title)]">
                 {lang === 'zh' ? '按地点类型探索' : 'Explore by location type'}
               </h3>
             </div>
-            <p className="text-[10px] text-[var(--ink-dim-text)] font-medium bg-[var(--paper-bg)]/80 px-2.5 py-1 rounded-sm border border-[var(--paper-border)]/60">
+            <p className="text-xs text-[var(--ink-dim-text)] font-medium bg-[var(--paper-bg)]/80 px-2.5 py-1 rounded-sm border border-[var(--paper-border)]/60">
               {lang === 'zh' ? '选择类别以更新地图' : 'Choose a category to update map'}
             </p>
           </div>
@@ -289,11 +289,11 @@ export function HometownMap({
                     <Icon size={14} />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate text-[11px] font-bold leading-snug text-[var(--ink-title)]" style={{ color: isActive ? 'inherit' : undefined }}>
+                    <span className="block truncate text-xs font-bold leading-snug text-[var(--ink-title)]" style={{ color: isActive ? 'inherit' : undefined }}>
                       {lang === 'zh' ? label.zh : label.en}
                     </span>
-                    <span className={`mt-1 block text-[9px] font-normal leading-none ${
-                      isActive ? 'text-[var(--paper-bg)]/80' : 'text-[var(--ink-dim-text)]'
+                    <span className={`mt-1 block text-xs font-normal leading-none ${
+                      isActive ? 'text-[var(--paper-bg)]' : 'text-[var(--ink-dim-text)]'
                     }`}>
                       {lang === 'zh' ? `${count} 个图例标记` : `${count} ${count === 1 ? 'legend marker' : 'legend markers'}`}
                     </span>
@@ -343,7 +343,7 @@ export function HometownMap({
                 {lang === 'zh' ? '地点索引' : 'Location Index'}
               </h3>
             </div>
-            <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-3 py-1 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)] shadow-xs">
+            <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-3 py-1 text-xs font-bold tabular-nums text-[var(--ink-dim-text)] shadow-xs">
               {lang === 'zh' ? `${storyGeographyCount} 处` : `${storyGeographyCount} places`}
             </span>
           </div>
@@ -354,10 +354,10 @@ export function HometownMap({
               <div>
                 <div className="mb-3.5 flex items-center gap-2 border-b border-[var(--paper-border)]/40 pb-2">
                   <Users size={12} className="text-[var(--accent)]" />
-                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ink-title)]">
+                  <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-title)]">
                     {lang === 'zh' ? '人物籍贯' : 'Character Hometowns'}
                   </p>
-                  <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-2 py-0.5 text-[8px] font-bold tabular-nums text-[var(--accent)]">
+                  <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-2 py-0.5 text-xs font-bold tabular-nums text-[var(--accent)]">
                     {mapDataByType.hometown.length}
                   </span>
                 </div>
@@ -384,9 +384,9 @@ export function HometownMap({
                         title={lang === 'zh' ? `${name} (共 ${hometown.count} 人)` : `${name} (${hometown.count} ${hometown.count === 1 ? 'character' : 'characters'})`}
                       >
                         <Users size={11} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
-                        <span className="whitespace-nowrap font-hans text-[10px] sm:text-[11px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
+                        <span className="whitespace-nowrap font-hans text-xs font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
                           {name}
-                          <span className="ml-1 text-[9px] font-normal text-[var(--ink-dim-text)]">
+                          <span className="ml-1 text-xs font-normal text-[var(--ink-dim-text)]">
                             ({hometown.count})
                           </span>
                         </span>
@@ -406,10 +406,10 @@ export function HometownMap({
                   <div key={group.type}>
                     <div className="mb-3.5 flex items-center gap-2 border-b border-[var(--paper-border)]/40 pb-2">
                       <Trees size={12} className="text-[var(--accent)]" />
-                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ink-title)]">
+                      <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-title)]">
                         {lang === 'zh' ? group.label.zh : group.label.en}
                       </p>
-                      <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-2 py-0.5 text-[8px] font-bold tabular-nums text-[var(--accent)]">
+                      <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-2 py-0.5 text-xs font-bold tabular-nums text-[var(--accent)]">
                         {mergedGardenCount}
                       </span>
                     </div>
@@ -430,7 +430,7 @@ export function HometownMap({
                         },
                       ].map((gardenGroup) => (
                         <div key={gardenGroup.label}>
-                          <p className="mb-2.5 text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+                          <p className="mb-2.5 text-xs font-bold uppercase tracking-widest text-[var(--accent)]">
                             {gardenGroup.label}
                           </p>
                           <div className="flex flex-wrap gap-2 sm:gap-2.5">
@@ -443,7 +443,7 @@ export function HometownMap({
                                 title={lang === 'zh' ? `${garden.name} (${garden.location})` : `${garden.nameEn} (${garden.locationEn})`}
                               >
                                 <Trees size={11} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
-                                <span className="whitespace-nowrap font-hans text-[10px] sm:text-[11px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
+                                <span className="whitespace-nowrap font-hans text-xs font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
                                   {lang === 'zh' ? garden.name : garden.nameEn}
                                 </span>
                                 <ChevronRight size={11} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
@@ -456,7 +456,7 @@ export function HometownMap({
 
                     {additionalGardenLocations.length > 0 && (
                       <div className="mt-5 border-t border-[var(--paper-border)]/30 pt-4">
-                        <p className="mb-2.5 text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+                        <p className="mb-2.5 text-xs font-bold uppercase tracking-widest text-[var(--accent)]">
                           {lang === 'zh' ? '其他园林地点' : 'Additional Garden Sites'}
                         </p>
                         <div className="flex flex-wrap gap-2 sm:gap-2.5">
@@ -469,7 +469,7 @@ export function HometownMap({
                               title={lang === 'zh' ? location.name : location.nameEn}
                             >
                               <Trees size={11} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
-                              <span className="whitespace-nowrap font-hans text-[10px] sm:text-[11px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
+                              <span className="whitespace-nowrap font-hans text-xs font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
                                 {lang === 'zh' ? location.name : location.nameEn}
                               </span>
                               <ChevronRight size={11} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
@@ -486,10 +486,10 @@ export function HometownMap({
                 <div key={group.type}>
                   <div className="mb-3.5 flex items-center gap-2 border-b border-[var(--paper-border)]/40 pb-2">
                     <Icon size={12} className="text-[var(--accent)]" />
-                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--ink-title)]">
+                    <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-title)]">
                       {lang === 'zh' ? group.label.zh : group.label.en}
                     </p>
-                    <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-2 py-0.5 text-[8px] font-bold tabular-nums text-[var(--accent)]">
+                    <span className="ml-auto rounded-full bg-[var(--accent)]/10 px-2 py-0.5 text-xs font-bold tabular-nums text-[var(--accent)]">
                       {group.locations.length}
                     </span>
                   </div>
@@ -503,7 +503,7 @@ export function HometownMap({
                         title={lang === 'zh' ? location.name : location.nameEn}
                       >
                         <Icon size={11} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />
-                        <span className="whitespace-nowrap font-hans text-[10px] sm:text-[11px] font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
+                        <span className="whitespace-nowrap font-hans text-xs font-bold leading-tight text-[var(--ink-title)] transition-colors group-hover:text-[var(--accent)]">
                           {lang === 'zh' ? location.name : location.nameEn}
                         </span>
                         <ChevronRight size={11} className="shrink-0 text-[var(--ink-dim-text)]/30 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />

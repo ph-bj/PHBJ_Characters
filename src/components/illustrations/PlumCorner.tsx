@@ -7,7 +7,7 @@ import React from 'react';
  * Purely ornamental: no pointer events, no shared defs.
  */
 
-const INK = '#2c2420';
+const INK = 'var(--art-ink)';
 
 export const PlumCorner: React.FC = () => (
   <svg

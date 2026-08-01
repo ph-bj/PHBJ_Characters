@@ -2,7 +2,7 @@ import React from 'react';
 
 export function SnowColorSVG() {
   return (
-    <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center my-6 opacity-90 transition-opacity hover:opacity-100 max-w-md mx-auto">
+    <div className="parchment p-3 rounded-sm border-double border-4 border-[var(--paper-border)] flex flex-col items-center my-6 opacity-90 transition-opacity hover:opacity-100 max-w-md mx-auto">
       <svg viewBox="0 0 400 240" className="w-full" style={{ maxHeight: '320px' }}>
         <defs>
           <filter id="snow-color-wobble">
@@ -25,27 +25,27 @@ export function SnowColorSVG() {
         <circle cx="300" cy="80" r="40" fill="#f8f9fa" filter="url(#snow-color-glow)" />
         <circle cx="300" cy="80" r="30" fill="#f8f9fa" opacity="0.8" />
         
-        <g filter="url(#snow-color-wobble)" stroke="#2c2420" fill="none">
+        <g filter="url(#snow-color-wobble)" stroke="var(--art-ink)" fill="none">
           {/* Extremely faint outline of the Mountain of Assembled Jade */}
           <path d="M 0 200 L 100 150 L 200 180 L 300 120 L 400 220" strokeWidth="1" opacity="0.15" />
           <path d="M 50 240 L 150 180 L 250 220" strokeWidth="1" opacity="0.1" />
           
           {/* Subtle hint of pear-blossom cloud or plantain leaf */}
-          <path d="M 50 150 Q 80 130 110 160 Q 70 180 50 150 Z" fill="#2c2420" opacity="0.05" />
-          <path d="M 150 200 Q 180 190 200 210 Q 170 230 150 200 Z" fill="#2c2420" opacity="0.05" />
+          <path d="M 50 150 Q 80 130 110 160 Q 70 180 50 150 Z" fill="var(--art-ink)" opacity="0.05" />
+          <path d="M 150 200 Q 180 190 200 210 Q 170 230 150 200 Z" fill="var(--art-ink)" opacity="0.05" />
           
           {/* A few minimal dots representing ice-plum fragrance */}
-          <circle cx="100" cy="180" r="1.5" fill="#2c2420" opacity="0.2" />
-          <circle cx="110" cy="175" r="1" fill="#2c2420" opacity="0.2" />
-          <circle cx="220" cy="150" r="1.5" fill="#2c2420" opacity="0.15" />
+          <circle cx="100" cy="180" r="1.5" fill="var(--art-ink)" opacity="0.2" />
+          <circle cx="110" cy="175" r="1" fill="var(--art-ink)" opacity="0.2" />
+          <circle cx="220" cy="150" r="1.5" fill="var(--art-ink)" opacity="0.15" />
         </g>
       
       {/* ===== RED SEAL STAMP (印章) ===== */}
-      <rect x="365" y="205" width="22" height="22" fill="none" stroke="#8b2500" strokeWidth="1.5" rx="1" />
-      <text x="376" y="220" textAnchor="middle" fill="#8b2500" fontSize="10" fontFamily="serif" fontWeight="bold">色</text>
+      <rect x="365" y="205" width="22" height="22" fill="none" stroke="var(--art-seal)" strokeWidth="1.5" rx="1" />
+      <text x="376" y="220" textAnchor="middle" fill="var(--art-seal)" fontSize="10" fontFamily="serif" fontWeight="bold">色</text>
 
       {/* ===== CALLIGRAPHY TITLE (题字) ===== */}
-      <text x="382" y="30" textAnchor="middle" fill="#2c2420" fontSize="14" fontFamily="serif" writingMode="vertical-rl" opacity="0.7">雪色</text>
+      <text x="382" y="30" textAnchor="middle" fill="var(--art-ink)" fontSize="14" fontFamily="serif" writingMode="vertical-rl" opacity="0.7">雪色</text>
     </svg>
     </div>
   );

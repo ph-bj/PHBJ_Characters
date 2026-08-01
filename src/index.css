@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Zhi+Mang+Xing&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=Zhi+Mang+Xing&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -7,6 +7,27 @@
   --font-sans: "Inter", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-vibe-en: "Great Vibes", "Alex Brush", cursive, serif;
   --font-vibe-zh: "Zhi Mang Xing", "Ma Shan Zheng", "Long Cang", "STKaiti", "KaiTi", cursive, serif;
+  /* Reading register for the Chinese source text — a serif, unlike the sans UI. */
+  --font-read-hans: "Noto Serif SC", "Songti SC", "SimSun", serif;
+
+  /* Type scale. 12px is the floor: nothing in the UI goes below --text-xs.
+     Use these utilities only — no arbitrary text-[Npx] values. */
+  --text-xs: 0.75rem;      /* 12px — labels, counts, metadata */
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.875rem;     /* 14px — secondary UI, list items */
+  --text-sm--line-height: 1.55;
+  --text-base: 1rem;       /* 16px — body copy */
+  --text-base--line-height: 1.7;
+  --text-lg: 1.25rem;      /* 20px — panel titles */
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.5rem;       /* 24px — section headings */
+  --text-xl--line-height: 1.35;
+  --text-2xl: 1.75rem;     /* 28px — major headings */
+  --text-2xl--line-height: 1.3;
+  --text-3xl: 2.125rem;    /* 34px */
+  --text-3xl--line-height: 1.25;
+  --text-4xl: 2.5rem;      /* 40px — page title */
+  --text-4xl--line-height: 1.2;
 }
 
 .font-vibe-en {
@@ -27,82 +48,139 @@
 
 /* ── Parchment theme (warm brown) ── */
 :root {
-  --body-bg: #e5dcc3;
-  --body-bg-gradient-center: #f4ecd8;
+  /* body-bg sits ~1.36:1 against paper-bg so raised surfaces actually read as raised */
+  --body-bg: #d8ccaa;
+  --body-bg-gradient-center: #e7dcc4;
   --paper-bg: #f4ecd8;
   --paper-border: #d4c5a9;
   --ink-main: #140d0b;
   --ink-dim: #3a2e28;
   --ink-title: #2c2420;
   --ink-dim-text: #5d5048;
-  --accent: #8b4513;
-  --accent-glow: rgba(139, 69, 19, 0.6);
-  --accent-glow-light: rgba(139, 69, 19, 0.4);
-  --accent-inset: rgba(139, 69, 19, 0.05);
+  /* 6.80:1 on paper, 5.01:1 on the page background */
+  --accent: #7f3f11;
+  --accent-glow: rgba(127, 63, 17, 0.6);
+  --accent-glow-light: rgba(127, 63, 17, 0.4);
+  --accent-inset: rgba(127, 63, 17, 0.05);
   --legend-place: #a0522d;
   --legend-garden: #cd853f;
   --legend-site: #8b4513;
   --legend-landscape: #d2b48c;
 
+  /* Ink-painting palette for the SVG illustrations. Seal vermilion and plum-blossom
+     red stay constant across themes — both are fixed by convention, not by palette. */
+  --art-ink: #2c2420;
+  --art-ink-deep: #1a1412;
+  --art-paper: #f5efe0;
+  --art-paper-alt: #faf6ee;
+  --art-seal: #8b2500;
+  --art-bloom: #b4494e;
+
+  /* Search highlight + evidence-confidence scale */
+  --highlight: rgba(214, 168, 42, 0.45);
+  --highlight-strong: rgba(214, 168, 42, 0.62);
+  --confidence-certain: #2f6146;
+  --confidence-certain-bg: rgba(47, 97, 70, 0.12);
+  --confidence-probable: #7a5410;
+  --confidence-probable-bg: rgba(122, 84, 16, 0.12);
+  --confidence-speculative: #5f4383;
+  --confidence-speculative-bg: rgba(95, 67, 131, 0.12);
+
+  /* Chapter content markers */
+  --marker-game: #7a5410;
+  --marker-game-bg: rgba(122, 84, 16, 0.12);
+  --marker-poem: #2f5573;
+  --marker-poem-bg: rgba(47, 85, 115, 0.12);
+  --marker-music: #8a3546;
+  --marker-music-bg: rgba(138, 53, 70, 0.12);
+
   /* Network Graph Role Colors */
   --role-scholar: #355070;
-  --role-scholar-bg: rgba(53, 80, 112, 0.13);
+  --role-scholar-bg: rgba(53, 80, 112, 0.07);
   --role-performer: #8c3b3b;
-  --role-performer-bg: rgba(140, 59, 59, 0.13);
-  --role-official: #8a6a2f;
-  --role-official-bg: rgba(138, 106, 47, 0.13);
+  --role-performer-bg: rgba(140, 59, 59, 0.07);
+  --role-official: #806128;
+  --role-official-bg: rgba(128, 97, 40, 0.07);
   --role-villain: #3f2f2f;
-  --role-villain-bg: rgba(63, 47, 47, 0.13);
+  --role-villain-bg: rgba(63, 47, 47, 0.07);
   --role-minor: #3f6b63;
-  --role-minor-bg: rgba(63, 107, 99, 0.13);
+  --role-minor-bg: rgba(63, 107, 99, 0.07);
   --role-female: #6b4a7d;
-  --role-female-bg: rgba(107, 74, 125, 0.13);
-  --role-servant: #4d6a3a;
-  --role-servant-bg: rgba(77, 106, 58, 0.13);
-  --role-deceased: #5b5f67;
-  --role-deceased-bg: rgba(91, 95, 103, 0.13);
+  --role-female-bg: rgba(107, 74, 125, 0.07);
+  --role-servant: #456035;
+  --role-servant-bg: rgba(69, 96, 53, 0.07);
+  --role-deceased: #52565e;
+  --role-deceased-bg: rgba(82, 86, 94, 0.07);
   --role-Other: #7a5c43;
-  --role-Other-bg: rgba(122, 92, 67, 0.13);
+  --role-Other-bg: rgba(122, 92, 67, 0.07);
 }
 
 /* ── 青梅 theme (jade-green) ── */
 [data-theme="plum"] {
-  --body-bg: #e2eacc;
-  --body-bg-gradient-center: #eef3dc;
+  /* body-bg sits ~1.35:1 against paper-bg, matching the parchment theme */
+  --body-bg: #ccd9a8;
+  --body-bg-gradient-center: #e3ecca;
   --paper-bg: #f2f5e4;
   --paper-border: #c0cf9a;
   --ink-main: #1a2612;
   --ink-dim: #2e3d24;
   --ink-title: #2a3520;
   --ink-dim-text: #4a5d3a;
-  --accent: #5c7a3a;
-  --accent-glow: rgba(92, 122, 58, 0.6);
-  --accent-glow-light: rgba(92, 122, 58, 0.4);
-  --accent-inset: rgba(92, 122, 58, 0.05);
-  --legend-place: #5c7a3a;
+  /* #5c7a3a was 4.41:1 on paper — below AA. 6.72:1 on paper, 5.0:1 on the page background. */
+  --accent: #455c2c;
+  --accent-glow: rgba(69, 92, 44, 0.6);
+  --accent-glow-light: rgba(69, 92, 44, 0.4);
+  --accent-inset: rgba(69, 92, 44, 0.05);
+  --legend-place: #455c2c;
   --legend-garden: #8db34a;
   --legend-site: #4a5d3a;
   --legend-landscape: #c5d66a;
 
+  /* Ink-painting palette, jade register */
+  --art-ink: #243020;
+  --art-ink-deep: #141c10;
+  --art-paper: #f0f4e2;
+  --art-paper-alt: #f6f9ea;
+  --art-seal: #8b2500;
+  --art-bloom: #b4494e;
+
+  /* Search highlight + evidence-confidence scale */
+  --highlight: rgba(198, 176, 60, 0.45);
+  --highlight-strong: rgba(198, 176, 60, 0.62);
+  --confidence-certain: #2b5c41;
+  --confidence-certain-bg: rgba(43, 92, 65, 0.12);
+  --confidence-probable: #6d5417;
+  --confidence-probable-bg: rgba(109, 84, 23, 0.12);
+  --confidence-speculative: #5a3f7d;
+  --confidence-speculative-bg: rgba(90, 63, 125, 0.12);
+
+  /* Chapter content markers */
+  --marker-game: #6d5417;
+  --marker-game-bg: rgba(109, 84, 23, 0.12);
+  --marker-poem: #2b4f6e;
+  --marker-poem-bg: rgba(43, 79, 110, 0.12);
+  --marker-music: #85374a;
+  --marker-music-bg: rgba(133, 55, 74, 0.12);
+
   /* Network Graph Role Colors (Jade Plum Harmony) */
   --role-scholar: #2b4f6e;
-  --role-scholar-bg: rgba(43, 79, 110, 0.13);
+  --role-scholar-bg: rgba(43, 79, 110, 0.07);
   --role-performer: #8c3b4a;
-  --role-performer-bg: rgba(140, 59, 74, 0.13);
+  --role-performer-bg: rgba(140, 59, 74, 0.07);
   --role-official: #705933;
-  --role-official-bg: rgba(112, 89, 51, 0.13);
+  --role-official-bg: rgba(112, 89, 51, 0.07);
   --role-villain: #353c30;
-  --role-villain-bg: rgba(53, 60, 48, 0.13);
-  --role-minor: #507c72;
-  --role-minor-bg: rgba(80, 124, 114, 0.13);
+  --role-villain-bg: rgba(53, 60, 48, 0.07);
+  --role-minor: #466d64;
+  --role-minor-bg: rgba(70, 109, 100, 0.07);
   --role-female: #7c5980;
-  --role-female-bg: rgba(124, 89, 128, 0.13);
-  --role-servant: #536e40;
-  --role-servant-bg: rgba(83, 110, 64, 0.13);
-  --role-deceased: #6a7368;
-  --role-deceased-bg: rgba(106, 115, 104, 0.13);
+  --role-female-bg: rgba(124, 89, 128, 0.07);
+  --role-servant: #4a6339;
+  --role-servant-bg: rgba(74, 99, 57, 0.07);
+  --role-deceased: #5a6158;
+  --role-deceased-bg: rgba(90, 97, 88, 0.07);
   --role-Other: #7f6854;
-  --role-Other-bg: rgba(127, 104, 84, 0.13);
+  --role-Other-bg: rgba(127, 104, 84, 0.07);
 }
 
 body {
@@ -173,11 +251,10 @@ body {
 }
 
 .ruby-paragraph-number rt {
-  font-size: 10px;
+  font-size: var(--text-xs);
   font-family: var(--font-sans);
   font-weight: normal;
   color: var(--ink-dim-text);
-  opacity: 0.75;
   user-select: none;
   line-height: 1;
   padding-bottom: 2px;

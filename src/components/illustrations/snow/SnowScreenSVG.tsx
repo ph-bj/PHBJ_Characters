@@ -2,7 +2,7 @@ import React from 'react';
 
 export function SnowScreenSVG() {
   return (
-    <div className="parchment p-3 rounded-sm border-double border-4 border-[#d4c5a9] flex flex-col items-center my-6 opacity-90 transition-opacity hover:opacity-100 max-w-md mx-auto">
+    <div className="parchment p-3 rounded-sm border-double border-4 border-[var(--paper-border)] flex flex-col items-center my-6 opacity-90 transition-opacity hover:opacity-100 max-w-md mx-auto">
       <svg viewBox="0 0 400 240" className="w-full" style={{ maxHeight: '320px' }}>
         <defs>
           <filter id="snow-screen-wobble">
@@ -13,7 +13,7 @@ export function SnowScreenSVG() {
         
         <rect width="400" height="240" fill="transparent" />
         
-        <g filter="url(#snow-screen-wobble)" stroke="#2c2420" strokeWidth="1.5" fill="none">
+        <g filter="url(#snow-screen-wobble)" stroke="var(--art-ink)" strokeWidth="1.5" fill="none">
           {/* Floor / Snow base */}
           <path d="M 50 200 L 350 200" opacity="0.3" strokeDasharray="5,5" />
           
@@ -37,11 +37,11 @@ export function SnowScreenSVG() {
         </g>
       
       {/* ===== RED SEAL STAMP (印章) ===== */}
-      <rect x="365" y="205" width="22" height="22" fill="none" stroke="#8b2500" strokeWidth="1.5" rx="1" />
-      <text x="376" y="220" textAnchor="middle" fill="#8b2500" fontSize="10" fontFamily="serif" fontWeight="bold">屏</text>
+      <rect x="365" y="205" width="22" height="22" fill="none" stroke="var(--art-seal)" strokeWidth="1.5" rx="1" />
+      <text x="376" y="220" textAnchor="middle" fill="var(--art-seal)" fontSize="10" fontFamily="serif" fontWeight="bold">屏</text>
 
       {/* ===== CALLIGRAPHY TITLE (题字) ===== */}
-      <text x="382" y="30" textAnchor="middle" fill="#2c2420" fontSize="14" fontFamily="serif" writingMode="vertical-rl" opacity="0.7">雪屏</text>
+      <text x="382" y="30" textAnchor="middle" fill="var(--art-ink)" fontSize="14" fontFamily="serif" writingMode="vertical-rl" opacity="0.7">雪屏</text>
     </svg>
     </div>
   );

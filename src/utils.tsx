@@ -219,64 +219,81 @@ export const ROLE_ICONS: Record<string, any> = {
 };
 
 export const ROLE_TINTS: Record<string, string> = {
-  scholar: "bg-[#355070]/10 border-[#355070]/30",
-  performer: "bg-[#8c3b3b]/10 border-[#8c3b3b]/30",
-  official: "bg-[#8a6a2f]/10 border-[#8a6a2f]/30",
-  villain: "bg-[#3f2f2f]/10 border-[#3f2f2f]/30",
-  minor: "bg-[#3f6b63]/10 border-[#3f6b63]/30",
-  female: "bg-[#6b4a7d]/10 border-[#6b4a7d]/30",
-  servant: "bg-[#4d6a3a]/10 border-[#4d6a3a]/30",
-  deceased: "bg-[#5b5f67]/10 border-[#5b5f67]/30",
-  Other: "bg-[#7a5c43]/10 border-[#7a5c43]/30",
+  scholar: "bg-[var(--role-scholar-bg)] border-[var(--role-scholar)]/30",
+  performer: "bg-[var(--role-performer-bg)] border-[var(--role-performer)]/30",
+  official: "bg-[var(--role-official-bg)] border-[var(--role-official)]/30",
+  villain: "bg-[var(--role-villain-bg)] border-[var(--role-villain)]/30",
+  minor: "bg-[var(--role-minor-bg)] border-[var(--role-minor)]/30",
+  female: "bg-[var(--role-female-bg)] border-[var(--role-female)]/30",
+  servant: "bg-[var(--role-servant-bg)] border-[var(--role-servant)]/30",
+  deceased: "bg-[var(--role-deceased-bg)] border-[var(--role-deceased)]/30",
+  Other: "bg-[var(--role-Other-bg)] border-[var(--role-Other)]/30",
 };
 
 export const ROLE_TEXT_COLORS: Record<string, string> = {
-  scholar: "text-[#355070]",
-  performer: "text-[#8c3b3b]",
-  official: "text-[#8a6a2f]",
-  villain: "text-[#3f2f2f]",
-  minor: "text-[#3f6b63]",
-  female: "text-[#6b4a7d]",
-  servant: "text-[#4d6a3a]",
-  deceased: "text-[#5b5f67]",
-  Other: "text-[#7a5c43]",
+  scholar: "text-[var(--role-scholar)]",
+  performer: "text-[var(--role-performer)]",
+  official: "text-[var(--role-official)]",
+  villain: "text-[var(--role-villain)]",
+  minor: "text-[var(--role-minor)]",
+  female: "text-[var(--role-female)]",
+  servant: "text-[var(--role-servant)]",
+  deceased: "text-[var(--role-deceased)]",
+  Other: "text-[var(--role-Other)]",
 };
 
 export const ROLE_ACCENTS: Record<string, string> = {
-  scholar: "#355070",
-  performer: "#8c3b3b",
-  official: "#8a6a2f",
-  villain: "#3f2f2f",
-  minor: "#3f6b63",
-  female: "#6b4a7d",
-  servant: "#4d6a3a",
-  deceased: "#5b5f67",
-  Other: "#7a5c43",
+  scholar: "var(--role-scholar)",
+  performer: "var(--role-performer)",
+  official: "var(--role-official)",
+  villain: "var(--role-villain)",
+  minor: "var(--role-minor)",
+  female: "var(--role-female)",
+  servant: "var(--role-servant)",
+  deceased: "var(--role-deceased)",
+  Other: "var(--role-Other)",
 };
 
-// Chip colours — unselected (light tint) and selected (solid)
+// Name chips in running prose. Role is carried by hue alone — no fill, no border —
+// so a sentence with several named characters reads as prose rather than as a
+// row of form controls. Colours come from the theme so both palettes work.
 export const ROLE_CHIP_IDLE: Record<string, string> = {
-  scholar: "bg-[#e7edf2] border-[#8ea1b5] text-[#355070]",
-  performer: "bg-[#f3e4e4] border-[#b68888] text-[#8c3b3b]",
-  official: "bg-[#f2ead8] border-[#b79f73] text-[#8a6a2f]",
-  villain: "bg-[#ece7e3] border-[#8f7f73] text-[#3f2f2f]",
-  minor: "bg-[#e3efec] border-[#8ea89f] text-[#3f6b63]",
-  female: "bg-[#ece5f2] border-[#9f88b0] text-[#6b4a7d]",
-  servant: "bg-[#e8efe3] border-[#94a686] text-[#4d6a3a]",
-  deceased: "bg-[#e8e9ec] border-[#9da1ab] text-[#5b5f67]",
-  Other: "bg-[#efe8df] border-[#a88f79] text-[#7a5c43]",
+  scholar: "text-[var(--role-scholar)] decoration-[var(--role-scholar)]/45",
+  performer: "text-[var(--role-performer)] decoration-[var(--role-performer)]/45",
+  official: "text-[var(--role-official)] decoration-[var(--role-official)]/45",
+  villain: "text-[var(--role-villain)] decoration-[var(--role-villain)]/45",
+  minor: "text-[var(--role-minor)] decoration-[var(--role-minor)]/45",
+  female: "text-[var(--role-female)] decoration-[var(--role-female)]/45",
+  servant: "text-[var(--role-servant)] decoration-[var(--role-servant)]/45",
+  deceased: "text-[var(--role-deceased)] decoration-[var(--role-deceased)]/45",
+  Other: "text-[var(--role-Other)] decoration-[var(--role-Other)]/45",
 };
 
+// Selected/standalone contexts (filter pills, character lists) keep a solid fill.
 export const ROLE_CHIP_ACTIVE: Record<string, string> = {
-  scholar: "bg-[#355070] border-[#355070] text-[var(--paper-bg)]",
-  performer: "bg-[#8c3b3b] border-[#8c3b3b] text-[var(--paper-bg)]",
-  official: "bg-[#8a6a2f] border-[#8a6a2f] text-[var(--paper-bg)]",
-  villain: "bg-[#3f2f2f] border-[#3f2f2f] text-[var(--paper-bg)]",
-  minor: "bg-[#3f6b63] border-[#3f6b63] text-[var(--paper-bg)]",
-  female: "bg-[#6b4a7d] border-[#6b4a7d] text-[var(--paper-bg)]",
-  servant: "bg-[#4d6a3a] border-[#4d6a3a] text-[var(--paper-bg)]",
-  deceased: "bg-[#5b5f67] border-[#5b5f67] text-[var(--paper-bg)]",
-  Other: "bg-[#7a5c43] border-[#7a5c43] text-[var(--paper-bg)]",
+  scholar: "bg-[var(--role-scholar)] border-[var(--role-scholar)] text-[var(--paper-bg)]",
+  performer: "bg-[var(--role-performer)] border-[var(--role-performer)] text-[var(--paper-bg)]",
+  official: "bg-[var(--role-official)] border-[var(--role-official)] text-[var(--paper-bg)]",
+  villain: "bg-[var(--role-villain)] border-[var(--role-villain)] text-[var(--paper-bg)]",
+  minor: "bg-[var(--role-minor)] border-[var(--role-minor)] text-[var(--paper-bg)]",
+  female: "bg-[var(--role-female)] border-[var(--role-female)] text-[var(--paper-bg)]",
+  servant: "bg-[var(--role-servant)] border-[var(--role-servant)] text-[var(--paper-bg)]",
+  deceased: "bg-[var(--role-deceased)] border-[var(--role-deceased)] text-[var(--paper-bg)]",
+  Other: "bg-[var(--role-Other)] border-[var(--role-Other)] text-[var(--paper-bg)]",
+};
+
+// Bordered tint for standalone chips outside prose (character lists, legends),
+// where a boxed affordance is appropriate and there is no running text to disrupt.
+export const ROLE_CHIP_BOXED: Record<string, string> = {
+  scholar: "bg-[var(--role-scholar-bg)] border-[var(--role-scholar)]/45 text-[var(--role-scholar)]",
+  performer: "bg-[var(--role-performer-bg)] border-[var(--role-performer)]/45 text-[var(--role-performer)]",
+  official: "bg-[var(--role-official-bg)] border-[var(--role-official)]/45 text-[var(--role-official)]",
+  villain: "bg-[var(--role-villain-bg)] border-[var(--role-villain)]/45 text-[var(--role-villain)]",
+  minor: "bg-[var(--role-minor-bg)] border-[var(--role-minor)]/45 text-[var(--role-minor)]",
+  female: "bg-[var(--role-female-bg)] border-[var(--role-female)]/45 text-[var(--role-female)]",
+  servant: "bg-[var(--role-servant-bg)] border-[var(--role-servant)]/45 text-[var(--role-servant)]",
+  deceased: "bg-[var(--role-deceased-bg)] border-[var(--role-deceased)]/45 text-[var(--role-deceased)]",
+  Other: "bg-[var(--role-Other-bg)] border-[var(--role-Other)]/45 text-[var(--role-Other)]",
 };
 
 export * from "./nameChips";
@@ -408,7 +425,7 @@ export function renderTextWithSearchHighlight(
         className={`px-0.5 rounded-sm ${
           isActive
             ? "bg-[var(--accent)]/35 ring-2 ring-[var(--accent)]/50 text-[var(--ink-title)]"
-            : "bg-amber-300/70 text-[var(--ink-title)]"
+            : "bg-[var(--highlight)] text-[var(--ink-title)]"
         }`}
       >
         {matchText}
@@ -560,7 +577,7 @@ export function LanguageSwitch({
       <button
         type="button"
         onClick={() => setLang("en")}
-        className={`h-full ${compact ? "px-1.5 text-[8px]" : "px-3 text-[10px]"} flex items-center justify-center font-bold uppercase tracking-widest transition-all rounded-sm ${
+        className={`h-full ${compact ? "px-1.5 text-xs" : "px-3 text-xs"} flex items-center justify-center font-bold uppercase tracking-widest transition-all rounded-sm ${
           lang === "en"
             ? "bg-[var(--accent)] text-[var(--paper-bg)]"
             : "text-[var(--ink-dim-text)] hover:bg-black/5"
@@ -571,7 +588,7 @@ export function LanguageSwitch({
       <button
         type="button"
         onClick={() => setLang("zh")}
-        className={`h-full ${compact ? "px-1.5 text-[8px]" : "px-3 text-[10px]"} flex items-center justify-center font-bold uppercase tracking-widest transition-all rounded-sm font-hans ${
+        className={`h-full ${compact ? "px-1.5 text-xs" : "px-3 text-xs"} flex items-center justify-center font-bold uppercase tracking-widest transition-all rounded-sm font-hans ${
           lang === "zh"
             ? "bg-[var(--accent)] text-[var(--paper-bg)]"
             : "text-[var(--ink-dim-text)] hover:bg-black/5"
@@ -695,7 +712,7 @@ export function NavMenuDropdown({
           }}
           className="max-h-[min(70vh,28rem)] overflow-y-auto parchment rounded-sm border-double border-4 border-[var(--paper-border)] shadow-xl p-3"
         >
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold mb-2 px-1">
+          <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold mb-2 px-1">
             {lang === "zh" ? "快速前往" : "Go To"}
           </p>
           <div className="grid grid-cols-3 gap-1.5 mb-3">
@@ -708,7 +725,7 @@ export function NavMenuDropdown({
                 className="w-full rounded-sm border border-[var(--paper-border)]/70 bg-white/15 hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all px-2 py-2 flex flex-col items-center justify-center gap-1 min-w-0 text-center"
               >
                 <Icon size={15} className="text-[var(--accent)] shrink-0" />
-                <span className="text-[10px] font-bold uppercase tracking-wide text-[var(--ink-title)] leading-tight line-clamp-2">
+                <span className="text-xs font-bold uppercase tracking-wide text-[var(--ink-title)] leading-tight line-clamp-2">
                   {label}
                 </span>
               </button>
@@ -720,7 +737,7 @@ export function NavMenuDropdown({
               type="button"
               role="menuitem"
               onClick={() => navigate(onOpenContents)}
-              className="col-span-2 min-h-10 rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
+              className="col-span-2 min-h-10 rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] px-2 py-1.5 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider"
             >
               <Book size={13} />
               {lang === "zh" ? "目录" : "Contents"}
@@ -729,7 +746,7 @@ export function NavMenuDropdown({
               type="button"
               role="menuitem"
               onClick={() => navigate(onOpenChapter)}
-              className="min-h-10 rounded-sm border border-[var(--accent)]/50 text-[var(--accent)] bg-[var(--accent)]/5 px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
+              className="min-h-10 rounded-sm border border-[var(--accent)]/50 text-[var(--accent)] bg-[var(--accent)]/5 px-2 py-1.5 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider"
             >
               <BookOpen size={13} />
               {lang === "zh" ? "第一回" : "Ch. 1"}
@@ -759,7 +776,7 @@ export function NavMenuDropdown({
         aria-label={lang === "zh" ? "打开菜单" : "Open menu"}
       >
         <Menu size={14} />
-        <span className="text-[10px] font-bold uppercase tracking-widest">
+        <span className="text-xs font-bold uppercase tracking-widest">
           {lang === "zh" ? "菜单" : "Menu"}
         </span>
         <ChevronDown

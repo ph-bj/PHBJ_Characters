@@ -1,0 +1,1857 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: hometownCharacters.spec.ts >> Hometown Characters Verification >> should list characters sharing a hometown and allow opening their profile
+- Location: tests/hometownCharacters.spec.ts:4:3
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('h3:has-text("Jinling")')
+Expected: visible
+Timeout: 20000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 20000ms
+  - waiting for locator('h3:has-text("Jinling")')
+
+```
+
+```yaml
+- banner:
+  - heading "Precious Vibe 品花宝境" [level=1]
+  - paragraph: Pinhua baojian's Vibe Literature
+  - button "Open menu": Menu
+  - group "Theme":
+    - button "🏛️"
+    - button "🌿"
+  - group "Language":
+    - button "EN"
+    - button "中"
+- main:
+  - complementary:
+    - img: 品 品花宝鉴 陈森
+    - heading "Questions & Topics" [level=2]
+    - text: 39 Q&As
+    - button "All (39)"
+    - button "Editions, History & Comparisons (9)"
+    - button "Queer & Gender Studies (10)"
+    - button "Plot & Characters (8)"
+    - button "Games & Literary Motifs (6)"
+    - button "Translation & Digital Humanities (6)"
+    - heading "Editions, History & Comparisons" [level=3]
+    - text: "9"
+    - button "List 10 famous academic papers about Pinhua Baojian":
+      - paragraph: List 10 famous academic papers about Pinhua Baojian
+    - button "What editions of Pinhua Baojian have existed historically — years, publishers, and main features, with evidence and sources?":
+      - paragraph: What editions of Pinhua Baojian have existed historically — years, publishers, and main features, with evidence and sources?
+    - button "What historical era is the story of Pinhua Baojian set in?":
+      - paragraph: What historical era is the story of Pinhua Baojian set in?
+    - button "Based on the whole book, discuss the relationship between 'Pinhua Baojian' and the place Jiangxi.":
+      - paragraph: Based on the whole book, discuss the relationship between 'Pinhua Baojian' and the place Jiangxi.
+    - button "Does 'Pinhua Baojian' describe the story of Peking Opera? If not, what genre does it depict?":
+      - paragraph: Does 'Pinhua Baojian' describe the story of Peking Opera? If not, what genre does it depict?
+    - button "How does 'Pinhua Baojian' compare to 'Bian er chai' in terms of word count, similar passages, character count, historical era, character origins, story time span, plot, character fates, and character personalities, with specific excerpts?":
+      - paragraph: How does 'Pinhua Baojian' compare to 'Bian er chai' in terms of word count, similar passages, character count, historical era, character origins, story time span, plot, character fates, and character personalities, with specific excerpts?
+    - button "How does 'Pinhua Baojian' compare to 'Dream of the Red Chamber' in terms of word count, similar passages, character count, historical era, character origins, story time span, plot, character fates, and character personalities, with specific excerpts?":
+      - paragraph: How does 'Pinhua Baojian' compare to 'Dream of the Red Chamber' in terms of word count, similar passages, character count, historical era, character origins, story time span, plot, character fates, and character personalities, with specific excerpts?
+    - button "How does 'Pinhua Baojian' compare to 'Longyang Yishi' in terms of word count, similar passages, character count, historical era, character origins, story time span, plot, character fates, and character personalities, with specific excerpts?":
+      - paragraph: How does 'Pinhua Baojian' compare to 'Longyang Yishi' in terms of word count, similar passages, character count, historical era, character origins, story time span, plot, character fates, and character personalities, with specific excerpts?
+    - button "How does 'Pinhua Baojian' compare to 'Yichun Xiangzhi' in terms of word count, similar passages, character count, historical era, character origins, story time span, plot, character fates, and character personalities, with specific excerpts?":
+      - paragraph: How does 'Pinhua Baojian' compare to 'Yichun Xiangzhi' in terms of word count, similar passages, character count, historical era, character origins, story time span, plot, character fates, and character personalities, with specific excerpts?
+    - heading "Queer & Gender Studies" [level=3]
+    - text: "10"
+    - button "Was male same-sex desire prevalent in the urban society of Qing dynasty Beijing? What are the specific spaces, relationship forms, vocabulary, or cultural symbols?":
+      - paragraph: Was male same-sex desire prevalent in the urban society of Qing dynasty Beijing? What are the specific spaces, relationship forms, vocabulary, or cultural symbols?
+    - button "How would the novel evaluate contemporary male homosexual relationships characterized by free physical and spiritual love/companionship?":
+      - paragraph: How would the novel evaluate contemporary male homosexual relationships characterized by free physical and spiritual love/companionship?
+    - button "Based on the culture of Qing dynasty Beijing, why did the author write a book advocating for a love of beauty between men that is 'not lewd' (haose er bu yin)? Answer using 5 specific excerpts from the novel.":
+      - paragraph: Based on the culture of Qing dynasty Beijing, why did the author write a book advocating for a love of beauty between men that is 'not lewd' (haose er bu yin)? Answer using 5 specific excerpts from the novel.
+    - button "From the perspective of contemporary Chinese and Western gay life, what are the historical limitations of \"Pinhua Baojian\"? Analyze specifically based on all chapters.":
+      - paragraph: From the perspective of contemporary Chinese and Western gay life, what are the historical limitations of "Pinhua Baojian"? Analyze specifically based on all chapters.
+    - button "What are the terms corresponding to male homosexuality (gay) in Pinhua Baojian?":
+      - paragraph: What are the terms corresponding to male homosexuality (gay) in Pinhua Baojian?
+    - button "What does the novel think about males admiring other males?":
+      - paragraph: What does the novel think about males admiring other males?
+    - button "Did the aesthetic of male same-sex desire in the Qing Dynasty not favor masculinity? Why?":
+      - paragraph: Did the aesthetic of male same-sex desire in the Qing Dynasty not favor masculinity? Why?
+    - button "Does the novel have a negative attitude towards male homosexuality?":
+      - paragraph: Does the novel have a negative attitude towards male homosexuality?
+    - button "Are the aesthetics of men who favored male same-sex relations in the Qing dynasty the same as those of contemporary gay men? If different, what caused these aesthetic differences? How is the Qing dynasty male same-sex aesthetic specifically reflected in *Pinhua Baojian*?":
+      - paragraph: Are the aesthetics of men who favored male same-sex relations in the Qing dynasty the same as those of contemporary gay men? If different, what caused these aesthetic differences? How is the Qing dynasty male same-sex aesthetic specifically reflected in *Pinhua Baojian*?
+    - button "What is the significance of discussing Pinhua Baojian today for envisioning future gay culture? Answer based on the entire book.":
+      - paragraph: What is the significance of discussing Pinhua Baojian today for envisioning future gay culture? Answer based on the entire book.
+    - heading "Plot & Characters" [level=3]
+    - text: "8"
+    - button "What happened in Chapter 36, and why did Qinyan go home crying in Chapter 37?":
+      - paragraph: What happened in Chapter 36, and why did Qinyan go home crying in Chapter 37?
+    - button "Based on the whole book, discuss how the fates of Mei Ziyu, Du Qinyan, Wang Xun, Su Huifang, and Xiao Cixian are intertwined.":
+      - paragraph: Based on the whole book, discuss how the fates of Mei Ziyu, Du Qinyan, Wang Xun, Su Huifang, and Xiao Cixian are intertwined.
+    - button "Who are the main performers in the novel?":
+      - paragraph: Who are the main performers in the novel?
+    - button "Who are the main scholars (mingshi) in the novel?":
+      - paragraph: Who are the main scholars (mingshi) in the novel?
+    - button "How many names does Qinyan have? How did he acquire those names? Explain with references to the book excerpts.":
+      - paragraph: How many names does Qinyan have? How did he acquire those names? Explain with references to the book excerpts.
+    - button "Qinyan's story in each chapter (summary)":
+      - paragraph: Qinyan's story in each chapter (summary)
+    - button "Summarize the storyline between Tian Chunhang and Su Huifang.":
+      - paragraph: Summarize the storyline between Tian Chunhang and Su Huifang.
+    - button "In which chapters of the entire book do Ziyu and Qinyan have meetings?":
+      - paragraph: In which chapters of the entire book do Ziyu and Qinyan have meetings?
+    - heading "Games & Literary Motifs" [level=3]
+    - text: "6"
+    - button "What are the details of the drinking game in Chapter 37? (Location, participants, win/loss, rules, individual performances, and highlights)":
+      - paragraph: What are the details of the drinking game in Chapter 37? (Location, participants, win/loss, rules, individual performances, and highlights)
+    - button "List all paragraphs in Pinhua Baojian that depict playing drinking games.":
+      - paragraph: List all paragraphs in Pinhua Baojian that depict playing drinking games.
+    - button "What are the main drinking-game (酒令) scenes in Pinhua Baojian, and how are the rules and outcomes of each described?":
+      - paragraph: What are the main drinking-game (酒令) scenes in Pinhua Baojian, and how are the rules and outcomes of each described?
+    - button "What role do mirrors play in the novel, and what is their literary significance? Analyze with specific paragraphs.":
+      - paragraph: What role do mirrors play in the novel, and what is their literary significance? Analyze with specific paragraphs.
+    - button "Which chapters in the novel involve character poetry/versification competitions or joint poetry sessions? Explain with specific paragraphs.":
+      - paragraph: Which chapters in the novel involve character poetry/versification competitions or joint poetry sessions? Explain with specific paragraphs.
+    - button "What drinking games (酒令) did Ziyu participate in across the chapters? What were the rules? Who were the participants? Who won and who lost?":
+      - paragraph: What drinking games (酒令) did Ziyu participate in across the chapters? What were the rules? Who were the participants? Who won and who lost?
+    - heading "Translation & Digital Humanities" [level=3]
+    - text: "6"
+    - button "How many characters are there in the entire novel Pinhua Baojian, and how many in each chapter?":
+      - paragraph: How many characters are there in the entire novel Pinhua Baojian, and how many in each chapter?
+    - button "How does the English translation make the wordplay in the novel easier to understand? Provide 5 typical paragraph quotes.":
+      - paragraph: How does the English translation make the wordplay in the novel easier to understand? Provide 5 typical paragraph quotes.
+    - button "When LLMs translate Pinhua Baojian, why do they tend to mistake the male actors for females? Analyze with specific paragraphs.":
+      - paragraph: When LLMs translate Pinhua Baojian, why do they tend to mistake the male actors for females? Analyze with specific paragraphs.
+    - button "Identify ten categories of problems translating classical Chinese to English. Illustrate with specific sentences.":
+      - paragraph: Identify ten categories of problems translating classical Chinese to English. Illustrate with specific sentences.
+    - button "What role did vibe coding AI play in this project? Provide specific examples.":
+      - paragraph: What role did vibe coding AI play in this project? Provide specific examples.
+    - button "How do the numerous Chinese wordplays in Pinhua Baojian create difficulties for English translation? Explain using five classic wordplays from the book.":
+      - paragraph: How do the numerous Chinese wordplays in Pinhua Baojian create difficulties for English translation? Explain using five classic wordplays from the book.
+    - img: 园
+    - heading "Chapter Statistics" [level=2]
+    - paragraph: Total CN chars
+    - paragraph: 427,536
+    - paragraph: Total EN words
+    - paragraph: 407,319
+    - paragraph: Total para
+    - paragraph: 2,023
+    - paragraph: Total dialogue
+    - paragraph: 7,335
+    - paragraph: Total works
+    - paragraph: "575"
+    - paragraph: Avg / chapter
+    - paragraph: CN chars
+    - paragraph: 7,126
+    - paragraph: EN words
+    - paragraph: 6,789
+    - paragraph: paragraphs
+    - paragraph: "34"
+    - paragraph: dialogues
+    - paragraph: "122"
+    - paragraph: works cited
+    - paragraph: "9.6"
+    - paragraph: Chinese chars per chapter
+    - 'button "Ch #"'
+    - button "Longest"
+    - button "Shortest"
+    - button "Chattiest"
+    - button "Most works cited"
+    - text: "Tags: G Drinking game P Word game M Mature"
+    - 'button "Ch.57 10,601 CN chars · 9,225 EN words 251 dlg · 5 works G Chapter 57: 10,601 Chinese characters"': Ch.57 10,601 CN chars · 9,225 EN words 251 dlg · 5 works G
+    - 'button "Ch.58 9,199 CN chars · 6,316 EN words 105 dlg · 0 works M Chapter 58: 9,199 Chinese characters"': Ch.58 9,199 CN chars · 6,316 EN words 105 dlg · 0 works M
+    - 'button "Ch.51 8,244 CN chars · 7,760 EN words 117 dlg · 0 works M Chapter 51: 8,244 Chinese characters"': Ch.51 8,244 CN chars · 7,760 EN words 117 dlg · 0 works M
+    - 'button "Ch.35 7,985 CN chars · 7,567 EN words 229 dlg · 20 works G M Chapter 35: 7,985 Chinese characters"': Ch.35 7,985 CN chars · 7,567 EN words 229 dlg · 20 works G M
+    - 'button "Ch.59 7,964 CN chars · 8,683 EN words 62 dlg · 0 works Chapter 59: 7,964 Chinese characters"': Ch.59 7,964 CN chars · 8,683 EN words 62 dlg · 0 works
+    - 'button "Ch.22 7,959 CN chars · 7,659 EN words 106 dlg · 0 works Chapter 22: 7,959 Chinese characters"': Ch.22 7,959 CN chars · 7,659 EN words 106 dlg · 0 works
+    - 'button "Ch.36 7,889 CN chars · 6,867 EN words 138 dlg · 0 works G Chapter 36: 7,889 Chinese characters"': Ch.36 7,889 CN chars · 6,867 EN words 138 dlg · 0 works G
+    - 'button "Ch.34 7,875 CN chars · 7,734 EN words 125 dlg · 1 works M Chapter 34: 7,875 Chinese characters"': Ch.34 7,875 CN chars · 7,734 EN words 125 dlg · 1 works M
+    - 'button "Ch.56 7,867 CN chars · 7,875 EN words 79 dlg · 0 works Chapter 56: 7,867 Chinese characters"': Ch.56 7,867 CN chars · 7,875 EN words 79 dlg · 0 works
+    - 'button "Ch.13 7,840 CN chars · 7,978 EN words 122 dlg · 2 works M Chapter 13: 7,840 Chinese characters"': Ch.13 7,840 CN chars · 7,978 EN words 122 dlg · 2 works M
+    - 'button "Ch.43 7,820 CN chars · 7,604 EN words 154 dlg · 13 works P Chapter 43: 7,820 Chinese characters"': Ch.43 7,820 CN chars · 7,604 EN words 154 dlg · 13 works P
+    - 'button "Ch.46 7,804 CN chars · 4,604 EN words 107 dlg · 9 works P Chapter 46: 7,804 Chinese characters"': Ch.46 7,804 CN chars · 4,604 EN words 107 dlg · 9 works P
+    - 'button "Ch.3 7,790 CN chars · 7,188 EN words 118 dlg · 7 works M Chapter 3: 7,790 Chinese characters"': Ch.3 7,790 CN chars · 7,188 EN words 118 dlg · 7 works M
+    - 'button "Ch.27 7,753 CN chars · 4,866 EN words 89 dlg · 3 works Chapter 27: 7,753 Chinese characters"': Ch.27 7,753 CN chars · 4,866 EN words 89 dlg · 3 works
+    - 'button "Ch.38 7,672 CN chars · 9,525 EN words 97 dlg · 54 works P Chapter 38: 7,672 Chinese characters"': Ch.38 7,672 CN chars · 9,525 EN words 97 dlg · 54 works P
+    - 'button "Ch.53 7,611 CN chars · 7,489 EN words 126 dlg · 4 works Chapter 53: 7,611 Chinese characters"': Ch.53 7,611 CN chars · 7,489 EN words 126 dlg · 4 works
+    - 'button "Ch.40 7,609 CN chars · 8,164 EN words 173 dlg · 0 works M Chapter 40: 7,609 Chinese characters"': Ch.40 7,609 CN chars · 8,164 EN words 173 dlg · 0 works M
+    - 'button "Ch.55 7,606 CN chars · 7,643 EN words 122 dlg · 7 works Chapter 55: 7,606 Chinese characters"': Ch.55 7,606 CN chars · 7,643 EN words 122 dlg · 7 works
+    - 'button "Ch.2 7,512 CN chars · 7,339 EN words 178 dlg · 6 works G Chapter 2: 7,512 Chinese characters"': Ch.2 7,512 CN chars · 7,339 EN words 178 dlg · 6 works G
+    - 'button "Ch.47 7,481 CN chars · 6,440 EN words 92 dlg · 0 works Chapter 47: 7,481 Chinese characters"': Ch.47 7,481 CN chars · 6,440 EN words 92 dlg · 0 works
+    - 'button "Ch.54 7,427 CN chars · 5,342 EN words 166 dlg · 49 works M Chapter 54: 7,427 Chinese characters"': Ch.54 7,427 CN chars · 5,342 EN words 166 dlg · 49 works M
+    - 'button "Ch.6 7,411 CN chars · 6,532 EN words 97 dlg · 21 works M Chapter 6: 7,411 Chinese characters"': Ch.6 7,411 CN chars · 6,532 EN words 97 dlg · 21 works M
+    - 'button "Ch.50 7,224 CN chars · 7,565 EN words 147 dlg · 9 works G P M Chapter 50: 7,224 Chinese characters"': Ch.50 7,224 CN chars · 7,565 EN words 147 dlg · 9 works G P M
+    - 'button "Ch.33 7,181 CN chars · 6,300 EN words 127 dlg · 0 works M Chapter 33: 7,181 Chinese characters"': Ch.33 7,181 CN chars · 6,300 EN words 127 dlg · 0 works M
+    - 'button "Ch.8 7,156 CN chars · 6,466 EN words 190 dlg · 8 works M Chapter 8: 7,156 Chinese characters"': Ch.8 7,156 CN chars · 6,466 EN words 190 dlg · 8 works M
+    - 'button "Ch.48 7,143 CN chars · 6,337 EN words 107 dlg · 9 works G P Chapter 48: 7,143 Chinese characters"': Ch.48 7,143 CN chars · 6,337 EN words 107 dlg · 9 works G P
+    - 'button "Ch.25 7,115 CN chars · 5,923 EN words 78 dlg · 14 works G Chapter 25: 7,115 Chinese characters"': Ch.25 7,115 CN chars · 5,923 EN words 78 dlg · 14 works G
+    - 'button "Ch.1 7,098 CN chars · 8,425 EN words 48 dlg · 55 works G Chapter 1: 7,098 Chinese characters"': Ch.1 7,098 CN chars · 8,425 EN words 48 dlg · 55 works G
+    - 'button "Ch.49 7,025 CN chars · 6,680 EN words 136 dlg · 0 works Chapter 49: 7,025 Chinese characters"': Ch.49 7,025 CN chars · 6,680 EN words 136 dlg · 0 works
+    - 'button "Ch.7 6,994 CN chars · 6,467 EN words 377 dlg · 7 works G P M Chapter 7: 6,994 Chinese characters"': Ch.7 6,994 CN chars · 6,467 EN words 377 dlg · 7 works G P M
+    - 'button "Ch.42 6,992 CN chars · 7,380 EN words 99 dlg · 4 works Chapter 42: 6,992 Chinese characters"': Ch.42 6,992 CN chars · 7,380 EN words 99 dlg · 4 works
+    - 'button "Ch.28 6,934 CN chars · 5,796 EN words 91 dlg · 0 works P Chapter 28: 6,934 Chinese characters"': Ch.28 6,934 CN chars · 5,796 EN words 91 dlg · 0 works P
+    - 'button "Ch.39 6,928 CN chars · 6,993 EN words 109 dlg · 1 works M Chapter 39: 6,928 Chinese characters"': Ch.39 6,928 CN chars · 6,993 EN words 109 dlg · 1 works M
+    - 'button "Ch.16 6,903 CN chars · 6,364 EN words 79 dlg · 3 works P Chapter 16: 6,903 Chinese characters"': Ch.16 6,903 CN chars · 6,364 EN words 79 dlg · 3 works P
+    - 'button "Ch.5 6,852 CN chars · 6,743 EN words 56 dlg · 4 works P Chapter 5: 6,852 Chinese characters"': Ch.5 6,852 CN chars · 6,743 EN words 56 dlg · 4 works P
+    - 'button "Ch.12 6,820 CN chars · 7,408 EN words 69 dlg · 4 works P Chapter 12: 6,820 Chinese characters"': Ch.12 6,820 CN chars · 7,408 EN words 69 dlg · 4 works P
+    - 'button "Ch.20 6,810 CN chars · 6,905 EN words 116 dlg · 2 works G P Chapter 20: 6,810 Chinese characters"': Ch.20 6,810 CN chars · 6,905 EN words 116 dlg · 2 works G P
+    - 'button "Ch.45 6,796 CN chars · 5,633 EN words 111 dlg · 2 works Chapter 45: 6,796 Chinese characters"': Ch.45 6,796 CN chars · 5,633 EN words 111 dlg · 2 works
+    - 'button "Ch.10 6,791 CN chars · 7,578 EN words 141 dlg · 1 works P Chapter 10: 6,791 Chinese characters"': Ch.10 6,791 CN chars · 7,578 EN words 141 dlg · 1 works P
+    - 'button "Ch.44 6,789 CN chars · 7,028 EN words 107 dlg · 4 works P Chapter 44: 6,789 Chinese characters"': Ch.44 6,789 CN chars · 7,028 EN words 107 dlg · 4 works P
+    - 'button "Ch.37 6,741 CN chars · 7,268 EN words 235 dlg · 79 works G Chapter 37: 6,741 Chinese characters"': Ch.37 6,741 CN chars · 7,268 EN words 235 dlg · 79 works G
+    - 'button "Ch.31 6,732 CN chars · 7,838 EN words 131 dlg · 8 works G P Chapter 31: 6,732 Chinese characters"': Ch.31 6,732 CN chars · 7,838 EN words 131 dlg · 8 works G P
+    - 'button "Ch.52 6,704 CN chars · 6,252 EN words 91 dlg · 9 works Chapter 52: 6,704 Chinese characters"': Ch.52 6,704 CN chars · 6,252 EN words 91 dlg · 9 works
+    - 'button "Ch.29 6,694 CN chars · 5,561 EN words 114 dlg · 1 works Chapter 29: 6,694 Chinese characters"': Ch.29 6,694 CN chars · 5,561 EN words 114 dlg · 1 works
+    - 'button "Ch.11 6,674 CN chars · 7,215 EN words 99 dlg · 6 works G Chapter 11: 6,674 Chinese characters"': Ch.11 6,674 CN chars · 7,215 EN words 99 dlg · 6 works G
+    - 'button "Ch.9 6,647 CN chars · 6,643 EN words 136 dlg · 17 works P Chapter 9: 6,647 Chinese characters"': Ch.9 6,647 CN chars · 6,643 EN words 136 dlg · 17 works P
+    - 'button "Ch.15 6,626 CN chars · 6,627 EN words 154 dlg · 8 works G Chapter 15: 6,626 Chinese characters"': Ch.15 6,626 CN chars · 6,627 EN words 154 dlg · 8 works G
+    - 'button "Ch.60 6,609 CN chars · 7,466 EN words 83 dlg · 18 works M Chapter 60: 6,609 Chinese characters"': Ch.60 6,609 CN chars · 7,466 EN words 83 dlg · 18 works M
+    - 'button "Ch.14 6,530 CN chars · 6,963 EN words 190 dlg · 15 works G Chapter 14: 6,530 Chinese characters"': Ch.14 6,530 CN chars · 6,963 EN words 190 dlg · 15 works G
+    - 'button "Ch.19 6,510 CN chars · 6,455 EN words 114 dlg · 0 works G M Chapter 19: 6,510 Chinese characters"': Ch.19 6,510 CN chars · 6,455 EN words 114 dlg · 0 works G M
+    - 'button "Ch.30 6,488 CN chars · 6,123 EN words 74 dlg · 14 works G Chapter 30: 6,488 Chinese characters"': Ch.30 6,488 CN chars · 6,123 EN words 74 dlg · 14 works G
+    - 'button "Ch.4 6,436 CN chars · 7,126 EN words 126 dlg · 24 works G P M Chapter 4: 6,436 Chinese characters"': Ch.4 6,436 CN chars · 7,126 EN words 126 dlg · 24 works G P M
+    - 'button "Ch.17 6,373 CN chars · 6,941 EN words 158 dlg · 3 works G P Chapter 17: 6,373 Chinese characters"': Ch.17 6,373 CN chars · 6,941 EN words 158 dlg · 3 works G P
+    - 'button "Ch.26 6,335 CN chars · 4,774 EN words 97 dlg · 1 works Chapter 26: 6,335 Chinese characters"': Ch.26 6,335 CN chars · 4,774 EN words 97 dlg · 1 works
+    - 'button "Ch.32 6,226 CN chars · 6,063 EN words 87 dlg · 1 works G Chapter 32: 6,226 Chinese characters"': Ch.32 6,226 CN chars · 6,063 EN words 87 dlg · 1 works G
+    - 'button "Ch.41 6,003 CN chars · 6,691 EN words 103 dlg · 25 works G Chapter 41: 6,003 Chinese characters"': Ch.41 6,003 CN chars · 6,691 EN words 103 dlg · 25 works G
+    - 'button "Ch.18 5,918 CN chars · 6,170 EN words 45 dlg · 2 works M Chapter 18: 5,918 Chinese characters"': Ch.18 5,918 CN chars · 6,170 EN words 45 dlg · 2 works M
+    - 'button "Ch.21 5,704 CN chars · 3,412 EN words 95 dlg · 1 works G Chapter 21: 5,704 Chinese characters"': Ch.21 5,704 CN chars · 3,412 EN words 95 dlg · 1 works G
+    - 'button "Ch.23 5,590 CN chars · 5,354 EN words 67 dlg · 1 works M Chapter 23: 5,590 Chinese characters"': Ch.23 5,590 CN chars · 5,354 EN words 67 dlg · 1 works M
+    - 'button "Ch.24 5,526 CN chars · 3,986 EN words 95 dlg · 14 works G P M Chapter 24: 5,526 Chinese characters"': Ch.24 5,526 CN chars · 3,986 EN words 95 dlg · 14 works G P M
+    - heading "Age Distribution" [level=2]
+    - text: <15 5
+    - button "Lín Chūnxǐ"
+    - button "Yuán Qíguān"
+    - button "Yún'ér"
+    - button "Jùn'ér"
+    - button "Xiǎocuì"
+    - text: 15-19 35
+    - button "Méi Zǐyù"
+    - button "Dù Qínyán"
+    - button "Féng Zǐpèi"
+    - button "Yuán Bǎozhū"
+    - button "Sū Huìfāng"
+    - button "Lù Sùlán"
+    - button "Jīn Shùfāng"
+    - button "Lǐ Yùlín"
+    - button "Wáng Lánbǎo"
+    - button "Wáng Guìbǎo"
+    - button "Róngguān"
+    - button "Chūnlán"
+    - button "Xiǎofú"
+    - button "Bǎozhū"
+    - button "Wáng Qiónghúa"
+    - button "Bā Láifēng"
+    - button "Bā Yīngguān"
+    - button "Déyuè"
+    - button "Huànlán"
+    - button "Tiānfú"
+    - button "Tiānshòu"
+    - button "Àizhū"
+    - button "Zhǎngzhū"
+    - button "Zhēnzhū"
+    - button "Zèngzhū"
+    - button "Hóngwēi"
+    - button "Hóngyù"
+    - button "Hóngwén"
+    - button "Hónglián"
+    - button "Hóngjuān"
+    - button "Qiūlián"
+    - button "Shìxiāng"
+    - button "Jīnfèng"
+    - button "Qīngqín"
+    - button "Xǔ Lǎosān"
+    - text: 20-24 15
+    - button "Yán Zhòngqīng"
+    - button "Shǐ Nánxiāng"
+    - button "Wáng Xún"
+    - button "Wèi Pìncái"
+    - button "Lǐ Yuánmào"
+    - button "Liú Wénzé"
+    - button "Zhāng Zhòngyǔ"
+    - button "Bā Lín"
+    - button "Tián Chūnháng"
+    - button "Sūn Sìyuán"
+    - button "Yuán Qǐxiāng"
+    - button "Huá Guāngsù"
+    - button "Júhuā"
+    - button "Wú Zǐyān"
+    - button "Sū Huànxiāng"
+    - text: 25-29 6
+    - button "Xú Zǐyún"
+    - button "Gāo Pǐn"
+    - button "Sūn Sìhuī"
+    - button "Yù Tiānxiān"
+    - button "Eldest Miss Sun"
+    - button "Shí Shì"
+    - text: 30+ 19
+    - button "Xiāo Cìxián"
+    - button "Shěn Bócái"
+    - button "Méi Shìxiè"
+    - button "Wáng Wénhuī"
+    - button "Sūn Liànggōng"
+    - button "Fú Lún"
+    - button "Guì Fēn"
+    - button "Bā Tiānchǒng"
+    - button "Xī Shíyī"
+    - button "Lǎo Wáng"
+    - button "Táng Héshang"
+    - button "Yán Fūrén"
+    - button "Lù Shì Fūrén"
+    - button "Lù Shì Fūrén"
+    - button "Yè Màolín"
+    - button "Liú Xǐ"
+    - button "Hóu Shíwēng"
+    - button "Wū Dàshǎ"
+    - button "Tián Ān"
+    - text: Unknown 101
+    - button "Jīn Jífǔ"
+    - button "Lǐ Xìngquán"
+    - button "Yùměi"
+    - button "Sìxǐ"
+    - button "Quánfú"
+    - button "Lín Shānzhī"
+    - button "Tán Bā"
+    - button "Xiǎo Shùn'ér"
+    - button "Èr Xǐ"
+    - button "Yáng Fāngyóu"
+    - button "Zhōu Xíjué"
+    - button "Lù Zōngyuán"
+    - button "Cáo Chángqìng"
+    - button "Shǐ Zēngwàng"
+    - button "Yuán Hào"
+    - button "Xú Zhèn"
+    - button "Xú Zǐróng"
+    - button "Liú Shìláng"
+    - button "Wú Gé Xué"
+    - button "Shěn Sīyè"
+    - button "Lù Zōnghuái"
+    - button "Hóu Tàishǐ"
+    - button "Zhuāng"
+    - button "Zhèng"
+    - button "Zhāng"
+    - button "Director Lu"
+    - button "Pān Qíguān"
+    - button "Qīng Yínǎinai"
+    - button "Bái Yínǎinai"
+    - button "Ā Dāi"
+    - button "Wáng Dàfū"
+    - button "Sūn Shì"
+    - button "Rónghuá"
+    - button "Zhèng Shì"
+    - button "Xǔ Sānjiě"
+    - button "Shěn Yúngū"
+    - button "Xǔ Shùn"
+    - button "Xǔ Shùn qī"
+    - button "Méi Jìn"
+    - button "Hǔ'ér"
+    - button "Study Boys (×2)"
+    - button "Maidservant (Gatekeeper)"
+    - button "Household Maid (Clothing)"
+    - button "Young Maid (Ziyu Study)"
+    - button "Sì'ér"
+    - button "Jiàn'ér"
+    - button "Xuě'ér"
+    - button "Sōng'ér"
+    - button "Escort Matron (Ba household)"
+    - button "Nursemaid (Ba Laifeng)"
+    - button "Attendant (Fu household)"
+    - button "Lú Dàyé"
+    - button "Retinue (Hua household, ~20-30 people)"
+    - button "Jīn Èr"
+    - button "Lǎo Sān"
+    - button "Zhǎngguì de"
+    - button "Méi Dǐng"
+    - button "Méi Gēngdiào"
+    - button "Yán Zhuāng"
+    - button "Yán Yàochén"
+    - button "Fù Ānshì"
+    - button "Dù Qínshī"
+    - button "Dù Mǔ"
+    - button "Dù Zúshū"
+    - button "Wèi Lǎorén"
+    - button "Zhuō Tiānxiāng"
+    - button "Yáng Shànxiū"
+    - button "Qū Dàowēng"
+    - button "Sū Hóu"
+    - button "Jī Liàngxuān"
+    - button "Zhāng Xiàoméi"
+    - button "Yáng Méichuāng"
+    - button "Zhōu Xiǎosān"
+    - button "Mèng Qī"
+    - button "Yáo Xián"
+    - button "Cài Mǒu"
+    - button "Chángqìng Shīniáng"
+    - button "Hóng Xuě"
+    - button "Hóng Xiāng"
+    - button "Huā Zhū"
+    - button "Huà Zhū"
+    - button "Míng Zhū"
+    - button "Hé Zhū"
+    - button "Ruǐ Zhū"
+    - button "Guī Zìróng"
+    - button "Wǔ Mázi"
+    - button "Táo Māma"
+    - button "Yáng Bā"
+    - button "Lù Zàolì"
+    - button "Gě Féngshí"
+    - button "Xǔ Lǎoèr"
+    - button "Tián Tàifūrén"
+    - button "Féngqióng Pó"
+    - button "Lǐ Dàfū"
+    - button "Zhāng Guì"
+    - button "Wāng Shēng"
+    - button "Qián Dé"
+    - button "Huáng Zhǎngguì"
+    - button "Yínhào Zhǎngguì"
+    - button "Huá Zhèngchāng Shūpù Zhǎngguì"
+    - button "Jì Shí Ǎizi"
+    - heading "Role Distribution" [level=2]
+    - text: servant 51 performer 28 official 23 minor 21 scholar 20 female 20 villain 9 deceased 9
+  - heading "About Precious Vibe" [level=2]
+  - paragraph: Precious Vibe (品花宝境) is an interactive scholarly database for Pinhua Baojian (品花宝鉴), a classic Qing-dynasty Chinese novel. It brings together annotated chapter reading, character profiles, relationship mapping, place data, and literary citations into a single integrated research tool.
+  - term: Chapter Reader
+  - definition: — Read all 60 chapters in Chinese with aligned English translations and scene-level annotations.
+  - term: Character Database
+  - definition: — Profiles for all 181 characters, with roles, aliases, chapter appearances, and mention counts.
+  - term: Relationship Network
+  - definition: — Interactive force graph visualising social bonds, rivalries, and family ties across the cast.
+  - term: Integrated Map Feature
+  - definition: — Character hometowns, named gardens, locations, and chapter-linked geography presented in one map feature.
+  - term: Literary Citations
+  - definition: — Every allusion to classical poetry and drama linked to its source work, with context snippets.
+  - term: Hometowns, Gardens & Locations
+  - definition: — An integrated map and index for character hometowns, gardens, and named locations.
+  - heading "Character Relationship Network" [level=2]
+  - paragraph: Exploring 181 characters from the classic Chinese novel
+  - heading "Character Network" [level=3]
+  - paragraph: Drag nodes · Double-click profile · Click legend to filter
+  - button "Role Filter (Default)"
+  - button "Expand role filter"
+  - button "Co-occurrence (≥15)"
+  - button "Expand co-occurrence filter"
+  - button "Fullscreen"
+  - img: Platonic Soulmates (48 ch) Chivalrous Cousin-Friend (31 ch) Yiyuan Salon Scholar Peers (16 ch) Maternal Cousin & Opera Host (29 ch) Parasitic Guest & Household Gossip (35 ch) Yiyuan Salon Scholar Peers (21 ch) Yiyuan Salon Host & Guest (15 ch) Yiyuan Salon Scholar Peers (31 ch) Yiyuan Salon Scholar Peers (27 ch) Yiyuan Salon Scholar Peers (23 ch) Yiyuan Salon Scholar Peers (20 ch) Yiyuan Salon Scholar Peers (26 ch) Literary Confidant & Performer (36 ch) Literary Patron & Opera Performer (29 ch) Literary Patron & Opera Performer (31 ch) Literary Patron & Opera Performer (20 ch) Literary Patron & Opera Performer (18 ch) Literary Patron & Opera Performer (20 ch) Literary Patron & Opera Performer (16 ch) Literary Patron & Opera Performer (18 ch) Literary Patron & Opera Performer (17 ch) Romantic Rival & Aristocratic Antagonist (34 ch) Persecutor of Qinyan & Depraved Merchant (27 ch) Trusted Friend (16 ch) Rescuer & Rescued (30 ch) Literary Patron & Opera Performer (15 ch) Literary Patron & Opera Performer (29 ch) Scheming Hanger-on & Victim (35 ch) Literary Patron & Opera Performer (19 ch) Redeemer Patron & Mentor (15 ch) Patron & Performer (32 ch) Literary Patron & Opera Performer (28 ch) Literary Patron & Opera Performer (22 ch) Literary Patron & Opera Performer (19 ch) Literary Patron & Opera Performer (26 ch) Loyal Friend (36 ch) High-Principled Allies & Redemption Strategists (29 ch) Loyal Allies in Qinyan Redemption (31 ch) Fellow Performer (20 ch) Fellow Performer (18 ch) Fellow Performer (19 ch) Fellow Performer (15 ch) Companion (18 ch) Fellow Performer (18 ch) Captor & Forcible Abduction Victim (35 ch) Depraved Merchant Harasser & Victim (29 ch) Adoptive Father & Spiritual Master (17 ch) Yiyuan Salon Scholar Peers (17 ch) Yiyuan Salon Scholar Peers (30 ch) Literary Circle & Parasitic Villain (20 ch) Yiyuan Salon Scholar Peers (27 ch) Yiyuan Salon Scholar Peers (27 ch) Literary Patron & Opera Performer (27 ch) Literary Patron & Opera Performer (23 ch) Literary Patron & Opera Performer (22 ch) Literary Patron & Opera Performer (20 ch) Literary Patron & Opera Performer (17 ch) Literary Patron & Opera Performer (17 ch) Literary Circle & Parasitic Villain (21 ch) Adversary (19 ch) Yiyuan Salon Scholar Peers (17 ch) Yiyuan Salon Scholar Peers (16 ch) Literary Circle & Parasitic Villain (20 ch) Yiyuan Salon Scholar Peers (25 ch) Yiyuan Salon Scholar Peers (26 ch) Literary Circle & Parasitic Villain (21 ch) Literary Circle & Parasitic Villain (16 ch) Scheming Peers (20 ch) Literary Circle & Parasitic Villain (20 ch) Literary Circle & Parasitic Villain (16 ch) Sycophantic Parasite & Noble Patron (23 ch) Sycophantic Cronies & Opium/Gambling Partners (24 ch) Yiyuan Salon Scholar Peers (27 ch) Witty Tribute Student & Hongji Temple Peer (23 ch) Yiyuan Salon Scholar Peers (20 ch) Yiyuan Salon Scholar Peers (20 ch) Yiyuan Salon Scholar Peers (20 ch) Yiyuan Salon Scholar Peers (17 ch) Literary Patron & Opera Performer (23 ch) Literary Patron & Opera Performer (19 ch) Literary Patron & Opera Performer (20 ch) Literary Patron & Opera Performer (15 ch) Literary Patron & Opera Performer (15 ch) Literary Circle & Parasitic Villain (19 ch) Literary Circle & Parasitic Villain (17 ch) Literary Patron & Opera Performer (21 ch) Literary Patron & Opera Performer (17 ch) Literary Patron & Opera Performer (15 ch) Literary Circle & Parasitic Villain (16 ch) Yiyuan Salon Scholar Peers (24 ch) Yiyuan Salon Scholar Peers (23 ch) Literary Circle & Parasitic Villain (17 ch) Yiyuan Salon Scholar Peers (26 ch) Yiyuan Salon Scholar Peers (24 ch) Literary Patron & Opera Performer (28 ch) Romantic Soulmates & Exam Laureate (27 ch) Passionate Pursuit (20 ch) Literary Patron & Opera Performer (17 ch) Literary Patron & Opera Performer (16 ch) Literary Circle & Parasitic Villain (22 ch) Literary Circle & Parasitic Villain (18 ch) Literary Patron & Opera Performer (17 ch) Literary Patron & Opera Performer (29 ch) Harassed Performer & Entangled Villain (27 ch) Literary Patron & Opera Performer (28 ch) Literary Patron & Opera Performer (25 ch) Troupe Performers & Flower Rank Peers (31 ch) Top Flower Rank Performers (29 ch) Troupe Performers & Flower Rank Peers (22 ch) Troupe Performers & Flower Rank Peers (22 ch) Troupe Performers & Flower Rank Peers (19 ch) Troupe Performers & Flower Rank Peers (16 ch) Troupe Performers & Flower Rank Peers (15 ch) Harassed Performer & Entangled Villain (30 ch) Harassed Performer & Entangled Villain (26 ch) Literary Patron & Opera Performer (21 ch) Harassed Performer & Entangled Villain (20 ch) Literary Patron & Opera Performer (26 ch) Literary Patron & Opera Performer (22 ch) Troupe Performers & Flower Rank Peers (25 ch) Troupe Performers & Flower Rank Peers (19 ch) Troupe Performers & Flower Rank Peers (19 ch) Troupe Performers & Flower Rank Peers (17 ch) Harassed Performer & Entangled Villain (24 ch) Harassed Performer & Entangled Villain (21 ch) Passionate Lover & Calligraphy Confidant (15 ch) Literary Patron & Opera Performer (24 ch) Harassed Performer & Entangled Villain (22 ch) Literary Patron & Opera Performer (24 ch) Literary Patron & Opera Performer (21 ch) Troupe Performers & Flower Rank Peers (20 ch) Troupe Performers & Flower Rank Peers (19 ch) Troupe Performers & Flower Rank Peers (17 ch) Harassed Performer & Entangled Villain (25 ch) Harassed Performer & Entangled Villain (17 ch) Literary Patron & Opera Performer (21 ch) Literary Patron & Opera Performer (19 ch) Literary Patron & Opera Performer (18 ch) Lianzhu Troupe Musicians (19 ch) Troupe Performers & Flower Rank Peers (16 ch) Literary Patron & Opera Performer (19 ch) Literary Patron & Opera Performer (16 ch) Literary Patron & Opera Performer (16 ch) Literary Patron & Opera Performer (16 ch) Literary Patron & Opera Performer (16 ch) Harassed Performer & Entangled Villain (15 ch) Companion (18 ch) Literary Circle & Parasitic Villain (26 ch) Literary Circle & Parasitic Villain (21 ch) Dissolute Noble & Depraved Merchant Allies (23 ch) Literary Circle & Parasitic Villain (19 ch) Literary Circle & Parasitic Villain (15 ch) Méi Zǐyù Dù Qínyán Yán Zhòngqīng Shǐ Nánxiāng Wáng Xún Wèi Pìncái Lǐ Yuánmào Xú Zǐyún Xiāo Cìxián Liú Wénzé Gāo Pǐn Zhāng Zhòngyǔ Tián Chūnháng Yuán Bǎozhū Sū Huìfāng Lù Sùlán Jīn Shùfāng Lǐ Yùlín Wáng Lánbǎo Wáng Guìbǎo Yuán Qíguān Lín Shānzhī Huá Guāngsù Xī Shíyī Qū Dàowēng
+  - textbox "Search the archives..."
+  - button "By Mentions"
+  - button "Chronology"
+  - button "By Role"
+  - button "All Records"
+  - button "performer"
+  - button "scholar"
+  - button "villain"
+  - button "female"
+  - button "official"
+  - button "servant"
+  - button "deceased"
+  - button "minor"
+  - text: char-1 Dù Qínyán 杜琴言 · 琴官 / 玉侬 / 琴仙 / 屈琴仙 / 屈勤先 / 屈少君 / 杜仙女 / 屈少君 Qū Shàojūn performer
+  - paragraph: Central romantic figure; orphaned; renamed by Xu Ziyun (ch.5); redeemed in ch.43; reunites with Ziyu
+  - text: "Jiangsu Age: 15 Male 1774 mentions char-0 Méi Zǐyù 梅子玉 · 庾香 scholar"
+  - paragraph: Male protagonist; scholar-gentry; falls for Qinyan; later marries Wang Qionghua; promoted examiner (ch.15); builds Qu shrine (ch.59)
+  - text: "Jinling Age: 17 Male 1469 mentions char-5 Wèi Pìncái 魏聘才 villain"
+  - paragraph: A glib and opportunistic scholar; initially a guest at the Mei house. Known for scheming and gossip, he endures public humiliations before marrying a courtesan (ch. 50).
+  - text: "Jiangning Age: ~20 Male 1022 mentions char-7 Xú Zǐyún 徐子云 · 度香 scholar"
+  - paragraph: The generous and refined owner of Yiyuan Garden; a key patron of the arts. He treats performers with respect and redeems Qinyan in ch. 43.
+  - text: "Zhejiang, Shanyin Age: 25 Male 924 mentions char-24 Sū Huìfāng 苏蕙芳 · 媚香 performer"
+  - paragraph: High-principled performer of official descent; soulmate to Tian Chunhang. Known for her wit and integrity, helping secure Qinyan's freedom (ch. 43).
+  - text: "Suzhou Age: 17 Male 799 mentions char-15 Tián Chūnháng 田春航 · 湘帆 / 田状元 Tián Zhuàngyuán scholar"
+  - paragraph: A passionate Nanjing scholar who finds a soulmate in Su Huifang (ch. 13); eventually achieves the rank of top laureate (Zhuangyuan) in chapter 49.
+  - text: "Jinling Age: 23 Male 585 mentions char-23 Yuán Bǎozhū 袁宝珠 · 瑶卿 performer"
+  - paragraph: Top-ranked performer, celebrated for painting and poetry. A close confidant of Xu Ziyun and a loyal friend who supports Qinyan during hardships.
+  - text: "Suzhou Age: 16 Male 532 mentions char-6 Lǐ Yuánmào 李元茂 scholar"
+  - paragraph: The obtuse son of Ziyu's tutor; serves as comic relief. Infamous for being robbed in a disreputable area (ch. 23), he eventually marries into the Sun family as a matrilocal husband.
+  - text: "— Age: ~20 Male 518 mentions char-2 Yán Zhòngqīng 颜仲清 · 剑潭 scholar"
+  - paragraph: A chivalrous scholar and close friend of Ziyu; nephew of Lady Yan. Often mediates between friends and participates in major literary gatherings.
+  - text: "Jinling Age: 23 Male 498 mentions char-8 Xiāo Cìxián 萧次贤 · 静宜 scholar"
+  - paragraph: Xu Ziyun's closest friend; polymath; designed Yiyuan. A detached and brilliant scholar who offers artistic guidance to many.
+  - text: "Hunan, Xiangtan Age: 32 Male 474 mentions char-3 Shǐ Nánxiāng 史南湘 · 竹君 scholar"
+  - paragraph: Top graduate who compiled the Flower Register; witty and romantic. Deeply attached to Lu Sulan; later achieves Jinshi rank (ch. 44).
+  - text: "Hanyang Age: 24 Male 466 mentions char-25 Lù Sùlán 陆素兰 · 香畹 performer"
+  - paragraph: A talented performer and calligrapher, loved by Shi Nanxiang. Known for her righteousness, she actively assists in the Ziyu-Qinyan reunion (ch. 22).
+  - text: "Suzhou Age: 16 Male 466 mentions char-73 Pān Qíguān 潘其观 · 潘三 / 潘三爷 / Pan San / Pan the Third / Pan Laosan / 潘老三 Pān Lǎosān villain"
+  - paragraph: Known as Pan San; keeper of the Qisheng silver bureau and crony of Xi Shiyi. Harasses Su Huifang (chs.13–21) and endures degrading karmic punishments (chs.40, 47, 58).
+  - text: "— Age: — Male 428 mentions char-55 Huá Guāngsù 华光宿 · 华公子 / 星北 villain"
+  - paragraph: A high-ranking noble and owner of Jinchun Garden. While dissolute, he possesses genuine taste, but his possessive acquisition of Qinyan (ch. 28) makes him a primary antagonist.
+  - text: "— Age: 21 Male 417 mentions char-72 Xī Shíyī 奚十一 · 奚正绅 / Xi Eleven / Xi the Eleventh / Lord Xi / Master Xi villain"
+  - paragraph: A violent and wealthy Cantonese merchant known as the 'Smoke-Blackened Grand Duke.' He repeatedly harasses Qinyan, ultimately suffering grotesque karmic retribution.
+  - text: "Guangdong Age: ~30 Male 417 mentions char-4 Wáng Xún 王恂 · 庸庵 scholar"
+  - paragraph: Son of Wang Wenhui and cousin to Ziyu; a key figure in social circles. Fond of opera and often involved in arranging local social affairs.
+  - text: "Jinling Age: 22 Male 404 mentions char-9 Liú Wénzé 刘文泽 · 前舟 scholar"
+  - paragraph: Vice-minister's son; exceptionally generous and approachable. A close friend of Xu Ziyun who hosts major literary banquets.
+  - text: "Henan, Zhengyang Age: ~24 Male 387 mentions char-10 Gāo Pǐn 高品 · 卓然 scholar"
+  - paragraph: Tribute student (拔贡); wickedly funny; coins the Sun brothers' nicknames; lives at Hongji Temple
+  - text: "Suzhou Age: ~25 Male 376 mentions char-141 Qū Dàowēng 屈道翁 · 道翁 / 道生 / Master Qu / 屈才爷 Qū Cáiye / 屈老爷 Qū Lǎoye / Qu / 屈方正 Qū Fāngzhèng / 屈本立 Qū Běnlì / Qu Benli scholar"
+  - paragraph: Senior scholar known as Qu Benli (calligraphy, ch.7), Qu Daoweng (main name), Qu Caiye/Qu Laoye (chs.55-56), and Qu Fangzheng (divine aspect); adopts Qinxian; dies in Nanjing (ch.56); shrine and dream arcs (ch.59–60)
+  - text: "— Age: — Male 373 mentions char-11 Zhāng Zhòngyǔ 张仲雨 scholar"
+  - paragraph: Nephew of Grand Secretary Wu; versatile; goes by '二老爷'; frequents Yiyuan (ch.8)
+  - text: "Yangzhou Age: ~22 Male 222 mentions char-42 Lín Shānzhī 林珊枝 · 珊枝 Shānzhī performer"
+  - paragraph: "\"Bought by Hua Guangsu for 8,000 taels; lives in Hua mansion as personal companion\""
+  - text: "— Age: — Male 217 mentions char-53 Fú Lún 富伦 · 富三爷 / Fu San / Fu the Third official"
+  - paragraph: A warm-hearted and wealthy official who serves as a generous patron to performers. A close friend of many scholars who often mediates social conflicts.
+  - text: "Jiangning Age: ~30 Male 200 mentions char-21 Sūn Sìhuī 孙嗣徽 · 虫蛀千字文 scholar"
+  - paragraph: Elder Sun son; pedantic; 'Worm-eaten Primer' nickname; red nose
+  - text: "Jinling Age: 26 Male 159 mentions char-86 Yán Fūrén 颜夫人 · Lady Yan / Madam Yan female"
+  - paragraph: Wife of Mei Shixie; moral guardian of the novel; arranges Ziyu's betrothal to Wang Qionghua
+  - text: "Jinling Age: 44 Female 156 mentions char-29 Wáng Guìbǎo 王桂保 · 蕊香 performer"
+  - paragraph: A charming and witty performer, younger brother of Lanbao. A steady presence in social and literary scenes throughout the novel.
+  - text: "Yangzhou Age: 15 Male 151 mentions char-143 Jī Liàngxuān 姬亮轩 minor"
+  - paragraph: Corrupt hanger-on tied to Xi Shiyi's milieu; repeatedly appears in rumor, coercion, and underhand social manipulation arcs
+  - text: "— Age: — Male 151 mentions char-153 Sū Huànxiāng 苏浣香 · 华夫人 Huá Fūrén / Lady Hua / Madam Hua female"
+  - paragraph: Hua Guangsu's wife, elder daughter of Marquis Su; celebrated as 'the most beautiful woman in the empire'; presides over the ten pearl-maids; joins the ladies' gathering of ch.57
+  - text: "— Age: 21 Female 147 mentions char-94 Xǔ Sānjiě 许三姐 · Third Sister / Sanjie female"
+  - paragraph: Spirited elder sister of the Xu brothers; masterminds the revenge on Pan San (ch.40); enters service and recognizes her lost brother Zhou Xiaosan (ch.49)
+  - text: "— Age: — Female 140 mentions char-40 Yuán Qǐxiāng 袁绮香 · 袁夫人 Yuán Fūrén / Mrs. Yuan / Mrs Yuan / Madam Yuan female"
+  - paragraph: Xu Ziyun's wife, née Yuan; daughter of the Yunnan governor; graceful and virtuous; leads the ladies' drinking games in ch.57
+  - text: "— Age: 23 Female 139 mentions char-45 Èr Xǐ 二喜 · Erxi performer"
+  - paragraph: Male performer (dan) of the Lianjin troupe; attaches himself to Li Yuanmao at the theatre; recurs in Wei Pincai's circle (chs.8–21)
+  - text: "— Age: — Male 122 mentions char-27 Lǐ Yùlín 李玉林 · 佩仙 performer"
+  - paragraph: "#5; musician; famous for 《折柳阳关》; Lianzhu troupe"
+  - text: "Yangzhou Age: 15 Male 121 mentions char-48 Wáng Wénhuī 王文辉 official"
+  - paragraph: 3rd-rank Tongzheng official; Wang Xun's father; father-in-law of Yan Zhongqing; same hometown as Mei Shixie
+  - text: "Jinling Age: ~55 Male 121 mentions char-28 Wáng Lánbǎo 王兰保 · 静芳 performer"
+  - paragraph: "#6; martial arts; refuses powerful patrons; elder brother of Guibao; Lianjin troupe"
+  - text: "Yangzhou Age: 17 Male 116 mentions char-134 Liú Xǐ 刘喜 servant"
+  - paragraph: Loyal longtime attendant to Qu Daosheng; protects and supports Qinxian through illness, theft, funeral rites, and return arrangements
+  - text: "— Age: 40+ Male 112 mentions char-32 Róngguān 蓉官 · Rong Guan performer"
+  - paragraph: Friend of Fu Lun; witty; comic scenes chs.2–3; knows about Xi Shiyi
+  - text: "— Age: ~15 Male 107 mentions char-88 Sūn Shì 孙氏 · Madam Sun / 佩秋 Pèiqiū female"
+  - paragraph: Wang Xun's wife; daughter of Sun Lianggong
+  - text: "— Age: — Female 107 mentions char-26 Jīn Shùfāng 金漱芳 · 瘦香 / 漱芳 performer"
+  - paragraph: "#4; plays flute and chess; Lianzhu troupe"
+  - text: "Suzhou Age: 15 Male 102 mentions char-75 Táng Héshang 唐和尚 · Monk Tang villain"
+  - paragraph: Wine-and-meat Buddhist monk (酒肉和尚); purple-faced; fur-robed; associate of Xi Shiyi and Pan Qiguan; enables harassment of Qinyan and runs gambling and opium dens at Hongji Temple.
+  - text: "— Age: ~40 Male 102 mentions char-90 Wáng Qiónghúa 王琼华 female"
+  - paragraph: Wang Wenhui's second daughter; shy; scratches Ziyu's poem; eventually betrothed and married to Ziyu
+  - text: "— Age: 16 Female 101 mentions char-31 Yuán Qíguān 袁琪官 · 琪官 performer"
+  - paragraph: Companion to Qinyan on the canal journey; vivid beauty; joins Lianjin troupe
+  - text: "— Age: 14 Male 99 mentions char-49 Sūn Liànggōng 孙亮功 official"
+  - paragraph: An official in the Ministry of Works whose household is a source of domestic drama. Known for his colorful and comic personality at banquets.
+  - text: "Jinling Age: ~50 Male 93 mentions char-135 Hóu Shíwēng 侯石翁 · 石翁 / Lord Hou / Hou scholar"
+  - paragraph: Elder literary celebrity at Phoenix Mountain; outwardly patronizing but morally ambiguous in his treatment of Qinxian after Daosheng's death
+  - text: "Nanjing Age: 74 Male 92 mentions char-162 Wū Dàshǎ 乌大傻 minor"
+  - paragraph: Wealthy simpleton of the idle-rich circle; brother-in-law of Gui Zirong; tried in the forged-deed case (ch.32) and joins Ji Liangxuan's tea-house fleecing of Qinyan (ch.42)
+  - text: "— Age: ~30 Male 92 mentions char-14 Féng Zǐpèi 冯子佩 scholar"
+  - paragraph: Son of former Jiangsu magistrate; very handsome; arrives late at banquets
+  - text: "Beijing Age: ~18 Male 89 mentions char-56 Cáo Chángqìng 曹长庆 performer"
+  - paragraph: Troupe master who bought Qinyan as his apprentice; relies on him as the household's breadwinner; dies suddenly in ch.36
+  - text: "— Age: — Male 88 mentions char-47 Méi Shìxiè 梅士燮 · 铁庵 official"
+  - paragraph: Hanlin reader; Ziyu's father; stern Confucian; promoted to vice-minister later; appointed provincial examiner (ch.15)
+  - text: "Jinling Age: 46 Male 85 mentions char-17 Jīn Jífǔ 金吉甫 · 金栗 / 金粟 Jīn Sù scholar"
+  - paragraph: From a great Nanjing family; real name Jin Su (金栗), art name Jifu; leading literary scholar; frames the novel's conclusion in ch.60
+  - text: "Jinling Age: — Male 81 mentions char-139 Zhuō Tiānxiāng 卓天香 performer"
+  - paragraph: Performer associated with Wei Pincai's circle; appears repeatedly in the Xi Shiyi/Pan Qiguan late-stage entanglements
+  - text: "— Age: — Female 81 mentions char-30 Lín Chūnxǐ 林春喜 · 小梅 performer"
+  - paragraph: "#8; entered troupe at 12; plays male and female roles; rewrites opera scripts (ch.50)"
+  - text: "Suzhou Age: 14 Male 79 mentions char-136 Bā Yīngguān 巴英官 · 英官 servant"
+  - paragraph: Youth attached to Xi Shiyi's household; central to Xi's late-stage debauchery arc and ensuing bodily retribution
+  - text: "— Age: ~15 Male 79 mentions char-167 Àizhū 爱珠 servant"
+  - paragraph: One of the Hua household pearl-maids; lively presence in the garden games and lantern scenes (chs.11, 26, 41, 44)
+  - text: "— Age: ~15 Female 77 mentions char-138 Déyuè 得月 performer"
+  - paragraph: Young novice/performance-world youth linked with Xi Shiyi, Wei Pincai, and Pan Qiguan; pivotal in major karmic episodes in later chapters
+  - text: "— Age: ~17 Male 73 mentions char-22 Sūn Sìyuán 孙嗣元 · 迭韵双声谱 scholar"
+  - paragraph: Younger Sun son; severe stammer; 'Unfinished Three-Character Classic' nickname
+  - text: "Jinling Age: ~24 Male 72 mentions char-121 Yè Màolín 叶茂林 servant"
+  - paragraph: Impresario who bought and transported the young performers from Suzhou to Beijing by canal boat
+  - text: "Suzhou Age: 50+ Male 72 mentions char-147 Zhōu Xiǎosān 周小三 servant"
+  - paragraph: Driver and fixer tied to Pan Qiguan's household sphere; central participant in the revenge setup against Pan
+  - text: "— Age: — Male 72 mentions char-154 Huànlán 浣兰 · 苏小姐 / Miss Su female"
+  - paragraph: Marquis Su's younger daughter and Su Huanxiang's sister; visits the Hua mansion as 'Miss Su' (ch.11); marries Tian Chunhang (ch.49); youngest of the seven ladies in ch.57
+  - text: "— Age: 19 Female 70 mentions char-89 Rónghuá 蓉华 female"
+  - paragraph: Yan Zhongqing's wife; Wang Wenhui's daughter; sister of Wang Qionghua
+  - text: "— Age: — Female 66 mentions char-33 Chūnlán 春兰 performer"
+  - paragraph: "\"Associated with Xi Shiyi; smashes crockery in the restaurant scene, ch.3\""
+  - text: "— Age: ~15 Male 58 mentions char-152 Chángqìng Shīniáng 长庆师娘 · 师娘 / 长庆媳妇 female"
+  - paragraph: Widow of troupe master Changqing; involved in maintenance-price bargaining and pressure over performer arrangements
+  - text: "— Age: — Female 57 mentions char-155 Hóng Xuě 红雪 · Hongxue servant"
+  - paragraph: Yuan Qixiang's maidservant; active participant in the dice and tongue-twister drinking games (chs.11, 57)
+  - text: "— Age: — Female 54 mentions char-102 Yún'ér 云儿 servant"
+  - paragraph: Ziyu's personal page; rides on horseback; runs errands and carries messages throughout
+  - text: "— Age: ~12 Male 53 mentions char-112 Sì'ér 四儿 servant"
+  - paragraph: Wei Pincai's personal page-boy; carries money; sits on carriage edge; receives tips from Fu Lun
+  - text: "— Age: — Male 50 mentions char-137 Júhuā 菊花 · 白菊花 / White Chrysanthemum minor"
+  - paragraph: Courtesan from Wuzhou, Guangxi, at Madam Tao's East Garden house, known as White Chrysanthemum; becomes Xi Shiyi's intimate companion through his decline and retribution arcs
+  - text: "Guangxi Age: 20+ Male 48 mentions char-38 Bǎozhū 保珠 performer"
+  - paragraph: "\"Dark-complexioned performer living next to Guibao; his name mirrors Yuan Baozhu, confusing Ziyu (chs.1, 6); later attaches to Wei Pincai's circle (chs.8–9, 21)\""
+  - text: "— Age: ~15 Male 46 mentions char-157 Huā Zhū 花珠 · Huazhu servant"
+  - paragraph: One of the Hua household pearl-maids, lent to Yuan Qixiang's team; plays the role of 商君 in the ch.57 games
+  - text: "— Age: — Female 45 mentions char-164 Wǔ Mázi 伍麻子 minor"
+  - paragraph: Pockmarked cousin of Qinyan's shiniang; hangs about the Changqing household through the mourning and ransom-bargaining chapters (chs.36–44); returns to Yangzhou (ch.58)
+  - text: "— Age: — Male 44 mentions char-61 Liú Shìláng 刘侍郎 · Minister Liu / Vice-Minister Liu official"
+  - paragraph: Vice-minister; Liu Wenze's father; attends the Spring Festival banquet
+  - text: "— Age: — Male 42 mentions char-87 Lù Shì Fūrén 陆氏夫人（王家） · 陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Wang family's Madam Lu / The Wang Madam Lu female"
+  - paragraph: Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu
+  - text: "— Age: 40 Female 40 mentions char-163 Guī Zìróng 归自荣 · 窑子归 minor"
+  - paragraph: Feng Zipei's brother-in-law, nicknamed 'Kiln Gui'; jailed with Wu Dasha over a forged property deed (ch.32)
+  - text: "— Age: — Male 40 mentions char-165 Tiānfú 天福 performer"
+  - paragraph: Junior fellow-disciple of Qinyan under master Changqing; plain-looking but sociable; earns for the household by performing (chs.27, 42)
+  - text: "— Age: ~15 Male 40 mentions char-142 Sū Hóu 苏侯 · Marquis Su / the Marquis official"
+  - paragraph: Powerful noble household head; father-in-law of Tian Chunhang through his daughter's marriage
+  - text: "— Age: — Male 38 mentions char-146 Yáng Méichuāng 杨梅窗 performer"
+  - paragraph: Performer in Wei Pincai's orbit; linked to his theatrical-social network and late-stage decline arc
+  - text: "— Age: — Male 37 mentions char-160 Hé Zhū 荷珠 · Hezhu servant"
+  - paragraph: One of the Hua household pearl-maids; plays the role of 孟尝君 in the ch.57 games
+  - text: "— Age: — Female 37 mentions char-95 Yù Tiānxiān 玉天仙 female"
+  - paragraph: Courtesan married by Wei Pincai in ch.50 after he helps revise opera texts
+  - text: "— Age: 27 Female 35 mentions char-156 Hóng Xiāng 红香 · Hongxiang servant"
+  - paragraph: Yuan Qixiang's maidservant; participates in chess and shoe-game sequences (chs.11, 57)
+  - text: "— Age: — Female 35 mentions char-166 Tiānshòu 天寿 performer"
+  - paragraph: Junior fellow-disciple of Qinyan under master Changqing; appears alongside Tianfu in the household scenes (chs.27, 36, 42)
+  - text: "— Age: ~15 Male 34 mentions char-161 Ruǐ Zhū 蕊珠 · Ruizhu servant"
+  - paragraph: One of the Hua household pearl-maids; plays the role of 张子房 in the ch.57 dice games
+  - text: "— Age: — Female 32 mentions char-101 Shí Shì 石氏 female"
+  - paragraph: Pan Qiguan's wife, née Shi; handsome and wayward; central to the scandalous turmoil of ch.58
+  - text: "— Age: 28 Female 29 mentions char-54 Guì Fēn 贵芬 · 贵大爷 / Master Gui official"
+  - paragraph: 7th-rank ministry clerk; prudent and steady; Fu Lun's close friend
+  - text: "— Age: ~30 Male 28 mentions char-145 Zhāng Xiàoméi 张笑梅 performer"
+  - paragraph: Performer connected to Wei Pincai's social circle; appears in his expanding pleasure-network entanglements
+  - text: "— Age: — Male 27 mentions char-173 Hóngwén 红雯 servant"
+  - paragraph: One of Yuan Qixiang's 'red' maids; joins the dice and poetry-card games (chs.11, 57)
+  - text: "— Age: ~15 Female 26 mentions char-52 Lù Zōngyuán 陆宗沅 official"
+  - paragraph: Censor; gets wine sprayed in his face by Sun Lianggong; cousin of the two Madam Lu
+  - text: "— Age: — Male 25 mentions char-150 Wú Zǐyān 吴紫烟 female"
+  - paragraph: Liu Wenze's wife; one of the central ladies in Yuan Qixiang's Chapter 57 women-only drinking-game gathering
+  - text: "— Age: 23 Female 25 mentions char-20 Lǐ Xìngquán 李性全 scholar"
+  - paragraph: Ziyu's strict Confucian tutor; Li Yuanmao's father; stays with Mei family
+  - text: "Zhejiang Age: — Male 23 mentions char-104 Xǔ Shùn 许顺 servant"
+  - paragraph: Mei household steward and accounts manager; came with Lady Yan from her natal home
+  - text: "— Age: — Male 23 mentions char-140 Yáng Shànxiū 阳善修 minor"
+  - paragraph: Doctor specializing in intimate ailments; repeatedly called to treat major injuries and illnesses of key characters in late chapters
+  - text: "— Age: — Male 23 mentions char-149 Yáo Xián 姚贤 servant"
+  - paragraph: Outer attendant under Hua Guangsu's side, dispatched in retrieval and pursuit errands around Qinyan's transfer period
+  - text: "— Age: — Male 23 mentions char-158 Huà Zhū 画珠 · Huazhu servant"
+  - paragraph: One of the Hua household pearl-maids; plays the role of 蔺相如 in the ch.57 poetry-card games
+  - text: "— Age: — Female 22 mentions char-159 Míng Zhū 明珠 · Mingzhu servant"
+  - paragraph: One of the Hua household pearl-maids; participates in the topknot and tongue-twister games (chs.11, 26, 41, 57)
+  - text: "— Age: — Female 21 mentions char-172 Hóngyù 红玉 servant"
+  - paragraph: One of Yuan Qixiang's 'red' maids; plays music at the ch.57 gathering
+  - text: "— Age: ~15 Female 21 mentions char-182 Yáng Bā 杨八 · Yang the Eighth minor"
+  - paragraph: Geomancer hanger-on ('Eighth Master Yang') in the Fu Lun and Xi Shiyi circle; consulted on graves and fortunes (chs.19, 34–36)
+  - text: "— Age: — Male 21 mentions char-186 Xǔ Lǎosān 许老三 · 许贵 / Xu Gui servant"
+  - paragraph: Handsome young assistant in Pan San's silver shop; later renamed Xu Gui as Tian Chunhang's attendant (ch.47)
+  - text: "— Age: 16 Male 19 mentions char-50 Yáng Fāngyóu 杨方猷 official"
+  - paragraph: Ministry of War deputy director; guest at Wang Wenhui's banquet
+  - text: "— Age: — Male 18 mentions char-51 Zhōu Xíjué 周锡爵 official"
+  - paragraph: Guanglu Temple junior director; guest at Wang Wenhui's banquet
+  - text: "— Age: — Male 18 mentions char-171 Hóngwēi 红薇 servant"
+  - paragraph: One of Yuan Qixiang's 'red' maids; noted dice-thrower in the ladies' drinking games (chs.11, 57)
+  - text: "— Age: ~15 Female 18 mentions char-183 Lù Zàolì 陆皂隶 · Runner Lu minor"
+  - paragraph: Yamen runner who puzzles over the garbled case documents with copyist Ge Fengshi (ch.32)
+  - text: "— Age: — Male 18 mentions char-184 Gě Féngshí 葛逢时 · 葛贴写 / Ge Fengshi minor"
+  - paragraph: Shaoxing copyist ('Ge the copyist'), sixth of his line; deciphers the miswritten yamen documents for Runner Lu (ch.32)
+  - text: "— Age: — Male 18 mentions char-106 Méi Jìn 梅进 servant"
+  - paragraph: Mei household gate attendant; called in to receive and seat guests
+  - text: "— Age: — Male 17 mentions char-118 Attendant (Fu household) 跟班（富家） · 跟班 / 跟班的 servant"
+  - paragraph: Fu Lun's neat household attendant; brings tea to Pincai; wears plain silk padded jacket
+  - text: "— Age: — Male 15 mentions char-176 Qiūlián 秋莲 servant"
+  - paragraph: Ronghua's maidservant; joins the ch.57 poetry-card gathering
+  - text: "— Age: ~15 Female 14 mentions char-168 Zhǎngzhū 掌珠 servant"
+  - paragraph: One of the Hua household pearl-maids; fans the young lord and joins the drinking games (chs.11, 26, 41)
+  - text: "— Age: ~15 Female 13 mentions char-187 Tián Ān 田安 servant"
+  - paragraph: Tian Chunhang's old family retainer; follows him from Nanjing and keeps his household through the lean years (chs.12–13, 48)
+  - text: "— Age: 50+ Male 12 mentions char-189 Féngqióng Pó 缝穷婆 · 缝穷婆 / 缝穷的 female"
+  - paragraph: The mending-woman outside the theatre wall; her quarrel over pilfered coppers sets off the ch.51 street brawl
+  - text: "— Age: — Female 12 mentions char-13 Bā Lín 巴霖 scholar"
+  - paragraph: Son of garrison commander Ba; handsome; close to Liu Wenze; dislikes Sun brothers
+  - text: "Tianjin Age: ~20 Male 11 mentions char-170 Zèngzhū 赠珠 servant"
+  - paragraph: One of the Hua household pearl-maids; accompanies Madam Hua on the boat outing (ch.41)
+  - text: "— Age: ~15 Female 11 mentions char-179 Xiǎocuì 小翠 servant"
+  - paragraph: Huanlan's young maidservant; clever and pretty; joins the ch.57 games
+  - text: "— Age: 13 Female 11 mentions char-37 Quánfú 全福 performer"
+  - paragraph: Jianchun troupe; seen in ch.4 tavern scene
+  - text: "— Age: — Male 9 mentions char-62 Wú Gé Xué 吴阁学 · Academician Wu official"
+  - paragraph: Grand Secretary; Zhang Zhongyu's maternal uncle
+  - text: "— Age: — Male 9 mentions char-169 Zhēnzhū 珍珠 servant"
+  - paragraph: One of the Hua household pearl-maids; attends Hua Guangsu in the garden scenes (chs.11, 26, 57)
+  - text: "— Age: ~15 Female 9 mentions char-175 Hóngjuān 红娟 servant"
+  - paragraph: One of Yuan Qixiang's 'red' maids; appears in the ch.57 drinking games
+  - text: "— Age: ~15 Female 9 mentions char-177 Shìxiāng 侍香 servant"
+  - paragraph: Wu Ziyan's maidservant; joins the ch.57 games
+  - text: "— Age: ~15 Female 9 mentions char-148 Mèng Qī 孟七 servant"
+  - paragraph: Xu Ziyun household servant appearing in communication and dispatch tasks during conflict-heavy chapters
+  - text: "— Age: — Male 8 mentions char-180 Qīngqín 青琴 servant"
+  - paragraph: Wang Qionghua's maidservant; joins the ch.57 games
+  - text: "— Age: ~15 Female 8 mentions char-194 Huáng Zhǎngguì 黄掌柜 · 黄掌柜 / 春阳馆掌柜 minor"
+  - paragraph: Manager of Chunyang Restaurant who greets patrons, gets into a dispute with Wei Pincai over unpaid bills, and later co-founds Anji Hall with Monk Tang.
+  - text: "Beijing Age: — Male 8 mentions char-12 Shěn Bócái 沈伯才 scholar"
+  - paragraph: Son of Director Shen; recently selected county magistrate; capable
+  - text: "— Age: ~30 Male 7 mentions char-185 Xǔ Lǎoèr 许老二 minor"
+  - paragraph: Second of the Xu brothers; carries out the bare-fisted revenge on Pan San (chs.40, 47)
+  - text: "— Age: — Male 7 mentions char-191 Zhāng Guì 张贵 villain"
+  - paragraph: Treacherous servant of Qu Daoweng; absconded with silver, luggage, and official credentials in ch.56; captured in Ji'an in ch.59.
+  - text: "— Age: — Male 7 mentions char-35 Yùměi 玉美 performer"
+  - paragraph: "\"Jianchun troupe; seen with Tian Chunhang at the tavern scene, ch.4\""
+  - text: "— Age: — Male 6 mentions char-63 Shěn Sīyè 沈司业 · Director Shen official"
+  - paragraph: National Academy director; Shen Bocai's father; old-fashioned Confucian; praises Ziyu
+  - text: "— Age: — Male 6 mentions char-103 Jùn'ér 俊儿 servant"
+  - paragraph: Ziyu's second young page; carries lanterns; also rides on horseback alongside Yun'er
+  - text: "— Age: ~12 Male 6 mentions char-74 Lǎo Wáng 老王 villain"
+  - paragraph: Hunchbacked jade-vendor; tries to extort Pincai at the theatre; expelled by Xi Shiyi's men
+  - text: "— Age: ~60 Male 5 mentions char-122 Jīn Èr 金二 servant"
+  - paragraph: Head troupe manager (掌班) of the Lianjin troupe; negotiates booking contracts
+  - text: "— Age: — Male 5 mentions char-124 Zhǎngguì de 酒楼掌柜 · 酒楼掌柜 / 掌柜的 servant"
+  - paragraph: Restaurant owner in the crockery-smashing scene in Chapter 3; fawns on Xi Eleven and lectures waiter Lao San on porcelain acoustics.
+  - text: "— Age: — Male 5 mentions char-178 Jīnfèng 金凤 servant"
+  - paragraph: Peiqiu's maidservant; joins the ch.57 games
+  - text: "— Age: ~15 Female 5 mentions char-181 Táo Māma 陶妈妈 · Madam Tao minor"
+  - paragraph: Keeper of the pleasure house in the East Garden; takes in Yu Tianxian and White Chrysanthemum; sizes up Xi Shiyi's fortune (ch.18)
+  - text: "— Age: — Female 5 mentions char-36 Sìxǐ 四喜 · Sixi performer"
+  - paragraph: Jianchun troupe; seen in ch.4 tavern scene
+  - text: "— Age: — Male 4 mentions char-127 Yán Zhuāng 颜庄 deceased"
+  - paragraph: Hanlin compiler; Lady Yan's brother; died at 30; Yan Zhongqing's father
+  - text: "— Age: — Male 4 mentions char-130 Dù Qínshī 杜琴师 deceased"
+  - paragraph: Qinyan's father; a zither-maker; died of anger after being humiliated by a powerful man
+  - text: "Jiangsu Age: — Male 4 mentions char-188 Tián Tàifūrén 田太夫人 female"
+  - paragraph: Tian Chunhang's mother; brought to the capital after his success (ch.48); presides over the wedding-season gatherings (ch.52)
+  - text: "— Age: — Female 4 mentions char-34 Xiǎofú 小福 performer"
+  - paragraph: Quanfu troupe; rumoured Fu Lun spent 3000 cash on his graduation ceremony
+  - text: "— Age: ~15 Male 3 mentions char-44 Xiǎo Shùn'ér 小顺儿 performer"
+  - paragraph: 十不闲 drum performer; brought by Fu Lun; rejected by Hua Guangsu with contempt
+  - text: "— Age: — Male 3 mentions char-174 Hónglián 红莲 servant"
+  - paragraph: One of Yuan Qixiang's 'red' maids; attends the wedding festivities and the ch.57 games
+  - text: "— Age: ~15 Female 3 mentions char-197 Jì Shí Ǎizi 季十矮子 · 季十 / 季矮子 minor"
+  - paragraph: Skilled stone and wood carver/engraver recommended by Jin Jifu; engraved Qu Daoweng's calligraphy for Yiyuan screens in ch.46-47 and arranged stone carvers for Jiuxiang Garden steles in ch.60.
+  - text: "Beijing Age: — Male 3 mentions char-59 Xú Zhèn 徐震 · 晓山 / Xiaoshan official"
+  - paragraph: Grand Secretary (art name Xiaoshan); Xu Ziyun's father; governor-general of the two Guangs; named only as 名震 in ch.5
+  - text: "— Age: — Male 2 mentions char-67 Hóu Tàishǐ 侯太史 official"
+  - paragraph: Hanlin historian; feigns charity toward orphans; hypocritical antagonist
+  - text: "— Age: — Male 2 mentions char-79 Qīng Yínǎinai 青姨奶奶 minor"
+  - paragraph: One of Fu Lun's two quarrelling concubines; fights with Bai Yinainai; mentioned by Rong Guan
+  - text: "— Age: — Female 2 mentions char-80 Bái Yínǎinai 白姨奶奶 minor"
+  - paragraph: Fu Lun's other quarrelling concubine; fights with Qing Yinainai; mentioned by Rong Guan
+  - text: "— Age: — Female 2 mentions char-81 Ā Dāi 阿呆 minor"
+  - paragraph: Simple-minded victim who is cruelly harmed by Xi Shiyi's men in ch.23
+  - text: "— Age: — Male 2 mentions char-85 Wáng Dàfū 王大夫 · Doctor Wang minor"
+  - paragraph: Doctor who treats Sun Lianggong when the Sun household couple have a fight; mentioned by Sihui in ch.4
+  - text: "— Age: — Male 2 mentions char-92 Zhèng Shì 郑氏 female"
+  - paragraph: Yan Zhuang's wife; fasted to death after his death; honoured for chastity; Yan Zhongqing's mother
+  - text: "— Age: — Female 2 mentions char-98 Bā Láifēng 巴来风 female"
+  - paragraph: Sun Siyuan's wife; née Ba; beautiful and fierce; physically overpowers husband on wedding night
+  - text: "— Age: ~17 Female 2 mentions char-107 Hǔ'ér 虎儿 servant"
+  - paragraph: Household page in the Mei residence; brings messages between rooms
+  - text: "— Age: — Male 2 mentions char-109 Maidservant (Gatekeeper) 仆妇（门上） · 仆妇 servant"
+  - paragraph: Doorwoman who brings calling cards from Wei Pincai and Li Yuanmao in to Mei Shixie
+  - text: "— Age: — Male 2 mentions char-110 Household Maid (Clothing) 家人媳妇（衣裳） · 家人媳妇 servant"
+  - paragraph: Household woman who fetches Ziyu's fur coat at Lady Yan's instruction
+  - text: "— Age: — Female 2 mentions char-111 Young Maid (Ziyu Study) 小丫鬟（子玉书房） · 小丫鬟 servant"
+  - paragraph: Maidservant in Ziyu's study; reports that Wang Qionghua scratched out two characters from Ziyu's poem; relays betrothal gossip from Xue'er
+  - text: "— Age: — Female 2 mentions char-113 Jiàn'ér 健儿 servant"
+  - paragraph: Yan Zhongqing's running-boy messenger; carries letters between the Yan and Mei households
+  - text: "— Age: — Male 2 mentions char-114 Xuě'ér 雪儿 servant"
+  - paragraph: Wang Qionghua's personal maidservant; gossips about the betrothal arrangement and the jade hairpin incident
+  - text: "— Age: — Male 2 mentions char-116 Escort Matron (Ba household) 伴送婆（巴家） · 伴送婆 servant"
+  - paragraph: Bridal escort matron who accompanied Ba Laifeng to the Sun household; mediates the violent wedding night
+  - text: "— Age: — Female 2 mentions char-120 Retinue (Hua household, ~20-30 people) 跟班队（华家，~20–30人） · 跟班 / 跟班的 servant"
+  - paragraph: 20–30 liveried grooms and mounted escorts who accompany Hua Guangsu on outings
+  - text: "— Age: — Male 2 mentions char-133 Wèi Lǎorén 魏老仁 deceased"
+  - paragraph: Wei Pincai's father; a failed litigious scholar; now works in a salt bureau
+  - text: "— Age: — Male 2 mentions char-190 Lǐ Dàfū 李大夫 · Doctor Li minor"
+  - paragraph: Doctor in Nanjing summoned by Liu Xi to treat Qu Daoweng when Doctor Wang was away in Yizheng County; arrives after Daoweng's death.
+  - text: "Nanjing Age: — Male 2 mentions char-192 Wāng Shēng 汪升 villain"
+  - paragraph: Treacherous servant of Qu Daoweng; participated in the ch.56 theft and flight; died on the run before ch.59.
+  - text: "— Age: — Male 2 mentions char-193 Qián Dé 钱德 villain"
+  - paragraph: Treacherous servant of Qu Daoweng; absconded with Zhang Gui in ch.56; captured in Ji'an in ch.59.
+  - text: "— Age: — Male 2 mentions char-195 Yínhào Zhǎngguì 银号掌柜 · 银号掌柜 / 掌柜的 minor"
+  - paragraph: Manager of a Beijing silver draft bank who issues 1,400 taels in silver drafts to Fu Third near the end of the year.
+  - text: "Beijing Age: — Male 2 mentions char-43 Tán Bā 谭八 performer"
+  - paragraph: Comic lead (京丑) of Lianjin troupe; his mannerisms imitated by Sun Lianggong at the banquet
+  - text: "— Age: — Male 1 mentions char-57 Shǐ Zēngwàng 史曾望 official"
+  - paragraph: Shi Nanxiang's father; Censor (吏科给事中)
+  - text: "— Age: — Male 1 mentions char-58 Yuán Hào 袁浩 official"
+  - paragraph: Yunnan governor; Xu Ziyun's father-in-law
+  - text: "— Age: — Male 1 mentions char-60 Xú Zǐróng 徐子容 official"
+  - paragraph: Xu Ziyun's elder brother; Huaiyang circuit intendant
+  - text: "— Age: — Male 1 mentions char-64 Bā Tiānchǒng 巴天宠 official"
+  - paragraph: Garrison commander; father of Ba Lin and Ba Laifeng; misled by a matchmaker
+  - text: "Tianjin Age: ~40 Male 1 mentions char-65 Lù Zōnghuái 陆宗淮 official"
+  - paragraph: Judicial commissioner of Sichuan; elder brother of the two Madam Lu
+  - text: "Sichuan Age: — Male 1 mentions char-68 Zhuāng 詹事府正詹事庄 official"
+  - paragraph: Listed among Spring Festival banquet guests in ch.6
+  - text: "— Age: — Male 1 mentions char-69 Zhèng 左庶子郑 official"
+  - paragraph: Listed among Spring Festival banquet guests in ch.6
+  - text: "— Age: — Male 1 mentions char-70 Zhāng 国子监司业张 official"
+  - paragraph: Listed among Spring Festival banquet guests in ch.6
+  - text: "— Age: — Male 1 mentions char-71 Director Lu 掌山西道陆 · Director of the Shanxi Circuit / Censor Lu official"
+  - paragraph: Listed among Spring Festival banquet guests in ch.6
+  - text: "— Age: — Male 1 mentions char-97 Shěn Yúngū 沈芸姑 female"
+  - paragraph: Sun Sihui's wife; née Shen; intelligent but miserable in marriage
+  - text: "— Age: — Female 1 mentions char-99 Eldest Miss Sun 孙大姑娘 female"
+  - paragraph: Sun Lianggong's eldest daughter; prematurely white-haired and long unmarriageable; finally wed to Li Yuanmao with dyed hair in ch.39
+  - text: "— Age: ~29 Female 1 mentions char-105 Xǔ Shùn qī 许顺妻 · 许顺夫妇 servant"
+  - paragraph: Xu Shun's wife; works alongside him in household management
+  - text: "— Age: — Female 1 mentions char-115 Sōng'ér 松儿 servant"
+  - paragraph: Originally Shen Yungu's dowry maid; taken as concubine by Sun Sihui; effectively relieves Shen Yungu
+  - text: "— Age: — Male 1 mentions char-117 Nursemaid (Ba Laifeng) 乳母（巴来风） · 乳母 / 奶妈 servant"
+  - paragraph: Ba Laifeng's childhood nanny; persuades her to accept the marriage with moral arguments
+  - text: "— Age: — Female 1 mentions char-119 Lú Dàyé 卢大爷 servant"
+  - paragraph: Hua Guangsu's stable and livestock manager; oversees 100+ horses and 70–80 large mules
+  - text: "— Age: — Male 1 mentions char-123 Lǎo Sān 老三 servant"
+  - paragraph: Restaurant server at the crockery-smashing scene; scolded for not bringing fine enough porcelain
+  - text: "— Age: — Male 1 mentions char-126 Méi Gēngdiào 梅羹调 deceased"
+  - paragraph: Mei Shixie's father; former Grand Secretary (文华殿大学士)
+  - text: "— Age: — Male 1 mentions char-128 Yán Yàochén 颜尧臣 deceased"
+  - paragraph: Left Censor; Lady Yan's father
+  - text: "— Age: — Male 1 mentions char-129 Fù Ānshì 富安世 deceased"
+  - paragraph: Fu Lun's father; former Jiangnan governor; venerated as a local deity in Nanjing
+  - text: "— Age: — Male 1 mentions char-131 Dù Mǔ 杜母 · 其母 deceased"
+  - paragraph: Qinyan's mother; died of grief a year after her husband
+  - text: "Jiangsu Age: — Female 1 mentions char-132 Dù Zúshū 杜族叔 deceased"
+  - paragraph: Qinyan's clan uncle who took him in; died when Qinyan was 13
+  - text: "— Age: — Male 1 mentions char-151 Cài Mǒu 蔡某 minor"
+  - paragraph: Named suspect in temple theft-related incident chain; appears in the investigation and blame-casting context
+  - text: "— Age: — Male 1 mentions char-196 Huá Zhèngchāng Shūpù Zhǎngguì 华正昌书铺掌柜 · 华正昌掌柜 / 老年掌柜 minor"
+  - paragraph: Elderly shopkeeper of the 'Hua Zhengchang' bookshop who greets Qinxian in his dream in Chapter 56.
+  - text: "— Age: — Male 1 mentions char-96 Lù Shì Fūrén 陆氏夫人（孙家） · 陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Sun family's Madam Lu / The Sun Madam Lu female"
+  - paragraph: Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu
+  - text: "— Age: 39 Female 0 mentions char-108 Study Boys (×2) 书僮(×2) servant"
+  - paragraph: Two unnamed study boys; wait outside the study; serve tea and pour water.
+  - text: "— Age: — Male 0 mentions char-125 Méi Dǐng 梅鼎 · 鼎 deceased"
+  - paragraph: Mei Shixie's grandfather; former Minister of Personnel (吏部尚书)
+  - text: "— Age: — Male 0 mentions"
+  - heading "Hometowns, Gardens & Locations" [level=2]
+  - region "Explore by location type":
+    - paragraph: Interactive map
+    - heading "Explore by location type" [level=3]
+    - paragraph: Choose a category to update map
+    - tablist "Location types":
+      - tab "Character Hometowns 16 legend markers" [selected]
+      - tab "Houses, Streets & Venues 28 legend markers"
+      - tab "Gardens & Garden Sites 34 legend markers"
+      - tab "Places 14 legend markers"
+      - tab "Rivers, Mountains & Landmarks 17 legend markers"
+    - tabpanel "Character Hometowns 16 legend markers":
+      - heading "Character Hometowns" [level=3]
+      - text: 16 legend markers
+      - img: Beijing Jinling Suzhou Yangzhou Jiangsu Jiangning Nanjing Zhejiang Zhejiang, Shanyin Beijing Tianjin Guangdong Guangxi Hanyang Henan, Zhengyang Hunan, Xiangtan Sichuan
+      - text: Click icon to view profile · Scroll & drag to zoom
+  - region "Location Index":
+    - heading "Location Index" [level=3]
+    - text: 102 places
+    - paragraph: Character Hometowns
+    - text: "16"
+    - button "Jinling(11)"
+    - button "Suzhou(7)"
+    - button "Yangzhou(4)"
+    - button "Beijing(4)"
+    - button "Jiangsu(3)"
+    - button "Jiangning(2)"
+    - button "Nanjing(2)"
+    - button "Tianjin(2)"
+    - button "Zhejiang, Shanyin(1)"
+    - button "Hunan, Xiangtan(1)"
+    - button "Hanyang(1)"
+    - button "Guangdong(1)"
+    - button "Henan, Zhengyang(1)"
+    - button "Guangxi(1)"
+    - button "Zhejiang(1)"
+    - button "Sichuan(1)"
+    - paragraph: Houses, Streets & Venues
+    - text: "28"
+    - button "Hua mansion"
+    - button "Mei residence"
+    - button "Hongji Temple"
+    - button "Wang household"
+    - button "Gusu Guild Hall (Beijing)"
+    - button "Hanlin Academy"
+    - button "The quarter"
+    - button "Chunyang House"
+    - button "Ministry of Rites"
+    - button "Qiushui Hall"
+    - button "Feicui Tower"
+    - button "Front Gate (Zhengyangmen)"
+    - button "South Small Street"
+    - button "Xu residence"
+    - button "Huguo Temple"
+    - button "Xiawazi"
+    - button "East Garden brothel quarter"
+    - button "Grand Bao'en Temple (Nanjing)"
+    - button "Tianxiang Tower"
+    - button "Shoufo Temple"
+    - button "Qu Shrine"
+    - button "Prefectural Office"
+    - button "Tian residence"
+    - button "Flower-Deity Shrine"
+    - button "Mingke Lane"
+    - button "Sun household"
+    - button "Literary-Star Shrine"
+    - button "Yan household"
+    - paragraph: Gardens & Garden Sites
+    - text: "27"
+    - paragraph: Major Gardens
+    - button "Garden of Contentment"
+    - button "Garden of Brocade Spring"
+    - paragraph: Sub-Locations
+    - button "Plum Ravine"
+    - button "Tower of Ten Thousand"
+    - button "Fairy-Detaining Courtyard"
+    - button "Crabapple Spring Garden"
+    - button "Red Tea Immortal Pavilion"
+    - button "Cool Poetic Realm"
+    - button "Kingdom of Peony Fragrance"
+    - button "Spring Breeze Lodge"
+    - button "West Garden"
+    - button "Stay-Green Studio"
+    - paragraph: Other Spaces
+    - button "Three Joys Theater"
+    - button "Rainbow Garden"
+    - paragraph: Additional Garden Sites
+    - button "East Garden"
+    - button "Nine-Fragrance Tower"
+    - button "Pear-Blossom Court"
+    - button "Last-Night East Wind Tower"
+    - button "Garden lake scenes"
+    - button "Little Level Mountain (West Garden)"
+    - button "Derelict Garden"
+    - button "Duxiang Garden"
+    - button "Cassia Hall"
+    - button "Liang Garden"
+    - button "Lion Grove Garden"
+    - button "Jade Belt River (Yiyuan)"
+    - button "Qifeng Garden"
+    - paragraph: Places & Origins
+    - text: "14"
+    - button "Beijing"
+    - button "Jiangnan"
+    - button "Jiangxi"
+    - button "Zhili"
+    - button "Nanchang"
+    - button "Southern City (Beijing)"
+    - button "Guizhou"
+    - button "Shanyin"
+    - button "Hangzhou"
+    - button "Changzhou"
+    - button "Huguang"
+    - button "Jiujiang"
+    - button "Yizheng"
+    - button "Zhengyang"
+    - paragraph: Rivers, Mountains & Landmarks
+    - text: "17"
+    - button "Lake Tai (Taihu)"
+    - button "Grand Canal"
+    - button "Qinhuai River"
+    - button "Fragrant Hills (Beijing)"
+    - button "Mochou Lake (Nanjing)"
+    - button "Phoenix Mountain (Nanjing)"
+    - button "Hanxi Gate (Nanjing)"
+    - button "Swallow Bluff (Nanjing)"
+    - button "Mount Emei"
+    - button "Pingshan Hall (Yangzhou)"
+    - button "Yangtze River"
+    - button "Mount Liang"
+    - button "Lake Xuanwu (Nanjing)"
+    - button "Lotus Bridge (Yangzhou)"
+    - button "Rainbow Bridge (Yangzhou)"
+    - button "Jinshan"
+    - button "Beigu Mountain"
+  - complementary:
+    - img: 宴
+    - heading "Chapters" [level=2]
+    - paragraph: Pinhua Baojian
+    - paragraph: "Author: Chen Sen"
+    - paragraph: Pinhua Baojian (also known as Yiqing Yishi and Qunhua Baojian) is a 60-chapter novel by Chen Sen of the Qing dynasty, depicting the culture of male entertainers. A native of Changzhou, Chen Sen repeatedly failed the imperial examinations and gave up around age 40. While living in Beijing he frequently associated with performers, gathering material for the novel.
+    - button "Contents"
+    - button "Preface"
+    - button "Ch. 1 — Shi Nanxiang compiles a floral register of celebrated beauties; Mei Ziyu, catching their fragrance, is stunned by peerless allure."
+    - button "Ch. 2 — Wei Pincai boasts of encounters with beauties along the road; Wang Guibao sends flowers flying in riot at the feast."
+    - button "Ch. 3 — Old Wang the snuff-bottle seller attempts extortion; a young dan shatters dishes in coquettish protest."
+    - button "Ch. 4 — Three scholars compose by a snowy window; a young man inscribes a lyric on a powder-white wall."
+    - button "Ch. 5 — Yuan Baozhu introduces Du Qinyan; Third Master Fu gives a detailed account of Lord Hua."
+    - button "Ch. 6 — Madam Yan swiftly settles an excellent marriage match; Young Master Mei first surveys the realm of beauty."
+    - button "Ch. 7 — Yan Zhongqing excels at one-character antitheses; Shi Nanxiang uniquely produces five-character verse."
+    - button "Ch. 8 — Theater thieves steal silver yet again; amid merriment at the wine shop, disorder erupts."
+    - button "Ch. 9 — At moonlit Lantern Night, flowers blaze in full bloom; amid pearl-like passion and qin-like yearning, one meeting is missed."
+    - button "Ch. 10 — Spring dreams swirl between long and short affections; floral figures appear half-true, half-doubtful."
+    - button "Ch. 11 — Three beauties turn language into fresh brilliance; maidservants are rebuked over playful talk."
+    - button "Ch. 12 — Yan Zhongqing's chivalrous heart reveals elder compassion; Tian Chunhang's proud bones expose obsessive devotion."
+    - button "Ch. 13 — Two hearts secretly imprint deep feeling; lustful demons and lecherous ghosts continue crooked entanglements."
+    - button "Ch. 14 — Ancient heptasyllabics are recited as qin melodies return; a drinking game is innovated from four selected characters."
+    - button "Ch. 15 — The old scholar is appointed to official duty away from home; the noble young master idly seeks his beloved."
+    - button "Ch. 16 — Wei Pincai first enters Lord Hua's mansion; Mei Ziyu again visits Du Qinyan."
+    - button "Ch. 17 — A jade banquet fetes a birthday and gathers the poets; in the floral register, supreme beauty crowns all fragrance."
+    - button "Ch. 18 — In a pleasure house, tricks are taught for exploiting performers; at a courtesan's door, willow songs are sung."
+    - button "Ch. 19 — Lewd plots and treachery hide within the wooden barrel; clever speech and quick wit deceive for gain."
+    - button "Ch. 20 — Dragon boats race for the championship; paired lovers pass cups through a playful wine game."
+    - button "Ch. 21 — Rumor-making wins only cold contempt; true feelings are confessed in hidden tears."
+    - button "Ch. 22 — Under an unlucky star, plain hearts weep in double grief; touring the canal, Mei and Du renew their bond."
+    - button "Ch. 23 — A-Dai is attacked by poisoners under a grass mat; riding a night-soil cart, a vile secretary reveals depraved intent."
+    - button "Ch. 24 — News of a new opera spreads; in fixing terms of affection, one leaps free from emotional bondage."
+    - button "Ch. 25 — At waterside pavilions and wind galleries, flowers seem to speak; clear songs and subtle dances let jade-like grace arise."
+    - button "Ch. 26 — Slander is advanced to satisfy old grudges; valuing beauty above all, Lord Hua purchases celebrated performers."
+    - button "Ch. 27 — Xi Zhengshen makes a violent disturbance at Qiushui Hall; Du Qinyan seeks refuge in Lord Hua's mansion."
+    - button "Ch. 28 — At parting, hidden words are sent through the Morning Glory; blinded by greed, one learns petty and crooked tricks."
+    - button "Ch. 29 — A broken moon rounds again and true feeling smiles alone; in strict seclusion among pearls, who can pity divided longing?"
+    - button "Ch. 30 — Under moonlit lanterns, a banquet appraises the flowers; in trial costume and makeup, a brilliant stage piece is presented."
+    - button "Ch. 31 — After drink, the flowers keep the night moon in lingering company; old sorrow returns as scholars sing of autumn graves."
+    - button "Ch. 32 — In Xiao's studio, celebrated men await examination news; in a cold yamen office, a minor official adjudicates petitions."
+    - button "Ch. 33 — Inspector Mei sends a family letter instructing his son; Young Master Hua bids farewell and dismisses his guests."
+    - button "Ch. 34 — To repay debts, Li Yuanmao borrows money; during Lantern festivities, Wei Pincai is robbed."
+    - button "Ch. 35 — In collecting floral classics, twin blossoms arise from one stem; in crafting lyric airs, red beans cast lovesick longing."
+    - button "Ch. 36 — In intimate talk, all mouths curse Shanzhi; amid treacherous scheming, a jade bracelet is smashed in anger."
+    - button "Ch. 37 — In a minor game, one character transforms into three; in theater-title antiphony, two words expand into four."
+    - button "Ch. 38 — On authenticity and forgery, annotations debate the Divine Yu stele; on omen counting, Taiyi numerology is refuted."
+    - button "Ch. 39 — In wedding-chamber revelry, quick wit yields elegant jokes; with false hair arranged, white locks become youthful color."
+    - button "Ch. 40 — Xi the rustic libertine is poisoned by lust and rendered a eunuch; Pan Qiguan receives retribution through a degrading affliction."
+    - button "Ch. 41 — Cherishing spring, all butterflies turn to dreams; beating erotic rhythms, paired mandarin ducks envy no immortals."
+    - button "Ch. 42 — A guardian extorts support fees at inflated rates; in tea-house rounds, a parasite loses his money."
+    - button "Ch. 43 — Su Huifang uses keen wit to outmaneuver the widow; Xu Ziyun redeems Qinyan at great expense."
+    - button "Ch. 44 — Listening to rumors, three households erupt in conflict; seeing vicious letters, two young masters sever ties."
+    - button "Ch. 45 — A noble youth visits his beloved by moonlight; the jade-like gentleman receives spirit-writing and recognizes an adoptive father."
+    - button "Ch. 46 — Talented men divide topics and compose linked brilliance; an elder master writes a preface and lets his brush bloom with flowers."
+    - button "Ch. 47 — Xi Eleven seeks a bizarre remedy to strengthen his kidneys; Pan Qiguan endures humiliation while treating his injured backside."
+    - button "Ch. 48 — On a magnolia boat, a heartbroken lyric is sung; at Huanghua Pavilion, tears are shed in painful farewell."
+    - button "Ch. 49 — Moved by love, Scholar Tian seeks marriage as top laureate; by chance affection, Third Sister Xu recognizes her lost brother."
+    - button "Ch. 50 — Lin Chunxi revises opera texts into proper form; Wei Pincai's story closes with his marriage to a courtesan."
+    - button "Ch. 51 — In poverty and frustration, people eavesdrop on opera through walls; pent-up resentment breaks into open conflict indoors."
+    - button "Ch. 52 — Young masters celebrate in the garden; beautiful ladies accompany the newlyweds in embroidered chambers."
+    - button "Ch. 53 — By inscribing songs on a peach-blossom fan, fragrant affection is sealed; at Swallow Bluff, an infatuated soul is shocked by a phantom dream."
+    - button "Ch. 54 — A talented scholar enters the Hanlin through lyric examination; in the ladies' chamber, beauties discuss Tang poetry."
+    - button "Ch. 55 — At Phoenix Mountain they pay respects to a literary altar; beside Emerald Nest they seek an old tomb."
+    - button "Ch. 56 — Qu Fangzheng appears in a dream after becoming a god; Historian Hou feigns righteousness in aiding an orphan."
+    - button "Ch. 57 — Yuan Qixiang leads drinking-game banter among beauties; Wang Qionghua becomes alliance leader through poetry cards."
+    - button "Ch. 58 — Xi Eleven and his servant suffer karmic retribution; Pan Qiguan and his wife descend into obscene turmoil."
+    - button "Ch. 59 — Vice-Minister Mei independently builds the Qu shrine; Young Master Qu returns to the capital."
+    - button "Ch. 60 — Jin Jifu brings Pinhua Baojian to its conclusion; Yuan Baozhu leads the invocation honoring the literary stars."
+    - img: 戏
+    - heading "Works Cited" [level=2]
+    - text: 469 unique
+    - paragraph: Groups are inferred from work descriptions; unannotated titles are mostly performed scenes.
+    - paragraph: Operas & Performed Scenes
+    - text: "237"
+    - button "Waking from a Dream×10"
+    - button "Inscribing the Song×5"
+    - button "Pursuing the Dream×4"
+    - button "The Small Banquet×4"
+    - button "Exclusive Possession×4"
+    - button "Stealing the Poem×4"
+    - button "Nishang×3"
+    - button "Dancing on the Tray×3"
+    - button "The Pavilion of Gossamer×3"
+    - button "Flirting with a Zither×3"
+    - button "Appreciating the Lotuses×3"
+    - button "The Peach Blossom Fan×3"
+    - button "Liangzhou Xu×3"
+    - button "The Secret Vow×2"
+    - button "The Jade Terrace×2"
+    - button "Composing the Score×2"
+    - button "Stealing the Token×2"
+    - button "Killing in the Boat×2"
+    - button "Feigning Jealousy×2"
+    - button "The Rendezvous×2"
+    - button "Returning from the Hunt×2"
+    - button "The Peony Pavilion×2"
+    - button "The Southern Shore×2"
+    - button "Sweeping Flowers×2"
+    - button "The Monastery Gate×2"
+    - button "A Stroll in the Garden and Waking from a Dream×2"
+    - button "Finding Gold×2"
+    - button "The Western Chamber×2"
+    - button "Li Ling Returns to Han×2"
+    - button "The Piteous Appeal×2"
+    - button "Plucking a Willow Branch×2"
+    - button "Hearing the Bells×2"
+    - button "The Tavern×2"
+    - button "Nine-Palace Score×2"
+    - button "Magpie Bridge"
+    - button "Autumn at the Tray"
+    - button "Pavilion Meeting"
+    - button "Autumn River"
+    - button "Willow at Yang Pass"
+    - button "Selling the Hairpin"
+    - button "Dividing the Shoes"
+    - button "Hiding the Boat"
+    - button "Grass Ground"
+    - button "Sending the Fan"
+    - button "Yang Pass"
+    - button "Double Red Record"
+    - button "The Green Gate"
+    - button "Slaying the Tiger"
+    - button "Three Beats of Yuyang"
+    - button "Demanding the Hairpin"
+    - button "Interrogating the Beauty"
+    - button "Entrusting the Son"
+    - button "Stored Admonitions"
+    - button "Breaking the Loom"
+    - button "Barbarian Child"
+    - button "Underworld Inquest"
+    - button "The Female Musician"
+    - button "In Search of the Supernatural"
+    - button "The Palace of Eternal Life"
+    - button "Pieced White Fur"
+    - button "Rhapsody on Snow"
+    - button "Snow on River and Sky"
+    - button "Walking in Snow"
+    - button "Winning the Flower Queen"
+    - button "Three Times Drunk"
+    - button "Discussing the Sword"
+    - button "Paying Respects to the Teacher"
+    - button "Merit Banquet"
+    - button "Going on the Hunt"
+    - button "Bright Pearl Record"
+    - button "Knight-Errant in Hiding"
+    - button "Visiting the Courtyard"
+    - button "Female Ballad-Singing"
+    - button "Appreciating Autumn"
+    - button "Driving the Cart"
+    - button "Record of Strange Gatherings"
+    - button "Liangzhou Melody"
+    - button "Eighteen Songs of a Nomad Flute"
+    - button "Eighteen Songs of a Nomad Flute"
+    - button "Fixing Affection"
+    - button "Oily Gourd"
+    - button "Ten Kinds of Songs"
+    - button "Stone to Mend Heaven"
+    - button "Story of the Pipa"
+    - button "Zhuge Yan Nian"
+    - button "Bright Consort Returns to Han"
+    - button "Li the Banished Immortal Receives the Edict at Yelang"
+    - button "Immortals' Grand Assembly"
+    - button "Immortals of Mount Emei"
+    - button "Capturing Alive"
+    - button "Prior Enticement"
+    - button "Later Enticement"
+    - button "Counter-Deception"
+    - button "Lifting the Curtain"
+    - button "Cutting Cloth"
+    - button "Level Sand"
+    - button "Inscription on Jinqiu Mound"
+    - button "Title Register"
+    - button "Night Banquet Bestowing a Courtesan"
+    - button "Visiting Su"
+    - button "Ascending the Xiangyang City Tower"
+    - button "Spring Sleep"
+    - button "Stealing the Song"
+    - button "Peeking at the Bath"
+    - button "Watching a Painting"
+    - button "Picking Up a Painting"
+    - button "Teaching Song"
+    - button "Burying the Jade"
+    - button "Treading on the Moon"
+    - button "The Stone Grotto"
+    - button "Singing the Ballad"
+    - button "Stealing the Chicken"
+    - button "Subduing the Tiger"
+    - button "Visiting the Rat"
+    - button "Looking at the Stocking"
+    - button "Borrowing the Boot"
+    - button "The Drunken Consort"
+    - button "Sobering the Courtesan"
+    - button "Flinging the Dipper"
+    - button "Searching the Cup"
+    - button "Female Thief"
+    - button "Hinny Bandit"
+    - button "Power and Profit"
+    - button "Powerful Monk"
+    - button "Attacking the Inn"
+    - button "Fleeing the Pass"
+    - button "Seizing the Beauty"
+    - button "Killing Xishi"
+    - button "Grass Bridge"
+    - button "Hemp Ground"
+    - button "Flower Lady"
+    - button "Fire Judge"
+    - button "Grass Chancellor"
+    - button "Sealing the Chamber"
+    - button "Declining the Pavilion"
+    - button "Removing Armour"
+    - button "Duping the Ding Clan"
+    - button "The Rice-Shop"
+    - button "The Tea-House"
+    - button "Plucking the Eyebrow"
+    - button "Opening the Eye"
+    - button "Piercing the Eye"
+    - button "Tumbling in the Snow"
+    - button "Falling on the Ice"
+    - button "Supporting the Head"
+    - button "Cutting the Foot"
+    - button "Flower Drum"
+    - button "Kneeling at the Pool"
+    - button "Leaping into the Well"
+    - button "Sweeping the Pine"
+    - button "Sweeping Away Qin"
+    - button "Checking Han"
+    - button "Book Shop"
+    - button "Revising the Letter"
+    - button "Chasing the Messenger"
+    - button "Releasing the Easy"
+    - button "Seeing the Ghost"
+    - button "Departing the Soul"
+    - button "Eating Chaff"
+    - button "Splashing Gruel"
+    - button "The Infernal Judge"
+    - button "Empty Valley Fragrance"
+    - button "The Buddhist Healer"
+    - button "Frightening the Clown"
+    - button "Terrifying the Simpleton"
+    - button "The Crouching Tiger Scroll"
+    - button "Selling One's Son to Cast Himself into the Abyss"
+    - button "Longing for One's Parents, Abandoning the Feast"
+    - button "Mount Heng Stele"
+    - button "Mount Yi Inscription"
+    - button "Confucius Temple Ritual Vessels Stele"
+    - button "Cao Jingwan Stele"
+    - button "Stele Urging Enthronement"
+    - button "Stele of Abdication"
+    - button "Stele Sacrificing to Confucius"
+    - button "Ode to Lord Zhang"
+    - button "Stele for Repairing the Confucius Temple"
+    - button "Mount Tianmu"
+    - button "Rhapsody on the Three Capitals"
+    - button "Two Capitals"
+    - button "Heavenly Consort"
+    - button "Four Tones"
+    - button "Ministry of Rites Rhymes"
+    - button "Rhyme Assembly"
+    - button "Taichi Elbow-Backup Formulary"
+    - button "Record of the South Sea"
+    - button "Rhapsody on the Goddess"
+    - button "Rhapsody on Lust"
+    - button "Visiting Cui"
+    - button "Sleeping amid Fragrance"
+    - button "Four Dreams of the Jade Tea Hall"
+    - button "Nine Works from Red Snow Tower"
+    - button "Sound of Geese Passing"
+    - button "Opening Aria"
+    - button "Hundred Yuan Plays"
+    - button "Sacrificing to the Flowers"
+    - button "Mutual Scolding"
+    - button "Too Lazy to Paint the Brows"
+    - button "Dream of the Plum Blossom"
+    - button "Entering the Dream"
+    - button "Borrowing an Umbrella on the Lake"
+    - button "Searching the Mountain, Driving the Cart"
+    - button "Parting from Mother amid Flying Arrows"
+    - button "Admonishing the Son with a Single Saber"
+    - button "Raising a Ruckus at Court, Pouncing on a Dog"
+    - button "Attacking the Inn; Stealing the Chicken"
+    - button "Rainbow Skirt and Feathered-Robe Dance"
+    - button "Mountain Fragrance"
+    - button "Orchid Pavilion"
+    - button "Assassinating Liang"
+    - button "Startled by Change"
+    - button "Rolling Silk Ball"
+    - button "Chattering Command"
+    - button "Removing the Cloth Jacket"
+    - button "Pawned Headscarf"
+    - button "Yu Bao Du"
+    - button "The Swallow Letter"
+    - button "Wine Shop at Jinling"
+    - button "Galloping Horse"
+    - button "Ancient Cypress"
+    - button "Sword Dance of Lady Gongsun"
+    - button "Song of the Stone Drums"
+    - button "Han Stele"
+    - button "White Snow Song"
+    - button "Ballad of a Luoyang Daughter"
+    - button "Lament on the Riverbank"
+    - button "Lament for the Prince"
+    - button "Mid-Autumn to Zhang Gongcao"
+    - button "Gazing at Jimen"
+    - button "On the Moon, with Feeling"
+    - button "Spring Palace Song"
+    - button "Northern Expedition"
+    - button "Zixu Fu"
+    - button "Shanglin Fu"
+    - button "Liu Tang"
+    - button "Naozhuang"
+    - button "The Three Tomes"
+    - paragraph: Flower Registers & Connoisseurship
+    - text: "7"
+    - button "Selection of Flowers×7"
+    - button "Qutai Huaxuan×3"
+    - button "The Opera Stage Flower Manual×2"
+    - button "Catalogue of Flowers×2"
+    - button "The Person in the Carriage×2"
+    - button "Yantai Flower Selection"
+    - button "Harmonious Grade Among Immortals"
+    - paragraph: Poetry & Verse
+    - text: "106"
+    - button "The Classic of Poetry×5"
+    - button "Mao Shi×3"
+    - button "Song of Everlasting Sorrow×3"
+    - button "Jinlü Qu×3"
+    - button "Airs of the States×2"
+    - button "Tang poetry×2"
+    - button "Palace Lyrics×2"
+    - button "South Mountain×2"
+    - button "Encountering Sorrow×2"
+    - button "Untitled×2"
+    - button "Song of the Pipa×2"
+    - button "Crabapple"
+    - button "Rhapsody on the Red Cliff"
+    - button "Songs of Chu"
+    - button "Revolving Brocade Picture"
+    - button "Peerless Register"
+    - button "Eight Odes from the Snow Window"
+    - button "Snow Pagoda"
+    - button "Snow Screen"
+    - button "Snow Mountain"
+    - button "Snow Lantern"
+    - button "Snow Lion"
+    - button "Snow Arhat"
+    - button "Snow Beauty"
+    - button "Snow Cat"
+    - button "Ode on Snow"
+    - button "Snow Feeling"
+    - button "Snow Shadow"
+    - button "Snow Sound"
+    - button "Snow Color"
+    - button "Ice Bed"
+    - button "Waves Scouring Sand"
+    - button "Seeing Lord Wang of Xiangyuan Home to His Villa"
+    - button "Silver Button Silk"
+    - button "The River Runs Red"
+    - button "Midnight"
+    - button "Jinling Song"
+    - button "Night Yellow"
+    - button "Do Not Wash the Red"
+    - button "Fifth-Watch Bell"
+    - button "Mochou's Joy"
+    - button "The Crow Has Eight or Nine Young"
+    - button "Breaking the Willow"
+    - button "Lantern and Moon Lyrics"
+    - button "Purification Rite on the Long River"
+    - button "Travel Drafts from Yantai"
+    - button "Annoying the Lord"
+    - button "Arts and Literature Preface"
+    - button "Luofu on the Mulberry Path"
+    - button "Young Gallants Gathering Clients"
+    - button "Slow Magnolia Blossoms"
+    - button "Lady Ding's Ten Laments"
+    - button "Zhaojun's Lament"
+    - button "Lotus-Picking Song"
+    - button "A Trace of Sand"
+    - button "Posthumous Writings of Fragrant Snow"
+    - button "Congratulations on the New Cool"
+    - button "Court Poem on Snow on Human Day in the Garden"
+    - button "Song of a Beauty Combing Her Hair"
+    - button "Sending Red Thread"
+    - button "Lotus-Picking Song"
+    - button "Epitaph of the Works Department"
+    - button "Road to Shu"
+    - button "Raven-Roost Song"
+    - button "Crows Crying at Night"
+    - button "Rhyme Supplement"
+    - button "Abridged Ministry of Rites Rhymes"
+    - button "Odes"
+    - button "Eulogy"
+    - button "Stately Lady"
+    - button "New Songs from the Jade Terrace Preface"
+    - button "Moon over Mount Gou"
+    - button "Brocade-Wrapped Road"
+    - button "Red Slave Trimming the Silver Lamp"
+    - button "Little Peach Red"
+    - button "Immortal by the River"
+    - button "A Spray of Flowers"
+    - button "Section by Section Higher"
+    - button "Closing Aria"
+    - button "Thirteen Classics"
+    - button "Cypress Beam"
+    - button "Prelude to Water Tune"
+    - button "Clear Peace Tune"
+    - button "Fine Night, Wind and Moon"
+    - button "Han Changli's South Mountain Poem"
+    - button "Tang Poems Three Hundred"
+    - button "Double Seventh Festival"
+    - button "Long Yearning"
+    - button "Hard Road"
+    - button "Three Hundred Poems"
+    - button "Yan Ge Xing"
+    - button "Ballad of the Army Carts"
+    - button "To Censor Han"
+    - button "Meeting the Capital Envoy"
+    - button "Boudoir Lament"
+    - button "Visiting Lu Hongjian"
+    - button "Jade Terrace Preface"
+    - button "Three Hundred Poems"
+    - button "Mulberry Grove"
+    - button "Zhen and Wei"
+    - button "Poetry"
+    - button "Ballad of Lady Gongsun's Sword Dance"
+    - button "Poetic Categories"
+    - button "Leader of the Immortal Circle"
+    - button "Escaped Grade Among Immortals"
+    - button "Upright Grade Among Immortals"
+    - paragraph: Classics, Histories & Reference
+    - text: "20"
+    - button "Mencius×5"
+    - button "The Four Books×3"
+    - button "The Five Classics×2"
+    - button "Rhapsodies on Categorized Affairs×2"
+    - button "History of the Former Han×2"
+    - button "Liji×2"
+    - button "Book of Changes×2"
+    - button "Complete Library of Ancient and Modern Books×2"
+    - button "Book of Later Han"
+    - button "Great Learning"
+    - button "Four Books"
+    - button "Records of the Grand Historian"
+    - button "Bibliographic Treatise of the Hanshu"
+    - button "Zuo Tradition"
+    - button "Expanded Rhymes"
+    - button "Cut Rhymes"
+    - button "Tang Rhymes"
+    - button "Rhyme Treasury Jade Collection"
+    - button "Complete Library"
+    - button "Book of Documents"
+    - paragraph: Fiction
+    - text: "99"
+    - button "Water Margin×3"
+    - button "Pinhua Baojian×2"
+    - button "Journey to the West×2"
+    - button "Picture of the Immortals' Grand Assembly×2"
+    - button "The Awakening from Sleep Collection×2"
+    - button "Yiqing Yishi"
+    - button "Hidden Marvels"
+    - button "History of Jin"
+    - button "Romance of the Three Kingdoms"
+    - button "Finest of Ancient Prose"
+    - button "Ten Non-Idle Acts"
+    - button "Three-Character Classic"
+    - button "Transmission of the Lamp Record"
+    - button "Shi Clan Supplement"
+    - button "Horse-Head Tune"
+    - button "Nine Linked Rings"
+    - button "Cases of Magistrate Shi"
+    - button "Calendar Book"
+    - button "Sequel to the Western Chamber"
+    - button "Unofficial Biography of the Noble Consort"
+    - button "Immortal Chen Tuan Attains the Way"
+    - button "Spring Dawn in the Grotto Heaven"
+    - button "Narcissus Lyric"
+    - button "Rhapsody on Mount Tiantai"
+    - button "Picture of Shouyang Forehead Dots"
+    - button "Prince Dan Destroys Qin"
+    - button "Green Pearl Throws Herself from the Golden Valley Garden"
+    - button "Consort Yang Follows the Carriage at Mawei Post"
+    - button "Du the Remonstrator Honored in the Golden Hall"
+    - button "Book of Tang"
+    - button "Affixing the Kingfisher Command"
+    - button "Bright Consort Enters the Pass"
+    - button "The Envoy Receives the Edict"
+    - button "Consort Yang Enters Shu"
+    - button "Clear Peace"
+    - button "Whirling Wind"
+    - button "Golden Thread"
+    - button "Flower-Viewing Assembly on the Qinhuai"
+    - button "Cases of the Dragon Diagram"
+    - button "Wild Geese Alighting on Level Sand"
+    - button "Moon Rises High"
+    - button "Biography of Master Fragrant Snow"
+    - button "Jin Ping Mei"
+    - button "Forgetting Death"
+    - button "Bell in the Rain"
+    - button "The Flying Bear Dream"
+    - button "Essay on the Great Man"
+    - button "Book of Shang"
+    - button "Book of Lord Shang"
+    - button "Bronze Plate Inscription"
+    - button "Poetic Rhymes"
+    - button "Collected Rhymes"
+    - button "Four-Tone Cut Rhymes"
+    - button "Integrated Rhyme Studies"
+    - button "Book of Changes"
+    - button "Book of Yue Annals"
+    - button "Essential Techniques for the Common People"
+    - button "Classic of Birds"
+    - button "Rhapsody on the Goddess of the Luo"
+    - button "Miscellaneous Secret Affairs"
+    - button "Secret Affairs"
+    - button "Viewing Flowers"
+    - button "Record of Music"
+    - button "Preface to the Garden of Ease"
+    - button "Twenty-Two Masters"
+    - button "Water-Tune Song"
+    - button "Preface to the Pavilion of Prince Teng"
+    - button "Pan Jinlian Teases Her Uncle-in-Law in the Snow"
+    - button "Farewell at the Garden of Ease"
+    - button "River Full"
+    - button "Three Variations on the Plum Blossom"
+    - button "Circular Edict"
+    - button "Heartbreak Lyrics"
+    - button "Picture of Worshipping the Stone"
+    - button "Peach Blossom Song"
+    - button "Draft Han Edict"
+    - button "Draft Tang Memorial"
+    - button "Exegesis of the Five Classics"
+    - button "Examination of Era Names from Five Dynasties and North–South"
+    - button "Policy on River Control"
+    - button "Inquiry into the Six-Department Regulations"
+    - button "On the Pros and Cons of Salt Law Reforms"
+    - button "On Rectifying the Root and Clearing the Source"
+    - button "Great Rites Rhapsody"
+    - button "Great Music Rhapsody"
+    - button "Great Hunt Rhapsody"
+    - button "In the Style of Du Fu's Northern Expedition"
+    - button "Visiting Hengyue Temple"
+    - button "Dreaming of Li Bai"
+    - button "Linked-Needle and Continuous-Hemp Command"
+    - button "Witty Grade Among Immortals"
+    - button "Wild Grade Among Immortals"
+    - button "Lofty Grade Among Immortals"
+    - button "Xiaoshao"
+    - button "Joyous Grade Among Immortals"
+    - button "Splendid Grade Among Immortals"
+    - button "Bold Grade Among Immortals"
+    - button "Upper Grade Among Immortals"
+    - button "Nine Mounds"
+    - img: 书
+    - heading "Download" [level=2]
+    - text: 61 chapters
+    - paragraph: Full text
+    - button "↓ Chinese text (.txt)"
+    - button "↓ English translation (.txt)"
+    - button "↓ Bilingual interleaved (.txt)"
+    - button "↓ Bilingual interleaved (.json)"
+    - paragraph: By chapter
+    - paragraph: Chinese (.txt)
+    - link "Pre":
+      - /url: /downloads/chinese/00-preface.txt
+    - link "1":
+      - /url: /downloads/chinese/01.txt
+    - link "2":
+      - /url: /downloads/chinese/02.txt
+    - link "3":
+      - /url: /downloads/chinese/03.txt
+    - link "4":
+      - /url: /downloads/chinese/04.txt
+    - link "5":
+      - /url: /downloads/chinese/05.txt
+    - link "6":
+      - /url: /downloads/chinese/06.txt
+    - link "7":
+      - /url: /downloads/chinese/07.txt
+    - link "8":
+      - /url: /downloads/chinese/08.txt
+    - link "9":
+      - /url: /downloads/chinese/09.txt
+    - link "10":
+      - /url: /downloads/chinese/10.txt
+    - link "11":
+      - /url: /downloads/chinese/11.txt
+    - link "12":
+      - /url: /downloads/chinese/12.txt
+    - link "13":
+      - /url: /downloads/chinese/13.txt
+    - link "14":
+      - /url: /downloads/chinese/14.txt
+    - link "15":
+      - /url: /downloads/chinese/15.txt
+    - link "16":
+      - /url: /downloads/chinese/16.txt
+    - link "17":
+      - /url: /downloads/chinese/17.txt
+    - link "18":
+      - /url: /downloads/chinese/18.txt
+    - link "19":
+      - /url: /downloads/chinese/19.txt
+    - link "20":
+      - /url: /downloads/chinese/20.txt
+    - link "21":
+      - /url: /downloads/chinese/21.txt
+    - link "22":
+      - /url: /downloads/chinese/22.txt
+    - link "23":
+      - /url: /downloads/chinese/23.txt
+    - link "24":
+      - /url: /downloads/chinese/24.txt
+    - link "25":
+      - /url: /downloads/chinese/25.txt
+    - link "26":
+      - /url: /downloads/chinese/26.txt
+    - link "27":
+      - /url: /downloads/chinese/27.txt
+    - link "28":
+      - /url: /downloads/chinese/28.txt
+    - link "29":
+      - /url: /downloads/chinese/29.txt
+    - link "30":
+      - /url: /downloads/chinese/30.txt
+    - link "31":
+      - /url: /downloads/chinese/31.txt
+    - link "32":
+      - /url: /downloads/chinese/32.txt
+    - link "33":
+      - /url: /downloads/chinese/33.txt
+    - link "34":
+      - /url: /downloads/chinese/34.txt
+    - link "35":
+      - /url: /downloads/chinese/35.txt
+    - link "36":
+      - /url: /downloads/chinese/36.txt
+    - link "37":
+      - /url: /downloads/chinese/37.txt
+    - link "38":
+      - /url: /downloads/chinese/38.txt
+    - link "39":
+      - /url: /downloads/chinese/39.txt
+    - link "40":
+      - /url: /downloads/chinese/40.txt
+    - link "41":
+      - /url: /downloads/chinese/41.txt
+    - link "42":
+      - /url: /downloads/chinese/42.txt
+    - link "43":
+      - /url: /downloads/chinese/43.txt
+    - link "44":
+      - /url: /downloads/chinese/44.txt
+    - link "45":
+      - /url: /downloads/chinese/45.txt
+    - link "46":
+      - /url: /downloads/chinese/46.txt
+    - link "47":
+      - /url: /downloads/chinese/47.txt
+    - link "48":
+      - /url: /downloads/chinese/48.txt
+    - link "49":
+      - /url: /downloads/chinese/49.txt
+    - link "50":
+      - /url: /downloads/chinese/50.txt
+    - link "51":
+      - /url: /downloads/chinese/51.txt
+    - link "52":
+      - /url: /downloads/chinese/52.txt
+    - link "53":
+      - /url: /downloads/chinese/53.txt
+    - link "54":
+      - /url: /downloads/chinese/54.txt
+    - link "55":
+      - /url: /downloads/chinese/55.txt
+    - link "56":
+      - /url: /downloads/chinese/56.txt
+    - link "57":
+      - /url: /downloads/chinese/57.txt
+    - link "58":
+      - /url: /downloads/chinese/58.txt
+    - link "59":
+      - /url: /downloads/chinese/59.txt
+    - link "60":
+      - /url: /downloads/chinese/60.txt
+    - paragraph: English (.txt)
+    - link "0":
+      - /url: /downloads/english/00-preface.txt
+    - link "1":
+      - /url: /downloads/english/01.txt
+    - link "2":
+      - /url: /downloads/english/02.txt
+    - link "3":
+      - /url: /downloads/english/03.txt
+    - link "4":
+      - /url: /downloads/english/04.txt
+    - link "5":
+      - /url: /downloads/english/05.txt
+    - link "6":
+      - /url: /downloads/english/06.txt
+    - link "7":
+      - /url: /downloads/english/07.txt
+    - link "8":
+      - /url: /downloads/english/08.txt
+    - link "9":
+      - /url: /downloads/english/09.txt
+    - link "10":
+      - /url: /downloads/english/10.txt
+    - link "11":
+      - /url: /downloads/english/11.txt
+    - link "12":
+      - /url: /downloads/english/12.txt
+    - link "13":
+      - /url: /downloads/english/13.txt
+    - link "14":
+      - /url: /downloads/english/14.txt
+    - link "15":
+      - /url: /downloads/english/15.txt
+    - link "16":
+      - /url: /downloads/english/16.txt
+    - link "17":
+      - /url: /downloads/english/17.txt
+    - link "18":
+      - /url: /downloads/english/18.txt
+    - link "19":
+      - /url: /downloads/english/19.txt
+    - link "20":
+      - /url: /downloads/english/20.txt
+    - link "21":
+      - /url: /downloads/english/21.txt
+    - link "22":
+      - /url: /downloads/english/22.txt
+    - link "23":
+      - /url: /downloads/english/23.txt
+    - link "24":
+      - /url: /downloads/english/24.txt
+    - link "25":
+      - /url: /downloads/english/25.txt
+    - link "26":
+      - /url: /downloads/english/26.txt
+    - link "27":
+      - /url: /downloads/english/27.txt
+    - link "28":
+      - /url: /downloads/english/28.txt
+    - link "29":
+      - /url: /downloads/english/29.txt
+    - link "30":
+      - /url: /downloads/english/30.txt
+    - link "31":
+      - /url: /downloads/english/31.txt
+    - link "32":
+      - /url: /downloads/english/32.txt
+    - link "33":
+      - /url: /downloads/english/33.txt
+    - link "34":
+      - /url: /downloads/english/34.txt
+    - link "35":
+      - /url: /downloads/english/35.txt
+    - link "36":
+      - /url: /downloads/english/36.txt
+    - link "37":
+      - /url: /downloads/english/37.txt
+    - link "38":
+      - /url: /downloads/english/38.txt
+    - link "39":
+      - /url: /downloads/english/39.txt
+    - link "40":
+      - /url: /downloads/english/40.txt
+    - link "41":
+      - /url: /downloads/english/41.txt
+    - link "42":
+      - /url: /downloads/english/42.txt
+    - link "43":
+      - /url: /downloads/english/43.txt
+    - link "44":
+      - /url: /downloads/english/44.txt
+    - link "45":
+      - /url: /downloads/english/45.txt
+    - link "46":
+      - /url: /downloads/english/46.txt
+    - link "47":
+      - /url: /downloads/english/47.txt
+    - link "48":
+      - /url: /downloads/english/48.txt
+    - link "49":
+      - /url: /downloads/english/49.txt
+    - link "50":
+      - /url: /downloads/english/50.txt
+    - link "51":
+      - /url: /downloads/english/51.txt
+    - link "52":
+      - /url: /downloads/english/52.txt
+    - link "53":
+      - /url: /downloads/english/53.txt
+    - link "54":
+      - /url: /downloads/english/54.txt
+    - link "55":
+      - /url: /downloads/english/55.txt
+    - link "56":
+      - /url: /downloads/english/56.txt
+    - link "57":
+      - /url: /downloads/english/57.txt
+    - link "58":
+      - /url: /downloads/english/58.txt
+    - link "59":
+      - /url: /downloads/english/59.txt
+    - link "60":
+      - /url: /downloads/english/60.txt
+- contentinfo:
+  - paragraph: Source Text
+  - paragraph: Pinhua Baojian / Precious Mirror for Grading Flowers
+  - paragraph: A 60-chapter novel · Chen Sen · Qing dynasty
+  - paragraph: This Project
+  - paragraph: Precious Vibe 品花宝境
+  - paragraph: Pinhua Baojian's Vibe Literature
+  - paragraph: Authored by TengChao Zhou · 2026 · With the help of AI technologies
+  - button "Cite"
+- group "Language":
+  - button "EN"
+  - button "中"
+- button "Copy permanent link"
+- button
+- text: Places & Origins
+- heading "Jinling" [level=2]
+- paragraph: Location Name / Tokens
+- paragraph: Jinling / jinling
+- paragraph: Type
+- paragraph: Places & Origins
+- paragraph: Characters from this Hometown · 11
+- button "Méi Zǐyù"
+- button "Yán Zhòngqīng"
+- button "Wáng Xún"
+- button "Tián Chūnháng"
+- button "Jīn Jífǔ"
+- button "Sūn Sìhuī"
+- button "Sūn Sìyuán"
+- button "Méi Shìxiè"
+- button "Wáng Wénhuī"
+- button "Sūn Liànggōng"
+- button "Yán Fūrén"
+- paragraph: Chapter Appearances · 20 of 60 chapters
+- button "Ch.1"
+- button "Ch.2"
+- button "Ch.3"
+- button "Ch.4"
+- button "Ch.7"
+- button "Ch.9"
+- button "Ch.12"
+- button "Ch.16"
+- button "Ch.18"
+- button "Ch.32"
+- button "Ch.37"
+- button "Ch.38"
+- button "Ch.45"
+- button "Ch.49"
+- button "Ch.53"
+- button "Ch.54"
+- button "Ch.55"
+- button "Ch.56"
+- button "Ch.57"
+- button "Ch.59"
+- text: Precious Vibe 品花宝境
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '@playwright/test';
+  2  | 
+  3  | test.describe('Hometown Characters Verification', () => {
+  4  |   test('should list characters sharing a hometown and allow opening their profile', async ({ page }) => {
+  5  |     test.setTimeout(45000);
+  6  |     page.on('console', msg => console.log('BROWSER LOG:', msg.text()));
+  7  |     page.on('pageerror', err => console.log('BROWSER ERROR:', err.message));
+  8  | 
+  9  |     // Navigate to the main page (defaults to English)
+  10 |     await page.goto('/');
+  11 | 
+  12 |     // Locate the "Jinling" hometown button in the index
+  13 |     const jinlingButton = page.locator('button:has-text("Jinling")').first();
+  14 |     await expect(jinlingButton).toBeVisible({ timeout: 20000 });
+  15 |     await jinlingButton.scrollIntoViewIfNeeded();
+  16 |     await jinlingButton.click();
+  17 | 
+  18 |     // Verify that the location detail modal/profile popup opens with title "Jinling"
+  19 |     const modalHeader = page.locator('h3:has-text("Jinling")');
+> 20 |     await expect(modalHeader).toBeVisible({ timeout: 20000 });
+     |                               ^ Error: expect(locator).toBeVisible() failed
+  21 | 
+  22 |     // Verify that the related characters section displays "Characters from this Hometown"
+  23 |     const relatedSectionHeader = page.locator('p:has-text("Characters from this Hometown")');
+  24 |     await expect(relatedSectionHeader).toBeVisible({ timeout: 20000 });
+  25 | 
+  26 |     // Verify that "Méi Zǐyù" is in the related characters list inside the modal
+  27 |     const meiZiyuChip = page.locator('div.fixed.z-50 button:has-text("Méi Zǐyù")').first();
+  28 |     await expect(meiZiyuChip).toBeVisible({ timeout: 20000 });
+  29 | 
+  30 |     // Click the "Méi Zǐyù" button inside the location modal
+  31 |     await meiZiyuChip.click();
+  32 | 
+  33 |     // Verify that the location modal closes and character detail modal for "Méi Zǐyù" opens
+  34 |     const characterHeader = page.locator('h2:has-text("Méi Zǐyù")');
+  35 |     await expect(characterHeader).toBeVisible({ timeout: 20000 });
+  36 |   });
+  37 | });
+  38 | 
+```

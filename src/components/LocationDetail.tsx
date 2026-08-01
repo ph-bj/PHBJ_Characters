@@ -308,7 +308,7 @@ export function LocationDetail({
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2 mb-1">
                 <span
-                  className="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm border"
+                  className="text-xs uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm border"
                   style={{
                     color: accentColor,
                     borderColor: hexToRgba(accentColor, 0.25),
@@ -325,9 +325,9 @@ export function LocationDetail({
           </div>
 
           {/* Metadata Cards */}
-          <div className="grid grid-cols-2 gap-3 text-[11px]">
+          <div className="grid grid-cols-2 gap-3 text-xs">
             <div className="bg-black/3 border border-[var(--paper-border)]/60 rounded-sm p-3">
-              <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-1 font-bold">
+              <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-1 font-bold">
                 {lang === "zh" ? "地名 / 搜索词" : "Location Name / Tokens"}
               </p>
               <p className="font-hans text-[var(--ink-title)] font-semibold">
@@ -335,7 +335,7 @@ export function LocationDetail({
               </p>
             </div>
             <div className="bg-black/3 border border-[var(--paper-border)]/60 rounded-sm p-3">
-              <p className="text-[9px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-1 font-bold">
+              <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-1 font-bold">
                 {lang === "zh" ? "类型" : "Type"}
               </p>
               <p className="font-hans text-[var(--ink-title)] font-semibold">
@@ -347,7 +347,7 @@ export function LocationDetail({
           {/* Related Characters */}
           {relatedCharacters.length > 0 && (
             <div>
-              <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2 mb-3 flex items-center gap-1.5">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2 mb-3 flex items-center gap-1.5">
                 <Users size={10} />
                 {lang === "zh"
                   ? `同乡人物 · 共${relatedCharacters.length}人`
@@ -360,7 +360,7 @@ export function LocationDetail({
                     <button
                       key={char.id}
                       onClick={() => onSelectCharacter?.(char)}
-                      className="group flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] text-[var(--ink-title)] hover:text-[var(--accent)] transition-all text-[11px] font-hans cursor-pointer"
+                      className="group flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/45 hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] text-[var(--ink-title)] hover:text-[var(--accent)] transition-all text-xs font-hans cursor-pointer"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shrink-0 transition-transform group-hover:scale-125" />
                       <span className="leading-tight transition-colors group-hover:text-[var(--accent)]">
@@ -376,7 +376,7 @@ export function LocationDetail({
 
           {/* Chapter Appearances */}
           <div>
-            <p className="text-[9px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2 mb-3 flex items-center gap-2">
+            <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] border-b border-[var(--paper-border)] pb-2 mb-3 flex items-center gap-2">
               <BookOpen size={10} />
               {lang === "zh"
                 ? `章回出现 · 共${mentionedChapters.length}回`
@@ -412,7 +412,7 @@ export function LocationDetail({
                   onClick={() =>
                     setActiveChapter((prev) => (prev === d.ch ? null : d.ch))
                   }
-                  className={`text-[10px] px-2.5 py-1 rounded-sm border font-bold transition-all ${
+                  className={`text-xs px-2.5 py-1 rounded-sm border font-bold transition-all ${
                     activeChapter === d.ch
                       ? "text-[var(--paper-bg)] border-transparent"
                       : "border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)]"
@@ -445,13 +445,13 @@ export function LocationDetail({
                   <div className="flex items-center justify-between px-4 py-2.5 bg-black/3 border-b border-[var(--paper-border)]">
                     <div>
                       <span
-                        className="text-[10px] font-bold uppercase tracking-widest font-hans"
+                        className="text-xs font-bold uppercase tracking-widest font-hans"
                         style={{ color: accentColor }}
                       >
                         {t.chapterAbbr}
                         {lang === "zh" ? ` ${activeChapter} 回` : activeChapter}
                       </span>
-                      <span className="text-[10px] text-[var(--ink-dim-text)] ml-2 font-hans">
+                      <span className="text-xs text-[var(--ink-dim-text)] ml-2 font-hans">
                         {chapters.find((c) => c.id === activeChapter)?.title}
                       </span>
                     </div>
@@ -466,7 +466,7 @@ export function LocationDetail({
                             onClose();
                           }
                         }}
-                        className="text-[9px] px-2 py-1 rounded-sm border text-[var(--ink-dim-text)] border-[var(--paper-border)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors uppercase tracking-widest font-bold"
+                        className="text-xs px-2 py-1 rounded-sm border text-[var(--ink-dim-text)] border-[var(--paper-border)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors uppercase tracking-widest font-bold"
                       >
                         {t.readChapter}
                       </button>
@@ -483,7 +483,7 @@ export function LocationDetail({
                     className="p-4 space-y-3 max-h-80 overflow-y-auto"
                   >
                     {activeSnippets.snippets.length === 0 ? (
-                      <p className="text-[11px] italic text-[var(--ink-dim-text)] font-hans">
+                      <p className="text-xs italic text-[var(--ink-dim-text)] font-hans">
                         {lang === "zh"
                           ? "无文本摘录。"
                           : "No text excerpts found."}
@@ -501,7 +501,7 @@ export function LocationDetail({
                             className="bg-black/5 rounded-sm px-3 py-2 border-l-2"
                             style={{ borderColor: accentColor + "50" }}
                           >
-                            <p className="text-[11px] leading-relaxed text-[var(--ink-title)] font-hans">
+                            <p className="text-xs leading-relaxed text-[var(--ink-title)] font-hans">
                               …
                               {parts.map((part, j) => {
                                 const isMatch = activeSnippets.tokens.some(

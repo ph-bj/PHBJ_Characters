@@ -37,7 +37,7 @@ export function CharacterCard({
       style={{ borderLeftColor: accentColor }}
     >
       {character.id === "char-0" && <PlumCorner />}
-      <span className="absolute top-4 right-4 text-[9px] sm:text-[10px] font-serif italic opacity-40">
+      <span className="absolute top-4 right-4 text-xs font-serif italic text-[var(--ink-dim-text)]">
         {character.id}
       </span>
 
@@ -46,7 +46,7 @@ export function CharacterCard({
           {getCharacterNameForLanguage(character, lang)}
         </div>
         {(lang === "en" || character.alias !== "—") && (
-          <div className="text-[11px] sm:text-[12px] italic text-[var(--ink-dim-text)] mt-1 font-hans">
+          <div className="text-xs italic text-[var(--ink-dim-text)] mt-1 font-hans">
             {lang === "en" && character.name.split(" ")[0]}
             {lang === "en" && character.alias !== "—" && " · "}
             {character.alias !== "—" && character.alias}
@@ -56,29 +56,29 @@ export function CharacterCard({
 
       <div>
         <div
-          className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] mb-4 font-hans ${textClass}`}
+          className={`text-xs font-bold uppercase tracking-widest mb-4 font-hans ${textClass}`}
         >
           {lang === "zh" ? character.roleZh : character.role}
         </div>
         <p
-          className={`leading-relaxed text-[var(--ink-title)] line-clamp-3 mb-2 ${lang === "zh" ? "text-[12px] sm:text-[13px] font-hans" : "text-xs sm:text-sm italic"}`}
+          className={`leading-relaxed text-[var(--ink-title)] line-clamp-3 mb-2 ${lang === "zh" ? "text-xs sm:text-sm font-hans" : "text-xs sm:text-sm italic"}`}
         >
           {lang === "en" ? character.description : character.descriptionZh}
         </p>
       </div>
 
       <div className="flex flex-wrap gap-2 sm:gap-3 border-t border-[var(--paper-border)] pt-4">
-        <span className="text-[9px] sm:text-[10px] text-[var(--ink-dim-text)] uppercase tracking-widest font-bold font-hans">
+        <span className="text-xs text-[var(--ink-dim-text)] uppercase tracking-widest font-bold font-hans">
           {lang === "zh" ? character.originZh : character.origin}
         </span>
-        <span className="text-[9px] sm:text-[10px] text-[var(--ink-dim-text)] uppercase tracking-widest font-hans">
+        <span className="text-xs text-[var(--ink-dim-text)] uppercase tracking-widest font-hans">
           {lang === "en" ? "Age" : "年龄"}: {character.age}
         </span>
-        <span className="text-[9px] sm:text-[10px] text-[var(--ink-dim-text)] uppercase tracking-widest font-hans">
+        <span className="text-xs text-[var(--ink-dim-text)] uppercase tracking-widest font-hans">
           {lang === "en" ? character.gender : character.genderZh}
         </span>
         {mentionCount !== undefined && (
-          <span className="text-[9px] sm:text-[10px] text-[var(--accent)] uppercase tracking-widest font-bold font-hans">
+          <span className="text-xs text-[var(--accent)] uppercase tracking-widest font-bold font-hans">
             {lang === "en"
               ? `${mentionCount} mentions`
               : `${mentionCount} 次提及`}

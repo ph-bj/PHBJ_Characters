@@ -172,7 +172,7 @@ export function ChapterAppreciation({
                   setActiveTaxonomy("lords");
                   setSelectedFeeling(null);
                 }}
-                className={`px-3 py-1 text-[10px] sm:text-xs font-bold font-hans transition-colors cursor-pointer ${activeTaxonomy === "lords"
+                className={`px-3 py-1 text-xs font-bold font-hans transition-colors cursor-pointer ${activeTaxonomy === "lords"
                     ? "bg-[var(--accent)]/15 text-[var(--accent)]"
                     : "bg-[var(--paper-bg)]/40 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/5 hover:text-[var(--accent)]"
                   }`}
@@ -185,7 +185,7 @@ export function ChapterAppreciation({
                   setActiveTaxonomy("performers");
                   setSelectedFeeling(null);
                 }}
-                className={`px-3 py-1 text-[10px] sm:text-xs font-bold font-hans transition-colors cursor-pointer ${activeTaxonomy === "performers"
+                className={`px-3 py-1 text-xs font-bold font-hans transition-colors cursor-pointer ${activeTaxonomy === "performers"
                     ? "bg-[var(--accent)]/15 text-[var(--accent)]"
                     : "bg-[var(--paper-bg)]/40 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/5 hover:text-[var(--accent)]"
                   }`}
@@ -195,7 +195,7 @@ export function ChapterAppreciation({
             </div>
           </div>
 
-          <p className="text-[11px] sm:text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
+          <p className="text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
             {lang === "zh"
               ? "* 点击任意字格，解锁书中十种特定“情”之维度的定义与文学意义"
               : "* Click any glyph card to unlock the definition and critique of that specific taxonomy"}
@@ -220,12 +220,12 @@ export function ChapterAppreciation({
                 <span className={
                   lang === "zh"
                     ? "text-xl sm:text-2xl font-bold font-hans"
-                    : "text-[7.5px] min-[360px]:text-[8.5px] min-[400px]:text-[9.5px] sm:text-xs md:text-sm tracking-tighter leading-none font-bold font-sans text-center whitespace-nowrap"
+                    : "text-xs min-[360px]:text-xs min-[400px]:text-xs md:text-sm tracking-tighter leading-none font-bold font-sans text-center whitespace-nowrap"
                 }>
                   {lang === "zh" ? item.char : item.nameEn.replace(/\s+Feeling$/i, "")}
                 </span>
                 {lang === "zh" && (
-                  <span className="text-[8px] opacity-75 font-sans mt-0.5">{item.pinyin}</span>
+                  <span className="text-xs opacity-75 font-sans mt-0.5">{item.pinyin}</span>
                 )}
               </button>
             ))}
@@ -242,7 +242,7 @@ export function ChapterAppreciation({
                     <h5 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] font-hans">
                       {lang === "zh" ? selectedFeeling.nameZh : selectedFeeling.nameEn}
                     </h5>
-                    <p className="text-[9px] sm:text-[10px] text-[var(--ink-dim-text)] opacity-75 font-sans">
+                    <p className="text-xs text-[var(--ink-dim-text)]  font-sans">
                       {selectedFeeling.pinyin.toUpperCase()}
                     </p>
                   </div>
@@ -351,7 +351,7 @@ export function ChapterAppreciation({
                 <div className="font-bold text-[var(--accent)]">{lang === "zh" ? l.characterZh : l.characterEn}</div>
                 <div className="flex flex-1 items-center justify-between w-full">
                   <div className="text-xs text-center p-2 bg-[var(--paper-border)]/30 border border-[var(--paper-border)]/50 rounded-sm text-[var(--ink-title)] font-semibold">{lang === "zh" ? l.initialStatusZh : l.initialStatusEn}</div>
-                  <div className="text-[10px] text-[var(--ink-dim-text)] px-2">{lang === "zh" ? l.methodZh : l.methodEn}</div>
+                  <div className="text-xs text-[var(--ink-dim-text)] px-2">{lang === "zh" ? l.methodZh : l.methodEn}</div>
                   <div className="text-xs text-center p-2 bg-[var(--accent)]/10 border border-[var(--accent)]/30 rounded-sm font-bold text-[var(--accent)]">{lang === "zh" ? l.finalStatusZh : l.finalStatusEn}</div>
                 </div>
               </div>
@@ -376,7 +376,7 @@ export function ChapterAppreciation({
                   <h5 className="font-bold text-[var(--accent)] font-hans text-sm sm:text-base">
                     {lang === "zh" ? poem.titleZh : poem.titleEn}
                   </h5>
-                  <span className="text-[10px] sm:text-xs text-[var(--ink-dim-text)] font-hans">
+                  <span className="text-xs text-[var(--ink-dim-text)] font-hans">
                     {lang === "zh" ? poem.authorZh : poem.authorEn}
                   </span>
                 </div>
@@ -429,14 +429,14 @@ export function ChapterAppreciation({
                   {lang === "zh" ? d.characterZh : d.characterEn}
                 </div>
                 <div className="text-xs p-2 bg-[var(--paper-border)]/20 border border-[var(--paper-border)]/40 rounded-sm">
-                  <span className="font-bold block mb-1 text-[9px] uppercase tracking-wider text-[var(--ink-dim-text)] opacity-70">SURFACE</span>
+                  <span className="font-bold block mb-1 text-xs uppercase tracking-wider text-[var(--ink-dim-text)] ">SURFACE</span>
                   {lang === "zh" ? d.surfaceEmotionZh : d.surfaceEmotionEn}
                 </div>
                 <div className="text-xs p-2 bg-[var(--accent)]/5 border-l-[3px] border-l-[var(--accent)] border border-[var(--paper-border)]/40 rounded-sm">
-                  <span className="font-bold text-[var(--accent)] block mb-1 text-[9px] uppercase tracking-wider">HIDDEN</span>
+                  <span className="font-bold text-[var(--accent)] block mb-1 text-xs uppercase tracking-wider">HIDDEN</span>
                   {lang === "zh" ? d.hiddenEmotionZh : d.hiddenEmotionEn}
                 </div>
-                <div className="col-span-1 sm:col-span-3 text-[10px] text-[var(--ink-dim-text)] text-center mt-1 italic">
+                <div className="col-span-1 sm:col-span-3 text-xs text-[var(--ink-dim-text)] text-center mt-1 italic">
                   {lang === "zh" ? "触发点: " : "Trigger: "}{lang === "zh" ? d.triggerZh : d.triggerEn}
                 </div>
               </div>
@@ -459,11 +459,11 @@ export function ChapterAppreciation({
               <div key={pd.id} className="p-3 border border-l-[3px] border-[var(--paper-border)]/50 border-l-[var(--accent)] bg-[var(--paper-bg)]/40 rounded-sm hover:bg-[var(--paper-bg)]/60 hover:border-[var(--accent)]/30 hover:border-l-[var(--accent)] transition-all duration-300 shadow-sm">
                 <div className="flex justify-between items-center mb-2 ml-2">
                   <span className="font-bold font-serif text-lg">{lang === "zh" ? pd.dominatorZh : pd.dominatorEn}</span>
-                  <span className="bg-[var(--accent)]/10 text-[var(--accent)] px-1.5 py-0.5 rounded-sm font-sans font-bold text-[9px] uppercase tracking-wider">DOMINANT</span>
+                  <span className="bg-[var(--accent)]/10 text-[var(--accent)] px-1.5 py-0.5 rounded-sm font-sans font-bold text-xs uppercase tracking-wider">DOMINANT</span>
                 </div>
                 <div className="flex justify-between items-center mb-3 ml-2 border-b border-[var(--paper-border)]/35 pb-2">
                   <span className="text-sm opacity-70">{lang === "zh" ? pd.submissiveZh : pd.submissiveEn}</span>
-                  <span className="bg-[var(--paper-border)]/40 text-[var(--ink-dim-text)] px-1.5 py-0.5 rounded-sm font-sans font-bold text-[9px] uppercase tracking-wider">SUBMISSIVE</span>
+                  <span className="bg-[var(--paper-border)]/40 text-[var(--ink-dim-text)] px-1.5 py-0.5 rounded-sm font-sans font-bold text-xs uppercase tracking-wider">SUBMISSIVE</span>
                 </div>
                 <div className="text-xs space-y-1 ml-2 text-[var(--ink-dim-text)]">
                   <p><span className="font-bold text-[var(--ink-main)]">Base: </span>{lang === "zh" ? pd.powerBaseZh : pd.powerBaseEn}</p>
@@ -509,7 +509,7 @@ export function ChapterAppreciation({
             </h4>
           </div>
 
-          <p className="text-[11px] sm:text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
+          <p className="text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
             {lang === "zh"
               ? "* 点击以下卡片，了解当晚行令规则及背后的社会文化解构"
               : "* Click any cup below to inspect the game rules and sociological deconstruction"}
@@ -532,7 +532,7 @@ export function ChapterAppreciation({
                     size={16}
                     className={selectedCup === cup.id ? "text-[var(--accent)]" : "text-[var(--ink-dim-text)]/60"}
                   />
-                  <span className="text-[9px] font-bold text-[var(--ink-dim-text)]">
+                  <span className="text-xs font-bold text-[var(--ink-dim-text)]">
                     STAGE {cup.id}
                   </span>
                 </div>
@@ -554,7 +554,7 @@ export function ChapterAppreciation({
                       <h5 className="text-sm font-bold text-[var(--accent)] font-hans">
                         {lang === "zh" ? cup.titleZh : cup.titleEn}
                       </h5>
-                      <span className="text-[10px] bg-[var(--paper-border)]/30 px-2 py-0.5 rounded-sm text-[var(--ink-dim-text)] font-sans">
+                      <span className="text-xs bg-[var(--paper-border)]/30 px-2 py-0.5 rounded-sm text-[var(--ink-dim-text)] font-sans">
                         {lang === "zh" ? `规则: ${cup.ruleZh}` : `Rule: ${cup.ruleEn}`}
                       </span>
                     </div>
@@ -568,12 +568,12 @@ export function ChapterAppreciation({
                           {lang === "zh" ? cup.actionZh : cup.actionEn}
                         </p>
                         {cup.poetryZh && (
-                          <div className="mt-2 bg-[var(--accent)]/5 border-l-2 border-[var(--accent)] p-2 font-serif italic text-[11px] sm:text-xs">
+                          <div className="mt-2 bg-[var(--accent)]/5 border-l-2 border-[var(--accent)] p-2 font-serif italic text-xs">
                             <p className="font-hans font-semibold not-italic text-[var(--accent)]">
                               {lang === "zh" ? "行令吟诵诗句：" : "Recited Poetry Lines:"}
                             </p>
                             <p className="mt-0.5 text-[var(--ink-title)]">{cup.poetryZh}</p>
-                            <p className="text-[var(--ink-dim-text)] text-[10px] mt-0.5 font-sans">
+                            <p className="text-[var(--ink-dim-text)] text-xs mt-0.5 font-sans">
                               {cup.poetryEn}
                             </p>
                           </div>
@@ -613,7 +613,7 @@ export function ChapterAppreciation({
             </h4>
           </div>
 
-          <p className="text-[11px] sm:text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
+          <p className="text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
             {lang === "zh"
               ? "* 点击以下图鉴卡片，洞察人物的社交面具与权力游戏"
               : "* Click any archetype card below to explore social masks and power plays"}
@@ -636,7 +636,7 @@ export function ChapterAppreciation({
                     size={16}
                     className={selectedArchetype === arc.id ? "text-[var(--accent)]" : "text-[var(--ink-dim-text)]/60"}
                   />
-                  <span className="text-[9px] font-bold text-[var(--ink-dim-text)] uppercase tracking-wider">
+                  <span className="text-xs font-bold text-[var(--ink-dim-text)] uppercase tracking-wider">
                     {lang === "zh" ? "人物卡" : "CARD"} {arc.id}
                   </span>
                 </div>
@@ -658,7 +658,7 @@ export function ChapterAppreciation({
                       <h5 className="text-sm font-bold text-[var(--accent)] font-hans">
                         {lang === "zh" ? arc.titleZh : arc.titleEn}
                       </h5>
-                      <span className="text-[10px] bg-[var(--paper-border)]/30 px-2 py-0.5 rounded-sm text-[var(--ink-dim-text)] font-sans">
+                      <span className="text-xs bg-[var(--paper-border)]/30 px-2 py-0.5 rounded-sm text-[var(--ink-dim-text)] font-sans">
                         {lang === "zh" ? `代表人物: ${arc.roleZh}` : `Key Figure: ${arc.roleEn}`}
                       </span>
                     </div>
@@ -691,7 +691,7 @@ export function ChapterAppreciation({
               {lang === "zh" ? "人物关系温度计" : "Relationship Compass"}
             </h4>
           </div>
-          <p className="text-[11px] sm:text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
+          <p className="text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
             {lang === "zh"
               ? "* 温度自“冰点”（对立疏离）升至“沸点”（莫逆知音），度量本章人物关系的亲疏冷暖"
               : "* Temperature runs from 'freezing' (antagonism) to 'boiling' (soulmates), gauging each bond in this chapter"}
@@ -703,12 +703,12 @@ export function ChapterAppreciation({
                   <span className="font-bold text-[var(--ink-title)] font-hans">
                     {lang === "zh" ? r.pairZh : r.pairEn}
                   </span>
-                  <span className="text-[10px] font-bold text-[var(--accent)] bg-[var(--accent)]/10 border border-[var(--accent)]/30 px-2 py-0.5 rounded-sm font-hans">
+                  <span className="text-xs font-bold text-[var(--accent)] bg-[var(--accent)]/10 border border-[var(--accent)]/30 px-2 py-0.5 rounded-sm font-hans">
                     {lang === "zh" ? r.relationZh : r.relationEn}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[9px] text-[var(--ink-dim-text)] shrink-0 font-hans">
+                  <span className="text-xs text-[var(--ink-dim-text)] shrink-0 font-hans">
                     {lang === "zh" ? "冰点" : "Cold"}
                   </span>
                   <div className="relative flex-1 h-1.5 rounded-full bg-gradient-to-r from-[var(--paper-border)]/60 via-[var(--accent)]/30 to-[var(--accent)]">
@@ -717,10 +717,10 @@ export function ChapterAppreciation({
                       style={{ left: `${Math.min(100, Math.max(0, r.temperature))}%` }}
                     />
                   </div>
-                  <span className="text-[9px] text-[var(--ink-dim-text)] shrink-0 font-hans">
+                  <span className="text-xs text-[var(--ink-dim-text)] shrink-0 font-hans">
                     {lang === "zh" ? "沸点" : "Warm"}
                   </span>
-                  <span className="text-[10px] font-bold text-[var(--accent)] w-8 text-right">{r.temperature}°</span>
+                  <span className="text-xs font-bold text-[var(--accent)] w-8 text-right">{r.temperature}°</span>
                 </div>
                 <p className="text-xs text-[var(--ink-dim-text)] leading-relaxed">
                   {lang === "zh" ? r.noteZh : r.noteEn}
@@ -740,7 +740,7 @@ export function ChapterAppreciation({
               {lang === "zh" ? "关键抉择与回响" : "Decisions & Echoes"}
             </h4>
           </div>
-          <p className="text-[11px] sm:text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
+          <p className="text-xs text-[var(--ink-dim-text)] leading-relaxed italic">
             {lang === "zh"
               ? "* 点击卡片，追踪本章的一个决定如何激起即时涟漪，又在后文的远处回响"
               : "* Click a card to trace how a decision in this chapter ripples immediately — and echoes far into later chapters"}
@@ -758,7 +758,7 @@ export function ChapterAppreciation({
                 }`}
               >
                 <div className="flex items-start gap-2">
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-[var(--paper-bg)] bg-[var(--accent)] px-1.5 py-0.5 rounded-sm shrink-0 mt-0.5 font-hans">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--paper-bg)] bg-[var(--accent)] px-1.5 py-0.5 rounded-sm shrink-0 mt-0.5 font-hans">
                     {lang === "zh" ? "抉择" : "CHOICE"}
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-[var(--ink-title)] leading-relaxed font-hans">
@@ -783,7 +783,7 @@ export function ChapterAppreciation({
                     </div>
                   </div>
                 ) : (
-                  <p className="mt-1.5 text-[10px] text-[var(--ink-dim-text)] italic">
+                  <p className="mt-1.5 text-xs text-[var(--ink-dim-text)] italic">
                     {lang === "zh" ? "点击展开涟漪与回响…" : "Click to reveal ripple & echo…"}
                   </p>
                 )}
@@ -823,11 +823,11 @@ export function ChapterAppreciation({
               <div>
                 <h4 className="text-sm sm:text-base font-bold text-[var(--ink-title)] font-hans flex flex-wrap items-center gap-2">
                   <span>{lang === "zh" ? "九香楼东西双楹 · 十一方石刻花神图画赏析" : "Jiuxiang Tower Twin Pillars · 11 Flower Deity Stone Reliefs"}</span>
-                  <span className="text-[10px] font-normal px-2 py-0.5 rounded-sm bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 font-sans">
+                  <span className="text-xs font-normal px-2 py-0.5 rounded-sm bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20 font-sans">
                     {lang === "zh" ? "第六十章典藏石刻" : "Chapter 60 Relief Tablets"}
                   </span>
                 </h4>
-                <p className="text-[11px] text-[var(--ink-dim-text)] font-hans mt-0.5">
+                <p className="text-xs text-[var(--ink-dim-text)] font-hans mt-0.5">
                   {lang === "zh" 
                     ? "嵌于九香楼东西二楹的十一方石刻画赞，将品花盛会升华为高洁灵魂的降世与封神" 
                     : "11 stone relief tablets embedded in East/West Pillars, immortalizing performers into divine flower deities."}
@@ -886,7 +886,7 @@ export function ChapterAppreciation({
                       {lang === "zh" ? "东楹刻石 · 卷首与神主 (1-5方)" : "East Pillar Tablets · Overview & Masters (1-5)"}
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-[var(--accent)]/80 font-semibold tracking-wider">EAST PILLAR</span>
+                  <span className="text-xs font-mono text-[var(--accent)]/80 font-semibold tracking-wider">EAST PILLAR</span>
                 </div>
 
                 <div className={`grid gap-2 ${paintingFilter === "east" ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-5" : "grid-cols-1"}`}>
@@ -907,14 +907,14 @@ export function ChapterAppreciation({
                           <div className="absolute top-0 right-0 w-1.5 h-full bg-[var(--accent)]" />
                         )}
                         <div className="flex items-center justify-between gap-1 mb-1">
-                          <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-sm font-hans ${
+                          <span className={`text-xs font-bold px-1.5 py-0.5 rounded-sm font-hans ${
                             isSelected
                               ? "bg-[var(--accent)] text-[var(--paper-bg)]"
                               : "bg-[var(--accent)]/10 text-[var(--accent)]"
                           }`}>
                             {lang === "zh" ? p.ordinalZh : p.ordinalEn}
                           </span>
-                          <span className="text-[10px] text-[var(--ink-dim-text)] font-hans">
+                          <span className="text-xs text-[var(--ink-dim-text)] font-hans">
                             {lang === "zh" ? p.genreZh : p.genreEn}
                           </span>
                         </div>
@@ -923,11 +923,11 @@ export function ChapterAppreciation({
                           {lang === "zh" ? p.titleZh : p.titleEn}
                         </h5>
 
-                        <div className="flex items-center justify-between text-[11px] text-[var(--ink-dim-text)] mt-1.5 pt-1.5 border-t border-[var(--paper-border)]/30 font-hans">
+                        <div className="flex items-center justify-between text-xs text-[var(--ink-dim-text)] mt-1.5 pt-1.5 border-t border-[var(--paper-border)]/30 font-hans">
                           <span className="truncate font-semibold text-[var(--accent)]">
                             {lang === "zh" ? p.flowerTitleZh : p.flowerTitleEn}
                           </span>
-                          <span className="shrink-0 text-[10px] opacity-80 pl-1">
+                          <span className="shrink-0 text-xs opacity-80 pl-1">
                             {lang === "zh" ? p.authorZh : p.authorEn}
                           </span>
                         </div>
@@ -947,7 +947,7 @@ export function ChapterAppreciation({
                       {lang === "zh" ? "西楹刻石 · 花史与高逸 (6-11方)" : "West Pillar Tablets · Flower Histories (6-11)"}
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-[var(--accent)]/80 font-semibold tracking-wider">WEST PILLAR</span>
+                  <span className="text-xs font-mono text-[var(--accent)]/80 font-semibold tracking-wider">WEST PILLAR</span>
                 </div>
 
                 <div className={`grid gap-2 ${paintingFilter === "west" ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"}`}>
@@ -968,14 +968,14 @@ export function ChapterAppreciation({
                           <div className="absolute top-0 right-0 w-1.5 h-full bg-[var(--accent)]" />
                         )}
                         <div className="flex items-center justify-between gap-1 mb-1">
-                          <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-sm font-hans ${
+                          <span className={`text-xs font-bold px-1.5 py-0.5 rounded-sm font-hans ${
                             isSelected
                               ? "bg-[var(--accent)] text-[var(--paper-bg)]"
                               : "bg-[var(--accent)]/10 text-[var(--accent)]"
                           }`}>
                             {lang === "zh" ? p.ordinalZh : p.ordinalEn}
                           </span>
-                          <span className="text-[10px] text-[var(--ink-dim-text)] font-hans">
+                          <span className="text-xs text-[var(--ink-dim-text)] font-hans">
                             {lang === "zh" ? p.genreZh : p.genreEn}
                           </span>
                         </div>
@@ -984,11 +984,11 @@ export function ChapterAppreciation({
                           {lang === "zh" ? p.titleZh : p.titleEn}
                         </h5>
 
-                        <div className="flex items-center justify-between text-[11px] text-[var(--ink-dim-text)] mt-1.5 pt-1.5 border-t border-[var(--paper-border)]/30 font-hans">
+                        <div className="flex items-center justify-between text-xs text-[var(--ink-dim-text)] mt-1.5 pt-1.5 border-t border-[var(--paper-border)]/30 font-hans">
                           <span className="truncate font-semibold text-[var(--accent)]">
                             {lang === "zh" ? p.flowerTitleZh : p.flowerTitleEn}
                           </span>
-                          <span className="shrink-0 text-[10px] opacity-80 pl-1">
+                          <span className="shrink-0 text-xs opacity-80 pl-1">
                             {lang === "zh" ? p.authorZh : p.authorEn}
                           </span>
                         </div>
@@ -1085,7 +1085,7 @@ export function ChapterAppreciation({
                       <Scroll size={16} className="text-[var(--accent)]" />
                       <span>{lang === "zh" ? "石刻铭文赞语/诗词" : "Inscribed Text Excerpt"}</span>
                     </div>
-                    <span className="text-[10px] text-[var(--ink-dim-text)] font-sans">
+                    <span className="text-xs text-[var(--ink-dim-text)] font-sans">
                       {lang === "zh" ? `撰者: ${activePainting.authorZh}` : `By: ${activePainting.authorEn}`}
                     </span>
                   </div>
@@ -1142,12 +1142,12 @@ export function ChapterAppreciation({
               {lang === "zh" ? "主角心理状态与环境反馈轨迹" : "Protagonist Psychology Trajectory"}
             </span>
             {protagonistZh && (
-              <span className="text-[10px] sm:text-xs font-normal text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 rounded-sm border border-[var(--accent)]/30">
+              <span className="text-xs font-normal text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 rounded-sm border border-[var(--accent)]/30">
                 {lang === "zh" ? `主角: ${protagonistZh}` : `Protagonist: ${protagonistEn}`}
               </span>
             )}
           </h4>
-          <p className="text-[10px] text-[var(--ink-dim-text)] mb-4">
+          <p className="text-xs text-[var(--ink-dim-text)] mb-4">
             {lang === "zh"
               ? "* 纵轴代表情感的正向度(狂喜/威严至极度失落/狼狈)"
               : "* Y-axis represents sentiment (High: Joy/Authority, Low: Despair/Panic)"}
@@ -1180,7 +1180,7 @@ export function ChapterAppreciation({
                           <p className="font-bold text-[var(--accent)] text-xs mb-1">
                             {data.stage} ({lang === "zh" ? "指数" : "Index"}: {data.sentiment})
                           </p>
-                          <p className="text-[10px] text-[var(--ink-main)] leading-relaxed">
+                          <p className="text-xs text-[var(--ink-main)] leading-relaxed">
                             {data.description}
                           </p>
                         </div>
@@ -1244,7 +1244,7 @@ export function ChapterAppreciation({
                     {getIcon(dimensions[activeTab].iconType, "text-[var(--accent)] shrink-0")}
                     {lang === "zh" ? dimensions[activeTab].titleZh : dimensions[activeTab].titleEn}
                   </span>
-                  <span className="text-[10px] font-bold text-[var(--ink-dim-text)] opacity-75">
+                  <span className="text-xs font-bold text-[var(--ink-dim-text)] ">
                     {lang === "zh"
                       ? `本章侧重度: ${dimensions[activeTab].score}%`
                       : `Emphasis: ${dimensions[activeTab].score}%`}

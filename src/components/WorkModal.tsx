@@ -157,7 +157,7 @@ export function WorkModal({
                     {data.chapters.map((ch) => (
                       <span
                         key={ch}
-                        className="px-2 py-0.5 text-[10px] rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/50 text-[var(--ink-dim-text)] font-sans"
+                        className="px-2 py-0.5 text-xs rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/50 text-[var(--ink-dim-text)] font-sans"
                       >
                         {lang === "zh" ? `第${ch}回` : `Chapter ${ch}`}
                       </span>
@@ -174,7 +174,7 @@ export function WorkModal({
                   <Book className="w-4 h-4" />
                   {lang === "zh" ? "场景笔记" : "Scene Notes"}
                 </h3>
-                <p className="text-[10px] text-[var(--ink-dim-text)] italic mb-2">
+                <p className="text-xs text-[var(--ink-dim-text)] italic mb-2">
                   {lang === "zh"
                     ? "编者场景摘记中直接涉及此作品之处。"
                     : "Curated scene summaries that invoke this work directly."}
@@ -185,7 +185,7 @@ export function WorkModal({
                       key={`${link.characterId}-${link.chapter}-${idx}`}
                       className="border border-[var(--paper-border)]/70 rounded-sm p-2 bg-[var(--paper-bg)]/60"
                     >
-                      <p className="text-[10px] font-bold text-[var(--accent)] mb-1">
+                      <p className="text-xs font-bold text-[var(--accent)] mb-1">
                         <button
                           type="button"
                           onClick={() => onSelectCharacter?.(link.character!)}
@@ -199,7 +199,7 @@ export function WorkModal({
                           ? `第 ${link.chapter} 回`
                           : `Chapter ${link.chapter}`}
                       </p>
-                      <p className="text-[11px] leading-relaxed font-hans text-[var(--ink-title)]">
+                      <p className="text-xs leading-relaxed font-hans text-[var(--ink-title)]">
                         {lang === "zh" ? link.bullet.zh : link.bullet.en}
                       </p>
                     </div>
@@ -211,7 +211,7 @@ export function WorkModal({
             {workMentions.length > 0 && (
               <section>
                 <div className="border border-[var(--paper-border)] rounded-sm p-3 bg-black/5 space-y-3">
-                  <p className="text-[10px] uppercase tracking-widest font-bold text-[var(--ink-dim-text)]">
+                  <p className="text-xs uppercase tracking-widest font-bold text-[var(--ink-dim-text)]">
                     {lang === "zh"
                       ? "章节提及与上下文"
                       : "Mentions with Context"}
@@ -222,14 +222,14 @@ export function WorkModal({
                         key={chapterId}
                         className="border border-[var(--paper-border)]/70 rounded-sm p-2 bg-[var(--paper-bg)]/60"
                       >
-                        <p className="text-[10px] font-bold text-[var(--accent)] mb-1">
+                        <p className="text-xs font-bold text-[var(--accent)] mb-1">
                           {lang === "zh"
                             ? `第 ${chapterId} 回`
                             : `Chapter ${chapterId}`}{" "}
                           ({snippets.length})
                         </p>
                         {snippets.length === 0 ? (
-                          <p className="text-[11px] text-[var(--ink-dim-text)] italic">
+                          <p className="text-xs text-[var(--ink-dim-text)] italic">
                             {lang === "zh"
                               ? "无上下文摘录。"
                               : "No surrounding snippet found."}
@@ -239,7 +239,7 @@ export function WorkModal({
                             {snippets.map((snippet, idx) => (
                               <p
                                 key={`${chapterId}-${idx}`}
-                                className="text-[11px] leading-relaxed font-hans text-[var(--ink-title)]"
+                                className="text-xs leading-relaxed font-hans text-[var(--ink-title)]"
                               >
                                 …
                                 {(workTokenRegex
@@ -250,7 +250,7 @@ export function WorkModal({
                                   return isMatch ? (
                                     <mark
                                       key={`${chapterId}-${idx}-${partIdx}`}
-                                      className="bg-amber-300/70 text-[var(--ink-title)] px-0.5 rounded-sm"
+                                      className="bg-[var(--highlight)] text-[var(--ink-title)] px-0.5 rounded-sm"
                                     >
                                       {part}
                                     </mark>

@@ -537,11 +537,11 @@ export function LocationMapPanel({
               className="h-2.5 w-2.5 rounded-full border border-[var(--paper-border)] shrink-0 shadow-xs"
               style={{ backgroundColor: locationColors[locationType] }}
             />
-            <h3 className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--ink-title)]">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-[var(--ink-title)]">
               {title}
             </h3>
           </div>
-          <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2 py-0.5 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
+          <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2 py-0.5 text-xs font-bold tabular-nums text-[var(--ink-dim-text)]">
             {lang === 'zh' ? `${mapData.length} 个图例标记` : `${mapData.length} legend markers`}
           </span>
         </div>
@@ -557,7 +557,7 @@ export function LocationMapPanel({
           <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--ink-title)] mb-1">
             {lang === 'zh' ? '地图已暂存 (内存已释放)' : 'Map Unloaded'}
           </h4>
-          <p className="text-[10px] text-[var(--ink-dim-text)] italic mb-3 max-w-xs">
+          <p className="text-xs text-[var(--ink-dim-text)] italic mb-3 max-w-xs">
             {lang === 'zh'
               ? '已滚动离开本区域。为防手机卡顿，地图 D3 元素已自动暂停并释放内存。'
               : 'Scrolled out of view. Map D3 elements unloaded to save memory.'}
@@ -565,7 +565,7 @@ export function LocationMapPanel({
           <button
             type="button"
             onClick={reload}
-            className="px-3.5 py-1.5 text-[11px] font-bold rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] hover:opacity-90 transition-opacity cursor-pointer shadow-xs"
+            className="px-3.5 py-1.5 text-xs font-bold rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] hover:opacity-90 transition-opacity cursor-pointer shadow-xs"
           >
             {lang === 'zh' ? '重新加载地图' : 'Reload Map'}
           </button>
@@ -582,11 +582,11 @@ export function LocationMapPanel({
             className="h-2.5 w-2.5 rounded-full border border-[var(--paper-border)] shrink-0 shadow-xs"
             style={{ backgroundColor: locationColors[locationType] }}
           />
-          <h3 className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--ink-title)]">
+          <h3 className="text-xs font-bold uppercase tracking-widest text-[var(--ink-title)]">
             {title}
           </h3>
         </div>
-        <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2 py-0.5 text-[9px] font-bold tabular-nums text-[var(--ink-dim-text)]">
+        <span className="rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)] px-2 py-0.5 text-xs font-bold tabular-nums text-[var(--ink-dim-text)]">
           {lang === 'zh' ? `${mapData.length} 个图例标记` : `${mapData.length} legend markers`}
         </span>
       </div>
@@ -598,7 +598,7 @@ export function LocationMapPanel({
       >
         <svg ref={svgRef} className="h-full w-full" />
 
-        <div className="pointer-events-none absolute bottom-2.5 left-3 rounded-sm border border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/85 px-2 py-0.5 text-[9px] font-medium text-[var(--ink-dim-text)] shadow-xs backdrop-blur-xs">
+        <div className="pointer-events-none absolute bottom-2.5 left-3 rounded-sm border border-[var(--paper-border)]/50 bg-[var(--paper-bg)]/85 px-2 py-0.5 text-xs font-medium text-[var(--ink-dim-text)] shadow-xs backdrop-blur-xs">
           {lang === 'zh' ? '点击图标打开档案 · 鼠标滚动与拖拽缩放' : 'Click icon to view profile · Scroll & drag to zoom'}
         </div>
       </div>

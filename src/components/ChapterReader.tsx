@@ -20,6 +20,7 @@ import { WORK_ENGLISH_BY_CHINESE } from "../englishWorkTitles";
 import type { Character, Chapter } from "../types";
 import {
   CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX,
+  ROLE_CHIP_BOXED,
   ROLE_CHIP_IDLE,
   buildCharacterTokenMap,
   chapterTitleTranslations,
@@ -80,6 +81,18 @@ import { READER_LAST_POSITION_KEY, readLastReadingPosition } from "../utils";
 const READER_FONT_SCALE_KEY = "phbj-reader-font-scale";
 const READER_FONT_SCALES = [0.85, 1, 1.15, 1.3, 1.5];
 const DEFAULT_FONT_SCALE_INDEX = 1;
+
+// Two reading registers. The Chinese source is set in a serif with CJK-appropriate
+// leading; the English translation is the sans apparatus alongside it.
+// Measures are in em so they track the reader's A-/A+ control, and the two values
+// are chosen to resolve to the same width (34 × 1em === 32 × 1.0625em) so the
+// columns align: ~34 CJK characters and ~64 Latin characters per line.
+const READER_ZH_MEASURE = "max-w-[32em] mx-auto";
+const READER_EN_MEASURE = "max-w-[34em] mx-auto";
+const READER_ZH_TEXT =
+  `${READER_ZH_MEASURE} text-[1.0625em] font-read-hans text-[var(--ink-title)] leading-[1.9] whitespace-pre-line`;
+const READER_EN_TEXT =
+  `${READER_EN_MEASURE} text-[1em] font-sans text-[var(--ink-dim)] leading-[1.7] whitespace-pre-line`;
 const READER_ZH_VOICE_KEY = "phbj-reader-zh-voice";
 const READER_EN_VOICE_KEY = "phbj-reader-en-voice";
 
@@ -99,7 +112,7 @@ function injectParagraphNumber(nodes: React.ReactNode, num: number): React.React
           {leadingWhitespace}
           <ruby className="ruby-paragraph-number">
             {firstChar}
-            <rt className="text-[10px] select-none font-sans font-normal text-[var(--ink-dim-text)]/75">{num}</rt>
+            <rt className="text-xs select-none font-sans font-normal text-[var(--ink-dim-text)]/75">{num}</rt>
           </ruby>
           {rest}
         </span>
@@ -711,7 +724,7 @@ function ChapterReaderComponent({
               <button
                 key={`${i}-${j}`}
                 onClick={onSelectLacuna}
-                className="inline-flex items-center rounded-sm border px-1 py-[1px] mx-[1px] align-baseline cursor-pointer transition-all hover:brightness-95 bg-amber-200/70 text-[var(--ink-title)] border-amber-400/50"
+                className="inline-flex items-center rounded-sm border px-1 py-[1px] mx-[1px] align-baseline cursor-pointer transition-all hover:brightness-95 bg-[var(--highlight)] text-[var(--ink-title)] border-[var(--highlight-strong)]"
                 title={lang === "zh" ? "查看缺文档案" : "View Lacunae"}
               >
                 {part}
@@ -765,8 +778,9 @@ function ChapterReaderComponent({
         <button
           key={i}
           id={anchorId}
+          data-name-chip={seg.char.id}
           onClick={() => onSelectCharacter(seg.char)}
-          className={`inline-flex items-center rounded-sm border px-1 py-[1px] mx-[1px] align-baseline cursor-pointer transition-all hover:brightness-95 ${roleChipClass}`}
+          className={`inline cursor-pointer font-medium underline underline-offset-[3px] decoration-1 hover:decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] rounded-xs py-1 -my-1 transition-[text-decoration-thickness] ${roleChipClass}`}
         >
           {highlightPlain(chipLabel)}
         </button>
@@ -785,7 +799,7 @@ function ChapterReaderComponent({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-stretch justify-stretch p-0 sm:items-center sm:justify-center sm:p-4"
+      className="fixed inset-0 z-50 flex items-stretch justify-stretch p-0"
       onClick={onClose}
     >
       <motion.div
@@ -801,7 +815,7 @@ function ChapterReaderComponent({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-none h-[100dvh] max-h-[100dvh] sm:max-w-5xl md:max-w-6xl sm:h-[90dvh] sm:max-h-[90dvh] parchment rounded-none sm:rounded-sm overflow-hidden shadow-2xl border-0 sm:border-4 border-double border-[var(--paper-border)] flex flex-col"
+        className="relative z-10 w-full max-w-none h-[100dvh] max-h-[100dvh] parchment rounded-none overflow-hidden shadow-2xl border-0 flex flex-col"
       >
         <div className="p-2.5 sm:p-6 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] space-y-2 sm:space-y-3 shrink-0">
           <div className="flex items-center justify-between gap-2 sm:gap-3">
@@ -822,7 +836,7 @@ function ChapterReaderComponent({
                 <button
                   type="button"
                   onClick={() => { setShowZhVoicePicker(p => !p); setShowEnVoicePicker(false); }}
-                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedZhVoiceName
+                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-xs font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedZhVoiceName
                     ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
                     : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
                     }`}
@@ -845,7 +859,7 @@ function ChapterReaderComponent({
                       <button
                         type="button"
                         onClick={() => selectZhVoice("")}
-                        className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/50 ${!selectedZhVoiceName
+                        className={`w-full text-left px-3 py-2 text-xs font-sans transition-colors border-b border-[var(--paper-border)]/50 ${!selectedZhVoiceName
                           ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
                           : "text-[var(--ink-dim-text)] hover:bg-black/5"
                           }`}
@@ -853,7 +867,7 @@ function ChapterReaderComponent({
                         {lang === "zh" ? "默认语音" : "Default voice"}
                       </button>
                       {zhVoices.length === 0 ? (
-                        <div className="px-3 py-3 text-[11px] text-[var(--ink-dim-text)] italic font-sans">
+                        <div className="px-3 py-3 text-xs text-[var(--ink-dim-text)] italic font-sans">
                           {lang === "zh" ? "未找到中文语音" : "No Chinese voices found"}
                         </div>
                       ) : zhVoices.map(v => (
@@ -861,13 +875,13 @@ function ChapterReaderComponent({
                           key={v.name}
                           type="button"
                           onClick={() => selectZhVoice(v.name)}
-                          className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${selectedZhVoiceName === v.name
+                          className={`w-full text-left px-3 py-2 text-xs font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${selectedZhVoiceName === v.name
                             ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
                             : "text-[var(--ink-title)] hover:bg-black/5"
                             }`}
                         >
                           <span className="block truncate">{v.name}</span>
-                          <span className="block text-[9px] text-[var(--ink-dim-text)] mt-0.5">{v.lang}{v.localService ? "" : " · remote"}</span>
+                          <span className="block text-xs text-[var(--ink-dim-text)] mt-0.5">{v.lang}{v.localService ? "" : " · remote"}</span>
                         </button>
                       ))}
                     </motion.div>
@@ -878,7 +892,7 @@ function ChapterReaderComponent({
                 <button
                   type="button"
                   onClick={() => { setShowEnVoicePicker(p => !p); setShowZhVoicePicker(false); }}
-                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedEnVoiceName
+                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-xs font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedEnVoiceName
                     ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
                     : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
                     }`}
@@ -901,7 +915,7 @@ function ChapterReaderComponent({
                       <button
                         type="button"
                         onClick={() => selectEnVoice("")}
-                        className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/50 ${!selectedEnVoiceName
+                        className={`w-full text-left px-3 py-2 text-xs font-sans transition-colors border-b border-[var(--paper-border)]/50 ${!selectedEnVoiceName
                           ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
                           : "text-[var(--ink-dim-text)] hover:bg-black/5"
                           }`}
@@ -909,7 +923,7 @@ function ChapterReaderComponent({
                         {lang === "zh" ? "默认语音" : "Default voice"}
                       </button>
                       {enVoices.length === 0 ? (
-                        <div className="px-3 py-3 text-[11px] text-[var(--ink-dim-text)] italic font-sans">
+                        <div className="px-3 py-3 text-xs text-[var(--ink-dim-text)] italic font-sans">
                           {lang === "zh" ? "未找到英文语音" : "No English voices found"}
                         </div>
                       ) : enVoices.map(v => (
@@ -917,13 +931,13 @@ function ChapterReaderComponent({
                           key={v.name}
                           type="button"
                           onClick={() => selectEnVoice(v.name)}
-                          className={`w-full text-left px-3 py-2 text-[11px] font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${selectedEnVoiceName === v.name
+                          className={`w-full text-left px-3 py-2 text-xs font-sans transition-colors border-b border-[var(--paper-border)]/30 last:border-0 ${selectedEnVoiceName === v.name
                             ? "bg-[var(--accent)]/10 text-[var(--accent)] font-bold"
                             : "text-[var(--ink-title)] hover:bg-black/5"
                             }`}
                         >
                           <span className="block truncate">{v.name}</span>
-                          <span className="block text-[9px] text-[var(--ink-dim-text)] mt-0.5">{v.lang}{v.localService ? "" : " · remote"}</span>
+                          <span className="block text-xs text-[var(--ink-dim-text)] mt-0.5">{v.lang}{v.localService ? "" : " · remote"}</span>
                         </button>
                       ))}
                     </motion.div>
@@ -965,7 +979,7 @@ function ChapterReaderComponent({
             <button
               type="button"
               onClick={runChapterSearch}
-              className="flex items-center gap-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-sm border border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20 transition-colors shrink-0 text-[11px] font-bold uppercase tracking-wider"
+              className="flex items-center gap-1 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-sm border border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20 transition-colors shrink-0 text-xs font-bold uppercase tracking-wider"
               aria-label={lang === "zh" ? "搜索" : "Search"}
             >
               <Search size={14} />
@@ -978,7 +992,7 @@ function ChapterReaderComponent({
                 type="button"
                 onClick={() => adjustFontScale(-1)}
                 disabled={fontScaleIndex === 0}
-                className="px-1.5 py-1 sm:px-2 sm:py-1.5 text-[11px] font-bold font-sans text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
+                className="px-1.5 py-1 sm:px-2 sm:py-1.5 text-xs font-bold font-sans text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
                 aria-label={lang === "zh" ? "缩小字号" : "Decrease text size"}
                 title={lang === "zh" ? "缩小字号" : "Decrease text size"}
               >
@@ -989,7 +1003,7 @@ function ChapterReaderComponent({
                 type="button"
                 onClick={() => adjustFontScale(1)}
                 disabled={fontScaleIndex === READER_FONT_SCALES.length - 1}
-                className="px-1.5 py-1 sm:px-2 sm:py-1.5 text-[11px] font-bold font-sans text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
+                className="px-1.5 py-1 sm:px-2 sm:py-1.5 text-xs font-bold font-sans text-[var(--ink-dim-text)] hover:bg-black/5 disabled:opacity-40 disabled:pointer-events-none transition-colors"
                 aria-label={lang === "zh" ? "放大字号" : "Increase text size"}
                 title={lang === "zh" ? "放大字号" : "Increase text size"}
               >
@@ -1007,7 +1021,7 @@ function ChapterReaderComponent({
                   }
                 }}
                 title={lang === "zh" ? "跳转至本回赏析" : "Jump to chapter appreciation"}
-                className="flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors text-[10px] font-bold uppercase tracking-wider touch-manipulation shrink-0"
+                className="flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors text-xs font-bold uppercase tracking-wider touch-manipulation shrink-0"
               >
                 <Sparkles size={12} />
                 <span>{lang === "zh" ? "赏析" : "Appreciation"}</span>
@@ -1015,7 +1029,7 @@ function ChapterReaderComponent({
             )}
             {chapterSearchQuery.trim() && (
               <div className="flex items-center gap-0.5 sm:gap-1 shrink-0">
-                <span className="text-[10px] tabular-nums text-[var(--ink-dim-text)] font-sans min-w-[2rem] sm:min-w-[2.5rem] text-center">
+                <span className="text-xs tabular-nums text-[var(--ink-dim-text)] font-sans min-w-[2rem] sm:min-w-[2.5rem] text-center">
                   {chapterSearchMatchCount > 0
                     ? `${chapterSearchMatchIndex + 1}/${chapterSearchMatchCount}`
                     : lang === "zh"
@@ -1071,7 +1085,7 @@ function ChapterReaderComponent({
               </h3>
               {getChapterReaderSubtitle(chapter, lang) && (
                 <p
-                  className={`text-sm sm:text-base text-[#4a3f38] max-w-3xl mx-auto leading-relaxed mb-4 ${lang === "en" ? "font-hans" : "font-sans"}`}
+                  className={`text-sm sm:text-base text-[var(--ink-dim)] max-w-3xl mx-auto leading-relaxed mb-4 ${lang === "en" ? "font-hans" : "font-sans"}`}
                 >
                   {getChapterReaderSubtitle(chapter, lang)}
                 </p>
@@ -1083,19 +1097,19 @@ function ChapterReaderComponent({
             </div>
             {chapterSummary && (
               <div className="mb-8 border border-[var(--paper-border)] bg-black/5 p-4 rounded-sm space-y-3">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
+                <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold">
                   {lang === "en" ? "Chapter Summary" : "章节提要"}
                 </p>
                 <div className="space-y-2">
-                  <p className="text-[11px] font-bold text-[var(--ink-title)]">
+                  <p className="text-xs font-bold text-[var(--ink-title)]">
                     {lang === "zh" ? "英文" : "English"}
                   </p>
-                  <p className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-relaxed font-sans whitespace-pre-line">
+                  <p className="text-[0.875em] sm:text-[1em] text-[var(--ink-dim)] leading-relaxed font-sans whitespace-pre-line">
                     {renderAnnotated(chapterSummary.en, false, undefined, true)}
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[11px] font-bold text-[var(--ink-title)]">
+                  <p className="text-xs font-bold text-[var(--ink-title)]">
                     {lang === "zh" ? "中文" : "Chinese"}
                   </p>
                   <p className="text-[0.8em] text-[var(--ink-title)] font-hans leading-relaxed whitespace-pre-line">
@@ -1106,7 +1120,7 @@ function ChapterReaderComponent({
             )}
             {chapter.id > 0 && chapterMentionedCharacters.length > 0 && (
               <div className="mb-8 border border-[var(--paper-border)] bg-black/5 p-4 rounded-sm">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold mb-3">
+                <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold mb-3">
                   {lang === "en"
                     ? "Characters Mentioned In This Chapter"
                     : "本回出现人物"}
@@ -1122,7 +1136,7 @@ function ChapterReaderComponent({
                           ? "跳至文中首次出现处"
                           : "Jump to first appearance in chapter"
                       }
-                      className={`px-2 py-1 text-[11px] rounded-sm border transition-colors font-hans hover:brightness-95 ${ROLE_CHIP_IDLE[character.role] ?? ROLE_CHIP_IDLE.Other
+                      className={`px-2 py-1 min-h-6 text-xs rounded-sm border transition-colors font-hans hover:brightness-95 ${ROLE_CHIP_BOXED[character.role] ?? ROLE_CHIP_BOXED.Other
                         }`}
                     >
                       {getCharacterNameForLanguage(character, lang)}
@@ -1182,39 +1196,39 @@ function ChapterReaderComponent({
                   >
                     {lang === "en" && translationMap[chapter.id][i] ? (
                       <>
-                        <div className="mb-1.5 flex flex-col items-start gap-1">
-                          <span className="text-[10px] select-none font-sans font-normal text-[var(--ink-dim-text)]/75 leading-none">
+                        <div className={`${READER_EN_MEASURE} mb-1.5 flex flex-col items-start gap-1`}>
+                          <span className="text-xs select-none font-sans font-normal text-[var(--ink-dim-text)]/75 leading-none">
                             {i + 1}
                           </span>
                           <TtsButton paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
                         </div>
-                        <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
+                        <div className={READER_EN_TEXT}>
                           {renderTextWithSnowPoems(translationMap[chapter.id][i], false, undefined, false)}
                         </div>
-                        <div className="mt-3 mb-1.5 flex items-center">
+                        <div className={`${READER_EN_MEASURE} mt-3 mb-1.5 flex items-center`}>
                           <TtsButton paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
                         </div>
-                        <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed whitespace-pre-line">
+                        <div className={READER_ZH_TEXT}>
                           {renderTextWithSnowPoems(para, false, undefined, true)}
                         </div>
                       </>
                     ) : (
                       <>
-                        <div className="mb-1.5 flex flex-col items-start gap-1">
-                          <span className="text-[10px] select-none font-sans font-normal text-[var(--ink-dim-text)]/75 leading-none">
+                        <div className={`${READER_EN_MEASURE} mb-1.5 flex flex-col items-start gap-1`}>
+                          <span className="text-xs select-none font-sans font-normal text-[var(--ink-dim-text)]/75 leading-none">
                             {i + 1}
                           </span>
                           <TtsButton paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
                         </div>
-                        <div className="text-[1em] font-hans text-[var(--ink-title)] leading-relaxed whitespace-pre-line">
+                        <div className={READER_ZH_TEXT}>
                           {renderTextWithSnowPoems(para, false, undefined, true)}
                         </div>
                         {translationMap[chapter.id][i] && (
                           <>
-                            <div className="mt-3 mb-1.5 flex items-center">
+                            <div className={`${READER_EN_MEASURE} mt-3 mb-1.5 flex items-center`}>
                               <TtsButton paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
                             </div>
-                            <div className="text-[0.875em] sm:text-[1em] text-[#4a3f38] leading-[1.75] font-sans whitespace-pre-line">
+                            <div className={READER_EN_TEXT}>
                               {renderTextWithSnowPoems(translationMap[chapter.id][i], false, undefined, false)}
                             </div>
                           </>
@@ -1322,7 +1336,7 @@ function ChapterReaderComponent({
             )}
             {chapter.id >= 0 && chapterCitedWorks.length > 0 && (
               <div className="mt-10 border border-[var(--paper-border)] bg-black/5 p-4 rounded-sm">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold mb-3">
+                <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold mb-3">
                   {lang === "en" ? "Cited Books / Works" : "本回引书与作品"}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -1340,11 +1354,11 @@ function ChapterReaderComponent({
                         }
                         className="flex flex-col items-start gap-0.5 px-2.5 py-1.5 text-left rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] cursor-pointer transition-colors hover:bg-[var(--paper-border)]/50 hover:border-[var(--accent)]/40"
                       >
-                        <span className="text-[11px] font-hans leading-tight">
+                        <span className="text-xs font-hans leading-tight">
                           {work.zh}
                         </span>
                         {englishTitle && (
-                          <span className="text-[10px] font-sans italic leading-tight text-[var(--ink-dim-text)]">
+                          <span className="text-xs font-sans italic leading-tight text-[var(--ink-dim-text)]">
                             {englishTitle}
                           </span>
                         )}
@@ -1354,7 +1368,7 @@ function ChapterReaderComponent({
                 </div>
               </div>
             )}
-            <div className="pt-12 text-center text-[var(--ink-dim-text)] italic text-sm opacity-60">
+            <div className="pt-12 text-center text-[var(--ink-dim-text)] italic text-sm ">
               {lang === "en" ? "--- End of Chapter ---" : "--- 本回完 ---"}
             </div>
           </div>
@@ -1380,7 +1394,7 @@ function ChapterReaderComponent({
               type="button"
               onClick={() => onSelectChapter(prevChapter)}
               title={getChapterReaderTitle(prevChapter, lang)}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-[11px] font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-xs font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0"
             >
               <ChevronLeft size={14} />
               <span>{chapterNavLabel(prevChapter)}</span>
@@ -1401,7 +1415,7 @@ function ChapterReaderComponent({
                     .join("\n"),
                 })
               }
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-[11px] font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0 cursor-pointer"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-xs font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0 cursor-pointer"
               title={lang === "zh" ? "返回目录" : "Back to Contents"}
             >
               <Book size={14} />
@@ -1418,7 +1432,7 @@ function ChapterReaderComponent({
               type="button"
               onClick={() => onSelectChapter(nextChapter)}
               title={getChapterReaderTitle(nextChapter, lang)}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-[11px] font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-xs font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0"
             >
               <span>{chapterNavLabel(nextChapter)}</span>
               <ChevronRight size={14} />

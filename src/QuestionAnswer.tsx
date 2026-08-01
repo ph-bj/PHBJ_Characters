@@ -27,7 +27,7 @@ function renderInline(text: string): ReactNode[] {
       );
     } else if (token.startsWith('*')) {
       parts.push(
-        <em key={key++} className="italic text-[#4a3f38]">
+        <em key={key++} className="italic text-[var(--ink-dim)]">
           {token.slice(1, -1)}
         </em>
       );
@@ -42,7 +42,7 @@ function renderInline(text: string): ReactNode[] {
       );
     } else {
       parts.push(
-        <code key={key++} className="text-[12px] px-1 py-0.5 rounded-sm bg-[var(--paper-border)]/40 text-[var(--ink-dim-text)]">
+        <code key={key++} className="text-xs px-1 py-0.5 rounded-sm bg-[var(--paper-border)]/40 text-[var(--ink-dim-text)]">
           {token.slice(1, -1)}
         </code>
       );
@@ -215,7 +215,7 @@ export function QuestionAnswer({ content }: { content: string }) {
             return (
               <blockquote
                 key={idx}
-                className="border-l-4 border-[var(--accent)]/35 bg-[var(--paper-bg)]/80 pl-4 pr-3 py-3 rounded-r-sm italic text-[#4a3f38] text-[13px] sm:text-sm leading-relaxed shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]"
+                className="border-l-4 border-[var(--accent)]/35 bg-[var(--paper-bg)]/80 pl-4 pr-3 py-3 rounded-r-sm italic text-[var(--ink-dim)] text-sm leading-relaxed shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]"
               >
                 {block.lines.map((line, j) => (
                   <p key={j} className={j > 0 ? 'mt-2' : undefined}>

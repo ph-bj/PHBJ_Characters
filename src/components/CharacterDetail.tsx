@@ -277,7 +277,7 @@ export function CharacterDetail({
       >
         <div className="relative shrink-0 px-4 sm:px-6 pt-4 sm:pt-5 pb-3 border-b border-[var(--paper-border)]/50 bg-[var(--paper-bg)]">
           <code
-            className="text-[9px] font-mono text-[var(--ink-dim-text)]/35 select-all"
+            className="text-xs font-mono text-[var(--ink-dim-text)]/35 select-all"
             title={lang === "zh" ? "内部人物键" : "Internal character key"}
           >
             {character.id}
@@ -309,7 +309,7 @@ export function CharacterDetail({
             </div>
             <div className="flex-1 text-center sm:text-left">
               <div
-                className={`text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.3em] ${textClass} mb-1 sm:mb-2 font-hans`}
+                className={`text-xs font-bold uppercase tracking-[0.3em] ${textClass} mb-1 sm:mb-2 font-hans`}
               >
                 {lang === "zh" ? character.roleZh : character.role} {t.dossier}
               </div>
@@ -317,7 +317,7 @@ export function CharacterDetail({
                 {getCharacterNameForLanguage(character, lang)}
               </h2>
               <div className="flex flex-wrap items-center gap-1.5 mt-2">
-                <span className="text-[11px] px-2 py-0.5 bg-black/5 text-[var(--ink-dim-text)] italic font-hans rounded-sm border border-[var(--paper-border)]">
+                <span className="text-xs px-2 py-0.5 bg-black/5 text-[var(--ink-dim-text)] italic font-hans rounded-sm border border-[var(--paper-border)]">
                   {lang === "en" ? character.name.split(" ")[0] : character.name.slice(character.name.split(" ")[0].length).trim()}
                 </span>
                 {character.alias !== "—" && character.alias.split(/\s*\/\s*/).map((a, i) => {
@@ -330,7 +330,7 @@ export function CharacterDetail({
                   return (
                     <span
                       key={i}
-                      className="text-[11px] px-2 py-0.5 bg-black/5 text-[var(--ink-dim-text)] italic font-hans rounded-sm border border-[var(--paper-border)]"
+                      className="text-xs px-2 py-0.5 bg-black/5 text-[var(--ink-dim-text)] italic font-hans rounded-sm border border-[var(--paper-border)]"
                     >
                       {displayText}
                     </span>
@@ -342,7 +342,7 @@ export function CharacterDetail({
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
             <div className="space-y-1">
-              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.origin}
               </p>
               <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
@@ -357,7 +357,7 @@ export function CharacterDetail({
               </div>
             </div>
             <div className="space-y-1">
-              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.age}
               </p>
               <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
@@ -370,7 +370,7 @@ export function CharacterDetail({
               </div>
             </div>
             <div className="space-y-1">
-              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.gender}
               </p>
               <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
@@ -385,7 +385,7 @@ export function CharacterDetail({
               </div>
             </div>
             <div className="space-y-1">
-              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.firstEntry}
               </p>
               <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
@@ -398,7 +398,7 @@ export function CharacterDetail({
               </div>
             </div>
             <div className="space-y-1">
-              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.speeches}
               </p>
               <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
@@ -411,7 +411,7 @@ export function CharacterDetail({
               </div>
             </div>
             <div className="space-y-1">
-              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.wordsSpoken}
               </p>
               <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
@@ -427,12 +427,12 @@ export function CharacterDetail({
 
           <div className="space-y-4 sm:space-y-6">
             <div className="space-y-2 sm:space-y-3">
-              <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.historicalRecord}
               </p>
               <div className="space-y-3 sm:space-y-4">
                 <div className="bg-black/5 p-4 sm:p-6 rounded-sm border border-[var(--paper-border)]">
-                  <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--accent)] mb-1 sm:mb-2 font-hans opacity-60">
+                  <p className="text-xs font-bold uppercase tracking-widest text-[var(--accent)] mb-1 sm:mb-2 font-hans ">
                     {lang === "zh" ? "英文记录" : "English Record"}
                   </p>
                   <p className="leading-relaxed text-[var(--ink-title)] text-sm sm:text-base italic">
@@ -440,7 +440,7 @@ export function CharacterDetail({
                   </p>
                 </div>
                 <div className="bg-black/5 p-4 sm:p-6 rounded-sm border border-[var(--paper-border)]">
-                  <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--accent)] mb-1 sm:mb-2 font-hans opacity-60">
+                  <p className="text-xs font-bold uppercase tracking-widest text-[var(--accent)] mb-1 sm:mb-2 font-hans ">
                     {lang === "zh" ? "中文记录" : "Chinese Record"}
                   </p>
                   <p className="leading-relaxed text-[var(--ink-title)] text-base sm:text-lg font-hans">
@@ -453,10 +453,10 @@ export function CharacterDetail({
             {/* Chapter Appearances Timeline */}
             <div className="space-y-2 sm:space-y-3 pt-2">
               <div className="flex items-center justify-between">
-                <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                   {t.appearances}
                 </p>
-                <p className="text-[9px] sm:text-[10px] text-[#8b7355] font-hans">
+                <p className="text-xs text-[#8b7355] font-hans">
                   {t.mentionedIn(mentionedChapters.length)}
                 </p>
               </div>
@@ -486,7 +486,7 @@ export function CharacterDetail({
                           if (count === 0) return null;
                           const summary = chapterSummaries[ch];
                           return (
-                            <div className="bg-[var(--paper-bg)] border border-[var(--paper-border)] p-2 text-[var(--ink-title)] text-[10px] max-w-[220px] shadow-md">
+                            <div className="bg-[var(--paper-bg)] border border-[var(--paper-border)] p-2 text-[var(--ink-title)] text-xs max-w-[220px] shadow-md">
                               <p className="font-bold mb-1">
                                 {t.chapterAbbr}
                                 {lang === "zh" ? ` ${ch} 回` : ch} — {count}{" "}
@@ -529,7 +529,7 @@ export function CharacterDetail({
                         setActiveChapter(activeChapter === ch ? null : ch)
                       }
                       title={`${t.chapterAbbr}${lang === "zh" ? ` ${ch} 回` : ch}: ${count} ${t.mentions(count)}`}
-                      className={`px-2 py-0.5 text-[10px] font-bold border transition-colors rounded-sm font-hans ${activeChapter === ch
+                      className={`px-2 py-0.5 text-xs font-bold border transition-colors rounded-sm font-hans ${activeChapter === ch
                           ? "bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]"
                           : "border-[var(--accent)]/40 text-[var(--accent)] hover:bg-[var(--accent)]/10"
                         }`}
@@ -554,13 +554,13 @@ export function CharacterDetail({
                       {/* Panel header */}
                       <div className="flex items-center justify-between px-4 py-2.5 bg-[var(--accent)]/8 border-b border-[var(--accent)]/20">
                         <div>
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--accent)] font-hans">
+                          <span className="text-xs font-bold uppercase tracking-widest text-[var(--accent)] font-hans">
                             {t.chapterAbbr}
                             {lang === "zh"
                               ? ` ${activeChapter} 回`
                               : activeChapter}
                           </span>
-                          <span className="text-[10px] text-[var(--ink-dim-text)] ml-2 font-hans">
+                          <span className="text-xs text-[var(--ink-dim-text)] ml-2 font-hans">
                             {
                               chapters.find((c) => c.id === activeChapter)
                                 ?.title
@@ -568,7 +568,7 @@ export function CharacterDetail({
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
-                          <span className="text-[9px] text-[#8b7355] font-hans">
+                          <span className="text-xs text-[#8b7355] font-hans">
                             {mentionData.find((d) => d.ch === activeChapter)
                               ?.count ?? 0}{" "}
                             {t.mentions(
@@ -589,7 +589,7 @@ export function CharacterDetail({
                       <div className="px-4 py-3 space-y-2.5 bg-[#faf6ee]">
                         {displaySceneBullets.length > 0 && (
                           <>
-                            <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--accent)]/70 font-bold font-hans mb-1">
+                            <p className="text-xs uppercase tracking-widest text-[var(--accent)]/70 font-bold font-hans mb-1">
                               {lang === "zh" ? "场景摘要" : "Scene Summary"}
                             </p>
                             {displaySceneBullets.map((scene, i) => (
@@ -597,7 +597,7 @@ export function CharacterDetail({
                                 <span className="text-[var(--accent)]/50 mt-0.5 shrink-0">
                                   ◆
                                 </span>
-                                <p className="text-[11px] sm:text-xs leading-relaxed text-[var(--ink-title)]">
+                                <p className="text-xs leading-relaxed text-[var(--ink-title)]">
                                   {lang === "zh" ? scene.zh : scene.en}
                                 </p>
                               </div>
@@ -608,7 +608,7 @@ export function CharacterDetail({
                           <>
                             {displaySceneBullets.length > 0 && (
                               <div className="border-t border-[var(--paper-border)] my-2 pt-2">
-                                <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--accent)]/70 font-bold font-hans mb-1">
+                                <p className="text-xs uppercase tracking-widest text-[var(--accent)]/70 font-bold font-hans mb-1">
                                   {lang === "zh" ? "原文节选" : "Text Excerpts"}
                                 </p>
                               </div>
@@ -624,7 +624,7 @@ export function CharacterDetail({
                                   key={i}
                                   className="bg-black/5 rounded-sm px-3 py-2 border-l-2 border-[var(--accent)]/30"
                                 >
-                                  <p className={`text-[11px] leading-relaxed text-[var(--ink-title)] ${lang === "zh" ? "font-hans" : "font-sans"}`}>
+                                  <p className={`text-xs leading-relaxed text-[var(--ink-title)] ${lang === "zh" ? "font-hans" : "font-sans"}`}>
                                       {lang === "zh" && "…"}
                                       {parts.map((part, j) =>
                                       activeScenes.tokens.includes(part) ? (

@@ -120,7 +120,7 @@ export function NavMenuDropdown({
           }}
           className="max-h-[min(70vh,28rem)] overflow-y-auto parchment rounded-sm border-double border-4 border-[var(--paper-border)] shadow-xl p-3"
         >
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold mb-2 px-1">
+          <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold mb-2 px-1">
             {lang === "zh" ? "快速前往" : "Go To"}
           </p>
           <div className="grid grid-cols-3 gap-1.5 mb-3">
@@ -133,7 +133,7 @@ export function NavMenuDropdown({
                 className="w-full rounded-sm border border-[var(--paper-border)]/70 bg-white/15 hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all px-2 py-2 flex flex-col items-center justify-center gap-1 min-w-0 text-center"
               >
                 <Icon size={15} className="text-[var(--accent)] shrink-0" />
-                <span className="text-[10px] font-bold uppercase tracking-wide text-[var(--ink-title)] leading-tight line-clamp-2">
+                <span className="text-xs font-bold uppercase tracking-wide text-[var(--ink-title)] leading-tight line-clamp-2">
                   {label}
                 </span>
               </button>
@@ -145,7 +145,7 @@ export function NavMenuDropdown({
               type="button"
               role="menuitem"
               onClick={() => navigate(onOpenContents)}
-              className="col-span-2 min-h-10 rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
+              className="col-span-2 min-h-10 rounded-sm bg-[var(--accent)] text-[var(--paper-bg)] px-2 py-1.5 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider"
             >
               <Book size={13} />
               {lang === "zh" ? "目录" : "Contents"}
@@ -154,7 +154,7 @@ export function NavMenuDropdown({
               type="button"
               role="menuitem"
               onClick={() => navigate(onOpenChapter)}
-              className="min-h-10 rounded-sm border border-[var(--accent)]/50 text-[var(--accent)] bg-[var(--accent)]/5 px-2 py-1.5 flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider"
+              className="min-h-10 rounded-sm border border-[var(--accent)]/50 text-[var(--accent)] bg-[var(--accent)]/5 px-2 py-1.5 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider"
             >
               <BookOpen size={13} />
               {lang === "zh" ? "第一回" : "Ch. 1"}
@@ -184,7 +184,7 @@ export function NavMenuDropdown({
         aria-label={lang === "zh" ? "打开菜单" : "Open menu"}
       >
         <Menu size={14} />
-        <span className="text-[10px] font-bold uppercase tracking-widest">
+        <span className="text-xs font-bold uppercase tracking-widest">
           {lang === "zh" ? "菜单" : "Menu"}
         </span>
         <ChevronDown

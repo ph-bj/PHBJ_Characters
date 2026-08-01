@@ -36,9 +36,9 @@ export function LacunaeModal({
   }[lang];
 
   const confidenceTone: Record<LacunaConfidence, string> = {
-    certain: "bg-emerald-100 text-emerald-800 border-emerald-300",
-    probable: "bg-amber-100 text-amber-800 border-amber-300",
-    speculative: "bg-violet-100 text-violet-800 border-violet-300",
+    certain: "bg-[var(--confidence-certain-bg)] text-[var(--confidence-certain)] border-[var(--confidence-certain)]/40",
+    probable: "bg-[var(--confidence-probable-bg)] text-[var(--confidence-probable)] border-[var(--confidence-probable)]/40",
+    speculative: "bg-[var(--confidence-speculative-bg)] text-[var(--confidence-speculative)] border-[var(--confidence-speculative)]/40",
   };
   const confidenceLabel: Record<LacunaConfidence, { en: string; zh: string }> =
     {
@@ -53,7 +53,7 @@ export function LacunaeModal({
     return (
       <>
         {snippet.slice(0, idx)}
-        <mark className="bg-amber-300/70 text-[var(--ink-title)] px-1 rounded-sm">
+        <mark className="bg-[var(--highlight)] text-[var(--ink-title)] px-1 rounded-sm">
           {symbol}
         </mark>
         {snippet.slice(idx + symbol.length)}
@@ -83,7 +83,7 @@ export function LacunaeModal({
       >
         <div className="p-4 sm:p-5 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] flex items-center justify-between">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-[var(--ink-dim-text)]">
+            <p className="text-xs uppercase tracking-widest font-bold text-[var(--ink-dim-text)]">
               {lang === "zh" ? "缺文" : "Lacunae"}
             </p>
             <h3 className="text-lg font-bold text-[var(--ink-title)]">
@@ -111,7 +111,7 @@ export function LacunaeModal({
         >
           {entries.length === 0 ? (
             <div className="border border-[var(--paper-border)] rounded-sm p-5 bg-black/5">
-              <p className="text-[12px] text-[var(--ink-dim-text)] italic">
+              <p className="text-xs text-[var(--ink-dim-text)] italic">
                 {lang === "zh"
                   ? "此回暂无缺文勘误记录。"
                   : "No lacunae annotations are available for this chapter yet."}
@@ -123,7 +123,7 @@ export function LacunaeModal({
                 key={`${entry.chapterId}-${idx}`}
                 className="border border-[var(--paper-border)] rounded-sm p-4 bg-black/5 space-y-3"
               >
-                <p className="text-[14px] font-hans text-[var(--ink-title)] leading-relaxed">
+                <p className="text-sm font-hans text-[var(--ink-title)] leading-relaxed">
                   {renderSnippet(entry.snippet, entry.symbol)}
                 </p>
 
@@ -131,7 +131,7 @@ export function LacunaeModal({
                   <>
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] uppercase tracking-widest text-[var(--ink-dim-text)] font-bold">
+                        <span className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold">
                           {lang === "zh" ? "推断字" : "Inferred"}
                         </span>
                         <span className="text-3xl leading-none font-serif text-[var(--ink-title)]">
@@ -139,7 +139,7 @@ export function LacunaeModal({
                         </span>
                       </div>
                       <span
-                        className={`text-[10px] font-bold uppercase tracking-widest border rounded-sm px-2 py-1 ${confidenceTone[entry.confidence]}`}
+                        className={`text-xs font-bold uppercase tracking-widest border rounded-sm px-2 py-1 ${confidenceTone[entry.confidence]}`}
                       >
                         {lang === "zh"
                           ? confidenceLabel[entry.confidence].zh
@@ -147,7 +147,7 @@ export function LacunaeModal({
                       </span>
                     </div>
 
-                    <p className="text-[11px] leading-relaxed text-[#4a3f38] font-sans">
+                    <p className="text-xs leading-relaxed text-[var(--ink-dim)] font-sans">
                       {entry.note}
                     </p>
                   </>

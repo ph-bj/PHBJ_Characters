@@ -10,7 +10,7 @@ test.describe('Character Name Chip Verification', () => {
     await page.goto('/#/zh/chapter/5');
 
     // Wait for the chapter content to be rendered and locate the inline name chip button
-    const fuSanButton = page.locator('button.align-baseline:has-text("富三")').first();
+    const fuSanButton = page.locator('button[data-name-chip]:has-text("富三")').first();
     await expect(fuSanButton).toBeVisible({ timeout: 20000 });
 
     // Click the button to open the character details modal/panel
@@ -27,7 +27,7 @@ test.describe('Character Name Chip Verification', () => {
     await page.goto('/#/zh/chapter/3');
 
     // Wait for the chapter content to be rendered and locate the inline name chip button
-    const guiDaButton = page.locator('button.align-baseline:has-text("贵大")').first();
+    const guiDaButton = page.locator('button[data-name-chip]:has-text("贵大")').first();
     await expect(guiDaButton).toBeVisible({ timeout: 20000 });
 
     // Click the button to open the character details modal/panel
@@ -44,7 +44,7 @@ test.describe('Character Name Chip Verification', () => {
     await page.goto('/#/en/chapter/31');
 
     // Wait for the chapter content to be rendered and locate the inline name chip button for Yaoqing
-    const yaoqingButton = page.locator('button.align-baseline:has-text("Yaoqing")').first();
+    const yaoqingButton = page.locator('button[data-name-chip]:has-text("Yaoqing")').first();
     await expect(yaoqingButton).toBeVisible({ timeout: 20000 });
 
     // Click the button to open the character details modal/panel

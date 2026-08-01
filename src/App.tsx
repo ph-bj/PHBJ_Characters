@@ -83,7 +83,7 @@ import {
 } from "./workCategories";
 import { CiteButton } from "./components/CiteButton";
 
-import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, NavSection, readLastReadingPosition } from "./utils";
+import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, ROLE_CHIP_BOXED, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, NavSection, readLastReadingPosition } from "./utils";
 
 import { LanguageSwitch } from "./components/LanguageSwitch";
 import { ThemeToggle } from "./components/ThemeToggle";
@@ -783,19 +783,21 @@ export default function App() {
     });
   };
 
-  const mobileRow1 = [
+  // Destinations scroll horizontally; the two toggles stay pinned so they are
+  // always reachable. A 6-column grid could not hold a label at the 12px floor.
+  const mobileSections = [
     { id: "overview", label: lang === "zh" ? "总览" : "Overview", icon: Home },
     { id: "network", label: lang === "zh" ? "关系" : "Network", icon: Network },
     { id: "characters", label: lang === "zh" ? "人物" : "People", icon: Users },
     { id: "chapters", label: lang === "zh" ? "章节" : "Chapters", icon: BookOpen },
     { id: "hometown-map", label: lang === "zh" ? "地图" : "Map", icon: MapIcon },
     { id: "questions", label: lang === "zh" ? "问题" : "Q&A", icon: HelpCircle },
-  ];
-
-  const mobileRow2 = [
     { id: "works", label: lang === "zh" ? "引书" : "Works", icon: Book },
     { id: "stats", label: lang === "zh" ? "统计" : "Stats", icon: Activity },
     { id: "downloads", label: lang === "zh" ? "下载" : "Export", icon: Download },
+  ];
+
+  const mobileToggles = [
     {
       id: "theme",
       label: currentTheme === "plum" ? (lang === "zh" ? "青梅" : "Plum") : (lang === "zh" ? "古卷" : "Parchment"),
@@ -1017,7 +1019,7 @@ export default function App() {
 
   return (
     <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center text-[var(--ink-dim-text)] text-sm font-sans tracking-wide">Loading...</div>}>
-      <div className="min-h-screen font-sans text-[var(--ink-main)] selection:bg-amber-900/20">
+      <div className="min-h-screen font-sans text-[var(--ink-main)] selection:bg-[var(--accent)]/20">
         {/* Header */}
         <div
           id="overview"
@@ -1035,7 +1037,7 @@ export default function App() {
                 </span>
               </h1>
               <p
-                className={`text-[10px] sm:text-[11px] italic text-[var(--accent)] tracking-wide ${lang === "zh" ? "font-hans" : ""}`}
+                className={`text-xs italic text-[var(--accent)] tracking-wide ${lang === "zh" ? "font-hans" : ""}`}
               >
                 {t.siteSubtitle}
               </p>
@@ -1061,25 +1063,26 @@ export default function App() {
 
         <div className="md:hidden sticky top-0 z-30 px-1 sm:px-2 py-1 bg-[var(--body-bg)]/95 backdrop-blur-sm border-b border-[var(--paper-border)]/80">
           <nav
-            className="parchment rounded-sm border border-[var(--paper-border)] p-1 flex flex-col gap-1 shadow-md"
+            className="parchment rounded-sm border border-[var(--paper-border)] p-1 flex items-stretch gap-1 shadow-md"
             aria-label={lang === "zh" ? "移动导航" : "Mobile navigation"}
           >
-            <div className="grid grid-cols-6 gap-0.5 sm:gap-1">
-              {mobileRow1.map(({ id, label, icon: Icon }) => {
+            <div className="flex-1 min-w-0 flex gap-1 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+              {mobileSections.map(({ id, label, icon: Icon }) => {
                 const isActive = activeMobileTab === id;
                 return (
                   <button
                     key={id}
                     type="button"
                     onClick={() => scrollToSection(id)}
-                    className={`flex flex-col items-center justify-center py-1 px-0.5 rounded-sm transition-colors min-w-0 cursor-pointer ${
+                    aria-current={isActive ? "true" : undefined}
+                    className={`shrink-0 snap-start basis-[4.75rem] min-h-11 flex flex-col items-center justify-center gap-0.5 py-1.5 px-1 rounded-sm transition-colors cursor-pointer ${
                       isActive
                         ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold shadow-xs"
                         : "text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] active:bg-[var(--accent)]/20"
                     }`}
                   >
-                    <Icon size={14} className={`${isActive ? "text-[var(--paper-bg)]" : "text-[var(--accent)]"} shrink-0`} />
-                    <span className="text-[7.5px] sm:text-[9px] font-bold leading-none uppercase tracking-tighter truncate max-w-full mt-0.5">
+                    <Icon size={16} className={`${isActive ? "text-[var(--paper-bg)]" : "text-[var(--accent)]"} shrink-0`} />
+                    <span className="text-xs font-bold leading-none uppercase tracking-normal whitespace-nowrap">
                       {label}
                     </span>
                   </button>
@@ -1087,36 +1090,24 @@ export default function App() {
               })}
             </div>
 
-            <div className="grid grid-cols-6 gap-0.5 sm:gap-1 border-t border-[var(--paper-border)]/50 pt-1">
-              {mobileRow2.map(({ id, label, icon: Icon, onClick }) => {
-                const isActive = activeMobileTab === id;
-                return (
-                  <button
-                    key={id}
-                    type="button"
-                    onClick={onClick ? onClick : () => scrollToSection(id)}
-                    className={`flex flex-col items-center justify-center py-1 px-0.5 rounded-sm transition-colors min-w-0 cursor-pointer ${
-                      isActive
-                        ? "bg-[var(--accent)] text-[var(--paper-bg)] font-bold shadow-xs"
-                        : "text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] active:bg-[var(--accent)]/20"
-                    }`}
-                  >
-                    <Icon size={14} className={`${isActive ? "text-[var(--paper-bg)]" : "text-[var(--accent)]"} shrink-0`} />
-                    <span className="text-[7.5px] sm:text-[9px] font-bold leading-none uppercase tracking-tighter truncate max-w-full mt-0.5">
-                      {label}
-                    </span>
-                  </button>
-                );
-              })}
+            <div className="shrink-0 flex gap-1 border-l border-[var(--paper-border)]/60 pl-1">
+              {mobileToggles.map(({ id, label, icon: Icon, onClick }) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={onClick}
+                  title={label}
+                  aria-label={label}
+                  className="min-w-11 min-h-11 flex items-center justify-center rounded-sm transition-colors cursor-pointer text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] active:bg-[var(--accent)]/20"
+                >
+                  <Icon size={18} className="text-[var(--accent)] shrink-0" />
+                </button>
+              ))}
             </div>
           </nav>
         </div>
 
         <main className="max-w-[1800px] mx-auto p-2 sm:p-4 md:p-4 lg:p-5 grid grid-cols-1 md:grid-cols-[minmax(200px,240px)_1fr] lg:grid-cols-[240px_1fr_260px] xl:grid-cols-[280px_1fr_300px] gap-4 md:gap-5 lg:gap-6">
-          {/* Mobile Landscape Illustration */}
-          <div className={activeMobileTab === "overview" ? "block md:hidden" : "hidden"}>
-            <MainInkLandscape />
-          </div>
           {/* Left Sidebar */}
           <aside className="flex flex-col gap-4 md:gap-5 h-fit order-2 md:order-1 md:self-start">
             <div className="hidden md:block">
@@ -1125,15 +1116,15 @@ export default function App() {
             {/* Questions Sidebar */}
             <div
               id="questions"
-              className={`relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-24 ${
                 activeMobileTab === "questions" ? "flex flex-col gap-4" : "hidden md:flex md:flex-col md:gap-4"
               }`}
             >
-              <div className="flex items-center justify-between border-b border-[var(--paper-border)] pb-2">
-                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
+              <div className="flex items-center justify-between gap-2 border-b border-[var(--paper-border)] pb-2">
+                <h2 className="text-xs uppercase tracking-widest leading-tight text-[var(--ink-dim-text)] font-bold">
                   {lang === "zh" ? "问题探讨" : "Questions & Topics"}
                 </h2>
-                <span className="text-[9px] px-2 py-0.5 rounded-full bg-black/5 text-[var(--ink-dim-text)] font-bold font-sans">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-black/5 text-[var(--ink-dim-text)] font-bold font-sans whitespace-nowrap">
                   {questions.length} {lang === "zh" ? "问" : "Q&As"}
                 </span>
               </div>
@@ -1142,7 +1133,7 @@ export default function App() {
               <div className="flex flex-wrap gap-1.5 pb-2 border-b border-[var(--paper-border)]/50">
                 <button
                   onClick={() => setSelectedQuestionCategory(null)}
-                  className={`text-[9px] px-2 py-1 rounded-sm border uppercase tracking-wider font-bold transition-all ${
+                  className={`text-xs px-2 py-1 rounded-sm border uppercase tracking-wider font-bold transition-all ${
                     selectedQuestionCategory === null
                       ? "bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]"
                       : "border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)] bg-black/5"
@@ -1156,16 +1147,14 @@ export default function App() {
                     <button
                       key={cat.zh}
                       onClick={() => setSelectedQuestionCategory(isSelected ? null : cat.zh)}
-                      className={`text-[9px] px-2 py-1 rounded-sm border tracking-wider font-bold transition-all flex items-center gap-1 ${
+                      className={`text-xs px-2 py-1 rounded-sm border tracking-normal font-bold transition-all text-left leading-snug ${
                         isSelected
                           ? "bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]"
                           : "border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)] bg-black/5"
                       }`}
                     >
-                      <span>{lang === "zh" ? cat.zh : cat.en}</span>
-                      <span className={`text-[8px] opacity-75 ${isSelected ? "text-white" : "text-[var(--ink-dim-text)]"}`}>
-                        ({cat.count})
-                      </span>
+                      {lang === "zh" ? cat.zh : cat.en}{" "}
+                      <span className="font-normal">({cat.count})</span>
                     </button>
                   );
                 })}
@@ -1184,11 +1173,11 @@ export default function App() {
                       <div key={cat.zh} className="space-y-2">
                         {selectedQuestionCategory === null && (
                           <div className="flex items-center justify-between pt-1 pb-1 border-b border-[var(--paper-border)]/40">
-                            <h3 className="text-[10px] font-bold text-[var(--accent)] uppercase tracking-wider flex items-center gap-1.5 font-sans">
+                            <h3 className="text-xs font-bold text-[var(--accent)] uppercase tracking-wider flex items-center gap-1.5 font-sans">
                               <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] inline-block"></span>
                               {lang === "zh" ? cat.zh : cat.en}
                             </h3>
-                            <span className="text-[9px] text-[var(--ink-dim-text)] font-sans">
+                            <span className="text-xs text-[var(--ink-dim-text)] font-sans">
                               {categoryQuestions.length}
                             </span>
                           </div>
@@ -1198,13 +1187,13 @@ export default function App() {
                             <button
                               key={q.slug}
                               onClick={() => setSelectedQuestion(q.slug)}
-                              className="w-full text-left p-2.5 rounded-sm border border-[var(--paper-border)]/40 bg-black/5 hover:bg-amber-700/10 hover:border-amber-700/40 transition-all cursor-pointer group flex flex-col gap-1"
+                              className="w-full text-left p-2.5 rounded-sm border border-[var(--paper-border)]/40 bg-black/5 hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40 transition-all cursor-pointer group flex flex-col gap-1"
                             >
-                              <p className="text-[11px] font-bold text-[var(--ink-title)] group-hover:text-[var(--accent)] transition-colors leading-relaxed">
+                              <p className="text-xs font-bold text-[var(--ink-title)] group-hover:text-[var(--accent)] transition-colors leading-relaxed">
                                 {lang === "zh" ? q.questionZh : q.questionEn}
                               </p>
                               {selectedQuestionCategory !== null && (
-                                <span className="text-[8px] text-[var(--ink-dim-text)] italic">
+                                <span className="text-xs text-[var(--ink-dim-text)] italic">
                                   {lang === "zh" ? cat.zh : cat.en}
                                 </span>
                               )}
@@ -1223,7 +1212,7 @@ export default function App() {
 
             <div
               id="stats"
-              className={`relative parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+              className={`relative parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm scroll-mt-24 ${
                 activeMobileTab === "stats"
                   ? "flex flex-col gap-6 md:gap-8 lg:gap-10"
                   : "hidden md:flex md:flex-col md:gap-6 lg:gap-10"
@@ -1291,7 +1280,7 @@ export default function App() {
                 const paraLabel = lang === "zh" ? "段" : "para";
                 return (
                   <div>
-                    <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
+                    <h2 className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
                       {lang === "zh" ? "章回统计" : "Chapter Statistics"}
                     </h2>
 
@@ -1323,10 +1312,10 @@ export default function App() {
                           key={label}
                           className="bg-black/3 rounded-sm p-2 border border-[var(--paper-border)]/50"
                         >
-                          <p className="text-[8px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-0.5 leading-tight">
+                          <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-0.5 leading-tight">
                             {label}
                           </p>
-                          <p className="text-[10px] font-bold text-[var(--ink-title)] font-sans leading-tight">
+                          <p className="text-xs font-bold text-[var(--ink-title)] font-sans leading-tight">
                             {value}
                           </p>
                         </div>
@@ -1334,7 +1323,7 @@ export default function App() {
                     </div>
 
                     {/* Average per chapter */}
-                    <p className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-3 mt-5 font-bold border-b border-[var(--paper-border)] pb-1">
+                    <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-3 mt-5 font-bold border-b border-[var(--paper-border)] pb-1">
                       {lang === "zh" ? "每回均值" : "Avg / chapter"}
                     </p>
                     <div className="grid grid-cols-2 gap-2 mb-5">
@@ -1364,10 +1353,10 @@ export default function App() {
                           key={label}
                           className="flex flex-col justify-center bg-black/3 rounded-sm p-2 border border-[var(--paper-border)]/50"
                         >
-                          <p className="text-[8px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-1">
+                          <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-1">
                             {label}
                           </p>
-                          <p className="text-[10px] font-bold text-[var(--ink-title)] font-sans">
+                          <p className="text-xs font-bold text-[var(--ink-title)] font-sans">
                             {value}
                           </p>
                         </div>
@@ -1375,7 +1364,7 @@ export default function App() {
                     </div>
 
                     {/* Sparkline */}
-                      <p className="text-[8px] uppercase tracking-widest text-[var(--ink-dim-text)] mb-1.5">
+                      <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-1.5">
                         {lang === "zh"
                           ? "各回中文字数"
                           : "Chinese chars per chapter"}
@@ -1425,7 +1414,7 @@ export default function App() {
                         <button
                           key={key}
                           onClick={() => setChapterSortMode(key)}
-                          className={`text-[8px] px-1.5 py-1 rounded-sm border uppercase tracking-widest font-bold transition-all ${chapterSortMode === key
+                          className={`text-xs px-1.5 py-1 rounded-sm border uppercase tracking-widest font-bold transition-all ${chapterSortMode === key
                             ? "bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]"
                             : "border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)]"
                             }`}
@@ -1436,23 +1425,23 @@ export default function App() {
                     </div>
                     {/* Badge legend */}
                     <div className="flex gap-2 mb-3 flex-wrap">
-                      <span className="text-[8px] text-[var(--ink-dim-text)] italic">
+                      <span className="text-xs text-[var(--ink-dim-text)] italic">
                         {lang === "zh" ? "标记：" : "Tags:"}
                       </span>
-                      <span className="inline-flex items-center gap-1 text-[8px] text-amber-700">
-                        <span className="px-1 rounded-sm bg-amber-100 border border-amber-300 font-bold font-sans leading-tight">
+                      <span className="inline-flex items-center gap-1 text-xs text-[var(--marker-game)]">
+                        <span className="px-1 rounded-sm bg-[var(--marker-game-bg)] border border-[var(--marker-game)]/40 font-bold font-sans leading-tight">
                           {lang === "zh" ? "令" : "G"}
                         </span>
                         {lang === "zh" ? "酒令" : "Drinking game"}
                       </span>
-                      <span className="inline-flex items-center gap-1 text-[8px] text-sky-700">
-                        <span className="px-1 rounded-sm bg-sky-100 border border-sky-300 font-bold font-sans leading-tight">
+                      <span className="inline-flex items-center gap-1 text-xs text-[var(--marker-poem)]">
+                        <span className="px-1 rounded-sm bg-[var(--marker-poem-bg)] border border-[var(--marker-poem)]/40 font-bold font-sans leading-tight">
                           {lang === "zh" ? "诗" : "P"}
                         </span>
                         {lang === "zh" ? "文字游戏" : "Word game"}
                       </span>
-                      <span className="inline-flex items-center gap-1 text-[8px] text-rose-700">
-                        <span className="px-1 rounded-sm bg-rose-100 border border-rose-300 font-bold font-sans leading-tight">
+                      <span className="inline-flex items-center gap-1 text-xs text-[var(--marker-music)]">
+                        <span className="px-1 rounded-sm bg-[var(--marker-music-bg)] border border-[var(--marker-music)]/40 font-bold font-sans leading-tight">
                           {lang === "zh" ? "艳" : "M"}
                         </span>
                         {lang === "zh" ? "成人内容" : "Mature"}
@@ -1468,7 +1457,7 @@ export default function App() {
                             onClick={() => setSelectedChapter(ch)}
                             className="w-full text-left group px-2 py-2 rounded-sm border border-[var(--paper-border)]/40 hover:border-[var(--accent)]/30 hover:bg-[var(--accent)]/3 transition-colors"
                           >
-                            <div className="flex justify-between items-center text-[10px] mb-1">
+                            <div className="flex justify-between items-center text-xs mb-1">
                               <span className="text-[var(--ink-dim-text)] group-hover:text-[var(--accent)] transition-colors font-bold">
                                 Ch.{c.id}
                               </span>
@@ -1490,7 +1479,7 @@ export default function App() {
                               {c.hasDrinking && (
                                 <span
                                   title={lang === "zh" ? "酒令" : "Drinking game"}
-                                  className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm bg-amber-100 text-amber-700 border border-amber-300 leading-tight font-bold font-sans"
+                                  className="inline-block text-xs px-1.5 py-0.5 rounded-sm bg-[var(--marker-game-bg)] text-[var(--marker-game)] border border-[var(--marker-game)]/40 leading-tight font-bold font-sans"
                                 >
                                   {lang === "zh" ? "令" : "G"}
                                 </span>
@@ -1498,7 +1487,7 @@ export default function App() {
                               {c.hasWordGame && (
                                 <span
                                   title={lang === "zh" ? "文字游戏" : "Word game"}
-                                  className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm bg-sky-100 text-sky-700 border border-sky-300 leading-tight font-bold font-sans"
+                                  className="inline-block text-xs px-1.5 py-0.5 rounded-sm bg-[var(--marker-poem-bg)] text-[var(--marker-poem)] border border-[var(--marker-poem)]/40 leading-tight font-bold font-sans"
                                 >
                                   {lang === "zh" ? "诗" : "P"}
                                 </span>
@@ -1508,7 +1497,7 @@ export default function App() {
                                   title={
                                     lang === "zh" ? "成人内容" : "Mature content"
                                   }
-                                  className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm bg-rose-100 text-rose-700 border border-rose-300 leading-tight font-bold font-sans"
+                                  className="inline-block text-xs px-1.5 py-0.5 rounded-sm bg-[var(--marker-music-bg)] text-[var(--marker-music)] border border-[var(--marker-music)]/40 leading-tight font-bold font-sans"
                                 >
                                   {lang === "zh" ? "艳" : "M"}
                                 </span>
@@ -1537,13 +1526,13 @@ export default function App() {
               })()}
 
               <div>
-                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
+                <h2 className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
                   {t.ageDist}
                 </h2>
                 <div className="space-y-4">
                   {stats.ageData.map((stat, i) => (
                     <div key={i} className="space-y-1.5">
-                      <div className="flex justify-between text-[12px]">
+                      <div className="flex justify-between text-xs">
                         <span className="font-sans">
                           {stat.group === "?"
                             ? lang === "zh"
@@ -1567,7 +1556,7 @@ export default function App() {
                           <button
                             key={c.id}
                             onClick={() => setSelectedCharacter(c)}
-                            className="text-[9px] px-1.5 py-0.5 bg-black/5 hover:bg-[var(--accent)]/15 text-[var(--ink-dim-text)] hover:text-[var(--accent)] rounded-sm transition-colors font-sans leading-tight"
+                            className="text-xs px-1.5 py-0.5 bg-black/5 hover:bg-[var(--accent)]/15 text-[var(--ink-dim-text)] hover:text-[var(--accent)] rounded-sm transition-colors font-sans leading-tight"
                           >
                             {getCharacterNameForLanguage(c, lang)}
                           </button>
@@ -1579,13 +1568,13 @@ export default function App() {
               </div>
 
               <div>
-                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
+                <h2 className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
                   {t.roleDist}
                 </h2>
                 <div className="space-y-4">
                   {stats.topRoles.map((stat, i) => (
                     <div key={i} className="space-y-1.5">
-                      <div className="flex justify-between text-[12px]">
+                      <div className="flex justify-between text-xs">
                         <span className="capitalize truncate pr-2 font-hans">
                           {lang === "zh"
                             ? characters.find((c) => c.role === stat.name)
@@ -1616,11 +1605,11 @@ export default function App() {
             {/* About Section */}
             <div
               id="about"
-              className={`relative parchment p-5 sm:p-8 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+              className={`relative parchment p-5 sm:p-8 rounded-sm scroll-mt-24 ${
                 activeMobileTab === "overview" ? "block" : "hidden md:block"
               }`}
             >
-              <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-4 font-bold border-b border-[var(--paper-border)] pb-2">
+              <h2 className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-4 font-bold border-b border-[var(--paper-border)] pb-2">
                 {lang === "en" ? "About Precious Vibe" : "关于品花宝境"}
               </h2>
               <p className="text-sm text-[var(--ink-dim)] leading-relaxed mb-6 font-hans">
@@ -1633,10 +1622,10 @@ export default function App() {
                 <div className="flex gap-3 items-baseline py-2.5 border-t border-[var(--paper-border)]/60 first:border-t-0">
                   <BookOpen size={12} className="text-[var(--accent)] shrink-0 translate-y-[1px]" />
                   <div>
-                    <dt className="inline text-[11px] font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
+                    <dt className="inline text-xs font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
                       {lang === "en" ? "Chapter Reader" : "章节阅读"}
                     </dt>
-                    <dd className="inline text-[11px] text-[var(--ink-dim)]/75 leading-snug">
+                    <dd className="inline text-xs text-[var(--ink-dim)]/75 leading-snug">
                       — {lang === "en"
                         ? "Read all 60 chapters in Chinese with aligned English translations and scene-level annotations."
                         : "阅读全部六十回原文，并附英文对照翻译与场景注释。"}
@@ -1647,10 +1636,10 @@ export default function App() {
                 <div className="flex gap-3 items-baseline py-2.5 border-t border-[var(--paper-border)]/60 sm:first:border-t-0">
                   <Users size={12} className="text-[var(--accent)] shrink-0 translate-y-[1px]" />
                   <div>
-                    <dt className="inline text-[11px] font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
+                    <dt className="inline text-xs font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
                       {lang === "en" ? "Character Database" : "人物数据库"}
                     </dt>
-                    <dd className="inline text-[11px] text-[var(--ink-dim)]/75 leading-snug">
+                    <dd className="inline text-xs text-[var(--ink-dim)]/75 leading-snug">
                       — {lang === "en"
                         ? `Profiles for all ${characters.length} characters, with roles, aliases, chapter appearances, and mention counts.`
                         : `收录全部 ${characters.length} 位人物的角色、别名、登场章回及提及次数。`}
@@ -1661,10 +1650,10 @@ export default function App() {
                 <div className="flex gap-3 items-baseline py-2.5 border-t border-[var(--paper-border)]/60">
                   <Network size={12} className="text-[var(--accent)] shrink-0 translate-y-[1px]" />
                   <div>
-                    <dt className="inline text-[11px] font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
+                    <dt className="inline text-xs font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
                       {lang === "en" ? "Relationship Network" : "人物关系网络"}
                     </dt>
-                    <dd className="inline text-[11px] text-[var(--ink-dim)]/75 leading-snug">
+                    <dd className="inline text-xs text-[var(--ink-dim)]/75 leading-snug">
                       — {lang === "en"
                         ? "Interactive force graph visualising social bonds, rivalries, and family ties across the cast."
                         : "互动力导向图，可视化展示全书人物的社交、对立与家族关系。"}
@@ -1675,10 +1664,10 @@ export default function App() {
                 <div className="flex gap-3 items-baseline py-2.5 border-t border-[var(--paper-border)]/60">
                   <Leaf size={12} className="text-[var(--accent)] shrink-0 translate-y-[1px]" />
                   <div>
-                    <dt className="inline text-[11px] font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
+                    <dt className="inline text-xs font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
                       {lang === "en" ? "Integrated Map Feature" : "综合地图功能"}
                     </dt>
-                    <dd className="inline text-[11px] text-[var(--ink-dim)]/75 leading-snug">
+                    <dd className="inline text-xs text-[var(--ink-dim)]/75 leading-snug">
                       — {lang === "en"
                         ? "Character hometowns, named gardens, locations, and chapter-linked geography presented in one map feature."
                         : "人物籍贯、名园、地点与章回地理整合为一个地图功能。"}
@@ -1689,10 +1678,10 @@ export default function App() {
                 <div className="flex gap-3 items-baseline py-2.5 border-t border-[var(--paper-border)]/60">
                   <Book size={12} className="text-[var(--accent)] shrink-0 translate-y-[1px]" />
                   <div>
-                    <dt className="inline text-[11px] font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
+                    <dt className="inline text-xs font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
                       {lang === "en" ? "Literary Citations" : "文学引用"}
                     </dt>
-                    <dd className="inline text-[11px] text-[var(--ink-dim)]/75 leading-snug">
+                    <dd className="inline text-xs text-[var(--ink-dim)]/75 leading-snug">
                       — {lang === "en"
                         ? "Every allusion to classical poetry and drama linked to its source work, with context snippets."
                         : "书中每处诗词典故均附来源及上下文片段，便于溯源考证。"}
@@ -1703,10 +1692,10 @@ export default function App() {
                 <div className="flex gap-3 items-baseline py-2.5 border-t border-[var(--paper-border)]/60">
                   <MapIcon size={12} className="text-[var(--accent)] shrink-0 translate-y-[1px]" />
                   <div>
-                    <dt className="inline text-[11px] font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
+                    <dt className="inline text-xs font-bold text-[var(--ink-dim-text)] uppercase tracking-wider mr-1">
                       {lang === "en" ? "Hometowns, Gardens & Locations" : "籍贯、园林与地点"}
                     </dt>
-                    <dd className="inline text-[11px] text-[var(--ink-dim)]/75 leading-snug">
+                    <dd className="inline text-xs text-[var(--ink-dim)]/75 leading-snug">
                       — {lang === "en"
                         ? "An integrated map and index for character hometowns, gardens, and named locations."
                         : "整合人物籍贯、园林与命名地点的交互式地图与索引。"}
@@ -1716,14 +1705,18 @@ export default function App() {
               </dl>
             </div>
 
-
+            {/* Mobile Landscape Illustration. Sits below the intro so the first
+                screen on a phone is what the site is, not decoration. */}
+            <div className={activeMobileTab === "overview" ? "block md:hidden" : "hidden"}>
+              <MainInkLandscape />
+            </div>
 
             {/* Network Graph Section */}
             <div
               id="network"
               className={`scroll-mt-24 ${activeMobileTab === "network" ? "block" : "hidden md:block"}`}
             >
-              <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
+              <h2 className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
                 {lang === "en"
                   ? "Character Relationship Network"
                   : "人物关系网络图谱"}
@@ -1742,7 +1735,7 @@ export default function App() {
             <div className={activeMobileTab === "characters" ? "flex flex-col gap-4 md:gap-5" : "hidden md:flex md:flex-col md:gap-5"}>
               <div
                 id="characters"
-                className="relative parchment p-4 sm:p-6 rounded-sm flex flex-col gap-4 sm:gap-6 border-double border-4 border-[var(--paper-border)] scroll-mt-24"
+                className="relative parchment p-4 sm:p-6 rounded-sm flex flex-col gap-4 sm:gap-6 scroll-mt-24"
               >
               <div className="flex flex-col md:flex-row gap-4 items-center">
                 <div className="relative flex-1 w-full">
@@ -1761,7 +1754,7 @@ export default function App() {
                 <div className="flex gap-2 items-center bg-white/20 p-1 rounded-sm border border-[var(--paper-border)]">
                   <button
                     onClick={() => setSortBy("mentions")}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${sortBy === "mentions"
+                    className={`flex items-center gap-2 px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-wider transition-all ${sortBy === "mentions"
                       ? "bg-[var(--accent)] text-[var(--paper-bg)]"
                       : "text-[var(--ink-dim-text)] hover:bg-black/5"
                       }`}
@@ -1771,7 +1764,7 @@ export default function App() {
                   </button>
                   <button
                     onClick={() => setSortBy("appearance")}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${sortBy === "appearance"
+                    className={`flex items-center gap-2 px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-wider transition-all ${sortBy === "appearance"
                       ? "bg-[var(--accent)] text-[var(--paper-bg)]"
                       : "text-[var(--ink-dim-text)] hover:bg-black/5"
                       }`}
@@ -1781,7 +1774,7 @@ export default function App() {
                   </button>
                   <button
                     onClick={() => setSortBy("role")}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider transition-all ${sortBy === "role"
+                    className={`flex items-center gap-2 px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-wider transition-all ${sortBy === "role"
                       ? "bg-[var(--accent)] text-[var(--paper-bg)]"
                       : "text-[var(--ink-dim-text)] hover:bg-black/5"
                       }`}
@@ -1807,8 +1800,8 @@ export default function App() {
                     onClick={() => setSelectedRole(key)}
                     className={`px-3.5 sm:px-4 py-2.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all border whitespace-nowrap font-hans min-h-11 touch-manipulation active:opacity-80 ${selectedRole === key
                       ? (ROLE_CHIP_ACTIVE[key] ?? ROLE_CHIP_ACTIVE.Other)
-                      : (ROLE_CHIP_IDLE[key] ?? ROLE_CHIP_IDLE.Other) +
-                      " hover:opacity-75"
+                      : (ROLE_CHIP_BOXED[key] ?? ROLE_CHIP_BOXED.Other) +
+                      " hover:brightness-95"
                       }`}
                   >
                     {label}
@@ -1841,7 +1834,7 @@ export default function App() {
             </div>
 
               {filteredCharacters.length === 0 && (
-                <div className="parchment p-20 text-center rounded-sm border-double border-4 border-[var(--paper-border)]">
+                <div className="parchment p-20 text-center rounded-sm">
                   <Search size={40} className="mx-auto mb-4 text-[var(--ink-dim-text)]" />
                   <p className="text-[var(--ink-dim-text)] italic font-hans">{t.noRecords}</p>
                 </div>
@@ -1866,21 +1859,21 @@ export default function App() {
             </div>
             <div
               id="chapters"
-              className={`relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-24 ${
                 activeMobileTab === "chapters" ? "block" : "hidden md:block"
               }`}
             >
-              <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
+              <h2 className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
                 {t.chapters}
               </h2>
               <div className="mb-6 space-y-2 pb-4 border-b border-[var(--paper-border)]">
                 <p className="text-base font-bold font-hans text-[var(--ink-title)]">
                   {lang === "zh" ? "品花宝鉴" : "Pinhua Baojian"}
                 </p>
-                <p className="text-[11px] font-hans text-[var(--ink-dim-text)]">
+                <p className="text-xs font-hans text-[var(--ink-dim-text)]">
                   {lang === "zh" ? "作者：陈森" : "Author: Chen Sen"}
                 </p>
-                <p className="text-[11px] font-hans text-[var(--ink-title)] leading-relaxed">
+                <p className="text-xs font-hans text-[var(--ink-title)] leading-relaxed">
                   {lang === "en"
                     ? "Pinhua Baojian (also known as Yiqing Yishi and Qunhua Baojian) is a 60-chapter novel by Chen Sen of the Qing dynasty, depicting the culture of male entertainers. A native of Changzhou, Chen Sen repeatedly failed the imperial examinations and gave up around age 40. While living in Beijing he frequently associated with performers, gathering material for the novel."
                     : "《品花宝鉴》，亦作《怡情佚史》、《群花宝鉴》，清代陈森所著的一部描写狎优风气的长篇小说，共60回。陈森是常州人，科举常年不得意，40岁后放弃科举。他寓居北京时常与优伶交往，为日后的创作积累了素材。"}
@@ -1896,10 +1889,10 @@ export default function App() {
                     >
                       <BookOpen size={14} className="text-[var(--accent)] shrink-0" />
                       <span className="min-w-0">
-                        <span className="block text-[8px] uppercase tracking-widest text-[var(--accent)] font-bold">
+                        <span className="block text-xs uppercase tracking-widest text-[var(--accent)] font-bold">
                           {lang === "zh" ? "继续阅读" : "Continue reading"}
                         </span>
-                        <span className="block text-[11px] font-hans text-[var(--ink-title)] leading-tight">
+                        <span className="block text-xs font-hans text-[var(--ink-title)] leading-tight">
                           {getChapterReaderTitle(continueReadingChapter, lang)}
                         </span>
                       </span>
@@ -1924,7 +1917,7 @@ export default function App() {
                     size={12}
                     className="text-[var(--accent)]/60 group-hover:text-[var(--accent)] shrink-0"
                   />
-                  <span className="text-[11px] font-hans font-bold text-[var(--accent)] leading-tight">
+                  <span className="text-xs font-hans font-bold text-[var(--accent)] leading-tight">
                     {lang === "en" ? "Contents" : "目录"}
                   </span>
                 </button>
@@ -1938,7 +1931,7 @@ export default function App() {
                       size={12}
                       className="text-[var(--accent)]/40 group-hover:text-[var(--accent)] shrink-0"
                     />
-                    <span className="text-[11px] font-hans text-[var(--ink-title)] leading-tight">
+                    <span className="text-xs font-hans text-[var(--ink-title)] leading-tight">
                       {lang === "en"
                         ? chapter.id === 0
                           ? "Preface"
@@ -1958,19 +1951,19 @@ export default function App() {
             {/* Works Cited */}
             <div
               id="works"
-              className={`relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-24 ${
                 activeMobileTab === "works" ? "block" : "hidden md:block"
               }`}
             >
               <div className="flex items-baseline justify-between border-b border-[var(--paper-border)] pb-2 mb-4">
-                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
+                <h2 className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold">
                   {lang === "zh" ? "引书与作品" : "Works Cited"}
                 </h2>
-                <span className="text-[10px] text-[var(--accent)] font-sans font-bold">
+                <span className="text-xs text-[var(--accent)] font-sans font-bold">
                   {allWorksCited.length} {lang === "zh" ? "部" : "unique"}
                 </span>
               </div>
-              <p className="text-[10px] text-[var(--ink-dim-text)] italic mb-4">
+              <p className="text-xs text-[var(--ink-dim-text)] italic mb-4">
                 {lang === "zh"
                   ? "分组根据作品描述自动推断；未注明者多为演出散出。"
                   : "Groups are inferred from work descriptions; unannotated titles are mostly performed scenes."}
@@ -1979,10 +1972,10 @@ export default function App() {
                 {worksCitedByCategory.map(({ category, label, works }) => (
                   <div key={category}>
                     <div className="flex items-center justify-between gap-3 mb-2">
-                      <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
+                      <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold">
                         {lang === "zh" ? label.zh : label.en}
                       </p>
-                      <span className="text-[9px] text-[var(--accent)] font-sans font-bold">
+                      <span className="text-xs text-[var(--accent)] font-sans font-bold">
                         {works.length}
                       </span>
                     </div>
@@ -1997,7 +1990,7 @@ export default function App() {
                             key={work}
                             onClick={() => setSelectedWork(workKey)}
                             title={`${count} ${lang === "zh" ? "回" : count === 1 ? "chapter" : "chapters"}`}
-                            className={`px-2 py-0.5 text-[10px] rounded-sm font-hans cursor-pointer transition-colors ${hasDetailedDescription
+                            className={`px-2 py-0.5 text-xs rounded-sm font-hans cursor-pointer transition-colors ${hasDetailedDescription
                               ? "border-2 border-[var(--accent)] bg-[#e8dcc4] text-[var(--accent)] font-bold shadow-sm hover:bg-[var(--paper-border)]"
                               : "border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] hover:bg-[var(--paper-border)]/40"
                               }`}
@@ -2007,7 +2000,7 @@ export default function App() {
                               : work}
                             {count > 1 && (
                               <span
-                                className={`ml-1 text-[9px] font-sans ${hasDetailedDescription ? "text-[var(--ink-dim-text)]" : "text-[var(--accent)]"}`}
+                                className={`ml-1 text-xs font-sans ${hasDetailedDescription ? "text-[var(--ink-dim-text)]" : "text-[var(--accent)]"}`}
                               >
                                 ×{count}
                               </span>
@@ -2028,32 +2021,32 @@ export default function App() {
             {/* Downloads */}
             <div
               id="downloads"
-              className={`relative parchment p-4 sm:p-6 rounded-sm border-double border-4 border-[var(--paper-border)] scroll-mt-24 ${
+              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-24 ${
                 activeMobileTab === "downloads" ? "block" : "hidden md:block"
               }`}
             >
               <div className="flex items-baseline justify-between border-b border-[var(--paper-border)] pb-2 mb-4">
-                <h2 className="text-xs uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold flex items-center gap-2">
+                <h2 className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold flex items-center gap-2">
                   <Download size={12} className="text-[var(--accent)]" />
                   {lang === "zh" ? "下载" : "Download"}
                 </h2>
-                <span className="text-[10px] text-[var(--accent)] font-sans font-bold">
+                <span className="text-xs text-[var(--accent)] font-sans font-bold">
                   61 {lang === "zh" ? "章" : "chapters"}
                 </span>
               </div>
               <div className="flex flex-col gap-1.5">
-                <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold mb-1">
+                <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold mb-1">
                   {lang === "en" ? "Full text" : "全文"}
                 </p>
                 <button
                   onClick={downloadChinese}
-                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-[10px] text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
+                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
                 >
                   {lang === "en" ? "↓ Chinese text (.txt)" : "↓ 中文全文 (.txt)"}
                 </button>
                 <button
                   onClick={downloadEnglish}
-                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-[10px] text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
+                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
                 >
                   {lang === "en"
                     ? "↓ English translation (.txt)"
@@ -2061,7 +2054,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={downloadInterleaved}
-                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-[10px] text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
+                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
                 >
                   {lang === "en"
                     ? "↓ Bilingual interleaved (.txt)"
@@ -2069,7 +2062,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={downloadJSON}
-                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-[10px] text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
+                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
                 >
                   {lang === "en"
                     ? "↓ Bilingual interleaved (.json)"
@@ -2077,11 +2070,11 @@ export default function App() {
                 </button>
               </div>
               <div className="mt-4 pt-4 border-t border-[var(--paper-border)] space-y-3">
-                <p className="text-[9px] uppercase tracking-[0.2em] text-[var(--ink-dim-text)] font-bold">
+                <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold">
                   {lang === "en" ? "By chapter" : "分章下载"}
                 </p>
                 <div>
-                  <p className="text-[9px] text-[var(--accent)] font-bold mb-1.5 font-hans">
+                  <p className="text-xs text-[var(--accent)] font-bold mb-1.5 font-hans">
                     {lang === "en" ? "Chinese (.txt)" : "中文 (.txt)"}
                   </p>
                   <div className="flex flex-wrap gap-1">
@@ -2091,7 +2084,7 @@ export default function App() {
                         href={`/downloads/chinese/${chapterTxtFilename(ch.id)}`}
                         download
                         title={ch.title}
-                        className="min-w-[1.75rem] px-1.5 py-0.5 text-center text-[9px] rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-colors font-hans font-bold"
+                        className="min-w-[1.75rem] px-1.5 py-0.5 text-center text-xs rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-colors font-hans font-bold"
                       >
                         {ch.id === 0 ? (lang === "zh" ? "序" : "Pre") : ch.id}
                       </a>
@@ -2099,7 +2092,7 @@ export default function App() {
                   </div>
                 </div>
                 <div>
-                  <p className="text-[9px] text-[var(--accent)] font-bold mb-1.5">
+                  <p className="text-xs text-[var(--accent)] font-bold mb-1.5">
                     {lang === "en" ? "English (.txt)" : "英文 (.txt)"}
                   </p>
                   <div className="flex flex-wrap gap-1">
@@ -2114,7 +2107,7 @@ export default function App() {
                           href={`/downloads/english/${chapterTxtFilename(ch.id)}`}
                           download
                           title={enTitle}
-                          className="min-w-[1.75rem] px-1.5 py-0.5 text-center text-[9px] rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-colors font-sans font-bold"
+                          className="min-w-[1.75rem] px-1.5 py-0.5 text-center text-xs rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-colors font-sans font-bold"
                         >
                           {ch.id === 0 ? "0" : ch.id}
                         </a>
@@ -2131,17 +2124,17 @@ export default function App() {
           {/* Decorative rule */}
           <div className="flex items-center gap-4 mb-8">
             <div className="flex-1 border-t border-[var(--paper-border)]" />
-            <span className="text-[var(--accent)] opacity-40 text-[10px] tracking-[0.4em]">✦</span>
+            <span aria-hidden="true" className="text-[var(--accent)] opacity-40 text-xs tracking-[0.4em]">✦</span>
             <div className="flex-1 border-t border-[var(--paper-border)]" />
           </div>
 
           <div className="max-w-lg mx-auto text-center space-y-6">
             {/* Source text */}
             <div className="space-y-1.5">
-              <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--accent)] font-bold opacity-70">
+              <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)] font-bold ">
                 {lang === "zh" ? "原著" : "Source Text"}
               </p>
-              <p className="text-[11px] text-[var(--ink-dim)] leading-relaxed font-serif">
+              <p className="text-xs text-[var(--ink-dim)] leading-relaxed font-serif">
                 <span className="font-semibold italic">
                   {lang === "zh"
                     ? "品花宝鉴"
@@ -2149,7 +2142,7 @@ export default function App() {
                 </span>
               </p>
 
-              <p className="text-[10px] text-[var(--ink-dim-text)] opacity-60 tracking-wide">
+              <p className="text-xs text-[var(--ink-dim-text)]  tracking-wide">
                 {lang === "zh"
                   ? "陈森著 · 清代 · 共六十回"
                   : "A 60-chapter novel · Chen Sen · Qing dynasty"}
@@ -2157,26 +2150,26 @@ export default function App() {
             </div>
 
             {/* Dot separator */}
-            <div className="text-[var(--paper-border)] text-[8px] tracking-[0.8em] opacity-60">
+            <div aria-hidden="true" className="text-[var(--paper-border)] text-xs tracking-[0.8em] opacity-60">
               · · ·
             </div>
 
             {/* Project attribution */}
             <div className="space-y-1.5">
-              <p className="text-[9px] uppercase tracking-[0.3em] text-[var(--accent)] font-bold opacity-70">
+              <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)] font-bold ">
                 {lang === "zh" ? "本项目" : "This Project"}
               </p>
               <p className="text-sm leading-relaxed flex items-center justify-center gap-1.5 text-[var(--ink-title)]">
                 <span className="font-vibe-en text-lg">Precious Vibe</span>
                 <span className="font-vibe-zh text-base">品花宝境</span>
               </p>
-              <p className="text-[10px] text-[var(--ink-dim-text)] italic opacity-80">
+              <p className="text-xs text-[var(--ink-dim-text)] italic">
 
                 {lang === "zh"
                   ? "《品花宝鉴》之意境文学"
                   : "Pinhua Baojian's Vibe Literature"}
               </p>
-              <p className="text-[10px] text-[var(--ink-dim-text)] opacity-60 tracking-wide">
+              <p className="text-xs text-[var(--ink-dim-text)]  tracking-wide">
                 {lang === "zh"
                   ? "周腾朝著 · 2026 · 借助AI技术创作"
                   : "Authored by TengChao Zhou · 2026 · With the help of AI technologies"}

@@ -19,7 +19,7 @@ export function LanguageSwitch({
       <button
         type="button"
         onClick={() => setLang("en")}
-        className={`h-full px-1.5 sm:px-2 flex items-center justify-center text-[10px] font-bold uppercase tracking-wider transition-all rounded-sm cursor-pointer ${
+        className={`h-full px-1.5 sm:px-2 flex items-center justify-center text-xs font-bold uppercase tracking-wider transition-all rounded-sm cursor-pointer ${
           lang === "en"
             ? "bg-[var(--accent)] text-[var(--paper-bg)]"
             : "text-[var(--ink-dim-text)] hover:bg-black/5"
@@ -30,7 +30,7 @@ export function LanguageSwitch({
       <button
         type="button"
         onClick={() => setLang("zh")}
-        className={`h-full px-1.5 sm:px-2 flex items-center justify-center text-[10px] font-bold transition-all rounded-sm font-hans cursor-pointer ${
+        className={`h-full px-1.5 sm:px-2 flex items-center justify-center text-xs font-bold transition-all rounded-sm font-hans cursor-pointer ${
           lang === "zh"
             ? "bg-[var(--accent)] text-[var(--paper-bg)]"
             : "text-[var(--ink-dim-text)] hover:bg-black/5"
