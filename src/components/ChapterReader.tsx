@@ -82,15 +82,16 @@ const READER_FONT_SCALE_KEY = "phbj-reader-font-scale";
 const READER_FONT_SCALES = [0.85, 1, 1.15, 1.3, 1.5];
 const DEFAULT_FONT_SCALE_INDEX = 1;
 
-// Two reading registers. The Chinese source is set in a serif with CJK-appropriate
-// leading; the English translation is the sans apparatus alongside it.
+// Two reading registers, both set in the UI sans (Inter / Noto Sans SC). The Chinese
+// source keeps its larger size, CJK-appropriate leading, and darker ink; the English
+// translation is the apparatus alongside it.
 // Measures are in em so they track the reader's A-/A+ control, and the two values
 // are chosen to resolve to the same width (34 × 1em === 32 × 1.0625em) so the
 // columns align: ~34 CJK characters and ~64 Latin characters per line.
 const READER_ZH_MEASURE = "max-w-[32em] mx-auto";
 const READER_EN_MEASURE = "max-w-[34em] mx-auto";
 const READER_ZH_TEXT =
-  `${READER_ZH_MEASURE} text-[1.0625em] font-read-hans text-[var(--ink-title)] leading-[1.9] whitespace-pre-line`;
+  `${READER_ZH_MEASURE} text-[1.0625em] font-hans text-[var(--ink-title)] leading-[1.9] whitespace-pre-line`;
 const READER_EN_TEXT =
   `${READER_EN_MEASURE} text-[1em] font-sans text-[var(--ink-dim)] leading-[1.7] whitespace-pre-line`;
 const READER_ZH_VOICE_KEY = "phbj-reader-zh-voice";

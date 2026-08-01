@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&family=Zhi+Mang+Xing&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;700&family=Zhi+Mang+Xing&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -7,8 +7,6 @@
   --font-sans: "Inter", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-vibe-en: "Great Vibes", "Alex Brush", cursive, serif;
   --font-vibe-zh: "Zhi Mang Xing", "Ma Shan Zheng", "Long Cang", "STKaiti", "KaiTi", cursive, serif;
-  /* Reading register for the Chinese source text — a serif, unlike the sans UI. */
-  --font-read-hans: "Noto Serif SC", "Songti SC", "SimSun", serif;
 
   /* Type scale. 12px is the floor: nothing in the UI goes below --text-xs.
      Use these utilities only — no arbitrary text-[Npx] values. */
