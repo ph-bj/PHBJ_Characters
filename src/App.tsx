@@ -787,9 +787,9 @@ export default function App() {
   // always reachable. A 6-column grid could not hold a label at the 12px floor.
   const mobileSections = [
     { id: "overview", label: lang === "zh" ? "总览" : "Overview", icon: Home },
+    { id: "chapters", label: lang === "zh" ? "章节" : "Chapters", icon: BookOpen },
     { id: "network", label: lang === "zh" ? "关系" : "Network", icon: Network },
     { id: "characters", label: lang === "zh" ? "人物" : "People", icon: Users },
-    { id: "chapters", label: lang === "zh" ? "章节" : "Chapters", icon: BookOpen },
     { id: "hometown-map", label: lang === "zh" ? "地图" : "Map", icon: MapIcon },
     { id: "questions", label: lang === "zh" ? "问题" : "Q&A", icon: HelpCircle },
     { id: "works", label: lang === "zh" ? "引书" : "Works", icon: Book },
@@ -814,9 +814,9 @@ export default function App() {
 
   const mobileMenuSections = [
     { id: "overview", label: lang === "zh" ? "总览" : "Overview", icon: Home },
+    { id: "chapters", label: lang === "zh" ? "章节" : "Chapters", icon: BookOpen },
     { id: "network", label: lang === "zh" ? "关系网络" : "Network", icon: Network },
     { id: "characters", label: lang === "zh" ? "人物" : "Characters", icon: Users },
-    { id: "chapters", label: lang === "zh" ? "章节" : "Chapters", icon: BookOpen },
     { id: "hometown-map", label: lang === "zh" ? "地图" : "Map", icon: MapIcon },
     { id: "questions", label: lang === "zh" ? "问题" : "Questions", icon: HelpCircle },
     { id: "works", label: lang === "zh" ? "引书" : "Works Cited", icon: Book },
