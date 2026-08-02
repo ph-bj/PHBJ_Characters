@@ -1018,12 +1018,12 @@ export default function App() {
   }, [hasOpenOverlay]);
 
   return (
-    <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center text-[var(--ink-dim-text)] text-sm font-sans tracking-wide">Loading...</div>}>
-      <div className="min-h-screen font-sans text-[var(--ink-main)] selection:bg-[var(--accent)]/20">
+    <React.Suspense fallback={<div className="min-h-dvh flex items-center justify-center text-[var(--ink-dim-text)] text-sm font-sans tracking-wide">Loading...</div>}>
+      <div className="min-h-dvh pt-[env(safe-area-inset-top)] font-sans text-[var(--ink-main)] selection:bg-[var(--accent)]/20">
         {/* Header */}
         <div
           id="overview"
-          className="max-w-[1800px] mx-auto w-full px-2 sm:px-5 md:px-4 lg:px-5 scroll-mt-24 md:sticky md:top-0 md:z-30 md:bg-[var(--body-bg)]/95 md:backdrop-blur-sm overflow-visible"
+          className="max-w-[1800px] mx-auto w-full px-2 sm:px-5 md:px-4 lg:px-5 scroll-mt-[calc(6rem+env(safe-area-inset-top))] md:sticky md:top-[env(safe-area-inset-top)] md:z-30 md:bg-[var(--body-bg)]/95 md:backdrop-blur-sm overflow-visible"
         >
           <header className="parchment mt-2 sm:mt-5 mb-2 px-4 sm:px-8 md:px-6 lg:px-10 py-4 md:py-3 lg:py-4 md:min-h-[4.5rem] lg:min-h-[6rem] flex flex-col sm:flex-row items-center justify-between gap-3 md:gap-4 rounded-sm border-double border-4 border-[var(--paper-border)] overflow-visible">
             <div className="hidden md:block flex-1" />
@@ -1061,7 +1061,9 @@ export default function App() {
           </header>
         </div>
 
-        <div className="md:hidden sticky top-0 z-30 px-1 sm:px-2 py-1 bg-[var(--body-bg)]/95 backdrop-blur-sm border-b border-[var(--paper-border)]/80">
+        {/* Sticks below the status bar rather than under it, since the root above
+            is inset by the same amount. */}
+        <div className="md:hidden sticky top-[env(safe-area-inset-top)] z-30 px-1 sm:px-2 py-1 bg-[var(--body-bg)]/95 backdrop-blur-sm border-b border-[var(--paper-border)]/80">
           <nav
             className="parchment rounded-sm border border-[var(--paper-border)] p-1 flex items-stretch gap-1 shadow-md"
             aria-label={lang === "zh" ? "移动导航" : "Mobile navigation"}
@@ -1116,7 +1118,7 @@ export default function App() {
             {/* Questions Sidebar */}
             <div
               id="questions"
-              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-24 ${
+              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-[calc(6rem+env(safe-area-inset-top))] ${
                 activeMobileTab === "questions" ? "flex flex-col gap-4" : "hidden md:flex md:flex-col md:gap-4"
               }`}
             >
@@ -1133,7 +1135,7 @@ export default function App() {
               <div className="flex flex-wrap gap-1.5 pb-2 border-b border-[var(--paper-border)]/50">
                 <button
                   onClick={() => setSelectedQuestionCategory(null)}
-                  className={`text-xs px-2 py-1 rounded-sm border uppercase tracking-wider font-bold transition-all ${
+                  className={`inline-flex items-center min-h-9 sm:min-h-0 text-xs px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-sm border uppercase tracking-wider font-bold transition-all ${
                     selectedQuestionCategory === null
                       ? "bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]"
                       : "border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)] bg-black/5"
@@ -1147,7 +1149,7 @@ export default function App() {
                     <button
                       key={cat.zh}
                       onClick={() => setSelectedQuestionCategory(isSelected ? null : cat.zh)}
-                      className={`text-xs px-2 py-1 rounded-sm border tracking-normal font-bold transition-all text-left leading-snug ${
+                      className={`inline-flex items-center min-h-9 sm:min-h-0 text-xs px-2.5 py-1.5 sm:px-2 sm:py-1 rounded-sm border tracking-normal font-bold transition-all text-left leading-snug ${
                         isSelected
                           ? "bg-[var(--accent)] text-[var(--paper-bg)] border-[var(--accent)]"
                           : "border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)] bg-black/5"
@@ -1212,7 +1214,7 @@ export default function App() {
 
             <div
               id="stats"
-              className={`relative parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm scroll-mt-24 ${
+              className={`relative parchment p-4 sm:p-6 md:p-5 lg:p-8 rounded-sm scroll-mt-[calc(6rem+env(safe-area-inset-top))] ${
                 activeMobileTab === "stats"
                   ? "flex flex-col gap-6 md:gap-8 lg:gap-10"
                   : "hidden md:flex md:flex-col md:gap-6 lg:gap-10"
@@ -1605,7 +1607,7 @@ export default function App() {
             {/* About Section */}
             <div
               id="about"
-              className={`relative parchment p-5 sm:p-8 rounded-sm scroll-mt-24 ${
+              className={`relative parchment p-5 sm:p-8 rounded-sm scroll-mt-[calc(6rem+env(safe-area-inset-top))] ${
                 activeMobileTab === "overview" ? "block" : "hidden md:block"
               }`}
             >
@@ -1714,7 +1716,7 @@ export default function App() {
             {/* Network Graph Section */}
             <div
               id="network"
-              className={`scroll-mt-24 ${activeMobileTab === "network" ? "block" : "hidden md:block"}`}
+              className={`scroll-mt-[calc(6rem+env(safe-area-inset-top))] ${activeMobileTab === "network" ? "block" : "hidden md:block"}`}
             >
               <h2 className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] mb-6 font-bold border-b border-[var(--paper-border)] pb-2">
                 {lang === "en"
@@ -1735,7 +1737,7 @@ export default function App() {
             <div className={activeMobileTab === "characters" ? "flex flex-col gap-4 md:gap-5" : "hidden md:flex md:flex-col md:gap-5"}>
               <div
                 id="characters"
-                className="relative parchment p-4 sm:p-6 rounded-sm flex flex-col gap-4 sm:gap-6 scroll-mt-24"
+                className="relative parchment p-4 sm:p-6 rounded-sm flex flex-col gap-4 sm:gap-6 scroll-mt-[calc(6rem+env(safe-area-inset-top))]"
               >
               <div className="flex flex-col md:flex-row gap-4 items-center">
                 <div className="relative flex-1 w-full">
@@ -1859,7 +1861,7 @@ export default function App() {
             </div>
             <div
               id="chapters"
-              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-24 ${
+              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-[calc(6rem+env(safe-area-inset-top))] ${
                 activeMobileTab === "chapters" ? "block" : "hidden md:block"
               }`}
             >
@@ -1911,7 +1913,7 @@ export default function App() {
                         .join("\n"),
                     })
                   }
-                  className="text-left p-2 rounded-sm border border-[var(--accent)]/40 hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/60 transition-all group flex items-center gap-2 mb-1"
+                  className="text-left px-2 py-2.5 sm:py-2 min-h-11 sm:min-h-0 rounded-sm border border-[var(--accent)]/40 hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/60 transition-all group flex items-center gap-2 mb-1"
                 >
                   <Book
                     size={12}
@@ -1925,7 +1927,7 @@ export default function App() {
                   <button
                     key={chapter.id}
                     onClick={() => setSelectedChapter(chapter)}
-                    className="text-left p-2 rounded-sm border border-[var(--paper-border)]/30 hover:bg-[var(--accent)]/5 hover:border-[var(--accent)]/30 transition-all group flex items-center gap-2"
+                    className="text-left px-2 py-2.5 sm:py-2 min-h-11 sm:min-h-0 rounded-sm border border-[var(--paper-border)]/30 hover:bg-[var(--accent)]/5 hover:border-[var(--accent)]/30 transition-all group flex items-center gap-2"
                   >
                     <Book
                       size={12}
@@ -1951,7 +1953,7 @@ export default function App() {
             {/* Works Cited */}
             <div
               id="works"
-              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-24 ${
+              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-[calc(6rem+env(safe-area-inset-top))] ${
                 activeMobileTab === "works" ? "block" : "hidden md:block"
               }`}
             >
@@ -1990,7 +1992,7 @@ export default function App() {
                             key={work}
                             onClick={() => setSelectedWork(workKey)}
                             title={`${count} ${lang === "zh" ? "回" : count === 1 ? "chapter" : "chapters"}`}
-                            className={`px-2 py-0.5 text-xs rounded-sm font-hans cursor-pointer transition-colors ${hasDetailedDescription
+                            className={`inline-flex items-center min-h-9 sm:min-h-0 px-2.5 py-1.5 sm:px-2 sm:py-0.5 text-xs rounded-sm font-hans cursor-pointer transition-colors ${hasDetailedDescription
                               ? "border-2 border-[var(--accent)] bg-[#e8dcc4] text-[var(--accent)] font-bold shadow-sm hover:bg-[var(--paper-border)]"
                               : "border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] hover:bg-[var(--paper-border)]/40"
                               }`}
@@ -2021,7 +2023,7 @@ export default function App() {
             {/* Downloads */}
             <div
               id="downloads"
-              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-24 ${
+              className={`relative parchment p-4 sm:p-6 rounded-sm scroll-mt-[calc(6rem+env(safe-area-inset-top))] ${
                 activeMobileTab === "downloads" ? "block" : "hidden md:block"
               }`}
             >
@@ -2040,13 +2042,13 @@ export default function App() {
                 </p>
                 <button
                   onClick={downloadChinese}
-                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
+                  className="text-left flex items-center px-2 py-2.5 sm:py-1.5 min-h-11 sm:min-h-0 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
                 >
                   {lang === "en" ? "↓ Chinese text (.txt)" : "↓ 中文全文 (.txt)"}
                 </button>
                 <button
                   onClick={downloadEnglish}
-                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
+                  className="text-left flex items-center px-2 py-2.5 sm:py-1.5 min-h-11 sm:min-h-0 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
                 >
                   {lang === "en"
                     ? "↓ English translation (.txt)"
@@ -2054,7 +2056,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={downloadInterleaved}
-                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
+                  className="text-left flex items-center px-2 py-2.5 sm:py-1.5 min-h-11 sm:min-h-0 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
                 >
                   {lang === "en"
                     ? "↓ Bilingual interleaved (.txt)"
@@ -2062,7 +2064,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={downloadJSON}
-                  className="text-left px-2 py-1.5 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
+                  className="text-left flex items-center px-2 py-2.5 sm:py-1.5 min-h-11 sm:min-h-0 rounded-sm border border-[var(--paper-border)] hover:bg-[var(--accent)]/8 hover:border-[var(--accent)]/40 transition-all text-xs text-[var(--ink-dim-text)] hover:text-[var(--accent)]"
                 >
                   {lang === "en"
                     ? "↓ Bilingual interleaved (.json)"
@@ -2084,7 +2086,7 @@ export default function App() {
                         href={`/downloads/chinese/${chapterTxtFilename(ch.id)}`}
                         download
                         title={ch.title}
-                        className="min-w-[1.75rem] px-1.5 py-0.5 text-center text-xs rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-colors font-hans font-bold"
+                        className="inline-flex items-center justify-center min-w-9 min-h-9 sm:min-w-[1.75rem] sm:min-h-0 px-1.5 py-0.5 text-center text-xs rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-colors font-hans font-bold"
                       >
                         {ch.id === 0 ? (lang === "zh" ? "序" : "Pre") : ch.id}
                       </a>
@@ -2107,7 +2109,7 @@ export default function App() {
                           href={`/downloads/english/${chapterTxtFilename(ch.id)}`}
                           download
                           title={enTitle}
-                          className="min-w-[1.75rem] px-1.5 py-0.5 text-center text-xs rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-colors font-sans font-bold"
+                          className="inline-flex items-center justify-center min-w-9 min-h-9 sm:min-w-[1.75rem] sm:min-h-0 px-1.5 py-0.5 text-center text-xs rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40 hover:text-[var(--accent)] transition-colors font-sans font-bold"
                         >
                           {ch.id === 0 ? "0" : ch.id}
                         </a>

@@ -257,7 +257,7 @@ export function CharacterDetail({
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center p-4 ${elevated ? "z-[110]" : "z-50"}`}
+      className={`fixed inset-0 flex items-center justify-center p-2 sm:p-4 ${elevated ? "z-[110]" : "z-50"}`}
       onClick={onClose}
     >
       <motion.div
@@ -273,7 +273,7 @@ export function CharacterDetail({
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         onClick={(e) => e.stopPropagation()}
-        className={`relative z-10 w-[95%] sm:w-full max-w-2xl md:max-w-3xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[var(--paper-border)] my-4 sm:my-0 flex flex-col`}
+        className={`relative z-10 w-full sm:w-full max-w-2xl md:max-w-3xl h-[calc(100dvh-1rem)] sm:h-auto sm:max-h-[92dvh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[var(--paper-border)] flex flex-col`}
       >
         <div className="relative shrink-0 px-4 sm:px-6 pt-4 sm:pt-5 pb-3 border-b border-[var(--paper-border)]/50 bg-[var(--paper-bg)]">
           <code
@@ -290,7 +290,7 @@ export function CharacterDetail({
             />
             <button
               onClick={onClose}
-              className="p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)]"
+              className="tap-44 p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)]"
             >
               <X size={20} />
             </button>

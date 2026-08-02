@@ -91,7 +91,7 @@ export function WorkModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
       onClick={onClose}
     >
       <motion.div
@@ -106,7 +106,7 @@ export function WorkModal({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-2xl max-h-[85vh] bg-[var(--paper-bg)] rounded-sm shadow-2xl border-4 border-double border-[var(--accent)] flex flex-col overflow-hidden parchment"
+        className="relative z-10 w-full max-w-2xl max-h-[calc(100dvh-1rem)] sm:max-h-[85dvh] bg-[var(--paper-bg)] rounded-sm shadow-2xl border-4 border-double border-[var(--accent)] flex flex-col overflow-hidden parchment"
       >
         <div className="flex-none p-4 sm:p-6 border-b border-[var(--paper-border)]">
           <div className="flex justify-between items-start">
@@ -122,7 +122,7 @@ export function WorkModal({
               <PermalinkButton lang={lang} link={{ kind: "work", key: work }} />
               <button
                 onClick={onClose}
-                className="p-2 -mr-2 text-[var(--accent)]/60 hover:text-[var(--accent)] hover:bg-[var(--paper-border)]/20 rounded-full transition-colors"
+                className="tap-44 p-2 -mr-2 text-[var(--accent)]/60 hover:text-[var(--accent)] hover:bg-[var(--paper-border)]/20 rounded-full transition-colors"
               >
                 <X size={20} />
               </button>

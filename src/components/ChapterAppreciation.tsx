@@ -201,7 +201,9 @@ export function ChapterAppreciation({
               : "* Click any glyph card to unlock the definition and critique of that specific taxonomy"}
           </p>
 
-          <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
+          {/* English names ("Transcendent", "Splendid") don't fit five to a row on a
+              phone; Chinese is one glyph per cell and always does. */}
+          <div className={`grid gap-1.5 sm:gap-2 ${lang === "zh" ? "grid-cols-5" : "grid-cols-3 min-[480px]:grid-cols-5"}`}>
             {currentTaxonomyItems.map((item, idx) => (
               <button
                 key={idx}
@@ -220,7 +222,7 @@ export function ChapterAppreciation({
                 <span className={
                   lang === "zh"
                     ? "text-xl sm:text-2xl font-bold font-hans"
-                    : "text-xs min-[360px]:text-xs min-[400px]:text-xs md:text-sm tracking-tighter leading-none font-bold font-sans text-center whitespace-nowrap"
+                    : "text-xs md:text-sm leading-tight font-bold font-sans text-center break-words hyphens-auto"
                 }>
                   {lang === "zh" ? item.char : item.nameEn.replace(/\s+Feeling$/i, "")}
                 </span>
@@ -1136,8 +1138,8 @@ export function ChapterAppreciation({
       {/* Visualizations row */}
       <div className="w-full">
         {/* Emotion / Dignity Trajectory */}
-        <div className="bg-[var(--paper-bg)]/80 rounded-sm border border-[var(--paper-border)]/30 p-4 h-[300px] sm:h-[350px]">
-          <h4 className="text-xs sm:text-sm font-bold text-[var(--ink-title)] mb-2 flex flex-wrap items-center justify-between gap-2 font-hans">
+        <div className="bg-[var(--paper-bg)]/80 rounded-sm border border-[var(--paper-border)]/30 p-4 h-[320px] sm:h-[350px] flex flex-col">
+          <h4 className="shrink-0 text-xs sm:text-sm font-bold text-[var(--ink-title)] mb-2 flex flex-wrap items-center justify-between gap-2 font-hans">
             <span>
               {lang === "zh" ? "主角心理状态与环境反馈轨迹" : "Protagonist Psychology Trajectory"}
             </span>
@@ -1147,14 +1149,14 @@ export function ChapterAppreciation({
               </span>
             )}
           </h4>
-          <p className="text-xs text-[var(--ink-dim-text)] mb-4">
+          <p className="shrink-0 text-xs text-[var(--ink-dim-text)] mb-2">
             {lang === "zh"
               ? "* 纵轴代表情感的正向度(狂喜/威严至极度失落/狼狈)"
               : "* Y-axis represents sentiment (High: Joy/Authority, Low: Despair/Panic)"}
           </p>
-          <div className="h-full w-full min-h-[180px] pb-12 relative">
-            <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={150} debounce={100}>
-              <AreaChart data={timelineDataLocal} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+          <div className="flex-1 min-h-0 w-full relative">
+            <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={140} debounce={100}>
+              <AreaChart data={timelineDataLocal} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorSentiment" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="var(--accent)" stopOpacity={0.4} />
@@ -1163,12 +1165,14 @@ export function ChapterAppreciation({
                 </defs>
                 <XAxis
                   dataKey="stage"
-                  tick={{ fill: "var(--ink-dim-text)", fontSize: 10 }}
-                  tickMargin={10}
+                  tick={{ fill: "var(--ink-dim-text)", fontSize: 12 }}
+                  tickMargin={8}
+                  minTickGap={8}
                 />
                 <YAxis
                   domain={[0, 100]}
-                  tick={{ fill: "var(--ink-dim-text)", fontSize: 10 }}
+                  width={38}
+                  tick={{ fill: "var(--ink-dim-text)", fontSize: 12 }}
                   tickFormatter={(val) => `${val}%`}
                 />
                 <Tooltip

@@ -21,7 +21,7 @@ export function QuestionsModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
       onClick={onClose}
     >
       <motion.div
@@ -37,7 +37,7 @@ export function QuestionsModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.98 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-3xl max-h-[88vh] overflow-hidden parchment rounded-sm border-4 border-double border-[var(--paper-border)] shadow-2xl flex flex-col"
+        className="relative z-10 w-full max-w-3xl max-h-[calc(100dvh-1rem)] sm:max-h-[88dvh] overflow-hidden parchment rounded-sm border-4 border-double border-[var(--paper-border)] shadow-2xl flex flex-col"
       >
         <div className="p-4 sm:p-5 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] flex items-center justify-between">
           <div>
@@ -61,7 +61,7 @@ export function QuestionsModal({
             />
             <button
               onClick={onClose}
-              className="p-2 rounded-full hover:bg-black/5 transition-colors text-[var(--ink-title)]"
+              className="tap-44 p-2 rounded-full hover:bg-black/5 transition-colors text-[var(--ink-title)]"
               aria-label="Close questions modal"
             >
               <X size={20} />

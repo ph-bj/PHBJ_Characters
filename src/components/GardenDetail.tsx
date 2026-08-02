@@ -142,7 +142,7 @@ export function GardenDetail({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
       onClick={onClose}
     >
       <motion.div
@@ -158,14 +158,14 @@ export function GardenDetail({
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-[95%] sm:w-full max-w-2xl h-[90vh] sm:h-auto sm:max-h-[92vh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[var(--paper-border)] my-4 sm:my-0 flex flex-col"
+        className="relative z-10 w-full max-w-2xl h-[calc(100dvh-1rem)] sm:h-auto sm:max-h-[92dvh] parchment rounded-sm overflow-hidden shadow-2xl border-4 border-double border-[var(--paper-border)] flex flex-col"
       >
         <div className="absolute top-4 sm:top-6 right-4 sm:right-6 flex items-center gap-1.5 z-10">
           <LanguageSwitch lang={lang} setLang={setLang} />
           <PermalinkButton lang={lang} link={{ kind: "location", id: garden.id }} />
           <button
             onClick={onClose}
-            className="p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)]"
+            className="tap-44 p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)]"
           >
             <X size={20} />
           </button>

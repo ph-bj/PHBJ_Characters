@@ -222,7 +222,7 @@ export function HometownMap({
 
   return (
     <div
-      className="parchment relative mt-6 scroll-mt-24 overflow-hidden rounded-sm border-double border-4 border-[var(--paper-border)]"
+      className="parchment relative mt-6 scroll-mt-[calc(6rem+env(safe-area-inset-top))] overflow-hidden rounded-sm border-double border-4 border-[var(--paper-border)]"
       id="hometown-map"
     >
       <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full border border-[var(--accent)]/10" />

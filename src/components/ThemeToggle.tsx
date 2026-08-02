@@ -59,7 +59,7 @@ export function ThemeToggle({
       <button
         type="button"
         onClick={() => toggle("parchment")}
-        className={`h-full px-2 flex items-center justify-center text-xs font-bold tracking-wider transition-all rounded-sm cursor-pointer ${
+        className={`tap-44 h-full px-2 flex items-center justify-center text-xs font-bold tracking-wider transition-all rounded-sm cursor-pointer ${
           theme === "parchment"
             ? "bg-[var(--accent)] text-[var(--paper-bg)]"
             : "text-[var(--ink-dim-text)] hover:bg-black/5"
@@ -71,7 +71,7 @@ export function ThemeToggle({
       <button
         type="button"
         onClick={() => toggle("plum")}
-        className={`h-full px-2 flex items-center justify-center text-xs font-bold tracking-wider transition-all rounded-sm cursor-pointer ${
+        className={`tap-44 h-full px-2 flex items-center justify-center text-xs font-bold tracking-wider transition-all rounded-sm cursor-pointer ${
           theme === "plum"
             ? "bg-[var(--accent)] text-[var(--paper-bg)]"
             : "text-[var(--ink-dim-text)] hover:bg-black/5"

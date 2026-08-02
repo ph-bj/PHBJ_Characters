@@ -818,7 +818,9 @@ function ChapterReaderComponent({
         onClick={(e) => e.stopPropagation()}
         className="relative z-10 w-full max-w-none h-[100dvh] max-h-[100dvh] parchment rounded-none overflow-hidden shadow-2xl border-0 flex flex-col"
       >
-        <div className="p-2.5 sm:p-6 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] space-y-2 sm:space-y-3 shrink-0">
+        {/* The reader covers the whole viewport, so in an installed (standalone) PWA
+            the top inset is the only thing keeping this row out from under the status bar. */}
+        <div className="p-2.5 pt-[calc(0.625rem+env(safe-area-inset-top))] sm:p-6 sm:pt-[calc(1.5rem+env(safe-area-inset-top))] border-b border-[var(--paper-border)] bg-[var(--paper-bg)] space-y-2 sm:space-y-3 shrink-0">
           <div className="flex items-center justify-between gap-2 sm:gap-3">
             <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
               <PlumIcon className="shrink-0 w-[18px] h-[18px] sm:w-[20px] sm:h-[20px]" size={20} />
@@ -837,7 +839,7 @@ function ChapterReaderComponent({
                 <button
                   type="button"
                   onClick={() => { setShowZhVoicePicker(p => !p); setShowEnVoicePicker(false); }}
-                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-xs font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedZhVoiceName
+                  className={`tap-44 flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-xs font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedZhVoiceName
                     ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
                     : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
                     }`}
@@ -893,7 +895,7 @@ function ChapterReaderComponent({
                 <button
                   type="button"
                   onClick={() => { setShowEnVoicePicker(p => !p); setShowZhVoicePicker(false); }}
-                  className={`flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-xs font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedEnVoiceName
+                  className={`tap-44 flex items-center gap-1 px-1.5 py-1 sm:px-2 sm:py-1.5 rounded-sm border transition-colors text-xs font-bold uppercase tracking-wider touch-manipulation shrink-0 ${selectedEnVoiceName
                     ? "border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20"
                     : "border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)]"
                     }`}
@@ -952,7 +954,7 @@ function ChapterReaderComponent({
               />
               <button
                 onClick={onClose}
-                className="p-1 sm:p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)] shrink-0"
+                className="tap-44 p-1 sm:p-2 hover:bg-black/5 rounded-full transition-colors text-[var(--ink-title)] shrink-0"
                 aria-label={lang === "zh" ? "关闭" : "Close"}
               >
                 <X size={18} className="sm:w-[20px] sm:h-[20px]" />
@@ -1381,7 +1383,9 @@ function ChapterReaderComponent({
             onClick={() =>
               contentScrollRef.current?.scrollTo({ top: 0, behavior: "smooth" })
             }
-            className="absolute bottom-16 right-4 sm:right-6 z-20 p-2.5 rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)]/95 text-[var(--accent)] shadow-md hover:bg-[var(--accent)] hover:text-[var(--paper-bg)] transition-colors"
+            className="absolute right-4 sm:right-6 z-20 p-3 rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)]/95 text-[var(--accent)] shadow-md hover:bg-[var(--accent)] hover:text-[var(--paper-bg)] transition-colors"
+            // Clears the footer, which grows by the safe-area inset on notched phones.
+            style={{ bottom: "calc(4rem + env(safe-area-inset-bottom))" }}
             aria-label={lang === "zh" ? "回到顶部" : "Back to top"}
             title={lang === "zh" ? "回到顶部" : "Back to top"}
           >
@@ -1395,7 +1399,7 @@ function ChapterReaderComponent({
               type="button"
               onClick={() => onSelectChapter(prevChapter)}
               title={getChapterReaderTitle(prevChapter, lang)}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-xs font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0"
+              className="flex items-center gap-1 px-3 py-2.5 sm:py-1.5 min-h-11 sm:min-h-0 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-xs font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0"
             >
               <ChevronLeft size={14} />
               <span>{chapterNavLabel(prevChapter)}</span>
@@ -1416,7 +1420,7 @@ function ChapterReaderComponent({
                     .join("\n"),
                 })
               }
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-xs font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0 cursor-pointer"
+              className="flex items-center gap-1 px-3 py-2.5 sm:py-1.5 min-h-11 sm:min-h-0 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-xs font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0 cursor-pointer"
               title={lang === "zh" ? "返回目录" : "Back to Contents"}
             >
               <Book size={14} />
@@ -1433,7 +1437,7 @@ function ChapterReaderComponent({
               type="button"
               onClick={() => onSelectChapter(nextChapter)}
               title={getChapterReaderTitle(nextChapter, lang)}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-xs font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0"
+              className="flex items-center gap-1 px-3 py-2.5 sm:py-1.5 min-h-11 sm:min-h-0 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 text-xs font-bold font-hans text-[var(--ink-dim-text)] hover:text-[var(--accent)] hover:border-[var(--accent)]/40 transition-colors shrink-0"
             >
               <span>{chapterNavLabel(nextChapter)}</span>
               <ChevronRight size={14} />

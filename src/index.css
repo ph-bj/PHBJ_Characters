@@ -219,6 +219,27 @@ body {
   border: 1px solid rgba(44, 36, 32, 0.2);
 }
 
+/* Grows a control's touch target to the 44px minimum without changing how it
+   looks. The dense icon clusters in modal headers are ~24px tall and can't be
+   physically enlarged without wrapping the row, but vertical space around them
+   is free. Only the height is expanded — widening would make neighbouring hit
+   areas in a `gap-1` row overlap. */
+@media (pointer: coarse) {
+  .tap-44 {
+    position: relative;
+  }
+
+  .tap-44::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    translate: 0 -50%;
+    width: 100%;
+    height: max(100%, 44px);
+  }
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
