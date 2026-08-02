@@ -43,7 +43,7 @@ char-42	林珊枝 Lín Shānzhī	—	—	—	performer	ch.5	"Bought by Hua Guang
 char-43	谭八 Tán Bā	—	—	—	performer	ch.2	Comic lead (京丑) of Lianjin troupe; his mannerisms imitated by Sun Lianggong at the banquet	联锦班丑角；宴会上被孙亮功模仿。
 char-44	小顺儿 Xiǎo Shùn'ér	—	—	—	performer	ch.5	十不闲 drum performer; brought by Fu Lun; rejected by Hua Guangsu with contempt	“十不闲”鼓手；富伦带来；遭华光宿蔑视拒绝。
 char-45	二喜 Èr Xǐ	Erxi	—	—	performer	ch.8	Male performer (dan) of the Lianjin troupe; attaches himself to Li Yuanmao at the theatre; recurs in Wei Pincai's circle (chs.8–21)	联锦班旦角；在剧场缠住李元茂；常随魏聘才一伙出入（第8–21回）。
-char-47	梅士燮 Méi Shìxiè	铁庵	46	Jinling	official	ch.1	Hanlin reader; Ziyu's father; stern Confucian; promoted to vice-minister later; appointed provincial examiner (ch.15)	翰林侍读；子玉之父；严厉的儒者；后升任侍郎；第15回任主考官。
+char-47	梅士燮 Méi Shìxiè	铁庵 / 梅侍郎	46	Jinling	official	ch.1	Hanlin reader; Ziyu's father; stern Confucian; promoted to vice-minister later; appointed provincial examiner (ch.15)	翰林侍读；子玉之父；严厉的儒者；后升任侍郎；第15回任主考官。
 char-48	王文辉 Wáng Wénhuī	—	~55	Jinling	official	ch.1	3rd-rank Tongzheng official; Wang Xun's father; father-in-law of Yan Zhongqing; same hometown as Mei Shixie	三品通政使；王恂之父；颜仲清之岳父；与梅士燮同乡。
 char-49	孙亮功 Sūn Liànggōng	—	~50	Jinling	official	ch.2	An official in the Ministry of Works whose household is a source of domestic drama. Known for his colorful and comic personality at banquets.	工部官员，孙氏兄弟之父。其家宅内斗频发，常在宴席上闹出笑话。
 char-50	杨方猷 Yáng Fāngyóu	—	—	—	official	ch.2	Ministry of War deputy director; guest at Wang Wenhui's banquet	兵部员外郎；王文辉宴会宾客。

@@ -55,6 +55,9 @@ export const NON_CHIP_ZH_TOKENS = new Set([
   "皂隶",
   "屈才",
   "屈老",
+  // A rank, not a person: 梅侍郎, 刘侍郎 and the fathers of 富三/王恂/颜仲清 are
+  // all called 侍郎. The surname-prefixed forms (刘侍郎, 梅侍郎) still chip.
+  "侍郎",
 ]);
 
 
@@ -64,23 +67,51 @@ export const NON_CHIP_ZH_TOKENS = new Set([
 // mirroring the blocked Chinese 老三).
 export const NON_CHIP_EN_TOKENS = new Set(["Du Mu", "Laosan", "Zhengchang", "Zhanggui", "Shupu"]);
 
+// Bare English surnames the translation uses as a character's running name
+// ("Pan said…", "Xi smiled…"). They are safe only outside the listed contexts,
+// which are historical figures or other characters sharing the surname.
+export const EN_TOKEN_CONTEXT_BLOCKS: Record<
+  string,
+  { before?: string[]; after?: string[] }
+> = {
+  // 潘其观. Blocked: 潘金莲, 潘安, 潘庚, 潘岳 and 陈后主's 潘妃.
+  Pan: { before: ["Consort "], after: [" Jinlian", " An", " Geng", " Yue"] },
+  // 奚十一. Blocked: 西施, 奚负羁, 百里奚, 嬖奚, 徐熙, 息夫人, 奚戎, and 二喜
+  // where the translation writes it as two words.
+  Xi: {
+    before: ["Er ", "Lady ", "Brother ", "Baili ", "Bi ", "Xu "],
+    after: [" Shi", " Fugong", " Rong"],
+  },
+  // 云儿. Blocked: the Han official 杨恽.
+  Yun: { before: ["Yang "] },
+};
+
 export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
-  庾香: ["Yuxiang", "Yu Xiang"],
+  庾香: ["Yuxiang", "Yu Xiang", "Gengxiang", "Mei Gengxiang"],
   琴官: ["Qinguan", "Qin Guan", "Master Du Qin", "Qin Yan"],
-  玉侬: ["Yunong", "Yu Nong"],
+  玉侬: ["Yunong", "Yu Nong", "Yu'nong", "Yu’nong"],
   琴仙: ["Qinxian", "Qin Xian", "Qin Immortal"],
   剑潭: ["Jiantan", "Jian Tan"],
   竹君: ["Zhujun", "Zhu Jun", "Nan Xiang"],
-  庸庵: ["Yongan", "Yong An"],
+  庸庵: ["Yongan", "Yong An", "Yong'an", "Yong’an"],
   度香: ["Duxiang", "Du Xiang"],
-  静宜: ["Jingyi", "Jing Yi"],
+  静宜: ["Jingyi", "Jing Yi", "Ci Xian"],
   前舟: ["Qianzhou", "Qian Zhou"],
   卓然: ["Zhuoran", "Zhuo Ran"],
   湘帆: ["Xiangfan", "Xiang Fan"],
-  金栗: ["Jinli", "Jin Li", "Jin Su"],
-  虫蛀千字文: ["Worm-eaten Primer"],
-  迭韵双声谱: ["Iterated Rhymes and Double Sounds"],
-  瑶卿: ["Yaoqing", "Yao Qing"],
+  金栗: ["Jinli", "Jin Li", "Jin Su", "Young Master Jin"],
+  虫蛀千字文: [
+    "Worm-eaten Primer",
+    "Worm-eaten Thousand Character Classic",
+    "worm-eaten Thousand Character Classic",
+    "Thousand Character Classic",
+  ],
+  迭韵双声谱: [
+    "Iterated Rhymes and Double Sounds",
+    "Unapproved Three-Character Classic",
+    "Three-Character Classic",
+  ],
+  瑶卿: ["Yaoqing", "Yao Qing", "Bao Zhu"],
   媚香: ["Meixiang", "Mei Xiang"],
   香畹: ["Xiangwan", "Xiang Wan"],
   瘦香: ["Shouxiang", "Shou Xiang", "Shoufang", "Shou Fang"],
@@ -89,16 +120,63 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   蕊香: ["Ruixiang", "Rui Xiang"],
   小梅: ["Xiaomei", "Xiao Mei", "Little Mei"],
   琪官: ["Qiguan", "Qi Guan"],
-  铁庵: ["Tiean", "Tie'an", "Tie An"],
+  铁庵: [
+    "Tiean",
+    "Tie'an",
+    "Tie An",
+    "Scholar Mei",
+    "Vice Minister Mei",
+    "Vice-Minister Mei",
+    "Minister Mei",
+  ],
   富三爷: ["Fu Third", "Third Master Fu"],
-  贵大爷: ["Gui First", "Eldest Master Gui"],
-  华公子: ["Young Master Hua", "Lord Hua"],
+  贵大爷: ["Gui First", "Eldest Master Gui", "Lord Gui"],
+  华公子: [
+    "Young Master Hua",
+    "Lord Hua",
+    "Master Hua",
+    "Huagongzi",
+    "The Young Master",
+  ],
   星北: ["Xingbei", "Xing Bei"],
   奚正绅: ["Xi Zhengshen", "Xi Zheng Shen"],
+  奚十一: ["Xi Shiyi", "Xi"],
+  潘三: [
+    "Pan Third",
+    "Third Master Pan",
+    "Third Brother Pan",
+    "Master Pan",
+    "Pan",
+  ],
+  乌大傻: ["Wu the Big Fool", "Big Fool", "Wu Dashan", "Wu Dasha", "Dashan"],
+  二喜: ["Er Xi"],
+  四喜: ["Si Xi"],
+  玉美: ["Yu Mei"],
+  蓉官: ["Rong-guan"],
+  爱珠: ["Ai Zhu"],
+  小翠: ["Xiao Cui"],
+  俊儿: ["Junner"],
+  四儿: ["Sier", "Si’er", "Fourth Boy"],
+  云儿: ["Yuner", "Yun"],
+  孙氏: ["Lady Sun"],
+  许三姐: ["third sister"],
+  田太夫人: ["Lady Tian"],
+  郑氏: ["Lady Zheng"],
+  小顺儿: ["Xiaoshun'er", "Xiaoshun’er"],
+  画珠: ["Yazhu"],
+  青姨奶奶: ["Concubine Qing", "Green Concubine"],
+  白姨奶奶: ["Concubine Bai", "White Concubine"],
+  陆夫人: ["Lady Lu"],
+  唐和尚: ["Tang the Monk", "Tang the monk", "Master Tang"],
+  玉天仙: ["Yutianxian"],
+  白菊花: ["Ju Hua"],
+  葛贴写: ["Scrivener Ge"],
+  杨八: ["Yang Eight"],
+  金二: ["Master Jin the Second", "Master Jin"],
   道生: ["Daosheng", "Dao Sheng"],
   石翁: ["Shiweng", "Shi Weng", "Lord Hou", "Hou", "Hou Shi Weng", "Hou Shiweng"],
   侯石翁: ["Hou Shi Weng", "Hou Shiweng", "Lord Hou", "Hou"],
-  英官: ["Yingguan", "Ying Guan"],
+  英官: ["Yingguan", "Ying Guan", "Baying"],
   道翁: ["Daoweng", "Dao Weng"],
   佩秋: ["Peiqiu", "Pei Qiu"],
   金粟: ["Jin Su", "Jinsu"],
@@ -107,7 +185,13 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   屈才爷: ["Qu"],
   屈老爷: ["Qu"],
   屈少君: ["Qu Shaojun"],
-  季十矮子: ["Ji Shi the Dwarf", "Ji Shi Aizi", "Ji the Little Dwarf"],
+  季十矮子: [
+    "Ji Shi the Dwarf",
+    "Ji Shi Aizi",
+    "Ji the Little Dwarf",
+    "Ji the Tenth Dwarf",
+    "Ji the Tenth",
+  ],
   季矮子: ["Ji the Dwarf", "Ji Aizi", "Ji the Little Dwarf"],
   季十: ["Ji Shi"],
   屈琴仙: ["Qu Qinxian", "Qu Qin Xian"],
@@ -484,6 +568,13 @@ export function segmentText(text: string, tokenMap: [string, Character][]): Segm
             /[a-zA-Z]/.test(text[afterPos])
           )
             continue;
+          const blocks = EN_TOKEN_CONTEXT_BLOCKS[token];
+          if (blocks) {
+            const before = text.slice(Math.max(0, cursor - 12), cursor);
+            const after = text.slice(afterPos, afterPos + 12);
+            if (blocks.before?.some((b) => before.endsWith(b))) continue;
+            if (blocks.after?.some((a) => after.startsWith(a))) continue;
+          }
           if (token === "Qu") {
             const rest = text.slice(cursor);
             const before = text.slice(Math.max(0, cursor - 15), cursor);
