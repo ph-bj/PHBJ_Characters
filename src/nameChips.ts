@@ -140,7 +140,7 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   ],
   星北: ["Xingbei", "Xing Bei"],
   奚正绅: ["Xi Zhengshen", "Xi Zheng Shen"],
-  奚十一: ["Xi Shiyi", "Xi"],
+  奚十一: ["Xi Shiyi", "Xi Eleven", "Xi"],
   潘三: [
     "Pan Third",
     "Third Master Pan",
