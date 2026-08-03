@@ -16,6 +16,7 @@ import {
 import { characters } from "../data";
 import { chapters } from "../chapters";
 import { chapterSummaries } from "../chapterSummaries";
+import { getGist } from "../summaryGists";
 import { WORK_ENGLISH_BY_CHINESE } from "../englishWorkTitles";
 import type { Character, Chapter } from "../types";
 import {
@@ -167,10 +168,12 @@ function SummaryAccordion({
   paras,
   lang,
   renderFn,
+  chapterId,
 }: {
   paras: string[];
   lang: "en" | "zh";
   renderFn: (text: string) => React.ReactNode;
+  chapterId: number;
 }) {
   const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set());
 
@@ -187,10 +190,13 @@ function SummaryAccordion({
     <div className="space-y-2">
       {paras.map((para, idx) => {
         const isOpen = openIndexes.has(idx);
+        // Authored one-sentence précis of the paragraph; if none exists yet for
+        // this chapter, fall back to the paragraph's opening sentence.
         const gist =
-          lang === "en"
+          getGist(chapterId, lang, idx) ??
+          (lang === "en"
             ? (para.match(/^.*?[.!?](?:\s|$|”|")/) || [para])[0].trim()
-            : (para.match(/^.*?[。！？](?:”|")?/) || [para])[0].trim();
+            : (para.match(/^.*?[。！？](?:”|")?/) || [para])[0].trim());
 
         return (
           <div
@@ -1192,6 +1198,7 @@ function ChapterReaderComponent({
                   }
                   lang={lang}
                   renderFn={(text) => renderAnnotated(text, false, undefined, true)}
+                  chapterId={chapter.id}
                 />
               </div>
             )}
