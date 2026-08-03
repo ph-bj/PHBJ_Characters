@@ -1103,22 +1103,35 @@ function ChapterReaderComponent({
                 <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold">
                   {lang === "en" ? "Chapter Summary" : "章节提要"}
                 </p>
-                <div className="space-y-2">
-                  <p className="text-xs font-bold text-[var(--ink-title)]">
-                    {lang === "zh" ? "英文" : "English"}
-                  </p>
-                  <p className="text-[0.875em] sm:text-[1em] text-[var(--ink-dim)] leading-relaxed font-sans whitespace-pre-line">
-                    {renderAnnotated(chapterSummary.en, false, undefined, true)}
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-xs font-bold text-[var(--ink-title)]">
-                    {lang === "zh" ? "中文" : "Chinese"}
-                  </p>
-                  <p className="text-[0.8em] text-[var(--ink-title)] font-hans leading-relaxed whitespace-pre-line">
-                    {renderAnnotated(chapterSummary.zh, false, undefined, true)}
-                  </p>
-                </div>
+                {lang === "en" ? (
+                  <div className="space-y-3">
+                    {chapterSummary.en
+                      .split(/\n\n+/)
+                      .filter(Boolean)
+                      .map((para, idx) => (
+                        <p
+                          key={idx}
+                          className="text-[0.875em] sm:text-[1em] text-[var(--ink-dim)] leading-relaxed font-sans"
+                        >
+                          {renderAnnotated(para, false, undefined, true)}
+                        </p>
+                      ))}
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {chapterSummary.zh
+                      .split(/\n\n+/)
+                      .filter(Boolean)
+                      .map((para, idx) => (
+                        <p
+                          key={idx}
+                          className="text-[0.85em] sm:text-[0.95em] text-[var(--ink-title)] font-hans leading-relaxed"
+                        >
+                          {renderAnnotated(para, false, undefined, true)}
+                        </p>
+                      ))}
+                  </div>
+                )}
               </div>
             )}
             {chapter.id > 0 && chapterMentionedCharacters.length > 0 && (
