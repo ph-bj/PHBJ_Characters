@@ -148,7 +148,7 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
     "Master Pan",
     "Pan",
   ],
-  乌大傻: ["Wu the Big Fool", "Big Fool", "Wu Dashan", "Wu Dasha", "Dashan"],
+  乌大傻: ["Wu the Big Fool", "Big Fool", "Wu Dashan", "Wu Dasha", "Dashan", "Dasha"],
   二喜: ["Er Xi"],
   四喜: ["Si Xi"],
   玉美: ["Yu Mei"],
