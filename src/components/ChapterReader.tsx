@@ -163,6 +163,87 @@ const PlumIcon: React.FC<{ className?: string; size?: number }> = ({ className =
   );
 };
 
+function SummaryAccordion({
+  paras,
+  lang,
+  renderFn,
+}: {
+  paras: string[];
+  lang: "en" | "zh";
+  renderFn: (text: string) => React.ReactNode;
+}) {
+  const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set());
+
+  const toggle = (idx: number) => {
+    setOpenIndexes((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) next.delete(idx);
+      else next.add(idx);
+      return next;
+    });
+  };
+
+  return (
+    <div className="space-y-2">
+      {paras.map((para, idx) => {
+        const isOpen = openIndexes.has(idx);
+        const gist =
+          lang === "en"
+            ? (para.match(/^.*?[.!?](?:\s|$|”|")/) || [para])[0].trim()
+            : (para.match(/^.*?[。！？](?:”|")?/) || [para])[0].trim();
+
+        return (
+          <div
+            key={idx}
+            className="border border-[var(--paper-border)]/50 rounded-sm bg-[var(--paper-bg)]/30 overflow-hidden"
+          >
+            <button
+              type="button"
+              onClick={() => toggle(idx)}
+              className={`w-full text-left px-3 py-2 flex items-start justify-between gap-3 hover:bg-[var(--accent)]/5 transition-colors cursor-pointer ${
+                lang === "en"
+                  ? "text-[0.875em] sm:text-[1em] text-[var(--ink-dim)] font-sans"
+                  : "text-[0.85em] sm:text-[0.95em] text-[var(--ink-title)] font-hans"
+              }`}
+            >
+              <div className="flex-1 font-medium leading-relaxed">
+                {renderFn(gist)}
+              </div>
+              <ChevronDown
+                size={16}
+                className={`shrink-0 mt-1 transition-transform duration-200 ${
+                  isOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            <AnimatePresence>
+              {isOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="overflow-hidden"
+                >
+                  <div
+                    className={`px-3 py-3 border-t border-[var(--paper-border)]/30 bg-black/5 ${
+                      lang === "en"
+                        ? "text-[0.875em] sm:text-[1em] text-[var(--ink-dim)] font-sans"
+                        : "text-[0.85em] sm:text-[0.95em] text-[var(--ink-title)] font-hans"
+                    } leading-relaxed`}
+                  >
+                    {renderFn(para)}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function ChapterReaderComponent({
   chapter,
   onClose,
@@ -1103,35 +1184,15 @@ function ChapterReaderComponent({
                 <p className="text-xs uppercase tracking-widest text-[var(--ink-dim-text)] font-bold">
                   {lang === "en" ? "Chapter Summary" : "章节提要"}
                 </p>
-                {lang === "en" ? (
-                  <div className="space-y-3">
-                    {chapterSummary.en
-                      .split(/\n\n+/)
-                      .filter(Boolean)
-                      .map((para, idx) => (
-                        <p
-                          key={idx}
-                          className="text-[0.875em] sm:text-[1em] text-[var(--ink-dim)] leading-relaxed font-sans"
-                        >
-                          {renderAnnotated(para, false, undefined, true)}
-                        </p>
-                      ))}
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    {chapterSummary.zh
-                      .split(/\n\n+/)
-                      .filter(Boolean)
-                      .map((para, idx) => (
-                        <p
-                          key={idx}
-                          className="text-[0.85em] sm:text-[0.95em] text-[var(--ink-title)] font-hans leading-relaxed"
-                        >
-                          {renderAnnotated(para, false, undefined, true)}
-                        </p>
-                      ))}
-                  </div>
-                )}
+                <SummaryAccordion
+                  paras={
+                    lang === "en"
+                      ? chapterSummary.en.split(/\n\n+/).filter(Boolean)
+                      : chapterSummary.zh.split(/\n\n+/).filter(Boolean)
+                  }
+                  lang={lang}
+                  renderFn={(text) => renderAnnotated(text, false, undefined, true)}
+                />
               </div>
             )}
             {chapter.id > 0 && chapterMentionedCharacters.length > 0 && (
