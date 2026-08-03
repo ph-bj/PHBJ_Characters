@@ -143,6 +143,7 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   奚十一: ["Xi Shiyi", "Xi Eleven", "Xi"],
   潘三: [
     "Pan Third",
+    "Pan San",
     "Third Master Pan",
     "Third Brother Pan",
     "Master Pan",
