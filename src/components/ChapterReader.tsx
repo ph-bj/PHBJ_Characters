@@ -1234,7 +1234,7 @@ function ChapterReaderComponent({
               <div className="space-y-5">
                 {chapter.content.split("\n").map((line, i) => {
                   const targetChapter =
-                    chapters.find((c) => c.id === i + 1) ?? null;
+                    chapters.find((c) => c.id === i) ?? null;
                   return (
                     <div key={i} className="border-b border-[var(--paper-border)]/50 pb-4">
                       <button
@@ -1260,10 +1260,10 @@ function ChapterReaderComponent({
                             chapterSearchMatchCounter,
                           )}
                         </p>
-                        {chapterTitleTranslations[i + 1] != null &&
-                          chapterTitleTranslations[i + 1] !== "" && (
+                        {chapterTitleTranslations[i] != null &&
+                          chapterTitleTranslations[i] !== "" && (
                             <p className="text-[0.75em] italic text-[var(--ink-dim-text)] mt-1 leading-snug">
-                              {chapterTitleTranslations[i + 1]}
+                              {chapterTitleTranslations[i]}
                             </p>
                           )}
                       </button>
@@ -1496,7 +1496,7 @@ function ChapterReaderComponent({
                   id: -1,
                   title: "目录",
                   content: chapters
-                    .filter((c) => c.id > 0)
+                    .filter((c) => c.id >= 0)
                     .map((c) => c.title)
                     .join("\n"),
                 })
