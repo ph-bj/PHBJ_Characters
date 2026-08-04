@@ -561,7 +561,10 @@ function ChapterReaderComponent({
         if (lang === "zh") {
           addPlain(c.title);
         } else {
-          addPlain(chapterTitleTranslations[c.id] || c.title);
+          const enTitle = chapterTitleTranslations[c.id]
+            ? `Chapter ${c.id} — ${chapterTitleTranslations[c.id]}`
+            : `Chapter ${c.id} — ${c.title}`;
+          addPlain(enTitle);
         }
       }
       return total;
@@ -1260,7 +1263,9 @@ function ChapterReaderComponent({
                         ) : (
                           <p className="text-[1em] font-sans text-[var(--ink-title)] leading-snug transition-colors group-hover:text-[var(--accent)]">
                             {renderTextWithSearchHighlight(
-                              chapterTitleTranslations[c.id] || c.title,
+                              chapterTitleTranslations[c.id]
+                                ? `Chapter ${c.id} — ${chapterTitleTranslations[c.id]}`
+                                : `Chapter ${c.id} — ${c.title}`,
                               chapterSearchQuery,
                               chapterSearchMatchIndex,
                               chapterSearchMatchCounter,
