@@ -219,6 +219,9 @@ export function HometownMap({
     - (gardenLocationGroup?.locations.length ?? 0)
     + mergedGardenCount
     + mapDataByType.hometown.length;
+  const characterCountWithOrigins = characters.filter(
+    (character) => character.origin && character.origin !== '—',
+  ).length;
 
   return (
     <div
@@ -228,16 +231,50 @@ export function HometownMap({
       <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full border border-[var(--accent)]/10" />
       <div className="pointer-events-none absolute -right-8 -top-12 h-40 w-40 rounded-full border border-[var(--accent)]/10" />
 
-      <header className="relative border-b border-[var(--paper-border)] bg-[var(--accent)]/[0.035] px-4 py-5 sm:px-6 sm:py-6">
-        <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
-          <div className="flex items-center gap-3 sm:gap-3.5">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--accent)]/25 bg-[var(--accent)]/10 text-[var(--accent)] shadow-sm">
-              <Compass size={18} strokeWidth={1.7} />
+      <header className="relative overflow-hidden border-b border-[var(--paper-border)] bg-[var(--accent)]/[0.055] px-4 py-6 sm:px-7 sm:py-8">
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-2/5 opacity-[0.07] sm:block" aria-hidden="true">
+          <div className="absolute right-10 top-4 h-24 w-24 rounded-full border border-[var(--accent)]" />
+          <div className="absolute right-24 top-12 h-32 w-32 rounded-full border border-[var(--accent)]" />
+        </div>
+        <div className="relative grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div>
+            <div className="mb-3 flex items-center gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--accent)]/25 bg-[var(--paper-bg)]/75 text-[var(--accent)] shadow-sm">
+                <Compass size={19} strokeWidth={1.7} />
+              </div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[var(--accent)]">
+                {lang === 'zh' ? '故事地理志' : 'A geography of the novel'}
+              </p>
             </div>
-            <h2 className="font-hans text-xl font-bold leading-none tracking-tight text-[var(--ink-title)] sm:text-2xl">
-              {lang === 'zh' ? '籍贯、园林与地点' : 'Hometowns, Gardens & Locations'}
+            <h2 className="font-hans text-2xl font-bold leading-tight tracking-tight text-[var(--ink-title)] sm:text-3xl">
+              {lang === 'zh' ? '籍贯·园林·行迹' : 'Origins · Gardens · Journeys'}
             </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--ink-dim-text)]">
+              {lang === 'zh'
+                ? '从人物籍贯到怡园雅集，沿章回线索寻访《品花宝鉴》的空间世界。'
+                : 'Trace the novel from its characters’ places of origin to Yiyuan gatherings and chapter-linked journeys.'}
+            </p>
           </div>
+          <dl className="grid grid-cols-3 gap-px overflow-hidden rounded-sm border border-[var(--paper-border)] bg-[var(--paper-border)]/70 shadow-sm">
+            {[
+              [characterCountWithOrigins, lang === 'zh' ? '有籍贯人物' : 'people with origins'],
+              [majorGardens.length, lang === 'zh' ? '主要园林' : 'major gardens'],
+              [storyGeographyCount, lang === 'zh' ? '索引条目' : 'indexed entries'],
+            ].map(([value, label]) => (
+              <div key={String(label)} className="min-w-[88px] bg-[var(--paper-bg)]/90 px-3 py-3 text-center sm:min-w-[108px]">
+                <dd className="font-serif text-xl font-bold tabular-nums text-[var(--accent)]">{value}</dd>
+                <dt className="mt-1 text-[10px] leading-tight text-[var(--ink-dim-text)]">{label}</dt>
+              </div>
+            ))}
+          </dl>
+        </div>
+        <div className="relative mt-5 flex gap-2.5 rounded-sm border border-[var(--accent)]/15 bg-[var(--paper-bg)]/55 px-3 py-2.5 text-[11px] leading-5 text-[var(--ink-dim-text)]">
+          <MapPin size={14} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+          <p>
+            {lang === 'zh'
+              ? '读图说明：城市与名胜按现代地理定位；小说中未详地址的府邸、园林及园中景物仅作示意，不应视为可考的遗址坐标。'
+              : 'Map note: cities and documented landmarks use modern geographic positions. Fictional or unspecified residences, gardens, and garden features are schematic, not archaeological coordinates.'}
+          </p>
         </div>
       </header>
 
@@ -331,7 +368,7 @@ export function HometownMap({
         </section>
 
         <section
-          className="rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/40 p-5 sm:p-6 shadow-xs"
+          className="rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/40 p-4 sm:p-6 shadow-xs"
           aria-labelledby="locations-title"
         >
           <div className="mb-6 flex items-center justify-between gap-3 border-b border-[var(--paper-border)]/70 pb-4">
@@ -361,7 +398,7 @@ export function HometownMap({
                     {mapDataByType.hometown.length}
                   </span>
                 </div>
-                <div className="flex flex-wrap gap-2 sm:gap-2.5">
+                <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                   {mapDataByType.hometown.map((hometown) => {
                     const name = lang === 'zh' ? (hometown.originZh || hometown.origin) : hometown.origin;
                     return (
@@ -380,7 +417,7 @@ export function HometownMap({
                           };
                           onSelectLocation(hometownLocation);
                         }}
-                        className="group flex items-center gap-2 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/60 px-3 py-1.5 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] hover:shadow-xs cursor-pointer"
+                        className="group flex min-h-11 items-center gap-2 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/60 px-3 py-2 text-left transition-all hover:border-[var(--accent)]/40 hover:bg-[var(--accent)]/[0.06] hover:shadow-xs cursor-pointer"
                         title={lang === 'zh' ? `${name} (共 ${hometown.count} 人)` : `${name} (${hometown.count} ${hometown.count === 1 ? 'character' : 'characters'})`}
                       >
                         <Users size={11} className="shrink-0 text-[var(--accent)]/70 transition-colors group-hover:text-[var(--accent)]" />

@@ -25,17 +25,17 @@ export const gardens: Garden[] = [
     type: 'major',
     owner: '徐子云（度香）',
     ownerEn: 'Xu Ziyun (Duxiang)',
-    location: '北京城外',
-    locationEn: 'Outside Beijing',
+    location: '京城，徐宅之前',
+    locationEn: 'Beijing, in front of Xu Ziyun\'s residence',
     description:
-      'The social and cultural heart of the novel. Xu Ziyun, a fabulously wealthy Zhejiang magnate, ' +
-      'bought a derelict five-or-six-li plot outside Beijing and spent years transforming it into a compound ' +
+      'The social and cultural heart of the novel. In front of Xu Ziyun\'s residence lay a derelict ' +
+      'five-or-six-li plot; over three or four years Xiao Cixian supervised its transformation into a compound ' +
       'of over four hundred rooms. Ancient trees, winding streams, lotus ponds, layered towers and pavilions ' +
       'make it a world unto itself. Throughout the novel it serves as the gathering place for scholars, ' +
       'officials, and celebrated performers — the one neutral ground where talent and wealth meet on equal terms.',
     descriptionZh:
-      '《品花宝鉴》的文化中心与精神归宿。徐子云以浙江世家之财力，将北京城外一片废弃的五六里荒地买下，' +
-      '历数年心血，辟建成拥有四百余间房屋的大园。古木参天，曲水蜿蜒，层楼叠阁，荷池芬芳。' +
+      '《品花宝鉴》的文化中心与精神归宿。徐子云住宅之前原有周围五六里的废园，' +
+      '由萧次贤费时三四年监造，辟成二十四处楼台、四百余间屋宇。古木参天，曲水蜿蜒，层楼叠阁，荷池芬芳。' +
       '怡园是全书名士聚会、诗酒唱和、名旦相会的核心场域——才情与富贵在此相遇，情与义在此生发。',
     searchTokens: ['怡园'],
     subLocationIds: [
@@ -55,12 +55,12 @@ export const gardens: Garden[] = [
     location: '北京城内，华府邸宅',
     locationEn: 'Beijing, Hua family mansion',
     description:
-      'The imposing Beijing mansion of Hua Guangsu, the novel\'s most feared aristocratic patron. ' +
-      'Known city-wide by its popular nickname 锦春园, the compound is enormous, divided into separate ' +
-      'east and west gardens, formal reception halls, and private quarters. Its opulence eclipses even ' +
-      'Yiyuan in sheer scale, though its spirit is one of power rather than refinement.',
+      'The imposing Beijing residence associated with Hua Guangsu, the novel\'s most feared aristocratic patron. ' +
+      'The text repeatedly identifies Hua as the young master of Jinchun Garden; the compound is divided into ' +
+      'east and west gardens, formal reception halls, and private quarters. Its carefully recorded luxury ' +
+      'forms a powerful contrast with the cultivated sociability of Yiyuan.',
     descriptionZh:
-      '全书最令人敬畏的贵族公子华光宿的府邸。世称"锦春园"，宅院宏阔，分东园、西园、正厅、内室诸区，' +
+      '全书最令人敬畏的贵族公子华光宿所居之府。原文屡以“锦春园的华公子”称之；宅院宏阔，分东园、西园、正厅、内室诸区，' +
       '气派远超寻常园林。其豪奢不让怡园，然所弥漫者是权势而非风雅。' +
       '杜琴言曾被送入此处，在留青精舍中度过了一段幽禁般的岁月。',
     searchTokens: ['锦春园', '华公府', '华府'],
@@ -167,7 +167,7 @@ export const gardens: Garden[] = [
     id: 'garden-hongcha',
     name: '红茶仙馆',
     pinyin: 'Hóngchá Xiān Guǎn',
-    nameEn: 'Red Tea Immortal Pavilion',
+    nameEn: 'Red Camellia Immortal Pavilion',
     type: 'sublocation',
     parentId: 'garden-yiyuan',
     owner: '萧次贤',
