@@ -338,12 +338,6 @@ const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
     'Estimated from the character’s role, relationships, and relative generation in the narrative.',
     '依据此人的角色、人物关系及故事中的相对辈分估算。',
   ];
-  const approximateValueNote: [string, string] = statedAge !== '—'
-    ? [
-        `The earlier approximate value (${statedAge}) has been widened to ${resolvedAge}; the novel does not state an exact age, so this is not presented as fact.`,
-        `原资料的约数（${statedAge}）现改为较审慎的${resolvedAge}岁范围；原文没有明载确数，故不作事实年龄。`,
-      ]
-    : estimateBasis;
 
   let isFemale = false;
   if (role === 'female') {
@@ -378,8 +372,8 @@ const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
     ageSourceNoteZh: ageIsEstimate
       ? undefined
       : `第${ageSourceChapter}回正文明确记载此人年龄为${resolvedAge}岁。`,
-    ageEstimateNote: ageIsEstimate ? approximateValueNote[0] : undefined,
-    ageEstimateNoteZh: ageIsEstimate ? approximateValueNote[1] : undefined,
+    ageEstimateNote: ageIsEstimate ? estimateBasis[0] : undefined,
+    ageEstimateNoteZh: ageIsEstimate ? estimateBasis[1] : undefined,
     ageEvidenceExcerpt: evidence?.excerptZh,
     ageEvidenceChapter: evidence?.chapter,
     ageEvidenceParagraph: evidence ? evidence.paragraph + 1 : undefined,
