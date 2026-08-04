@@ -7,8 +7,6 @@ export interface Character {
   ageSourceChapter?: number;
   ageSourceNote?: string;
   ageSourceNoteZh?: string;
-  ageEstimateNote?: string;
-  ageEstimateNoteZh?: string;
   origin: string;
   originZh: string;
   role: string;

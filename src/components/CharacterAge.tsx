@@ -19,15 +19,17 @@ export function CharacterAge({
   const [open, setOpen] = useState(false);
   const label = formatCharacterAge(character, lang);
 
+  if (character.ageIsEstimate) {
+    return <span>{label}</span>;
+  }
+
   return (
     <>
       <button
         type="button"
         className="inline-flex min-h-8 items-center gap-1 rounded-md border border-[var(--paper-border)] px-2 underline decoration-dotted underline-offset-4 transition-colors hover:bg-black/5"
         onClick={() => setOpen(true)}
-        aria-label={character.ageIsEstimate
-          ? (lang === "zh" ? `查看${label}的估算方法` : `View the estimation method for age ${label}`)
-          : (lang === "zh" ? `查看${label}岁的出处` : `View the book source for age ${label}`)}
+        aria-label={lang === "zh" ? `查看${label}岁的出处` : `View the book source for age ${label}`}
       >
         <span>{label}</span>
         <BookOpen size={13} style={{ color: accentColor }} />
@@ -48,9 +50,7 @@ export function CharacterAge({
             <div className="mb-4 flex items-start justify-between gap-4">
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)]">
-                  {character.ageIsEstimate
-                    ? (lang === "zh" ? "年龄估算方法" : "Age estimation method")
-                    : (lang === "zh" ? "书中明确年龄" : "Age stated in the book")}
+                  {lang === "zh" ? "书中明确年龄" : "Age stated in the book"}
                 </p>
                 <h3 id={`age-source-${character.id}`} className="mt-1 text-xl font-bold text-[var(--ink-title)]">
                   {character.name} · {label}
@@ -64,14 +64,10 @@ export function CharacterAge({
               <Calendar size={18} className="mt-0.5 shrink-0" style={{ color: accentColor }} />
               <div>
                 <p className="font-bold text-[var(--ink-title)]">
-                  {character.ageIsEstimate
-                    ? (lang === "zh" ? "估算依据" : "Basis for estimate")
-                    : (lang === "zh" ? `《品花宝鉴》第${character.ageSourceChapter}回` : `Pinhua Baojian, Chapter ${character.ageSourceChapter}`)}
+                  {lang === "zh" ? `《品花宝鉴》第${character.ageSourceChapter}回` : `Pinhua Baojian, Chapter ${character.ageSourceChapter}`}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--ink-dim-text)]">
-                  {character.ageIsEstimate
-                    ? (lang === "zh" ? character.ageEstimateNoteZh : character.ageEstimateNote)
-                    : (lang === "zh" ? character.ageSourceNoteZh : character.ageSourceNote)}
+                  {lang === "zh" ? character.ageSourceNoteZh : character.ageSourceNote}
                 </p>
               </div>
             </div>

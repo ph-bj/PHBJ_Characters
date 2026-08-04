@@ -269,56 +269,12 @@ const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
     performer: '15', scholar: '25', official: '50', villain: '40', female: '30',
     servant: '25', deceased: '50', minor: '35',
   };
-  const estimateBasisByRole: Record<string, [string, string]> = {
-    performer: [
-      'Estimated from the character being described as a young opera performer; comparable performers in the book are generally in their mid-teens.',
-      '依据此人被写作年轻伶人，并参照书中明确记载多为十五岁上下的同类伶人估算。',
-    ],
-    scholar: [
-      'Estimated from the character’s scholar status and career stage, compared with the explicitly aged young scholars in the book.',
-      '依据此人的士子身份与功名阶段，并参照书中有明确年龄的青年士子估算。',
-    ],
-    official: [
-      'Estimated from the seniority of the office and the character’s family generation relative to younger, explicitly aged characters.',
-      '依据官职资历及其相对于书中明确年龄青年人物的家族辈分估算。',
-    ],
-    villain: [
-      'Estimated from the character’s social position, established household, and relative generation in the narrative.',
-      '依据此人的社会身份、成家情况及其在故事人物中的相对辈分估算。',
-    ],
-    female: [
-      'Estimated from marital status, family generation, and comparison with women whose ages are stated in the book.',
-      '依据婚姻状况、家族辈分，并参照书中有明确年龄的女性人物估算。',
-    ],
-    servant: [
-      'Estimated from the character’s household duties, level of responsibility, and whether the text presents them as a child or adult servant.',
-      '依据其家务职责、责任程度，以及正文将其写作童仆还是成年仆役来估算。',
-    ],
-    deceased: [
-      'Estimated from the character’s generation, career, and known family relationships at the time described.',
-      '依据此人的辈分、仕宦经历及已知亲属关系估算。',
-    ],
-    minor: [
-      'Estimated from the character’s occupation, family role, and relative generation in the scenes where they appear.',
-      '依据此人的职业、家庭角色及登场场景中的相对辈分估算。',
-    ],
-  };
   const ageIsEstimate = statedAge === '—' || statedAge.startsWith('~') || statedAge.endsWith('+');
   const resolvedAge = statedAge === '—'
     ? estimatedAgeByRole[role] || '30'
     : statedAge.replace(/^~/, '');
   const sourceChapter = Number.parseInt(chapter?.match(/\d+/)?.[0] || '', 10);
   const ageSourceChapter = AGE_SOURCE_CHAPTERS[id?.trim()] || sourceChapter;
-  const estimateBasis = estimateBasisByRole[role] || [
-    'Estimated from the character’s role, relationships, and relative generation in the narrative.',
-    '依据此人的角色、人物关系及故事中的相对辈分估算。',
-  ];
-  const approximateValueNote: [string, string] = statedAge !== '—'
-    ? [
-        `The existing character record gives an approximate age (${statedAge}); the estimate is retained rather than treated as a factual age stated by the narrator.`,
-        `原人物资料将年龄记作约数（${statedAge}）；此处保留该估值，不将其当作叙述者明确交代的事实年龄。`,
-      ]
-    : estimateBasis;
 
   let isFemale = false;
   if (role === 'female') {
@@ -353,8 +309,6 @@ const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
     ageSourceNoteZh: ageIsEstimate
       ? undefined
       : `第${ageSourceChapter}回正文明确记载此人年龄为${resolvedAge}岁。`,
-    ageEstimateNote: ageIsEstimate ? approximateValueNote[0] : undefined,
-    ageEstimateNoteZh: ageIsEstimate ? approximateValueNote[1] : undefined,
     origin,
     originZh: ORIGIN_MAP[origin] || origin,
     role,
