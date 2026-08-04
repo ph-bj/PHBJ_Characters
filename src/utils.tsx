@@ -188,7 +188,8 @@ export function getChapterReaderSubtitle(
   chapter: Chapter,
   lang: "en" | "zh",
 ): string | null {
-  if (chapter.id <= 0) return lang === "en" ? chapter.title : null;
+  if (chapter.id < 0) return null;
+  if (chapter.id === 0) return lang === "en" ? chapter.title : null;
   if (lang === "en") return chapter.title;
   return chapterTitleTranslations[chapter.id] ?? null;
 }
