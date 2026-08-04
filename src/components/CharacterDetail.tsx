@@ -341,15 +341,15 @@ export function CharacterDetail({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
-            <div className="space-y-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-12">
+            <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
               <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.origin}
               </p>
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
                 <MapPin
-                  size={14}
-                  className="sm:w-4 sm:h-4"
+                  size={16}
+                  className="shrink-0"
                   style={{ color: accentColor }}
                 />
                 <span>
@@ -357,27 +357,27 @@ export function CharacterDetail({
                 </span>
               </div>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
               <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.age}
               </p>
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
                 <Calendar
-                  size={14}
-                  className="sm:w-4 sm:h-4 shrink-0"
+                  size={16}
+                  className="shrink-0"
                   style={{ color: accentColor }}
                 />
                 <CharacterAge character={character} lang={lang} accentColor={accentColor} />
               </div>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
               <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.gender}
               </p>
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
                 <User
-                  size={14}
-                  className="sm:w-4 sm:h-4"
+                  size={16}
+                  className="shrink-0"
                   style={{ color: accentColor }}
                 />
                 <span>
@@ -385,40 +385,40 @@ export function CharacterDetail({
                 </span>
               </div>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
               <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.firstEntry}
               </p>
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
                 <BookOpen
-                  size={14}
-                  className="sm:w-4 sm:h-4 shrink-0"
+                  size={16}
+                  className="shrink-0"
                   style={{ color: accentColor }}
                 />
                 <span>{character.chapter}</span>
               </div>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
               <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.speeches}
               </p>
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
                 <MessageSquare
-                  size={14}
-                  className="sm:w-4 sm:h-4 shrink-0"
+                  size={16}
+                  className="shrink-0"
                   style={{ color: accentColor }}
                 />
                 <span>{character.speechesCount}</span>
               </div>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
               <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.wordsSpoken}
               </p>
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
                 <Type
-                  size={14}
-                  className="sm:w-4 sm:h-4 shrink-0"
+                  size={16}
+                  className="shrink-0"
                   style={{ color: accentColor }}
                 />
                 <span>{character.speechesCharCount}</span>
