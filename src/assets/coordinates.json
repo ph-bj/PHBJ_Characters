@@ -64,8 +64,8 @@
     22.815
   ],
   "region-jiangnan": [
-    120.0,
-    31.0
+    120,
+    31
   ],
   "region-capital": [
     116.407,
@@ -152,8 +152,8 @@
     30.274
   ],
   "city-changzhou": [
-    120.155,
-    30.274
+    119.9741,
+    31.8112
   ],
   "city-jiujiang": [
     115.892,
@@ -164,8 +164,8 @@
     32.271
   ],
   "county-shanyin": [
-    120.1301,
-    30.2469
+    120.582,
+    29.997
   ],
   "county-hanyang": [
     114.2378,
@@ -176,8 +176,8 @@
     27.7954
   ],
   "county-zhengyang": [
-    113.6027,
-    34.7797
+    114.3928,
+    32.6057
   ],
   "residence-mei": [
     116.4359,
@@ -494,5 +494,297 @@
   "feature-chunfeng": [
     116.4245,
     39.863
+  ],
+  "province-jiangsu": [
+    118.8,
+    32.06
+  ],
+  "province-anhui": [
+    117.28,
+    31.86
+  ],
+  "province-hubei": [
+    114.3,
+    30.59
+  ],
+  "province-hunan": [
+    112.94,
+    28.23
+  ],
+  "province-shanxi": [
+    112.55,
+    37.87
+  ],
+  "province-yunnan": [
+    102.71,
+    25.04
+  ],
+  "region-lingnan": [
+    113.26,
+    23.13
+  ],
+  "region-northland": [
+    112,
+    40
+  ],
+  "city-wuchang": [
+    114.3,
+    30.55
+  ],
+  "city-wuzhou": [
+    111.28,
+    23.48
+  ],
+  "city-huizhou": [
+    118.34,
+    29.72
+  ],
+  "city-fengyang": [
+    117.56,
+    32.87
+  ],
+  "city-jian": [
+    114.99,
+    27.12
+  ],
+  "city-baoding": [
+    115.46,
+    38.87
+  ],
+  "city-jining": [
+    116.59,
+    35.41
+  ],
+  "city-zhenjiang": [
+    119.42,
+    32.19
+  ],
+  "city-tongzhou": [
+    116.66,
+    39.91
+  ],
+  "city-jiaying": [
+    116.12,
+    24.29
+  ],
+  "city-quzhou": [
+    109.57,
+    31.4
+  ],
+  "county-jinkui": [
+    120.31,
+    31.49
+  ],
+  "county-shangyuan": [
+    118.8,
+    32.06
+  ],
+  "county-wuwei": [
+    117.91,
+    31.3
+  ],
+  "water-yellow-river": [
+    116.1,
+    35.1
+  ],
+  "water-qingjiangpu": [
+    119.02,
+    33.59
+  ],
+  "water-guazhou": [
+    119.42,
+    32.24
+  ],
+  "water-zhangjiawan": [
+    116.72,
+    39.85
+  ],
+  "water-wangjiaying": [
+    119.02,
+    34
+  ],
+  "gate-longjiang": [
+    118.73,
+    32.1
+  ],
+  "gate-shuixi": [
+    118.75,
+    32.03
+  ],
+  "bridge-fuhu": [
+    116.4,
+    39.9
+  ],
+  "mountain-dongting": [
+    120.4,
+    31.1
+  ],
+  "mountain-heng": [
+    112.7,
+    27.25
+  ],
+  "water-dongting-lake": [
+    112.9,
+    29.3
+  ],
+  "water-pengli": [
+    116.25,
+    29.1
+  ],
+  "feature-chengyintang": [
+    116.401,
+    39.900000000000006
+  ],
+  "feature-baoxiang": [
+    116.40299999999999,
+    39.900000000000006
+  ],
+  "feature-huxiang": [
+    116.405,
+    39.900000000000006
+  ],
+  "feature-lanjing": [
+    116.407,
+    39.900000000000006
+  ],
+  "feature-fenglu": [
+    116.40899999999999,
+    39.900000000000006
+  ],
+  "feature-juqi": [
+    116.411,
+    39.900000000000006
+  ],
+  "feature-huangxiang": [
+    116.413,
+    39.900000000000006
+  ],
+  "feature-songkan": [
+    116.401,
+    39.902
+  ],
+  "feature-songhe": [
+    116.40299999999999,
+    39.902
+  ],
+  "feature-guxiang": [
+    116.405,
+    39.902
+  ],
+  "feature-huashen": [
+    116.407,
+    39.902
+  ],
+  "feature-woyun": [
+    116.40899999999999,
+    39.902
+  ],
+  "feature-yinqiu": [
+    116.411,
+    39.902
+  ],
+  "feature-tingyun": [
+    116.413,
+    39.902
+  ],
+  "feature-lianqiu": [
+    116.401,
+    39.904
+  ],
+  "feature-guiling": [
+    116.40299999999999,
+    39.904
+  ],
+  "feature-conggui": [
+    116.405,
+    39.904
+  ],
+  "feature-piaomiao": [
+    116.407,
+    39.904
+  ],
+  "feature-taohuawu": [
+    116.40899999999999,
+    39.904
+  ],
+  "feature-xunyuan": [
+    116.411,
+    39.904
+  ],
+  "feature-xiaochicheng": [
+    116.413,
+    39.904
+  ],
+  "feature-daozhuang": [
+    116.401,
+    39.906000000000006
+  ],
+  "feature-hongxue": [
+    116.40299999999999,
+    39.906000000000006
+  ],
+  "feature-shepu": [
+    116.405,
+    39.906000000000006
+  ],
+  "feature-yuzhuang": [
+    116.407,
+    39.906000000000006
+  ],
+  "garden-jiuxiang": [
+    116.40899999999999,
+    39.906000000000006
+  ],
+  "garden-taihe": [
+    116.411,
+    39.906000000000006
+  ],
+  "garden-chunxi": [
+    116.413,
+    39.906000000000006
+  ],
+  "street-jinpailou": [
+    116.401,
+    39.908
+  ],
+  "street-nanheng": [
+    116.40299999999999,
+    39.908
+  ],
+  "street-yangliu": [
+    116.405,
+    39.908
+  ],
+  "street-yingtao": [
+    116.407,
+    39.908
+  ],
+  "street-yanzhi": [
+    116.40899999999999,
+    39.908
+  ],
+  "venue-anji": [
+    116.411,
+    39.908
+  ],
+  "venue-liuhe": [
+    116.413,
+    39.908
+  ],
+  "venue-guxiu": [
+    116.401,
+    39.910000000000004
+  ],
+  "venue-juxing": [
+    116.40299999999999,
+    39.910000000000004
+  ],
+  "office-bingmasi": [
+    116.405,
+    39.910000000000004
+  ],
+  "office-xingbu": [
+    116.407,
+    39.910000000000004
   ]
 }
