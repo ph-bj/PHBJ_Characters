@@ -1463,9 +1463,11 @@ function ChapterReaderComponent({
                 </div>
               </div>
             )}
-            <div className="pt-12 text-center text-[var(--ink-dim-text)] italic text-sm ">
-              {lang === "en" ? "--- End of Chapter ---" : "--- 本回完 ---"}
-            </div>
+            {chapter.id >= 0 && (
+              <div className="pt-12 text-center text-[var(--ink-dim-text)] italic text-sm ">
+                {lang === "en" ? "--- End of Chapter ---" : "--- 本回完 ---"}
+              </div>
+            )}
           </div>
         </div>
 
