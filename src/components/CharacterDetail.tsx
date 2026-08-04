@@ -382,80 +382,90 @@ export function CharacterDetail({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8 sm:mb-12">
-            <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
-              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
-                {t.origin}
-              </p>
-              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
-                <MapPin
-                  size={16}
-                  className="shrink-0"
-                  style={{ color: accentColor }}
-                />
-                <span>
-                  {lang === "zh" ? character.originZh : character.origin}
-                </span>
+          {/* 3-Row Metadata Cards */}
+          <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+            {/* Row 1: 籍贯 | 性别 (2 columns) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+                  {t.origin}
+                </p>
+                <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+                  <MapPin
+                    size={16}
+                    className="shrink-0"
+                    style={{ color: accentColor }}
+                  />
+                  <span>
+                    {lang === "zh" ? character.originZh : character.origin}
+                  </span>
+                </div>
+              </div>
+              <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+                  {t.gender}
+                </p>
+                <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+                  <User
+                    size={16}
+                    className="shrink-0"
+                    style={{ color: accentColor }}
+                  />
+                  <span>
+                    {lang === "zh" ? character.genderZh : character.gender}
+                  </span>
+                </div>
               </div>
             </div>
+
+            {/* Row 2: 年龄 (Full width) */}
             <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
               <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.age}
               </p>
               <CharacterAge character={character} lang={lang} accentColor={accentColor} />
             </div>
-            <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
-              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
-                {t.gender}
-              </p>
-              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
-                <User
-                  size={16}
-                  className="shrink-0"
-                  style={{ color: accentColor }}
-                />
-                <span>
-                  {lang === "zh" ? character.genderZh : character.gender}
-                </span>
+
+            {/* Row 3: 首次登场 | 发言次数 | 中文发言字数 (3 columns) */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+              <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+                  {t.firstEntry}
+                </p>
+                <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+                  <BookOpen
+                    size={16}
+                    className="shrink-0"
+                    style={{ color: accentColor }}
+                  />
+                  <span>{character.chapter}</span>
+                </div>
               </div>
-            </div>
-            <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
-              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
-                {t.firstEntry}
-              </p>
-              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
-                <BookOpen
-                  size={16}
-                  className="shrink-0"
-                  style={{ color: accentColor }}
-                />
-                <span>{character.chapter}</span>
+              <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+                  {t.speeches}
+                </p>
+                <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+                  <MessageSquare
+                    size={16}
+                    className="shrink-0"
+                    style={{ color: accentColor }}
+                  />
+                  <span>{character.speechesCount}</span>
+                </div>
               </div>
-            </div>
-            <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
-              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
-                {t.speeches}
-              </p>
-              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
-                <MessageSquare
-                  size={16}
-                  className="shrink-0"
-                  style={{ color: accentColor }}
-                />
-                <span>{character.speechesCount}</span>
-              </div>
-            </div>
-            <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
-              <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
-                {t.wordsSpoken}
-              </p>
-              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
-                <Type
-                  size={16}
-                  className="shrink-0"
-                  style={{ color: accentColor }}
-                />
-                <span>{character.speechesCharCount}</span>
+              <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
+                  {t.wordsSpoken}
+                </p>
+                <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
+                  <Type
+                    size={16}
+                    className="shrink-0"
+                    style={{ color: accentColor }}
+                  />
+                  <span>{character.speechesCharCount}</span>
+                </div>
               </div>
             </div>
           </div>
