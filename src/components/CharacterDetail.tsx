@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { BarChart, Bar, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { BookOpen, Calendar, Info, MapPin, MessageSquare, Type, User, X } from "lucide-react";
+import { BookOpen, Calendar, Info, MapPin, MessageSquare, ShieldCheck, Type, User, X } from "lucide-react";
 import { chapters } from "../chapters";
 import { chapterSummaries } from "../chapterSummaries";
 import {
@@ -50,6 +50,8 @@ export function CharacterDetail({
   const tintClass = ROLE_TINTS[character.role] || ROLE_TINTS.Other;
   const textClass = ROLE_TEXT_COLORS[character.role] || ROLE_TEXT_COLORS.Other;
   const accentColor = ROLE_ACCENTS[character.role] || ROLE_ACCENTS.Other;
+
+  const [showRoleCheck, setShowRoleCheck] = useState(false);
 
   const t = {
     en: {
@@ -309,11 +311,50 @@ export function CharacterDetail({
               <Icon size={24} className="sm:w-7 sm:h-7" />
             </div>
             <div className="flex-1 text-center sm:text-left">
-              <div
-                className={`text-xs font-bold uppercase tracking-[0.3em] ${textClass} mb-1 sm:mb-2 font-hans`}
-              >
-                {lang === "zh" ? character.roleZh : character.role} {t.dossier}
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1 sm:mb-2">
+                <span className={`text-xs font-bold uppercase tracking-[0.3em] ${textClass} font-hans`}>
+                  {lang === "zh" ? character.roleZh : character.role} {t.dossier}
+                </span>
+                {(character.roleEvidenceNote || character.roleEvidenceNoteZh) && (
+                  <button
+                    type="button"
+                    onClick={() => setShowRoleCheck((prev) => !prev)}
+                    title={lang === "zh" ? "查看身份复核" : "Role cross-check"}
+                    aria-label={lang === "zh" ? "查看身份复核" : "Role cross-check"}
+                    aria-expanded={showRoleCheck}
+                    className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-xs transition-colors border border-[var(--paper-border)] bg-black/5 hover:bg-black/10 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
+                      showRoleCheck ? "bg-black/15 font-semibold" : ""
+                    }`}
+                  >
+                    <ShieldCheck size={13} style={{ color: accentColor }} />
+                    <span className="text-[11px] text-[var(--ink-dim-text)] font-hans normal-case tracking-normal">
+                      {lang === "zh" ? "身份复核" : "Role cross-check"}
+                    </span>
+                  </button>
+                )}
               </div>
+
+              <AnimatePresence>
+                {showRoleCheck && (character.roleEvidenceNote || character.roleEvidenceNoteZh) && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    className="overflow-hidden mb-3"
+                  >
+                    <div className="p-3 rounded-md border border-[var(--paper-border)] bg-black/[0.03] text-left shadow-xs">
+                      <div className="flex items-center gap-1.5 font-bold text-xs uppercase tracking-wider text-[var(--ink-title)] mb-1 font-hans">
+                        <ShieldCheck size={14} className="shrink-0" style={{ color: accentColor }} />
+                        <span>{lang === "zh" ? "身份复核" : "Role cross-check"}</span>
+                      </div>
+                      <p className="text-xs sm:text-sm leading-relaxed text-[var(--ink-dim-text)] font-hans">
+                        {lang === "zh" ? character.roleEvidenceNoteZh : character.roleEvidenceNote}
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
               <h2 className="text-3xl sm:text-5xl font-bold text-[var(--ink-title)] leading-tight">
                 {getCharacterNameForLanguage(character, lang)}
               </h2>
