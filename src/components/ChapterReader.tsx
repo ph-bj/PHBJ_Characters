@@ -557,7 +557,13 @@ function ChapterReaderComponent({
     }
 
     if (chapter.id === -1) {
-      for (const line of chapter.content.split("\n")) addPlain(line);
+      for (const c of chapters.filter(ch => ch.id > 0)) {
+        if (lang === "zh") {
+          addPlain(c.title);
+        } else {
+          addPlain(chapterTitleTranslations[c.id] || c.title);
+        }
+      }
       return total;
     }
 
@@ -579,6 +585,7 @@ function ChapterReaderComponent({
     chapterSummary,
     chapterSearchQuery,
     tokenMap,
+    lang,
   ]);
 
   useEffect(() => {
@@ -1232,40 +1239,34 @@ function ChapterReaderComponent({
             {chapter.id >= 1 && <ChapterScene chapterId={chapter.id} />}
             {chapter.id === -1 ? (
               <div className="space-y-5">
-                {chapter.content.split("\n").map((line, i) => {
-                  const targetChapter =
-                    chapters.find((c) => c.id === i) ?? null;
+                {chapters.filter(c => c.id > 0).map((c) => {
                   return (
-                    <div key={i} className="border-b border-[var(--paper-border)]/50 pb-4">
+                    <div key={c.id} className="border-b border-[var(--paper-border)]/50 pb-4">
                       <button
                         type="button"
-                        disabled={!targetChapter}
-                        onClick={() =>
-                          targetChapter && onSelectChapter(targetChapter)
-                        }
-                        title={
-                          targetChapter
-                            ? lang === "zh"
-                              ? "打开本回"
-                              : "Open this chapter"
-                            : undefined
-                        }
-                        className="w-full text-left group cursor-pointer disabled:cursor-default"
+                        onClick={() => onSelectChapter(c)}
+                        title={lang === "zh" ? "打开本回" : "Open this chapter"}
+                        className="w-full text-left group cursor-pointer"
                       >
-                        <p className="text-[1em] font-hans text-[var(--ink-title)] leading-snug transition-colors group-hover:text-[var(--accent)]">
-                          {renderTextWithSearchHighlight(
-                            line,
-                            chapterSearchQuery,
-                            chapterSearchMatchIndex,
-                            chapterSearchMatchCounter,
-                          )}
-                        </p>
-                        {chapterTitleTranslations[i] != null &&
-                          chapterTitleTranslations[i] !== "" && (
-                            <p className="text-[0.75em] italic text-[var(--ink-dim-text)] mt-1 leading-snug">
-                              {chapterTitleTranslations[i]}
-                            </p>
-                          )}
+                        {lang === "zh" ? (
+                          <p className="text-[1em] font-hans text-[var(--ink-title)] leading-snug transition-colors group-hover:text-[var(--accent)]">
+                            {renderTextWithSearchHighlight(
+                              c.title,
+                              chapterSearchQuery,
+                              chapterSearchMatchIndex,
+                              chapterSearchMatchCounter,
+                            )}
+                          </p>
+                        ) : (
+                          <p className="text-[1em] font-sans text-[var(--ink-title)] leading-snug transition-colors group-hover:text-[var(--accent)]">
+                            {renderTextWithSearchHighlight(
+                              chapterTitleTranslations[c.id] || c.title,
+                              chapterSearchQuery,
+                              chapterSearchMatchIndex,
+                              chapterSearchMatchCounter,
+                            )}
+                          </p>
+                        )}
                       </button>
                     </div>
                   );
