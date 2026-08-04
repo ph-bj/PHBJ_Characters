@@ -73,11 +73,24 @@ export function QuestionsModal({
           data-overlay-scroll="true"
           className="p-5 sm:p-6 overflow-y-auto space-y-4"
         >
-          <div className="border border-[var(--paper-border)] rounded-sm p-5 sm:p-6 bg-black/5">
+          <section
+            aria-labelledby="question-answer-heading"
+            className="relative border border-[var(--paper-border)] rounded-sm p-5 sm:p-7 bg-[var(--paper-bg)]/65 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)]"
+          >
+            <div className="mb-5 flex items-center gap-3" aria-hidden="true">
+              <span className="h-px flex-1 bg-[var(--paper-border)]/70" />
+              <h4
+                id="question-answer-heading"
+                className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]"
+              >
+                {lang === "zh" ? "文本细读" : "Close reading"}
+              </h4>
+              <span className="h-px flex-1 bg-[var(--paper-border)]/70" />
+            </div>
             <QuestionAnswer
               content={lang === "zh" ? question.answerZh : question.answerEn}
             />
-          </div>
+          </section>
         </div>
       </motion.div>
     </div>
