@@ -78,7 +78,7 @@ export const novelLocations: NovelLocation[] = [
   { id: 'feature-cishulou', name: '赐书楼', nameEn: 'Tower of Gifted Books', type: 'garden', typeZh: '园林', searchTokens: ['赐书楼'] },
   { id: 'feature-liuxian', name: '留仙院', nameEn: 'Fairy-Detaining Courtyard', type: 'garden', typeZh: '园林', searchTokens: ['留仙院'] },
   { id: 'feature-haitang', name: '海棠春圃', nameEn: 'Crabapple Spring Garden', type: 'garden', typeZh: '园林', searchTokens: ['海棠春圃', '海棠圃'], aliasesEn: ['Crabapple Spring Garden', 'Crabapple Garden'] },
-  { id: 'feature-hongcha', name: '红茶仙馆', nameEn: 'Red Tea Immortal Pavilion', type: 'garden', typeZh: '园林', searchTokens: ['红茶仙馆'] },
+  { id: 'feature-hongcha', name: '红茶仙馆', nameEn: 'Red Camellia Immortal Pavilion', type: 'garden', typeZh: '园林', searchTokens: ['红茶仙馆'] },
   { id: 'feature-ruizhu', name: '蕊珠仙府', nameEn: 'Palace of the Petal Immortal', type: 'garden', typeZh: '园林', searchTokens: ['蕊珠仙府'] },
   { id: 'feature-qingliang', name: '清凉诗境', nameEn: 'Cool Poetic Realm', type: 'garden', typeZh: '园林', searchTokens: ['清凉诗境'] },
   { id: 'feature-jicuixuan', name: '积翠轩', nameEn: 'Accumulated-Green Pavilion', type: 'garden', typeZh: '园林', searchTokens: ['积翠轩'] },
