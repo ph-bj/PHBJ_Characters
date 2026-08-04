@@ -31,6 +31,11 @@ export function CharacterAge({
       : `Pinhua Baojian, Chapter ${character.ageSourceChapter}`);
 
   const hasNote = Boolean(noteText);
+  const evidenceLocation = character.ageEvidenceChapter
+    ? (lang === "zh"
+      ? `第${character.ageEvidenceChapter}回，第${character.ageEvidenceParagraph}段`
+      : `Chapter ${character.ageEvidenceChapter}, paragraph ${character.ageEvidenceParagraph}`)
+    : undefined;
 
   return (
     <div className="w-full">
@@ -90,6 +95,27 @@ export function CharacterAge({
                 <p className="text-xs sm:text-sm leading-relaxed text-[var(--ink-dim-text)] font-hans">
                   {noteText}
                 </p>
+                {character.ageEvidenceExcerpt && (
+                  <div className="mt-3 border-t border-[var(--paper-border)] pt-2.5">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-title)] mb-1">
+                      {lang === "zh" ? "原文证据" : "Primary-text evidence"}
+                      {evidenceLocation ? ` · ${evidenceLocation}` : ""}
+                    </div>
+                    <blockquote className="border-l-2 pl-2.5 text-xs sm:text-sm leading-relaxed text-[var(--ink-dim-text)] font-hans" style={{ borderColor: accentColor }}>
+                      {character.ageEvidenceExcerpt}
+                    </blockquote>
+                  </div>
+                )}
+                {(character.roleEvidenceNote || character.roleEvidenceNoteZh) && (
+                  <div className="mt-3 border-t border-[var(--paper-border)] pt-2.5">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-title)] mb-1">
+                      {lang === "zh" ? "身份复核" : "Role cross-check"}
+                    </div>
+                    <p className="text-xs sm:text-sm leading-relaxed text-[var(--ink-dim-text)] font-hans">
+                      {lang === "zh" ? character.roleEvidenceNoteZh : character.roleEvidenceNote}
+                    </p>
+                  </div>
+                )}
               </div>
             </motion.div>
           )}
@@ -98,4 +124,3 @@ export function CharacterAge({
     </div>
   );
 }
-
