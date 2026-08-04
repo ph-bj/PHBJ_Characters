@@ -18,7 +18,7 @@ Chinese source in `src/chapterTranslations/chinese/chapterChinese{1..60}.ts`.
 
 | Chapters | What was done |
 | --- | --- |
-| 1–46 | Read paragraph by paragraph against the Chinese; errors corrected. |
+| 1–46 | Read paragraph by paragraph against the Chinese; errors corrected. Chapter 21's remaining compressed passages and three especially compressed Chapter 46 passages were subsequently restored as full literary translations. |
 | 47–51, 55 | Read through in full at the paragraph level; errors corrected. |
 | 52–54, 56–60 | Mechanical sweeps only (alignment, pronouns, stray Chinese, name/title consistency), plus spot checks. Not yet read line by line. |
 
@@ -62,6 +62,8 @@ Chinese source in `src/chapterTranslations/chinese/chapterChinese{1..60}.ts`.
 - **Compressed chapters.** Some chapters are rendered as condensed paraphrase rather
   than full translation. Measured as English characters per Chinese character (a full
   translation in this corpus runs ~4.5–5.5), the outliers are:
-  ch. 46 (2.99), ch. 21 (2.93), ch. 27 (3.11), ch. 58 (3.21),
-  ch. 24 (3.70), ch. 26 (3.81). Fixing these means re-translating, not editing.
+  ch. 46 (now 3.25 after restoring paragraphs 19, 25, and 37), ch. 27 (3.11),
+  ch. 58 (3.21), ch. 24 (3.70), and ch. 26 (3.81). Fixing these means
+  re-translating, not editing. Chapter 21 is no longer on this list: its three compressed
+  passages were restored in full, raising its ratio from 2.93 to 3.79.
 - Chapters 52–54 and 56–60 have not yet been read paragraph by paragraph.
