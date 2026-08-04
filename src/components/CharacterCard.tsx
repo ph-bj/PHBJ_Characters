@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import type { Character } from "../types";
 import { ROLE_ACCENTS, ROLE_TEXT_COLORS, ROLE_TINTS, getCharacterNameForLanguage } from "../utils";
+import { formatCharacterAge } from "./CharacterAge";
 import { PlumCorner } from "./illustrations/PlumCorner";
 
 export function CharacterCard({
@@ -72,7 +73,7 @@ export function CharacterCard({
           {lang === "zh" ? character.originZh : character.origin}
         </span>
         <span className="text-xs text-[var(--ink-dim-text)] uppercase tracking-widest font-hans">
-          {lang === "en" ? "Age" : "年龄"}: {character.age}
+          {lang === "en" ? "Age" : "年龄"}: {formatCharacterAge(character, lang)}
         </span>
         <span className="text-xs text-[var(--ink-dim-text)] uppercase tracking-widest font-hans">
           {lang === "en" ? character.gender : character.genderZh}
