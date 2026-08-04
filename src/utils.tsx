@@ -805,3 +805,10 @@ export function readLastReadingPosition(): { id: number; top: number } | null {
   }
   return null;
 }
+
+export function parseCharacterAge(ageStr: string | undefined): number {
+  if (!ageStr) return 999;
+  const match = ageStr.match(/\d+/);
+  if (!match) return 999;
+  return parseInt(match[0], 10);
+}

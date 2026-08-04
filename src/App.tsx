@@ -83,7 +83,7 @@ import {
 } from "./workCategories";
 import { CiteButton } from "./components/CiteButton";
 
-import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, ROLE_CHIP_BOXED, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, NavSection, readLastReadingPosition } from "./utils";
+import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, ROLE_CHIP_BOXED, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, NavSection, readLastReadingPosition, parseCharacterAge } from "./utils";
 
 import { LanguageSwitch } from "./components/LanguageSwitch";
 import { ThemeToggle } from "./components/ThemeToggle";
@@ -118,7 +118,7 @@ export default function App() {
   const [selectedLocation, setSelectedLocation] =
     useState<NovelLocationWithChapters | null>(null);
   const [selectedWork, setSelectedWork] = useState<string | null>(null);
-  const [sortBy, setSortBy] = useState<"role" | "appearance" | "mentions">(
+  const [sortBy, setSortBy] = useState<"role" | "appearance" | "mentions" | "age">(
     "mentions",
   );
   const [lang, setLang] = useState<"en" | "zh">(() => {
@@ -245,6 +245,7 @@ export default function App() {
       roleDist: "Role Distribution",
       searchPlaceholder: "Search the archives...",
       chronology: "Chronology",
+      ageSort: "By Age",
       roleSort: "By Role",
       mentionSort: "By Mentions",
       allRecords: "All Records",
@@ -272,6 +273,7 @@ export default function App() {
       roleDist: "角色分布",
       searchPlaceholder: "搜索档案...",
       chronology: "出场顺序",
+      ageSort: "按年龄",
       roleSort: "按角色",
       mentionSort: "按提及",
       allRecords: "全部记录",
@@ -340,6 +342,14 @@ export default function App() {
           (mentionCountByCharacterId.get(b.id) ?? 0) -
           (mentionCountByCharacterId.get(a.id) ?? 0)
         );
+      }
+      if (sortBy === "age") {
+        const ageA = parseCharacterAge(a.age);
+        const ageB = parseCharacterAge(b.age);
+        if (ageA !== ageB) {
+          return ageA - ageB;
+        }
+        return a.chapterNum - b.chapterNum;
       }
       return a.chapterNum - b.chapterNum;
     });
@@ -1773,6 +1783,16 @@ export default function App() {
                   >
                     <Clock size={12} />
                     {t.chronology}
+                  </button>
+                  <button
+                    onClick={() => setSortBy("age")}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-wider transition-all ${sortBy === "age"
+                      ? "bg-[var(--accent)] text-[var(--paper-bg)]"
+                      : "text-[var(--ink-dim-text)] hover:bg-black/5"
+                      }`}
+                  >
+                    <Calendar size={12} />
+                    {t.ageSort}
                   </button>
                   <button
                     onClick={() => setSortBy("role")}
