@@ -1,4 +1,4 @@
-// Character: 陆氏夫人（王家）
+// Character: 王家陆夫人
 // Chapter Appearances: 1, 6, 52
 import type { SceneBullet } from './types';
 

@@ -1,4 +1,4 @@
-// Character: 家人媳妇（衣裳）
+// Character: 梅府取衣媳妇
 // Chapter Appearances: ch.1
 import type { SceneBullet } from './types';
 

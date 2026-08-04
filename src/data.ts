@@ -111,7 +111,7 @@ char-80	白姨奶奶 Bái Yínǎinai	—	—	—	minor	ch.3	Fu Lun's other quarr
 char-81	阿呆 Ā Dāi	—	—	—	minor	ch.23	Simple-minded victim who is cruelly harmed by Xi Shiyi's men in ch.23	愚笨的受害者；第23回遭奚十一手下残害。
 char-85	王大夫 Wáng Dàfū	Doctor Wang	—	—	minor	ch.4	Doctor who treats Sun Lianggong when the Sun household couple have a fight; mentioned by Sihui in ch.4	医生；在孙亮功夫妇吵架后为其诊治。
 char-86	颜夫人 Yán Fūrén	Lady Yan / Madam Yan	44	Jinling	female	ch.1	Wife of Mei Shixie; moral guardian of the novel; arranges Ziyu's betrothal to Wang Qionghua	梅士燮之妻；小说中的道德守护者；安排子玉与王琼华的婚事。
-char-87	陆氏夫人（王家） Lù Shì Fūrén	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Wang family's Madam Lu / The Wang Madam Lu	40	—	female	ch.1	Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu	王文辉继室；王恂继母；孙家陆夫人之妹。
+char-87	王家陆夫人 Wángjiā Lù Fūrén	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Wang family's Madam Lu / The Wang Madam Lu	40	—	female	ch.1	Wang Wenhui's second wife; stepmother to Wang Xun; sister of Sun family's Madam Lu	王文辉继室；王恂继母；孙家陆夫人之妹。
 char-88	孙氏 Sūn Shì	Madam Sun	—	—	female	ch.1	Wang Xun's wife; daughter of Sun Lianggong	王恂之妻；孙亮功之女。
 char-89	蓉华 Rónghuá	—	—	—	female	ch.1	Yan Zhongqing's wife; Wang Wenhui's daughter; sister of Wang Qionghua	颜仲清之妻；王文辉之女；王琼华之姐。
 char-90	王琼华 Wáng Qiónghúa	—	16	—	female	ch.1	Wang Wenhui's second daughter; shy; scratches Ziyu's poem; eventually betrothed and married to Ziyu	王文辉次女；害羞；涂抹子玉的诗；最终嫁给子玉。
@@ -119,7 +119,7 @@ char-91	袁夫人 Yuán Fūrén	Mrs. Yuan / Mrs Yuan / Madam Yuan	23	—	female	
 char-92	郑氏 Zhèng Shì	—	—	—	female	ch.1	Yan Zhuang's wife; fasted to death after his death; honoured for chastity; Yan Zhongqing's mother	颜庄之妻；绝食殉夫；贞节受表彰；颜仲清之母。
 char-94	许三姐 Xǔ Sānjiě	Third Sister / Sanjie	—	—	female	ch.40	Spirited elder sister of the Xu brothers; masterminds the revenge on Pan San (ch.40); enters service and recognizes her lost brother Zhou Xiaosan (ch.49)	许家三姐，泼辣有谋；第40回设计惩治潘三；第49回入府帮佣，意外与失散之弟周小三相认。
 char-95	玉天仙 Yù Tiānxiān	—	27	—	female	ch.18	Courtesan married by Wei Pincai in ch.50 after he helps revise opera texts	妓女；魏聘才改写剧本后娶其为妻。
-char-96	陆氏夫人（孙家） Lù Shì Fūrén	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Sun family's Madam Lu / The Sun Madam Lu	39	—	female	ch.6	Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu	孙亮功继室；嫉妒霸道；王家陆夫人之姐。
+char-96	孙家陆夫人 Sūnjiā Lù Fūrén	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Sun family's Madam Lu / The Sun Madam Lu	39	—	female	ch.6	Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu	孙亮功继室；嫉妒霸道；王家陆夫人之姐。
 char-97	沈芸姑 Shěn Yúngū	—	—	—	female	ch.6	Sun Sihui's wife; née Shen; intelligent but miserable in marriage	孙嗣徽之妻；聪明但婚姻不幸。
 char-98	巴来风 Bā Láifēng	—	~17	—	female	ch.6	Sun Siyuan's wife; née Ba; beautiful and fierce; physically overpowers husband on wedding night	孙嗣元之妻；美丽凶悍；新婚之夜制服丈夫。
 char-99	孙大姑娘	—	~29	—	female	ch.6	Sun Lianggong's eldest daughter; prematurely white-haired and long unmarriageable; finally wed to Li Yuanmao with dyed hair in ch.39	孙亮功长女；少白头，久未字人；第39回染发假髻嫁与李元茂。
@@ -131,19 +131,19 @@ char-104	许顺 Xǔ Shùn	—	—	—	servant	ch.2	Mei household steward and acc
 char-105	许顺妻 Xǔ Shùn qī	许顺夫妇	—	—	servant	ch.3	Xu Shun's wife; works alongside him in household management	许顺之妻；协助管理家务。
 char-106	梅进 Méi Jìn	—	—	—	servant	ch.2	Mei household gate attendant; called in to receive and seat guests	梅府门房；负责接待客人。
 char-107	虎儿 Hǔ'ér	—	—	—	servant	ch.8	Household page in the Mei residence; brings messages between rooms	梅府小厮；负责传话。
-char-108	书僮(×2) Study Boys (×2)	—	—	—	servant	ch.4	Two unnamed study boys; wait outside the study; serve tea and pour water.	书童；在书房外候着；端茶倒水。
-char-109	仆妇（门上）	仆妇	—	—	servant	ch.2	Doorwoman who brings calling cards from Wei Pincai and Li Yuanmao in to Mei Shixie	门上仆妇；递送名帖。
-char-110	家人媳妇（衣裳）	家人媳妇	—	—	servant	ch.1	Household woman who fetches Ziyu's fur coat at Lady Yan's instruction	家里的媳妇；负责取衣物。
-char-111	小丫鬟（子玉书房）	小丫鬟	—	—	servant	ch.7	Maidservant in Ziyu's study; reports that Wang Qionghua scratched out two characters from Ziyu's poem; relays betrothal gossip from Xue'er	子玉书房的小丫鬟；报告王琼华涂诗；传闲话。
+char-108	书房双书僮 Shūfáng Shuāng Shūtóng	书僮 / 书童 / Study Boys	—	—	servant	ch.4	Two unnamed study boys; wait outside the study; serve tea and pour water.	书童；在书房外候着；端茶倒水。
+char-109	梅府传帖仆妇 Méifǔ Chuántiě Púfù	仆妇 / 门上仆妇 / Doorwoman	—	—	servant	ch.2	Doorwoman who brings calling cards from Wei Pincai and Li Yuanmao in to Mei Shixie	门上仆妇；递送名帖。
+char-110	梅府取衣媳妇 Méifǔ Qǔyī Xífù	家人媳妇 / Household woman	—	—	servant	ch.1	Household woman who fetches Ziyu's fur coat at Lady Yan's instruction	家里的媳妇；负责取衣物。
+char-111	子玉书房小丫鬟 Zǐyù Shūfáng Xiǎo Yāhuan	小丫鬟 / Maidservant	—	—	servant	ch.7	Maidservant in Ziyu's study; reports that Wang Qionghua scratched out two characters from Ziyu's poem; relays betrothal gossip from Xue'er	子玉书房的小丫鬟；报告王琼华涂诗；传闲话。
 char-112	四儿 Sì'ér	—	—	—	servant	ch.2	Wei Pincai's personal page-boy; carries money; sits on carriage edge; receives tips from Fu Lun	魏聘才的小厮；管钱；坐车沿；收小费。
 char-113	健儿 Jiàn'ér	—	—	—	servant	ch.4	Yan Zhongqing's running-boy messenger; carries letters between the Yan and Mei households	颜仲清的跑腿；在颜梅两家间传信。
 char-114	雪儿 Xuě'ér	—	—	—	servant	ch.7	Wang Qionghua's personal maidservant; gossips about the betrothal arrangement and the jade hairpin incident	王琼华的贴身丫鬟；传关于婚约和玉簪的闲话。
 char-115	松儿 Sōng'ér	—	—	—	servant	ch.6	Originally Shen Yungu's dowry maid; taken as concubine by Sun Sihui; effectively relieves Shen Yungu	沈芸姑的陪嫁丫鬟；被孙嗣徽收为妾。
-char-116	伴送婆（巴家）	伴送婆	—	—	servant	ch.6	Bridal escort matron who accompanied Ba Laifeng to the Sun household; mediates the violent wedding night	巴家的送亲婆；调解新婚之夜的冲突。
-char-117	乳母（巴来风）	乳母 / 奶妈	—	—	servant	ch.6	Ba Laifeng's childhood nanny; persuades her to accept the marriage with moral arguments	巴来风的奶妈；劝其接受婚姻。
-char-118	跟班（富家）	跟班 / 跟班的	—	—	servant	ch.3	Fu Lun's neat household attendant; brings tea to Pincai; wears plain silk padded jacket	富府跟班；端茶；穿素绸棉袄。
+char-116	巴府送亲婆 Bāfǔ Sòngqīnpó	伴送婆 / Bridal escort matron	—	—	servant	ch.6	Bridal escort matron who accompanied Ba Laifeng to the Sun household; mediates the violent wedding night	巴家的送亲婆；调解新婚之夜的冲突。
+char-117	巴来风乳母 Bā Láifēng Rǔmǔ	乳母 / 奶妈 / Nanny	—	—	servant	ch.6	Ba Laifeng's childhood nanny; persuades her to accept the marriage with moral arguments	巴来风的奶妈；劝其接受婚姻。
+char-118	富府跟班 Fùfǔ Gēnbān	跟班 / 跟班的 / Fu household attendant	—	—	servant	ch.3	Fu Lun's neat household attendant; brings tea to Pincai; wears plain silk padded jacket	富府跟班；端茶；穿素绸棉袄。
 char-119	卢大爷 Lú Dàyé	—	—	—	servant	ch.5	Hua Guangsu's stable and livestock manager; oversees 100+ horses and 70–80 large mules	华府马房总管；管理百余匹马。
-char-120	跟班队（华家，~20–30人）	跟班 / 跟班的	—	—	servant	ch.5	20–30 liveried grooms and mounted escorts who accompany Hua Guangsu on outings	华府跟班队；随华光宿出巡。
+char-120	华府随从队 Huáfǔ Suícóngduì	跟班 / 跟班的 / Hua household retinue	—	—	servant	ch.5	20–30 liveried grooms and mounted escorts who accompany Hua Guangsu on outings	华府跟班队；随华光宿出巡。
 char-121	叶茂林 Yè Màolín	—	50+	Suzhou	servant	ch.2	Impresario who bought and transported the young performers from Suzhou to Beijing by canal boat	班主；将伶人从苏州运往北京。
 char-122	金二 Jīn Èr	—	—	—	servant	ch.3	Head troupe manager (掌班) of the Lianjin troupe; negotiates booking contracts	联锦班掌班；负责签约。
 char-123	老三 Lǎo Sān	—	—	—	servant	ch.3	Restaurant server at the crockery-smashing scene; scolded for not bringing fine enough porcelain	酒楼伙计；因瓷器不够好被骂。

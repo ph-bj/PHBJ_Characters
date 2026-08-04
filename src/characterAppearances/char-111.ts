@@ -1,4 +1,4 @@
-// Character: 小丫鬟（子玉书房）
+// Character: 子玉书房小丫鬟
 // Chapter Appearances: 7
 import type { SceneBullet } from './types';
 

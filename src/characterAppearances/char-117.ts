@@ -1,4 +1,4 @@
-// Character: 乳母（巴来风）
+// Character: 巴来风乳母
 // Chapter Appearances: ch.6
 import type { SceneBullet } from './types';
 

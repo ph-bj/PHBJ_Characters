@@ -1,4 +1,4 @@
-// Character: 跟班队（华家，~20–30人）
+// Character: 华府随从队
 // Chapter Appearances: ch.5
 import type { SceneBullet } from "./types";
 

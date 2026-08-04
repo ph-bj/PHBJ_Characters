@@ -1,4 +1,4 @@
-// Character: 仆妇（门上）
+// Character: 梅府传帖仆妇
 // Chapter Appearances: ch.2
 import type { SceneBullet } from './types';
 
