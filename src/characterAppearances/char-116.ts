@@ -1,4 +1,4 @@
-// Character: 伴送婆（巴家）
+// Character: 巴府送亲婆
 // Chapter Appearances: 6
 import type { SceneBullet } from './types';
 

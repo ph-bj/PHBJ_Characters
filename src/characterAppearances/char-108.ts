@@ -1,4 +1,4 @@
-// Character: 书僮 (×2)
+// Character: 书房双书僮
 // Chapter Appearances: 1, 4
 import type { SceneBullet } from "./types";
 

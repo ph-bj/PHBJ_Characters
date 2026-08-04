@@ -66,7 +66,7 @@ export const relationships: Relationship[] = [
   { source: 'char-0', target: 'char-73', type: 'Adversary', typeZh: '对立冲突' }, // 梅子玉 — 潘其观
   { source: 'char-0', target: 'char-75', type: 'Adversary', typeZh: '对立冲突' }, // 梅子玉 — 唐和尚
   { source: 'char-0', target: 'char-86', type: 'Protective Mother & Son', typeZh: '道德守护慈母与顺从子' }, // 梅子玉 — 颜夫人
-  { source: 'char-0', target: 'char-87', type: 'Family/Household', typeZh: '家属/内眷' }, // 梅子玉 — 陆氏夫人（王家）
+  { source: 'char-0', target: 'char-87', type: 'Family/Household', typeZh: '家属/内眷' }, // 梅子玉 — 王家陆夫人
   { source: 'char-0', target: 'char-89', type: 'Family/Household', typeZh: '家属/内眷' }, // 梅子玉 — 蓉华
   { source: 'char-0', target: 'char-90', type: 'Betrothed Spouse & Literary Partner', typeZh: '诗文缔姻与正室伉俪' }, // 梅子玉 — 王琼华
   { source: 'char-0', target: 'char-94', type: 'Family/Household', typeZh: '家属/内眷' }, // 梅子玉 — 许三姐
@@ -76,7 +76,7 @@ export const relationships: Relationship[] = [
   { source: 'char-0', target: 'char-104', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅子玉 — 许顺
   { source: 'char-0', target: 'char-106', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅子玉 — 梅进
   { source: 'char-0', target: 'char-107', type: 'Page/Master', typeZh: '小厮主仆' }, // 梅子玉 — 虎儿
-  { source: 'char-0', target: 'char-111', type: 'Maid/Master', typeZh: '书房使女' }, // 梅子玉 — 小丫鬟（子玉书房）
+  { source: 'char-0', target: 'char-111', type: 'Maid/Master', typeZh: '书房使女' }, // 梅子玉 — 子玉书房小丫鬟
   { source: 'char-0', target: 'char-112', type: 'Household Retainer & Scholar Master', typeZh: '府上跟班与京师名士' }, // 梅子玉 — 四儿
   { source: 'char-0', target: 'char-119', type: 'Household Retainer & Scholar Master', typeZh: '府上跟班与京师名士' }, // 梅子玉 — 卢大爷
   { source: 'char-0', target: 'char-121', type: 'Household Retainer & Scholar Master', typeZh: '府上跟班与京师名士' }, // 梅子玉 — 叶茂林
@@ -241,7 +241,7 @@ export const relationships: Relationship[] = [
   { source: 'char-2', target: 'char-73', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 颜仲清 — 潘其观
   { source: 'char-2', target: 'char-75', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 颜仲清 — 唐和尚
   { source: 'char-2', target: 'char-86', type: 'Aunt/Nephew', typeZh: '姑侄' }, // 颜仲清 — 颜夫人
-  { source: 'char-2', target: 'char-87', type: 'Family/Household', typeZh: '家属/内眷' }, // 颜仲清 — 陆氏夫人（王家）
+  { source: 'char-2', target: 'char-87', type: 'Family/Household', typeZh: '家属/内眷' }, // 颜仲清 — 王家陆夫人
   { source: 'char-2', target: 'char-88', type: 'Family/Household', typeZh: '家属/内眷' }, // 颜仲清 — 孙氏
   { source: 'char-2', target: 'char-89', type: 'Marriage', typeZh: '入赘姊妹' }, // 颜仲清 — 蓉华
   { source: 'char-2', target: 'char-90', type: 'Family/Household', typeZh: '家属/内眷' }, // 颜仲清 — 王琼华
@@ -291,11 +291,11 @@ export const relationships: Relationship[] = [
   { source: 'char-4', target: 'char-73', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 王恂 — 潘其观
   { source: 'char-4', target: 'char-75', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 王恂 — 唐和尚
   { source: 'char-4', target: 'char-86', type: 'Inner Household Lady & Scholar Cousin', typeZh: '闺阁内眷与文人表亲' }, // 王恂 — 颜夫人
-  { source: 'char-4', target: 'char-87', type: 'Stepmother/Son', typeZh: '继母子' }, // 王恂 — 陆氏夫人（王家）
+  { source: 'char-4', target: 'char-87', type: 'Stepmother/Son', typeZh: '继母子' }, // 王恂 — 王家陆夫人
   { source: 'char-4', target: 'char-88', type: 'Marriage', typeZh: '夫妻' }, // 王恂 — 孙氏
   { source: 'char-4', target: 'char-89', type: 'Family/Household', typeZh: '家属/内眷' }, // 王恂 — 蓉华
   { source: 'char-4', target: 'char-90', type: 'Family/Household', typeZh: '家属/内眷' }, // 王恂 — 王琼华
-  { source: 'char-4', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 王恂 — 陆氏夫人（孙家）
+  { source: 'char-4', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 王恂 — 孙家陆夫人
   { source: 'char-5', target: 'char-6', type: 'Scheming Peers', typeZh: '狐朋狗友' }, // 魏聘才 — 李元茂
   { source: 'char-5', target: 'char-7', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 魏聘才 — 徐子云
   { source: 'char-5', target: 'char-8', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 魏聘才 — 萧次贤
@@ -318,7 +318,7 @@ export const relationships: Relationship[] = [
   { source: 'char-5', target: 'char-90', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 魏聘才 — 王琼华
   { source: 'char-5', target: 'char-94', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 魏聘才 — 许三姐
   { source: 'char-5', target: 'char-95', type: 'Marriage', typeZh: '夫妻' }, // 魏聘才 — 玉天仙
-  { source: 'char-5', target: 'char-96', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 魏聘才 — 陆氏夫人（孙家）
+  { source: 'char-5', target: 'char-96', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 魏聘才 — 孙家陆夫人
   { source: 'char-6', target: 'char-7', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 李元茂 — 徐子云
   { source: 'char-6', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 李元茂 — 萧次贤
   { source: 'char-6', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 李元茂 — 刘文泽
@@ -329,7 +329,7 @@ export const relationships: Relationship[] = [
   { source: 'char-6', target: 'char-86', type: 'Inner Household Lady & Scholar Cousin', typeZh: '闺阁内眷与文人表亲' }, // 李元茂 — 颜夫人
   { source: 'char-6', target: 'char-88', type: 'Family/Household', typeZh: '家属/内眷' }, // 李元茂 — 孙氏
   { source: 'char-6', target: 'char-95', type: 'Family/Household', typeZh: '家属/内眷' }, // 李元茂 — 玉天仙
-  { source: 'char-6', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 李元茂 — 陆氏夫人（孙家）
+  { source: 'char-6', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 李元茂 — 孙家陆夫人
   { source: 'char-6', target: 'char-99', type: 'Marriage', typeZh: '夫妻' }, // 李元茂 — 孙大姑娘
   { source: 'char-7', target: 'char-8', type: 'Yiyuan Designers & Polymath Intimates', typeZh: '怡园营造同道与莫逆之交' }, // 徐子云 — 萧次贤
   { source: 'char-7', target: 'char-9', type: 'Banquet Host & Yiyuan Patron', typeZh: '侍郎之子与怡园主客' }, // 徐子云 — 刘文泽
@@ -392,7 +392,7 @@ export const relationships: Relationship[] = [
   { source: 'char-10', target: 'char-73', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 高品 — 潘其观
   { source: 'char-10', target: 'char-75', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 高品 — 唐和尚
   { source: 'char-10', target: 'char-86', type: 'Inner Household Lady & Scholar Cousin', typeZh: '闺阁内眷与文人表亲' }, // 高品 — 颜夫人
-  { source: 'char-10', target: 'char-87', type: 'Family/Household', typeZh: '家属/内眷' }, // 高品 — 陆氏夫人（王家）
+  { source: 'char-10', target: 'char-87', type: 'Family/Household', typeZh: '家属/内眷' }, // 高品 — 王家陆夫人
   { source: 'char-10', target: 'char-88', type: 'Family/Household', typeZh: '家属/内眷' }, // 高品 — 孙氏
   { source: 'char-10', target: 'char-89', type: 'Family/Household', typeZh: '家属/内眷' }, // 高品 — 蓉华
   { source: 'char-10', target: 'char-90', type: 'Family/Household', typeZh: '家属/内眷' }, // 高品 — 王琼华
@@ -401,7 +401,7 @@ export const relationships: Relationship[] = [
   { source: 'char-10', target: 'char-104', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 许顺
   { source: 'char-10', target: 'char-106', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 梅进
   { source: 'char-10', target: 'char-112', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 四儿
-  { source: 'char-10', target: 'char-118', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 跟班（富家）
+  { source: 'char-10', target: 'char-118', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 富府跟班
   { source: 'char-10', target: 'char-119', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 卢大爷
   { source: 'char-10', target: 'char-121', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 叶茂林
   { source: 'char-10', target: 'char-123', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 老三
@@ -461,7 +461,7 @@ export const relationships: Relationship[] = [
   { source: 'char-11', target: 'char-89', type: 'Family/Household', typeZh: '家属/内眷' }, // 张仲雨 — 蓉华
   { source: 'char-11', target: 'char-95', type: 'Family/Household', typeZh: '家属/内眷' }, // 张仲雨 — 玉天仙
   { source: 'char-11', target: 'char-112', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 张仲雨 — 四儿
-  { source: 'char-11', target: 'char-118', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 张仲雨 — 跟班（富家）
+  { source: 'char-11', target: 'char-118', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 张仲雨 — 富府跟班
   { source: 'char-11', target: 'char-119', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 张仲雨 — 卢大爷
   { source: 'char-11', target: 'char-121', type: 'Household Retainer & Scholar Master', typeZh: '府上跟班与京师名士' }, // 张仲雨 — 叶茂林
   { source: 'char-11', target: 'char-123', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 张仲雨 — 老三
@@ -641,7 +641,7 @@ export const relationships: Relationship[] = [
   { source: 'char-21', target: 'char-75', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 孙嗣徽 — 唐和尚
   { source: 'char-21', target: 'char-86', type: 'Family/Household', typeZh: '家属/内眷' }, // 孙嗣徽 — 颜夫人
   { source: 'char-21', target: 'char-88', type: 'Family/Household', typeZh: '家属/内眷' }, // 孙嗣徽 — 孙氏
-  { source: 'char-21', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 孙嗣徽 — 陆氏夫人（孙家）
+  { source: 'char-21', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 孙嗣徽 — 孙家陆夫人
   { source: 'char-21', target: 'char-97', type: 'Marriage', typeZh: '夫妻' }, // 孙嗣徽 — 沈芸姑
   { source: 'char-22', target: 'char-4', type: 'Literary Peer', typeZh: '同好文人' }, // 孙嗣元 — 王恂
   { source: 'char-22', target: 'char-5', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 孙嗣元 — 魏聘才
@@ -650,7 +650,7 @@ export const relationships: Relationship[] = [
   { source: 'char-22', target: 'char-49', type: 'Father/Son', typeZh: '父子' }, // 孙嗣元 — 孙亮功
   { source: 'char-22', target: 'char-52', type: 'Official & Scholar', typeZh: '官员与名士' }, // 孙嗣元 — 陆宗沅
   { source: 'char-22', target: 'char-86', type: 'Family/Household', typeZh: '家属/内眷' }, // 孙嗣元 — 颜夫人
-  { source: 'char-22', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 孙嗣元 — 陆氏夫人（孙家）
+  { source: 'char-22', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 孙嗣元 — 孙家陆夫人
   { source: 'char-22', target: 'char-98', type: 'Marriage', typeZh: '夫妻' }, // 孙嗣元 — 巴来风
   { source: 'char-23', target: 'char-3', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 袁宝珠 — 史南湘
   { source: 'char-23', target: 'char-4', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 袁宝珠 — 王恂
@@ -689,7 +689,7 @@ export const relationships: Relationship[] = [
   { source: 'char-23', target: 'char-73', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 袁宝珠 — 潘其观
   { source: 'char-23', target: 'char-75', type: 'Harassed Performer & Entangled Villain', typeZh: '名伶与纠缠市井恶少' }, // 袁宝珠 — 唐和尚
   { source: 'char-23', target: 'char-86', type: 'Inner Household Lady & Invited Actor', typeZh: '内宅主母与受邀名伶' }, // 袁宝珠 — 颜夫人
-  { source: 'char-23', target: 'char-87', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 袁宝珠 — 陆氏夫人（王家）
+  { source: 'char-23', target: 'char-87', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 袁宝珠 — 王家陆夫人
   { source: 'char-23', target: 'char-89', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 袁宝珠 — 蓉华
   { source: 'char-23', target: 'char-90', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 袁宝珠 — 王琼华
   { source: 'char-23', target: 'char-95', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 袁宝珠 — 玉天仙
@@ -764,7 +764,7 @@ export const relationships: Relationship[] = [
   { source: 'char-25', target: 'char-73', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 陆素兰 — 潘其观
   { source: 'char-25', target: 'char-75', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 陆素兰 — 唐和尚
   { source: 'char-25', target: 'char-86', type: 'Inner Household Lady & Invited Actor', typeZh: '内宅主母与受邀名伶' }, // 陆素兰 — 颜夫人
-  { source: 'char-25', target: 'char-87', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 陆素兰 — 陆氏夫人（王家）
+  { source: 'char-25', target: 'char-87', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 陆素兰 — 王家陆夫人
   { source: 'char-25', target: 'char-89', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 陆素兰 — 蓉华
   { source: 'char-25', target: 'char-90', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 陆素兰 — 王琼华
   { source: 'char-25', target: 'char-95', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 陆素兰 — 玉天仙
@@ -1020,11 +1020,11 @@ export const relationships: Relationship[] = [
   { source: 'char-48', target: 'char-73', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 王文辉 — 潘其观
   { source: 'char-48', target: 'char-75', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 王文辉 — 唐和尚
   { source: 'char-48', target: 'char-86', type: 'Family/Household', typeZh: '家属/内眷' }, // 王文辉 — 颜夫人
-  { source: 'char-48', target: 'char-87', type: 'Marriage', typeZh: '夫妻' }, // 王文辉 — 陆氏夫人（王家）
+  { source: 'char-48', target: 'char-87', type: 'Marriage', typeZh: '夫妻' }, // 王文辉 — 王家陆夫人
   { source: 'char-48', target: 'char-88', type: 'Family/Household', typeZh: '家属/内眷' }, // 王文辉 — 孙氏
   { source: 'char-48', target: 'char-89', type: 'Father/Daughter', typeZh: '父女' }, // 王文辉 — 蓉华
   { source: 'char-48', target: 'char-90', type: 'Father/Daughter', typeZh: '父女' }, // 王文辉 — 王琼华
-  { source: 'char-48', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 王文辉 — 陆氏夫人（孙家）
+  { source: 'char-48', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 王文辉 — 孙家陆夫人
   { source: 'char-49', target: 'char-5', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 孙亮功 — 魏聘才
   { source: 'char-49', target: 'char-6', type: 'Official & Scholar', typeZh: '官员与名士' }, // 孙亮功 — 李元茂
   { source: 'char-49', target: 'char-7', type: 'Official & Scholar', typeZh: '官员与名士' }, // 孙亮功 — 徐子云
@@ -1038,7 +1038,7 @@ export const relationships: Relationship[] = [
   { source: 'char-49', target: 'char-86', type: 'Family/Household', typeZh: '家属/内眷' }, // 孙亮功 — 颜夫人
   { source: 'char-49', target: 'char-88', type: 'Father/Daughter', typeZh: '父女' }, // 孙亮功 — 孙氏
   { source: 'char-49', target: 'char-89', type: 'Family/Household', typeZh: '家属/内眷' }, // 孙亮功 — 蓉华
-  { source: 'char-49', target: 'char-96', type: 'Marriage', typeZh: '夫妻' }, // 孙亮功 — 陆氏夫人（孙家）
+  { source: 'char-49', target: 'char-96', type: 'Marriage', typeZh: '夫妻' }, // 孙亮功 — 孙家陆夫人
   { source: 'char-49', target: 'char-99', type: 'Father/Daughter', typeZh: '父女' }, // 孙亮功 — 孙大姑娘
   { source: 'char-50', target: 'char-7', type: 'Official & Scholar', typeZh: '官员与名士' }, // 杨方猷 — 徐子云
   { source: 'char-50', target: 'char-51', type: 'Official Colleague', typeZh: '同朝为官' }, // 杨方猷 — 周锡爵
@@ -1056,10 +1056,10 @@ export const relationships: Relationship[] = [
   { source: 'char-52', target: 'char-62', type: 'Official Colleague', typeZh: '同朝为官' }, // 陆宗沅 — 吴阁学
   { source: 'char-52', target: 'char-72', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 陆宗沅 — 奚十一
   { source: 'char-52', target: 'char-86', type: 'Family/Household', typeZh: '家属/内眷' }, // 陆宗沅 — 颜夫人
-  { source: 'char-52', target: 'char-87', type: 'Family/Household', typeZh: '家属/内眷' }, // 陆宗沅 — 陆氏夫人（王家）
+  { source: 'char-52', target: 'char-87', type: 'Family/Household', typeZh: '家属/内眷' }, // 陆宗沅 — 王家陆夫人
   { source: 'char-52', target: 'char-89', type: 'Family/Household', typeZh: '家属/内眷' }, // 陆宗沅 — 蓉华
   { source: 'char-52', target: 'char-90', type: 'Family/Household', typeZh: '家属/内眷' }, // 陆宗沅 — 王琼华
-  { source: 'char-52', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 陆宗沅 — 陆氏夫人（孙家）
+  { source: 'char-52', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 陆宗沅 — 孙家陆夫人
   { source: 'char-53', target: 'char-6', type: 'Official & Scholar', typeZh: '官员与名士' }, // 富伦 — 李元茂
   { source: 'char-53', target: 'char-8', type: 'Social Friend', typeZh: '交游朋友' }, // 富伦 — 萧次贤
   { source: 'char-53', target: 'char-54', type: 'Friend', typeZh: '好友' }, // 富伦 — 贵芬
@@ -1116,8 +1116,8 @@ export const relationships: Relationship[] = [
   { source: 'char-62', target: 'char-86', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 吴阁学 — 颜夫人
   { source: 'char-63', target: 'char-9', type: 'Official & Scholar', typeZh: '官员与名士' }, // 沈司业 — 刘文泽
   { source: 'char-64', target: 'char-98', type: 'Father/Daughter', typeZh: '父女' }, // 巴天宠 — 巴来风
-  { source: 'char-65', target: 'char-87', type: 'Brother/Sister', typeZh: '兄妹' }, // 陆宗淮 — 陆氏夫人（王家）
-  { source: 'char-65', target: 'char-96', type: 'Brother/Sister', typeZh: '兄妹' }, // 陆宗淮 — 陆氏夫人（孙家）
+  { source: 'char-65', target: 'char-87', type: 'Brother/Sister', typeZh: '兄妹' }, // 陆宗淮 — 王家陆夫人
+  { source: 'char-65', target: 'char-96', type: 'Brother/Sister', typeZh: '兄妹' }, // 陆宗淮 — 孙家陆夫人
   { source: 'char-72', target: 'char-8', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 奚十一 — 萧次贤
   { source: 'char-72', target: 'char-9', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 奚十一 — 刘文泽
   { source: 'char-72', target: 'char-73', type: 'Villainous Associate', typeZh: '狐朋狗友' }, // 奚十一 — 潘其观
@@ -1138,22 +1138,22 @@ export const relationships: Relationship[] = [
   { source: 'char-75', target: 'char-95', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 唐和尚 — 玉天仙
   { source: 'char-79', target: 'char-80', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 青姨奶奶 — 白姨奶奶
   { source: 'char-86', target: 'char-9', type: 'Inner Household Lady & Scholar Cousin', typeZh: '闺阁内眷与文人表亲' }, // 颜夫人 — 刘文泽
-  { source: 'char-86', target: 'char-87', type: 'Female Companion', typeZh: '闺阁女伴' }, // 颜夫人 — 陆氏夫人（王家）
+  { source: 'char-86', target: 'char-87', type: 'Female Companion', typeZh: '闺阁女伴' }, // 颜夫人 — 王家陆夫人
   { source: 'char-86', target: 'char-88', type: 'Female Companion', typeZh: '闺阁女伴' }, // 颜夫人 — 孙氏
   { source: 'char-86', target: 'char-89', type: 'Female Companion', typeZh: '闺阁女伴' }, // 颜夫人 — 蓉华
   { source: 'char-86', target: 'char-90', type: 'Female Companion', typeZh: '闺阁女伴' }, // 颜夫人 — 王琼华
-  { source: 'char-86', target: 'char-96', type: 'Female Companion', typeZh: '闺阁女伴' }, // 颜夫人 — 陆氏夫人（孙家）
-  { source: 'char-87', target: 'char-88', type: 'Female Companion', typeZh: '闺阁女伴' }, // 陆氏夫人（王家） — 孙氏
-  { source: 'char-87', target: 'char-89', type: 'Female Companion', typeZh: '闺阁女伴' }, // 陆氏夫人（王家） — 蓉华
-  { source: 'char-87', target: 'char-96', type: 'Female Companion', typeZh: '闺阁女伴' }, // 陆氏夫人（王家） — 陆氏夫人（孙家）
+  { source: 'char-86', target: 'char-96', type: 'Female Companion', typeZh: '闺阁女伴' }, // 颜夫人 — 孙家陆夫人
+  { source: 'char-87', target: 'char-88', type: 'Female Companion', typeZh: '闺阁女伴' }, // 王家陆夫人 — 孙氏
+  { source: 'char-87', target: 'char-89', type: 'Female Companion', typeZh: '闺阁女伴' }, // 王家陆夫人 — 蓉华
+  { source: 'char-87', target: 'char-96', type: 'Female Companion', typeZh: '闺阁女伴' }, // 王家陆夫人 — 孙家陆夫人
   { source: 'char-88', target: 'char-9', type: 'Family/Household', typeZh: '家属/内眷' }, // 孙氏 — 刘文泽
   { source: 'char-88', target: 'char-89', type: 'Female Companion', typeZh: '闺阁女伴' }, // 孙氏 — 蓉华
   { source: 'char-88', target: 'char-94', type: 'Female Companion', typeZh: '闺阁女伴' }, // 孙氏 — 许三姐
-  { source: 'char-88', target: 'char-96', type: 'Female Companion', typeZh: '闺阁女伴' }, // 孙氏 — 陆氏夫人（孙家）
+  { source: 'char-88', target: 'char-96', type: 'Female Companion', typeZh: '闺阁女伴' }, // 孙氏 — 孙家陆夫人
   { source: 'char-89', target: 'char-9', type: 'Family/Household', typeZh: '家属/内眷' }, // 蓉华 — 刘文泽
   { source: 'char-89', target: 'char-90', type: 'Female Companion', typeZh: '闺阁女伴' }, // 蓉华 — 王琼华
   { source: 'char-89', target: 'char-94', type: 'Female Companion', typeZh: '闺阁女伴' }, // 蓉华 — 许三姐
-  { source: 'char-89', target: 'char-96', type: 'Female Companion', typeZh: '闺阁女伴' }, // 蓉华 — 陆氏夫人（孙家）
+  { source: 'char-89', target: 'char-96', type: 'Female Companion', typeZh: '闺阁女伴' }, // 蓉华 — 孙家陆夫人
   { source: 'char-101', target: 'char-73', type: 'Marriage', typeZh: '夫妻' }, // 石氏 — 潘其观
   { source: 'char-102', target: 'char-2', type: 'Household Retainer & Scholar Master', typeZh: '府上跟班与京师名士' }, // 云儿 — 颜仲清
   { source: 'char-102', target: 'char-3', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 云儿 — 史南湘
@@ -1246,29 +1246,29 @@ export const relationships: Relationship[] = [
   { source: 'char-106', target: 'char-52', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 梅进 — 陆宗沅
   { source: 'char-106', target: 'char-86', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅进 — 颜夫人
   { source: 'char-106', target: 'char-121', type: 'Household Staff', typeZh: '同府仆从' }, // 梅进 — 叶茂林
-  { source: 'char-109', target: 'char-4', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 仆妇（门上） — 王恂
-  { source: 'char-109', target: 'char-5', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 仆妇（门上） — 魏聘才
-  { source: 'char-109', target: 'char-6', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 仆妇（门上） — 李元茂
-  { source: 'char-109', target: 'char-20', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 仆妇（门上） — 李性全
-  { source: 'char-109', target: 'char-47', type: 'Doorkeeper/Master', typeZh: '门上传帖' }, // 仆妇（门上） — 梅士燮
-  { source: 'char-109', target: 'char-48', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 仆妇（门上） — 王文辉
-  { source: 'char-109', target: 'char-86', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 仆妇（门上） — 颜夫人
-  { source: 'char-109', target: 'char-88', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 仆妇（门上） — 孙氏
-  { source: 'char-109', target: 'char-89', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 仆妇（门上） — 蓉华
-  { source: 'char-109', target: 'char-153', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 仆妇（门上） — 苏浣香
-  { source: 'char-109', target: 'char-159', type: 'Household Staff', typeZh: '同府仆从' }, // 仆妇（门上） — 明珠
-  { source: 'char-110', target: 'char-86', type: 'Household Servant', typeZh: '内宅使唤' }, // 家人媳妇（衣裳） — 颜夫人
-  { source: 'char-110', target: 'char-89', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 家人媳妇（衣裳） — 蓉华
-  { source: 'char-110', target: 'char-153', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 家人媳妇（衣裳） — 苏浣香
-  { source: 'char-110', target: 'char-154', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 家人媳妇（衣裳） — 浣兰
-  { source: 'char-110', target: 'char-155', type: 'Household Staff', typeZh: '同府仆从' }, // 家人媳妇（衣裳） — 红雪
-  { source: 'char-110', target: 'char-156', type: 'Household Staff', typeZh: '同府仆从' }, // 家人媳妇（衣裳） — 红香
-  { source: 'char-111', target: 'char-42', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 小丫鬟（子玉书房） — 林珊枝
-  { source: 'char-111', target: 'char-90', type: 'Maid/Young Lady', typeZh: '闺阁侍女' }, // 小丫鬟（子玉书房） — 王琼华
-  { source: 'char-111', target: 'char-153', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 小丫鬟（子玉书房） — 苏浣香
-  { source: 'char-111', target: 'char-157', type: 'Household Staff', typeZh: '同府仆从' }, // 小丫鬟（子玉书房） — 花珠
-  { source: 'char-111', target: 'char-158', type: 'Household Staff', typeZh: '同府仆从' }, // 小丫鬟（子玉书房） — 画珠
-  { source: 'char-111', target: 'char-159', type: 'Household Staff', typeZh: '同府仆从' }, // 小丫鬟（子玉书房） — 明珠
+  { source: 'char-109', target: 'char-4', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府传帖仆妇 — 王恂
+  { source: 'char-109', target: 'char-5', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府传帖仆妇 — 魏聘才
+  { source: 'char-109', target: 'char-6', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府传帖仆妇 — 李元茂
+  { source: 'char-109', target: 'char-20', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府传帖仆妇 — 李性全
+  { source: 'char-109', target: 'char-47', type: 'Doorkeeper/Master', typeZh: '门上传帖' }, // 梅府传帖仆妇 — 梅士燮
+  { source: 'char-109', target: 'char-48', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府传帖仆妇 — 王文辉
+  { source: 'char-109', target: 'char-86', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府传帖仆妇 — 颜夫人
+  { source: 'char-109', target: 'char-88', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府传帖仆妇 — 孙氏
+  { source: 'char-109', target: 'char-89', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府传帖仆妇 — 蓉华
+  { source: 'char-109', target: 'char-153', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府传帖仆妇 — 苏浣香
+  { source: 'char-109', target: 'char-159', type: 'Household Staff', typeZh: '同府仆从' }, // 梅府传帖仆妇 — 明珠
+  { source: 'char-110', target: 'char-86', type: 'Household Servant', typeZh: '内宅使唤' }, // 梅府取衣媳妇 — 颜夫人
+  { source: 'char-110', target: 'char-89', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府取衣媳妇 — 蓉华
+  { source: 'char-110', target: 'char-153', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府取衣媳妇 — 苏浣香
+  { source: 'char-110', target: 'char-154', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 梅府取衣媳妇 — 浣兰
+  { source: 'char-110', target: 'char-155', type: 'Household Staff', typeZh: '同府仆从' }, // 梅府取衣媳妇 — 红雪
+  { source: 'char-110', target: 'char-156', type: 'Household Staff', typeZh: '同府仆从' }, // 梅府取衣媳妇 — 红香
+  { source: 'char-111', target: 'char-42', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 子玉书房小丫鬟 — 林珊枝
+  { source: 'char-111', target: 'char-90', type: 'Maid/Young Lady', typeZh: '闺阁侍女' }, // 子玉书房小丫鬟 — 王琼华
+  { source: 'char-111', target: 'char-153', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 子玉书房小丫鬟 — 苏浣香
+  { source: 'char-111', target: 'char-157', type: 'Household Staff', typeZh: '同府仆从' }, // 子玉书房小丫鬟 — 花珠
+  { source: 'char-111', target: 'char-158', type: 'Household Staff', typeZh: '同府仆从' }, // 子玉书房小丫鬟 — 画珠
+  { source: 'char-111', target: 'char-159', type: 'Household Staff', typeZh: '同府仆从' }, // 子玉书房小丫鬟 — 明珠
   { source: 'char-112', target: 'char-2', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 四儿 — 颜仲清
   { source: 'char-112', target: 'char-4', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 四儿 — 王恂
   { source: 'char-112', target: 'char-5', type: 'Master/Servant', typeZh: '主仆' }, // 四儿 — 魏聘才
@@ -1299,7 +1299,7 @@ export const relationships: Relationship[] = [
   { source: 'char-112', target: 'char-73', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 四儿 — 潘其观
   { source: 'char-112', target: 'char-75', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 四儿 — 唐和尚
   { source: 'char-112', target: 'char-86', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 四儿 — 颜夫人
-  { source: 'char-112', target: 'char-118', type: 'Household Staff', typeZh: '同府仆从' }, // 四儿 — 跟班（富家）
+  { source: 'char-112', target: 'char-118', type: 'Household Staff', typeZh: '同府仆从' }, // 四儿 — 富府跟班
   { source: 'char-112', target: 'char-119', type: 'Household Staff', typeZh: '同府仆从' }, // 四儿 — 卢大爷
   { source: 'char-112', target: 'char-121', type: 'Household Staff', typeZh: '同府仆从' }, // 四儿 — 叶茂林
   { source: 'char-112', target: 'char-123', type: 'Household Staff', typeZh: '同府仆从' }, // 四儿 — 老三
@@ -1309,33 +1309,33 @@ export const relationships: Relationship[] = [
   { source: 'char-113', target: 'char-2', type: 'Master/Servant', typeZh: '主仆' }, // 健儿 — 颜仲清
   { source: 'char-114', target: 'char-90', type: 'Master/Servant', typeZh: '主仆' }, // 雪儿 — 王琼华
   { source: 'char-115', target: 'char-21', type: 'Concubine', typeZh: '收为妾' }, // 松儿 — 孙嗣徽
-  { source: 'char-116', target: 'char-98', type: 'Bridal Escort', typeZh: '送亲陪伴' }, // 伴送婆（巴家） — 巴来风
-  { source: 'char-117', target: 'char-98', type: 'Nanny/Young Lady', typeZh: '乳母与小姐' }, // 乳母（巴来风） — 巴来风
-  { source: 'char-118', target: 'char-2', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 颜仲清
-  { source: 'char-118', target: 'char-3', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 史南湘
-  { source: 'char-118', target: 'char-4', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 王恂
-  { source: 'char-118', target: 'char-5', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 魏聘才
-  { source: 'char-118', target: 'char-8', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 萧次贤
-  { source: 'char-118', target: 'char-14', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 冯子佩
-  { source: 'char-118', target: 'char-15', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 田春航
-  { source: 'char-118', target: 'char-17', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 金吉甫
-  { source: 'char-118', target: 'char-23', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 袁宝珠
-  { source: 'char-118', target: 'char-24', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 苏蕙芳
-  { source: 'char-118', target: 'char-27', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 李玉林
-  { source: 'char-118', target: 'char-28', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 王兰保
-  { source: 'char-118', target: 'char-32', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 蓉官
-  { source: 'char-118', target: 'char-33', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 春兰
-  { source: 'char-118', target: 'char-42', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 林珊枝
-  { source: 'char-118', target: 'char-48', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 王文辉
-  { source: 'char-118', target: 'char-50', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 杨方猷
-  { source: 'char-118', target: 'char-53', type: 'Attendant/Master', typeZh: '跟班主仆' }, // 跟班（富家） — 富伦
-  { source: 'char-118', target: 'char-72', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 奚十一
-  { source: 'char-118', target: 'char-73', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 潘其观
-  { source: 'char-118', target: 'char-75', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 唐和尚
-  { source: 'char-118', target: 'char-123', type: 'Household Staff', typeZh: '同府仆从' }, // 跟班（富家） — 老三
-  { source: 'char-118', target: 'char-136', type: 'Household Staff', typeZh: '同府仆从' }, // 跟班（富家） — 巴英官
-  { source: 'char-118', target: 'char-137', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 跟班（富家） — 菊花
-  { source: 'char-118', target: 'char-159', type: 'Household Staff', typeZh: '同府仆从' }, // 跟班（富家） — 明珠
+  { source: 'char-116', target: 'char-98', type: 'Bridal Escort', typeZh: '送亲陪伴' }, // 巴府送亲婆 — 巴来风
+  { source: 'char-117', target: 'char-98', type: 'Nanny/Young Lady', typeZh: '乳母与小姐' }, // 巴来风乳母 — 巴来风
+  { source: 'char-118', target: 'char-2', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 颜仲清
+  { source: 'char-118', target: 'char-3', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 史南湘
+  { source: 'char-118', target: 'char-4', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 王恂
+  { source: 'char-118', target: 'char-5', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 魏聘才
+  { source: 'char-118', target: 'char-8', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 萧次贤
+  { source: 'char-118', target: 'char-14', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 冯子佩
+  { source: 'char-118', target: 'char-15', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 田春航
+  { source: 'char-118', target: 'char-17', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 金吉甫
+  { source: 'char-118', target: 'char-23', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 袁宝珠
+  { source: 'char-118', target: 'char-24', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 苏蕙芳
+  { source: 'char-118', target: 'char-27', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 李玉林
+  { source: 'char-118', target: 'char-28', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 王兰保
+  { source: 'char-118', target: 'char-32', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 蓉官
+  { source: 'char-118', target: 'char-33', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 春兰
+  { source: 'char-118', target: 'char-42', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 林珊枝
+  { source: 'char-118', target: 'char-48', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 王文辉
+  { source: 'char-118', target: 'char-50', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 杨方猷
+  { source: 'char-118', target: 'char-53', type: 'Attendant/Master', typeZh: '跟班主仆' }, // 富府跟班 — 富伦
+  { source: 'char-118', target: 'char-72', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 奚十一
+  { source: 'char-118', target: 'char-73', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 潘其观
+  { source: 'char-118', target: 'char-75', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 唐和尚
+  { source: 'char-118', target: 'char-123', type: 'Household Staff', typeZh: '同府仆从' }, // 富府跟班 — 老三
+  { source: 'char-118', target: 'char-136', type: 'Household Staff', typeZh: '同府仆从' }, // 富府跟班 — 巴英官
+  { source: 'char-118', target: 'char-137', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 富府跟班 — 菊花
+  { source: 'char-118', target: 'char-159', type: 'Household Staff', typeZh: '同府仆从' }, // 富府跟班 — 明珠
   { source: 'char-119', target: 'char-2', type: 'Household Retainer & Scholar Master', typeZh: '府上跟班与京师名士' }, // 卢大爷 — 颜仲清
   { source: 'char-119', target: 'char-3', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 卢大爷 — 史南湘
   { source: 'char-119', target: 'char-4', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 卢大爷 — 王恂
@@ -1386,7 +1386,7 @@ export const relationships: Relationship[] = [
   { source: 'char-119', target: 'char-147', type: 'Household Staff', typeZh: '同府仆从' }, // 卢大爷 — 周小三
   { source: 'char-119', target: 'char-152', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 卢大爷 — 长庆师娘
   { source: 'char-119', target: 'char-153', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 卢大爷 — 苏浣香
-  { source: 'char-120', target: 'char-55', type: 'Retinue/Master', typeZh: '随从队伍' }, // 跟班队（华家，~20–30人） — 华光宿
+  { source: 'char-120', target: 'char-55', type: 'Retinue/Master', typeZh: '随从队伍' }, // 华府随从队 — 华光宿
   { source: 'char-121', target: 'char-2', type: 'Household Retainer & Scholar Master', typeZh: '府上跟班与京师名士' }, // 叶茂林 — 颜仲清
   { source: 'char-121', target: 'char-3', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 叶茂林 — 史南湘
   { source: 'char-121', target: 'char-4', type: 'Household Retainer & Scholar Master', typeZh: '府上跟班与京师名士' }, // 叶茂林 — 王恂
@@ -1877,7 +1877,7 @@ export const relationships: Relationship[] = [
   { source: 'char-159', target: 'char-55', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 明珠 — 华光宿
   { source: 'char-159', target: 'char-72', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 明珠 — 奚十一
   { source: 'char-159', target: 'char-86', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 明珠 — 颜夫人
-  { source: 'char-159', target: 'char-87', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 明珠 — 陆氏夫人（王家）
+  { source: 'char-159', target: 'char-87', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 明珠 — 王家陆夫人
   { source: 'char-159', target: 'char-88', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 明珠 — 孙氏
   { source: 'char-159', target: 'char-89', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 明珠 — 蓉华
   { source: 'char-159', target: 'char-90', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 明珠 — 王琼华

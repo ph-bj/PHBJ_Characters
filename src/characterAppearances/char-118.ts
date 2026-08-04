@@ -1,4 +1,4 @@
-// Character: 跟班（富家）
+// Character: 富府跟班
 // Chapter Appearances: ch.3, ch.5
 import type { SceneBullet } from "./types";
 
