@@ -64,6 +64,7 @@
   --legend-garden: #cd853f;
   --legend-site: #8b4513;
   --legend-landscape: #d2b48c;
+  --legend-allusion: #6b4a7d;
 
   /* Ink-painting palette for the SVG illustrations. Seal vermilion and plum-blossom
      red stay constant across themes — both are fixed by convention, not by palette. */
@@ -133,6 +134,7 @@
   --legend-garden: #8db34a;
   --legend-site: #4a5d3a;
   --legend-landscape: #c5d66a;
+  --legend-allusion: #7c5980;
 
   /* Ink-painting palette, jade register */
   --art-ink: #243020;
