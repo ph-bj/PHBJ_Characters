@@ -68,7 +68,6 @@ char-33	春兰 Chūnlán	—	~15	—	performer	ch.3	"Associated with Xi Shiyi; s
 char-34	小福 Xiǎofú	—	~15	—	performer	ch.3	Quanfu troupe; rumoured Fu Lun spent 3000 cash on his graduation ceremony	全福班；传闻富伦为其出师礼花费三千钱。
 char-35	玉美 Yùměi	—	—	—	performer	ch.4	"Jianchun troupe; seen with Tian Chunhang at the tavern scene, ch.4"	建春班；第4回出现在酒楼场面。
 char-36	四喜 Sìxǐ	Sixi	—	—	performer	ch.4	Jianchun troupe; seen in ch.4 tavern scene	建春班；第4回出现在酒楼场面。
-char-37	全福 Quánfú	—	—	—	performer	ch.4	Jianchun troupe; seen in ch.4 tavern scene	建春班；第4回出现在酒楼场面。
 char-38	保珠 Bǎozhū	—	~15	—	performer	ch.1	"Dark-complexioned performer living next to Guibao; his name mirrors Yuan Baozhu, confusing Ziyu (chs.1, 6); later attaches to Wei Pincai's circle (chs.8–9, 21)"	住在桂保间壁的黑相公；名字与袁宝珠相似，令子玉误会（第1、6回）；后混迹魏聘才一伙（第8–9、21回）。
 char-39	珊枝 Shānzhī	—	—	—	performer	ch.36	Scandalous; rebuked by the whole group in ch.36; morally condemned	名声不佳；第36回遭众人斥责；受道德谴责。
 char-40	袁绮香 Yuán Qǐxiāng	—	25	—	female	ch.5	Xu Ziyun's wife, née Yuan; daughter of the Yunnan governor; graceful and virtuous; leads the ladies' drinking games in ch.57	徐子云之妻，袁氏绮香；云南巡抚之女；婉娴贤淑；第57回主持闺阁酒令。

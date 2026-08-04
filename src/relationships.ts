@@ -908,7 +908,6 @@ export const relationships: Relationship[] = [
   { source: 'char-32', target: 'char-33', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 蓉官 — 春兰
   { source: 'char-32', target: 'char-35', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 蓉官 — 玉美
   { source: 'char-32', target: 'char-36', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 蓉官 — 四喜
-  { source: 'char-32', target: 'char-37', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 蓉官 — 全福
   { source: 'char-32', target: 'char-42', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 蓉官 — 林珊枝
   { source: 'char-32', target: 'char-45', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 蓉官 — 二喜
   { source: 'char-32', target: 'char-48', type: 'Official & Performer', typeZh: '官员与伶人' }, // 蓉官 — 王文辉
@@ -939,7 +938,6 @@ export const relationships: Relationship[] = [
   { source: 'char-35', target: 'char-7', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 玉美 — 徐子云
   { source: 'char-35', target: 'char-8', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 玉美 — 萧次贤
   { source: 'char-35', target: 'char-36', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 玉美 — 四喜
-  { source: 'char-35', target: 'char-37', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 玉美 — 全福
   { source: 'char-38', target: 'char-4', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 保珠 — 王恂
   { source: 'char-38', target: 'char-5', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 保珠 — 魏聘才
   { source: 'char-38', target: 'char-6', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 保珠 — 李元茂

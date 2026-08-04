@@ -35,7 +35,6 @@ import { char_33Appearances } from './characterAppearances/char-33';
 import { char_34Appearances } from './characterAppearances/char-34';
 import { char_35Appearances } from './characterAppearances/char-35';
 import { char_36Appearances } from './characterAppearances/char-36';
-import { char_37Appearances } from './characterAppearances/char-37';
 import { char_38Appearances } from './characterAppearances/char-38';
 import { char_39Appearances } from './characterAppearances/char-39';
 import { char_40Appearances } from './characterAppearances/char-40';
@@ -203,7 +202,6 @@ export const characterAppearances: Record<string, Record<number, SceneBullet[]>>
   'char-34': char_34Appearances,
   'char-35': char_35Appearances,
   'char-36': char_36Appearances,
-  'char-37': char_37Appearances,
   'char-38': char_38Appearances,
   'char-39': char_39Appearances,
   'char-40': char_40Appearances,
