@@ -2197,6 +2197,7 @@ export default function App() {
               onSelectCharacter={setSelectedCharacter}
               onSelectChapter={setSelectedChapter}
               onSelectLacuna={() => setActiveLacunaChapter(selectedChapter.id)}
+              onSelectWork={setSelectedWork}
               keysSuspended={readerObscured}
             />
           )}

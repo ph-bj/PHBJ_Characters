@@ -39,6 +39,7 @@ import {
   translationMap,
   workKeyFromAnnotationToken,
   getCharacterNameForLanguage,
+  worksData,
 } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
@@ -258,6 +259,7 @@ function ChapterReaderComponent({
   onSelectCharacter,
   onSelectChapter,
   onSelectLacuna,
+  onSelectWork,
   keysSuspended = false,
 }: {
   chapter: Chapter;
@@ -267,6 +269,7 @@ function ChapterReaderComponent({
   onSelectCharacter: (character: Character) => void;
   onSelectChapter: (chapter: Chapter) => void;
   onSelectLacuna: () => void;
+  onSelectWork?: (workKey: string) => void;
   /** True while another modal is stacked above the reader. */
   keysSuspended?: boolean;
 }) {
@@ -841,6 +844,20 @@ function ChapterReaderComponent({
             if (workKey && !chapterWorkAnchorIdsRef.current.has(workKey)) {
               anchorId = chapterWorkAnchorId(chapter.id, workKey);
               chapterWorkAnchorIdsRef.current.set(workKey, anchorId);
+            }
+            if (workKey && worksData[workKey] && onSelectWork) {
+              return (
+                <button
+                  type="button"
+                  key={`${i}-${j}`}
+                  id={anchorId}
+                  onClick={() => onSelectWork(workKey)}
+                  className={`glowing-work inline cursor-pointer hover:underline hover:decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] rounded-xs py-0.5 px-1 ${isChineseWorkAnnotationToken(part) ? "" : " italic"}`}
+                  title={lang === "zh" ? "查看作品档案" : "View work profile"}
+                >
+                  {highlightPlain(displayText)}
+                </button>
+              );
             }
             return (
               <span
@@ -1444,17 +1461,28 @@ function ChapterReaderComponent({
                 <div className="flex flex-wrap gap-2">
                   {chapterCitedWorks.map((work) => {
                     const englishTitle = WORK_ENGLISH_BY_CHINESE[work.key];
+                    const hasProfile = Boolean(worksData[work.key]);
                     return (
                       <button
                         key={work.zh}
                         type="button"
-                        onClick={() => scrollToChapterWork(work.key)}
+                        onClick={() => {
+                          if (onSelectWork && hasProfile) {
+                            onSelectWork(work.key);
+                          } else {
+                            scrollToChapterWork(work.key);
+                          }
+                        }}
                         title={
-                          lang === "zh"
-                            ? "跳至文中引用处"
-                            : "Jump to mention in chapter"
+                          hasProfile
+                            ? lang === "zh"
+                              ? "查看作品档案"
+                              : "View work profile"
+                            : lang === "zh"
+                              ? "跳至文中引用处"
+                              : "Jump to mention in chapter"
                         }
-                        className="flex flex-col items-start gap-0.5 px-2.5 py-1.5 text-left rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] cursor-pointer transition-colors hover:bg-[var(--paper-border)]/50 hover:border-[var(--accent)]/40"
+                        className="flex flex-col items-start gap-0.5 px-2.5 py-1.5 text-left rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-title)] cursor-pointer transition-colors hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40"
                       >
                         <span className="text-xs font-hans leading-tight">
                           {work.zh}
