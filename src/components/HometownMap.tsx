@@ -5,6 +5,7 @@ import {
   Home,
   MapPin,
   Mountain,
+  BookOpen,
   Trees,
   Users,
 } from 'lucide-react';
@@ -35,6 +36,7 @@ const typeIcons: Record<MapCategory, React.ComponentType<{ size?: number; classN
   garden: Trees,
   site: Home,
   landscape: Mountain,
+  allusion: BookOpen,
 };
 
 const mapCategoryLabels: Record<MapCategory, { en: string; zh: string }> = {
@@ -43,6 +45,7 @@ const mapCategoryLabels: Record<MapCategory, { en: string; zh: string }> = {
   garden: locationTypeLabels.garden,
   site: locationTypeLabels.site,
   landscape: locationTypeLabels.landscape,
+  allusion: locationTypeLabels.allusion,
 };
 
 function bookInfoForLocation(loc: (typeof novelLocations)[number]) {
@@ -276,6 +279,11 @@ export function HometownMap({
               : 'Map note: cities and documented landmarks use modern geographic positions. Fictional or unspecified residences, gardens, and garden features are schematic, not archaeological coordinates.'}
           </p>
         </div>
+        <p className="relative mt-2 text-[10px] leading-4 text-[var(--ink-dim-text)]/80">
+          {lang === 'zh'
+            ? '收录原则：逐回检索全书中可识别的地名、行政区、府邸、园林景点、交通节点及诗文典故地理；后一类单列，不绘制为人物行迹。'
+            : 'Coverage: identifiable place names, administrative regions, residences, garden features, travel nodes, and literary geography were checked chapter by chapter. Allusions are indexed separately and are not plotted as character journeys.'}
+        </p>
       </header>
 
       <div className="relative space-y-6 p-4 sm:p-6">

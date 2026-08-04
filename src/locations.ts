@@ -2,7 +2,8 @@ export type LocationType =
   | 'place'
   | 'garden'
   | 'site'
-  | 'landscape';
+  | 'landscape'
+  | 'allusion';
 
 export interface NovelLocation {
   id: string;
@@ -19,6 +20,7 @@ export const locationTypeOrder: LocationType[] = [
   'garden',
   'place',
   'landscape',
+  'allusion',
 ];
 
 export const locationTypeLabels: Record<LocationType, { en: string; zh: string }> = {
@@ -26,6 +28,7 @@ export const locationTypeLabels: Record<LocationType, { en: string; zh: string }
   garden: { en: 'Gardens & Garden Sites', zh: '园林' },
   site: { en: 'Houses, Streets & Venues', zh: '府邸街巷与场馆' },
   landscape: { en: 'Rivers, Mountains & Landmarks', zh: '山水名胜' },
+  allusion: { en: 'Literary & Imagined Geography', zh: '典故与想象地理' },
 };
 
 export const novelLocations: NovelLocation[] = [
@@ -58,6 +61,28 @@ export const novelLocations: NovelLocation[] = [
   { id: 'county-hanyang', name: '汉阳', nameEn: 'Hanyang', type: 'place', typeZh: '地方', searchTokens: ['汉阳'] },
   { id: 'county-xiangtan', name: '湘潭', nameEn: 'Xiangtan', type: 'place', typeZh: '地方', searchTokens: ['湘潭'] },
   { id: 'county-zhengyang', name: '正阳', nameEn: 'Zhengyang', type: 'place', typeZh: '地方', searchTokens: ['正阳'] },
+  { id: 'province-jiangsu', name: '江苏', nameEn: 'Jiangsu', type: 'place', typeZh: '地方', searchTokens: ['江苏'] },
+  { id: 'province-anhui', name: '安徽', nameEn: 'Anhui', type: 'place', typeZh: '地方', searchTokens: ['安徽'] },
+  { id: 'province-hubei', name: '湖北', nameEn: 'Hubei', type: 'place', typeZh: '地方', searchTokens: ['湖北'] },
+  { id: 'province-hunan', name: '湖南', nameEn: 'Hunan', type: 'place', typeZh: '地方', searchTokens: ['湖南'] },
+  { id: 'province-shanxi', name: '山西', nameEn: 'Shanxi', type: 'place', typeZh: '地方', searchTokens: ['山西'] },
+  { id: 'province-yunnan', name: '云南', nameEn: 'Yunnan', type: 'place', typeZh: '地方', searchTokens: ['云南'] },
+  { id: 'region-lingnan', name: '岭南', nameEn: 'Lingnan', type: 'place', typeZh: '地方', searchTokens: ['岭南'] },
+  { id: 'region-northland', name: '北地', nameEn: 'The North', type: 'place', typeZh: '地方', searchTokens: ['北地'] },
+  { id: 'city-wuchang', name: '武昌府', nameEn: 'Wuchang Prefecture', type: 'place', typeZh: '地方', searchTokens: ['武昌府', '武昌'] },
+  { id: 'city-wuzhou', name: '梧州府', nameEn: 'Wuzhou Prefecture', type: 'place', typeZh: '地方', searchTokens: ['梧州府', '梧州'] },
+  { id: 'city-huizhou', name: '徽州', nameEn: 'Huizhou', type: 'place', typeZh: '地方', searchTokens: ['徽州'] },
+  { id: 'city-fengyang', name: '凤阳府', nameEn: 'Fengyang Prefecture', type: 'place', typeZh: '地方', searchTokens: ['凤阳府', '凤阳'] },
+  { id: 'city-jian', name: '吉安府', nameEn: "Ji'an Prefecture", type: 'place', typeZh: '地方', searchTokens: ['吉安府', '吉安'] },
+  { id: 'city-baoding', name: '保定府', nameEn: 'Baoding Prefecture', type: 'place', typeZh: '地方', searchTokens: ['保定府', '保定'] },
+  { id: 'city-jining', name: '济宁州', nameEn: 'Jining Prefecture', type: 'place', typeZh: '地方', searchTokens: ['济宁州', '济宁'] },
+  { id: 'city-zhenjiang', name: '镇江', nameEn: 'Zhenjiang', type: 'place', typeZh: '地方', searchTokens: ['镇江'] },
+  { id: 'city-tongzhou', name: '通州', nameEn: 'Tongzhou', type: 'place', typeZh: '地方', searchTokens: ['通州'] },
+  { id: 'city-jiaying', name: '嘉应州', nameEn: 'Jiaying Prefecture', type: 'place', typeZh: '地方', searchTokens: ['嘉应州'] },
+  { id: 'city-quzhou', name: '夔州府', nameEn: 'Kuizhou Prefecture', type: 'place', typeZh: '地方', searchTokens: ['夔州府', '夔州'] },
+  { id: 'county-jinkui', name: '金匮县', nameEn: 'Jinkui County', type: 'place', typeZh: '地方', searchTokens: ['金匮县', '金匮'] },
+  { id: 'county-shangyuan', name: '上元县', nameEn: 'Shangyuan County', type: 'place', typeZh: '地方', searchTokens: ['上元县', '上元'] },
+  { id: 'county-wuwei', name: '无为州', nameEn: 'Wuwei Prefecture', type: 'place', typeZh: '地方', searchTokens: ['无为州'] },
 
   // —— Gardens & spots within them (mostly Beijing) ——
   { id: 'garden-yiyuan', name: '怡园', nameEn: 'Yiyuan', type: 'garden', typeZh: '园林', searchTokens: ['怡园'] },
@@ -94,14 +119,40 @@ export const novelLocations: NovelLocation[] = [
   { id: 'feature-cinnamon', name: '桂花厅', nameEn: 'Cassia Hall', type: 'garden', typeZh: '园林', searchTokens: ['桂花厅'] },
   { id: 'water-jade-belt', name: '玉带河', nameEn: 'Jade Belt River (Yiyuan)', type: 'garden', typeZh: '园林', searchTokens: ['玉带河'] },
   { id: 'water-lake', name: '湖上', nameEn: 'Garden lake scenes', type: 'garden', typeZh: '园林', searchTokens: ['湖上', '湖中'] },
+  { id: 'feature-chengyintang', name: '承荫堂', nameEn: 'Hall of Inherited Blessings', type: 'garden', typeZh: '园林', searchTokens: ['承荫堂'] },
+  { id: 'feature-baoxiang', name: '宝香堂', nameEn: 'Hall of Precious Fragrance', type: 'garden', typeZh: '园林', searchTokens: ['宝香堂'] },
+  { id: 'feature-huxiang', name: '护香廊', nameEn: 'Fragrance-Guarding Gallery', type: 'garden', typeZh: '园林', searchTokens: ['护香廊'] },
+  { id: 'feature-lanjing', name: '兰径', nameEn: 'Orchid Path', type: 'garden', typeZh: '园林', searchTokens: ['兰径'] },
+  { id: 'feature-fenglu', name: '风露清吟馆', nameEn: 'Wind-and-Dew Poetry Hall', type: 'garden', typeZh: '园林', searchTokens: ['风露清吟馆'] },
+  { id: 'feature-juqi', name: '菊畦', nameEn: 'Chrysanthemum Plot', type: 'garden', typeZh: '园林', searchTokens: ['菊畦'] },
+  { id: 'feature-huangxiang', name: '黄香东圃', nameEn: 'Eastern Garden of Yellow Fragrance', type: 'garden', typeZh: '园林', searchTokens: ['黄香东圃'] },
+  { id: 'feature-songkan', name: '松龛', nameEn: 'Pine Niche', type: 'garden', typeZh: '园林', searchTokens: ['松龛'] },
+  { id: 'feature-songhe', name: '松鹤丹房', nameEn: 'Pine-and-Crane Alchemical Lodge', type: 'garden', typeZh: '园林', searchTokens: ['松鹤丹房'] },
+  { id: 'feature-guxiang', name: '古香林屋', nameEn: 'Ancient-Fragrance Forest House', type: 'garden', typeZh: '园林', searchTokens: ['古香林屋'] },
+  { id: 'feature-woyun', name: '卧云香院', nameEn: 'Fragrant Court of Resting Clouds', type: 'garden', typeZh: '园林', searchTokens: ['卧云香院'] },
+  { id: 'feature-yinqiu', name: '吟秋榭', nameEn: 'Autumn-Chanting Waterside Pavilion', type: 'garden', typeZh: '园林', searchTokens: ['吟秋榭', '吟秋水榭'] },
+  { id: 'feature-tingyun', name: '停云叙雨轩', nameEn: 'Studio of Lingering Clouds and Speaking Rain', type: 'garden', typeZh: '园林', searchTokens: ['停云叙雨轩'] },
+  { id: 'feature-lianqiu', name: '练秋阁', nameEn: 'Autumn-Silk Pavilion', type: 'garden', typeZh: '园林', searchTokens: ['练秋阁'] },
+  { id: 'feature-guiling', name: '桂岭', nameEn: 'Cassia Ridge', type: 'garden', typeZh: '园林', searchTokens: ['桂岭'] },
+  { id: 'feature-conggui', name: '丛桂山房', nameEn: 'Cassia-Grove Mountain House', type: 'garden', typeZh: '园林', searchTokens: ['丛桂山房'] },
+  { id: 'feature-piaomiao', name: '缥渺亭', nameEn: 'Mist-Veiled Pavilion', type: 'garden', typeZh: '园林', searchTokens: ['缥渺亭'] },
+  { id: 'feature-taohuawu', name: '桃花坞', nameEn: 'Peach-Blossom Dell', type: 'garden', typeZh: '园林', searchTokens: ['桃花坞'] },
+  { id: 'feature-xunyuan', name: '寻源仙墅', nameEn: 'Immortal Retreat of Seeking the Source', type: 'garden', typeZh: '园林', searchTokens: ['寻源仙墅'] },
+  { id: 'feature-xiaochicheng', name: '小赤城', nameEn: 'Little Red Citadel', type: 'garden', typeZh: '园林', searchTokens: ['小赤城'] },
+  { id: 'feature-daozhuang', name: '稻庄', nameEn: 'Rice-Farm Hamlet', type: 'garden', typeZh: '园林', searchTokens: ['稻庄'] },
+  { id: 'feature-hongxue', name: '红雪西庄', nameEn: 'Western Hamlet of Red Snow', type: 'garden', typeZh: '园林', searchTokens: ['红雪西庄'] },
+  { id: 'feature-shepu', name: '射圃', nameEn: 'Archery Ground', type: 'garden', typeZh: '园林', searchTokens: ['射圃'] },
+  { id: 'feature-yuzhuang', name: '渔庄', nameEn: 'Fishing Hamlet', type: 'garden', typeZh: '园林', searchTokens: ['渔庄'] },
+  { id: 'garden-jiuxiang', name: '九香园', nameEn: 'Nine-Fragrance Garden', type: 'garden', typeZh: '园林', searchTokens: ['九香园'] },
+  { id: 'garden-taihe', name: '太和园', nameEn: 'Taihe Garden', type: 'garden', typeZh: '园林', searchTokens: ['太和园'] },
+  { id: 'garden-chunxi', name: '春喜园', nameEn: 'Chunxi Garden', type: 'garden', typeZh: '园林', searchTokens: ['春喜园'] },
 
   // —— Beijing houses, streets, venues & temples ——
   { id: 'residence-mei', name: '梅宅', nameEn: 'Mei residence', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['梅宅', '梅府', '梅家'], aliasesEn: ['Mei house', 'Mei family'] },
   { id: 'residence-hua', name: '华府', nameEn: 'Hua mansion', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['华公子府', '华公府', '华府', '华宅'], aliasesEn: ['Hua family mansion', 'Young Master Hua residence', 'Hua household'] },
   { id: 'residence-xu', name: '徐府', nameEn: 'Xu residence', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['徐府', '徐宅'], aliasesEn: ['Xu house'] },
   { id: 'residence-wang', name: '王家', nameEn: 'Wang household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['王家', '王宅'], aliasesEn: ['Wang family', 'Wang house'] },
-  { id: 'residence-yan', name: '颜家', nameEn: 'Yan household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['颜家', '颜宅'], aliasesEn: ['Yan family'] },
-  { id: 'residence-sun', name: '孙家', nameEn: 'Sun household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['Sun family', 'Sun house'] },
+  { id: 'residence-sun', name: '孙宅', nameEn: 'Sun household', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['孙宅', '孙家'], aliasesEn: ['Sun family', 'Sun house'] },
   { id: 'residence-tian', name: '田宅', nameEn: 'Tian residence', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['田宅', '田府'], aliasesEn: ['Tian house'] },
   { id: 'street-mingke', name: '鸣珂里', nameEn: 'Mingke Lane', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['鸣珂里'] },
   { id: 'street-nanxiao', name: '南小街', nameEn: 'South Small Street', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['南小街'] },
@@ -122,8 +173,18 @@ export const novelLocations: NovelLocation[] = [
   { id: 'temple-huguo', name: '护国寺', nameEn: 'Huguo Temple', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['护国寺'] },
   { id: 'temple-shoufo', name: '寿佛寺', nameEn: 'Shoufo Temple', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['寿佛寺'] },
   { id: 'temple-flower', name: '花神庙', nameEn: 'Flower-Deity Shrine', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['花神庙'] },
-  { id: 'temple-wenxing', name: '文星祠', nameEn: 'Literary-Star Shrine', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['文星祠堂', '文星祠', '文星阁'] },
   { id: 'site-baonensi', name: '大报恩寺', nameEn: "Grand Bao'en Temple (Nanjing)", type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['大报恩寺', '报恩寺'], aliasesEn: ['Baoen Temple'] },
+  { id: 'street-jinpailou', name: '金牌楼', nameEn: 'Golden Archway', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['金牌楼'] },
+  { id: 'street-nanheng', name: '南横街', nameEn: 'South Cross Street', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['南横街'] },
+  { id: 'street-yangliu', name: '杨柳巷', nameEn: 'Willow Lane', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['杨柳巷'] },
+  { id: 'street-yingtao', name: '樱桃巷', nameEn: 'Cherry Lane', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['樱桃巷'] },
+  { id: 'street-yanzhi', name: '胭脂巷', nameEn: 'Rouge Lane', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['胭脂巷'] },
+  { id: 'venue-anji', name: '安吉堂', nameEn: 'Anji Hall', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['安吉堂'] },
+  { id: 'venue-liuhe', name: '六合馆', nameEn: 'Liuhe House', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['六合馆'] },
+  { id: 'venue-guxiu', name: '古秀斋', nameEn: 'Guxiu Studio', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['古秀斋'] },
+  { id: 'venue-juxing', name: '聚星堂', nameEn: 'Hall of Gathered Stars', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['聚星堂'] },
+  { id: 'office-bingmasi', name: '兵马司', nameEn: 'Beijing Ward Office', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['兵马司'] },
+  { id: 'office-xingbu', name: '刑部', nameEn: 'Board of Punishments', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['刑部'] },
 
   // —— Rivers, mountains & landmarks (travel scenes & natural sites) ——
   { id: 'site-mochou', name: '莫愁湖', nameEn: 'Mochou Lake (Nanjing)', type: 'landscape', typeZh: '山水名胜', searchTokens: ['莫愁湖'] },
@@ -139,10 +200,42 @@ export const novelLocations: NovelLocation[] = [
   { id: 'water-taihu', name: '太湖', nameEn: 'Lake Tai (Taihu)', type: 'landscape', typeZh: '山水名胜', searchTokens: ['太湖'], aliasesEn: ['Tai Lake'] },
   { id: 'mountain-phoenix', name: '凤凰山', nameEn: 'Phoenix Mountain (Nanjing)', type: 'landscape', typeZh: '山水名胜', searchTokens: ['凤凰山'] },
   { id: 'mountain-golden', name: '金山', nameEn: 'Jinshan', type: 'landscape', typeZh: '山水名胜', searchTokens: ['金山'] },
-  { id: 'mountain-beigu', name: '北固山', nameEn: 'Beigu Mountain', type: 'landscape', typeZh: '山水名胜', searchTokens: ['北固山', '北固'] },
-  { id: 'mountain-liang', name: '梁山', nameEn: 'Mount Liang', type: 'landscape', typeZh: '山水名胜', searchTokens: ['梁山泊', '梁山'], aliasesEn: ['Liang Mountain'] },
-  { id: 'mountain-ebo', name: '峨嵋山', nameEn: 'Mount Emei', type: 'landscape', typeZh: '山水名胜', searchTokens: ['峨嵋山'] },
-  { id: 'mountain-fragrant', name: '香山', nameEn: 'Fragrant Hills (Beijing)', type: 'landscape', typeZh: '山水名胜', searchTokens: ['香山'] },
+  { id: 'water-yellow-river', name: '黄河', nameEn: 'Yellow River', type: 'landscape', typeZh: '山水名胜', searchTokens: ['黄河'] },
+  { id: 'water-qingjiangpu', name: '清江浦', nameEn: 'Qingjiangpu', type: 'landscape', typeZh: '山水名胜', searchTokens: ['清江浦'] },
+  { id: 'water-guazhou', name: '瓜州', nameEn: 'Guazhou Crossing', type: 'landscape', typeZh: '山水名胜', searchTokens: ['瓜州'] },
+  { id: 'water-zhangjiawan', name: '张家湾', nameEn: 'Zhangjiawan', type: 'landscape', typeZh: '山水名胜', searchTokens: ['张家湾'] },
+  { id: 'water-wangjiaying', name: '王家营', nameEn: 'Wangjiaying Crossing', type: 'landscape', typeZh: '山水名胜', searchTokens: ['王家营', '王家营子'] },
+  { id: 'gate-longjiang', name: '龙江关', nameEn: 'Longjiang Customs Station', type: 'landscape', typeZh: '山水名胜', searchTokens: ['龙江关'] },
+  { id: 'gate-shuixi', name: '水西关', nameEn: 'Shuixi Gate', type: 'landscape', typeZh: '山水名胜', searchTokens: ['水西关', '水西门'] },
+  { id: 'bridge-fuhu', name: '伏虎桥', nameEn: 'Fuhu Bridge', type: 'landscape', typeZh: '山水名胜', searchTokens: ['伏虎桥'] },
+  { id: 'mountain-dongting', name: '洞庭山', nameEn: 'Dongting Mountain (Lake Tai)', type: 'landscape', typeZh: '山水名胜', searchTokens: ['洞庭山'] },
+  { id: 'mountain-heng', name: '衡岳', nameEn: 'Mount Heng', type: 'landscape', typeZh: '山水名胜', searchTokens: ['衡岳', '南衡'] },
+  { id: 'water-dongting-lake', name: '洞庭湖', nameEn: 'Dongting Lake', type: 'landscape', typeZh: '山水名胜', searchTokens: ['洞庭湖'] },
+  { id: 'water-pengli', name: '彭蠡', nameEn: 'Pengli (Poyang Lake)', type: 'landscape', typeZh: '山水名胜', searchTokens: ['彭蠡'] },
+
+  // —— Places invoked through verse, drama, history, religion, or figurative speech ——
+  // These belong to the novel's conceptual geography, not to the characters' plotted journeys.
+  { id: 'allusion-penglai', name: '蓬莱', nameEn: 'Penglai, Isles of the Immortals', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['蓬莱', '蓬山'] },
+  { id: 'allusion-yaotai', name: '瑶台', nameEn: 'Jade Terrace', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['瑶台'] },
+  { id: 'allusion-yujing', name: '玉京', nameEn: 'Jade Capital of the Immortals', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['玉京'] },
+  { id: 'allusion-moon-palace', name: '月宫', nameEn: 'Moon Palace', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['月宫', '月殿', '广寒'] },
+  { id: 'allusion-luopu', name: '洛浦', nameEn: 'Luo River Banks', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['洛浦'] },
+  { id: 'allusion-wushan', name: '巫山', nameEn: 'Mount Wu', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['巫山', '巫峰'] },
+  { id: 'allusion-nanshan', name: '南山', nameEn: 'Southern Mountain', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['南山'] },
+  { id: 'allusion-taishan', name: '泰山', nameEn: 'Mount Tai', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['泰山'] },
+  { id: 'allusion-huayue', name: '华岳', nameEn: 'Mount Hua', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['华岳'] },
+  { id: 'allusion-yueyang', name: '岳阳楼', nameEn: 'Yueyang Tower', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['岳阳楼'] },
+  { id: 'allusion-three-mountains', name: '三山', nameEn: 'Three Isles of the Immortals', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['三山'] },
+  { id: 'allusion-yantai', name: '燕台', nameEn: 'Yan Terrace', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['燕台'] },
+  { id: 'allusion-jintai', name: '金台', nameEn: 'Golden Terrace', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['金台'] },
+  { id: 'allusion-zhangtai', name: '章台', nameEn: 'Zhangtai', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['章台'] },
+  { id: 'allusion-qinlou', name: '秦楼', nameEn: 'Qin Tower', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['秦楼'] },
+  { id: 'allusion-chutai', name: '楚台', nameEn: 'Chu Terrace', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['楚台', '曲台'] },
+  { id: 'allusion-jingu', name: '金谷', nameEn: 'Jingu Garden', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['金谷'] },
+  { id: 'allusion-pingquan', name: '平泉庄', nameEn: 'Pingquan Villa', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['平泉庄', '平泉'] },
+  { id: 'allusion-liangshan', name: '梁山泊', nameEn: 'Liangshan Marsh', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['梁山泊'] },
+  { id: 'allusion-emei', name: '峨嵋山', nameEn: 'Mount Emei', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['峨嵋山'] },
+  { id: 'allusion-xiangshan', name: '香山', nameEn: 'Fragrant Hills', type: 'allusion', typeZh: '典故与想象地理', searchTokens: ['香山'] },
 ];
 
 export const locationColors: Record<LocationType, string> = {
@@ -150,6 +243,7 @@ export const locationColors: Record<LocationType, string> = {
   garden: 'var(--legend-garden)',
   site: 'var(--legend-site)',
   landscape: 'var(--legend-landscape)',
+  allusion: 'var(--legend-allusion)',
 };
 
 export function resolveColor(color: string): string {
@@ -165,6 +259,7 @@ export function resolveColor(color: string): string {
       '--legend-garden': '#2e6f40',
       '--legend-site': '#9e462a',
       '--legend-landscape': '#1f6f8a',
+      '--legend-allusion': '#6b4a7d',
     };
     return fallbacks[varName] || '#8b4513';
   }
