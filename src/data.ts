@@ -267,6 +267,8 @@ const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
   const statedAge = age?.trim() || '—';
   const estimatedAgeByRole: Record<string, string> = {
     performer: '15', scholar: '25', official: '50', villain: '40', female: '30',
+    servant: '25', deceased: '50', minor: '35',
+  };
   const estimateBasisByRole: Record<string, [string, string]> = {
     performer: [
       'Estimated from the character being described as a young opera performer; comparable performers in the book are generally in their mid-teens.',
