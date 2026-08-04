@@ -361,14 +361,7 @@ export function CharacterDetail({
               <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
                 {t.age}
               </p>
-              <div className="flex items-center gap-2 text-sm sm:text-base text-[var(--ink-title)] font-hans">
-                <Calendar
-                  size={16}
-                  className="shrink-0"
-                  style={{ color: accentColor }}
-                />
-                <CharacterAge character={character} lang={lang} accentColor={accentColor} />
-              </div>
+              <CharacterAge character={character} lang={lang} accentColor={accentColor} />
             </div>
             <div className="space-y-1 bg-black/5 p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]">
               <p className="text-xs font-bold uppercase tracking-widest text-[var(--ink-dim-text)] font-hans">
