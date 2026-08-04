@@ -1,4 +1,5 @@
 import { Character } from './types';
+import { CHARACTER_EVIDENCE } from './characterEvidence';
 
 // Some ages are stated after a character's first appearance. These overrides
 // point the source disclosure at the chapter that actually supplies the age.
@@ -7,6 +8,7 @@ const AGE_SOURCE_CHAPTERS: Record<string, number> = {
   'char-7': 25,
   'char-8': 5,
   'char-15': 32,
+  'char-40': 57,
   'char-55': 11,
   'char-95': 50,
   'char-96': 6,
@@ -20,6 +22,17 @@ const AGE_SOURCE_CHAPTERS: Record<string, number> = {
   'char-186': 40,
 };
 
+// Curated where several names share a paragraph and an automatic name match
+// would otherwise stop at a nearby, non-age sentence.
+const AGE_EVIDENCE_OVERRIDES: Record<string, { chapter: number; paragraph: number; excerptZh: string }> = {
+  'char-40': { chapter: 57, paragraph: 4, excerptZh: '序齿袁绮香二十五岁，吴紫烟二十三岁，孙佩秋、王蓉华皆二十二岁，苏浣香二十一，浣兰十九，王琼华十八居末。' },
+  'char-95': { chapter: 50, paragraph: 21, excerptZh: '这玉天仙本是扬州瘦马，到京来颇有声名。但年纪已二十七岁，比聘才大了两年。' },
+  'char-96': { chapter: 6, paragraph: 3, excerptZh: '王家的陆夫人年四十一岁，孙家的陆夫人年三十九岁。这两位夫人都是续娶的。' },
+  'char-150': { chapter: 57, paragraph: 4, excerptZh: '序齿袁绮香二十五岁，吴紫烟二十三岁，孙佩秋、王蓉华皆二十二岁，苏浣香二十一，浣兰十九，王琼华十八居末。' },
+  'char-153': { chapter: 57, paragraph: 4, excerptZh: '序齿袁绮香二十五岁，吴紫烟二十三岁，孙佩秋、王蓉华皆二十二岁，苏浣香二十一，浣兰十九，王琼华十八居末。' },
+  'char-154': { chapter: 57, paragraph: 4, excerptZh: '序齿袁绮香二十五岁，吴紫烟二十三岁，孙佩秋、王蓉华皆二十二岁，苏浣香二十一，浣兰十九，王琼华十八居末。' },
+};
+
 const rawData = `char-0	梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male protagonist; scholar-gentry; falls for Qinyan; later marries Wang Qionghua; promoted examiner (ch.15); builds Qu shrine (ch.59)	男主角；书生士绅；钟情于琴言；后娶王琼华；第15回升任主考官；第59回为屈道翁修建祠堂。
 char-1	杜琴言 Dù Qínyán	琴官 / 玉侬 / 琴仙 / 屈琴仙 / 屈勤先 / 屈少君 / 杜仙女	15	Jiangsu	performer	ch.1	Central romantic figure; orphaned; renamed by Xu Ziyun (ch.5); redeemed in ch.43; reunites with Ziyu	核心浪漫人物；孤儿；第5回由徐子云改名；第43回赎身；最终与子玉重逢。
 char-2	颜仲清 Yán Zhòngqīng	剑潭	23	Jinling	scholar	ch.1	A chivalrous scholar and close friend of Ziyu; nephew of Lady Yan. Often mediates between friends and participates in major literary gatherings.	侠义书生，子玉挚友；颜夫人之侄。常在友人间周旋，活跃于各大文会雅集。
@@ -27,7 +40,7 @@ char-3	史南湘 Shǐ Nánxiāng	竹君	24	Hanyang	scholar	ch.1	Top graduate who
 char-4	王恂 Wáng Xún	庸庵	22	Jinling	scholar	ch.1	Son of Wang Wenhui and cousin to Ziyu; a key figure in social circles. Fond of opera and often involved in arranging local social affairs.	王文辉之子，子玉表兄；名士圈核心人物。平生好优伶，常参与筹办京中社交雅事。
 char-5	魏聘才 Wèi Pìncái	—	~20	Jiangning	villain	ch.2	A glib and opportunistic scholar; initially a guest at the Mei house. Known for scheming and gossip, he endures public humiliations before marrying a courtesan (ch. 50).	伶牙俐齿的投机文人；初寄居梅府。为人阴险好造谣，历经多次丑闻折辱，最终在第50回娶妓为妻。
 char-6	李元茂 Lǐ Yuánmào	—	~20	—	scholar	ch.2	The obtuse son of Ziyu's tutor; serves as comic relief. Infamous for being robbed in a disreputable area (ch. 23), he eventually marries into the Sun family as a matrilocal husband.	塾师李性全之子；书中喜剧人物。因在东园遭抢沦为笑谈（第23回），后于第39回招赘入孙家。
-char-7	徐子云 Xú Zǐyún	度香	25	"Zhejiang, Shanyin"	scholar	ch.4	The generous and refined owner of Yiyuan Garden; a key patron of the arts. He treats performers with respect and redeems Qinyan in ch. 43.	怡园主人，慷慨儒雅的名士领袖。对伶人以礼相待，第43回斥巨资为琴言赎身。
+char-7	徐子云 Xú Zǐyún	度香	26	"Zhejiang, Shanyin"	scholar	ch.4	The generous and refined owner of Yiyuan Garden; a key patron of the arts. He treats performers with respect and redeems Qinyan in ch. 43.	怡园主人，慷慨儒雅的名士领袖。对伶人以礼相待，第43回斥巨资为琴言赎身。
 char-8	萧次贤 Xiāo Cìxián	静宜	32	"Hunan, Xiangtan"	scholar	ch.5	Xu Ziyun's closest friend; polymath; designed Yiyuan. A detached and brilliant scholar who offers artistic guidance to many.	徐子云的挚友，博学多才，亲手设计了怡园。为人淡泊名利，常为众人提供艺术指引。
 char-9	刘文泽 Liú Wénzé	前舟	~24	"Henan, Zhengyang"	scholar	ch.6	Vice-minister's son; exceptionally generous and approachable. A close friend of Xu Ziyun who hosts major literary banquets.	刘侍郎之子；慷慨大方，平易近人。徐子云的好友，常在自家宅邸主持重要文会。
 char-10	高品 Gāo Pǐn	卓然	~25	Suzhou	scholar	ch.2	Tribute student (拔贡); wickedly funny; coins the Sun brothers' nicknames; lives at Hongji Temple	拔贡；极其幽默；为孙氏兄弟起绰号；住在鸿济寺。
@@ -58,7 +71,7 @@ char-36	四喜 Sìxǐ	Sixi	—	—	performer	ch.4	Jianchun troupe; seen in ch.4 
 char-37	全福 Quánfú	—	—	—	performer	ch.4	Jianchun troupe; seen in ch.4 tavern scene	建春班；第4回出现在酒楼场面。
 char-38	保珠 Bǎozhū	—	~15	—	performer	ch.1	"Dark-complexioned performer living next to Guibao; his name mirrors Yuan Baozhu, confusing Ziyu (chs.1, 6); later attaches to Wei Pincai's circle (chs.8–9, 21)"	住在桂保间壁的黑相公；名字与袁宝珠相似，令子玉误会（第1、6回）；后混迹魏聘才一伙（第8–9、21回）。
 char-39	珊枝 Shānzhī	—	—	—	performer	ch.36	Scandalous; rebuked by the whole group in ch.36; morally condemned	名声不佳；第36回遭众人斥责；受道德谴责。
-char-40	袁绮香 Yuán Qǐxiāng	—	23	—	female	ch.5	Xu Ziyun's wife, née Yuan; daughter of the Yunnan governor; graceful and virtuous; leads the ladies' drinking games in ch.57	徐子云之妻，袁氏绮香；云南巡抚之女；婉娴贤淑；第57回主持闺阁酒令。
+char-40	袁绮香 Yuán Qǐxiāng	—	25	—	female	ch.5	Xu Ziyun's wife, née Yuan; daughter of the Yunnan governor; graceful and virtuous; leads the ladies' drinking games in ch.57	徐子云之妻，袁氏绮香；云南巡抚之女；婉娴贤淑；第57回主持闺阁酒令。
 char-42	林珊枝 Lín Shānzhī	—	—	—	performer	ch.5	"Bought by Hua Guangsu for 8,000 taels; lives in Hua mansion as personal companion"	被华光宿以八千两买下；住在华府作为私人伴侣。
 char-43	谭八 Tán Bā	—	—	—	performer	ch.2	Comic lead (京丑) of Lianjin troupe; his mannerisms imitated by Sun Lianggong at the banquet	联锦班丑角；宴会上被孙亮功模仿。
 char-44	小顺儿 Xiǎo Shùn'ér	—	—	—	performer	ch.5	十不闲 drum performer; brought by Fu Lun; rejected by Hua Guangsu with contempt	“十不闲”鼓手；富伦带来；遭华光宿蔑视拒绝。
@@ -266,9 +279,11 @@ const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
   const role = roleRaw?.trim() || 'Other';
 
   const statedAge = age?.trim() || '—';
+  // Ranges are deliberately used where the novel is silent. A role label alone
+  // cannot support a single-year age (the previous fallback did exactly that).
   const estimatedAgeByRole: Record<string, string> = {
-    performer: '15', scholar: '25', official: '50', villain: '40', female: '30',
-    servant: '25', deceased: '50', minor: '35',
+    performer: '14–18', scholar: '20–35', official: '40–60', villain: '30–50', female: '20–45',
+    servant: '18–40', deceased: '40–60', minor: '25–50',
   };
   const estimateBasisByRole: Record<string, [string, string]> = {
     performer: [
@@ -305,19 +320,28 @@ const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
     ],
   };
   const ageIsEstimate = statedAge === '—' || statedAge.startsWith('~') || statedAge.endsWith('+');
+  const relationshipText = `${name} ${description} ${descriptionZh}`;
+  let contextualEstimate = estimatedAgeByRole[role] || '25–50';
+  if (/page|boy|童|小厮|少年|丫鬟|pearl-maid/i.test(relationshipText)) contextualEstimate = '12–18';
+  else if (/mother|father|grand|elderly|old |母|父|太夫人|老年|年高/i.test(relationshipText)) contextualEstimate = '45–65';
+  else if (/wife|husband|married|concubine|夫人|妻|姨太太|嫁|娶/i.test(relationshipText)) contextualEstimate = '20–45';
+  else if (/manager|steward|master|doctor|掌柜|管家|班主|大夫/i.test(relationshipText)) contextualEstimate = '30–55';
   const resolvedAge = statedAge === '—'
-    ? estimatedAgeByRole[role] || '30'
-    : statedAge.replace(/^~/, '');
+    ? contextualEstimate
+    : statedAge.startsWith('~')
+      ? `${Math.max(0, Number(statedAge.slice(1)) - 2)}–${Number(statedAge.slice(1)) + 2}`
+      : statedAge.endsWith('+') ? `${statedAge.slice(0, -1)}+` : statedAge;
   const sourceChapter = Number.parseInt(chapter?.match(/\d+/)?.[0] || '', 10);
   const ageSourceChapter = AGE_SOURCE_CHAPTERS[id?.trim()] || sourceChapter;
+  const evidence = AGE_EVIDENCE_OVERRIDES[id?.trim()] || CHARACTER_EVIDENCE[id?.trim()];
   const estimateBasis = estimateBasisByRole[role] || [
     'Estimated from the character’s role, relationships, and relative generation in the narrative.',
     '依据此人的角色、人物关系及故事中的相对辈分估算。',
   ];
   const approximateValueNote: [string, string] = statedAge !== '—'
     ? [
-        `The existing character record gives an approximate age (${statedAge}); the estimate is retained rather than treated as a factual age stated by the narrator.`,
-        `原人物资料将年龄记作约数（${statedAge}）；此处保留该估值，不将其当作叙述者明确交代的事实年龄。`,
+        `The earlier approximate value (${statedAge}) has been widened to ${resolvedAge}; the novel does not state an exact age, so this is not presented as fact.`,
+        `原资料的约数（${statedAge}）现改为较审慎的${resolvedAge}岁范围；原文没有明载确数，故不作事实年龄。`,
       ]
     : estimateBasis;
 
@@ -356,6 +380,11 @@ const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
       : `第${ageSourceChapter}回正文明确记载此人年龄为${resolvedAge}岁。`,
     ageEstimateNote: ageIsEstimate ? approximateValueNote[0] : undefined,
     ageEstimateNoteZh: ageIsEstimate ? approximateValueNote[1] : undefined,
+    ageEvidenceExcerpt: evidence?.excerptZh,
+    ageEvidenceChapter: evidence?.chapter,
+    ageEvidenceParagraph: evidence ? evidence.paragraph + 1 : undefined,
+    roleEvidenceNote: `Role checked against the narrative description: ${description?.trim() || 'no fuller occupational description is supplied'}`,
+    roleEvidenceNoteZh: `身份复核依据：${descriptionZh?.trim() || '正文未提供更具体的职业说明'}`,
     origin,
     originZh: ORIGIN_MAP[origin] || origin,
     role,

@@ -9,6 +9,11 @@ export interface Character {
   ageSourceNoteZh?: string;
   ageEstimateNote?: string;
   ageEstimateNoteZh?: string;
+  ageEvidenceExcerpt?: string;
+  ageEvidenceChapter?: number;
+  ageEvidenceParagraph?: number;
+  roleEvidenceNote?: string;
+  roleEvidenceNoteZh?: string;
   origin: string;
   originZh: string;
   role: string;
