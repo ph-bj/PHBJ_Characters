@@ -181,7 +181,14 @@ export function QuestionAnswer({ content }: { content: string }) {
             );
           case 'p':
             return (
-              <p key={idx} className="text-[var(--ink-title)]/95 leading-relaxed">
+              <p
+                key={idx}
+                className={
+                  idx === 0
+                    ? "text-[var(--ink-title)] text-base sm:text-[1.05rem] leading-relaxed font-medium border-l-2 border-[var(--accent)]/45 pl-3"
+                    : "text-[var(--ink-title)]/95 leading-relaxed"
+                }
+              >
                 {renderInline(block.text)}
               </p>
             );

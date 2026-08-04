@@ -225,9 +225,6 @@ export function HometownMap({
   const characterCountWithOrigins = characters.filter(
     (character) => character.origin && character.origin !== '—',
   ).length;
-  const allusionCount = filteredLocationsByType.find(
-    (group) => group.type === 'allusion',
-  )?.locations.length ?? 0;
 
   return (
     <div
@@ -264,7 +261,7 @@ export function HometownMap({
           <dl className="grid grid-cols-3 gap-px overflow-hidden rounded-sm border border-[var(--paper-border)] bg-[var(--paper-border)]/70 shadow-sm">
             {[
               [characterCountWithOrigins, lang === 'zh' ? '有籍贯人物' : 'people with origins'],
-              [allusionCount, lang === 'zh' ? '典故地理' : 'literary places'],
+              [majorGardens.length, lang === 'zh' ? '主要园林' : 'major gardens'],
               [storyGeographyCount, lang === 'zh' ? '索引条目' : 'indexed entries'],
             ].map(([value, label]) => (
               <div key={String(label)} className="min-w-[88px] bg-[var(--paper-bg)]/90 px-3 py-3 text-center sm:min-w-[108px]">
