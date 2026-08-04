@@ -1243,7 +1243,7 @@ function ChapterReaderComponent({
             )}
             {chapter.id >= 1 && <ChapterScene chapterId={chapter.id} />}
             {chapter.id === -1 ? (
-              <div className="space-y-5">
+              <div className="space-y-3">
                 {chapters.filter(c => c.id >= 0).map((c) => {
                   const enTitle = c.id === 0
                     ? "Preface"
@@ -1251,15 +1251,16 @@ function ChapterReaderComponent({
                       ? `Chapter ${c.id} — ${chapterTitleTranslations[c.id]}`
                       : `Chapter ${c.id} — ${c.title}`;
                   return (
-                    <div key={c.id} className="border-b border-[var(--paper-border)]/50 pb-4">
-                      <button
-                        type="button"
-                        onClick={() => onSelectChapter(c)}
-                        title={lang === "zh" ? "打开本回" : "Open this chapter"}
-                        className="w-full text-left group cursor-pointer"
-                      >
+                    <button
+                      key={c.id}
+                      type="button"
+                      onClick={() => onSelectChapter(c)}
+                      title={lang === "zh" ? "打开本回" : "Open this chapter"}
+                      className="w-full text-left p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/60 hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/50 transition-all duration-200 group cursor-pointer flex items-center justify-between gap-3 shadow-xs hover:shadow-sm"
+                    >
+                      <div className="flex-1 min-w-0">
                         {lang === "zh" ? (
-                          <p className="text-[1em] font-hans text-[var(--ink-title)] leading-snug transition-colors group-hover:text-[var(--accent)]">
+                          <p className="text-[1em] font-hans font-medium text-[var(--ink-title)] leading-relaxed transition-colors group-hover:text-[var(--accent)]">
                             {renderTextWithSearchHighlight(
                               c.title,
                               chapterSearchQuery,
@@ -1268,7 +1269,7 @@ function ChapterReaderComponent({
                             )}
                           </p>
                         ) : (
-                          <p className="text-[1em] font-sans text-[var(--ink-title)] leading-snug transition-colors group-hover:text-[var(--accent)]">
+                          <p className="text-[0.95em] sm:text-[1em] font-sans font-medium text-[var(--ink-title)] leading-relaxed transition-colors group-hover:text-[var(--accent)]">
                             {renderTextWithSearchHighlight(
                               enTitle,
                               chapterSearchQuery,
@@ -1277,8 +1278,14 @@ function ChapterReaderComponent({
                             )}
                           </p>
                         )}
-                      </button>
-                    </div>
+                      </div>
+                      <div className="shrink-0 flex items-center gap-1 text-[var(--ink-dim-text)] group-hover:text-[var(--accent)] transition-colors">
+                        <span className="text-xs font-sans font-medium hidden sm:inline opacity-0 group-hover:opacity-100 transition-opacity">
+                          {lang === "zh" ? "阅读" : "Read"}
+                        </span>
+                        <ChevronRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
+                      </div>
+                    </button>
                   );
                 })}
               </div>
