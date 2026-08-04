@@ -557,13 +557,15 @@ function ChapterReaderComponent({
     }
 
     if (chapter.id === -1) {
-      for (const c of chapters.filter(ch => ch.id > 0)) {
+      for (const c of chapters.filter(ch => ch.id >= 0)) {
         if (lang === "zh") {
           addPlain(c.title);
         } else {
-          const enTitle = chapterTitleTranslations[c.id]
-            ? `Chapter ${c.id} — ${chapterTitleTranslations[c.id]}`
-            : `Chapter ${c.id} — ${c.title}`;
+          const enTitle = c.id === 0
+            ? "Preface"
+            : chapterTitleTranslations[c.id]
+              ? `Chapter ${c.id} — ${chapterTitleTranslations[c.id]}`
+              : `Chapter ${c.id} — ${c.title}`;
           addPlain(enTitle);
         }
       }
@@ -1242,7 +1244,12 @@ function ChapterReaderComponent({
             {chapter.id >= 1 && <ChapterScene chapterId={chapter.id} />}
             {chapter.id === -1 ? (
               <div className="space-y-5">
-                {chapters.filter(c => c.id > 0).map((c) => {
+                {chapters.filter(c => c.id >= 0).map((c) => {
+                  const enTitle = c.id === 0
+                    ? "Preface"
+                    : chapterTitleTranslations[c.id]
+                      ? `Chapter ${c.id} — ${chapterTitleTranslations[c.id]}`
+                      : `Chapter ${c.id} — ${c.title}`;
                   return (
                     <div key={c.id} className="border-b border-[var(--paper-border)]/50 pb-4">
                       <button
@@ -1263,9 +1270,7 @@ function ChapterReaderComponent({
                         ) : (
                           <p className="text-[1em] font-sans text-[var(--ink-title)] leading-snug transition-colors group-hover:text-[var(--accent)]">
                             {renderTextWithSearchHighlight(
-                              chapterTitleTranslations[c.id]
-                                ? `Chapter ${c.id} — ${chapterTitleTranslations[c.id]}`
-                                : `Chapter ${c.id} — ${c.title}`,
+                              enTitle,
                               chapterSearchQuery,
                               chapterSearchMatchIndex,
                               chapterSearchMatchCounter,

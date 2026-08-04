@@ -777,7 +777,7 @@ export default function App() {
       id: -1,
       title: "目录",
       content: chapters
-        .filter((c) => c.id > 0)
+        .filter((c) => c.id >= 0)
         .map((c) => c.title)
         .join("\n"),
     });
