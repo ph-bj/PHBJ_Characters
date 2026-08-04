@@ -5,7 +5,7 @@ export const CHARACTER_EVIDENCE: Record<string, CharacterEvidence> = {
   "char-0": {
     "chapter": 1,
     "paragraph": 3,
-    "excerptZh": "…士燮于十七岁中了进士，入了翰林，迄今已二十九年，行年四十六岁了。家世本是金、张，经术复师马、郑。贵胃偏祟儒素，词臣竟屏纷华。蔼蔼乎心似春和，凛凛乎却貌如秋肃。人比他为司马君实、赵清献一流人物。夫人额氏，也是金陵大家，为左都御史颜尧臣之女，翰林院编修颜庄之妹，父兄皆已物故。这颜夫人今年四十四岁，真是德容兼备，贤淑无双，与梅学士唱随已二十余年。二十九岁上梦神人授玉，遂生了一个玉郎，取名子玉，号庚香。这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。…",
+    "excerptZh": "…士燮于十七岁中了进士，入了翰林，迄今已二十九年，行年四十六岁了。家世本是金、张，经术复师马、郑。贵胃偏祟儒素，词臣竟屏纷华。蔼蔼乎心似春和，凛凛乎却貌如秋肃。人比他为司马君实、赵清献一流人物。夫人额氏，也是金陵大家，为左都御史颜尧臣之女，翰林院编修颜庄之妹，父兄皆已物故。这颜夫人今年四十四岁，真是德容兼备，贤淑无双，与梅学士唱随已二十余年。二十九岁上梦神人授玉，遂生了一个玉郎，取名子玉，号庾香。这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。…",
     "excerptEn": "The author of this book remains nameless, leaving the era, year, place, and identity forever unknown. The narrative begins by telling of a man utterly detached from feeling, who sires a son …"
   },
   "char-1": {
@@ -107,7 +107,7 @@ export const CHARACTER_EVIDENCE: Record<string, CharacterEvidence> = {
   "char-20": {
     "chapter": 1,
     "paragraph": 3,
-    "excerptZh": "…这颜夫人今年四十四岁，真是德容兼备，贤淑无双，与梅学士唱随已二十余年。二十九岁上梦神人授玉，遂生了一个玉郎，取名子玉，号庚香。这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。而且天授神奇，胸罗斗宿，虽只十年诵读，已是万卷贯通。士燮前年告假回乡扫墓，子玉随了回去，即入了泮，在本省过了一回乡试未中，仍随任进京，因回南不便，遂以上舍生肄业成均，现从了浙江一个名宿李性全读书。…",
+    "excerptZh": "…这颜夫人今年四十四岁，真是德容兼备，贤淑无双，与梅学士唱随已二十余年。二十九岁上梦神人授玉，遂生了一个玉郎，取名子玉，号庾香。这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。而且天授神奇，胸罗斗宿，虽只十年诵读，已是万卷贯通。士燮前年告假回乡扫墓，子玉随了回去，即入了泮，在本省过了一回乡试未中，仍随任进京，因回南不便，遂以上舍生肄业成均，现从了浙江一个名宿李性全读书。…",
     "excerptEn": "The author of this book remains nameless, leaving the era, year, place, and identity forever unknown. The narrative begins by telling of a man utterly detached from feeling, who sires a son …"
   },
   "char-21": {
@@ -557,7 +557,7 @@ export const CHARACTER_EVIDENCE: Record<string, CharacterEvidence> = {
   "char-109": {
     "chapter": 1,
     "paragraph": 3,
-    "excerptZh": "…二十九岁上梦神人授玉，遂生了一个玉郎，取名子玉，号庚香。这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。而且天授神奇，胸罗斗宿，虽只十年诵读，已是万卷贯通。士燮前年告假回乡扫墓，子玉随了回去，即入了泮，在本省过了一回乡试未中，仍随任进京，因回南不便，遂以上舍生肄业成均，现从了浙江一个名宿李性全读书。这性全系士燮乡榜门生，是个言方行矩的道学先生。颜夫人将此子爱如珍宝，读书之外时不离身。宅中丫鬟仆妇甚多，仆妇三十岁以下，丫鬟十五岁以上者，皆不令其服侍子玉，恐为引诱。…",
+    "excerptZh": "…二十九岁上梦神人授玉，遂生了一个玉郎，取名子玉，号庾香。这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。而且天授神奇，胸罗斗宿，虽只十年诵读，已是万卷贯通。士燮前年告假回乡扫墓，子玉随了回去，即入了泮，在本省过了一回乡试未中，仍随任进京，因回南不便，遂以上舍生肄业成均，现从了浙江一个名宿李性全读书。这性全系士燮乡榜门生，是个言方行矩的道学先生。颜夫人将此子爱如珍宝，读书之外时不离身。宅中丫鬟仆妇甚多，仆妇三十岁以下，丫鬟十五岁以上者，皆不令其服侍子玉，恐为引诱。…",
     "excerptEn": "The author of this book remains nameless, leaving the era, year, place, and identity forever unknown. The narrative begins by telling of a man utterly detached from feeling, who sires a son …"
   },
   "char-110": {
@@ -851,7 +851,7 @@ export const CHARACTER_EVIDENCE: Record<string, CharacterEvidence> = {
   "char-159": {
     "chapter": 1,
     "paragraph": 3,
-    "excerptZh": "…家世本是金、张，经术复师马、郑。贵胃偏祟儒素，词臣竟屏纷华。蔼蔼乎心似春和，凛凛乎却貌如秋肃。人比他为司马君实、赵清献一流人物。夫人额氏，也是金陵大家，为左都御史颜尧臣之女，翰林院编修颜庄之妹，父兄皆已物故。这颜夫人今年四十四岁，真是德容兼备，贤淑无双，与梅学士唱随已二十余年。二十九岁上梦神人授玉，遂生了一个玉郎，取名子玉，号庚香。这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。…",
+    "excerptZh": "…家世本是金、张，经术复师马、郑。贵胃偏祟儒素，词臣竟屏纷华。蔼蔼乎心似春和，凛凛乎却貌如秋肃。人比他为司马君实、赵清献一流人物。夫人额氏，也是金陵大家，为左都御史颜尧臣之女，翰林院编修颜庄之妹，父兄皆已物故。这颜夫人今年四十四岁，真是德容兼备，贤淑无双，与梅学士唱随已二十余年。二十九岁上梦神人授玉，遂生了一个玉郎，取名子玉，号庾香。这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。…",
     "excerptEn": "The author of this book remains nameless, leaving the era, year, place, and identity forever unknown. The narrative begins by telling of a man utterly detached from feeling, who sires a son …"
   },
   "char-160": {

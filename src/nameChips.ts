@@ -87,7 +87,7 @@ export const EN_TOKEN_CONTEXT_BLOCKS: Record<
 };
 
 export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
-  庾香: ["Yuxiang", "Yu Xiang", "Gengxiang", "Mei Gengxiang"],
+  庾香: ["Yuxiang", "Yu Xiang", "Mei Yuxiang"],
   琴官: ["Qinguan", "Qin Guan", "Master Du Qin", "Qin Yan"],
   玉侬: ["Yunong", "Yu Nong", "Yu'nong", "Yu’nong"],
   琴仙: ["Qinxian", "Qin Xian", "Qin Immortal"],
