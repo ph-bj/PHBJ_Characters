@@ -3,6 +3,12 @@ export interface Character {
   name: string;
   alias: string;
   age: string;
+  ageIsEstimate: boolean;
+  ageSourceChapter?: number;
+  ageSourceNote?: string;
+  ageSourceNoteZh?: string;
+  ageEstimateNote?: string;
+  ageEstimateNoteZh?: string;
   origin: string;
   originZh: string;
   role: string;

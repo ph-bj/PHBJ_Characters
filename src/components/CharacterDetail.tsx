@@ -27,6 +27,7 @@ import {
 } from "../utils";
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
+import { CharacterAge } from "./CharacterAge";
 
 const characterMentionDataCache = new Map<string, { ch: number; count: number }[]>();
 
@@ -366,7 +367,7 @@ export function CharacterDetail({
                   className="sm:w-4 sm:h-4 shrink-0"
                   style={{ color: accentColor }}
                 />
-                <span>{character.age}</span>
+                <CharacterAge character={character} lang={lang} accentColor={accentColor} />
               </div>
             </div>
             <div className="space-y-1">
