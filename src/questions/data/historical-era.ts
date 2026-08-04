@@ -5,18 +5,40 @@ export const question: QuestionDefinition = {
   categoryEn: "Editions, History & Comparisons",
   questionEn: "What historical era is the story of Pinhua Baojian set in?",
   questionZh: "《品花宝鉴》里描写的故事是什么年代的？",
-  answerEn: `While the author famously states in Chapter 1 that "this book does not record any names, and it is unknown what era, what year, what place, or who wrote it" (此书不着姓名，究不知何代何年何地何人所作), internal textual evidence clearly sets the story during the **Qing Dynasty**. 
+  answerEn: `### Short answer
 
-Several specific details anchor the story to the Qing Dynasty:
-1. **Hairstyles**: Characters are explicitly described as having queues/braids (辫子), a distinctly Qing dynasty hairstyle imposed on Han Chinese men. For instance, in Chapter 36, a character is described with a "large braid trailing behind" (后头仍拖着大辫子).
-2. **Geography and Currency**: The story takes place in the "Capital" (京城/京师), explicitly modeled after Beijing, with references to its theaters and localized currency like "capital cash" (京钱) and "large cash" (大钱), consistent with Qing monetary terminology.
+The story inhabits a deliberately unnamed but recognizably **Qing imperial capital**, and its social world is closest to early nineteenth-century Beijing. It is safer to say “a fictionalized Qing present” than to assign an exact reign or calendar year. Chapter 1’s refusal to name “dynasty, year, place, or author” is not a failed disguise to be discarded; it is part of the novel’s narrative method.
 
-Therefore, despite the author's framing device of an "unknown era," the vivid, realistic social backdrop unambiguously places the narrative within Qing Dynasty society.`,
-  answerZh: `虽然作者在第一回中声称「此书不着姓名，究不知何代何年何地何人所作」，但小说中的文本证据明确表明故事背景设定在**清朝**。
+### Evidence inside the fiction
 
-有几个具体细节将故事锚定在清朝：
-1. **发型**：小说中明确描写了角色留有「辫子」——这是清朝特有的男子发型。例如在第36回中，描写某人「后头仍拖着大辫子」。
-2. **地理与货币**：故事发生在「京城」或「京师」（即北京），提到了北京的戏园以及具有地方特色的货币如「京钱」和「大钱」，这与清代的货币体系和术语一致。
+- **Government and status:** queues, bannerman and hereditary-noble households, purchased ranks, Hanlin and censorial offices, provincial education commissioners, memorials, and the capital examination system all presuppose Qing institutions.
+- **Urban economy:** the contrast between capital cash and standard money, commercial theaters, actor houses, pleasure quarters, opium, pawned goods, and elaborate patronage describes a mature Qing metropolitan economy.
+- **Theatrical ecology:** characters debate Kunqiang, luantan, bangzi, and erhuang rather than referring consistently to a fully stabilized genre called “Peking Opera.” That mixed field belongs to the transition from eighteenth-century “elegant versus popular” competition toward the nineteenth-century Beijing stage.
+- **Topography:** the “capital” is legibly Beijing through gates, temples, theaters, gardens, government boards, and travel routes, even when the narrator preserves nominal indeterminacy.
 
-因此，尽管作者采用了「不知何代何年」的虚构设定，小说中生动、写实的社会背景确凿无疑地将其置于清代的社会现实之中。`,
+### Why an exact reign is difficult
+
+The novel combines realistic contemporary detail with conventional fictional evasions and chronologically suggestive allusions. A reference to a special literary examination, for example, does not by itself produce a dependable date: fiction may compress institutions, reuse historical precedents, or alter intervals for plot purposes. Queues prove Qing setting, but not whether a scene belongs to Qianlong, Jiaqing, or Daoguang.
+
+### Literary significance
+
+The unnamed setting gives Chen Sen two advantages. It lets the book claim the freedom of fiction while making its Beijing theater society immediately recognizable to contemporary readers. The result is neither timeless allegory nor documentary transcript. It is a socially specific Qing novel that turns a near-contemporary capital into a morally evaluative “mirror”—appropriate to the title *Precious Mirror for Judging Flowers*.`,
+  answerZh: `### 简答
+
+故事发生在一个有意不标明年代、却明显可识别为**清代京城**的世界，其社会面貌最接近十九世纪前期北京。与其武断指定某一朝某一年，不如称之为“经过小说化的清代当下”。第一回“不知何代何年何地何人”的说法并非一个应被简单揭穿的失败伪装，而是小说叙事方法的一部分。
+
+### 小说内部的证据
+
+- **官制与身份：** 辫发、旗人与世袭勋贵家庭、捐纳身份、翰林与科道官、各省学政、奏折和京师考试制度，都以清代制度为前提。
+- **城市经济：** 京钱与制钱的差别、商业戏园、相公住所、风月场所、鸦片、典当和复杂恩客关系，构成成熟的清代都会经济。
+- **戏曲生态：** 人物争论昆腔、乱弹、梆子、二簧，而不是始终使用一种已经完全定型、统一称为“京剧”的剧种名称。这种混合格局处在十八世纪花雅竞争向十九世纪北京舞台转变的过程中。
+- **空间地理：** 城门、寺庙、戏园、园林、各部衙门和旅行路线使“京城”清楚指向北京，尽管叙述者仍保留名义上的含混。
+
+### 为什么不能轻定具体年号
+
+小说把当代写实细节、传统避实笔法和带有年代暗示的典故混合使用。例如某次特科的提法，不能单独换算出可靠年份：小说可能压缩制度、借用旧典或为情节改变间隔。辫子足以证明清代，却不足以判定乾隆、嘉庆还是道光某年。
+
+### 文学意义
+
+不标年代给陈森带来双重便利：一方面保留“小说家言”的自由，另一方面又让同时代读者立刻认出北京梨园社会。它既不是超越历史的寓言，也不是逐日记录的社会档案，而是一部具有明确清代社会质地的小说，把近于当代的京城制作成一面进行道德品评的“宝鉴”。`,
 };

@@ -5,12 +5,12 @@ export const question: QuestionDefinition = {
   categoryEn: "Editions, History & Comparisons",
   questionEn: "Does 'Pinhua Baojian' describe the story of Peking Opera? If not, what genre does it depict?",
   questionZh: "品花宝鉴描写的是京剧的故事吗？如果不是，那是什么剧种？",
-  answerEn: `No, *Pinhua Baojian* does not describe the story of Peking Opera (京剧). Instead, it primarily depicts the elegant art of **Kunqu** (昆曲/昆腔), set against the historical backdrop of the "Clash of Elegance and Popularity" (花雅之争).
+  answerEn: `Not exactly. Calling its theatrical world simply “Peking Opera” is anachronistic, but calling it only Kunqu is also too narrow. The novel depicts Beijing’s mixed early-nineteenth-century stage ecology: Kunqiang is the elite benchmark, while luantan, bangzi, and erhuang are already popular and compete for audiences. These forms belong to the theatrical matrix from which modern jingju emerged; the novel is evidence for that transition, not a record of a single settled genre.
 
 ### Kunqu (昆腔) vs. Luantan (乱弹)
 During the era depicted in the novel, Peking Opera had not yet fully formed. The cultural landscape was dominated by the tension between "Elegance" (雅 - represented by Kunqu) and "Popularity" (俗 - represented by Luantan, Erhuang, and Bangzi, which later contributed to the formation of Peking Opera).
 
-The novel's elite scholar characters strongly favor Kunqu for its refined lyrics and elegant melodies, looking down upon the more boisterous and popular Luantan.
+Several elite characters favor Kunqu for its refined lyrics and disciplined training, but the novel stages disagreement rather than speaking with one voice. Chapter 4 lets the unnamed youth defend popular melody’s emotional power and prefer “refined people and vulgar plays” to the reverse.
 
 ### Quotes from the Novel
 
@@ -31,13 +31,13 @@ The young man further critiques Kunqu's lack of passionate emotion compared to p
 > ("你儿子要学戏，还是到那乱弹班里好，学两个月就可出台。我们唱昆腔的学了一辈子，还不得人家说声好。")
 
 ### Conclusion
-The novel is a crucial document not of Peking Opera, but of the late-stage reverence for **Kunqu** among the Qing dynasty literati, and it captures the exact historical moment when popular regional forms (Luantan) were beginning to overtake it in the public theaters.`,
-  answerZh: `不，《品花宝鉴》描写的**不是**京剧的故事。相反，它主要描写的是高雅的**昆曲**（昆腔）艺术，其历史背景正是戏曲史上的“花雅之争”。
+The safest literary-historical description is therefore **a novel of Beijing theater culture during the Kunqu–luantan transition**. Its dialogue preserves competing aesthetic positions: Kunqu supplies cultural prestige, while popular forms supply novelty, affect, and commercial momentum.`,
+  answerZh: `不宜直接称为“京剧故事”，但若说它只写昆曲也过于简单。小说呈现的是十九世纪前期北京多声腔并存的戏曲生态：昆腔仍是名士衡量“雅”的标准，乱弹、梆子、二簧等通俗声腔却已争夺观众。它们构成后来京剧形成的历史母体，因此小说记录的是转型过程，而不是一种已经定型、名称统一的京剧。
 
 ### 昆腔与乱弹之争（花雅之争）
 在小说描写的时代，京剧尚未完全形成。当时的戏曲界被“雅”（以昆曲为代表）和“俗”（以乱弹、二簧、梆子等为代表，这些后来演变成了京剧）之间的张力所主导。
 
-小说中的精英名士角色们极度偏爱昆曲，推崇其文辞雅致、音调平和，而看不起更为喧闹和通俗的乱弹戏。
+部分名士推崇昆曲的文辞、训练和雅正地位，但小说并非只有一种声音。第四回那位少年正面申辩通俗声腔的感情力量，并以“人雅而戏俗”反驳“戏雅而人俗”，使“花雅之争”成为人物之间真实的审美辩论。
 
 ### 小说中的具体段落
 
@@ -54,5 +54,5 @@ The novel is a crucial document not of Peking Opera, but of the late-stage rever
 > 「你儿子要学戏，还是到那乱弹班里好，学两个月就可出台。我们唱昆腔的学了一辈子，还不得人家说声好。」
 
 ### 结论
-这部小说不是京剧的记录，而是清代文人对**昆曲**晚期尊崇的重要文献。它恰好捕捉到了地方通俗声腔（乱弹）开始在民间戏园中取代昆曲正统地位的那个历史瞬间。`,
+更准确的文学史表述是：它是一部描写**昆腔—乱弹转型期北京戏曲文化**的小说。昆曲提供文化威望，通俗声腔则带来新鲜感、强烈情感和商业动力；小说让这些互相竞争的趣味同时发声。`,
 };

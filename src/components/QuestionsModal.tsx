@@ -37,7 +37,7 @@ export function QuestionsModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.98 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative z-10 w-full max-w-3xl max-h-[calc(100dvh-1rem)] sm:max-h-[88dvh] overflow-hidden parchment rounded-sm border-4 border-double border-[var(--paper-border)] shadow-2xl flex flex-col"
+          className="relative z-10 w-full max-w-4xl max-h-[calc(100dvh-1rem)] sm:max-h-[90dvh] overflow-hidden parchment rounded-sm border-4 border-double border-[var(--paper-border)] shadow-2xl flex flex-col"
       >
         <div className="p-4 sm:p-5 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] flex items-center justify-between">
           <div>
@@ -83,7 +83,7 @@ export function QuestionsModal({
                 id="question-answer-heading"
                 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]"
               >
-                {lang === "zh" ? "文本细读" : "Close reading"}
+                {lang === "zh" ? "经核校的回答" : "Reviewed answer"}
               </h4>
               <span className="h-px flex-1 bg-[var(--paper-border)]/70" />
             </div>

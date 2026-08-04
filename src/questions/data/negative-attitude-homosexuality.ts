@@ -5,7 +5,7 @@ export const question: QuestionDefinition = {
   categoryEn: "Queer & Gender Studies",
   questionEn: "Does the novel have a negative attitude towards male homosexuality?",
   questionZh: "小说对男性同性恋持负面态度吗？",
-  answerEn: `Yes, the novel frequently portrays the physical and debauched aspects of male-male relationships in a very negative light, contrasting them sharply with its idealized 'pure love' (情) that strictly separates spiritual appreciation of beauty from base lust. Across the novel, characters who engage in physical exploitation, sodomy, or treat performers purely as sexual objects are mocked, condemned, or depicted as morally corrupt.
+  answerEn: `Not in any simple, modern sense. *Pinhua Baojian* predates the identity category “homosexuality” and does not condemn every form of male–male attachment. It idealizes the reciprocal, self-restrained *qing* of Ziyu and Qinyan while condemning coercion, purchase, humiliation, and indiscriminate *yin*. Its moral distinction is therefore between authorized and degraded forms of desire—not between heterosexuality and homosexuality as modern identities. That distinction remains classed and unequal because actors are still judged by elite patrons.
 
 ### Chapter 7
 The text mocks physical acts using harsh language, suggesting a negative view towards the pure sexual component of homosexuality:
@@ -13,7 +13,7 @@ The text mocks physical acts using harsh language, suggesting a negative view to
 > "Zhongqing asked: '... Then why did they all curse him by name?' Nanxiang said: 'This is the clear retribution of heaven for his biting tongue.' ... Nanxiang nodded and said: 'My couplet points to him even more clearly... Longyang (homosexuality) of the first rank increases spirit.' Wenze said: 'Mine is even more blunt: Buggery (sodomy) of the first rank moves the heart.'"
 
 ### Chapter 12
-Tian Chunhang explicitly equates the exclusive love of men over women with debauchery (淫) if it is purely physical, indicating a rejection of physical homosexuality without aesthetic appreciation:
+Tian Chunhang’s paradox is more specific than a rejection of male–male sex: he says that someone who likes women but not men loves lust rather than beauty. The claim makes gender-transcending aesthetic discernment the test of *haose*, then subordinates bodily desire to restraint:
 
 > "To love women but not men is ultimately loving lust, not loving beauty... If one truly values beauty, one would naturally not dare to be lustful."
 
@@ -36,7 +36,7 @@ Characters mock a lewd painting, using derogatory terms for physical male-male i
 Pan San's lust for male lovers is depicted as lecherous and base, typical of the novel's treatment of physical homosexuality:
 
 > "Also knowing that Pan San loved the male wind (homosexuality) and would definitely desire Deyue, she did not allow him to come in and peek, and Pan San actually did not dare to come in, only able to drool secretly in the dark."`,
-  answerZh: `是的，小说经常将男性同性关系的肉体和淫乱方面描绘得非常负面，将它们与理想化的“纯爱”（情）形成鲜明对比，后者严格区分了对美的精神欣赏和低俗的肉欲。在整部小说中，那些进行肉体剥削、鸡奸或纯粹将伶人视为性对象的角色都会受到嘲笑、谴责，或被描绘为道德败坏。
+  answerZh: `不能用简单的“是”或“否”回答。《品花宝鉴》早于现代“同性恋”身份范畴；它并不否定所有男男情感，而是理想化子玉、琴言之间相互体认而自我节制的“情”，同时谴责强迫、买卖、凌辱和无差别的“淫”。所以小说划分的是被认可与被贬斥的欲望形式，并非现代意义上的异性恋／同性恋二分；而且这种区分仍带有阶级性，因为伶人始终处于被名士品评的位置。
 
 ### 第7回
 文本使用严厉的语言嘲笑肉体行为，暗示了对同性恋纯性行为成分的负面看法：
@@ -44,7 +44,7 @@ Pan San's lust for male lovers is depicted as lecherous and base, typical of the
 > 仲清道：「……为什么牵名道姓，都骂起他来？」南湘道：「这也是天理昭彰，嘴头刻薄的报应。」……南湘点点头，道：「我的对更明明指着他了。……龙阳一品长精神。」文泽道：「我的更说穿了，是「鸡奸一品动欢心。」
 
 ### 第12回
-田春航明确地将好男而不好女等同于淫欲（如果纯粹是肉体的话），表明了对没有审美欣赏的肉体同性恋的排斥：
+田春航的悖论并不是笼统排斥男男肉体关系。他说“好女而不好男”者所爱的只是“淫”而不是“色”：能跨越性别辨识美，才算“好色”，而身体欲望又必须受节制：
 
 > 「好女而不好男，终是好淫，而非好色。彼既好淫，便不论色。若既重色，自不敢淫。」
 
