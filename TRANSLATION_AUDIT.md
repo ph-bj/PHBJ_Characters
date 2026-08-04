@@ -62,7 +62,6 @@ Chinese source in `src/chapterTranslations/chinese/chapterChinese{1..60}.ts`.
 - **Compressed chapters.** Some chapters are rendered as condensed paraphrase rather
   than full translation. Measured as English characters per Chinese character (a full
   translation in this corpus runs ~4.5–5.5), the outliers are:
-  ch. 46 (2.99), ch. 21 (2.93), ch. 27 (3.11), ch. 58 (3.21), ch. 54 (3.49),
-  ch. 24 (3.70), ch. 26 (3.81). Chapter 54 in particular converts direct speech into
-  reported summary throughout. Fixing these means re-translating, not editing.
+  ch. 46 (2.99), ch. 21 (2.93), ch. 27 (3.11), ch. 58 (3.21),
+  ch. 24 (3.70), ch. 26 (3.81). Fixing these means re-translating, not editing.
 - Chapters 52–54 and 56–60 have not yet been read paragraph by paragraph.
