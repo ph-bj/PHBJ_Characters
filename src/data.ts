@@ -131,7 +131,7 @@ char-104	许顺 Xǔ Shùn	—	—	—	servant	ch.2	Mei household steward and acc
 char-105	许顺妻 Xǔ Shùn qī	许顺夫妇	—	—	servant	ch.3	Xu Shun's wife; works alongside him in household management	许顺之妻；协助管理家务。
 char-106	梅进 Méi Jìn	—	—	—	servant	ch.2	Mei household gate attendant; called in to receive and seat guests	梅府门房；负责接待客人。
 char-107	虎儿 Hǔ'ér	—	—	—	servant	ch.8	Household page in the Mei residence; brings messages between rooms	梅府小厮；负责传话。
-char-108	书房双书僮 Shūfáng Shuāng Shūtóng	书僮 / 书童 / Study Boys	—	—	servant	ch.4	Two unnamed study boys; wait outside the study; serve tea and pour water.	书童；在书房外候着；端茶倒水。
+char-108	书房双书僮 Shūfáng Shuāng Shūtóng	书僮 / 书童 / Study Boys / study boys / Page Boys / page boys / study-boy / study boy / page boy	—	—	servant	ch.4	Two unnamed study boys; wait outside the study; serve tea and pour water.	书童；在书房外候着；端茶倒水。
 char-109	梅府传帖仆妇 Méifǔ Chuántiě Púfù	仆妇 / 门上仆妇 / Doorwoman	—	—	servant	ch.2	Doorwoman who brings calling cards from Wei Pincai and Li Yuanmao in to Mei Shixie	门上仆妇；递送名帖。
 char-110	梅府取衣媳妇 Méifǔ Qǔyī Xífù	家人媳妇 / Household woman	—	—	servant	ch.1	Household woman who fetches Ziyu's fur coat at Lady Yan's instruction	家里的媳妇；负责取衣物。
 char-111	子玉书房小丫鬟 Zǐyù Shūfáng Xiǎo Yāhuan	小丫鬟 / Maidservant	—	—	servant	ch.7	Maidservant in Ziyu's study; reports that Wang Qionghua scratched out two characters from Ziyu's poem; relays betrothal gossip from Xue'er	子玉书房的小丫鬟；报告王琼华涂诗；传闲话。

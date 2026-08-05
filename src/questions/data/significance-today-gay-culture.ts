@@ -14,7 +14,7 @@ The novel's strict separation of "Qing" (pure emotion) and "Yin" (lust) highligh
 The relationships in the book, built heavily on class disparities between elite scholars and marginalized performers, remind us of the historical exploitation within same-sex dynamics. For the future, it underscores the importance of building relationships on mutual respect, equality, and shared agency, free from transactional power imbalances.
 
 ### 3. Breaking Free from Heteronormative Frameworks
-Ultimately, the main characters return to traditional heterosexual marriages, treating their same-sex devotions as temporary or aesthetic phases. Reflecting on this limitation encourages future gay culture to continue solidifying lifelong, exclusive LGBTQ+ identities and family structures that do not have to compromise with or be subsumed by heteronormative societal expectations.
+    Many of the scholar protagonists eventually marry women or return to conventional household roles, while other characters are renamed, adopted, leave the theatrical world, or remain outside a simple marriage ending. Treating every same-sex devotion as a temporary or purely aesthetic phase would therefore flatten the novel's varied outcomes. The contrast still invites reflection on how future gay culture can build lifelong LGBTQ+ identities and family structures without being subsumed by heteronormative expectations.
 
 By understanding how *Pinhua Baojian* conceptualized male intimacy within the confines of Qing dynasty societal norms, contemporary gay culture can critically construct a more egalitarian, integrated, and unapologetic future.`,
   answerZh: `在当代重新讨论《品花宝鉴》，对于展望未来的男同性恋文化具有重要的历史镜鉴意义，它既反映了人们对精神契合的持久追求，也揭示了其时代的局限性。
@@ -26,7 +26,7 @@ By understanding how *Pinhua Baojian* conceptualized male intimacy within the co
 书中建立在精英学者和边缘伶人之间巨大阶级差异上的关系，提醒我们注意历史上同性互动中的权力不对等现象。对于未来，它强调了建立基于相互尊重、平等和共同能动性的关系的重要性，摆脱交易性和剥削性的权力不平衡。
 
 ### 3. 突破异性恋霸权框架
-最终，小说中的主要人物都回归了传统的异性恋婚姻，将他们的同性深情视为一种暂时的或审美的阶段。反思这一局限性，鼓励未来的男同性恋文化继续构建终身、排他性的身份认同和家庭结构，使其不必向异性恋的社会期望妥协或被其吞没。
+    小说中许多名士主人公最终娶妻或回到传统家庭角色，但也有人改名、被收养、离开梨园，或没有落入单一的婚姻结局。若把所有同性深情都概括为暂时或纯审美阶段，就会抹平小说结局的差异。这样的张力仍可促使当代男同性恋文化思考如何建立终身的身份认同与家庭结构，而不被异性恋社会期待吞没。
 
 通过理解《品花宝鉴》如何在清代社会规范的限制下构建男性亲密关系，当代的同志文化能够以批判的眼光，建设一个更加平等、完整且坚定自信的未来。`,
 };

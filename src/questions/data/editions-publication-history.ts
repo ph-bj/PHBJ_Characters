@@ -12,9 +12,9 @@ export const question: QuestionDefinition = {
 
 Before printing, the first 30 chapters circulated in hand-copied form in Beijing. According to Yang Maojian 杨懋建 — a contemporary whose account Lu Xun, Zhao Jingshen, and Zhang Jun all adopted — the first 30 chapters were finished by about 1837 and the remaining 30 some twelve years later. Zhou Shaoliang dissented, dating composition to ca. 1825–1835. (Sources: Lu Xun, *A Brief History of Chinese Fiction* 《中国小说史略》, chap. 26 "Novels of Prostitution in the Qing"; [Chinese Wikipedia](https://zh.wikipedia.org/zh-cn/%E5%93%81%E8%8A%B1%E5%AE%9D%E9%89%B4))
 
-**2. First printed edition: Huanzhong Liaohuan Zhai woodblock edition, Daoguang jiyou year (1849)**
+**2. Commonly cited earliest surviving print: Huanzhong Liaohuan Zhai woodblock edition, Daoguang jiyou year (1849)**
 
-The earliest printing is the 60-chapter woodblock edition from the Huanzhong Liaohuan Studio 幻中了幻斋 in Beijing, dated Daoguang *jiyou* 道光己酉 (1849; a few reference works give 1848, but the *jiyou* cyclical year corresponds to 1849, i.e. Daoguang 29). Its front matter includes a preface by "Huanzhong Liaohuan Jushi" 幻中了幻居士 and an author's own preface signed "Shihan shi" 石函氏 (Chen Sen's sobriquet). Copies survive in the Capital Library (Beijing), Peking University Library, Henan University Library, and the British Library in London. (Sources: [ctext.org edition note](https://ctext.org/wiki.pl?if=gb&res=395317&remap=gb); [Chinese Wikipedia](https://zh.wikipedia.org/zh-cn/%E5%93%81%E8%8A%B1%E5%AE%9D%E9%89%B4); [Baidu Baike](https://baike.baidu.com/item/%E5%93%81%E8%8A%B1%E5%AE%9D%E9%89%B4/1410202))
+A commonly cited earliest surviving printing is the 60-chapter woodblock edition from the Huanzhong Liaohuan Studio 幻中了幻斋 in Beijing, dated Daoguang *jiyou* 道光己酉 (1849; a few reference works give 1848, but the *jiyou* cyclical year corresponds to 1849, i.e. Daoguang 29). Its front matter includes a preface by "Huanzhong Liaohuan Jushi" 幻中了幻居士 and an author's own preface signed "Shihan shi" 石函氏 (Chen Sen's sobriquet). Copies survive in the Capital Library (Beijing), Peking University Library, Henan University Library, and the British Library in London. (Sources: [ctext.org edition note](https://ctext.org/wiki.pl?if=gb&res=395317&remap=gb); [Chinese Wikipedia](https://zh.wikipedia.org/zh-cn/%E5%93%81%E8%8A%B1%E5%AE%9D%E9%89%B4); [Baidu Baike](https://baike.baidu.com/item/%E5%93%81%E8%8A%B1%E5%AE%9D%E9%89%B4/1410202))
 
 **3. Late-Qing reprints and lithographic editions (1880s–1900s)**
 
@@ -34,16 +34,16 @@ The novel was reprinted many times ("后来的翻刻本颇多"), including woodb
 - Taiwan editions include San Min Shuju 三民书局 (1998) and Taiwan Shufang 台湾书房 (2012).
 - Douban's edition registry lists 18 distinct published editions, also including Renmin Wenxue (1987), Renmin Zhongguo (1993), Zhejiang Guji (1998), and others. ([Douban editions list](https://book.douban.com/works/1006449))
 
-**Note on evidence.** The 1849 Huanzhong Liaohuan Zhai edition as the editio princeps is the point on which all sources agree; details of individual late-Qing reprints vary between reference works, and some online sources garble the studio's name or the Western year. For scholarly treatment of the text's history, see Zhao Jingshen 赵景深, "Pinhua baojian kaozheng" 《品花宝鉴考证》, and Chloe Starr, "Shifting Boundaries: Gender in Pinhua Baojian," *NAN NÜ* 1.2 (1999).`,
+**Note on evidence.** The 1849 Huanzhong Liaohuan Zhai edition is commonly identified as the earliest surviving printed edition, but the bibliography should retain the date and edition caveats rather than claim universal agreement. Details of individual late-Qing reprints vary between reference works, and some online sources garble the studio's name or the Western year. For scholarly treatment of the text's history, see Zhao Jingshen 赵景深, "Pinhua baojian kaozheng" 《品花宝鉴考证》, and Chloe Starr, "Shifting Boundaries: Gender in Pinhua Baojian," *NAN NÜ* 1.2 (1999).`,
   answerZh: `《品花宝鉴》的版本流传近两百年，从抄本、刻本、石印本一直到现代整理本。
 
 **一、抄本流传阶段（约1837–1849）**
 
 刊刻之前，前三十回曾以抄本形式在北京流传。据与陈森同时代的杨懋建所记，前三十回约成于 1837 年，十二年后续成后三十回——鲁迅、赵景深、张俊等均采此说；周绍良则持异议，认为全书写于约 1825–1835 年间。（证据来源：鲁迅《中国小说史略》第二十六篇"清之狭邪小说"；[中文维基百科](https://zh.wikipedia.org/zh-cn/%E5%93%81%E8%8A%B1%E5%AE%9D%E9%89%B4)）
 
-**二、最早刻本：道光己酉（1849）幻中了幻斋刻本**
+**二、通常所称现存最早刻本：道光己酉（1849）幻中了幻斋刻本**
 
-现存最早的印本是北京幻中了幻斋刊刻的六十回本，题"道光己酉"（1849 年，即道光二十九年；个别资料作 1848 年，然己酉年对应公元 1849 年）。卷首有幻中了幻居士序及署"石函氏"（陈森别号）的自序。此本今藏首都图书馆、北京大学图书馆、河南大学图书馆及伦敦大英图书馆。（证据来源：[中国哲学书电子化计划](https://ctext.org/wiki.pl?if=gb&res=395317&remap=gb)；[中文维基百科](https://zh.wikipedia.org/zh-cn/%E5%93%81%E8%8A%B1%E5%AE%9D%E9%89%B4)；[百度百科](https://baike.baidu.com/item/%E5%93%81%E8%8A%B1%E5%AE%9D%E9%89%B4/1410202)）
+通常被引用为现存最早印本的是北京幻中了幻斋刊刻的六十回本，题"道光己酉"（1849 年，即道光二十九年；个别资料作 1848 年，然己酉年对应公元 1849 年）。卷首有幻中了幻居士序及署"石函氏"（陈森别号）的自序。此本今藏首都图书馆、北京大学图书馆、河南大学图书馆及伦敦大英图书馆。（证据来源：[中国哲学书电子化计划](https://ctext.org/wiki.pl?if=gb&res=395317&remap=gb)；[中文维基百科](https://zh.wikipedia.org/zh-cn/%E5%93%81%E8%8A%B1%E5%AE%9D%E9%89%B4)；[百度百科](https://baike.baidu.com/item/%E5%93%81%E8%8A%B1%E5%AE%9D%E9%89%B4/1410202)）
 
 **三、清末翻刻本与石印本（1880s–1900s）**
 
@@ -63,5 +63,5 @@ The novel was reprinted many times ("后来的翻刻本颇多"), including woodb
 - 台湾另有三民书局（1998）、台湾书房（2012）等版本。
 - 豆瓣"全部版本"页共著录 18 种版本，还包括人民文学出版社（1987）、人民中国出版社（1993）、浙江古籍出版社（1998）等。（[豆瓣版本列表](https://book.douban.com/works/1006449)）
 
-**关于证据的说明**：各家资料对"道光己酉（1849）幻中了幻斋刻本为最早刊本"这一点记载一致；清末各翻刻本的细节则各工具书互有出入，部分网络资料还讹写斋名或公元年份，宜以原书书影及馆藏著录为准。学术性考证可参看赵景深《品花宝鉴考证》，以及 Chloe Starr, "Shifting Boundaries: Gender in Pinhua Baojian," *NAN NÜ* 1.2 (1999)。`,
+**关于证据的说明**：许多资料把"道光己酉（1849）幻中了幻斋刻本"视为现存最早刊本，但版本目录仍应保留日期与版本判断的限定；清末各翻刻本的细节则各工具书互有出入，部分网络资料还讹写斋名或公元年份，宜以原书书影及馆藏著录为准。学术性考证可参看赵景深《品花宝鉴考证》，以及 Chloe Starr, "Shifting Boundaries: Gender in Pinhua Baojian," *NAN NÜ* 1.2 (1999)。`,
 };

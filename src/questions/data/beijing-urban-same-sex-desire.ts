@@ -7,7 +7,7 @@ export const question: QuestionDefinition = {
     "Was male same-sex desire prevalent in the urban society of Qing dynasty Beijing? What are the specific spaces, relationship forms, vocabulary, or cultural symbols?",
   questionZh:
     "清朝北京市井的男性同性情欲是盛行的吗？有哪些具体的空间、关系形式、词汇、或文化符号？",
-  answerEn: `Yes, male same-sex desire was highly prevalent and culturally visible in Qing dynasty Beijing, primarily centered around the theater culture. The stringent Qing laws against officials visiting female prostitutes and the banning of women from public theaters inadvertently fueled a booming culture of male same-sex companionship and patronage.
+  answerEn: `Male same-sex desire and male theatrical patronage were culturally visible in Qing dynasty Beijing, especially around theater culture. Regulations affecting officials' visits to prostitutes and women's access to public performance spaces shaped the social environment, but the surviving evidence does not justify a precise prevalence estimate or a simple claim that these rules directly caused a “booming” same-sex culture.
 
 ### Specific Spaces
 *   **Theaters (Xiyuan / 戏园):** The primary public venues where male actors (*dan*, who played female roles) performed.
@@ -21,7 +21,7 @@ export const question: QuestionDefinition = {
 *   **Dan (旦):** The female theatrical role, typically played by young, attractive men whose feminine beauty was highly celebrated.
 *   **Nanfeng (男风):** The "male wind," a historical term referring to male same-sex relations.
 *   **The "Flower" (Hua / 花) Metaphor:** In the theater world, actors were frequently compared to flowers. Selecting and evaluating actors was known as "appreciating flowers" (*pinhua* / 品花) or "judging flowers" (*pinghua* / 评花), treating male beauty with the same aesthetic reverence traditionally reserved for women or nature.`,
-  answerZh: `是的，在清朝的北京，男性同性情欲非常盛行，且在文化上具有很高的可见度，这主要以梨园（戏剧）文化为中心。清政府严格禁止官员狎妓，加上禁止女性进入公共剧场，在无意中助长了男性同性陪伴和赞助文化的繁荣。
+  answerZh: `在清代北京，男性同性情欲与男性戏曲赞助具有文化可见度，尤其集中在梨园环境周边。有关官员狎妓和女性进入公共演出空间的制度，确实塑造了社会环境；但现存证据不足以给出准确的盛行率，也不足以简单断言这些制度直接造成了“男性同性文化的繁荣”。
 
 ### 具体的空间
 *   **戏园：** 男演员（扮演女性角色的“旦角”）表演的主要公共场所。

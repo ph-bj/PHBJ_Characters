@@ -19,7 +19,7 @@ Here is a detailed comparison across the requested dimensions:
 
 ### 3. Historical Era
 - **Yichun Xiangzhi**: Written in the late Ming Dynasty (early 17th century). It reflects the late Ming cult of *qing* (emotion/passion) and a highly permissive, often explicit approach to sexuality in popular literature.
-- **Pinhua Baojian**: Written in the mid-Qing Dynasty (1830s-1840s, Daoguang era). It is deeply rooted in the historical context of the Beijing opera culture and elite patron-actor relationships of that era, strictly adhering to more conservative moral codes.
+- **Pinhua Baojian**: Its narrator leaves the dynasty and year unnamed; a mid-Qing/Daoguang-era setting is inferred from the Beijing theatrical world and other contextual clues. It is deeply rooted in the historical context of theatrical patronage, while its moral framework is more restrictive than the one presented in this comparison's late-Ming counterpart.
 
 ### 4. Character Origins (Jiguan)
 - **Yichun Xiangzhi**: Characters are mostly from the Jiangnan region. For example, the first story explicitly begins in Suzhou: "There was a youth in Huqiu, Suzhou..."
@@ -70,7 +70,7 @@ While using similar tropes of jade-like skin and cinnabar lips, *Pinhua Baojian*
 
 ### 3. 时代背景
 - **《宜春香质》**：成书于明代晚期（17世纪初）。它反映了晚明时期文学中对“情”与“欲”的极度放纵，以及对同性性行为极其露骨的描写。
-- **《品花宝鉴》**：写于清代中叶（道光年间，1830年代至1840年代）。它深深扎根于当时北京戏曲文化和士大夫阶层与男旦结交的历史语境中，并严格遵循相对保守的儒家道德规范。
+- **《品花宝鉴》**：叙述者没有交代朝代和年份；清代中叶或道光年间的判断，是根据北京戏曲世界及其他语境线索作出的推断。它深深扎根于戏曲赞助的历史语境，同时比本比较中的晚明作品呈现出更强的道德约束框架。
 
 ### 4. 人物籍贯
 - **《宜春香质》**：人物多来自江南地区。例如，小说的开篇就明确设定在苏州：“话说苏州虎丘有一少年……”

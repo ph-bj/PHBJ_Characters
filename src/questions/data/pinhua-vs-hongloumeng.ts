@@ -5,7 +5,7 @@ export const question: QuestionDefinition = {
   categoryEn: "Editions, History & Comparisons",
   questionEn: "How does 'Pinhua Baojian' compare to 'Dream of the Red Chamber' in terms of word count, similar passages, character count, historical era, character origins, story time span, plot, character fates, and character personalities, with specific excerpts?",
   questionZh: "《品花宝鉴》和《红楼梦》比较",
-  answerEn: `"Pinhua Baojian" (A Precious Mirror for Judging Flowers) is often considered a spiritual successor or counterpart to "Dream of the Red Chamber" (Honglou Meng). The author of Pinhua Baojian, Chen Sen, explicitly admired Honglou Meng, and this influence is visible throughout the novel. Here is a detailed comparison across multiple dimensions:
+  answerEn: `"Pinhua Baojian" (A Precious Mirror for Judging Flowers) is often compared with "Dream of the Red Chamber" (Honglou Meng). The surviving prefaces and title poems make the comparison explicit, but they do not establish that Chen Sen himself made a direct statement of admiration, nor do they prove influence in every part of the novel. Here is a detailed comparison across multiple dimensions:
 
 ### 1. Word Count and Scale
 - **Honglou Meng**: The standard 120-chapter version is approximately 800,000 to 1,000,000 Chinese characters.
@@ -17,7 +17,7 @@ export const question: QuestionDefinition = {
 
 ### 3. Historical Era
 - **Honglou Meng**: Set in an unspecified era (though widely understood to reflect the mid-Qing Dynasty, specifically the reigns of Kangxi and Qianlong, early to mid-18th century).
-- **Pinhua Baojian**: Set clearly in the mid-Qing Dynasty (specifically reflecting the Daoguang era, early to mid-19th century, roughly 1830s-1840s), capturing the vibrant commercial and theatrical culture of Beijing at the time.
+- **Pinhua Baojian**: Its narrator refuses to identify a dynasty, year, place, or author. The Beijing setting and early-nineteenth-century theatrical world are historical inferences from the text and its context, not an explicit Daoguang-era date.
 
 ### 4. Character Origins (Jiguan)
 - **Honglou Meng**: The main characters are mostly from the south (Jinling/Nanjing) but reside in the capital (Beijing). This dual geographical identity is central to the novel's atmosphere.
@@ -54,7 +54,7 @@ Both novels use illness and tears to signify deep, spiritual sensitivity and vul
 > *(It turned out this young actor was exceedingly frail... His eyebrows held the crescent moon, the dark sorrow still present; his eyes condensed the autumn waters, brimming with tears before he even cried. He possessed a state of quiet grace and chaste stillness; not only did seeing him make one's soul melt, but even he himself seemed unable to bear his own hidden sorrow.)*
 
 In conclusion, *Pinhua Baojian* adopts the aesthetic language, character archetypes, and thematic obsession with "Qing" (emotion/love) from *Honglou Meng*, but translates them from the domestic female sphere into the male theatrical world of 19th-century Beijing.`,
-  answerZh: `《品花宝鉴》常被视为《红楼梦》的精神续作或对应物。其作者陈森明确表示了对《红楼梦》的推崇，这种影响贯穿了整部小说。以下是几个维度的详细对比：
+  answerZh: `《品花宝鉴》常被拿来与《红楼梦》比较。现存序文和题词明确制造了这种比较，但不能据此断言陈森本人曾直接表达推崇，也不能证明这种影响贯穿小说每一处。以下是几个维度的详细对比：
 
 ### 1. 字数与规模
 - **《红楼梦》**：标准的120回版本大约在80万到100万字之间。
@@ -66,7 +66,7 @@ In conclusion, *Pinhua Baojian* adopts the aesthetic language, character archety
 
 ### 3. 历史时代
 - **《红楼梦》**：背景设定在一个未明确的时代（尽管被广泛认为反映了清朝中期，特别是康雍乾时期，即18世纪中前期）。
-- **《品花宝鉴》**：清晰地设定在清代中期（具体反映了道光年间，即19世纪中前期，大约1830-1840年代），生动描绘了当时北京繁华的商业和戏曲文化。
+- **《品花宝鉴》**：叙述者明确拒绝交代朝代、年份、地点和作者。其北京背景及十九世纪前期的戏曲世界，是根据文本与历史语境作出的推断，并非小说明说的道光年号。
 
 ### 4. 人物籍贯
 - **《红楼梦》**：主要人物多来自南方（金陵/南京），但居住在京城。这种双重的地理身份是小说氛围的核心。

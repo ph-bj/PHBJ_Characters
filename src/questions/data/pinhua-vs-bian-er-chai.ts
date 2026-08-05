@@ -18,8 +18,8 @@ Here is a detailed comparison across the requested dimensions:
 - **Pinhua Baojian**: Features a massive ensemble cast of over 150 characters, mapping out complex social networks among scholars, officials, merchants, actors, and servants.
 
 ### 3. Historical Era
-- **Bian er chai**: Written in the late Ming Dynasty (early 17th century) under the pseudonym "Zuixin Daoren" (The Drunk-Minded Daoist). It reflects the late Ming cult of *qing* (emotion/passion) and the relatively open literary exploration of male homosexuality.
-- **Pinhua Baojian**: Written in the mid-Qing Dynasty (1830s-1840s, Daoguang era) by Chen Sen. It is deeply rooted in the specific historical context of the Beijing opera culture (the *huabu* and *yabu* theatrical scene) and the system of elite patron-actor relationships (the *xianggong* system) of that era.
+- **Bian er chai**: Written in the late Ming Dynasty (early 17th century) under the pseudonym **Zuixi Hu Xinyue Zhuren** (醉西湖心月主人). It reflects the late Ming literary preoccupation with *qing* (emotion/passion) and explores male same-sex relationships without implying a modern identity category.
+- **Pinhua Baojian**: Its narrator leaves the dynasty and year unnamed; the mid-Qing/Daoguang-era setting is a historical inference from the Beijing theatrical world and other contextual clues, not an explicit date in the novel. It is deeply rooted in the patron-actor culture associated with that setting.
 
 ### 4. Character Origins (Jiguan)
 - **Bian er chai**: Characters are mostly from the Jiangnan region or other southern provinces, often reflecting the literati culture of the South during the Ming dynasty. For example, Zhao Wangsun is described as being from Jiangdu County, Yangzhou Prefecture ("話說楊州府江都縣，有一書生姓趙名王孫...").
@@ -69,8 +69,8 @@ This description from *Pinhua Baojian*, while using similar traditional idioms (
 - **《品花宝鉴》**：拥有超过150个人物的庞大群像，构建了文人、官员、商人、优伶、仆役之间复杂的社会关系网。
 
 ### 3. 时代背景
-- **《弁而钗》**：成书于明代晚期（17世纪初），作者署名“醉西湖心月主人”（醉心道人）。它反映了晚明时期文学中对“情”的崇拜，以及对男性同性恋题材较为开放的文学探索。
-- **《品花宝鉴》**：写于清代中叶（1830年代至1840年代，道光年间），作者是陈森。它深深扎根于当时北京独特的戏曲文化（花雅之争）和士大夫阶层与相公（男旦）结交的特定历史语境中。
+- **《弁而钗》**：成书于明代晚期（17世纪初），作者署名“醉西湖心月主人”。它反映了晚明时期文学对“情”的重视，并以传统的社会关系和情感范畴探索男性之间的亲密关系。
+- **《品花宝鉴》**：叙述者没有交代朝代和年份；清代中叶或道光年间的判断，是根据北京戏曲世界及其他语境线索作出的推断，并非小说明说的日期。它深深扎根于这一历史背景下的士大夫与伶人交往文化。
 
 ### 4. 人物籍贯
 - **《弁而钗》**：人物多来自江南地区或南方省份，反映了明代南方的文人文化。例如，《情贞纪》中明确交代赵王孙是扬州府江都县人：“話說楊州府江都縣，有一書生姓趙名王孫...”。

@@ -7,7 +7,7 @@ export const question: QuestionDefinition = {
     "Based on the culture of Qing dynasty Beijing, why did the author write a book advocating for a love of beauty between men that is 'not lewd' (haose er bu yin)? Answer using 5 specific excerpts from the novel.",
   questionZh:
     "基于清朝北京的文化，为什么作者会写一本要男性之间好色而不淫的书？结合全书具体的5个片段回答。",
-  answerEn: `During the mid-Qing dynasty in Beijing, the theater culture—specifically the patronage of young male *dan* actors (who played female roles) by the literati and officials—was extremely prominent. Because women were often excluded from the public theater scene and officials were technically barred from visiting female prostitutes, socializing with these male actors in private banquets (as "xianggong") became a ubiquitous cultural phenomenon. While this practice frequently involved sexual transactions and exploitation, the author of *Pinhua Baojian* sought to elevate and idealize these relationships. By invoking the classical Confucian aesthetic of *“haose er bu yin”* ("loving beauty without being lewd", originally from the *Classic of Poetry*), the author advocates for a platonic, spiritually refined affection (*qing*) based on mutual respect, literary talent, and soulmate-like understanding, rather than vulgar lust (*yin*).
+  answerEn: `During the mid-Qing dynasty in Beijing, theater culture—especially the patronage of young male *dan* actors by literati and officials—was highly visible. Because women were often excluded from public theatrical spaces and officials were subject to restrictions on visiting prostitutes, private banquets with male performers became an important social setting. The novel presents both exploitative and idealized forms of these relationships. Its phrase *“haose er bu yin”* ("loving beauty without being lewd") comes through the *Shiji*'s discussion of the *Guofeng* tradition, rather than being a direct quotation from the *Classic of Poetry*. In *Pinhua Baojian*, the phrase names an ideal of refined feeling (*qing*) based on conduct, literary talent, and mutual regard rather than vulgar lust (*yin*).
 
 Here are 5 specific excerpts from the novel that illustrate this philosophy:
 
@@ -30,7 +30,7 @@ In Chapter 24, Yan Zhongqing explains the philosophical distinction between lust
 ### 5. Wealth Without Vulgarity (Chapter 26)
 Even characters known for their extreme wealth and luxurious lifestyles, like Hua Gongzi, are redeemed by their adherence to this principle, showing that refinement is a matter of character, not just circumstance.
 > "Even though Master Hua loved luxury, he was not lewd." (就是华公子心爱奢华，却不淫荡。)`,
-  answerZh: `在清代中叶的北京，戏剧文化——特别是文人官僚对扮演女性角色的年轻男旦的赞助——非常盛行。由于女性通常被排除在公共剧场之外，且官员在名义上被禁止狎妓，因此在私家宴席上与这些男演员（即“相公”）交际成为一种普遍的文化现象。虽然这种做法经常涉及性交易和剥削，但《品花宝鉴》的作者试图提升和理想化这些关系。通过引用儒家《诗经》中“好色而不淫”的古典美学，作者提倡一种基于相互尊重、文学才华和知己般理解的柏拉图式的、精神上高尚的情感（“情”），而不是粗俗的肉欲（“淫”）。
+  answerZh: `在清代中叶的北京，戏剧文化——特别是文人官僚对扮演女性角色的年轻男旦的赞助——具有很高的可见度。由于女性通常被排除在公共剧场之外，且官员受到狎妓方面的制度约束，私家宴席便成为与男演员交往的重要空间。小说同时呈现了这些关系中的剥削性与理想化面向。“好色而不淫”这一说法经由《史记》论《国风》的文字流传下来，并不是《诗经》中的直接原句；在《品花宝鉴》中，它指向一种以守礼、才艺和相互体察为基础的“情”，而非粗俗的肉欲（“淫”）。
 
 以下是小说中体现这一哲学的5个具体片段：
 

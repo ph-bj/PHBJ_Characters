@@ -19,7 +19,7 @@ Here is a detailed comparison across the requested dimensions:
 
 ### 3. Historical Era
 - **Longyang Yishi**: Written and published in the late Ming Dynasty (around Chongzhen 5, 1632) by "Zuizhu Jushi" (The Drunken Bamboo Householder). It reflects the late Ming commercialization of sex and the prevalent urban male prostitution culture.
-- **Pinhua Baojian**: Written in the mid-Qing Dynasty (1830s-1840s, Daoguang era) by Chen Sen. It is deeply rooted in the Beijing opera culture (the *huabu* and *yabu* theatrical scene) and the elite patron-actor relationships (the *xianggong* system) of that era.
+- **Pinhua Baojian**: Its narrator leaves the dynasty and year unnamed; the mid-Qing/Daoguang-era setting is inferred from the Beijing theatrical world and other contextual clues. It is deeply rooted in Beijing theater culture and elite patron-actor relationships associated with that setting.
 
 ### 4. Character Origins (Jiguan)
 - **Longyang Yishi**: Characters are typically situated in the affluent urban centers of the Jiangnan region (the south), reflecting the decadent urban life of the late Ming dynasty.
@@ -70,7 +70,7 @@ This excerpt from *Pinhua Baojian* emphasizes innate, aristocratic refinement ("
 
 ### 3. 时代背景
 - **《龙阳逸史》**：成书并刊行于明代晚期（约崇祯五年，1632年），作者署名“醉竹居士”。它反映了晚明时期城市商业的发达以及男色交易（男妓文化）的泛滥。
-- **《品花宝鉴》**：写于清代中叶（1830年代至1840年代，道光年间），作者是陈森。它深深扎根于当时北京独特的戏曲文化（花雅之争）和士大夫阶层与相公（男旦）结交的特定历史语境中。
+- **《品花宝鉴》**：叙述者没有交代朝代和年份；清代中叶或道光年间的判断，是根据北京戏曲世界及其他语境线索作出的推断。它深深扎根于这一历史背景下的北京戏曲文化和士大夫与伶人的交往。
 
 ### 4. 人物籍贯
 - **《龙阳逸史》**：故事和人物大多设定在江南地区繁华的城市，反映了晚明南方城市的市井生活与奢靡风气。
