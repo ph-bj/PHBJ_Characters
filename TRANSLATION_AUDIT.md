@@ -61,8 +61,10 @@ Chinese source in `src/chapterTranslations/chinese/chapterChinese{1..60}.ts`.
 
 - Rechecked all 2,023 Chinese/English paragraph pairs across chapters 1–60; paragraph
   alignment remains exact.
-- Rechecked all 704 Chinese work citations: every cited work has a canonical English
-  title in the paired paragraph and remains highlightable by the production renderer.
+- Rechecked all 704 Chinese work citations: every cited work has its canonical English
+  title inline in the prose and remains highlightable by the production renderer. The
+  legacy `[Chinese-source works: ...]` fallback arrays have been removed, and the audit
+  now ignores any such fallback if one is introduced accidentally in the future.
 - Rechecked the production name-chip map: all 207 roster entries now have at least one
   Chinese token and one English token. English fallback aliases are now included in
   the renderer, with contextual disambiguation for the two characters romanized as

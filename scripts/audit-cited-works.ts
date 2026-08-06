@@ -78,9 +78,12 @@ for (const id of chapterIds) {
       expected.set(title, item);
     }
 
+    // Only the translated prose is authoritative.  Do not count the legacy
+    // fallback annotation if one remains in an older chapter module.
+    const inlineEnglish = en[i].split("[Chinese-source works:")[0];
     const diffs: string[] = [];
     for (const [title, { keys, count }] of expected) {
-      const found = countEnglishTitle(en[i], title);
+      const found = countEnglishTitle(inlineEnglish, title);
       enTotal += found;
       if (found < count) {
         diffs.push(`${keys.join(" / ")} [${title}] zh:${count} en:${found}`);
