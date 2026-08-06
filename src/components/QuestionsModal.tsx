@@ -37,51 +37,52 @@ export function QuestionsModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.98 }}
         onClick={(e) => e.stopPropagation()}
-          className="relative z-10 w-full max-w-4xl max-h-[calc(100dvh-1rem)] sm:max-h-[90dvh] overflow-hidden parchment rounded-sm border-4 border-double border-[var(--paper-border)] shadow-2xl flex flex-col"
+        className="relative z-10 w-full max-w-4xl max-h-[calc(100dvh-0.75rem)] sm:max-h-[90dvh] overflow-hidden parchment rounded-sm border-2 sm:border-4 border-double border-[var(--paper-border)] shadow-2xl flex flex-col"
       >
-        <div className="p-4 sm:p-5 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] flex items-center justify-between">
-          <div>
-            <div className="flex items-center gap-2 mb-1 flex-wrap">
+        <div className="px-3.5 py-2.5 sm:px-5 sm:py-3.5 border-b border-[var(--paper-border)] bg-[var(--paper-bg)] flex flex-col gap-1.5 sm:gap-2">
+          <div className="flex items-center justify-between gap-2 w-full">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="text-xs uppercase tracking-widest font-bold text-[var(--ink-dim-text)]">
                 {lang === "zh" ? "问题" : "Question"}
               </span>
-              <span className="text-xs px-2 py-0.5 rounded-sm bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 font-bold font-sans">
+              <span className="text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-sm bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 font-bold font-sans">
                 {lang === "zh" ? question.categoryZh : question.categoryEn}
               </span>
             </div>
-            <h3 className="text-lg font-bold text-[var(--ink-title)]">
-              {lang === "zh" ? question.questionZh : question.questionEn}
-            </h3>
+            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+              <LanguageSwitch lang={lang} setLang={setLang} />
+              <PermalinkButton
+                lang={lang}
+                link={{ kind: "question", slug: questionSlug }}
+              />
+              <button
+                onClick={onClose}
+                className="tap-44 p-1.5 sm:p-2 rounded-full hover:bg-black/5 transition-colors text-[var(--ink-title)]"
+                aria-label="Close questions modal"
+              >
+                <X size={18} className="sm:w-5 sm:h-5" />
+              </button>
+            </div>
           </div>
-          <div className="flex items-center gap-1.5 shrink-0">
-            <LanguageSwitch lang={lang} setLang={setLang} />
-            <PermalinkButton
-              lang={lang}
-              link={{ kind: "question", slug: questionSlug }}
-            />
-            <button
-              onClick={onClose}
-              className="tap-44 p-2 rounded-full hover:bg-black/5 transition-colors text-[var(--ink-title)]"
-              aria-label="Close questions modal"
-            >
-              <X size={20} />
-            </button>
-          </div>
+
+          <h3 className="text-sm sm:text-base md:text-lg font-bold text-[var(--ink-title)] leading-snug sm:leading-normal w-full">
+            {lang === "zh" ? question.questionZh : question.questionEn}
+          </h3>
         </div>
 
         <div
           data-overlay-scroll="true"
-          className="p-5 sm:p-6 overflow-y-auto space-y-4"
+          className="p-3 sm:p-6 overflow-y-auto space-y-4"
         >
           <section
             aria-labelledby="question-answer-heading"
-            className="relative border border-[var(--paper-border)] rounded-sm p-5 sm:p-7 bg-[var(--paper-bg)]/65 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)]"
+            className="relative border border-[var(--paper-border)] rounded-sm p-3.5 sm:p-7 bg-[var(--paper-bg)]/65 shadow-[inset_0_1px_0_rgba(255,255,255,0.55)]"
           >
-            <div className="mb-5 flex items-center gap-3" aria-hidden="true">
+            <div className="mb-3 sm:mb-5 flex items-center gap-3" aria-hidden="true">
               <span className="h-px flex-1 bg-[var(--paper-border)]/70" />
               <h4
                 id="question-answer-heading"
-                className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--ink-dim-text)]"
+                className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[var(--ink-dim-text)]"
               >
                 {lang === "zh" ? "经核校的回答" : "Reviewed answer"}
               </h4>
