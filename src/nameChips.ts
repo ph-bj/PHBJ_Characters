@@ -38,6 +38,9 @@ export const CONTEXT_SENSITIVE_TOKENS = new Set([
   "老三",
   "鼎",
   "其母",
+  // 红梅 is a maid of the Xu household (ch.52) but also the plum blossom that
+  // Xiao Cixian paints (ch.21) and the tree in the temple yard (ch.36).
+  "红梅",
 ]);
 
 // Chinese tokens that must never chip on their own: they collide with numbers,
@@ -55,6 +58,18 @@ export const NON_CHIP_ZH_TOKENS = new Set([
   "皂隶",
   "屈才",
   "屈老",
+  // Short forms that collide with ordinary words: 许老大's 老大 (also "eldest
+  // brother" and 老大的一跳), 王胡子's 胡子 ("beard", 51 occurrences), and
+  // 杜仙女's 仙女 ("fairy", used of painted and dreamt figures throughout).
+  "老大",
+  "胡子",
+  "仙女",
+  // 华老公爷 shortens to 华公/老公, which swallow 华公子 (399), 华公府 (34) and
+  // 一个老公 "a eunuch". The 华公爷/老公爷 forms still chip.
+  "华公",
+  "老公",
+  // 王卿云's given name collides with the set phrase 景星卿云 (ch.10).
+  "卿云",
   // A rank, not a person: 梅侍郎, 刘侍郎 and the fathers of 富三/王恂/颜仲清 are
   // all called 侍郎. The surname-prefixed forms (刘侍郎, 梅侍郎) still chip.
   "侍郎",
@@ -65,7 +80,17 @@ export const NON_CHIP_ZH_TOKENS = new Set([
 // mentioned in the text (the Tang poet Du Mu vs 杜母 "Du's mother") or are
 // ambiguous between characters ("Laosan" alone may be Pan San or Xu Laosan,
 // mirroring the blocked Chinese 老三).
-export const NON_CHIP_EN_TOKENS = new Set(["Du Mu", "Laosan", "Zhengchang", "Zhanggui", "Shupu"]);
+// "Jinling" is overwhelmingly the city 金陵 (Nanjing), not the Hua page 金龄;
+// "Laoda" alone may be 许老大 or 孙老大, mirroring the blocked "Laosan".
+export const NON_CHIP_EN_TOKENS = new Set([
+  "Du Mu",
+  "Laosan",
+  "Laoda",
+  "Jinling",
+  "Zhengchang",
+  "Zhanggui",
+  "Shupu",
+]);
 
 // Bare English surnames the translation uses as a character's running name
 // ("Pan said…", "Xi smiled…"). They are safe only outside the listed contexts,
@@ -198,6 +223,34 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   屈琴仙: ["Qu Qinxian", "Qu Qin Xian"],
   屈勤先: ["Qu Qinxian", "Qu Qin Xian"],
   杜仙女: ["Du Xiannv", "Fairy Du"],
+  王髯: ["Bearded Wang", "Wang Ran", "Wang the Bearded"],
+  王胡子: ["Old Wang Beard", "Bearded Wang", "Wang Huzi", "Wang the Bearded"],
+  华公爷: ["Duke Hua"],
+  老公爷: ["Duke Hua", "the old Duke"],
+  华老公爷: ["Duke Hua", "the old Duke Hua"],
+  老阎: ["Old Yan", "old Yan"],
+  阎简安: ["Yan Jian'an", "Yan Jian’an", "Yan Jianan"],
+  顾月卿: ["Gu Yueqing", "Gu Yue Qing"],
+  王卿云: ["Wang Qingyun", "Wang Qing Yun"],
+  玉龄: ["Yuling", "Yu Ling"],
+  金龄: ["Jinling", "Jin Ling"],
+  兰龄: ["Lanling", "Lan Ling"],
+  桂龄: ["Guiling", "Gui Ling"],
+  凤林: ["Fenglin", "Feng Lin"],
+  春林: ["Chunlin", "Chun Lin"],
+  翠官: ["Cuiguan", "Cui Guan"],
+  红霙: ["Hongying", "Hong Ying"],
+  胡八: ["Hu Ba", "Hu the Eighth"],
+  张桐孙: ["Zhang Tongsun", "Zhang Tong Sun"],
+  笠山: ["Lishan", "Li Shan"],
+  杠花: ["Gang Hua", "Ganghua"],
+  玉艳: ["Yuyan", "Yu Yan"],
+  香儿: ["Xianger", "Xiang'er", "Xiang’er"],
+  保环: ["Baohuan", "Bao Huan"],
+  王吉庆: ["Wang Jiqing", "Wang Ji Qing"],
+  李春芳: ["Li Chunfang", "Li Chun Fang"],
+  李三叔: ["Third Uncle Li", "Li Sanshu"],
+  质夫: ["Zhifu", "Zhi Fu"],
   李大夫: ["Doctor Li"],
   王大夫: ["Doctor Wang"],
   老年掌柜: ["elderly shopkeeper", "Elderly shopkeeper"],
