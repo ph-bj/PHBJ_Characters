@@ -62,44 +62,44 @@ char-27	李玉林 Lǐ Yùlín	佩仙	15	Yangzhou	performer	ch.1	#5; musician; fa
 char-28	王兰保 Wáng Lánbǎo	静芳	17	Yangzhou	performer	ch.1	#6; martial arts; refuses powerful patrons; elder brother of Guibao; Lianjin troupe	花榜第六；擅长武术；拒绝权贵；桂保之兄；联锦班。
 char-29	王桂保 Wáng Guìbǎo	蕊香	15	Yangzhou	performer	ch.1	A charming and witty performer, younger brother of Lanbao. A steady presence in social and literary scenes throughout the novel.	兰保之弟，排行花榜第七，为人机智讨喜。是文人雅集中的常客，贯穿全书始终。
 char-30	林春喜 Lín Chūnxǐ	小梅	14	Suzhou	performer	ch.1	#8; entered troupe at 12; plays male and female roles; rewrites opera scripts (ch.50)	花榜第八；12岁入班；兼演男女角；第50回改写剧本。
-char-31	秦琪官 Qín Qíguān	琪官	14	—	performer	ch.2	Companion to Qinyan on the canal journey; vivid beauty; joins Lianjin troupe	琴言进京途中的同伴；容貌出众；加入联锦班。
+char-31	秦琪官 Qín Qíguān	琪官 / 玉艳	14	—	performer	ch.2	Companion to Qinyan on the canal journey; vivid beauty; joins Lianjin troupe	琴言进京途中的同伴；容貌出众；加入联锦班。
 char-32	蓉官 Róngguān	Rong Guan	~15	—	performer	ch.3	Friend of Fu Lun; witty; comic scenes chs.2–3; knows about Xi Shiyi	富伦之友；机智；第2-3回有喜剧场面；了解奚十一。
 char-33	春兰 Chūnlán	—	~15	—	performer	ch.3	"Associated with Xi Shiyi; smashes crockery in the restaurant scene, ch.3"	与奚十一有关；第3回在酒楼摔碎瓷器。
 char-34	小福 Xiǎofú	—	~15	—	performer	ch.3	Quanfu troupe; rumoured Fu Lun spent 3000 cash on his graduation ceremony	全福班；传闻富伦为其出师礼花费三千钱。
 char-35	玉美 Yùměi	—	—	—	performer	ch.4	"Jianchun troupe; seen with Tian Chunhang at the tavern scene, ch.4"	建春班；第4回出现在酒楼场面。
 char-36	四喜 Sìxǐ	Sixi	—	—	performer	ch.4	Jianchun troupe; seen in ch.4 tavern scene	建春班；第4回出现在酒楼场面。
 char-38	保珠 Bǎozhū	—	~15	—	performer	ch.1	"Dark-complexioned performer living next to Guibao; his name mirrors Yuan Baozhu, confusing Ziyu (chs.1, 6); later attaches to Wei Pincai's circle (chs.8–9, 21)"	住在桂保间壁的黑相公；名字与袁宝珠相似，令子玉误会（第1、6回）；后混迹魏聘才一伙（第8–9、21回）。
-char-39	珊枝 Shānzhī	—	—	—	performer	ch.36	Scandalous; rebuked by the whole group in ch.36; morally condemned	名声不佳；第36回遭众人斥责；受道德谴责。
+char-39	珊枝 Shānzhī	—	—	—	performer	ch.5	Short form of Lin Shanzhi's name (the ch.1 occurrence is the couplet epithet 碧海珊枝 heading Lu Sulan's Flower Register entry, not a person); merged into Lin Shanzhi	即林珊枝的省称（第1回“碧海珊枝陆素兰”是陆素兰花选题辞，并非人名）；已并入林珊枝。
 char-40	袁绮香 Yuán Qǐxiāng	—	25	—	female	ch.5	Xu Ziyun's wife, née Yuan; daughter of the Yunnan governor; graceful and virtuous; leads the ladies' drinking games in ch.57	徐子云之妻，袁氏绮香；云南巡抚之女；婉娴贤淑；第57回主持闺阁酒令。
 char-42	林珊枝 Lín Shānzhī	—	—	—	performer	ch.5	"Bought by Hua Guangsu for 8,000 taels; lives in Hua mansion as personal companion"	被华光宿以八千两买下；住在华府作为私人伴侣。
 char-43	谭八 Tán Bā	—	—	—	performer	ch.2	Comic lead (京丑) of Lianjin troupe; his mannerisms imitated by Sun Lianggong at the banquet	联锦班丑角；宴会上被孙亮功模仿。
 char-44	小顺儿 Xiǎo Shùn'ér	—	—	—	performer	ch.5	十不闲 drum performer; brought by Fu Lun; rejected by Hua Guangsu with contempt	“十不闲”鼓手；富伦带来；遭华光宿蔑视拒绝。
 char-45	二喜 Èr Xǐ	Erxi	—	—	performer	ch.8	Male performer (dan) of the Lianjin troupe; attaches himself to Li Yuanmao at the theatre; recurs in Wei Pincai's circle (chs.8–21)	联锦班旦角；在剧场缠住李元茂；常随魏聘才一伙出入（第8–21回）。
 char-47	梅士燮 Méi Shìxiè	铁庵 / 梅侍郎	46	Jinling	official	ch.1	Hanlin reader; Ziyu's father; stern Confucian; promoted to vice-minister later; appointed provincial examiner (ch.15)	翰林侍读；子玉之父；严厉的儒者；后升任侍郎；第15回任主考官。
-char-48	王文辉 Wáng Wénhuī	—	~55	Jinling	official	ch.1	3rd-rank Tongzheng official; Wang Xun's father; father-in-law of Yan Zhongqing; same hometown as Mei Shixie	三品通政使；王恂之父；颜仲清之岳父；与梅士燮同乡。
+char-48	王文辉 Wáng Wénhuī	质夫 / Zhifu	~55	Jinling	official	ch.1	3rd-rank Tongzheng official; Wang Xun's father; father-in-law of Yan Zhongqing; same hometown as Mei Shixie	三品通政使；王恂之父；颜仲清之岳父；与梅士燮同乡。
 char-49	孙亮功 Sūn Liànggōng	—	~50	Jinling	official	ch.2	An official in the Ministry of Works whose household is a source of domestic drama. Known for his colorful and comic personality at banquets.	工部官员，孙氏兄弟之父。其家宅内斗频发，常在宴席上闹出笑话。
 char-50	杨方猷 Yáng Fāngyóu	—	—	—	official	ch.2	Ministry of War deputy director; guest at Wang Wenhui's banquet	兵部员外郎；王文辉宴会宾客。
 char-51	周锡爵 Zhōu Xíjué	—	—	—	official	ch.2	Guanglu Temple junior director; guest at Wang Wenhui's banquet	光禄寺少卿；王文辉宴会宾客。
-char-52	陆宗沅 Lù Zōngyuán	—	—	—	official	ch.2	Censor; gets wine sprayed in his face by Sun Lianggong; cousin of the two Madam Lu	御史；被孙亮功喷了一脸酒；两位陆夫人的堂兄弟。
+char-52	陆宗沅 Lù Zōngyuán	陆都老爷 / Censor Lu / Director of the Shanxi Circuit	—	—	official	ch.2	Investigating censor of the Shanxi circuit (监察御史掌山西道) and elder cousin of the two Madam Lu; a fixture at Wang Wenhui's banquets, where Sun Lianggong sprays wine in his face (ch.2), and later an examiner and finally education commissioner of Jiangxi (chs.30, 52, 59)	监察御史，掌山西道；两位陆夫人的堂兄。第2回在王文辉席上被孙亮功喷了一脸酒，第30回分房阅卷，第52回赴田春航喜宴，第59回放江西学政。
 char-53	富伦 Fú Lún	富三爷 / Fu San / Fu the Third	~30	Jiangning	official	ch.3	A warm-hearted and wealthy official who serves as a generous patron to performers. A close friend of many scholars who often mediates social conflicts.	内务府官员，为人热诚。他是名伶们的重要赞助人，常在京城社交圈中排忧解难。
 char-54	贵芬 Guì Fēn	贵大爷 / Master Gui	~30	—	official	ch.3	7th-rank ministry clerk; prudent and steady; Fu Lun's close friend	七品部吏；谨慎稳重；富伦好友。
 char-55	华光宿 Huá Guāngsù	华公子 / 星北	21	—	villain	ch.5	Son of a hereditary first-rank duke and owner of Jinchun Garden. He received an honorary second-rank post; while dissolute, he possesses genuine taste, but his possessive acquisition of Qinyan (ch. 28) makes him a primary antagonist.	世袭一等公之子，锦春园主；十八岁起获赏二品闲散大臣。虽放荡不羁但颇具文采，因强纳琴言入府（第28回）而成为核心反派。
 char-56	曹长庆 Cáo Chángqìng	—	—	—	performer	ch.3	Troupe master who bought Qinyan as his apprentice; relies on him as the household's breadwinner; dies suddenly in ch.36	买琴言为徒的班主师傅；倚琴言为摇钱树；第36回猝然去世。
-char-57	史曾望 Shǐ Zēngwàng	—	—	—	official	ch.1	Shi Nanxiang's father; Censor (吏科给事中)	史南湘之父；吏科给事中。
-char-58	袁浩 Yuán Hào	—	—	—	official	ch.5	Yunnan governor; Xu Ziyun's father-in-law	云南巡抚；徐子云岳父。
+char-57	史曾望 Shǐ Zēngwàng	史鉴湖 / 鉴湖	—	—	official	ch.1	Shi Nanxiang's father; Censor (吏科给事中)	史南湘之父；吏科给事中。
+char-58	袁浩 Yuán Hào	袁海楼 / 海楼	—	—	official	ch.5	Yunnan governor; Xu Ziyun's father-in-law	云南巡抚；徐子云岳父。
 char-59	徐震 Xú Zhèn	晓山 / Xiaoshan	—	—	official	ch.5	Grand Secretary (art name Xiaoshan); Xu Ziyun's father; governor-general of the two Guangs; named only as 名震 in ch.5	大学士，号晓山；徐子云之父；总督两广；第5回仅以“名震”提及。
 char-60	徐子容 Xú Zǐróng	—	—	—	official	ch.5	Xu Ziyun's elder brother; Huaiyang circuit intendant	徐子云之兄；淮扬道。
-char-61	刘侍郎 Liú Shìláng	Minister Liu / Vice-Minister Liu	—	—	official	ch.6	Vice-minister; Liu Wenze's father; attends the Spring Festival banquet	刘侍郎；刘文泽之父；出席春节宴会。
+char-61	刘守正 Liú Shǒuzhèng	刘侍郎 / 刘尚书 / Minister Liu / Vice-Minister Liu	—	—	official	ch.6	Liu Wenze's father; vice-minister of Revenue at the ch.6 New Year gathering, later president of the Board of Rites and chief examiner of the provincial examination (chs.25, 30, 52)	刘文泽之父；第6回团拜时为户部侍郎，第25回已升礼部尚书，第30回以大宗伯任乡试大主考，第52回赴田春航喜宴。
 char-62	吴阁学 Wú Gé Xué	Academician Wu	—	—	official	ch.6	Grand Secretary; Zhang Zhongyu's maternal uncle	大学士；张仲雨舅父。
-char-63	沈司业 Shěn Sīyè	Director Shen	—	—	official	ch.6	National Academy director; Shen Bocai's father; old-fashioned Confucian; praises Ziyu	国子监司业；沈伯才之父；守旧儒者；赞赏子玉。
+char-63	沈恭 Shěn Gōng	沈司业 / 沈公 / Director Shen	—	—	official	ch.6	Director of studies at the National Academy and Shen Bocai's father; an old-fashioned Confucian who marries his daughter Yungu to Sun Sihui and lectures her into staying, and who is loud in his praise of Ziyu (ch.6)	国子监司业，沈伯才之父；古板道学人，将女儿芸姑嫁与孙嗣徽，芸姑求归即教训一顿送回；第6回极口称赞子玉。
 char-64	巴天宠 Bā Tiānchǒng	—	~40	Tianjin	official	ch.6	Garrison commander; father of Ba Lin and Ba Laifeng; misled by a matchmaker	总兵；巴霖与巴来风之父；被媒人误导。
 char-65	陆宗淮 Lù Zōnghuái	—	—	Sichuan	official	ch.6	Judicial commissioner of Sichuan; elder brother of the two Madam Lu	四川按察使；两位陆夫人之兄。
 char-66	田状元 Tián Zhuàngyuán	—	—	—	official	ch.49	Top imperial exam graduate; proposes marriage in ch.49	状元；第49回提亲。
-char-67	侯太史 Hóu Tàishǐ	—	—	—	official	ch.56	Hanlin historian; feigns charity toward orphans; hypocritical antagonist	翰林太史；假装慈善；虚伪的反派。
+char-67	侯太史 Hóu Tàishǐ	—	—	—	official	ch.12	Hanlin historian of Jiangning named alongside Qu Daoweng as a rival for literary fame (ch.12); the title by which Hou Shiweng is known, and the man whose feigned charity toward the orphaned Qinxian gives ch.56 its title	江宁翰林太史，第12回与屈大令（屈道翁）并称争名；即侯石翁的官称，第56回回目“侯太史假义恤孤”所指亦是此人。
 char-68	詹事府正詹事庄 Zhuāng	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	詹事府正詹事；春节宴会宾客。
 char-69	左庶子郑 Zhèng	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	左庶子；春节宴会宾客。
 char-70	国子监司业张 Zhāng	—	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	国子监司业；春节宴会宾客。
-char-71	掌山西道陆 Director Lu	Director of the Shanxi Circuit / Censor Lu	—	—	official	ch.6	Listed among Spring Festival banquet guests in ch.6	掌山西道；春节宴会宾客。
+char-71	掌山西道陆 Director Lu	Director of the Shanxi Circuit / Censor Lu	—	—	official	ch.6	Listed among the twelve fellow-provincials at the ch.6 New Year gathering; the Shanxi-circuit censorship is Lu Zongyuan's post (ch.2), so this roll entry is the same man	第6回团拜知单十二位同乡之一；掌山西道即第2回“监察御史陆宗沅”的职衔，与陆宗沅实为一人。
 char-72	奚十一 Xī Shíyī	奚正绅 / Xi Eleven / Xi the Eleventh / Lord Xi / Master Xi	~30	Guangdong	villain	ch.3	A violent and wealthy Cantonese merchant known as the 'Smoke-Blackened Grand Duke.' He repeatedly harasses Qinyan, ultimately suffering grotesque karmic retribution.	绰号“烟熏太岁”的广东富商。屡次纠缠迫害琴言，最终在第40及58回遭到惨烈的报应。
 char-73	潘其观 Pān Qíguān	潘三 / 潘三爷 / Pan San / Pan the Third / Pan Laosan	—	—	villain	ch.13	Known as Pan San; keeper of the Qisheng silver bureau and crony of Xi Shiyi. Harasses Su Huifang (chs.13–21) and endures degrading karmic punishments (chs.40, 47, 58).	人称潘三，起盛银号东家，奚十一的帮凶。第13–21回纠缠苏蕙芳，后段（第40、47、58回）屡遭毒打恶疾报应。
 char-74	老王 Lǎo Wáng	—	~60	—	villain	ch.3	Hunchbacked jade-vendor; tries to extort Pincai at the theatre; expelled by Xi Shiyi's men	驼背玉商；在剧场敲诈聘才；被奚十一的人赶走。
@@ -117,7 +117,7 @@ char-89	蓉华 Rónghuá	—	—	—	female	ch.1	Yan Zhongqing's wife; Wang Wenh
 char-90	王琼华 Wáng Qiónghúa	—	16	—	female	ch.1	Wang Wenhui's second daughter; shy; scratches Ziyu's poem; eventually betrothed and married to Ziyu	王文辉次女；害羞；涂抹子玉的诗；最终嫁给子玉。
 char-91	袁夫人 Yuán Fūrén	Mrs. Yuan / Mrs Yuan / Madam Yuan	23	—	female	ch.5	Xu Ziyun's wife; née Yuan; daughter of Yunnan governor; beautiful and virtuous	徐子云之妻；云南巡抚之女；美丽贤德。
 char-92	郑氏 Zhèng Shì	—	—	—	female	ch.1	Yan Zhuang's wife; fasted to death after his death; honoured for chastity; Yan Zhongqing's mother	颜庄之妻；绝食殉夫；贞节受表彰；颜仲清之母。
-char-94	许三姐 Xǔ Sānjiě	Third Sister / Sanjie	—	—	female	ch.40	Spirited elder sister of the Xu brothers; masterminds the revenge on Pan San (ch.40); enters service and recognizes her lost brother Zhou Xiaosan (ch.49)	许家三姐，泼辣有谋；第40回设计惩治潘三；第49回入府帮佣，意外与失散之弟周小三相认。
+char-94	许三姐 Xǔ Sānjiě	Third Sister / Sanjie	19	—	female	ch.40	The Xu brothers' sister, nineteen and formidably quick; wife of the carter Zhou Xiaosan. After Pan San rapes her youngest brother she devises and plays the honey-trap that delivers him to the brothers' revenge (chs.40, 47), and later enters the Tian household in service (ch.49)	许家三姐，年十九，标致而千伶百俐，赶车的周小三之妻。幼弟许老三被潘三所污后，由她设计诱骗，亲手促成第40、47回对潘三的报复；第49回入田府帮佣。
 char-95	玉天仙 Yù Tiānxiān	—	27	—	female	ch.18	Courtesan married by Wei Pincai in ch.50 after he helps revise opera texts	妓女；魏聘才改写剧本后娶其为妻。
 char-96	孙家陆夫人 Sūnjiā Lù Fūrén	陆夫人 / 陆氏 / 陆氏夫人 / Madam Lu / Sun family's Madam Lu / The Sun Madam Lu	39	—	female	ch.6	Sun Lianggong's second wife; jealous and domineering; sister of Wang family's Madam Lu	孙亮功继室；嫉妒霸道；王家陆夫人之姐。
 char-97	沈芸姑 Shěn Yúngū	—	—	—	female	ch.6	Sun Sihui's wife; née Shen; intelligent but miserable in marriage	孙嗣徽之妻；聪明但婚姻不幸。
@@ -150,26 +150,26 @@ char-123	老三 Lǎo Sān	—	—	—	servant	ch.3	Restaurant server at the croc
 char-124	酒楼掌柜 Zhǎngguì de	酒楼掌柜 / 掌柜的	—	—	servant	ch.3	Restaurant owner in the crockery-smashing scene in Chapter 3; fawns on Xi Eleven and lectures waiter Lao San on porcelain acoustics.	酒楼掌柜；第3回砸瓷器事件中讨好奚十一，训斥伙计老三。
 char-125	梅鼎 Méi Dǐng	鼎	—	—	deceased	ch.1	Mei Shixie's grandfather; former Minister of Personnel (吏部尚书)	梅士燮之祖父；前吏部尚书。
 char-126	梅羹调 Méi Gēngdiào	—	—	—	deceased	ch.1	Mei Shixie's father; former Grand Secretary (文华殿大学士)	梅士燮之父；前文华殿大学士。
-char-127	颜庄 Yán Zhuāng	—	—	—	deceased	ch.1	Hanlin compiler; Lady Yan's brother; died at 30; Yan Zhongqing's father	翰林编修；颜夫人之弟；30岁去世；颜仲清之父。
+char-127	颜庄 Yán Zhuāng	穆堂 / 颜穆堂	—	—	deceased	ch.1	Hanlin compiler; Lady Yan's brother; died at 30; Yan Zhongqing's father	翰林编修；颜夫人之弟；30岁去世；颜仲清之父。
 char-128	颜尧臣 Yán Yàochén	—	—	—	deceased	ch.1	Left Censor; Lady Yan's father	左都御史；颜夫人之父。
 char-129	富安世 Fù Ānshì	—	—	—	deceased	ch.3	Fu Lun's father; former Jiangnan governor; venerated as a local deity in Nanjing	富伦之父；前江南巡抚；在南京被尊为地方神。
 char-130	杜琴师 Dù Qínshī	—	—	Jiangsu	deceased	ch.5	Qinyan's father; a zither-maker; died of anger after being humiliated by a powerful man	琴言之父；琴师；受辱后气绝身亡。
 char-131	杜母 Dù Mǔ	其母	—	Jiangsu	deceased	ch.5	Qinyan's mother; died of grief a year after her husband	琴言之母；夫死后一年忧郁而亡。
 char-132	杜族叔 Dù Zúshū	—	—	—	deceased	ch.5	Qinyan's clan uncle who took him in; died when Qinyan was 13	琴言族叔；收留琴言；琴言13岁时去世。
 char-133	魏老仁 Wèi Lǎorén	—	—	—	deceased	ch.2	Wei Pincai's father; a failed litigious scholar; now works in a salt bureau	魏聘才之父；落魄文人；在盐务局工作。
-char-134	刘喜 Liú Xǐ	—	40+	—	servant	ch.55	Loyal longtime attendant to Qu Daosheng; protects and supports Qinxian through illness, theft, funeral rites, and return arrangements	屈道生的老仆；在重病、失窃、丧事与返京过程中始终尽心扶持琴仙。
-char-135	侯石翁 Hóu Shíwēng	石翁 / Lord Hou / Hou	74	Nanjing	scholar	ch.55	Elder literary celebrity at Phoenix Mountain; outwardly patronizing but morally ambiguous in his treatment of Qinxian after Daosheng's death	凤凰山文坛名宿；在道翁身后对琴仙“照应”中显出复杂且暧昧的真实面目。
-char-136	巴英官 Bā Yīngguān	英官	~15	—	servant	ch.40	Youth attached to Xi Shiyi's household; central to Xi's late-stage debauchery arc and ensuing bodily retribution	奚十一身边少年；卷入其后期淫乱与报应情节，是关键当事人之一。
+char-134	刘喜 Liú Xǐ	—	40+	—	servant	ch.38	Loyal longtime attendant to Qu Daosheng; protects and supports Qinxian through illness, theft, funeral rites, and return arrangements	屈道生的老仆；在重病、失窃、丧事与返京过程中始终尽心扶持琴仙。
+char-135	侯石翁 Hóu Shíwēng	石翁 / Lord Hou / Hou	74	Nanjing	scholar	ch.2	Jiangning Hanlin historian and self-styled first talent of the age, master of the Qifeng Garden on Phoenix Mountain; already pushing relatives on the Mei household in ch.2, he receives Qu Daoweng and Qinxian in chs.55–56 and his 'charity' toward the orphaned Qinxian proves hollow	江宁翰林太史，自负天下第一才子，凤凰山起凤园主人；第2回已托梅家荐人，第37回众人评其才格，第55–56回接待屈道翁与琴仙，所谓“恤孤”实则虚伪。
+char-136	巴英官 Bā Yīngguān	英官 / 巴老英 / 巴二爷	~15	Anhui, Huizhou	servant	ch.23	A Huizhou barbershop apprentice of fifteen or sixteen, born Ba Laoying, bought by Ji Liangxuan for ten strings of cash and renamed Yingguan — 'servant by day, wife and concubine by night'. Ji later lends him to Xi Shiyi, and he grows insolent on the strength of it (chs.23, 27, 34, 40)	徽州人，原名巴老英，年十五六，本在剃头铺学徒；第23回被姬亮轩以青蚨十千买下，改名英官，“日间是主仆称呼，晚间为妻妾侍奉”。后被姬亮轩送与奚十一使用，益发骄纵（第23、27、34、40回）。
 char-137	菊花 Júhuā	白菊花 / White Chrysanthemum	20+	Guangxi	minor	ch.17	Courtesan from Wuzhou, Guangxi, at Madam Tao's East Garden house, known as White Chrysanthemum; becomes Xi Shiyi's intimate companion through his decline and retribution arcs	广西梧州人，东园陶家妓女，人称白菊花；后成为奚十一的亲近之人，见证其衰败与报应线。
 char-138	得月 Déyuè	—	~17	—	performer	ch.40	Young novice/performance-world youth linked with Xi Shiyi, Wei Pincai, and Pan Qiguan; pivotal in major karmic episodes in later chapters	与奚十一、魏聘才、潘其观等线索相连的重要少年人物；在后段多起报应事件中居关键位置。
-char-139	卓天香 Zhuō Tiānxiāng	—	—	—	performer	ch.40	Performer associated with Wei Pincai's circle; appears repeatedly in the Xi Shiyi/Pan Qiguan late-stage entanglements	与魏聘才圈层相关的伶人；在奚十一、潘其观后期纠葛中多次出现。
+char-139	卓天香 Zhuō Tiānxiāng	—	—	—	performer	ch.34	Barber's apprentice of the Zhengrong shop, fair-faced and compared to Yuan Baozhu and Su Huifang by Feng Zipei; brought with Zhang Cuiguan to Wei Pincai's Hongji Temple revels, where Yang Meichuang paws him and asks after his sister (chs.34–35)	整容班的小剃头的，冯子佩以其貌可比袁宝珠、苏蕙芳；第34回与张翠官同被魏聘才叫到宏济寺陪酒，席间遭杨八轻薄并被问及其妹（第34–35回）。
 char-140	阳善修 Yáng Shànxiū	—	—	—	minor	ch.40	Doctor specializing in intimate ailments; repeatedly called to treat major injuries and illnesses of key characters in late chapters	专治下体病症的医生；在后段关键人物伤病处理中多次出场。
 char-141	屈道翁 Qū Dàowēng	道翁 / 道生 / Master Qu / 屈才爷 Qū Cáiye / 屈老爷 Qū Lǎoye / Qu / 屈方正 Qū Fāngzhèng / 屈本立 Qū Běnlì / Qu Benli	60	—	scholar	ch.7	Senior scholar known as Qu Benli (calligraphy, ch.7), Qu Daoweng (main name), Qu Caiye/Qu Laoye (chs.55-56), and Qu Fangzheng (divine aspect); adopts Qinxian; dies in Nanjing (ch.56); shrine and dream arcs (ch.59–60)	名士屈道翁（亦以屈本立、屈才爷、屈老爷、屈方正等名出现）：第7回署名书法，第55-56回被称为屈才爷、屈老爷，后段收养琴仙，殁于南京，第59–60回托梦、建祠并入选十二花神。
-char-142	苏侯 Sū Hóu	Marquis Su / the Marquis	—	—	official	ch.48	Powerful noble household head; father-in-law of Tian Chunhang through his daughter's marriage	权势显赫的侯门家长；其女与田春航成婚后，成为田春航岳家核心人物。
+char-142	苏臣泰 Sū Chéntài	苏侯 / Marquis Su / the Marquis	—	—	official	ch.48	Su Chentai, president of the Board of War, Hanlin-trained and heir to a marquisate; father of Su Huanxiang and Huanlan, so father-in-law to both Hua Guangsu and Tian Chunhang (chs.48–49)	姓苏名臣泰，现任兵部大堂，翰林出身，后承袭侯爵；浣香、浣兰之父，故为华光宿与田春航两人的岳父（第48–49回）。
 char-143	姬亮轩 Jī Liàngxuān	—	—	—	minor	ch.27	Corrupt hanger-on tied to Xi Shiyi's milieu; repeatedly appears in rumor, coercion, and underhand social manipulation arcs	与奚十一圈层相关的奸滑人物；多次卷入流言、挟制与权势投机情节。
 char-144	金粟 Jīn Sù	—	—	—	scholar	ch.32	Literary-circle member active in later gatherings, inscriptions, and the Nine Fragrance cultural projects	后段文士圈成员之一，参与题赞、聚会与九香楼文化工程。
-char-145	张笑梅 Zhāng Xiàoméi	—	—	—	performer	ch.19	Performer connected to Wei Pincai's social circle; appears in his expanding pleasure-network entanglements	与魏聘才交游圈相关的伶人，出现在其声色关系扩张阶段的关键场景中。
-char-146	杨梅窗 Yáng Méichuāng	—	—	—	performer	ch.19	Performer in Wei Pincai's orbit; linked to his theatrical-social network and late-stage decline arc	魏聘才圈层伶人之一，牵连其戏园交游网络与后期失序线索。
+char-145	张笑梅 Zhāng Xiàoméi	—	—	Hangzhou	minor	ch.16	Painter of fine-line figures retained by the Hua mansion, from Hangzhou and about twenty, handy with flute and strings as well; ch.47 calls him 'a Secretary Zhang, called Xiaomei'. One of Wei Pincai's congenial companions in the household (chs.16, 18, 19, 21, 33, 50)	华府所养画工笔人物的画师，杭州人，年二十上下，兼能吹竹弹丝；第47回称其为“一个张师爷，叫笑梅”。魏聘才在府中“合式”的一路（第16、18、19、21、33、50回）。
+char-146	杨梅窗 Yáng Méichuāng	梅窗 / 杨八爷 / 杨老八 / Yang Eight / Eighth Master Yang	—	—	minor	ch.16	Geomancer and sworn brother of Fu Third, style name Meichuang and eighth in his line; a petty sponger with a talent for siting graves, he drinks and gambles his way through Wei Pincai's circle from ch.16 onward (chs.16, 19, 34–36, 47, 50)	风水先生，号梅窗，行八，人称杨八爷、杨老八；富三爷的干兄弟。第16回打牌初见，此后与魏聘才、奚十一、潘三等终日厮混，专给人看阳宅坟地（第16、19、34–36、47、50回）。
 char-147	周小三 Zhōu Xiǎosān	—	—	—	servant	ch.40	Driver and fixer tied to Pan Qiguan's household sphere; central participant in the revenge setup against Pan	与潘其观圈层关联的车夫/办事人；在对潘的报复布局中居关键执行位置。
 char-148	孟七 Mèng Qī	—	—	—	servant	ch.44	Xu Ziyun household servant appearing in communication and dispatch tasks during conflict-heavy chapters	徐子云家中仆从，主要出现在冲突密集段落中的传递与差遣环节。
 char-149	姚贤 Yáo Xián	—	—	—	servant	ch.44	Outer attendant under Hua Guangsu's side, dispatched in retrieval and pursuit errands around Qinyan's transfer period	华光宿一侧外跟班人物，在琴言去留风波中承担追索差事。
@@ -205,8 +205,8 @@ char-178	金凤 Jīnfèng	—	~15	—	servant	ch.57	Peiqiu's maidservant; joins 
 char-179	小翠 Xiǎocuì	—	13	—	servant	ch.57	Huanlan's young maidservant; clever and pretty; joins the ch.57 games	浣兰的小丫鬟，年十三，伶俐灵变；参与第57回酒令。
 char-180	青琴 Qīngqín	—	~15	—	servant	ch.57	Wang Qionghua's maidservant; joins the ch.57 games	王琼华的丫鬟；参与第57回酒令。
 char-181	陶妈妈 Táo Māma	Madam Tao	—	—	minor	ch.18	Keeper of the pleasure house in the East Garden; takes in Yu Tianxian and White Chrysanthemum; sizes up Xi Shiyi's fortune (ch.18)	东园开门户的鸨母；收留玉天仙与白菊花，第18回打听奚十一家世。
-char-182	杨八 Yáng Bā	Yang the Eighth	—	—	minor	ch.19	Geomancer hanger-on ('Eighth Master Yang') in the Fu Lun and Xi Shiyi circle; consulted on graves and fortunes (chs.19, 34–36)	富伦、奚十一交游圈中的风水先生“杨八爷”；第34回起为人看风水断祸福。
-char-183	陆皂隶 Lù Zàolì	Runner Lu	—	—	minor	ch.32	Yamen runner who puzzles over the garbled case documents with copyist Ge Fengshi (ch.32)	衙门皂隶；第32回与葛贴写在茶馆研读错讹的案卷。
+char-182	杨八 Yáng Bā	Yang the Eighth	—	—	minor	ch.16	The 'Eighth Master Yang' of the Fu Lun and Xi Shiyi circle; ch.16 gives his style name as Meichuang and his rank as eighth, and ch.47 states it outright — 'a Master Yang the Eighth, called Meichuang' — so this is Yang Meichuang	富伦、奚十一交游圈中的“杨八爷”；第16回言其“号梅窗，行八”，第47回更明说“一个杨八爷，叫梅窗”，与杨梅窗实为一人。
+char-183	陆升 Lù Shēng	陆皂隶 / Runner Lu	—	—	minor	ch.32	Yamen runner who lives near Gui Zirong; recognising the name on the examination roll, he puzzles over the garbled case documents with the copyist Ge Fengshi and helps expose the sold degree (ch.32)	衙门皂隶，与归自荣住处相近；见其报中举人，想起八月十四夜之事，遂在茶馆与葛贴写同研案卷错字，牵出卖举人一案（第32回）。
 char-184	葛逢时 Gě Féngshí	葛贴写 / Ge Fengshi	—	—	minor	ch.32	Shaoxing copyist ('Ge the copyist'), sixth of his line; deciphers the miswritten yamen documents for Runner Lu (ch.32)	绍兴籍贴写，排行第六；第32回为陆皂隶讲解案卷中的错字。
 char-185	许老二 Xǔ Lǎoèr	—	—	—	minor	ch.40	Second of the Xu brothers; carries out the bare-fisted revenge on Pan San (chs.40, 47)	许家老二；第40、47回亲手惩治潘三的主力。
 char-186	许老三 Xǔ Lǎosān	许贵 / Xu Gui	16	—	servant	ch.40	Handsome young assistant in Pan San's silver shop; later renamed Xu Gui as Tian Chunhang's attendant (ch.47)	潘三银号中的清秀小伙计，年十六；后改名许贵，随田春航为跟班（第47回）。
@@ -220,7 +220,37 @@ char-193	钱德 Qián Dé	—	—	—	villain	ch.56	Treacherous servant of Qu Da
 char-194	黄掌柜 Huáng Zhǎngguì	黄掌柜 / 春阳馆掌柜	—	Beijing	minor	ch.8	Manager of Chunyang Restaurant who greets patrons, gets into a dispute with Wei Pincai over unpaid bills, and later co-founds Anji Hall with Monk Tang.	春阳馆掌柜；后与唐和尚合伙开安吉堂。
 char-195	银号掌柜 Yínhào Zhǎngguì	银号掌柜 / 掌柜的	—	Beijing	minor	ch.34	Manager of a Beijing silver draft bank who issues 1,400 taels in silver drafts to Fu Third near the end of the year.	京城银号掌柜；第34回年关为富三开立一千四百两银票。
 char-196	华正昌书铺掌柜 Huá Zhèngchāng Shūpù Zhǎngguì	华正昌掌柜 / 老年掌柜	—	—	minor	ch.56	Elderly shopkeeper of the 'Hua Zhengchang' bookshop who greets Qinxian in his dream in Chapter 56.	“华正昌”书铺老年掌柜；第56回在琴仙梦境中出现。
-char-197	季十矮子 Jì Shí Ǎizi	季十 / 季矮子	—	Beijing	minor	ch.46	Skilled stone and wood carver/engraver recommended by Jin Jifu; engraved Qu Daoweng's calligraphy for Yiyuan screens in ch.46-47 and arranged stone carvers for Jiuxiang Garden steles in ch.60.	精明熟练的刻工/石刻匠人；金吉甫推荐；第46-47回在怡园刻含万楼屏风，第60回负责找人雕刻九香园十图石碑。`;
+char-197	季十矮子 Jì Shí Ǎizi	季十 / 季矮子	—	Beijing	minor	ch.46	Skilled stone and wood carver/engraver recommended by Jin Jifu; engraved Qu Daoweng's calligraphy for Yiyuan screens in ch.46-47 and arranged stone carvers for Jiuxiang Garden steles in ch.60.	精明熟练的刻工/石刻匠人；金吉甫推荐；第46-47回在怡园刻含万楼屏风，第60回负责找人雕刻九香园十图石碑。
+char-198	玉龄 Yùlíng	—	~15	—	performer	ch.10	Boy of the Hua mansion's Baling (八龄) troupe; originally a Xu household page presented to Hua Guangsu. His likeness to Qinyan lets Xu Ziyun pass him off as the 'false Qinyan' to test Ziyu (ch.10); later coached in singing by Lin Shanzhi and seen poling the garden boat (chs.11, 19, 41, 52)	华府八龄班中的一个，本是徐子云家人，送与华公子。因面貌与琴言相似，第10回被子云用作“假琴言”试探子玉；后由林珊枝教曲，并在园中撑船伺候（第11、19、41、52回）。
+char-199	金龄 Jīnlíng	—	~15	—	performer	ch.11	Boy of the Hua mansion's Baling troupe; attends Hua Guangsu at the fishing pond, poles the pleasure boat with Yuling (ch.41) and rides in Madam Hua's escort (ch.52)	华府八龄班中的一个；第41回随华公子垂钓、与玉龄同撑小船，第52回骑跟班马随华夫人出门。
+char-200	兰龄 Lánlíng	—	~15	—	performer	ch.11	Boy of the Hua mansion's Baling troupe, named like his fellows with the character 龄; rides in Madam Hua's escort to the wedding festivities (chs.11, 52)	华府八龄班中的一个，名字都带“龄”字；第52回骑跟班马随华夫人赴喜宴（第11、52回）。
+char-201	桂龄 Guìlíng	—	~15	—	performer	ch.11	Boy of the Hua mansion's Baling troupe; listed with Jinling, Yuling and Lanling on the household roll and in Madam Hua's escort (chs.11, 52)	华府八龄班中的一个；与金龄、玉龄、兰龄同列，第52回同随华夫人出门（第11、52回）。
+char-202	凤林 Fènglín	—	~16	—	performer	ch.22	Popular dan of the Fengtai troupe; sings for Sun Sihui and Ji Liangxuan in ch.23 and, pressed on what a performer earns, puts the figure at three or four thousand strings a year	凤台班的红相公；第22回与春林同见于酒楼，第23回陪孙嗣徽、姬亮轩吃酒，谈及相公一年进项三四千吊钱。
+char-203	春林 Chūnlín	—	~16	—	performer	ch.22	String-player of the Fengtai troupe; one of the two performers Xi Shiyi habitually sends for, and present at the Qiushuitang confrontation (chs.22, 24, 27)	凤台班中弹弦子的相公；奚十一常叫的两个相公之一，第27回随奚十一往秋水堂寻衅（第22、24、27回）。
+char-204	张翠官 Zhāng Cuìguān	翠官 / Cuiguan	~16	—	performer	ch.34	Barber's apprentice of the Zhengrong shop turned entertainer — freckled, a mole at the brow, and quick to please; paired with Zhuo Tianxiang at Wei Pincai's Hongji Temple parties, where Fu Third offers to take him to Hubei (chs.34–35)	整容班的小剃头的，面有雀斑、眉梢一痣而伶俐可爱；与卓天香同被魏聘才叫到宏济寺陪酒，第34回富三爷许他带往湖北（第34–35回）。
+char-205	华府宝珠 Huáfǔ Bǎozhū	宝珠 / Hua household Baozhu	~15	—	servant	ch.11	First-named of the Hua mansion's ten 'pearl' maids, and not to be confused with the performer Yuan Baozhu; leads the singing at the flower-offering party (ch.41) and is kept on Su Huanxiang's side in the ch.57 games	华府“十珠”婢女中列名之首（与花榜状元袁宝珠并非一人）；第41回祭花时首唱，第57回被浣香留在本队（第11、41、57回）。
+char-206	红霙 Hóngyīng	—	~15	—	servant	ch.11	One of Yuan Qixiang's twelve 'red' maids and the sharpest tongue among them; her bawdy drinking-verse sets off the tussle with Hezhu (ch.11) and she plays Zhao Gao in the ch.57 games	袁绮香十二红丫鬟之一，口角最俏；第11回一句戏谑酒令引出与荷珠厮闹，第57回掣得赵高（第11、52、57回）。
+char-207	红梅 Hóngméi	—	~15	—	servant	ch.52	One of Yuan Qixiang's 'red' maids; among the eight Xu household maids seated at Tian Chunhang's wedding feast (ch.52)	袁绮香的“红”字辈丫鬟之一；第52回田春航婚宴上徐家八个丫鬟之一。
+char-208	红月 Hóngyuè	—	~15	—	servant	ch.52	One of Yuan Qixiang's 'red' maids; among the eight Xu household maids seated at Tian Chunhang's wedding feast (ch.52)	袁绮香的“红”字辈丫鬟之一；第52回田春航婚宴上徐家八个丫鬟之一。
+char-209	红露 Hónglù	—	~15	—	servant	ch.52	One of Yuan Qixiang's 'red' maids; among the eight Xu household maids seated at Tian Chunhang's wedding feast (ch.52)	袁绮香的“红”字辈丫鬟之一；第52回田春航婚宴上徐家八个丫鬟之一。
+char-210	王胡子 Wáng Húzi	王髯 / Wang the Bearded / Wang Ran	50+	—	minor	ch.45	Travelling antiquary with a beard to his waist who claims twenty years and fourteen provinces on the road; he presides as master of the altar at the Yiyuan planchette séance whose verdicts disclose the company's former lives, and sells Xu Ziyun the Gujin Tushu Jicheng (chs.45–46)	须垂至腹的行商古董客，自言二十年走过十四省；第45回在怡园含万楼主持扶乩仙坛，判词道破众人前生，第46回将《图书集成》装了五大车送进怡园。
+char-211	阎简安 Yán Jiǎn'ān	老阎 / Old Yan	—	—	minor	ch.16	Elderly hanger-on secretary of the Hua mansion, kept on only out of the old duke's friendship; narrow, foul-tongued and snobbish, he handles brush-and-ink odd jobs and takes an immediate dislike to Wei Pincai (chs.16, 18)	华府的老篾片师爷，因与老公爷有旧才留在府中；心窄嘴臭、势利透顶，办笔墨杂务，与魏聘才彼此厌恶（第16、18回）。
+char-212	王卿云 Wáng Qīngyún	—	50+	—	minor	ch.16	Letter-drafting secretary (书启先生) of the Hua mansion and an old friend of the late duke; shares a courtyard with Yan Jian'an and is likewise kept at arm's length by Wei Pincai (chs.16, 18)	华府书启先生，年五十余，老公爷旧友；与阎简安同在一院，同为魏聘才所疏远（第16、18回）。
+char-213	顾月卿 Gù Yuèqīng	—	~22	Suzhou	minor	ch.16	Painter of landscapes and flowers retained by the Hua mansion, two years older than Zhang Xiaomei; one of the congenial set Wei Pincai cultivates there, and among those who see him off when he leaves the capital (chs.16, 18, 21, 33, 50)	华府所养画山水花草的画师，苏州人，比张笑梅长两岁；魏聘才在府中“合式”的一路，第50回为其饯行（第16、18、21、33、50回）。
+char-214	胡八 Hú Bā	胡八爷	39	Beijing	servant	ch.44	Xi Shiyi's household man and Yao Xian's maternal cousin; the tavern gossip he and Meng Qi trade is what Yao Xian carries back, embellished, to turn Hua Guangsu against Qinyan (chs.44, 58)	奚十一的家人，姚贤的两姨中表，年三十九；第44回在馆子里与孟七的一番闲话，被姚贤添饰后回报华府，遂酿成风波（第44、58回）。
+char-215	许老大 Xǔ Lǎodà	—	—	—	minor	ch.40	Eldest of the Xu brothers; convenes the family council after his youngest brother is assaulted, and pronounces the charge to Pan San's face when the ambush is sprung (ch.40)	许家老大；第40回幼弟受辱后主持家中议事，设局擒住潘三时当面数其罪状。
+char-216	杜仙女 Dù Xiānnǚ	Fairy Du / Du Xiannv	—	Jiangning	deceased	ch.45	The 'Fairy Du' of Mochou Lake — Qinyan's former incarnation, a Jiangning judge's daughter dead at fifteen, disclosed by the ch.45 planchette; Qinxian finds her grave in ch.55, Qu Daoweng is buried beside her in ch.59, and she is enrolled among the twelve flower deities in ch.60	莫愁湖畔的“杜仙女”——第45回乩判揭出为琴言前生，江宁府推官之女，十五夭亡；第55回琴仙寻得其墓，第59回屈公与之合葬，第60回列名十二花神。
+char-217	张桐孙 Zhāng Tóngsūn	—	—	—	official	ch.12	Tian Chunhang's maternal uncle and former prefect of Tianjin; he sustains the widowed Tian household through its lean years, brings Lady Tian to the capital, and runs the accounts at Chunhang's wedding (chs.12, 48, 52, 55)	田春航的母舅，前任直隶天津府知府；田家孤寡时不时周济，第48回护送田太夫人进京，第52回为春航婚事总理账房（第12、48、52、55回）。
+char-218	田浩 Tián Hào	—	—	Jinling	deceased	ch.12	Tian Chunhang's father; took his jinshi degree at twenty-eight and died in the capital that same year, leaving the widowed Lady Tian to raise and school their son	田春航之父；二十八岁上中了进士，即殁于京师，遗下田夫人苦节抚孤，春航学问多半得于母教。
+char-219	谢笠山 Xiè Lìshān	笠山	—	—	minor	ch.30	Painter and friend of the old Duke Hua who spent twelve years laying out Jinchun Garden; the grown Hua Guangsu later had him extend it further (ch.30)	老华公爷的好友，画手出众；用十二年为华府布置锦春园，浓淡相宜、疏密得体，后又为长成的华公子续加铺张（第30回）。
+char-220	华老公爷 Huá Lǎogōngyé	老公爷 / 华公爷 / The Old Duke Hua	—	—	official	ch.5	Hua Guangsu's father, hereditary Duke of the First Rank and serving General Who Guards the West; away on the frontier throughout the novel, he is the source of the household's rank and of several of its old retainers	华光宿之父，世袭一等公，现做镇西将军；全书在外镇守未曾登场，府中爵位与阎简安、王卿云等旧人皆由他而来。
+char-221	花中桂 Huā Zhōngguì	杠花	—	—	minor	ch.32	Pan Qiguan's son-in-law, nicknamed 'Gang Hua' after the funeral-pole trade; placed sixty-third in the provincial list with the juren degree Gao Pin sold him for 1,600 taels through Zhang Zhongyu (ch.32)	潘其观的女婿，诨名“杠花”；第32回中式第六十三名，即高品经张仲雨之手以一千六百两卖出的举人。
+char-222	花三胡子 Huā Sān Húzi	—	—	—	minor	ch.32	Father of Hua Zhonggui; rose from carrying coffin-poles to owning several funeral-pole yards (ch.32)	花中桂之父；杠房抬杠出身，如今大发财，开了几处杠房（第32回）。
+char-223	香儿 Xiāng'ér	小香儿 / Xianger	~13	—	servant	ch.41	Little maid of the Hua garden quarters; she waits on Hua Guangsu at the fishing pond and fetches the wine for Lin Shanzhi and Lu Sulan, and it is she who tells Shanzhi where the young master has gone in ch.44. Sharp enough to make the old serving-women hold their tongues (chs.41, 44, 52, 53)	华府园中的小丫鬟；第41回随侍垂钓，取笑老婆子而无人敢还口，第44回隔粉墙告知珊枝公子行踪，第52回随华夫人出门，第53回为林珊枝、陆素兰取酒果（第41、44、52、53回）。
+char-224	保环 Bǎohuán	—	~15	—	performer	ch.6	A young performer who fastened on Wang Xun at the theatre while Yuan Baozhu's namesake Baozhu was confusing Ziyu, and kept him too busy to correct the mistake (ch.6)	缠住王恂的相公；第6回王恂正欲分辩子玉误认“保珠”为袁宝珠，却被保环缠住而未及开口。
+char-225	王吉庆 Wáng Jíqìng	—	—	—	performer	ch.27	Celebrated dan of an earlier generation, named with Li Chunfang as the standard against which Chunlin measures the airs of the current stars Yuan Baozhu and Su Huifang (ch.27)	前辈名旦；第27回春林以王吉庆、李春芳与当红的袁宝珠、苏蕙芳并举，言前辈尚无今日之架子。
+char-226	李春芳 Lǐ Chūnfāng	—	—	—	performer	ch.27	Celebrated dan of an earlier generation, paired with Wang Jiqing in Chunlin's comparison of past and present stars (ch.27)	前辈名旦；第27回与王吉庆并称，为春林比较今昔伶人身价时所举。
+char-227	李三叔 Lǐ Sānshū	—	—	—	minor	ch.40	The go-between who placed Xu Laosan in Pan San's silver shop; the eldest Xu brother proposes summoning him to argue the case before the family settles on revenge instead (ch.40)	荐许老三入潘三银号的中人；第40回许老大主张邀他来讲理，后为三姐的报复之计所代（第40回）。`;
 
 
 const ROLE_MAP: Record<string, string> = {
@@ -268,6 +298,7 @@ const ORIGIN_MAP: Record<string, string> = {
   'Tianjin': '天津',
   'Hunan, Xiangtan': '湖南湘潭',
   'Henan, Zhengyang': '河南正阳',
+  'Anhui, Huizhou': '安徽徽州',
   '—': '—'
 };
 
@@ -440,6 +471,23 @@ const mergeGroups: MergeGroup[] = [
   {
     canonicalNameKeyword: '潘其观',
     memberNameKeywords: ['潘其观', '潘老三'],
+  },
+  // 侯太史 is 侯石翁: ch.55 calls him 江宁侯石翁太史, and ch.12 ranks 侯太史
+  // beside 屈大令 exactly as ch.37 ranks 石翁 beside 道翁.
+  {
+    canonicalNameKeyword: '侯石翁',
+    memberNameKeywords: ['侯石翁', '侯太史'],
+  },
+  // 掌山西道陆 on the ch.6 roll is 陆宗沅, the 监察御史 of ch.2 — every other
+  // slot on that roll (梅/王/史/杨/孙/周/刘/吴) is likewise a named character.
+  {
+    canonicalNameKeyword: '陆宗沅',
+    memberNameKeywords: ['陆宗沅', '掌山西道陆'],
+  },
+  // 杨八 is 杨梅窗 (ch.16: 号梅窗，行八; ch.47: 一个杨八爷，叫梅窗).
+  {
+    canonicalNameKeyword: '杨梅窗',
+    memberNameKeywords: ['杨梅窗', '杨八'],
   },
 ];
 
