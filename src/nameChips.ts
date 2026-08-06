@@ -598,102 +598,122 @@ export function removeTrailingSurname(
 
 const segmentCache = new Map<string, Segment[]>();
 
+function getFirstCharMap(tokenMap: [string, Character][]): Map<string, [string, Character][]> {
+  if (tokenMap === cachedTokenMap && cachedTokenMapByFirstChar) {
+    return cachedTokenMapByFirstChar;
+  }
+  const map = new Map<string, [string, Character][]>();
+  for (const entry of tokenMap) {
+    const firstChar = entry[0][0];
+    let list = map.get(firstChar);
+    if (!list) {
+      list = [];
+      map.set(firstChar, list);
+    }
+    list.push(entry);
+  }
+  return map;
+}
+
 export function segmentText(text: string, tokenMap: [string, Character][]): Segment[] {
   const cached = segmentCache.get(text);
   if (cached) return cached;
 
-  const sortedTokenMap = [...tokenMap].sort((a, b) => b[0].length - a[0].length);
+  const firstCharMap = getFirstCharMap(tokenMap);
 
   const segments: Segment[] = [];
   let cursor = 0;
   while (cursor < text.length) {
     let matched = false;
-    for (const [token, initialChar] of sortedTokenMap) {
-      if (text.startsWith(token, cursor)) {
-        let char = initialChar;
-        const afterPos = cursor + token.length;
-        // ASCII tokens require a word-boundary before and after the match
-        const isAscii = /[a-zA-Z]/.test(token);
-        if (isAscii) {
-          if (
-            cursor > 0 &&
-            /[a-zA-Z\u00C0-\u024F]/.test(text[cursor - 1])
-          )
-            continue;
-          if (
-            afterPos < text.length &&
-            /[a-zA-Z]/.test(text[afterPos])
-          )
-            continue;
-          const blocks = EN_TOKEN_CONTEXT_BLOCKS[token];
-          if (blocks) {
-            const before = text.slice(Math.max(0, cursor - 12), cursor);
-            const after = text.slice(afterPos, afterPos + 12);
-            if (blocks.before?.some((b) => before.endsWith(b))) continue;
-            if (blocks.after?.some((a) => after.startsWith(a))) continue;
-          }
-          if (token === "Qu") {
-            const rest = text.slice(cursor);
-            const before = text.slice(Math.max(0, cursor - 15), cursor);
+    const candidates = firstCharMap.get(text[cursor]);
+    if (candidates) {
+      for (const [token, initialChar] of candidates) {
+        if (text.startsWith(token, cursor)) {
+          let char = initialChar;
+          const afterPos = cursor + token.length;
+          // ASCII tokens require a word-boundary before and after the match
+          const isAscii = /[a-zA-Z]/.test(token);
+          if (isAscii) {
             if (
-              rest.startsWith("Qu Yuan") ||
-              rest.startsWith("Qu Shrine") ||
-              before.includes("Jinlü")
+              cursor > 0 &&
+              /[a-zA-Z\u00C0-\u024F]/.test(text[cursor - 1])
             )
               continue;
-          }
-          if (token === "Hou") {
-            const rest = text.slice(cursor);
-            const before = text.slice(Math.max(0, cursor - 15), cursor);
             if (
-              rest.startsWith("Hou Yi") ||
-              rest.startsWith("Hou Sheng") ||
-              rest.startsWith("Hou' (") ||
-              before.endsWith("matched '") ||
-              before.toLowerCase().endsWith("su ")
+              afterPos < text.length &&
+              /[a-zA-Z]/.test(text[afterPos])
             )
               continue;
-          }
-          // 保珠 is distinct from 袁宝珠 in the source. Both are romanized
-          // as Baozhu, so nearby context resolves the duplicate token for
-          // the performer who lives beside Guibao.
-          if (token === "Baozhu" && char.id !== "char-38") {
-            const context = text.slice(Math.max(0, cursor - 80), afterPos + 80);
-            if (
-              !/Yuan Baozhu/i.test(context) &&
-              /Guibao|dark-complexioned|another Baozhu|different Baozhu|other Baozhu/i.test(
-                context,
+            const blocks = EN_TOKEN_CONTEXT_BLOCKS[token];
+            if (blocks) {
+              const before = text.slice(Math.max(0, cursor - 12), cursor);
+              const after = text.slice(afterPos, afterPos + 12);
+              if (blocks.before?.some((b) => before.endsWith(b))) continue;
+              if (blocks.after?.some((a) => after.startsWith(a))) continue;
+            }
+            if (token === "Qu") {
+              const rest = text.slice(cursor);
+              const before = text.slice(Math.max(0, cursor - 15), cursor);
+              if (
+                rest.startsWith("Qu Yuan") ||
+                rest.startsWith("Qu Shrine") ||
+                before.includes("Jinlü")
               )
-            ) {
-              const alternate = sortedTokenMap.find(
-                ([candidate, candidateChar]) =>
-                  candidate === token && candidateChar.id === "char-38",
-              )?.[1];
-              if (alternate) char = alternate;
+                continue;
+            }
+            if (token === "Hou") {
+              const rest = text.slice(cursor);
+              const before = text.slice(Math.max(0, cursor - 15), cursor);
+              if (
+                rest.startsWith("Hou Yi") ||
+                rest.startsWith("Hou Sheng") ||
+                rest.startsWith("Hou' (") ||
+                before.endsWith("matched '") ||
+                before.toLowerCase().endsWith("su ")
+              )
+                continue;
+            }
+            // 保珠 is distinct from 袁宝珠 in the source. Both are romanized
+            // as Baozhu, so nearby context resolves the duplicate token for
+            // the performer who lives beside Guibao.
+            if (token === "Baozhu" && char.id !== "char-38") {
+              const context = text.slice(Math.max(0, cursor - 80), afterPos + 80);
+              if (
+                !/Yuan Baozhu/i.test(context) &&
+                /Guibao|dark-complexioned|another Baozhu|different Baozhu|other Baozhu/i.test(
+                  context,
+                )
+              ) {
+                const alternate = tokenMap.find(
+                  ([candidate, candidateChar]) =>
+                    candidate === token && candidateChar.id === "char-38",
+                )?.[1];
+                if (alternate) char = alternate;
+              }
             }
           }
+          if (token === "珊枝") {
+            const before = text.slice(Math.max(0, cursor - 15), cursor);
+            if (before.endsWith("碧海")) continue;
+          }
+          // Context-sensitive tokens: only chip if context confirms a person name
+          if (
+            CONTEXT_SENSITIVE_TOKENS.has(token) &&
+            !isPersonNameContext(text, cursor, afterPos, char)
+          )
+            continue;
+          const previous = segments[segments.length - 1];
+          let chipLabel = token;
+          if (typeof previous === "string") {
+            const trimmed = removeTrailingSurname(previous, char, token);
+            segments[segments.length - 1] = trimmed.text;
+            if (trimmed.chipLabel) chipLabel = trimmed.chipLabel;
+          }
+          segments.push({ token, char, chipLabel });
+          cursor += token.length;
+          matched = true;
+          break;
         }
-        if (token === "珊枝") {
-          const before = text.slice(Math.max(0, cursor - 15), cursor);
-          if (before.endsWith("碧海")) continue;
-        }
-        // Context-sensitive tokens: only chip if context confirms a person name
-        if (
-          CONTEXT_SENSITIVE_TOKENS.has(token) &&
-          !isPersonNameContext(text, cursor, afterPos, char)
-        )
-          continue;
-        const previous = segments[segments.length - 1];
-        let chipLabel = token;
-        if (typeof previous === "string") {
-          const trimmed = removeTrailingSurname(previous, char, token);
-          segments[segments.length - 1] = trimmed.text;
-          if (trimmed.chipLabel) chipLabel = trimmed.chipLabel;
-        }
-        segments.push({ token, char, chipLabel });
-        cursor += token.length;
-        matched = true;
-        break;
       }
     }
     if (!matched) {
@@ -821,9 +841,17 @@ export function getEnglishMentionTokens(character: Character): string[] {
     .sort((a, b) => b.length - a.length);
 }
 
+let cachedTokenMapCharsRef: Character[] | null = null;
+let cachedTokenMap: [string, Character][] | null = null;
+let cachedTokenMapByFirstChar: Map<string, [string, Character][]> | null = null;
+
 export function buildCharacterTokenMap(
   chars: Character[],
 ): [string, Character][] {
+  if (cachedTokenMapCharsRef === chars && cachedTokenMap) {
+    return cachedTokenMap;
+  }
+
   const entries: [string, Character][] = [];
   for (const char of chars) {
     const chineseName = char.name.split(" ")[0];
@@ -877,5 +905,21 @@ export function buildCharacterTokenMap(
     }
   }
   entries.sort((a, b) => b[0].length - a[0].length);
+
+  cachedTokenMapCharsRef = chars;
+  cachedTokenMap = entries;
+
+  const firstCharMap = new Map<string, [string, Character][]>();
+  for (const entry of entries) {
+    const firstChar = entry[0][0];
+    let list = firstCharMap.get(firstChar);
+    if (!list) {
+      list = [];
+      firstCharMap.set(firstChar, list);
+    }
+    list.push(entry);
+  }
+  cachedTokenMapByFirstChar = firstCharMap;
+
   return entries;
 }

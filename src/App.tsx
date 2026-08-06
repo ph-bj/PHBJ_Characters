@@ -83,7 +83,7 @@ import {
 } from "./workCategories";
 import { CiteButton } from "./components/CiteButton";
 
-import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, ROLE_CHIP_BOXED, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, NavSection, readLastReadingPosition, parseCharacterAge } from "./utils";
+import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, ROLE_CHIP_BOXED, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, getCharacterMentionCountsAll, getCharacterSortKeyZh, getCharacterSortKeyEn, NavSection, readLastReadingPosition, parseCharacterAge } from "./utils";
 
 import { LanguageSwitch } from "./components/LanguageSwitch";
 import { ThemeToggle } from "./components/ThemeToggle";
@@ -311,11 +311,7 @@ export default function App() {
   }, [lang]);
 
   const mentionCountByCharacterId = useMemo(() => {
-    const map = new Map<string, number>();
-    for (const char of characters) {
-      map.set(char.id, getCharacterTotalMentions(char));
-    }
-    return map;
+    return getCharacterMentionCountsAll();
   }, []);
 
   const filteredCharacters = useMemo(() => {
@@ -336,17 +332,9 @@ export default function App() {
     return filtered.sort((a, b) => {
       if (sortBy === "name") {
         if (lang === "zh") {
-          const nameA = getCharacterNameForLanguage(a, "zh");
-          const nameB = getCharacterNameForLanguage(b, "zh");
-          return nameA.localeCompare(nameB, "zh-CN");
+          return getCharacterSortKeyZh(a).localeCompare(getCharacterSortKeyZh(b), "zh-CN");
         } else {
-          const nameA = getCharacterNameForLanguage(a, "en");
-          const nameB = getCharacterNameForLanguage(b, "en");
-          const keyA = stripDiacritics(nameA).replace(/^[^a-zA-Z0-9]+/, "");
-          const keyB = stripDiacritics(nameB).replace(/^[^a-zA-Z0-9]+/, "");
-          const cmp = keyA.localeCompare(keyB, "en", { sensitivity: "base" });
-          if (cmp !== 0) return cmp;
-          return nameA.localeCompare(nameB, "en");
+          return getCharacterSortKeyEn(a).localeCompare(getCharacterSortKeyEn(b), "en");
         }
       }
       if (sortBy === "role") {

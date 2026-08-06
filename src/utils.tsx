@@ -305,6 +305,8 @@ import {
   getCharacterMentionTokens,
   countMentionsInText,
   extractChineseTokens,
+  getCharacterNameForLanguage,
+  stripDiacritics,
 } from "./nameChips";
 import type { Segment } from "./nameChips";
 
@@ -320,22 +322,41 @@ export type LacunaEntry = {
 };
 export type NovelLocationWithChapters = NovelLocation & { chapterIds: number[] };
 
+const locationChapterIdsCache = new Map<string, number[]>();
+const locationFirstSnippetCache = new Map<string, string | null>();
+
 export function getLocationChapterIds(location: NovelLocation): number[] {
+  const cached = locationChapterIdsCache.get(location.id);
+  if (cached) return cached;
+
   const sortedTokens = [...location.searchTokens].sort((a, b) => b.length - a.length);
-  return chapters
+  const ids = chapters
     .filter((ch) => ch.id >= 1)
     .filter((chapter) =>
       sortedTokens.some((token) => chapter.content.includes(token)),
     )
     .map((chapter) => chapter.id);
+
+  locationChapterIdsCache.set(location.id, ids);
+  return ids;
 }
 
 export function getLocationFirstSnippet(location: NovelLocation): string | null {
+  if (locationFirstSnippetCache.has(location.id)) {
+    return locationFirstSnippetCache.get(location.id)!;
+  }
+
   const chapterIds = getLocationChapterIds(location);
-  if (chapterIds.length === 0) return null;
+  if (chapterIds.length === 0) {
+    locationFirstSnippetCache.set(location.id, null);
+    return null;
+  }
 
   const chapter = chapters.find((ch) => ch.id === chapterIds[0]);
-  if (!chapter) return null;
+  if (!chapter) {
+    locationFirstSnippetCache.set(location.id, null);
+    return null;
+  }
 
   const sortedTokens = [...location.searchTokens].sort((a, b) => b.length - a.length);
   const matchedRanges: Array<{ start: number; end: number }> = [];
@@ -354,14 +375,19 @@ export function getLocationFirstSnippet(location: NovelLocation): string | null 
     }
   }
 
-  if (matchedRanges.length === 0) return null;
+  if (matchedRanges.length === 0) {
+    locationFirstSnippetCache.set(location.id, null);
+    return null;
+  }
   matchedRanges.sort((a, b) => a.start - b.start);
 
   const earliest = matchedRanges[0];
-  return chapter.content.slice(
+  const snippet = chapter.content.slice(
     Math.max(0, earliest.start - 60),
     Math.min(chapter.content.length, earliest.end + 60),
   );
+  locationFirstSnippetCache.set(location.id, snippet);
+  return snippet;
 }
 
 export function getLocationFirstChapterId(location: NovelLocation): number | null {
@@ -369,16 +395,56 @@ export function getLocationFirstChapterId(location: NovelLocation): number | nul
   return chapterIds[0] ?? null;
 }
 
-export function getCharacterTotalMentions(character: Character): number {
+let characterMentionCountsCache: Map<string, number> | null = null;
+
+export function getCharacterMentionCountsAll(): Map<string, number> {
+  if (characterMentionCountsCache) return characterMentionCountsCache;
+
   const tokenMap = buildCharacterTokenMap(characters);
-  return chapters
-    .filter((ch) => ch.id >= 1)
-    .reduce((total, ch) => {
-      const count = segmentText(ch.content, tokenMap).filter(
-        (seg) => typeof seg !== "string" && seg.char.id === character.id
-      ).length;
-      return total + count;
-    }, 0);
+  const map = new Map<string, number>();
+  for (const char of characters) {
+    map.set(char.id, 0);
+  }
+
+  for (const ch of chapters) {
+    if (ch.id < 1) continue;
+    const segs = segmentText(ch.content, tokenMap);
+    for (const seg of segs) {
+      if (typeof seg !== "string") {
+        map.set(seg.char.id, (map.get(seg.char.id) || 0) + 1);
+      }
+    }
+  }
+
+  characterMentionCountsCache = map;
+  return map;
+}
+
+export function getCharacterTotalMentions(character: Character): number {
+  const map = getCharacterMentionCountsAll();
+  return map.get(character.id) ?? 0;
+}
+
+const charSortKeyZhCache = new Map<string, string>();
+const charSortKeyEnCache = new Map<string, string>();
+
+export function getCharacterSortKeyZh(character: Character): string {
+  let key = charSortKeyZhCache.get(character.id);
+  if (!key) {
+    key = getCharacterNameForLanguage(character, "zh");
+    charSortKeyZhCache.set(character.id, key);
+  }
+  return key;
+}
+
+export function getCharacterSortKeyEn(character: Character): string {
+  let key = charSortKeyEnCache.get(character.id);
+  if (!key) {
+    const nameEn = getCharacterNameForLanguage(character, "en");
+    key = stripDiacritics(nameEn).replace(/^[^a-zA-Z0-9]+/, "").toLowerCase();
+    charSortKeyEnCache.set(character.id, key);
+  }
+  return key;
 }
 
 export function countTextSearchMatches(text: string, query: string): number {
