@@ -118,7 +118,7 @@ export default function App() {
   const [selectedLocation, setSelectedLocation] =
     useState<NovelLocationWithChapters | null>(null);
   const [selectedWork, setSelectedWork] = useState<string | null>(null);
-  const [sortBy, setSortBy] = useState<"role" | "appearance" | "mentions" | "age">(
+  const [sortBy, setSortBy] = useState<"role" | "appearance" | "mentions" | "age" | "name">(
     "mentions",
   );
   const [lang, setLang] = useState<"en" | "zh">(() => {
@@ -245,6 +245,7 @@ export default function App() {
       roleDist: "Role Distribution",
       searchPlaceholder: "Search the archives...",
       chronology: "Chronology",
+      nameSort: "By Name",
       ageSort: "By Age",
       roleSort: "By Role",
       mentionSort: "By Mentions",
@@ -273,6 +274,7 @@ export default function App() {
       roleDist: "角色分布",
       searchPlaceholder: "搜索档案...",
       chronology: "出场顺序",
+      nameSort: "按姓名",
       ageSort: "按年龄",
       roleSort: "按角色",
       mentionSort: "按提及",
@@ -332,6 +334,21 @@ export default function App() {
     });
 
     return filtered.sort((a, b) => {
+      if (sortBy === "name") {
+        if (lang === "zh") {
+          const nameA = getCharacterNameForLanguage(a, "zh");
+          const nameB = getCharacterNameForLanguage(b, "zh");
+          return nameA.localeCompare(nameB, "zh-CN");
+        } else {
+          const nameA = getCharacterNameForLanguage(a, "en");
+          const nameB = getCharacterNameForLanguage(b, "en");
+          const keyA = stripDiacritics(nameA).replace(/^[^a-zA-Z0-9]+/, "");
+          const keyB = stripDiacritics(nameB).replace(/^[^a-zA-Z0-9]+/, "");
+          const cmp = keyA.localeCompare(keyB, "en", { sensitivity: "base" });
+          if (cmp !== 0) return cmp;
+          return nameA.localeCompare(nameB, "en");
+        }
+      }
       if (sortBy === "role") {
         const roleA = lang === "zh" ? a.roleZh : a.role;
         const roleB = lang === "zh" ? b.roleZh : b.role;
@@ -1785,6 +1802,16 @@ export default function App() {
                     {t.chronology}
                   </button>
                   <button
+                    onClick={() => setSortBy("name")}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-wider transition-all ${sortBy === "name"
+                      ? "bg-[var(--accent)] text-[var(--paper-bg)]"
+                      : "text-[var(--ink-dim-text)] hover:bg-black/5"
+                      }`}
+                  >
+                    <SortAsc size={12} />
+                    {t.nameSort}
+                  </button>
+                  <button
                     onClick={() => setSortBy("age")}
                     className={`flex items-center gap-2 px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-wider transition-all ${sortBy === "age"
                       ? "bg-[var(--accent)] text-[var(--paper-bg)]"
@@ -1801,7 +1828,7 @@ export default function App() {
                       : "text-[var(--ink-dim-text)] hover:bg-black/5"
                       }`}
                   >
-                    <SortAsc size={12} />
+                    <User size={12} />
                     {t.roleSort}
                   </button>
                 </div>
