@@ -7,7 +7,7 @@ export const question: QuestionDefinition = {
   questionZh: "琴言在全书中的故事线（概要）",
   answerEn: `### Scope and method
 
-This is a **text-based account of Qinyan’s narrative arc**, not a claim that he appears in every chapter. The novel often keeps him present through reports, letters, poems, dreams, and Ziyu’s responses even when he is physically absent. Names are normalized as **Du Qinyan** (杜琴言), performer name **Qinguan** (琴官), style **Yunong** (韵倌/韵官 in variant forms), and later **Qu Qinxian** (屈琴仙).
+This is a **text-based account of Qinyan’s narrative arc**, not a claim that he appears in every chapter. The novel often keeps him present through reports, letters, poems, dreams, and Ziyu’s responses even when he is physically absent. Names are normalized as **Du Qinyan** (杜琴言), performer name **Qinguan** (琴官), sobriquet **Yunong** (玉侬), and later **Qu Qinxian** (屈琴仙).
 
 ### 1. Recognition before acquaintance (Chapters 1–10)
 
@@ -43,7 +43,7 @@ This is a **text-based account of Qinyan’s narrative arc**, not a claim that h
 Qinyan’s story is organized by **glance, obstruction, mediated messages, renaming, and return**. His bond with Ziyu is the emotional centre, but his fate is equally a study of theatrical labour and social hierarchy. The novel idealizes *qing* as ethical recognition; at the same time, its plot reveals that recognition operates within unequal structures of class, patronage, age, and contract.`,
   answerZh: `### 范围与方法
 
-以下是依据小说情节整理的**琴言叙事弧线**，并非声称他每回都亲自出场。即使琴言不在场，小说仍常借传闻、书信、诗词、梦境以及子玉的反应维持他的叙事存在。本文统一称 **杜琴言**；其伶名为 **琴官**，字（或别号）为 **韵倌／韵官**（版本用字有异），后来改名为 **屈琴仙**。
+以下是依据小说情节整理的**琴言叙事弧线**，并非声称他每回都亲自出场。即使琴言不在场，小说仍常借传闻、书信、诗词、梦境以及子玉的反应维持他的叙事存在。本文统一称 **杜琴言**；其伶名为 **琴官**，号 **玉侬**，后来改名为 **屈琴仙**。
 
 ### 一、未识其人，先受其感（第一至十回）
 

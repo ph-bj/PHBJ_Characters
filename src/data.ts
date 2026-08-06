@@ -33,8 +33,8 @@ const AGE_EVIDENCE_OVERRIDES: Record<string, { chapter: number; paragraph: numbe
   'char-154': { chapter: 57, paragraph: 4, excerptZh: '序齿袁绮香二十五岁，吴紫烟二十三岁，孙佩秋、王蓉华皆二十二岁，苏浣香二十一，浣兰十九，王琼华十八居末。' },
 };
 
-const rawData = `char-0	梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male protagonist; scholar-gentry; falls for Qinyan; later marries Wang Qionghua; promoted examiner (ch.15); builds Qu shrine (ch.59)	男主角；书生士绅；钟情于琴言；后娶王琼华；第15回升任主考官；第59回为屈道翁修建祠堂。
-char-1	杜琴言 Dù Qínyán	琴官 / 玉侬 / 琴仙 / 屈琴仙 / 屈勤先 / 屈少君 / 杜仙女	15	Jiangsu	performer	ch.1	Central romantic figure; orphaned; renamed by Xu Ziyun (ch.5); redeemed in ch.43; reunites with Ziyu	核心浪漫人物；孤儿；第5回由徐子云改名；第43回赎身；最终与子玉重逢。
+const rawData = `char-0	梅子玉 Méi Zǐyù	庾香	17	Jinling	scholar	ch.1	Male protagonist; scholar-gentry; falls for Qinyan; later marries Wang Qionghua; promoted examiner (ch.15); helps honor Qu Daoweng at the shrine (ch.59)	男主角；书生士绅；钟情于琴言；后娶王琼华；第15回升任主考官；第59回随梅士燮参与屈道翁祠堂及安葬事宜。
+char-1	杜琴言 Dù Qínyán	琴官 / 玉侬 / 琴仙 / 屈琴仙 / 屈勤先	15	Jiangsu	performer	ch.1	Central romantic figure; orphaned; renamed by Xu Ziyun (ch.5); redeemed in ch.43; reunites with Ziyu	核心浪漫人物；孤儿；第5回由徐子云改名；第43回赎身；最终与子玉重逢。
 char-2	颜仲清 Yán Zhòngqīng	剑潭	23	Jinling	scholar	ch.1	A chivalrous scholar and close friend of Ziyu; nephew of Lady Yan. Often mediates between friends and participates in major literary gatherings.	侠义书生，子玉挚友；颜夫人之侄。常在友人间周旋，活跃于各大文会雅集。
 char-3	史南湘 Shǐ Nánxiāng	竹君	24	Hanyang	scholar	ch.1	Top graduate who compiled the Flower Register; witty and romantic. Deeply attached to Lu Sulan; later achieves Jinshi rank (ch. 44).	乡试榜首，编纂《花选》；机智风流。痴情于陆素兰，后于第44回高中进士。
 char-4	王恂 Wáng Xún	庸庵	22	Jinling	scholar	ch.1	Son of Wang Wenhui and cousin to Ziyu; a key figure in social circles. Fond of opera and often involved in arranging local social affairs.	王文辉之子，子玉表兄；名士圈核心人物。平生好优伶，常参与筹办京中社交雅事。
@@ -62,7 +62,7 @@ char-27	李玉林 Lǐ Yùlín	佩仙	15	Yangzhou	performer	ch.1	#5; musician; fa
 char-28	王兰保 Wáng Lánbǎo	静芳	17	Yangzhou	performer	ch.1	#6; martial arts; refuses powerful patrons; elder brother of Guibao; Lianjin troupe	花榜第六；擅长武术；拒绝权贵；桂保之兄；联锦班。
 char-29	王桂保 Wáng Guìbǎo	蕊香	15	Yangzhou	performer	ch.1	A charming and witty performer, younger brother of Lanbao. A steady presence in social and literary scenes throughout the novel.	兰保之弟，排行花榜第七，为人机智讨喜。是文人雅集中的常客，贯穿全书始终。
 char-30	林春喜 Lín Chūnxǐ	小梅	14	Suzhou	performer	ch.1	#8; entered troupe at 12; plays male and female roles; rewrites opera scripts (ch.50)	花榜第八；12岁入班；兼演男女角；第50回改写剧本。
-char-31	袁琪官 Yuán Qíguān	琪官	14	—	performer	ch.2	Companion to Qinyan on the canal journey; vivid beauty; joins Lianjin troupe	琴言进京途中的同伴；容貌出众；加入联锦班。
+char-31	秦琪官 Qín Qíguān	琪官	14	—	performer	ch.2	Companion to Qinyan on the canal journey; vivid beauty; joins Lianjin troupe	琴言进京途中的同伴；容貌出众；加入联锦班。
 char-32	蓉官 Róngguān	Rong Guan	~15	—	performer	ch.3	Friend of Fu Lun; witty; comic scenes chs.2–3; knows about Xi Shiyi	富伦之友；机智；第2-3回有喜剧场面；了解奚十一。
 char-33	春兰 Chūnlán	—	~15	—	performer	ch.3	"Associated with Xi Shiyi; smashes crockery in the restaurant scene, ch.3"	与奚十一有关；第3回在酒楼摔碎瓷器。
 char-34	小福 Xiǎofú	—	~15	—	performer	ch.3	Quanfu troupe; rumoured Fu Lun spent 3000 cash on his graduation ceremony	全福班；传闻富伦为其出师礼花费三千钱。
@@ -83,7 +83,7 @@ char-51	周锡爵 Zhōu Xíjué	—	—	—	official	ch.2	Guanglu Temple junior 
 char-52	陆宗沅 Lù Zōngyuán	—	—	—	official	ch.2	Censor; gets wine sprayed in his face by Sun Lianggong; cousin of the two Madam Lu	御史；被孙亮功喷了一脸酒；两位陆夫人的堂兄弟。
 char-53	富伦 Fú Lún	富三爷 / Fu San / Fu the Third	~30	Jiangning	official	ch.3	A warm-hearted and wealthy official who serves as a generous patron to performers. A close friend of many scholars who often mediates social conflicts.	内务府官员，为人热诚。他是名伶们的重要赞助人，常在京城社交圈中排忧解难。
 char-54	贵芬 Guì Fēn	贵大爷 / Master Gui	~30	—	official	ch.3	7th-rank ministry clerk; prudent and steady; Fu Lun's close friend	七品部吏；谨慎稳重；富伦好友。
-char-55	华光宿 Huá Guāngsù	华公子 / 星北	21	—	villain	ch.5	A high-ranking noble and owner of Jinchun Garden. While dissolute, he possesses genuine taste, but his possessive acquisition of Qinyan (ch. 28) makes him a primary antagonist.	世袭侯爵，锦春园主。虽放荡不羁但颇具文采，因强纳琴言入府（第28回）而成为核心反派。
+char-55	华光宿 Huá Guāngsù	华公子 / 星北	21	—	villain	ch.5	Son of a hereditary first-rank duke and owner of Jinchun Garden. He received an honorary second-rank post; while dissolute, he possesses genuine taste, but his possessive acquisition of Qinyan (ch. 28) makes him a primary antagonist.	世袭一等公之子，锦春园主；十八岁起获赏二品闲散大臣。虽放荡不羁但颇具文采，因强纳琴言入府（第28回）而成为核心反派。
 char-56	曹长庆 Cáo Chángqìng	—	—	—	performer	ch.3	Troupe master who bought Qinyan as his apprentice; relies on him as the household's breadwinner; dies suddenly in ch.36	买琴言为徒的班主师傅；倚琴言为摇钱树；第36回猝然去世。
 char-57	史曾望 Shǐ Zēngwàng	—	—	—	official	ch.1	Shi Nanxiang's father; Censor (吏科给事中)	史南湘之父；吏科给事中。
 char-58	袁浩 Yuán Hào	—	—	—	official	ch.5	Yunnan governor; Xu Ziyun's father-in-law	云南巡抚；徐子云岳父。
@@ -396,6 +396,7 @@ const parsedCharacters: Character[] = rawData.split('\n').map((line) => {
 type MergeGroup = {
   canonicalNameKeyword: string;
   memberNameKeywords: string[];
+  suppressAliases?: string[];
 };
 
 const mergeGroups: MergeGroup[] = [
@@ -432,6 +433,8 @@ const mergeGroups: MergeGroup[] = [
   {
     canonicalNameKeyword: '杜琴言',
     memberNameKeywords: ['杜琴言', '屈少君', '屈琴仙', '屈勤先'],
+    // 屈少君 is an honorific/address form in the narrative, not a personal alias.
+    suppressAliases: ['屈少君'],
   },
   // 潘老三 of the Qisheng silver bureau (ch.8) is 潘其观/潘三 (ch.13: 开起盛银号的潘三爷).
   {
@@ -458,6 +461,7 @@ for (const group of mergeGroups) {
         .flatMap((c) => [c.name, ...c.alias.split('/').map((item) => item.trim())])
         .map((item) => item.trim())
         .filter((item) => item && item !== '—' && item !== canonical.name)
+        .filter((item) => !group.suppressAliases?.some((keyword) => item.includes(keyword)))
     ),
   ];
 

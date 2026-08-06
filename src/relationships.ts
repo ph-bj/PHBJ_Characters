@@ -41,7 +41,7 @@ export const relationships: Relationship[] = [
   { source: 'char-0', target: 'char-28', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 梅子玉 — 王兰保
   { source: 'char-0', target: 'char-29', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 梅子玉 — 王桂保
   { source: 'char-0', target: 'char-30', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 梅子玉 — 林春喜
-  { source: 'char-0', target: 'char-31', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 梅子玉 — 袁琪官
+  { source: 'char-0', target: 'char-31', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 梅子玉 — 秦琪官
   { source: 'char-0', target: 'char-32', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 梅子玉 — 蓉官
   { source: 'char-0', target: 'char-33', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 梅子玉 — 春兰
   { source: 'char-0', target: 'char-35', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 梅子玉 — 玉美
@@ -130,7 +130,7 @@ export const relationships: Relationship[] = [
   { source: 'char-1', target: 'char-28', type: 'Fellow Performer', typeZh: '同台伶人' }, // 杜琴言 — 王兰保
   { source: 'char-1', target: 'char-29', type: 'Fellow Performer', typeZh: '同台伶人' }, // 杜琴言 — 王桂保
   { source: 'char-1', target: 'char-30', type: 'Fellow Performer', typeZh: '同台伶人' }, // 杜琴言 — 林春喜
-  { source: 'char-1', target: 'char-31', type: 'Companion', typeZh: '进京同伴' }, // 杜琴言 — 袁琪官
+  { source: 'char-1', target: 'char-31', type: 'Companion', typeZh: '进京同伴' }, // 杜琴言 — 秦琪官
   { source: 'char-1', target: 'char-32', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 杜琴言 — 蓉官
   { source: 'char-1', target: 'char-33', type: 'Fellow Performer', typeZh: '同台伶人' }, // 杜琴言 — 春兰
   { source: 'char-1', target: 'char-35', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 杜琴言 — 玉美
@@ -217,7 +217,7 @@ export const relationships: Relationship[] = [
   { source: 'char-2', target: 'char-28', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 颜仲清 — 王兰保
   { source: 'char-2', target: 'char-29', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 颜仲清 — 王桂保
   { source: 'char-2', target: 'char-30', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 颜仲清 — 林春喜
-  { source: 'char-2', target: 'char-31', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 颜仲清 — 袁琪官
+  { source: 'char-2', target: 'char-31', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 颜仲清 — 秦琪官
   { source: 'char-2', target: 'char-32', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 颜仲清 — 蓉官
   { source: 'char-2', target: 'char-35', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 颜仲清 — 玉美
   { source: 'char-2', target: 'char-38', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 颜仲清 — 保珠
@@ -254,7 +254,7 @@ export const relationships: Relationship[] = [
   { source: 'char-3', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 史南湘 — 萧次贤
   { source: 'char-3', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 史南湘 — 刘文泽
   { source: 'char-3', target: 'char-30', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 史南湘 — 林春喜
-  { source: 'char-3', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 史南湘 — 袁琪官
+  { source: 'char-3', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 史南湘 — 秦琪官
   { source: 'char-3', target: 'char-38', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 史南湘 — 保珠
   { source: 'char-3', target: 'char-40', type: 'Family/Household', typeZh: '家属/内眷' }, // 史南湘 — 袁绮香
   { source: 'char-3', target: 'char-42', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 史南湘 — 林珊枝
@@ -372,7 +372,7 @@ export const relationships: Relationship[] = [
   { source: 'char-10', target: 'char-28', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 高品 — 王兰保
   { source: 'char-10', target: 'char-29', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 高品 — 王桂保
   { source: 'char-10', target: 'char-30', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 高品 — 林春喜
-  { source: 'char-10', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 高品 — 袁琪官
+  { source: 'char-10', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 高品 — 秦琪官
   { source: 'char-10', target: 'char-32', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 高品 — 蓉官
   { source: 'char-10', target: 'char-38', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 高品 — 保珠
   { source: 'char-10', target: 'char-40', type: 'Family/Household', typeZh: '家属/内眷' }, // 高品 — 袁绮香
@@ -438,7 +438,7 @@ export const relationships: Relationship[] = [
   { source: 'char-11', target: 'char-28', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 张仲雨 — 王兰保
   { source: 'char-11', target: 'char-29', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 张仲雨 — 王桂保
   { source: 'char-11', target: 'char-30', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 张仲雨 — 林春喜
-  { source: 'char-11', target: 'char-31', type: 'Grand Secretary Nephew & Opera Patron', typeZh: '阁学之侄与名伶追捧者' }, // 张仲雨 — 袁琪官
+  { source: 'char-11', target: 'char-31', type: 'Grand Secretary Nephew & Opera Patron', typeZh: '阁学之侄与名伶追捧者' }, // 张仲雨 — 秦琪官
   { source: 'char-11', target: 'char-32', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 张仲雨 — 蓉官
   { source: 'char-11', target: 'char-33', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 张仲雨 — 春兰
   { source: 'char-11', target: 'char-38', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 张仲雨 — 保珠
@@ -509,7 +509,7 @@ export const relationships: Relationship[] = [
   { source: 'char-14', target: 'char-28', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 冯子佩 — 王兰保
   { source: 'char-14', target: 'char-29', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 冯子佩 — 王桂保
   { source: 'char-14', target: 'char-30', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 冯子佩 — 林春喜
-  { source: 'char-14', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 冯子佩 — 袁琪官
+  { source: 'char-14', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 冯子佩 — 秦琪官
   { source: 'char-14', target: 'char-32', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 冯子佩 — 蓉官
   { source: 'char-14', target: 'char-42', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 冯子佩 — 林珊枝
   { source: 'char-14', target: 'char-45', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 冯子佩 — 二喜
@@ -546,7 +546,7 @@ export const relationships: Relationship[] = [
   { source: 'char-15', target: 'char-28', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 田春航 — 王兰保
   { source: 'char-15', target: 'char-29', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 田春航 — 王桂保
   { source: 'char-15', target: 'char-30', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 田春航 — 林春喜
-  { source: 'char-15', target: 'char-31', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 田春航 — 袁琪官
+  { source: 'char-15', target: 'char-31', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 田春航 — 秦琪官
   { source: 'char-15', target: 'char-32', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 田春航 — 蓉官
   { source: 'char-15', target: 'char-33', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 田春航 — 春兰
   { source: 'char-15', target: 'char-35', type: 'Tavern Encounter', typeZh: '酒楼同场' }, // 田春航 — 玉美
@@ -590,7 +590,7 @@ export const relationships: Relationship[] = [
   { source: 'char-17', target: 'char-28', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 金吉甫 — 王兰保
   { source: 'char-17', target: 'char-29', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 金吉甫 — 王桂保
   { source: 'char-17', target: 'char-30', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 金吉甫 — 林春喜
-  { source: 'char-17', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 金吉甫 — 袁琪官
+  { source: 'char-17', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 金吉甫 — 秦琪官
   { source: 'char-17', target: 'char-48', type: 'Official & Scholar', typeZh: '官员与名士' }, // 金吉甫 — 王文辉
   { source: 'char-17', target: 'char-55', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 金吉甫 — 华光宿
   { source: 'char-17', target: 'char-62', type: 'Official & Scholar', typeZh: '官员与名士' }, // 金吉甫 — 吴阁学
@@ -611,7 +611,7 @@ export const relationships: Relationship[] = [
   { source: 'char-20', target: 'char-28', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 李性全 — 王兰保
   { source: 'char-20', target: 'char-29', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 李性全 — 王桂保
   { source: 'char-20', target: 'char-30', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 李性全 — 林春喜
-  { source: 'char-20', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 李性全 — 袁琪官
+  { source: 'char-20', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 李性全 — 秦琪官
   { source: 'char-20', target: 'char-38', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 李性全 — 保珠
   { source: 'char-20', target: 'char-47', type: 'Official & Scholar', typeZh: '官员与名士' }, // 李性全 — 梅士燮
   { source: 'char-20', target: 'char-48', type: 'Official & Scholar', typeZh: '官员与名士' }, // 李性全 — 王文辉
@@ -629,7 +629,7 @@ export const relationships: Relationship[] = [
   { source: 'char-21', target: 'char-27', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 孙嗣徽 — 李玉林
   { source: 'char-21', target: 'char-29', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 孙嗣徽 — 王桂保
   { source: 'char-21', target: 'char-30', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 孙嗣徽 — 林春喜
-  { source: 'char-21', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 孙嗣徽 — 袁琪官
+  { source: 'char-21', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 孙嗣徽 — 秦琪官
   { source: 'char-21', target: 'char-38', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 孙嗣徽 — 保珠
   { source: 'char-21', target: 'char-45', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 孙嗣徽 — 二喜
   { source: 'char-21', target: 'char-48', type: 'Official & Scholar', typeZh: '官员与名士' }, // 孙嗣徽 — 王文辉
@@ -666,7 +666,7 @@ export const relationships: Relationship[] = [
   { source: 'char-23', target: 'char-28', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 袁宝珠 — 王兰保
   { source: 'char-23', target: 'char-29', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 袁宝珠 — 王桂保
   { source: 'char-23', target: 'char-30', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 袁宝珠 — 林春喜
-  { source: 'char-23', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 袁宝珠 — 袁琪官
+  { source: 'char-23', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 袁宝珠 — 秦琪官
   { source: 'char-23', target: 'char-32', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 袁宝珠 — 蓉官
   { source: 'char-23', target: 'char-33', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 袁宝珠 — 春兰
   { source: 'char-23', target: 'char-35', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 袁宝珠 — 玉美
@@ -706,7 +706,7 @@ export const relationships: Relationship[] = [
   { source: 'char-24', target: 'char-28', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 苏蕙芳 — 王兰保
   { source: 'char-24', target: 'char-29', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 苏蕙芳 — 王桂保
   { source: 'char-24', target: 'char-30', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 苏蕙芳 — 林春喜
-  { source: 'char-24', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 苏蕙芳 — 袁琪官
+  { source: 'char-24', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 苏蕙芳 — 秦琪官
   { source: 'char-24', target: 'char-32', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 苏蕙芳 — 蓉官
   { source: 'char-24', target: 'char-33', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 苏蕙芳 — 春兰
   { source: 'char-24', target: 'char-35', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 苏蕙芳 — 玉美
@@ -743,7 +743,7 @@ export const relationships: Relationship[] = [
   { source: 'char-25', target: 'char-28', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 陆素兰 — 王兰保
   { source: 'char-25', target: 'char-29', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 陆素兰 — 王桂保
   { source: 'char-25', target: 'char-30', type: 'Fellow Performer', typeZh: '同台伶人' }, // 陆素兰 — 林春喜
-  { source: 'char-25', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 陆素兰 — 袁琪官
+  { source: 'char-25', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 陆素兰 — 秦琪官
   { source: 'char-25', target: 'char-32', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 陆素兰 — 蓉官
   { source: 'char-25', target: 'char-33', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 陆素兰 — 春兰
   { source: 'char-25', target: 'char-35', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 陆素兰 — 玉美
@@ -779,7 +779,7 @@ export const relationships: Relationship[] = [
   { source: 'char-26', target: 'char-28', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 金漱芳 — 王兰保
   { source: 'char-26', target: 'char-29', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 金漱芳 — 王桂保
   { source: 'char-26', target: 'char-30', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 金漱芳 — 林春喜
-  { source: 'char-26', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 金漱芳 — 袁琪官
+  { source: 'char-26', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 金漱芳 — 秦琪官
   { source: 'char-26', target: 'char-32', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 金漱芳 — 蓉官
   { source: 'char-26', target: 'char-38', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 金漱芳 — 保珠
   { source: 'char-26', target: 'char-40', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 金漱芳 — 袁绮香
@@ -806,7 +806,7 @@ export const relationships: Relationship[] = [
   { source: 'char-27', target: 'char-28', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 李玉林 — 王兰保
   { source: 'char-27', target: 'char-29', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 李玉林 — 王桂保
   { source: 'char-27', target: 'char-30', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 李玉林 — 林春喜
-  { source: 'char-27', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 李玉林 — 袁琪官
+  { source: 'char-27', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 李玉林 — 秦琪官
   { source: 'char-27', target: 'char-32', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 李玉林 — 蓉官
   { source: 'char-27', target: 'char-38', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 李玉林 — 保珠
   { source: 'char-27', target: 'char-40', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 李玉林 — 袁绮香
@@ -833,7 +833,7 @@ export const relationships: Relationship[] = [
   { source: 'char-28', target: 'char-9', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 王兰保 — 刘文泽
   { source: 'char-28', target: 'char-29', type: 'Brothers', typeZh: '同胞兄弟' }, // 王兰保 — 王桂保
   { source: 'char-28', target: 'char-30', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 王兰保 — 林春喜
-  { source: 'char-28', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 王兰保 — 袁琪官
+  { source: 'char-28', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 王兰保 — 秦琪官
   { source: 'char-28', target: 'char-33', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 王兰保 — 春兰
   { source: 'char-28', target: 'char-42', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 王兰保 — 林珊枝
   { source: 'char-28', target: 'char-48', type: 'Official & Performer', typeZh: '官员与伶人' }, // 王兰保 — 王文辉
@@ -854,7 +854,7 @@ export const relationships: Relationship[] = [
   { source: 'char-29', target: 'char-8', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 王桂保 — 萧次贤
   { source: 'char-29', target: 'char-9', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 王桂保 — 刘文泽
   { source: 'char-29', target: 'char-30', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 王桂保 — 林春喜
-  { source: 'char-29', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 王桂保 — 袁琪官
+  { source: 'char-29', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 王桂保 — 秦琪官
   { source: 'char-29', target: 'char-42', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 王桂保 — 林珊枝
   { source: 'char-29', target: 'char-47', type: 'Official & Performer', typeZh: '官员与伶人' }, // 王桂保 — 梅士燮
   { source: 'char-29', target: 'char-48', type: 'Official & Performer', typeZh: '官员与伶人' }, // 王桂保 — 王文辉
@@ -869,7 +869,7 @@ export const relationships: Relationship[] = [
   { source: 'char-30', target: 'char-7', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 林春喜 — 徐子云
   { source: 'char-30', target: 'char-8', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 林春喜 — 萧次贤
   { source: 'char-30', target: 'char-9', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 林春喜 — 刘文泽
-  { source: 'char-30', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 林春喜 — 袁琪官
+  { source: 'char-30', target: 'char-31', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 林春喜 — 秦琪官
   { source: 'char-30', target: 'char-32', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 林春喜 — 蓉官
   { source: 'char-30', target: 'char-42', type: 'Fellow Performer', typeZh: '同台伶人' }, // 林春喜 — 林珊枝
   { source: 'char-30', target: 'char-47', type: 'Official & Performer', typeZh: '官员与伶人' }, // 林春喜 — 梅士燮
@@ -878,28 +878,28 @@ export const relationships: Relationship[] = [
   { source: 'char-30', target: 'char-72', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 林春喜 — 奚十一
   { source: 'char-30', target: 'char-75', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 林春喜 — 唐和尚
   { source: 'char-30', target: 'char-86', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 林春喜 — 颜夫人
-  { source: 'char-31', target: 'char-4', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 袁琪官 — 王恂
-  { source: 'char-31', target: 'char-5', type: 'Harassed Performer & Entangled Villain', typeZh: '名伶与纠缠市井恶少' }, // 袁琪官 — 魏聘才
-  { source: 'char-31', target: 'char-6', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 袁琪官 — 李元茂
-  { source: 'char-31', target: 'char-7', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 袁琪官 — 徐子云
-  { source: 'char-31', target: 'char-8', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 袁琪官 — 萧次贤
-  { source: 'char-31', target: 'char-9', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 袁琪官 — 刘文泽
-  { source: 'char-31', target: 'char-32', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 袁琪官 — 蓉官
-  { source: 'char-31', target: 'char-33', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 袁琪官 — 春兰
-  { source: 'char-31', target: 'char-38', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 袁琪官 — 保珠
-  { source: 'char-31', target: 'char-42', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 袁琪官 — 林珊枝
-  { source: 'char-31', target: 'char-45', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 袁琪官 — 二喜
-  { source: 'char-31', target: 'char-47', type: 'Official & Performer', typeZh: '官员与伶人' }, // 袁琪官 — 梅士燮
-  { source: 'char-31', target: 'char-48', type: 'Official & Performer', typeZh: '官员与伶人' }, // 袁琪官 — 王文辉
-  { source: 'char-31', target: 'char-52', type: 'Official & Performer', typeZh: '官员与伶人' }, // 袁琪官 — 陆宗沅
-  { source: 'char-31', target: 'char-53', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 袁琪官 — 富伦
-  { source: 'char-31', target: 'char-54', type: 'Official & Performer', typeZh: '官员与伶人' }, // 袁琪官 — 贵芬
-  { source: 'char-31', target: 'char-55', type: 'Harassed Performer & Entangled Villain', typeZh: '名伶与纠缠市井恶少' }, // 袁琪官 — 华光宿
-  { source: 'char-31', target: 'char-56', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 袁琪官 — 曹长庆
-  { source: 'char-31', target: 'char-72', type: 'Harassed Performer & Entangled Villain', typeZh: '名伶与纠缠市井恶少' }, // 袁琪官 — 奚十一
-  { source: 'char-31', target: 'char-73', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 袁琪官 — 潘其观
-  { source: 'char-31', target: 'char-75', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 袁琪官 — 唐和尚
-  { source: 'char-31', target: 'char-86', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 袁琪官 — 颜夫人
+  { source: 'char-31', target: 'char-4', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 秦琪官 — 王恂
+  { source: 'char-31', target: 'char-5', type: 'Harassed Performer & Entangled Villain', typeZh: '名伶与纠缠市井恶少' }, // 秦琪官 — 魏聘才
+  { source: 'char-31', target: 'char-6', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 秦琪官 — 李元茂
+  { source: 'char-31', target: 'char-7', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 秦琪官 — 徐子云
+  { source: 'char-31', target: 'char-8', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 秦琪官 — 萧次贤
+  { source: 'char-31', target: 'char-9', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 秦琪官 — 刘文泽
+  { source: 'char-31', target: 'char-32', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 秦琪官 — 蓉官
+  { source: 'char-31', target: 'char-33', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 秦琪官 — 春兰
+  { source: 'char-31', target: 'char-38', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 秦琪官 — 保珠
+  { source: 'char-31', target: 'char-42', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 秦琪官 — 林珊枝
+  { source: 'char-31', target: 'char-45', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 秦琪官 — 二喜
+  { source: 'char-31', target: 'char-47', type: 'Official & Performer', typeZh: '官员与伶人' }, // 秦琪官 — 梅士燮
+  { source: 'char-31', target: 'char-48', type: 'Official & Performer', typeZh: '官员与伶人' }, // 秦琪官 — 王文辉
+  { source: 'char-31', target: 'char-52', type: 'Official & Performer', typeZh: '官员与伶人' }, // 秦琪官 — 陆宗沅
+  { source: 'char-31', target: 'char-53', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 秦琪官 — 富伦
+  { source: 'char-31', target: 'char-54', type: 'Official & Performer', typeZh: '官员与伶人' }, // 秦琪官 — 贵芬
+  { source: 'char-31', target: 'char-55', type: 'Harassed Performer & Entangled Villain', typeZh: '名伶与纠缠市井恶少' }, // 秦琪官 — 华光宿
+  { source: 'char-31', target: 'char-56', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 秦琪官 — 曹长庆
+  { source: 'char-31', target: 'char-72', type: 'Harassed Performer & Entangled Villain', typeZh: '名伶与纠缠市井恶少' }, // 秦琪官 — 奚十一
+  { source: 'char-31', target: 'char-73', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 秦琪官 — 潘其观
+  { source: 'char-31', target: 'char-75', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 秦琪官 — 唐和尚
+  { source: 'char-31', target: 'char-86', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 秦琪官 — 颜夫人
   { source: 'char-32', target: 'char-4', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 蓉官 — 王恂
   { source: 'char-32', target: 'char-5', type: 'Harassed Performer & Entangled Villain', typeZh: '名伶与纠缠市井恶少' }, // 蓉官 — 魏聘才
   { source: 'char-32', target: 'char-6', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 蓉官 — 李元茂
@@ -1177,7 +1177,7 @@ export const relationships: Relationship[] = [
   { source: 'char-102', target: 'char-28', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 云儿 — 王兰保
   { source: 'char-102', target: 'char-29', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 云儿 — 王桂保
   { source: 'char-102', target: 'char-30', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 云儿 — 林春喜
-  { source: 'char-102', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 云儿 — 袁琪官
+  { source: 'char-102', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 云儿 — 秦琪官
   { source: 'char-102', target: 'char-32', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 云儿 — 蓉官
   { source: 'char-102', target: 'char-38', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 云儿 — 保珠
   { source: 'char-102', target: 'char-40', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 云儿 — 袁绮香
@@ -1216,7 +1216,7 @@ export const relationships: Relationship[] = [
   { source: 'char-104', target: 'char-6', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 许顺 — 李元茂
   { source: 'char-104', target: 'char-25', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 许顺 — 陆素兰
   { source: 'char-104', target: 'char-28', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 许顺 — 王兰保
-  { source: 'char-104', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 许顺 — 袁琪官
+  { source: 'char-104', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 许顺 — 秦琪官
   { source: 'char-104', target: 'char-42', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 许顺 — 林珊枝
   { source: 'char-104', target: 'char-48', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 许顺 — 王文辉
   { source: 'char-104', target: 'char-55', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 许顺 — 华光宿
@@ -1284,7 +1284,7 @@ export const relationships: Relationship[] = [
   { source: 'char-112', target: 'char-26', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 四儿 — 金漱芳
   { source: 'char-112', target: 'char-27', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 四儿 — 李玉林
   { source: 'char-112', target: 'char-28', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 四儿 — 王兰保
-  { source: 'char-112', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 四儿 — 袁琪官
+  { source: 'char-112', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 四儿 — 秦琪官
   { source: 'char-112', target: 'char-32', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 四儿 — 蓉官
   { source: 'char-112', target: 'char-38', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 四儿 — 保珠
   { source: 'char-112', target: 'char-42', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 四儿 — 林珊枝
@@ -1354,7 +1354,7 @@ export const relationships: Relationship[] = [
   { source: 'char-119', target: 'char-28', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 卢大爷 — 王兰保
   { source: 'char-119', target: 'char-29', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 卢大爷 — 王桂保
   { source: 'char-119', target: 'char-30', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 卢大爷 — 林春喜
-  { source: 'char-119', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 卢大爷 — 袁琪官
+  { source: 'char-119', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 卢大爷 — 秦琪官
   { source: 'char-119', target: 'char-32', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 卢大爷 — 蓉官
   { source: 'char-119', target: 'char-33', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 卢大爷 — 春兰
   { source: 'char-119', target: 'char-42', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 卢大爷 — 林珊枝
@@ -1406,7 +1406,7 @@ export const relationships: Relationship[] = [
   { source: 'char-121', target: 'char-28', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 叶茂林 — 王兰保
   { source: 'char-121', target: 'char-29', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 叶茂林 — 王桂保
   { source: 'char-121', target: 'char-30', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 叶茂林 — 林春喜
-  { source: 'char-121', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 叶茂林 — 袁琪官
+  { source: 'char-121', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 叶茂林 — 秦琪官
   { source: 'char-121', target: 'char-32', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 叶茂林 — 蓉官
   { source: 'char-121', target: 'char-38', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 叶茂林 — 保珠
   { source: 'char-121', target: 'char-42', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 叶茂林 — 林珊枝
@@ -1439,7 +1439,7 @@ export const relationships: Relationship[] = [
   { source: 'char-123', target: 'char-27', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 老三 — 李玉林
   { source: 'char-123', target: 'char-28', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 老三 — 王兰保
   { source: 'char-123', target: 'char-29', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 老三 — 王桂保
-  { source: 'char-123', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 老三 — 袁琪官
+  { source: 'char-123', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 老三 — 秦琪官
   { source: 'char-123', target: 'char-32', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 老三 — 蓉官
   { source: 'char-123', target: 'char-33', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 老三 — 春兰
   { source: 'char-123', target: 'char-42', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 老三 — 林珊枝
@@ -1498,7 +1498,7 @@ export const relationships: Relationship[] = [
   { source: 'char-135', target: 'char-27', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 侯石翁 — 李玉林
   { source: 'char-135', target: 'char-28', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 侯石翁 — 王兰保
   { source: 'char-135', target: 'char-29', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 侯石翁 — 王桂保
-  { source: 'char-135', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 侯石翁 — 袁琪官
+  { source: 'char-135', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 侯石翁 — 秦琪官
   { source: 'char-135', target: 'char-47', type: 'Official & Scholar', typeZh: '官员与名士' }, // 侯石翁 — 梅士燮
   { source: 'char-135', target: 'char-55', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 侯石翁 — 华光宿
   { source: 'char-135', target: 'char-72', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 侯石翁 — 奚十一
@@ -1537,7 +1537,7 @@ export const relationships: Relationship[] = [
   { source: 'char-137', target: 'char-28', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 菊花 — 王兰保
   { source: 'char-137', target: 'char-29', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 菊花 — 王桂保
   { source: 'char-137', target: 'char-30', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 菊花 — 林春喜
-  { source: 'char-137', target: 'char-31', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 菊花 — 袁琪官
+  { source: 'char-137', target: 'char-31', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 菊花 — 秦琪官
   { source: 'char-137', target: 'char-33', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 菊花 — 春兰
   { source: 'char-137', target: 'char-55', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 菊花 — 华光宿
   { source: 'char-137', target: 'char-72', type: 'Concubine', typeZh: '姬妾' }, // 菊花 — 奚十一
@@ -1581,7 +1581,7 @@ export const relationships: Relationship[] = [
   { source: 'char-139', target: 'char-28', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 卓天香 — 王兰保
   { source: 'char-139', target: 'char-29', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 卓天香 — 王桂保
   { source: 'char-139', target: 'char-30', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 卓天香 — 林春喜
-  { source: 'char-139', target: 'char-31', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 卓天香 — 袁琪官
+  { source: 'char-139', target: 'char-31', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 卓天香 — 秦琪官
   { source: 'char-139', target: 'char-33', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 卓天香 — 春兰
   { source: 'char-139', target: 'char-55', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 卓天香 — 华光宿
   { source: 'char-139', target: 'char-72', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 卓天香 — 奚十一
@@ -1610,7 +1610,7 @@ export const relationships: Relationship[] = [
   { source: 'char-141', target: 'char-28', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 屈道翁 — 王兰保
   { source: 'char-141', target: 'char-29', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 屈道翁 — 王桂保
   { source: 'char-141', target: 'char-30', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 屈道翁 — 林春喜
-  { source: 'char-141', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 屈道翁 — 袁琪官
+  { source: 'char-141', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 屈道翁 — 秦琪官
   { source: 'char-141', target: 'char-42', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 屈道翁 — 林珊枝
   { source: 'char-141', target: 'char-47', type: 'Official & Scholar', typeZh: '官员与名士' }, // 屈道翁 — 梅士燮
   { source: 'char-141', target: 'char-48', type: 'Official & Scholar', typeZh: '官员与名士' }, // 屈道翁 — 王文辉
@@ -1666,7 +1666,7 @@ export const relationships: Relationship[] = [
   { source: 'char-145', target: 'char-23', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 张笑梅 — 袁宝珠
   { source: 'char-145', target: 'char-24', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 张笑梅 — 苏蕙芳
   { source: 'char-145', target: 'char-25', type: 'Fellow Performer', typeZh: '同台伶人' }, // 张笑梅 — 陆素兰
-  { source: 'char-145', target: 'char-31', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 张笑梅 — 袁琪官
+  { source: 'char-145', target: 'char-31', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 张笑梅 — 秦琪官
   { source: 'char-145', target: 'char-32', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 张笑梅 — 蓉官
   { source: 'char-145', target: 'char-42', type: 'Fellow Performer', typeZh: '同台伶人' }, // 张笑梅 — 林珊枝
   { source: 'char-145', target: 'char-53', type: 'Official & Performer', typeZh: '官员与伶人' }, // 张笑梅 — 富伦
@@ -1688,7 +1688,7 @@ export const relationships: Relationship[] = [
   { source: 'char-146', target: 'char-15', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 杨梅窗 — 田春航
   { source: 'char-146', target: 'char-23', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 杨梅窗 — 袁宝珠
   { source: 'char-146', target: 'char-24', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 杨梅窗 — 苏蕙芳
-  { source: 'char-146', target: 'char-31', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 杨梅窗 — 袁琪官
+  { source: 'char-146', target: 'char-31', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 杨梅窗 — 秦琪官
   { source: 'char-146', target: 'char-32', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 杨梅窗 — 蓉官
   { source: 'char-146', target: 'char-42', type: 'Theatrical Colleague', typeZh: '同台伶人' }, // 杨梅窗 — 林珊枝
   { source: 'char-146', target: 'char-53', type: 'Official & Performer', typeZh: '官员与伶人' }, // 杨梅窗 — 富伦
@@ -1751,7 +1751,7 @@ export const relationships: Relationship[] = [
   { source: 'char-153', target: 'char-24', type: 'Acquaintance', typeZh: '相识' }, // 苏浣香 — 苏蕙芳
   { source: 'char-153', target: 'char-25', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 苏浣香 — 陆素兰
   { source: 'char-153', target: 'char-28', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 苏浣香 — 王兰保
-  { source: 'char-153', target: 'char-31', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 苏浣香 — 袁琪官
+  { source: 'char-153', target: 'char-31', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 苏浣香 — 秦琪官
   { source: 'char-153', target: 'char-40', type: 'Family/Household', typeZh: '家属/内眷' }, // 苏浣香 — 袁绮香
   { source: 'char-153', target: 'char-42', type: 'Acquaintance', typeZh: '相识' }, // 苏浣香 — 林珊枝
   { source: 'char-153', target: 'char-48', type: 'Family/Household', typeZh: '家属/内眷' }, // 苏浣香 — 王文辉
@@ -1868,7 +1868,7 @@ export const relationships: Relationship[] = [
   { source: 'char-159', target: 'char-28', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 明珠 — 王兰保
   { source: 'char-159', target: 'char-29', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 明珠 — 王桂保
   { source: 'char-159', target: 'char-30', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 明珠 — 林春喜
-  { source: 'char-159', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 明珠 — 袁琪官
+  { source: 'char-159', target: 'char-31', type: 'Theatrical Household', typeZh: '戏班/府上' }, // 明珠 — 秦琪官
   { source: 'char-159', target: 'char-38', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 明珠 — 保珠
   { source: 'char-159', target: 'char-40', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 明珠 — 袁绮香
   { source: 'char-159', target: 'char-42', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 明珠 — 林珊枝
@@ -1932,7 +1932,7 @@ export const relationships: Relationship[] = [
   { source: 'char-194', target: 'char-21', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 黄掌柜 — 孙嗣徽
   { source: 'char-194', target: 'char-23', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 黄掌柜 — 袁宝珠
   { source: 'char-194', target: 'char-24', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 黄掌柜 — 苏蕙芳
-  { source: 'char-194', target: 'char-31', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 黄掌柜 — 袁琪官
+  { source: 'char-194', target: 'char-31', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 黄掌柜 — 秦琪官
   { source: 'char-194', target: 'char-45', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 黄掌柜 — 二喜
   { source: 'char-194', target: 'char-72', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 黄掌柜 — 奚十一
   { source: 'char-194', target: 'char-73', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 黄掌柜 — 潘其观
