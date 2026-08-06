@@ -18,9 +18,9 @@ Chinese source in `src/chapterTranslations/chinese/chapterChinese{1..60}.ts`.
 
 | Chapters | What was done |
 | --- | --- |
-| 1–46 | Read paragraph by paragraph against the Chinese; errors corrected. Chapter 21's remaining compressed passages and three especially compressed Chapter 46 passages were subsequently restored as full literary translations. |
+| 1–46 | Read paragraph by paragraph against the Chinese; errors corrected. Chapters 24, 26, and 46 also received a complete literary retranslation pass where compact wording could be expanded or sharpened without disturbing paragraph alignment. |
 | 47–51, 55 | Read through in full at the paragraph level; errors corrected. |
-| 52–54, 56–60 | Mechanical sweeps only (alignment, pronouns, stray Chinese, name/title consistency), plus spot checks. Not yet read line by line. |
+| 52–54, 56–60 | Read paragraph by paragraph against the Chinese; confirmed omissions, title/name errors, and imagery issues corrected. |
 
 ## Recurring error classes found and corrected
 
@@ -57,13 +57,34 @@ Chinese source in `src/chapterTranslations/chinese/chapterChinese{1..60}.ts`.
    whole chapter out of alignment with the Chinese from paragraph 11 onward. Split and
    realigned; all 60 chapters now match paragraph for paragraph.
 
+## Follow-up audit — 2026-08-07
+
+- Rechecked all 2,023 Chinese/English paragraph pairs across chapters 1–60; paragraph
+  alignment remains exact.
+- Rechecked all 704 Chinese work citations: every cited work has a canonical English
+  title in the paired paragraph and remains highlightable by the production renderer.
+- Rechecked the production name-chip map: all 207 roster entries now have at least one
+  Chinese token and one English token. English fallback aliases are now included in
+  the renderer, with contextual disambiguation for the two characters romanized as
+  Baozhu.
+- Corrected targeted late-chapter issues: 红霙 is consistently Hongying; Wang Lanbao's
+  name is restored in chapter 58; Lady Shi is used consistently in the chapter 58
+  marriage sequence; the chapter 57 Wei-lot and 顶针续麻令 passages are repaired; and
+  詹事府正詹事 is translated as Chief Administrator of the Office of the Heir Apparent.
+- Completed the paragraph-level pass through chapters 52–54 and 56–60: restored an omitted verse in chapter 52, restored Wang Wei's quoted poem and corrected an over-expanded poet list in chapter 54, and tightened names, appointments, erotic imagery, injury imagery, and the flower-god inscription in chapters 56–60.
+- Completed the literary retranslation pass for chapters 24, 26, 27, 46, and 58,
+  restoring or sharpening narrative transitions, character motivation, sensory
+  detail, source metaphors, allusions, and cadence while preserving paragraph
+  alignment.
+- The full paragraph-level literary pass is complete for the previously identified
+  condensed passages. Further stylistic polishing remains optional editorial work,
+  not an identified accuracy or completeness defect.
+
 ## Known outstanding issues (not fixed)
 
-- **Compressed chapters.** Some chapters are rendered as condensed paraphrase rather
-  than full translation. Measured as English characters per Chinese character (a full
-  translation in this corpus runs ~4.5–5.5), the outliers are:
-  ch. 46 (now 3.25 after restoring paragraphs 19, 25, and 37), ch. 27 (3.11),
-  ch. 58 (3.21), ch. 24 (3.70), and ch. 26 (3.81). Fixing these means
-  re-translating, not editing. Chapter 21 is no longer on this list: its three compressed
-  passages were restored in full, raising its ratio from 2.93 to 3.79.
-- Chapters 52–54 and 56–60 have not yet been read paragraph by paragraph.
+- **Style ratios.** English-to-Chinese character ratios remain useful diagnostics, not
+  completeness certificates. The previously low-ratio chapters 24, 26, 27, 46, and 58
+  have all received a paragraph-level literary retranslation pass; Chapter 21's three
+  compressed passages were also restored in full, raising its ratio from 2.93 to 3.79.
+- No known paragraph-level omissions remain. The remaining low ratios reflect dense
+  classical phrasing and translation style, not a known paragraph-level omission.

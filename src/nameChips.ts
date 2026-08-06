@@ -115,6 +115,7 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   庾香: ["Yuxiang", "Yu Xiang", "Mei Yuxiang"],
   琴官: ["Qinguan", "Qin Guan", "Master Du Qin", "Qin Yan"],
   玉侬: ["Yunong", "Yu Nong", "Yu'nong", "Yu’nong"],
+  保珠: ["Bao Zhu", "that Baozhu", "the other Baozhu", "dark-class performer"],
   琴仙: ["Qinxian", "Qin Xian", "Qin Immortal"],
   剑潭: ["Jiantan", "Jian Tan"],
   竹君: ["Zhujun", "Zhu Jun", "Nan Xiang"],
@@ -240,6 +241,7 @@ export const ENGLISH_ALIAS_TOKENS: Record<string, string[]> = {
   春林: ["Chunlin", "Chun Lin"],
   翠官: ["Cuiguan", "Cui Guan"],
   红霙: ["Hongying", "Hong Ying"],
+  石氏: ["Lady Shi"],
   胡八: ["Hu Ba", "Hu the Eighth"],
   张桐孙: ["Zhang Tongsun", "Zhang Tong Sun"],
   笠山: ["Lishan", "Li Shan"],
@@ -606,8 +608,9 @@ export function segmentText(text: string, tokenMap: [string, Character][]): Segm
   let cursor = 0;
   while (cursor < text.length) {
     let matched = false;
-    for (const [token, char] of sortedTokenMap) {
+    for (const [token, initialChar] of sortedTokenMap) {
       if (text.startsWith(token, cursor)) {
+        let char = initialChar;
         const afterPos = cursor + token.length;
         // ASCII tokens require a word-boundary before and after the match
         const isAscii = /[a-zA-Z]/.test(token);
@@ -650,6 +653,24 @@ export function segmentText(text: string, tokenMap: [string, Character][]): Segm
               before.toLowerCase().endsWith("su ")
             )
               continue;
+          }
+          // 保珠 is distinct from 袁宝珠 in the source. Both are romanized
+          // as Baozhu, so nearby context resolves the duplicate token for
+          // the performer who lives beside Guibao.
+          if (token === "Baozhu" && char.id !== "char-38") {
+            const context = text.slice(Math.max(0, cursor - 80), afterPos + 80);
+            if (
+              !/Yuan Baozhu/i.test(context) &&
+              /Guibao|dark-complexioned|another Baozhu|different Baozhu|other Baozhu/i.test(
+                context,
+              )
+            ) {
+              const alternate = sortedTokenMap.find(
+                ([candidate, candidateChar]) =>
+                  candidate === token && candidateChar.id === "char-38",
+              )?.[1];
+              if (alternate) char = alternate;
+            }
           }
         }
         if (token === "珊枝") {
@@ -703,6 +724,10 @@ export const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
 
   "char-96": "Madam Lu (Sun household)",
   "char-99": "Eldest Miss Sun",
+  "char-68": "Director of the Eastern Palace Zhuang",
+  "char-69": "Left Senior Secretary Zheng",
+  "char-70": "Imperial College Director Zhang",
+  "char-101": "Lady Shi",
   "char-108": "Page Boy",
   "char-109": "Maidservant (Gatekeeper)",
   "char-110": "Household Maid (Clothing)",
@@ -720,6 +745,7 @@ export const ENGLISH_CHARACTER_NAME_FALLBACKS: Record<string, string> = {
   "char-195": "Silver Bank Manager",
   "char-196": "Hua Zhengchang Manager",
   "char-197": "Ji Shi the Dwarf",
+  "char-131": "Qinyan's mother",
 };
 
 
@@ -817,6 +843,8 @@ export function buildCharacterTokenMap(
     for (const t of zhTokens) entries.push([t, char]);
 
     const pinyinPart = char.name.slice(chineseName.length).trim();
+    const fallback = ENGLISH_CHARACTER_NAME_FALLBACKS[char.id];
+    if (fallback) entries.push([fallback, char]);
     if (pinyinPart) {
       const plain = stripDiacritics(pinyinPart);
       const allParts = plain

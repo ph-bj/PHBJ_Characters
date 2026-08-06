@@ -5,7 +5,7 @@ import type { SceneBullet } from "./types";
 export const char_160Appearances: Record<number, SceneBullet[]> = {
   11: [
     {
-      en: "Introduced as one of the ten beautiful maidservants in the Hua household, collectively known as the Ten Zhus. During a drinking game, Hezhu playfully mocks Hongxiang and Hongyan, leading to a physical tussle with Hongyan. Ultimately, she is reprimanded and punished for her rowdy behavior by Madam Hua and Madam Yuan.",
+      en: "Introduced as one of the ten beautiful maidservants in the Hua household, collectively known as the Ten Zhus. During a drinking game, Hezhu playfully mocks Hongxiang and Hongying, leading to a physical tussle with Hongying. Ultimately, she is reprimanded and punished for her rowdy behavior by Madam Hua and Madam Yuan.",
       zh: "作为华府十名美丽丫鬟（十珠）之一首次登场。在行酒令时，荷珠故意作对嘲笑红香和红□，与红□扭打成一团。最终因嬉闹无礼，与其他几名丫鬟一同受到华夫人和袁夫人的责罚。",
     },
   ],
@@ -29,7 +29,7 @@ export const char_160Appearances: Record<number, SceneBullet[]> = {
   ],
   57: [
     {
-      en: "During a complex drinking game simulating the Six States' campaign against Qin, Hezhu is assigned to Huanlan's state of Qi and draws the character lot of Lord Mengchang. She goes up against Hongyan (playing Zhao Gao) and uses biting, satirical verses to mock Hongyan, which nearly starts another physical fight before she apologizes.",
+      en: "During a complex drinking game simulating the Six States' campaign against Qin, Hezhu is assigned to Huanlan's state of Qi and draws the character lot of Lord Mengchang. She goes up against Hongying (playing Zhao Gao) and uses biting, satirical verses to mock Hongying, which nearly starts another physical fight before she apologizes.",
       zh: "在模拟“六国伐秦”的复杂酒令中，荷珠被分到浣兰的齐国阵营，并掣得孟尝君的筹。她与扮演赵高的红□对阵，借用诗句尖刻地嘲讽了红□，险些惹得红□动手打人，最后连连赔礼方才罢休。",
     },
   ],

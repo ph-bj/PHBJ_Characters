@@ -53,7 +53,7 @@ export const char_66Appearances: Record<number, SceneBullet[]> = {
   ],
   58: [
     {
-      en: "Mentions of 'Tian Zhuangyuan' and 'Zhuangyuan' refer to Tian Chunhang, whose servant is spotted at a garden gathering. Tian Chunhang himself is visiting Wang Languan with Shi Nanxiang.",
+      en: "Mentions of 'Tian Zhuangyuan' and 'Zhuangyuan' refer to Tian Chunhang, whose servant is spotted at a garden gathering. Tian Chunhang himself is visiting Wang Lanbao with Shi Nanxiang.",
       zh: "提及的“田状元”及“状元公”均指田春航。他的仆人在园林聚会中被认出，而田春航本人正与史南湘一同在王兰官处做客。"
     }
   ]
