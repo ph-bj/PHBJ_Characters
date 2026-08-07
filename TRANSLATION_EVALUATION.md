@@ -558,6 +558,14 @@ glossed. A three-paragraph build-up lands on a blank page.
   管中窥豹 is glimpsing a *leopard* through a *tube* — seeing one spot and inferring the beast,
   which is exactly Daosheng's self-deprecating point about judging the whole company from one
   couplet. Wrong animal, wrong aperture, and the modesty formula stops working.
+- **56:4** 道翁命逢阳九 → "fate had marked this as Daosheng's **ninth year** of profound ill
+  fortune". 阳九 is not a ninth year: it is the catastrophic phase of the 阳九/百六 cycle — the
+  numerology Daosheng himself expounds at 38:30, auditing it against twenty-three reign-periods
+  and concluding 数不敌理, that number cannot overcome principle. The book then kills him in a
+  阳九. The English has the term right seven times in chapter 38 ("the seventh Yangjiu count",
+  "the exhaustion of yang"); at 56:4, the one place it does structural work, it becomes a count
+  of years. The two passages stop connecting and the irony — the man who argued fate is not
+  arithmetic, dying on schedule — disappears.
 - **55:0** 漕河两院 → "the grain-transport and **salt-monopoly** offices". These are the two
   commissioners at Qingjiangpu — 漕运总督 (grain transport) and 河道总督 (river conservancy).
   There is no salt office among them; the salt administration appears correctly as 盐台 two
@@ -972,8 +980,8 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S16): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–55 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 56, 57 and 58.
+**Close reading, paragraph by paragraph:** ch. 1–56 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 57 and 58.
 
 Chapters 49 and 50 are recorded with no significant accuracy failure found. That is worth
 saying explicitly: they are ordinary narrative and social comedy — the bulk of the book — and
