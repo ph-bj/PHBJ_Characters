@@ -10,7 +10,7 @@ export function getStoredCursorPreference(): boolean {
   } catch {
     /* localStorage unavailable */
   }
-  return true; // Enabled by default for rich calligraphy experience
+  return true; // Enabled by default for fine pointer devices
 }
 
 export function setStoredCursorPreference(enabled: boolean) {
@@ -19,6 +19,53 @@ export function setStoredCursorPreference(enabled: boolean) {
   } catch {
     /* noop */
   }
+}
+
+/**
+ * Smart detection hook for fine pointer devices (mouse/trackpad/stylus).
+ * Automatically detects whether fine mouse input is supported vs pure touch-only screens.
+ */
+export function useFinePointerDevice(): boolean {
+  const [isFinePointer, setIsFinePointer] = useState<boolean>(() => {
+    if (typeof window === "undefined") return true;
+    return (
+      window.matchMedia("(pointer: fine)").matches ||
+      window.matchMedia("(hover: hover)").matches
+    );
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mediaQuery = window.matchMedia("(pointer: fine)");
+    const handleMediaChange = (e: MediaQueryListEvent) => {
+      setIsFinePointer(e.matches);
+    };
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", handleMediaChange);
+    }
+
+    // Dynamic detection for hybrid touch/mouse devices (e.g. iPads/laptops with touch)
+    const handlePointerType = (e: PointerEvent) => {
+      if (e.pointerType === "mouse" || e.pointerType === "pen") {
+        setIsFinePointer(true);
+      }
+    };
+
+    window.addEventListener("pointerdown", handlePointerType, { passive: true });
+    window.addEventListener("pointermove", handlePointerType, { passive: true });
+
+    return () => {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener("change", handleMediaChange);
+      }
+      window.removeEventListener("pointerdown", handlePointerType);
+      window.removeEventListener("pointermove", handlePointerType);
+    };
+  }, []);
+
+  return isFinePointer;
 }
 
 // Unified Custom Hook for Calligraphy Cursor State Sync
@@ -92,18 +139,22 @@ interface InkRipple {
 
 export function CalligraphyCursorOverlay() {
   const { enabled } = useCalligraphyCursorState();
+  const isFinePointer = useFinePointerDevice();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const strokePointsRef = useRef<StrokePoint[]>([]);
   const particlesRef = useRef<InkParticle[]>([]);
   const ripplesRef = useRef<InkRipple[]>([]);
   const animFrameRef = useRef<number | null>(null);
   const lastPosRef = useRef<{ x: number; y: number; time: number } | null>(null);
-  const enabledRef = useRef<boolean>(enabled);
+  const activeInputRef = useRef<"mouse" | "touch">("mouse");
 
-  // Keep mutable ref in sync for event listeners
+  const isCursorActive = enabled && isFinePointer;
+  const activeRef = useRef<boolean>(isCursorActive);
+
+  // Keep active state ref updated for event handlers
   useEffect(() => {
-    enabledRef.current = enabled;
-    if (enabled) {
+    activeRef.current = isCursorActive;
+    if (isCursorActive) {
       document.documentElement.classList.add("custom-brush-enabled");
     } else {
       document.documentElement.classList.remove("custom-brush-enabled");
@@ -116,9 +167,9 @@ export function CalligraphyCursorOverlay() {
         ctx?.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
       }
     }
-  }, [enabled]);
+  }, [isCursorActive]);
 
-  // Main Canvas Ink System (Runs permanently, checks enabledRef dynamically)
+  // Main Canvas Ink System
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -126,22 +177,32 @@ export function CalligraphyCursorOverlay() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // Retina / High-DPI canvas resolution scaling
     const handleResize = () => {
-      if (canvas) {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
+      if (!canvas || !ctx) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.scale(dpr, dpr);
     };
     handleResize();
+
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleResize, { passive: true });
+
+    // Track active pointer type to suppress ink trails on finger touch drags
+    const handlePointerDown = (e: PointerEvent) => {
+      activeInputRef.current = e.pointerType === "touch" ? "touch" : "mouse";
+    };
+    window.addEventListener("pointerdown", handlePointerDown, { passive: true });
 
     // Traditional Chinese Ink Tone Palette Generator (墨分五色: 焦, 浓, 重, 淡, 清)
     const getInkToneColors = (tone: InkTone) => {
       const isPlumTheme = document.documentElement.getAttribute("data-theme") === "plum";
 
       if (isPlumTheme) {
-        // 青梅 (Plum Jade Paper Theme): Traditional Chinese Dark Jade Black Ink (黛墨/松烟墨)
         switch (tone) {
           case "jiao":
             return { core: "#0c1809", wash: "rgba(12, 24, 9, 0.4)", alpha: 0.95 };
@@ -157,7 +218,6 @@ export function CalligraphyCursorOverlay() {
             return { core: "#8b2500", wash: "rgba(139, 37, 0, 0.35)", alpha: 0.88 };
         }
       } else {
-        // 古卷 (Warm Parchment Paper Theme): Traditional Chinese Pine-Soot Black Ink (松烟墨)
         switch (tone) {
           case "jiao":
             return { core: "#080605", wash: "rgba(8, 6, 5, 0.4)", alpha: 0.95 };
@@ -176,9 +236,10 @@ export function CalligraphyCursorOverlay() {
     };
 
     const render = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
 
-      if (!enabledRef.current) {
+      if (!activeRef.current) {
         animFrameRef.current = null;
         return;
       }
@@ -329,13 +390,14 @@ export function CalligraphyCursorOverlay() {
     };
 
     const startAnimIfNeeded = () => {
-      if (!animFrameRef.current && enabledRef.current) {
+      if (!animFrameRef.current && activeRef.current) {
         animFrameRef.current = requestAnimationFrame(render);
       }
     };
 
     const onMouseMove = (e: MouseEvent) => {
-      if (!enabledRef.current) return;
+      // Suppress ink particle generation on direct touch dragging
+      if (!activeRef.current || activeInputRef.current === "touch") return;
 
       const x = e.clientX;
       const y = e.clientY;
@@ -364,6 +426,11 @@ export function CalligraphyCursorOverlay() {
           const danColors = getInkToneColors("dan");
           const qingColors = getInkToneColors("qing");
 
+          // Bounded point queue limit to prevent GC overhead
+          if (strokePointsRef.current.length > 50) {
+            strokePointsRef.current.shift();
+          }
+
           strokePointsRef.current.push({
             x,
             y,
@@ -379,9 +446,9 @@ export function CalligraphyCursorOverlay() {
             qingColor: qingColors.wash,
           });
 
-          const numParticles = Math.min(4, Math.floor(dist / 3.5));
+          const numParticles = Math.min(3, Math.floor(dist / 4.0));
           for (let i = 0; i < numParticles; i++) {
-            const ratio = i / numParticles;
+            const ratio = i / Math.max(1, numParticles);
             const px = lastPosRef.current.x + dx * ratio;
             const py = lastPosRef.current.y + dy * ratio;
 
@@ -394,6 +461,10 @@ export function CalligraphyCursorOverlay() {
             else pTone = "qing";
 
             const pColors = getInkToneColors(pTone);
+
+            if (particlesRef.current.length > 35) {
+              particlesRef.current.shift();
+            }
 
             particlesRef.current.push({
               x: px + (Math.random() - 0.5) * 5,
@@ -418,10 +489,14 @@ export function CalligraphyCursorOverlay() {
     };
 
     const onMouseDown = (e: MouseEvent) => {
-      if (!enabledRef.current) return;
+      if (!activeRef.current || activeInputRef.current === "touch") return;
 
       const jiaoColors = getInkToneColors("jiao");
       const qingColors = getInkToneColors("qing");
+
+      if (ripplesRef.current.length > 10) {
+        ripplesRef.current.shift();
+      }
 
       ripplesRef.current.push({
         x: e.clientX,
@@ -434,11 +509,15 @@ export function CalligraphyCursorOverlay() {
       });
 
       const tones: InkTone[] = ["jiao", "nong", "zhong", "dan", "vermilion"];
-      for (let i = 0; i < 12; i++) {
-        const angle = (i / 12) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+      for (let i = 0; i < 10; i++) {
+        const angle = (i / 10) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
         const speed = Math.random() * 3.0 + 1.2;
         const t = tones[i % tones.length];
         const tColors = getInkToneColors(t);
+
+        if (particlesRef.current.length > 35) {
+          particlesRef.current.shift();
+        }
 
         particlesRef.current.push({
           x: e.clientX,
@@ -465,18 +544,19 @@ export function CalligraphyCursorOverlay() {
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleResize);
+      window.removeEventListener("pointerdown", handlePointerDown);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mousedown", onMouseDown);
       if (animFrameRef.current) {
         cancelAnimationFrame(animFrameRef.current);
       }
     };
-  }, []); // Mounted once permanently, reads enabledRef dynamically!
+  }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className={`fixed inset-0 pointer-events-none z-[99999] opacity-95 ${enabled ? "" : "hidden"}`}
+      className={`fixed inset-0 pointer-events-none z-[99999] opacity-95 ${isCursorActive ? "" : "hidden"}`}
       aria-hidden="true"
     />
   );
@@ -490,6 +570,12 @@ export function CalligraphyCursorToggle({
   className?: string;
 }) {
   const { enabled, toggle } = useCalligraphyCursorState();
+  const isFinePointer = useFinePointerDevice();
+
+  // On touch-only devices without fine mouse pointers (e.g. mobile phones), hide cursor toggle button to keep UI clean
+  if (!isFinePointer) {
+    return null;
+  }
 
   return (
     <button
