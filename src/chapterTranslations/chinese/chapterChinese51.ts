@@ -1,4 +1,4 @@
-/** Chapter 51 — 第五一回 闹缝穷隔墙听戏 舒积忿同室操戈 */
+/** Chapter 51 — 第五十一回 闹缝穷隔墙听戏 舒积忿同室操戈 */
 
 export const chapterChinese51: string[] = [
   "话说聘才出京之时，曾问元茂要帐，适值元茂赴通州去了。",
