@@ -574,6 +574,10 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .attr("dy", ".35em")
       .attr("font-size", "9px")
       .attr("font-weight", "bold")
+      .attr("paint-order", "stroke")
+      .attr("stroke", "var(--paper-bg)")
+      .attr("stroke-width", 2)
+      .attr("stroke-linejoin", "round")
       .attr("fill", (d: any) => getRoleColorVar(d.role))
       .text((d: any) => getNodeLabel(d, lang));
 
