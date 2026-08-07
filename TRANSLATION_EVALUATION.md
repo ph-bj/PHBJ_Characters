@@ -85,9 +85,19 @@ called 保珠/宝珠 and is tagged `[Baohuan]`. Some are malformed: `[Xu Shun qi
 许顺妻, "Xu Shun's wife", with 妻 left as a loose romanised syllable; `[Zhanggui de]` is
 掌柜的, "the proprietor", a common noun treated as a name.
 
-At **41:27 a tag has displaced source text**. The Chinese paragraph ends
-「画珠接唱，明珠合着唱道：」 — Yazhu takes up the song, Mingzhu joins in. The English ends
-`[Section by Section Higher] [Yazhu]`, with that clause untranslated.
+**The worst placement is at a speech attribution.** Screening all 126 Chinese paragraphs that
+end in an attribution clause (`… 道：`, `… 唱道：`), 104 keep it cleanly in English, and 14 have
+a bracket tag sitting at the seam between the colon and the speech that follows in the next
+paragraph. In five of the six checked, the tag names someone other than the speaker, so it
+reads as the attribution: 5:24 "The driver said: **[Lu Daye]**" — the speaker is the carter;
+9:16 "Cixian asked: **[Page Boy]**"; 35:0 "Pincai replied: **[Deyue]**"; 51:1 "It read:
+**[Lady Sun]**"; 45:33 "The planchette wrote again: **[Chunlan] [Wang the Bearded]**". This is
+the one place in a paragraph where a bare name is a claim about who is talking.
+
+Some tags are not people at all. 41:17 is tagged `[Hong Xue]` — 红雪, lifted from the book title
+《红雪楼九种》 named in that same sentence: a collection of plays entered in the character
+roster as a person. 40:15's `[Tang Heshang]` is 唐和尚, "Monk Tang", and 40:21's `[Li Sanshu]`
+is 李三叔, "Uncle Li San" — a title and a kinship term promoted to surnames.
 
 These display literally. `stripForSpeech` (`ChapterReader.tsx:619`) removes 《》, `*…*` and
 ▉□ for text-to-speech only; nothing strips `[...]` on the render path.
@@ -441,6 +451,13 @@ glossed. A three-paragraph build-up lands on a blank page.
   a well-bred recluse, and 1:20 renders the same idiom correctly.
 - **1:18** 《絮阁》 → "The Pavilion of Gossamer" — 絮 here is 絮聒, to nag; the Changsheng dian
   scene is Yang Guifei's jealous tirade, so reading 絮 as willow-floss inverts the scene.
+- **41:26, 41:28** 《前腔》 → "[Opening Aria and Closing Aria]". 前腔 is not a tune name; it
+  means "to the tune above". Rendered as a title it invents an aria that does not exist, twice
+  in one suite.
+- **41:17** 《玉茗堂四梦》 → "the four dream-plays of the Four Dreams of the Jade Tea Hall at
+  Yumingtan Studio" — the title given three times over in one phrase, with 玉茗 read as "tea".
+  This is the third English treatment of 玉茗 after "jade camellias" (4:10), and none of the
+  three tells the reader it means Tang Xianzu.
 - **1:29** 紫云回雪 → "the 'Purple Cloud Return'", set as a single dance title — it is two
   images (Du Mu's singer Ziyun; the whirling snow of the Luoshen fu), and the Yuan/Su-vs-Guibao
   contrast collapses.
@@ -511,8 +528,25 @@ into the mansion of his own accord," and the English of 27:1 opens "He meant to 
 until the boy could find no peace and had no choice but to enter the mansion." One sentence,
 two paragraphs, both in English, only one in Chinese.
 
-Both cases are paraphrases rather than verbatim repeats, so a word-matching sweep does not
-find them: screening every adjacent pair for a shared six-word content n-gram returns ten
+**Chapter 41, four times running** — and this is the clearest case, because the mechanism is
+visible. In the aria sequence, the Chinese paragraph's closing attribution clause is moved to
+the head of the *next* English paragraph, and a stray tag naming that singer is left in the
+slot it vacated:
+
+| Chinese ends | English of that paragraph ends | Next English paragraph opens |
+| --- | --- | --- |
+| 41:17 只听明珠接着唱道： | `[Hong Xue] [Ming Zhu]` | "At this point Mingzhu took up the next aria and sang:" |
+| 41:22 见赠珠唱道： | `[Zengzhu]` | "Zengzhu now sang:" |
+| 41:26 见蕊珠唱起，宝珠合着唱道： | `[Ruizhu] [Yuan Baozhu]` | "Then Ruizhu began, with Baozhu joining in harmony:" |
+| 41:27 画珠接唱，明珠合着唱道： | `[Section by Section Higher] [Yazhu]` | "Yazhu joined in with the next aria, while Mingzhu sang the harmony:" |
+
+In the side-by-side reader this shows as a Chinese cell naming a singer beside an English cell
+that does not, four rows running. (An earlier draft of this report recorded 41:27 as an
+*omission* — the clause untranslated. That was wrong: it is displaced, not lost, and it is one
+of four, not one. S1's count of stray tags is unaffected.)
+
+The first two cases are paraphrases rather than verbatim repeats, so a word-matching sweep does
+not find them: screening every adjacent pair for a shared six-word content n-gram returns ten
 hits, all of them legitimate (a line quoted in one paragraph and discussed in the next).
 Enumerating this class properly needs a paragraph-by-paragraph comparison, not a script.
 
@@ -711,8 +745,9 @@ places, and they show what the rest could be:
 
 ## 6. What to fix first
 
-1. **Strip the 299 stray tags** (S1) and restore the displaced clause at 41:27. Mechanical,
-   and it removes the most visible defect in the product.
+1. **Strip the 299 stray tags** (S1), starting with the 14 that sit at a speech attribution
+   and read as the name of the speaker. Mechanical, and it removes the most visible defect in
+   the product.
 2. **Reconcile the asterisk markup with the renderer** (S2) — either register the 155 missing
    strings as annotatable terms or drop the asterisks from the 209 non-title spans.
 3. **Normalise names and titles** (S3, S6, S9), starting with the paragraphs that *introduce*
@@ -734,8 +769,8 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S13): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–39 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 40, 41, 42, 45, 46, 51, 52, 53, 54, 56, 57 and 58.
+**Close reading, paragraph by paragraph:** ch. 1–41 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 42, 45, 46, 51, 52, 53, 54, 56, 57 and 58.
 
 The remaining chapters are covered by the mechanical screens only. Findings from them that
 appear above (41:27, 48:20/22, 42:15/16, 54:11/33/39, 59:8–10, 57:35–52, 51:16–21, the
