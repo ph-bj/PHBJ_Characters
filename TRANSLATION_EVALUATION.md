@@ -722,7 +722,33 @@ this was a wretched fate."
 「你说这命运低不低？」 is a wounded question put directly to the man in front of him. The
 paragraph then closes 说到此，便硬咽起来 → "Speaking to this point, he choked back tears" —
 but nothing has been spoken on the page. The emotional centre of Huifang's characterisation
-is narrated instead of performed. The same happens to the Tian household (ch. 48).
+is narrated instead of performed.
+
+**Chapter 48 is where this costs the most**, because chapter 48 is where Ziyu and Qinxian part
+— the resolution the whole novel has been building toward — and it is the worst chapter in the
+book by this measure: 48:19 (12→2) · 48:20 (14→1) · 48:22 (15→5) · 48:30 (8→1) · 48:31 (5→0) ·
+48:32 (5→0).
+
+48:20 is the scene the book is remembered for. Drifting under a bridge, the two talk in a chain
+of images, every line quoted in the Chinese: a flock of ducks with not one straying; clouds
+from the east and clouds from the west; a crosswind that could scatter them; Ziyu's answer that
+a crosswind could as easily blow them together; 「那就要四面风才能」; Nanxiang's
+「只怕还有八面风呢」. Then a carp swims off alone, Ziyu prays silently that if it turns back
+Yunong will come back too, and it turns. In English there is not one quotation mark in any of
+it:
+
+> Qinxian pointed out how the ducks moved perfectly together, without a single one straying
+> from the group… Qinxian smiled faintly and replied that such a reunion would require winds
+> from all four directions. Nanxiang chimed in, suggesting it might even require winds from all
+> eight directions… Ziyu silently prayed that if the carp returned, Yunong would also return.
+
+Everything is reported — including the prayer, which in Chinese is the one line that is already
+interior and therefore the one line that must stand apart from the spoken ones. Levelled into
+the same reporting voice, the difference between what is said aloud and what is only thought
+disappears, and with it the shape of the scene: two people talking past their fear in
+metaphors, and one of them striking a bargain with a fish that he cannot say out loud. 48:30,
+the parting itself, goes the same way — Qinxian's 「你来找我，要我活着才好」 becomes "Qinxian
+sadly replied that he must still be alive for that to happen".
 
 **Chapter 42 shows the rule the conversion follows.** Counting Chinese speech-openings against
 English quotation marks paragraph by paragraph, the chapter divides cleanly in two:
@@ -871,7 +897,8 @@ places, and they show what the rest could be:
    the prose forms with the `data.ts` roster so the name chips resolve.
 4. **Mark the lacunae** (S7). Twenty-two paragraphs currently present conjecture as text while
    the Chinese beside them flags a gap.
-5. **Restore direct speech** in the 34 paragraphs of S8, beginning with chapter 13.
+5. **Restore direct speech** in the 34 paragraphs of S8, beginning with **48:20 and 48:30** —
+   the parting scene, and the costliest loss in the book — then chapter 13 and chapter 42.
 6. **Fix the two surviving female pronouns** at 28:5 and 29:9 (S13), and the stray `\n\t` at
    30:4. Two minutes of work, and both currently misgender or garble on screen.
 7. **Fix the errors in §4.1** — they are few, they are checkable, and each one currently
@@ -885,7 +912,7 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S14): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–47 complete, plus targeted close reading of
+**Close reading, paragraph by paragraph:** ch. 1–48 complete, plus targeted close reading of
 the paragraphs the screens flagged in ch. 51, 52, 53, 54, 56, 57 and 58.
 
 The remaining chapters are covered by the mechanical screens only. Findings from them that
