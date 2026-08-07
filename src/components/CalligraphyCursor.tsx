@@ -125,6 +125,8 @@ interface InkParticle {
   life: number;
   maxLife: number;
   expandRate: number;
+  rotation: number;
+  vRot: number;
 }
 
 interface InkRipple {
@@ -135,6 +137,155 @@ interface InkRipple {
   alpha: number;
   color: string;
   washColor: string;
+  rotation: number;
+}
+
+/**
+ * Renders a simple, elegant line-drawing plum flower (白描梅花) at (x, y).
+ * Features 5 distinct rounded petals with line contours, soft inner wash fill,
+ * and delicate central stamens radiating outward with small anther dots.
+ */
+function drawPlumFlower(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  radius: number,
+  rotation: number,
+  color: string,
+  washColor: string,
+  alpha: number,
+  isVermilion: boolean = false
+) {
+  if (alpha <= 0.005 || radius <= 0.5) return;
+
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(rotation);
+  ctx.globalAlpha = alpha;
+
+  const numPetals = 5;
+  const petalLength = radius * 1.4;
+  const petalWidth = radius * 0.85;
+
+  // 1. Draw 5 Petals (5 rounded lobes radiating from center)
+  ctx.beginPath();
+  for (let i = 0; i < numPetals; i++) {
+    const angle = (i * 2 * Math.PI) / numPetals - Math.PI / 2;
+    const cosA = Math.cos(angle);
+    const sinA = Math.sin(angle);
+
+    const pCos = -sinA;
+    const pSin = cosA;
+
+    const tipX = cosA * petalLength;
+    const tipY = sinA * petalLength;
+
+    const ctrl1X = cosA * (petalLength * 0.45) + pCos * petalWidth;
+    const ctrl1Y = sinA * (petalLength * 0.45) + pSin * petalWidth;
+
+    const ctrl2X = cosA * (petalLength * 0.45) - pCos * petalWidth;
+    const ctrl2Y = sinA * (petalLength * 0.45) - pSin * petalWidth;
+
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(ctrl1X, ctrl1Y, tipX + pCos * (petalWidth * 0.25), tipY + pSin * (petalWidth * 0.25), tipX, tipY);
+    ctx.bezierCurveTo(tipX - pCos * (petalWidth * 0.25), tipY - pSin * (petalWidth * 0.25), ctrl2X, ctrl2Y, 0, 0);
+  }
+
+  // Soft wash body inside petals
+  ctx.fillStyle = washColor;
+  ctx.fill();
+
+  // Simple line drawing contour for petals (白描线稿)
+  ctx.strokeStyle = color;
+  ctx.lineWidth = Math.max(0.75, radius * 0.11);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  ctx.stroke();
+
+  // 2. Central Stamens (花蕊: 8 radial lines with tiny anther dots)
+  const numStamens = 8;
+  const stamenLen = radius * 0.52;
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = Math.max(0.55, radius * 0.07);
+
+  for (let i = 0; i < numStamens; i++) {
+    const sAngle = (i * 2 * Math.PI) / numStamens + 0.2;
+    const sCos = Math.cos(sAngle);
+    const sSin = Math.sin(sAngle);
+
+    const stamenX = sCos * stamenLen;
+    const stamenY = sSin * stamenLen;
+
+    ctx.beginPath();
+    ctx.moveTo(sCos * (radius * 0.12), sSin * (radius * 0.12));
+    ctx.lineTo(stamenX, stamenY);
+    ctx.stroke();
+
+    // Anther dot at stamen tip
+    ctx.beginPath();
+    ctx.arc(stamenX + sCos * 1.0, stamenY + sSin * 1.0, Math.max(0.7, radius * 0.08), 0, Math.PI * 2);
+    ctx.fillStyle = isVermilion ? "#9e2a0b" : color;
+    ctx.fill();
+  }
+
+  // Center Floral Core Dot
+  ctx.beginPath();
+  ctx.arc(0, 0, Math.max(0.9, radius * 0.14), 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+
+  ctx.restore();
+}
+
+/**
+ * Renders an expanding 5-petal plum flower outline ripple on click.
+ */
+function drawPlumRipple(ctx: CanvasRenderingContext2D, r: InkRipple) {
+  if (r.alpha <= 0.01) return;
+
+  ctx.save();
+  ctx.translate(r.x, r.y);
+  ctx.rotate(r.rotation);
+  ctx.globalAlpha = r.alpha * 0.75;
+  ctx.strokeStyle = r.washColor;
+  ctx.lineWidth = 1.6;
+
+  const numPetals = 5;
+  const petalLength = r.radius * 1.3;
+  const petalWidth = r.radius * 0.75;
+
+  ctx.beginPath();
+  for (let i = 0; i < numPetals; i++) {
+    const angle = (i * 2 * Math.PI) / numPetals - Math.PI / 2;
+    const cosA = Math.cos(angle);
+    const sinA = Math.sin(angle);
+    const pCos = -sinA;
+    const pSin = cosA;
+
+    const tipX = cosA * petalLength;
+    const tipY = sinA * petalLength;
+
+    const ctrl1X = cosA * (petalLength * 0.45) + pCos * petalWidth;
+    const ctrl1Y = sinA * (petalLength * 0.45) + pSin * petalWidth;
+
+    const ctrl2X = cosA * (petalLength * 0.45) - pCos * petalWidth;
+    const ctrl2Y = sinA * (petalLength * 0.45) - pSin * petalWidth;
+
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(ctrl1X, ctrl1Y, tipX + pCos * (petalWidth * 0.25), tipY + pSin * (petalWidth * 0.25), tipX, tipY);
+    ctx.bezierCurveTo(tipX - pCos * (petalWidth * 0.25), tipY - pSin * (petalWidth * 0.25), ctrl2X, ctrl2Y, 0, 0);
+  }
+  ctx.stroke();
+
+  // Core flower center
+  ctx.beginPath();
+  ctx.arc(0, 0, r.radius * 0.35, 0, Math.PI * 2);
+  ctx.fillStyle = r.color;
+  ctx.globalAlpha = r.alpha * 0.6;
+  ctx.fill();
+
+  ctx.restore();
 }
 
 export function CalligraphyCursorOverlay() {
@@ -233,7 +384,7 @@ export function CalligraphyCursorOverlay() {
       ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
 
       if (activeRef.current) {
-        // 1. Render Ink Ripples & Seals (from mouse clicks)
+        // 1. Render Ink Ripples & Seals (from mouse clicks) - Blooming Plum Flower Outline Ripples
         const ripples = ripplesRef.current;
         for (let i = ripples.length - 1; i >= 0; i--) {
           const r = ripples[i];
@@ -245,20 +396,7 @@ export function CalligraphyCursorOverlay() {
             continue;
           }
 
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
-          ctx.strokeStyle = r.washColor;
-          ctx.globalAlpha = r.alpha * 0.75;
-          ctx.lineWidth = 3.0;
-          ctx.stroke();
-
-          ctx.beginPath();
-          ctx.arc(r.x, r.y, r.radius * 0.48, 0, Math.PI * 2);
-          ctx.fillStyle = r.color;
-          ctx.globalAlpha = r.alpha * 0.65;
-          ctx.fill();
-          ctx.restore();
+          drawPlumRipple(ctx, r);
         }
 
         // 2. Render Continuous Calligraphy Ink Stroke Ribbon (水墨飞白笔触)
@@ -336,17 +474,18 @@ export function CalligraphyCursorOverlay() {
           ctx.restore();
         }
 
-        // 3. Render Ink Splash & Diffusion Particles (墨滴水墨晕染)
+        // 3. Render Plum Flowers flowing from Calligraphy Brush Pen tip
         const particles = particlesRef.current;
         for (let i = particles.length - 1; i >= 0; i--) {
           const p = particles[i];
           p.x += p.vx;
           p.y += p.vy;
-          p.vx *= 0.94;
-          p.vy *= 0.94;
+          p.vx *= 0.95;
+          p.vy *= 0.95;
+          p.rotation += p.vRot;
           p.life += 1;
           const progress = p.life / p.maxLife;
-          p.alpha = (1 - progress) * 0.85;
+          p.alpha = (1 - progress) * 0.9;
           p.radius += p.expandRate;
 
           if (p.life >= p.maxLife || p.alpha <= 0.01) {
@@ -354,21 +493,17 @@ export function CalligraphyCursorOverlay() {
             continue;
           }
 
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = p.color;
-          ctx.globalAlpha = p.alpha;
-          ctx.fill();
-
-          if (p.radius > 3) {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius * 1.6, 0, Math.PI * 2);
-            ctx.fillStyle = p.washColor;
-            ctx.globalAlpha = p.alpha * 0.4;
-            ctx.fill();
-          }
-          ctx.restore();
+          drawPlumFlower(
+            ctx,
+            p.x,
+            p.y,
+            p.radius,
+            p.rotation,
+            p.color,
+            p.washColor,
+            p.alpha,
+            p.tone === "vermilion"
+          );
         }
       }
 
@@ -436,31 +571,33 @@ export function CalligraphyCursorOverlay() {
 
             const pRand = Math.random();
             let pTone: InkTone = "nong";
-            if (pRand > 0.90) pTone = "vermilion";
-            else if (pRand > 0.65) pTone = "jiao";
-            else if (pRand > 0.35) pTone = "zhong";
-            else if (pRand > 0.15) pTone = "dan";
+            if (pRand > 0.60) pTone = "vermilion"; // Vibrant plum flower tone ratio
+            else if (pRand > 0.40) pTone = "jiao";
+            else if (pRand > 0.20) pTone = "zhong";
+            else if (pRand > 0.10) pTone = "dan";
             else pTone = "qing";
 
             const pColors = getInkToneColors(pTone);
 
-            if (particlesRef.current.length > 35) {
+            if (particlesRef.current.length > 40) {
               particlesRef.current.shift();
             }
 
             particlesRef.current.push({
-              x: px + (Math.random() - 0.5) * 5,
-              y: py + (Math.random() - 0.5) * 5,
-              vx: (Math.random() - 0.5) * (speed * 0.4 + 0.4),
-              vy: (Math.random() - 0.5) * (speed * 0.4 + 0.4),
-              radius: Math.random() * 4.0 + 1.8,
+              x: px + (Math.random() - 0.5) * 6,
+              y: py + (Math.random() - 0.5) * 6,
+              vx: (Math.random() - 0.5) * (speed * 0.3 + 0.3),
+              vy: (Math.random() - 0.5) * (speed * 0.3 + 0.3),
+              radius: Math.random() * 5.5 + 3.5,
               alpha: pColors.alpha,
               tone: pTone,
               color: pColors.core,
               washColor: pColors.wash,
               life: 0,
-              maxLife: Math.floor(Math.random() * 25) + 20,
-              expandRate: 0.22,
+              maxLife: Math.floor(Math.random() * 30) + 25,
+              expandRate: 0.15,
+              rotation: Math.random() * Math.PI * 2,
+              vRot: (Math.random() - 0.5) * 0.04,
             });
           }
         }
@@ -482,21 +619,22 @@ export function CalligraphyCursorOverlay() {
       ripplesRef.current.push({
         x: e.clientX,
         y: e.clientY,
-        radius: 4,
-        maxRadius: 32,
-        alpha: 0.88,
+        radius: 5,
+        maxRadius: 36,
+        alpha: 0.9,
         color: jiaoColors.core,
         washColor: qingColors.wash,
+        rotation: Math.random() * Math.PI * 2,
       });
 
-      const tones: InkTone[] = ["jiao", "nong", "zhong", "dan", "vermilion"];
-      for (let i = 0; i < 10; i++) {
-        const angle = (i / 10) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
-        const speed = Math.random() * 3.0 + 1.2;
+      const tones: InkTone[] = ["vermilion", "jiao", "nong", "vermilion", "zhong", "dan"];
+      for (let i = 0; i < 12; i++) {
+        const angle = (i / 12) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+        const speed = Math.random() * 3.2 + 1.2;
         const t = tones[i % tones.length];
         const tColors = getInkToneColors(t);
 
-        if (particlesRef.current.length > 35) {
+        if (particlesRef.current.length > 40) {
           particlesRef.current.shift();
         }
 
@@ -505,14 +643,16 @@ export function CalligraphyCursorOverlay() {
           y: e.clientY,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
-          radius: Math.random() * 4.8 + 2.0,
+          radius: Math.random() * 6.5 + 4.0,
           alpha: tColors.alpha,
           tone: t,
           color: tColors.core,
           washColor: tColors.wash,
           life: 0,
-          maxLife: 35,
-          expandRate: 0.26,
+          maxLife: 38,
+          expandRate: 0.2,
+          rotation: Math.random() * Math.PI * 2,
+          vRot: (Math.random() - 0.5) * 0.06,
         });
       }
     };
