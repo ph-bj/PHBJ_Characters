@@ -337,6 +337,17 @@ Errors found in close reading, grouped by kind. Each is checkable at the cited p
 | 35:11 | 坐月到黄昏 | "sitting in the moonlight until dusk" | Impossible in that order. The line is the flower-lover sitting on into the evening *waiting for* the moon. |
 | 33:4 | 小琅嬛室 | "Little **Langgan** Studio" | 琅嬛 is *Langhuan*, the legendary celestial library — and the translation itself uses "the heavenly Langhuan library" at 1:21. 琅玕 (*langgan*) is a different word, a jade-like stone. The misromanisation also severs Baozhu's studio name from the compliment paid to Jin Shufang in chapter 1. |
 | 36:23 | 你还当我相公看待 | "you still treat me like a gigolo" | 相公 is the book's own word for its boy-actors, elsewhere "Master", "gentleman", "darling". "Gigolo" imports a modern kept-man-of-women sense that is precisely the wrong transaction. |
+| 37:17–18 | 《女盗》有名《牝贼》 … 势字怎么对得牝字 | "*Female Thief* has another name: *Hinny Bandit*" … "How can *power* pair with *female*?" | A hinny is a mule. 牝 is the female animal and, as the next paragraph makes explicit, the female genitals; 势 is the male. Three paragraphs of build-up, a table laughing for two of them, and the pun is never on the page — worse, Huifang's reply cites a word ("female") the English never used. |
+| 37:19 | 《卸甲》 matched with 《哄丁》 | "Removing Armour" / "Duping the Ding Clan" | The match is admired because 甲 and 丁 are the first and fourth Heavenly Stems, hidden under two unrelated plays. Neither the stems nor 丁 survive — and 哄丁 disrupts the 丁祭, the sacrifice held on a 丁 day, so "Ding Clan" removes the very character the pairing is made of. |
+| 37:7 | 也叫他看看桶子，叫个赶车的顽顽他 | "make him look into a bucket and have a cart-driver play a trick on him" | Guibao is proposing to put Xi Eleven in the barrel trap from chapter 19 and let a carter sodomise him — the novel's one revenge fantasy against its rapist. Everyone bursts out laughing at a bucket. |
+| 38:28 | 韵学之辨，诸家通转各有依据 | "The debates in the *Rhyme Assembly* and *Integrated Rhyme Studies* scholarship…" | Two book titles manufactured from a common noun phrase ("in the disputes of rhyme scholarship"). The same paragraph then renders the real 《韵学集成》 as "Collected Essentials of Rhyme Learning", and gives Huang Gongshao's 《韵会》 the title it had already given Yin Shifu's 《韵府群玉》 — two rhyme-books, one English name. |
+| 38:30 | 《太乙肘后备捡》 | "the *Taichi Elbow-Backup Formulary*" | 太乙 is Taiyi, the divination system correctly named one paragraph earlier; it is not 太极. Across two paragraphs 太乙 becomes "Taiyi", "Taichi" and "the Great Yi system". 肘后 means a handbook kept at one's elbow. |
+| 38:20 | 诏向其子嗣昌取 | "an order was issued to take it from his descendant Xiangneng" | 向 is the preposition "from" and 嗣昌 is the son's name. A person who never existed is created out of a preposition, and the real name vanishes. |
+| 38:26 | 《钧天》 | "*Heavenly Consort*" | 钧天广乐 is the music of the heavens. The argument — dismissing Han Yu is like hearing celestial music and complaining about the intervals — cannot be followed with a consort in it. |
+| 38:34 | 扫去烘云托月之法 | "all misty clouds and propping mountains have been swept away" | 烘云托月 is shading in cloud to set off the moon: the indirect method Qu says the ode refuses. There are no mountains, and the technique is the sentence's entire content. |
+| 38:37 | 此君姓金名栗，号吉甫 | "family name Jin, given name Su, courtesy name Jifu" | 栗 is *Li*. A named character is misromanised at the moment he is introduced — and 号 is the style name, not the 字, the exact conflation counted in S5. |
+| 39:9 | 把我两边的股分开去…是个作八股的法子 | "separated my two parts … He was composing an eight-legged essay" | The joke is one character: 股 is a thigh and a section of the 八股文. With "parts" for "legs" the punchline has nothing to land on. |
+| 39:16 | 虽他姐姐发里头，也有这许多黑水 | "even inside his sister's parts such dark fluid abounds" | 发里头 is *in her hair*. Yuanmao is extending 满肚子墨水 ("full of ink" = learned) from the brother to the sister's hair-dye; relocating it to her genitals loses the 墨水/黑水 pun that is the line's only content. |
 
 ### 4.2 Allusions dissolved into paraphrase
 The translation is capable of glossing — 10:27 explains 柳下惠 inline, 6:14 spells out the
@@ -472,7 +483,15 @@ glossed. A three-paragraph build-up lands on a blank page.
   boys" has no way to know it is not a person. "eight young pages" is not a name at all; it
   reads as a headcount.
 - 姑苏会馆 — "the Gusu Guildhall" (2:0) / "the Suzhou Guild Hall" (3:6).
-- 梅崦 — "the Plum Blossom Retreat" (2:34) / "the Meiyan" (10:11).
+- 梅崦 — "the Plum Blossom Retreat" (2:34, 37:2) / "the Meiyan" (10:11) / "the Plum Knoll"
+  (36:3, 38:0). Three forms, two of them in consecutive chapters.
+- 《商子》 and 《商君书》 are the same book and become "*Book of Shang*" and "*Book of Lord
+  Shang*" two sentences apart at 38:14; 《神女赋》 is "Rhapsody on the Goddess" and then "The
+  Divine Woman" three sentences apart at 38:34.
+- 伏虎 — "Subduing the Tiger" (37:15) / "Crouching Tiger" (37:26), the same two characters in
+  the same parlour game eleven paragraphs apart.
+- 通判 — now a third form, "assistant prefect" (37:12, 38:4), against "Second-Class Subprefect"
+  (3:27).
 - 金牌楼 — "Jinpai Tower Lane" (3:35) / "the Gold Pailou" (5:26).
 - 香火 — "lighting materials" (1:46) / "a glowing incense coil" (3:7).
 - 四目相窥，两心相照 — a calque at 6:34 ("four-eyes-meeting, two-hearts-illuminating"),
@@ -555,6 +574,15 @@ Chapter 8 shows this is not a capacity problem. There, 天上有三光，人间�
 intact through a four-part gloss (shaved bare / worn bare / spent bare / eats bare), and
 磨镜子 is kept as "grinding mirrors" without flinching. The same translator, handling the same
 material, elsewhere declines.
+
+Chapter 38 settles it. 38:34 quotes the notorious inspection of the girl Ying's body from
+《杂事秘辛》 and translates it entire, gynaecology included — "The private area was raised and
+full; drawing apart both thighs, the inner channel was moist and crimson, as if a fire-gem were
+about to emerge." Nothing is elided, softened or replaced by an ellipsis. Set that beside 7:9's
+"three pairs of chicken… parts" and the pattern becomes legible: what the translation
+euphemises is not explicitness but **vulgarity**. It will render anatomy at length in a literary
+register and refuses the same anatomy in a coarse one. That is a stylistic preference operating
+on a novel whose whole method is to put the two registers in the same room.
 
 Chapter 36 makes the point again, and at length. Monk Tang's 鸡巴脑袋 is rendered "a
 dick-head" and his follow-up boast lands; his blessing 前门增百福，后户纳千祥 keeps the
@@ -653,6 +681,27 @@ places, and they show what the rest could be:
   as "buried his face in Qinyan's cheek, deeply inhaling his scent", the bracelet smashed into
   three pieces in the courtyard, and Ba Yingguan's closing joke about having the fragments
   mounted, all at the right pitch.
+- **Chapter 38 entire.** Qu Daosheng's day of learned talk is the densest prose in the novel —
+  the Heng Mountain stele and its chain of re-engravings, the transmission history of the
+  Orchid Pavilion preface, a bibliography of rhyme-books with exact character counts for each,
+  the 阳九/百六 numerology audited against twenty-three reign-periods, and the anatomical
+  passage from 《杂事秘辛》 with its Han-to-Qing unit conversions worked out digit by digit.
+  All of it is there. Not a figure, not a title, not a reign is dropped. This matters beyond
+  chapter 38: it removes "the material was too hard" as an explanation for the compressions
+  catalogued in S10 for chapters 45–46 and 54.
+- **Chapter 39.** A coarse wedding farce translated as one — the bridal-chamber baiting, the
+  albino bride's fury, the pubic-hair investigation and the fly-whisk callback at 39:29 all
+  survive, and the two places the English says "what followed need not be described" are the
+  Chinese's own reticence formulae (自有一番举动, 秽事休题), not additions of the translator's.
+  39:10 also solves a graph joke the only way it can be solved: the near-sighted brothers'
+  misreadings are romanised *and* glossed — "tu ye dang, meaning even earth can be pawned" /
+  "shang ta dang, meaning you've been taken in" — so a reader with no Chinese gets the joke.
+  It is exactly the technique the 牝/势 pun at 37:18 needed and did not get.
+- **Chapter 37's couplet game.** Thirty-two matched pairs, sixty-four opera titles, and the
+  running theory of what makes a match good — tonal correspondence required on the second
+  character, latitude on the first, 借对 permitted — is carried through, with 37:19's
+  《絮阁》 correctly identified as a borrowed pairing and the mechanism spelled out. (Which is
+  also what proves 1:18's "Pavilion of Gossamer" an error rather than a house style.)
 - **37:11** deserves separate credit as the hardest thing in the book. The graph-building
   drinking game — 水/冰/永, 十/士/干, 杳/查/香, 丁/于/亍, 卜/上/下, 白/自/百 and the bawdy
   曰/田/由/甲/申 finish, where one man wants the stroke pushed up and the other pulled down —
@@ -685,9 +734,8 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S13): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–36 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 37, 38, 39, 40, 41, 42, 45, 46, 51, 52, 53, 54, 56,
-57 and 58.
+**Close reading, paragraph by paragraph:** ch. 1–39 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 40, 41, 42, 45, 46, 51, 52, 53, 54, 56, 57 and 58.
 
 The remaining chapters are covered by the mechanical screens only. Findings from them that
 appear above (41:27, 48:20/22, 42:15/16, 54:11/33/39, 59:8–10, 57:35–52, 51:16–21, the
