@@ -912,8 +912,16 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S14): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–48 complete, plus targeted close reading of
+**Close reading, paragraph by paragraph:** ch. 1–50 complete, plus targeted close reading of
 the paragraphs the screens flagged in ch. 51, 52, 53, 54, 56, 57 and 58.
+
+Chapters 49 and 50 are recorded with no significant accuracy failure found. That is worth
+saying explicitly: they are ordinary narrative and social comedy — the bulk of the book — and
+the baseline there is sound. 49:1's unflattering inventory of two hired matchmakers keeps
+every detail including the narrator's aside about what such women do to families; 50:2–50:4
+carries Lin Chunxi writing calligraphy on living banana leaves, washing them and writing
+again, and painting a mantis taking a cicada, with 芥子园画谱 correctly given as the "Mustard
+Seed Garden" manuals.
 
 The remaining chapters are covered by the mechanical screens only. Findings from them that
 appear above (41:27, 48:20/22, 42:15/16, 54:11/33/39, 59:8–10, 57:35–52, 51:16–21, the
