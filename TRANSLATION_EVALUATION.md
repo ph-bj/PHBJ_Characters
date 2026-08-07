@@ -321,6 +321,19 @@ connoisseur making a technical point about 虚字 versus 实字 turns into a sne
 the Land of Tenderness, the name Ziyu has just inscribed on a building; "the tender trap" is a
 mid-twentieth-century English idiom, with the wrong connotation, attached to a place name.
 
+Reading chapter 46 whole shows the division there is not between "some paragraphs" and the
+rest — it runs between the verse and the prose:
+
+    verse / couplet paragraphs   mean 1.10 words per hanzi   (corpus median 0.82)
+    prose paragraphs             mean 0.59 words per hanzi
+
+The twenty-four couplets are done at full length and done well: 46:3 keeps both halves, both
+book titles (《十三经》, 《廿二子》) and the closing 纵横一万里，上下五千年 as "sweeping ten
+thousand leagues, spanning five thousand years". Everything between them is in note-form,
+including paragraphs above the ratio threshold. 46:5 is representative — 「这堂名很好，不用换。
+东西楹要添副长联，就请静宜大笔罢。」 becomes "The hall name stands—east and west need long
+scrolls—Jingyi must wield the brush." The quotation marks are there; the sentences are not.
+
 This is separated from S10 because it changes what the fix is. A low ratio can be defended as
 concision. Forty-one paragraphs that drop articles, verbs and quotation marks are a different
 piece of work sitting in the same file as the prose on either side of them.
@@ -489,6 +502,10 @@ glossed. A three-paragraph build-up lands on a blank page.
   a well-bred recluse, and 1:20 renders the same idiom correctly.
 - **1:18** 《絮阁》 → "The Pavilion of Gossamer" — 絮 here is 絮聒, to nag; the Changsheng dian
   scene is Yang Guifei's jealous tirade, so reading 絮 as willow-floss inverts the scene.
+- **46:5** 今日正可窥豹 → "today I may glimpse **the tiger through the bamboo screen**".
+  管中窥豹 is glimpsing a *leopard* through a *tube* — seeing one spot and inferring the beast,
+  which is exactly Daosheng's self-deprecating point about judging the whole company from one
+  couplet. Wrong animal, wrong aperture, and the modesty formula stops working.
 - **45:7** 此真为唐突名花了 → "That would wrong **the ancient poets of Tang** and bring shame
   to the flower." 唐突 is one word — to affront. 唐突名花 is "an affront to a famous flower".
   Splitting it and reading 唐 as the dynasty invents a body of Tang poets who are neither in
@@ -862,8 +879,8 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S14): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–45 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 46, 51, 52, 53, 54, 56, 57 and 58.
+**Close reading, paragraph by paragraph:** ch. 1–46 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 51, 52, 53, 54, 56, 57 and 58.
 
 The remaining chapters are covered by the mechanical screens only. Findings from them that
 appear above (41:27, 48:20/22, 42:15/16, 54:11/33/39, 59:8–10, 57:35–52, 51:16–21, the
