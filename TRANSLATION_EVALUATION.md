@@ -489,6 +489,10 @@ glossed. A three-paragraph build-up lands on a blank page.
   a well-bred recluse, and 1:20 renders the same idiom correctly.
 - **1:18** 《絮阁》 → "The Pavilion of Gossamer" — 絮 here is 絮聒, to nag; the Changsheng dian
   scene is Yang Guifei's jealous tirade, so reading 絮 as willow-floss inverts the scene.
+- **45:7** 此真为唐突名花了 → "That would wrong **the ancient poets of Tang** and bring shame
+  to the flower." 唐突 is one word — to affront. 唐突名花 is "an affront to a famous flower".
+  Splitting it and reading 唐 as the dynasty invents a body of Tang poets who are neither in
+  the sentence nor relevant to the argument being made.
 - **43:12** 红牙白雪选词场 → "red castanets and ivory raps choose the songs of the
   singing-rooms". 红牙 is the red sandalwood clapper and is caught correctly; 白雪 is not a
   second instrument but 阳春白雪, the loftiest songs — the standard the couplet is measuring
@@ -528,8 +532,11 @@ glossed. A three-paragraph build-up lands on a blank page.
   generalised to "tomorrow morning".
 
 ### 4.5 Internal contradictions (the same thing, two ways)
-- 海棠 — "begonia" at 1:21 and in the garden name 海棠春圃 (5:13, recurring throughout);
-  "crabapple" at 1:24 and 1:52.
+- 海棠 — "begonia" at 1:21 and 5:13; "crabapple" at 1:24, 1:52, 35:7, 45:6, 46:0, 46:1 and
+  46:24. The split runs straight through a proper name: the Yiyuan's 海棠春圃 is "the Begonia
+  Spring Garden" on its first appearance (5:13) and "the Crabapple Spring Arbour" on all five
+  later ones, so one location has two English names and the introduction is the odd one out —
+  the same pattern as 5:19 for 琴言 and 11:3 for the Ten Pearls.
 - 《曲台花选》 — "The Opera Stage Flower Manual" (1:8), "Qutai Huaxuan" (1:11 and 3:2),
   "Selection of Flowers" (1:38, 3:2 — same paragraph as the romanisation), "Catalogue of
   Flowers" (3:4). Four English names for one short book.
@@ -855,8 +862,8 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S14): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–44 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 45, 46, 51, 52, 53, 54, 56, 57 and 58.
+**Close reading, paragraph by paragraph:** ch. 1–45 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 46, 51, 52, 53, 54, 56, 57 and 58.
 
 The remaining chapters are covered by the mechanical screens only. Findings from them that
 appear above (41:27, 48:20/22, 42:15/16, 54:11/33/39, 59:8–10, 57:35–52, 51:16–21, the
