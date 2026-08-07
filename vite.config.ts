@@ -38,29 +38,9 @@ export default defineConfig(({ mode }) => {
               return 'vendor-d3';
             }
 
-            // --- Eagerly-globbed data directories (kept together to avoid cross-chunk TDZ) ---
-            if (id.includes('/chapterTranslations/') || id.includes('/prefaceTranslation.ts')) {
-              return 'data-translations';
-            }
-            if (id.includes('/questions/')) {
-              return 'data-questions';
-            }
-            if (id.includes('/appreciationData/')) {
-              return 'data-appreciation';
-            }
-
-            // --- Large individual data modules ---
+            // --- Core static data modules ---
             if (id.includes('/relationships.ts')) {
               return 'data-relationships';
-            }
-            if (id.includes('/worksData.json')) {
-              return 'data-works';
-            }
-            if (id.includes('/characterAppearances.ts')) {
-              return 'data-appearances';
-            }
-            if (id.includes('/lacunae.ts')) {
-              return 'data-lacunae';
             }
             if (id.includes('/data.ts') && id.includes('/src/')) {
               return 'data-core';
@@ -68,10 +48,7 @@ export default defineConfig(({ mode }) => {
             if (id.includes('/englishWorkTitles.ts') || id.includes('/nameChips.ts')) {
               return 'data-core';
             }
-            if (id.match(/\/summaries_\d+to\d+\.ts/) || id.includes('/chapterSummaries.ts')) {
-              return 'data-summaries';
-            }
-            if (id.includes('/prefaceTranslation.ts') || id.includes('/chapterMeta.json') || id.includes('/chapters.ts')) {
+            if (id.includes('/chapterMeta.json') || id.includes('/chapters.ts')) {
               return 'data-chapters';
             }
           },

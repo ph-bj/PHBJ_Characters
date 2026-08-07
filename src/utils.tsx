@@ -55,22 +55,18 @@ import {
   type NovelLocation,
 } from "./locations";
 import { chapterTranslationsById } from "./chapterTranslations";
-
-import { chapterSummaries } from "./chapterSummaries";
-import {
-  getCharacterSceneBullets,
-  type SceneBullet,
-} from "./characterAppearances";
-import { chapterLacunae } from "./lacunae";
-import { questions } from "./questions";
-import { QuestionAnswer } from "./QuestionAnswer";
-import worksDataJson from "./worksData.json";
 import {
   CASE_STRICT_WORK_TITLES_LOWER,
   ENGLISH_WORK_TITLES,
   ENGLISH_WORK_TITLE_SET,
   WORK_ENGLISH_BY_CHINESE,
 } from "./englishWorkTitles";
+
+let _worksDataCache: Record<string, any> | null = null;
+import("./worksData.json").then((m) => {
+  _worksDataCache = m.default;
+}).catch(() => {});
+
 export const worksData: Record<
   string,
   {
@@ -80,7 +76,14 @@ export const worksData: Record<
     contextEn: string;
     chapters?: number[];
   }
-> = worksDataJson;
+> = new Proxy({}, {
+  get(target, prop: string) {
+    if (!_worksDataCache) {
+      return undefined;
+    }
+    return _worksDataCache[prop];
+  }
+});
 
 export function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

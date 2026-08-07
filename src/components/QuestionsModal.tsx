@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { X } from "lucide-react";
 import { QuestionAnswer } from "../QuestionAnswer";
-import { questions } from "../questions";
+import { questions, getQuestions, getQuestionsSync, type Question } from "../questions";
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
 
@@ -16,7 +17,13 @@ export function QuestionsModal({
   lang: "en" | "zh";
   setLang: (lang: "en" | "zh") => void;
 }) {
-  const question = questions.find((q) => q.slug === questionSlug);
+  const [qList, setQList] = useState<Question[]>(getQuestionsSync());
+
+  useEffect(() => {
+    getQuestions().then(setQList);
+  }, []);
+
+  const question = qList.find((q) => q.slug === questionSlug) || questions.find((q) => q.slug === questionSlug);
   if (!question) return null;
 
   return (
