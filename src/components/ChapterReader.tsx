@@ -1210,97 +1210,71 @@ function ChapterReaderComponent({
 
                 return (
                   <div className="space-y-6">
-                    {/* Primary Chapter Title */}
-                    <div className="max-w-3xl mx-auto">
-                      {hasMainTitle ? (
-                        isMainZh ? (
-                          /* Chinese: 2 Columns */
-                          <div className="flex flex-col sm:flex-row items-center sm:items-baseline justify-center gap-2 sm:gap-6 text-center sm:text-left font-hans">
-                            <div className="text-lg sm:text-2xl font-bold tracking-widest text-[var(--accent)] shrink-0 sm:self-start sm:pt-1">
-                              {mainParts.chapterNum}
-                            </div>
-                            <div className="flex flex-col gap-1 sm:gap-2 flex-1 min-w-0">
-                              {mainParts.part1 && (
-                                <h3 className="text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug">
-                                  {mainParts.part1}
-                                </h3>
-                              )}
-                              {mainParts.part2 && (
-                                <h3 className="text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug">
-                                  {mainParts.part2}
-                                </h3>
-                              )}
-                            </div>
-                          </div>
-                        ) : (
-                          /* English: 3 Rows */
-                          <div className="space-y-1.5 sm:space-y-2 text-center font-sans">
-                            <div className="text-lg sm:text-xl font-bold tracking-widest text-[var(--accent)] uppercase">
-                              {mainParts.chapterNum}
-                            </div>
-                            {mainParts.part1 && (
-                              <h3 className="text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug">
-                                {mainParts.part1}
-                              </h3>
-                            )}
-                            {mainParts.part2 && (
-                              <h3 className="text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug">
-                                {mainParts.part2}
-                              </h3>
-                            )}
-                          </div>
-                        )
-                      ) : (
-                        <h3 className={`text-2xl sm:text-3xl font-bold text-[var(--ink-title)] text-center ${isMainZh ? "font-hans" : "font-sans"}`}>
-                          {mainParts.chapterNum}
+                    {/* Primary Chapter Title (3 Rows for both Chinese and English in the actual reader) */}
+                    <div className="max-w-3xl mx-auto space-y-1.5 sm:space-y-2 text-center">
+                      {/* Row 1: Chapter Number */}
+                      <div
+                        className={`text-lg sm:text-xl font-bold tracking-widest text-[var(--accent)] uppercase ${
+                          isMainZh ? "font-hans" : "font-sans"
+                        }`}
+                      >
+                        {mainParts.chapterNum}
+                      </div>
+
+                      {/* Row 2: First Part of Title */}
+                      {mainParts.part1 && (
+                        <h3
+                          className={`text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug ${
+                            isMainZh ? "font-hans" : "font-sans"
+                          }`}
+                        >
+                          {mainParts.part1}
+                        </h3>
+                      )}
+
+                      {/* Row 3: Second Part of Title */}
+                      {mainParts.part2 && (
+                        <h3
+                          className={`text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug ${
+                            isMainZh ? "font-hans" : "font-sans"
+                          }`}
+                        >
+                          {mainParts.part2}
                         </h3>
                       )}
                     </div>
 
-                    {/* Secondary Language Subtitle */}
-                    {chapter.id >= 0 && (
-                      <div className="pt-4 border-t border-[var(--paper-border)]/40 max-w-2xl mx-auto opacity-85">
-                        {hasSubTitle ? (
-                          isSubZh ? (
-                            /* Chinese Subtitle: 2 Columns */
-                            <div className="flex flex-col sm:flex-row items-center sm:items-baseline justify-center gap-1.5 sm:gap-4 text-center sm:text-left font-hans">
-                              <div className="text-xs sm:text-sm font-semibold tracking-wider text-[var(--ink-dim-text)] shrink-0 sm:self-start sm:pt-0.5">
-                                {subParts.chapterNum}
-                              </div>
-                              <div className="flex flex-col gap-0.5 flex-1 min-w-0">
-                                {subParts.part1 && (
-                                  <p className="text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed">
-                                    {subParts.part1}
-                                  </p>
-                                )}
-                                {subParts.part2 && (
-                                  <p className="text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed">
-                                    {subParts.part2}
-                                  </p>
-                                )}
-                              </div>
-                            </div>
-                          ) : (
-                            /* English Subtitle: 3 Rows */
-                            <div className="space-y-1 text-center font-sans">
-                              <div className="text-xs sm:text-sm font-semibold tracking-wider text-[var(--ink-dim-text)] uppercase">
-                                {subParts.chapterNum}
-                              </div>
-                              {subParts.part1 && (
-                                <p className="text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed">
-                                  {subParts.part1}
-                                </p>
-                              )}
-                              {subParts.part2 && (
-                                <p className="text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed">
-                                  {subParts.part2}
-                                </p>
-                              )}
-                            </div>
-                          )
-                        ) : (
-                          <p className={`text-sm sm:text-base font-medium text-[var(--ink-dim)] text-center ${isSubZh ? "font-hans" : "font-sans"}`}>
-                            {subParts.chapterNum}
+                    {/* Subtitle / Secondary Language Title (3 Rows in the actual reader) */}
+                    {chapter.id >= 0 && (subParts.part1 || subParts.chapterNum) && (
+                      <div className="pt-4 border-t border-[var(--paper-border)]/40 max-w-2xl mx-auto space-y-1 text-center opacity-85">
+                        {/* Subtitle Row 1: Chapter Number */}
+                        <div
+                          className={`text-xs sm:text-sm font-semibold tracking-wider text-[var(--ink-dim-text)] ${
+                            isSubZh ? "font-hans" : "font-sans"
+                          }`}
+                        >
+                          {subParts.chapterNum}
+                        </div>
+
+                        {/* Subtitle Row 2: First Part */}
+                        {subParts.part1 && (
+                          <p
+                            className={`text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed ${
+                              isSubZh ? "font-hans" : "font-sans"
+                            }`}
+                          >
+                            {subParts.part1}
+                          </p>
+                        )}
+
+                        {/* Subtitle Row 3: Second Part */}
+                        {subParts.part2 && (
+                          <p
+                            className={`text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed ${
+                              isSubZh ? "font-hans" : "font-sans"
+                            }`}
+                          >
+                            {subParts.part2}
                           </p>
                         )}
                       </div>
