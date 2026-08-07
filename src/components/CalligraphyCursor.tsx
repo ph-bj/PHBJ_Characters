@@ -93,10 +93,11 @@ export function CalligraphyCursorOverlay() {
       document.documentElement.classList.add("custom-brush-enabled");
     } else {
       document.documentElement.classList.remove("custom-brush-enabled");
-      // Clear canvas buffers on disable
+      // Clear canvas & refs when disabled
       strokePointsRef.current = [];
       particlesRef.current = [];
       ripplesRef.current = [];
+      lastPosRef.current = null;
       if (canvasRef.current) {
         const ctx = canvasRef.current.getContext("2d");
         ctx?.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
@@ -108,6 +109,12 @@ export function CalligraphyCursorOverlay() {
   useEffect(() => {
     if (!enabled) return;
 
+    // Reset position ref on enable to avoid stale timestamps
+    lastPosRef.current = null;
+    strokePointsRef.current = [];
+    particlesRef.current = [];
+    ripplesRef.current = [];
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -115,10 +122,17 @@ export function CalligraphyCursorOverlay() {
     if (!ctx) return;
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
     };
-    handleResize();
+
+    // RAF ensures canvas is visible in DOM layout before sizing
+    const rafId = requestAnimationFrame(() => {
+      handleResize();
+    });
+
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleResize, { passive: true });
 
@@ -330,7 +344,8 @@ export function CalligraphyCursorOverlay() {
         const dt = Math.max(1, now - lastPosRef.current.time);
         const dist = Math.hypot(dx, dy);
 
-        if (dist > 1.2) {
+        // Sanity check dt and dist to prevent giant delta spikes after tab switch/toggle
+        if (dist > 1.2 && dt < 500) {
           const speed = dist / dt; // Mouse move velocity
 
           // Dynamic brush stroke width: slow = rich juicy 11px-16px stroke; fast = tapered 3.5px-6px stroke
@@ -452,6 +467,7 @@ export function CalligraphyCursorOverlay() {
     window.addEventListener("mousedown", onMouseDown, { passive: true });
 
     return () => {
+      cancelAnimationFrame(rafId);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleResize);
       window.removeEventListener("mousemove", onMouseMove);
@@ -466,7 +482,8 @@ export function CalligraphyCursorOverlay() {
   return (
     <canvas
       ref={canvasRef}
-      className={`fixed inset-0 pointer-events-none z-[99999] opacity-95 ${enabled ? "" : "hidden"}`}
+      style={{ display: enabled ? "block" : "none" }}
+      className="fixed inset-0 pointer-events-none z-[99999] opacity-95"
       aria-hidden="true"
     />
   );
