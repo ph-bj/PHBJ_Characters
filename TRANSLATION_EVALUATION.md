@@ -17,9 +17,9 @@ below cites its paragraph as `chapter:index`, so each can be checked directly. C
 covered by close reading so far are listed in §7; the close reading is still in progress and
 this document is updated as it advances.
 
-**Whole-corpus mechanical screens.** Sixteen screens were run over all 2,023 paragraph pairs
+**Whole-corpus mechanical screens.** Seventeen screens were run over all 2,023 paragraph pairs
 in all 60 chapters. These have complete coverage and their counts are exact — they are the
-S1–S15 findings in §3 (S9 has two parts) — and they are what allow this report to make claims
+S1–S16 findings in §3 (S9 has two parts) — and they are what allow this report to make claims
 about chapters the close reading has not yet reached.
 
 The alignment itself is sound: all 60 chapters match paragraph-for-paragraph, 2,023 pairs,
@@ -377,6 +377,19 @@ two fixed points the plot of chapters 32, 47 and 52 turns on. As "August" and "M
 then, four sentences later, "the tenth day of the eighth month" — two calendars in one
 paragraph, so the reader cannot tell whether the examination falls one month later or two.
 
+### S16 — 里 rendered three ways, one of them a threefold inflation
+A 里 is about a third of a mile. The translation calls it "li" in 40 paragraphs,
+"mile"/"miles" in 15 (1:33, 10:18, 13:11, 13:13, 13:15, 15:2, 36:10, 40:33, 48:30, 48:35,
+53:15, 53:17 …) and "league" in 2 (15:2, 46:3) — three units for one, with no conversion note
+anywhere, so a reader meeting both cannot tell they are the same measure.
+
+Where "mile" is used for a stated distance the figure inflates about threefold. 48:30's
+几千里路 becomes "thousands of miles" for the Beijing-to-Jiangxi journey Ziyu proposes — the
+very distance Qinxian is arguing is too far, so the argument survives but the number no longer
+matches the map. 13:11's 数千里外 goes the same way. In verse the choice is defensible (53:15's
+须一刻，走千里 as "in a single moment, traversing a thousand miles" keeps an idiom that matters
+more than its arithmetic); in prose distances it is not. The inconsistency is the fixable part.
+
 ### S11 — bold markdown in the translated text
 29 `**…**` spans in 20 paragraphs, all in chapters 45 and 46, marking place names
 (`**Lychee Lane**`, `**Autumn-Chant Waterside Pavilion**`). The renderer has no handling for
@@ -545,6 +558,11 @@ glossed. A three-paragraph build-up lands on a blank page.
   管中窥豹 is glimpsing a *leopard* through a *tube* — seeing one spot and inferring the beast,
   which is exactly Daosheng's self-deprecating point about judging the whole company from one
   couplet. Wrong animal, wrong aperture, and the modesty formula stops working.
+- **55:0** 漕河两院 → "the grain-transport and **salt-monopoly** offices". These are the two
+  commissioners at Qingjiangpu — 漕运总督 (grain transport) and 河道总督 (river conservancy).
+  There is no salt office among them; the salt administration appears correctly as 盐台 two
+  paragraphs later, and the Yangzhou salt merchants Daosheng is avoiding are named separately
+  at the end of the same paragraph. The substitution invents a connection the plot contradicts.
 - **45:7** 此真为唐突名花了 → "That would wrong **the ancient poets of Tang** and bring shame
   to the flower." 唐突 is one word — to affront. 唐突名花 is "an affront to a famous flower".
   Splitting it and reading 唐 as the dynasty invents a body of Tang poets who are neither in
@@ -952,9 +970,9 @@ places, and they show what the rest could be:
 
 ## 7. Coverage log
 
-**Whole-corpus screens (S1–S15): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
+**Whole-corpus screens (S1–S16): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–54 complete, plus targeted close reading of
+**Close reading, paragraph by paragraph:** ch. 1–55 complete, plus targeted close reading of
 the paragraphs the screens flagged in ch. 56, 57 and 58.
 
 Chapters 49 and 50 are recorded with no significant accuracy failure found. That is worth
