@@ -511,17 +511,70 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .on("drag", dragged)
         .on("end", dragended) as any);
 
-    node.append("circle")
-      .attr("r", nodeRadius)
+    const petalDist = 13.5;
+    const petalRadius = 13.5;
+    const centerRadius = 19;
+    const petalAngles = [0, 1, 2, 3, 4].map((i) => -Math.PI / 2 + (i * 2 * Math.PI) / 5);
+
+    // 1. Background paper mask for each node (5 petals + center) to obscure connecting lines
+    petalAngles.forEach((angle) => {
+      const px = petalDist * Math.cos(angle);
+      const py = petalDist * Math.sin(angle);
+      node
+        .append("circle")
+        .attr("cx", px)
+        .attr("cy", py)
+        .attr("r", petalRadius + 1)
+        .attr("fill", "var(--paper-bg)");
+    });
+
+    node
+      .append("circle")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", centerRadius + 1)
       .attr("fill", "var(--paper-bg)");
 
-    node.append("circle")
-      .attr("r", nodeRadius)
+    // 2. Five Plum Petals
+    petalAngles.forEach((angle) => {
+      const px = petalDist * Math.cos(angle);
+      const py = petalDist * Math.sin(angle);
+      node
+        .append("circle")
+        .attr("cx", px)
+        .attr("cy", py)
+        .attr("r", petalRadius)
+        .attr("fill", (d: any) => getRoleBgColorVar(d.role))
+        .attr("stroke", (d: any) => getRoleColorVar(d.role))
+        .attr("stroke-width", 1.25);
+    });
+
+    // 3. Central Flower Core Circle
+    node
+      .append("circle")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", centerRadius)
       .attr("fill", (d: any) => getRoleBgColorVar(d.role))
       .attr("stroke", (d: any) => getRoleColorVar(d.role))
       .attr("stroke-width", 1.5);
 
-    node.append("text")
+    // 4. Subtle Stamen Accents
+    petalAngles.forEach((angle) => {
+      const sx = (centerRadius * 0.72) * Math.cos(angle);
+      const sy = (centerRadius * 0.72) * Math.sin(angle);
+      node
+        .append("circle")
+        .attr("cx", sx)
+        .attr("cy", sy)
+        .attr("r", 1)
+        .attr("fill", (d: any) => getRoleColorVar(d.role))
+        .attr("opacity", 0.6);
+    });
+
+    // 5. Character Name Text sitting at the center of each flower
+    node
+      .append("text")
       .attr("text-anchor", "middle")
       .attr("dy", ".35em")
       .attr("font-size", "9px")
