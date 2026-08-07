@@ -585,8 +585,9 @@ glossed. A three-paragraph build-up lands on a blank page.
   Divine Woman" three sentences apart at 38:34.
 - 伏虎 — "Subduing the Tiger" (37:15) / "Crouching Tiger" (37:26), the same two characters in
   the same parlour game eleven paragraphs apart.
-- 通判 — now a third form, "assistant prefect" (37:12, 38:4), against "Second-Class Subprefect"
-  (3:27).
+- 通判 — four forms: "Second-Class Subprefect" (3:27), "assistant prefect" (37:12, 38:4),
+  "sub-prefect" (47:2). It is Qu Daosheng's actual post, and it is named differently in three
+  consecutive chapters about him.
 - 金牌楼 — "Jinpai Tower Lane" (3:35) / "the Gold Pailou" (5:26).
 - 香火 — "lighting materials" (1:46) / "a glowing incense coil" (3:7).
 - 四目相窥，两心相照 — a calque at 6:34 ("four-eyes-meeting, two-hearts-illuminating"),
@@ -695,6 +696,11 @@ about to emerge." Nothing is elided, softened or replaced by an ellipsis. Set th
 euphemises is not explicitness but **vulgarity**. It will render anatomy at length in a literary
 register and refuses the same anatomy in a coarse one. That is a stylistic preference operating
 on a novel whose whole method is to put the two registers in the same room.
+
+Chapter 47 is a third case: Xi Eleven's ruined stump, the tendon that will not straighten, and
+the entire Suzhou grafting procedure — anaesthetic, the remnant split into four petals, a dog's
+member inserted, medicated thread, a month to heal, and the specification that the donor be
+killed mid-coitus — are rendered plainly and completely at 47:3–47:8.
 
 Chapter 36 makes the point again, and at length. Monk Tang's 鸡巴脑袋 is rendered "a
 dick-head" and his follow-up boast lands; his blessing 前门增百福，后户纳千祥 keeps the
@@ -879,7 +885,7 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S14): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–46 complete, plus targeted close reading of
+**Close reading, paragraph by paragraph:** ch. 1–47 complete, plus targeted close reading of
 the paragraphs the screens flagged in ch. 51, 52, 53, 54, 56, 57 and 58.
 
 The remaining chapters are covered by the mechanical screens only. Findings from them that
