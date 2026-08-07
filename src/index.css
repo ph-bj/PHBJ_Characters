@@ -192,13 +192,19 @@ body {
   font-family: var(--font-sans);
 }
 
-/* A calligraphy brush replaces the default pointer on mouse/trackpad devices.
-   The hotspot sits at the ink tip so clicking still feels precise. Text entry
-   keeps its native caret cursor, and touch devices are intentionally untouched. */
+/* Chinese Calligraphy Brush Pen replaces default pointer on fine mouse/trackpad devices.
+   The hotspot sits precisely at (2, 30) (the ink-dipped brush tip) for accurate clicking.
+   Text entry preserves its native caret cursor. Touch devices remain untouched. */
 @media (pointer: fine) and (hover: hover) {
   html,
-  html * {
-    cursor: url("./assets/brush-pen-cursor.svg") 4 30, auto !important;
+  html.custom-brush-enabled,
+  html.custom-brush-enabled * {
+    cursor: url("./assets/brush-pen-cursor.svg") 2 30, auto !important;
+  }
+
+  html:not(.custom-brush-enabled),
+  html:not(.custom-brush-enabled) * {
+    cursor: auto;
   }
 
   input,

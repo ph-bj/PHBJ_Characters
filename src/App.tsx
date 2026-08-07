@@ -87,6 +87,7 @@ import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SP
 
 import { LanguageSwitch } from "./components/LanguageSwitch";
 import { ThemeToggle } from "./components/ThemeToggle";
+import { CalligraphyCursorOverlay, CalligraphyCursorToggle } from "./components/CalligraphyCursor";
 import { NavMenuDropdown } from "./components/NavMenuDropdown";
 const LacunaeModal = React.lazy(() => import("./components/LacunaeModal").then(m => ({ default: m.LacunaeModal })));
 const QuestionsModal = React.lazy(() => import("./components/QuestionsModal").then(m => ({ default: m.QuestionsModal })));
@@ -1071,6 +1072,7 @@ export default function App() {
                 }}
               />
               <ThemeToggle lang={lang} />
+              <CalligraphyCursorToggle lang={lang} />
               <LanguageSwitch lang={lang} setLang={setLang} className="h-[32px] p-1" />
             </div>
           </header>
@@ -2325,6 +2327,7 @@ export default function App() {
             />
           )}
         </AnimatePresence>
+        <CalligraphyCursorOverlay />
       </div>
     </React.Suspense>
   );
