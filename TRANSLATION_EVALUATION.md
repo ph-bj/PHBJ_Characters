@@ -262,9 +262,18 @@ entire content is three women discussing Tang poetry:
   忽如一夜春风来，千树万树梨花开, the most famous line in the poem and the one the commentary
   that follows is explicitly *about* ("interwove 'pear blossoms,' bead curtains…").
 - **54:33** carries six quoted lines — four from Du Fu's 《北征》, one from Liu Yuxi, one from
-  Bai Juyi. Every one is deleted, replaced by "citing favorite lines" and "surpassed later
-  poets' treatments." Qionghua's technical argument about the 阙/阙 and 卒/卒 rhyme categories
-  is reduced to paraphrase, so the reader cannot see what is being argued.
+  Bai Juyi. Every one is deleted. Naming them shows how much the paragraph is asked to do
+  without them:
+
+  | deleted | what it was doing |
+  | --- | --- |
+  | 至尊尚蒙尘，几日休练卒 · 潼关百万师，往者散何卒 | the two lines are Qionghua's *proof* that the 卒 rhyme is not a repeat — the same graph is a noun ("soldier") in one and read *cu*, "suddenly", in the other. Without them, "one meant soldier, another an adverbial 'suddenly' sound value" is an assertion the reader cannot check. |
+  | 瘦妻面复光，痴女发自栉 · 不闻夏殷衰，中自诛褒妲 | Ronghua's "favorite lines", and the second is the one whose politics she is defending |
+  | 官军诛佞幸，天子舍妖姬 (Liu Yuxi) · 六师不发无奈何，宛转蛾眉马前死 (Bai Juyi) | the two comparanda. The English keeps the verdict — "surpassed later poets' treatments" — and deletes both things being compared. |
+
+  佶屈聱牙, Han Yu's own famous self-description, becomes "too craggy and rare". The paragraph
+  is also one of chapter 54's five S14 note-form paragraphs, so what remains is not merely
+  shorter but in a different voice.
 
 Chapters 45–46 carry the same compression in prose — and reading those paragraphs shows it is
 not compression at all but a second translational voice. That is now separated out as **S14**,
@@ -945,8 +954,8 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S15): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–53 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 54, 56, 57 and 58.
+**Close reading, paragraph by paragraph:** ch. 1–54 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 56, 57 and 58.
 
 Chapters 49 and 50 are recorded with no significant accuracy failure found. That is worth
 saying explicitly: they are ordinary narrative and social comedy — the bulk of the book — and
