@@ -174,6 +174,78 @@ export const chapterTitleTranslations: Partial<Record<number, string>> = {
 export const translationMap = chapterTranslationsById;
 import { Character, Chapter } from "./types";
 
+export interface ChapterTitleParts {
+  chapterNum: string;
+  part1: string;
+  part2: string;
+}
+
+export function getChapterTitleParts(
+  chapter: Chapter,
+  lang: "en" | "zh",
+): ChapterTitleParts {
+  if (chapter.id === -1) {
+    return {
+      chapterNum: lang === "zh" ? "目录" : "Contents",
+      part1: "",
+      part2: "",
+    };
+  }
+
+  if (chapter.id === 0) {
+    return {
+      chapterNum: lang === "zh" ? "序" : "Preface",
+      part1: "",
+      part2: "",
+    };
+  }
+
+  if (lang === "zh") {
+    const parts = chapter.title.trim().split(/\s+/);
+    if (parts.length >= 3) {
+      return {
+        chapterNum: parts[0],
+        part1: parts[1],
+        part2: parts.slice(2).join(" "),
+      };
+    } else if (parts.length === 2) {
+      return {
+        chapterNum: parts[0],
+        part1: parts[1],
+        part2: "",
+      };
+    }
+    return {
+      chapterNum: chapter.title,
+      part1: "",
+      part2: "",
+    };
+  } else {
+    const enText = chapterTitleTranslations[chapter.id];
+    const chapterNum = `Chapter ${chapter.id}`;
+    if (!enText) {
+      return {
+        chapterNum,
+        part1: chapter.title,
+        part2: "",
+      };
+    }
+    const semicolonIndex = enText.indexOf(";");
+    if (semicolonIndex !== -1) {
+      return {
+        chapterNum,
+        part1: enText.slice(0, semicolonIndex + 1).trim(),
+        part2: enText.slice(semicolonIndex + 1).trim(),
+      };
+    }
+    return {
+      chapterNum,
+      part1: enText,
+      part2: "",
+    };
+  }
+}
+
 export function getChapterReaderTitle(chapter: Chapter, lang: "en" | "zh"): string {
   if (lang === "zh") return chapter.title;
   if (chapter.id === -1) return "Contents";

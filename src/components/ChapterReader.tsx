@@ -31,6 +31,7 @@ import {
   getChapterMentionedCharacters,
   getChapterReaderSubtitle,
   getChapterReaderTitle,
+  getChapterTitleParts,
   getSegmentChipLabel,
   isChineseWorkAnnotationToken,
   isWorkAnnotationToken,
@@ -1197,19 +1198,88 @@ function ChapterReaderComponent({
           >
             <div className="text-center mb-12">
               <div className="w-16 h-1 bg-[var(--accent)]/20 mx-auto mb-6" />
-              <h3
-                className={`text-2xl sm:text-3xl font-bold mb-4 max-w-3xl mx-auto leading-relaxed ${lang === "en" ? "font-sans" : "font-hans"}`}
-              >
-                {getChapterReaderTitle(chapter, lang)}
-              </h3>
-              {getChapterReaderSubtitle(chapter, lang) && (
-                <p
-                  className={`text-sm sm:text-base text-[var(--ink-dim)] max-w-3xl mx-auto leading-relaxed mb-4 ${lang === "en" ? "font-hans" : "font-sans"}`}
-                >
-                  {getChapterReaderSubtitle(chapter, lang)}
-                </p>
-              )}
-              <div className="flex items-center justify-center gap-1.5 opacity-80 text-[var(--ink-dim-text)]">
+              {(() => {
+                const mainParts = getChapterTitleParts(chapter, lang);
+                const subLang = lang === "zh" ? "en" : "zh";
+                const subParts = getChapterTitleParts(chapter, subLang);
+                const isMainZh = lang === "zh";
+                const isSubZh = subLang === "zh";
+
+                return (
+                  <div className="space-y-6">
+                    {/* Primary Chapter Title (3 Rows) */}
+                    <div className="space-y-1.5 sm:space-y-2 max-w-3xl mx-auto">
+                      {/* Row 1: Chapter Number */}
+                      <div
+                        className={`text-lg sm:text-xl font-bold tracking-widest text-[var(--accent)] uppercase ${
+                          isMainZh ? "font-hans" : "font-sans"
+                        }`}
+                      >
+                        {mainParts.chapterNum}
+                      </div>
+
+                      {/* Row 2: First Part of Title */}
+                      {mainParts.part1 && (
+                        <h3
+                          className={`text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug ${
+                            isMainZh ? "font-hans" : "font-sans"
+                          }`}
+                        >
+                          {mainParts.part1}
+                        </h3>
+                      )}
+
+                      {/* Row 3: Second Part of Title */}
+                      {mainParts.part2 && (
+                        <h3
+                          className={`text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug ${
+                            isMainZh ? "font-hans" : "font-sans"
+                          }`}
+                        >
+                          {mainParts.part2}
+                        </h3>
+                      )}
+                    </div>
+
+                    {/* Subtitle / Secondary Language Title (3 Rows) */}
+                    {chapter.id >= 0 && (subParts.part1 || subParts.chapterNum) && (
+                      <div className="pt-4 border-t border-[var(--paper-border)]/40 max-w-2xl mx-auto space-y-1 opacity-85">
+                        {/* Subtitle Row 1: Chapter Number */}
+                        <div
+                          className={`text-xs sm:text-sm font-semibold tracking-wider text-[var(--ink-dim-text)] ${
+                            isSubZh ? "font-hans" : "font-sans"
+                          }`}
+                        >
+                          {subParts.chapterNum}
+                        </div>
+
+                        {/* Subtitle Row 2: First Part */}
+                        {subParts.part1 && (
+                          <p
+                            className={`text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed ${
+                              isSubZh ? "font-hans" : "font-sans"
+                            }`}
+                          >
+                            {subParts.part1}
+                          </p>
+                        )}
+
+                        {/* Subtitle Row 3: Second Part */}
+                        {subParts.part2 && (
+                          <p
+                            className={`text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed ${
+                              isSubZh ? "font-hans" : "font-sans"
+                            }`}
+                          >
+                            {subParts.part2}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
+              <div className="flex items-center justify-center gap-1.5 opacity-80 text-[var(--ink-dim-text)] pt-4">
                 <span className="font-vibe-en text-sm sm:text-base">Precious Vibe</span>
                 <span className="font-vibe-zh text-xs sm:text-sm">品花宝境</span>
               </div>
@@ -1262,11 +1332,7 @@ function ChapterReaderComponent({
             {chapter.id === -1 ? (
               <div className="space-y-3">
                 {chapters.filter(c => c.id >= 0).map((c) => {
-                  const enTitle = c.id === 0
-                    ? "Preface"
-                    : chapterTitleTranslations[c.id]
-                      ? `Chapter ${c.id} — ${chapterTitleTranslations[c.id]}`
-                      : `Chapter ${c.id} — ${c.title}`;
+                  const parts = getChapterTitleParts(c, lang);
                   return (
                     <button
                       key={c.id}
@@ -1275,25 +1341,39 @@ function ChapterReaderComponent({
                       title={lang === "zh" ? "打开本回" : "Open this chapter"}
                       className="w-full text-left p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/60 hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/50 transition-all duration-200 group cursor-pointer flex items-center justify-between gap-3 shadow-xs hover:shadow-sm"
                     >
-                      <div className="flex-1 min-w-0">
-                        {lang === "zh" ? (
-                          <p className="text-[1em] font-hans font-medium text-[var(--ink-title)] leading-relaxed transition-colors group-hover:text-[var(--accent)]">
+                      <div className="flex-1 min-w-0 space-y-0.5 sm:space-y-1">
+                        {/* Row 1: Chapter Number */}
+                        <div className={`text-xs font-bold tracking-wider text-[var(--accent)] uppercase ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                          {renderTextWithSearchHighlight(
+                            parts.chapterNum,
+                            chapterSearchQuery,
+                            chapterSearchMatchIndex,
+                            chapterSearchMatchCounter,
+                          )}
+                        </div>
+
+                        {/* Row 2: First Part */}
+                        {parts.part1 && (
+                          <div className={`text-[0.95em] sm:text-[1em] font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
                             {renderTextWithSearchHighlight(
-                              c.title,
+                              parts.part1,
                               chapterSearchQuery,
                               chapterSearchMatchIndex,
                               chapterSearchMatchCounter,
                             )}
-                          </p>
-                        ) : (
-                          <p className="text-[0.95em] sm:text-[1em] font-sans font-medium text-[var(--ink-title)] leading-relaxed transition-colors group-hover:text-[var(--accent)]">
+                          </div>
+                        )}
+
+                        {/* Row 3: Second Part */}
+                        {parts.part2 && (
+                          <div className={`text-[0.95em] sm:text-[1em] font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
                             {renderTextWithSearchHighlight(
-                              enTitle,
+                              parts.part2,
                               chapterSearchQuery,
                               chapterSearchMatchIndex,
                               chapterSearchMatchCounter,
                             )}
-                          </p>
+                          </div>
                         )}
                       </div>
                       <div className="shrink-0 flex items-center gap-1 text-[var(--ink-dim-text)] group-hover:text-[var(--accent)] transition-colors">
