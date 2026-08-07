@@ -369,6 +369,11 @@ glossed. A three-paragraph build-up lands on a blank page.
   has been transliterated word by word into an English noun-phrase that means nothing.
 - **15:6** 初出茅庐 → "his first foray out of the proverbial thicket" — 茅庐 is Zhuge Liang's
   thatched cottage.
+- **27:3** 直隶州 → "a Zhili department magistrate", reading 直隶 as the province name. It is
+  an *independent department* — a 州 answering directly to the province — which is precisely
+  how 33:21 and 33:22 have it. This is the error the audit lists as corrected.
+- **27:3** 十一两字是个土字 → "'eleven' sounds like 'earth'." It is a graphic joke: 十 written
+  over 一 makes 土, which is why the nickname 奚老土 follows in the same breath.
 - **16:2** 为诸花物色 → "seeking out rare flowers" — 诸花 throughout this book means the
   boy-actors; Duxiang is procuring fragrances and silks *for them*.
 - **24:0** 若论女貌郎才倒是一对 → "A handsome face hiding a dull wit." 女貌郎才 is the standard
@@ -425,6 +430,13 @@ glossed. A three-paragraph build-up lands on a blank page.
 Liu Wenze and Yan Zhongqing—" appears in the English of 16:0, leaving 16:1's English with the
 vestige "enjoying the closest of bonds." In the side-by-side reader this shows as two names
 present in one language and absent in the other, in two consecutive rows.
+
+**27:0 / 27:1** — worse: the same Chinese sentence is translated twice. 27:1 opens
+欲想个法子收拾他，叫他总不安神，自然就进府来. The English of 27:0 ends "Pincai began turning
+over ways to deal with him, determined to leave him so uneasy that he would eventually come
+into the mansion of his own accord," and the English of 27:1 opens "He meant to harry him
+until the boy could find no peace and had no choice but to enter the mansion." One sentence,
+two paragraphs, both in English, only one in Chinese.
 
 ---
 
@@ -579,7 +591,7 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S11): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–26 complete, plus targeted close reading of
+**Close reading, paragraph by paragraph:** ch. 1–27 complete, plus targeted close reading of
 the paragraphs the screens flagged in ch. 27, 30, 33, 38, 39, 41, 45, 46, 52, 53, 54, 56
 and 58.
 
