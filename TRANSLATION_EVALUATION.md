@@ -190,6 +190,7 @@ See §5 for why this is the most damaging of the 意境 findings.
 | "Pan Third" | 48 | | "Third Master Pan" | 11 |
 | "Pan San" | 25 | | "Pan the Third" | 5 |
 | "Pan Qiguan" | 17 | | "Third Brother Pan" | 1 |
+| "Pan Laosan" (25:6) | 1 |
 
 His registered name is 潘其观, so "Pan Qiguan" is defensible in itself — but the Chinese says
 潘三 in all these paragraphs, and the form collides head-on with 琪官 **Qiguan**, one of the
@@ -278,6 +279,8 @@ Errors found in close reading, grouped by kind. Each is checkable at the cited p
 
 | Where | Chinese | English | What is wrong |
 | --- | --- | --- | --- |
+| 26:0 | 换上盘珠登云履 | "and **Panzhu** changed them for cloud-stepping slippers" | 盘珠 describes the shoes — *coiled-pearl* cloud-climbing slippers. There is no maid called 盘珠; the roster is 宝珠 明珠 爱珠 花珠 荷珠 蕊珠 掌珠 珍珠 画珠 赠珠. "Panzhu" occurs exactly once in the book: a character invented out of footwear, who also takes over half of Zhenzhu's action. |
+| 26:0 | 画珠 … 花珠 | both rendered "Huazhu", five times, in one paragraph | Two of the Ten Pearls collapse into one name inside a single paragraph. The stray tag at the end of that same paragraph reads `[Yazhu]` — the correct form for 画珠 — so the disambiguation exists in the artifact layer and not in the prose. |
 | 12:14 | 窃恐为郑元和所笑耳 | "you may end up like Zheng Yuanhe, mocked by history" | "laughed at **by** Zheng Yuanhe". The sting is that Chunhang will sink below even the archetypal ruined profligate — who at least got Li Wa. Reversing the agent severs it from the Li Wa clause immediately before. |
 | 4:23, 4:26 | 元徽 | "Yuan and Wei" — and Ziyu "could not make out what the allusion meant" | Not an allusion: 嗣元 + 嗣徽, the two Sun brothers. The comment is an insult. 徽 is *hui*, and the brothers are "Sihui"/"Siyuan" elsewhere, so a misromanisation both invents a name and hides the joke Ziyu laughs at one paragraph later. |
 | 3:27 | 不是同知，就是通判 | "a Subprefect or, **at best**, a Second-Class Subprefect" | 通判 ranks below 同知; "at best" inverts the ladder Gui Fen is resigning himself to. |
@@ -386,6 +389,9 @@ glossed. A three-paragraph build-up lands on a blank page.
   so the price of an apprentice's freedom, the climactic figure of the passage, is understated
   a thousandfold. The corpus is otherwise good here (94 of 97 paragraphs with 吊 sums say
   "strings"); the other two, 30:23 and 30:25, leave it as untranslated "diao of cash".
+- **26:0** 一时二刻 → "For an hour and two quarter-hours" — 一时 is a 时辰, two hours; with two
+  刻 that makes two and a half, not one and a half. (S12's screen misses this one because the
+  text writes 一时 rather than 一个时辰.)
 - **20:9** 我度香先生当以玉佩要之 → "Duxiang-**xiong** would receive them with his jade pendant
   offering" — an honorific suffix found nowhere else and not in the source, on an allusion
   that runs the other way (Zheng Jiaofu *asks the river goddesses for* their pendants).
@@ -573,7 +579,7 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S11): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–24 complete, plus targeted close reading of
+**Close reading, paragraph by paragraph:** ch. 1–26 complete, plus targeted close reading of
 the paragraphs the screens flagged in ch. 27, 30, 33, 38, 39, 41, 45, 46, 52, 53, 54, 56
 and 58.
 
