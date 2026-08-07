@@ -12,15 +12,14 @@ Two passes were run, and they cover different things. Both are reported honestly
 
 **Paragraph-by-paragraph close reading.** Chinese and English were extracted from the
 TypeScript modules, paired by index, and read against each other one paragraph at a time —
-checking sense, allusion, register, kinship terms, offices, units, and names. Every finding
-below cites its paragraph as `chapter:index`, so each can be checked directly. Chapters
-covered by close reading so far are listed in §7; the close reading is still in progress and
-this document is updated as it advances.
+checking sense, allusion, register, kinship terms, offices, units, and names. This pass is
+**complete: all 60 chapters, all 2,023 paragraph pairs.** Every finding below cites its
+paragraph as `chapter:index`, so each can be checked directly.
 
 **Whole-corpus mechanical screens.** Seventeen screens were run over all 2,023 paragraph pairs
 in all 60 chapters. These have complete coverage and their counts are exact — they are the
-S1–S16 findings in §3 (S9 has two parts) — and they are what allow this report to make claims
-about chapters the close reading has not yet reached.
+S1–S16 findings in §3 (S9 has two parts). Where the report gives a number, it comes from one
+of these; where it quotes a paragraph, that paragraph was read.
 
 The alignment itself is sound: all 60 chapters match paragraph-for-paragraph, 2,023 pairs,
 no empty cells on either side. Nothing in this report is an alignment problem.
@@ -558,6 +557,13 @@ glossed. A three-paragraph build-up lands on a blank page.
   管中窥豹 is glimpsing a *leopard* through a *tube* — seeing one spot and inferring the beast,
   which is exactly Daosheng's self-deprecating point about judging the whole company from one
   couplet. Wrong animal, wrong aperture, and the modesty formula stops working.
+- **57:5** 苏家二浣，王氏双华 → "The two **Hus** of the Su clan and the twin 'huas' of the
+  Wangs". The Su sisters are 浣香 and 浣兰, romanised *Huan* — correctly, five lines earlier in
+  the same chapter. "Hus" misnames two named characters and breaks the parallel the sentence
+  exists to make: two Huan against two Hua.
+- **58:1** 选了广西一个知州 → "selected for a **prefecture** in Guangxi". A 知州 is the
+  magistrate of a department, a rank below a prefect — which is exactly why Xi Eleven calls the
+  post 极苦 and wants to plead illness out of it. Promoting it removes his reason for balking.
 - **56:4** 道翁命逢阳九 → "fate had marked this as Daosheng's **ninth year** of profound ill
   fortune". 阳九 is not a ninth year: it is the catastrophic phase of the 阳九/百六 cycle — the
   numerology Daosheng himself expounds at 38:30, auditing it against twenty-three reign-periods
@@ -980,8 +986,15 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S16): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–56 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 57 and 58.
+**Close reading, paragraph by paragraph: all 60 chapters, all 2,023 paragraph pairs.**
+Complete.
+
+**The ending is intact**, which is worth saying at the close of a document this long. 60:38's
+parallel-prose invocation to the literary stars — 左奎右璧, 铸鼎象物，尽相穷形,
+拂笺霍小玉，捧研董双成, and the five-coloured-brush prayer — is translated whole and in the
+register it needs; and 60:40, the poem the novel ends on, is given complete, down to
+此中得失寸心知 as "The gains and losses within this, my inch-long heart alone knows." A book
+catalogued here for its lapses closes on its own terms, and the English lets it.
 
 Chapters 49 and 50 are recorded with no significant accuracy failure found. That is worth
 saying explicitly: they are ordinary narrative and social comedy — the bulk of the book — and
@@ -991,8 +1004,5 @@ carries Lin Chunxi writing calligraphy on living banana leaves, washing them and
 again, and painting a mantis taking a cicada, with 芥子园画谱 correctly given as the "Mustard
 Seed Garden" manuals.
 
-The remaining chapters are covered by the mechanical screens only. Findings from them that
-appear above (41:27, 48:20/22, 42:15/16, 54:11/33/39, 59:8–10, 57:35–52, 51:16–21, the
-ch. 45–46 compression and bold markup, and all the name, title and unit counts) come from the
-screens plus verification of the individual paragraphs cited — which is why they are stated
-as counts and specific locations rather than as continuous readings.
+Both passes are now complete over the same material, so every finding above is either an exact
+count over all 2,023 pairs or a paragraph read in its own context, and in most cases both.
