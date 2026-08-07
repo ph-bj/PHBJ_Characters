@@ -21,6 +21,17 @@ export function setStoredCursorPreference(enabled: boolean) {
   }
 }
 
+interface StrokePoint {
+  x: number;
+  y: number;
+  width: number;
+  alpha: number;
+  maxAlpha: number;
+  life: number;
+  maxLife: number;
+  color: string;
+}
+
 interface InkParticle {
   x: number;
   y: number;
@@ -31,6 +42,7 @@ interface InkParticle {
   color: string;
   life: number;
   maxLife: number;
+  expandRate: number;
 }
 
 interface InkRipple {
@@ -45,10 +57,11 @@ interface InkRipple {
 export function CalligraphyCursorOverlay() {
   const [enabled, setEnabled] = useState<boolean>(getStoredCursorPreference);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const strokePointsRef = useRef<StrokePoint[]>([]);
   const particlesRef = useRef<InkParticle[]>([]);
   const ripplesRef = useRef<InkRipple[]>([]);
   const animFrameRef = useRef<number | null>(null);
-  const lastPosRef = useRef<{ x: number; y: number } | null>(null);
+  const lastPosRef = useRef<{ x: number; y: number; time: number } | null>(null);
 
   // Sync preference state changes across components & windows
   useEffect(() => {
@@ -97,12 +110,12 @@ export function CalligraphyCursorOverlay() {
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Render Ink Ripples (from clicks)
+      // 1. Render Ink Ripples & Seals (from mouse clicks)
       const ripples = ripplesRef.current;
       for (let i = ripples.length - 1; i >= 0; i--) {
         const r = ripples[i];
-        r.radius += (r.maxRadius - r.radius) * 0.12 + 0.5;
-        r.alpha *= 0.91;
+        r.radius += (r.maxRadius - r.radius) * 0.15 + 0.6;
+        r.alpha *= 0.89;
 
         if (r.alpha < 0.01) {
           ripples.splice(i, 1);
@@ -110,32 +123,91 @@ export function CalligraphyCursorOverlay() {
         }
 
         ctx.save();
+        // Outer wash ring
         ctx.beginPath();
         ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
         ctx.strokeStyle = r.color;
-        ctx.globalAlpha = r.alpha;
-        ctx.lineWidth = 1.8;
+        ctx.globalAlpha = r.alpha * 0.7;
+        ctx.lineWidth = 2.5;
         ctx.stroke();
 
-        // Inner ink dot bloom
+        // Inner solid ink bloom
         ctx.beginPath();
-        ctx.arc(r.x, r.y, r.radius * 0.45, 0, Math.PI * 2);
+        ctx.arc(r.x, r.y, r.radius * 0.5, 0, Math.PI * 2);
         ctx.fillStyle = r.color;
-        ctx.globalAlpha = r.alpha * 0.5;
+        ctx.globalAlpha = r.alpha * 0.6;
         ctx.fill();
         ctx.restore();
       }
 
-      // Render Ink Particles (from brush movement)
+      // 2. Render Continuous Calligraphy Ink Stroke Ribbon (水墨飞白笔触)
+      const points = strokePointsRef.current;
+      // Age stroke points
+      for (let i = points.length - 1; i >= 0; i--) {
+        const p = points[i];
+        p.life += 1;
+        const progress = p.life / p.maxLife;
+        p.alpha = (1 - progress) * p.maxAlpha;
+
+        if (p.life >= p.maxLife || p.alpha <= 0.01) {
+          points.splice(i, 1);
+        }
+      }
+
+      if (points.length >= 2) {
+        // Pass A: Soft Water-Wash Outer Halo (水墨晕染底)
+        ctx.save();
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        for (let i = 0; i < points.length - 1; i++) {
+          const p1 = points[i];
+          const p2 = points[i + 1];
+          const midX = (p1.x + p2.x) / 2;
+          const midY = (p1.y + p2.y) / 2;
+
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
+          ctx.strokeStyle = p1.color === "#8b2500" ? "rgba(139, 37, 0, 0.35)" : "rgba(20, 13, 11, 0.35)";
+          ctx.lineWidth = Math.max(p1.width + 5, 6);
+          ctx.globalAlpha = p1.alpha * 0.45;
+          ctx.stroke();
+        }
+        ctx.restore();
+
+        // Pass B: Dense Black Ink Core Ribbon (浓墨主笔道)
+        ctx.save();
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        for (let i = 0; i < points.length - 1; i++) {
+          const p1 = points[i];
+          const p2 = points[i + 1];
+          const midX = (p1.x + p2.x) / 2;
+          const midY = (p1.y + p2.y) / 2;
+
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
+          ctx.strokeStyle = p1.color;
+          ctx.lineWidth = p1.width;
+          ctx.globalAlpha = p1.alpha;
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+
+      // 3. Render Ink Splash & Diffusion Particles (墨滴 & 飞溅)
       const particles = particlesRef.current;
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
         p.x += p.vx;
         p.y += p.vy;
+        p.vx *= 0.95;
+        p.vy *= 0.95;
         p.life += 1;
         const progress = p.life / p.maxLife;
-        p.alpha = (1 - progress) * 0.45;
-        p.radius += 0.15; // Soft ink diffusion expand
+        p.alpha = (1 - progress) * 0.7;
+        p.radius += p.expandRate; // Soft ink wash bleeding expand
 
         if (p.life >= p.maxLife || p.alpha <= 0.01) {
           particles.splice(i, 1);
@@ -148,10 +220,19 @@ export function CalligraphyCursorOverlay() {
         ctx.fillStyle = p.color;
         ctx.globalAlpha = p.alpha;
         ctx.fill();
+
+        // Outer water wash blur ring on larger particles
+        if (p.radius > 4) {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius * 1.4, 0, Math.PI * 2);
+          ctx.fillStyle = p.color === "#8b2500" ? "rgba(139, 37, 0, 0.2)" : "rgba(20, 13, 11, 0.2)";
+          ctx.globalAlpha = p.alpha * 0.4;
+          ctx.fill();
+        }
         ctx.restore();
       }
 
-      if (particles.length > 0 || ripples.length > 0) {
+      if (points.length > 0 || particles.length > 0 || ripples.length > 0) {
         animFrameRef.current = requestAnimationFrame(render);
       } else {
         animFrameRef.current = null;
@@ -167,65 +248,87 @@ export function CalligraphyCursorOverlay() {
     const onMouseMove = (e: MouseEvent) => {
       const x = e.clientX;
       const y = e.clientY;
+      const now = performance.now();
 
       if (lastPosRef.current) {
         const dx = x - lastPosRef.current.x;
         const dy = y - lastPosRef.current.y;
+        const dt = Math.max(1, now - lastPosRef.current.time);
         const dist = Math.hypot(dx, dy);
 
-        // Spawn ink trail particles when mouse is moving
-        if (dist > 3) {
-          const numDots = Math.min(3, Math.floor(dist / 6));
-          for (let i = 0; i < numDots; i++) {
-            const ratio = i / numDots;
+        if (dist > 1.5) {
+          const speed = dist / dt; // Mouse move velocity
+
+          // Dynamic brush stroke width: slow = rich juicy 10px-14px stroke; fast = tapered 3px-6px stroke
+          const strokeWidth = Math.max(3, Math.min(14, 12 - speed * 4));
+          const isVermilion = Math.random() > 0.92; // Occasional seal vermilion stroke segment
+          const strokeColor = isVermilion ? "#8b2500" : "#140d0b";
+
+          // Add continuous stroke point
+          strokePointsRef.current.push({
+            x,
+            y,
+            width: strokeWidth,
+            alpha: 0.85,
+            maxAlpha: 0.85,
+            life: 0,
+            maxLife: 35, // Remains visible for ~0.6s
+            color: strokeColor,
+          });
+
+          // Spawn ink droplets & splatters along movement path
+          const numParticles = Math.min(4, Math.floor(dist / 4));
+          for (let i = 0; i < numParticles; i++) {
+            const ratio = i / numParticles;
             const px = lastPosRef.current.x + dx * ratio;
             const py = lastPosRef.current.y + dy * ratio;
 
-            // Random subtle ink scatter
             particlesRef.current.push({
-              x: px + (Math.random() - 0.5) * 2,
-              y: py + (Math.random() - 0.5) * 2,
-              vx: (Math.random() - 0.5) * 0.3,
-              vy: (Math.random() - 0.5) * 0.3,
-              radius: Math.random() * 2 + 1.2,
-              alpha: 0.5,
-              color: Math.random() > 0.85 ? "#8b2500" : "#1a1311", // occasional seal vermilion accent
+              x: px + (Math.random() - 0.5) * 4,
+              y: py + (Math.random() - 0.5) * 4,
+              vx: (Math.random() - 0.5) * (speed * 0.4 + 0.3),
+              vy: (Math.random() - 0.5) * (speed * 0.4 + 0.3),
+              radius: Math.random() * 3.5 + 1.8,
+              alpha: 0.75,
+              color: isVermilion ? "#8b2500" : Math.random() > 0.8 ? "#2c1d17" : "#140d0b",
               life: 0,
-              maxLife: Math.floor(Math.random() * 20) + 15,
+              maxLife: Math.floor(Math.random() * 25) + 20,
+              expandRate: 0.18,
             });
           }
         }
       }
 
-      lastPosRef.current = { x, y };
+      lastPosRef.current = { x, y, time: now };
       startAnimIfNeeded();
     };
 
     const onMouseDown = (e: MouseEvent) => {
-      // Create rich ink bloom press effect on click
+      // Bold ink stamp bloom on click
       ripplesRef.current.push({
         x: e.clientX,
         y: e.clientY,
-        radius: 3,
-        maxRadius: 18,
-        alpha: 0.65,
-        color: "#1a1311",
+        radius: 4,
+        maxRadius: 28,
+        alpha: 0.8,
+        color: "#140d0b",
       });
 
-      // Extra ink splash dots
-      for (let i = 0; i < 5; i++) {
-        const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 1.5 + 0.5;
+      // 10 radial ink splash droplets
+      for (let i = 0; i < 10; i++) {
+        const angle = (i / 10) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+        const speed = Math.random() * 2.5 + 1.2;
         particlesRef.current.push({
           x: e.clientX,
           y: e.clientY,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
-          radius: Math.random() * 2.5 + 1.5,
-          alpha: 0.6,
-          color: i === 0 ? "#8b2500" : "#140d0b",
+          radius: Math.random() * 4 + 2,
+          alpha: 0.85,
+          color: i % 4 === 0 ? "#8b2500" : "#140d0b",
           life: 0,
-          maxLife: 25,
+          maxLife: 30,
+          expandRate: 0.22,
         });
       }
 
@@ -250,7 +353,7 @@ export function CalligraphyCursorOverlay() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[99999] opacity-90"
+      className="fixed inset-0 pointer-events-none z-[99999] opacity-95"
       aria-hidden="true"
     />
   );
