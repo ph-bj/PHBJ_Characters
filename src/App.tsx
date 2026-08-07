@@ -83,7 +83,7 @@ import {
 } from "./workCategories";
 import { CiteButton } from "./components/CiteButton";
 
-import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, ROLE_CHIP_BOXED, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, getCharacterMentionCountsAll, getCharacterSortKeyZh, getCharacterSortKeyEn, NavSection, readLastReadingPosition, parseCharacterAge } from "./utils";
+import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, getChapterTitleParts, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, ROLE_CHIP_BOXED, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, getCharacterMentionCountsAll, getCharacterSortKeyZh, getCharacterSortKeyEn, NavSection, readLastReadingPosition, parseCharacterAge } from "./utils";
 
 import { LanguageSwitch } from "./components/LanguageSwitch";
 import { ThemeToggle } from "./components/ThemeToggle";
@@ -1919,26 +1919,39 @@ export default function App() {
                 </p>
               </div>
               <div className="flex flex-col gap-1.5">
-                {continueReadingChapter && (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() => setSelectedChapter(continueReadingChapter)}
-                      className="w-full flex items-center gap-2 px-2.5 py-2 rounded-sm border border-[var(--accent)]/40 bg-[var(--accent)]/8 hover:bg-[var(--accent)]/15 transition-colors text-left"
-                    >
-                      <BookOpen size={14} className="text-[var(--accent)] shrink-0" />
-                      <span className="min-w-0">
-                        <span className="block text-xs uppercase tracking-widest text-[var(--accent)] font-bold">
-                          {lang === "zh" ? "继续阅读" : "Continue reading"}
+                {continueReadingChapter && (() => {
+                  const parts = getChapterTitleParts(continueReadingChapter, lang);
+                  return (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedChapter(continueReadingChapter)}
+                        className="w-full text-left p-2.5 sm:p-3 rounded-sm border border-[var(--accent)]/40 bg-[var(--accent)]/8 hover:bg-[var(--accent)]/15 transition-all group flex items-start gap-2 cursor-pointer"
+                      >
+                        <BookOpen size={14} className="text-[var(--accent)] shrink-0 mt-0.5" />
+                        <span className="min-w-0 flex-1 space-y-0.5">
+                          <span className="block text-xs uppercase tracking-widest text-[var(--accent)] font-bold mb-1">
+                            {lang === "zh" ? "继续阅读" : "Continue reading"}
+                          </span>
+                          <div className={`text-xs font-bold tracking-wider text-[var(--accent)] uppercase ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                            {parts.chapterNum}
+                          </div>
+                          {parts.part1 && (
+                            <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                              {parts.part1}
+                            </div>
+                          )}
+                          {parts.part2 && (
+                            <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                              {parts.part2}
+                            </div>
+                          )}
                         </span>
-                        <span className="block text-xs font-hans text-[var(--ink-title)] leading-tight">
-                          {getChapterReaderTitle(continueReadingChapter, lang)}
-                        </span>
-                      </span>
-                    </button>
-                    <div className="border-t border-[var(--paper-border)]/60 my-1" />
-                  </>
-                )}
+                      </button>
+                      <div className="border-t border-[var(--paper-border)]/60 my-1" />
+                    </>
+                  );
+                })()}
                 <button
                   onClick={() =>
                     setSelectedChapter({
@@ -1950,7 +1963,7 @@ export default function App() {
                         .join("\n"),
                     })
                   }
-                  className="text-left px-2 py-2.5 sm:py-2 min-h-11 sm:min-h-0 rounded-sm border border-[var(--accent)]/40 hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/60 transition-all group flex items-center gap-2 mb-1"
+                  className="text-left px-2 py-2.5 sm:py-2 min-h-11 sm:min-h-0 rounded-sm border border-[var(--accent)]/40 hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/60 transition-all group flex items-center gap-2 mb-1 cursor-pointer"
                 >
                   <Book
                     size={12}
@@ -1960,25 +1973,41 @@ export default function App() {
                     {lang === "en" ? "Contents" : "目录"}
                   </span>
                 </button>
-                {chapters.map((chapter) => (
-                  <button
-                    key={chapter.id}
-                    onClick={() => setSelectedChapter(chapter)}
-                    className="text-left px-2 py-2.5 sm:py-2 min-h-11 sm:min-h-0 rounded-sm border border-[var(--paper-border)]/30 hover:bg-[var(--accent)]/5 hover:border-[var(--accent)]/30 transition-all group flex items-center gap-2"
-                  >
-                    <Book
-                      size={12}
-                      className="text-[var(--accent)]/40 group-hover:text-[var(--accent)] shrink-0"
-                    />
-                    <span className="text-xs font-hans text-[var(--ink-title)] leading-tight">
-                      {lang === "en"
-                        ? chapter.id === 0
-                          ? "Preface"
-                          : `Ch. ${chapter.id} — ${chapterTitleTranslations[chapter.id] || chapter.title}`
-                        : chapter.title}
-                    </span>
-                  </button>
-                ))}
+                {chapters.map((chapter) => {
+                  const parts = getChapterTitleParts(chapter, lang);
+                  return (
+                    <button
+                      key={chapter.id}
+                      onClick={() => setSelectedChapter(chapter)}
+                      className="text-left p-2.5 sm:p-3 rounded-sm border border-[var(--paper-border)]/30 hover:bg-[var(--accent)]/5 hover:border-[var(--accent)]/30 transition-all group flex items-start gap-2 cursor-pointer"
+                    >
+                      <Book
+                        size={12}
+                        className="text-[var(--accent)]/40 group-hover:text-[var(--accent)] shrink-0 mt-0.5"
+                      />
+                      <div className="flex-1 min-w-0 space-y-0.5">
+                        {/* Row 1: Chapter Number */}
+                        <div className={`text-xs font-bold tracking-wider text-[var(--accent)] uppercase ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                          {parts.chapterNum}
+                        </div>
+
+                        {/* Row 2: First Part */}
+                        {parts.part1 && (
+                          <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                            {parts.part1}
+                          </div>
+                        )}
+
+                        {/* Row 3: Second Part */}
+                        {parts.part2 && (
+                          <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                            {parts.part2}
+                          </div>
+                        )}
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
 
             </div>
