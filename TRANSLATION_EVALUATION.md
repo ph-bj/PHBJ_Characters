@@ -195,6 +195,17 @@ is missing. The English resolves the gaps four different ways and never says whi
   ("Changqing's widow cried out that they were all blind fools…"), so the gap vanishes along
   with her voice. It is an S8 case and an S7 case at once.
 
+One reconstruction deserves separate praise, because it shows what the class is worth when it
+works. **51:21** carries two lacunae in a single line, and the line is an obscene parody of a
+Shijing quotation. Sihui quotes 《郑风·缁衣》 — 「缁衣之好兮，敝予又改造兮」 — given correctly as
+"How fine the black robes! When they are worn out, I will make them anew." Siyuan throws it
+back as 「倒是□余又该□兮」, both obscene graphs censored out of the base text, and the English
+restores them: "More like, 'When my member is worn out, I must fuck anew!'" It keeps the metre,
+keeps the 兮 cadence, keeps the parody relationship to the line above, and recovers an
+obscenity the source itself had lost. That is real editorial work, and it is the argument *for*
+marking these places rather than against it: a reader shown "[reconstructed]" here would think
+better of the translation, not worse.
+
 Meanwhile 15:10 leaves an emendation *visible* — "**[radiant]** as peach and plum" — inside
 the running prose, as do 32:4 and 32:22. So emendations are marked in three places and hidden
 in twenty-two, and the visible ones share a namespace with the 299 junk tags from S1, so a
@@ -912,8 +923,8 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S14): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–50 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 51, 52, 53, 54, 56, 57 and 58.
+**Close reading, paragraph by paragraph:** ch. 1–51 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 52, 53, 54, 56, 57 and 58.
 
 Chapters 49 and 50 are recorded with no significant accuracy failure found. That is worth
 saying explicitly: they are ordinary narrative and social comedy — the bulk of the book — and
