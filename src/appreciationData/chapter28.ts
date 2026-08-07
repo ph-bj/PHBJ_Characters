@@ -12,18 +12,18 @@ export const chapter28Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：长庆请罪",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "长庆与叶茂林向聘才负荆请罪，琴言入华府的安排已无可回避。",
+      descriptionEn: "Changqing and Ye Maolin beg Pincai's pardon, leaving Qinyan's transfer to Hua's mansion unavoidable.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "长庆与叶茂林负荆请罪，助长了聘才的得意。",
-      descriptionEn: "Changqing and Ye Maolin beg pardon, feeding Pincai's triumph.",
+      descriptionZh: "琴言托素兰把罗帕与四味药转交子玉，借物寄情而不能直面相见。",
+      descriptionEn: "Qinyan entrusts Sulan with a handkerchief and four herbs for Ziyu, sending his feelings through objects instead of meeting him.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "琴言随聘才进入华府，颜夫人听取他的身世；这场避祸同时成为新的羁绊。",
+      descriptionEn: "Qinyan enters Hua's mansion with Pincai, and Madam Yan hears his story; the refuge becomes a new constraint.",
     }
   ],
   dimensions: [

@@ -13,7 +13,7 @@ export const chapter45Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：怡园的慰藉",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qinyan remains at Yiyuan while friends gather around him after the conflict.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter45Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "众人借扶乩安排琴言认下义父，荒诞的仪式为他重新安置身份与归属。",
+      descriptionEn: "The group uses a spirit-writing séance to arrange Qinyan's recognition of an adoptive father, giving him a new identity and belonging through an absurd ritual.",
     }
   ],
   dimensions: [

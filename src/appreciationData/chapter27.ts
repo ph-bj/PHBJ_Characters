@@ -12,18 +12,18 @@ export const chapter27Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：魏聘才的勒索阴谋",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "长庆不肯交出琴言，魏聘才转而谋划报复与施压。",
+      descriptionEn: "Changqing refuses to hand over Qinyan, so Pincai turns to retaliation and intimidation.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "聘才密谋敲诈长庆，迫其就范。",
-      descriptionEn: "Pincai plots to harry Changqing for ransom and force submission.",
+      descriptionZh: "奚十一带人闯入秋水堂，殴打长庆并搜寻琴言，秋水堂成为暴力冲突现场。",
+      descriptionEn: "Xi Shiyi brings men into Qiushui Hall, beats Changqing, and searches for Qinyan, turning the hall into a scene of violence.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "众人只得提出把琴言送入华府避祸；他看似获救，实则被权势重新占有。",
+      descriptionEn: "The proposed refuge for Qinyan is Hua's mansion: apparent rescue that is actually another form of possession by power.",
     }
   ],
   dimensions: [

@@ -13,7 +13,7 @@ export const chapter33Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：送别故人",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Friends prepare to leave the capital, leaving Ziyu increasingly alone.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter33Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "子玉在送别与婚事议论中独自承受相思，朋友远去使他的情感无所寄托。",
+      descriptionEn: "Amid farewells and marriage discussions, Ziyu bears his longing alone as his friends depart.",
     }
   ],
   dimensions: [

@@ -13,7 +13,7 @@ export const chapter44Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：琴言赎身",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qinyan is redeemed and moved away before Hua's summons can reach him.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter44Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "华公子因召唤落空写信斥责徐子云，琴言的赎身把两位公子的关系推向公开冲突。",
+      descriptionEn: "Hua sends an angry letter to Xu Ziyun after the summons fails, turning Qinyan's redemption into an open conflict between the two young masters.",
     }
   ],
   dimensions: [

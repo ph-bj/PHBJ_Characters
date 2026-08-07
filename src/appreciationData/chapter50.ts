@@ -12,18 +12,18 @@ export const chapter50Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：官场闲职",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "春航待娶苏侯小姐，林春喜闭门改戏练画，各人都在为新身份或新戏作准备。",
+      descriptionEn: "Chunhang awaits marriage to the Marquis's daughter while Lin Chunxi revises plays and practices painting behind closed doors.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "春航等待成婚，而文泽等人则把官职当做寻欢作乐的掩护。",
-      descriptionEn: "Chunhang awaits his wedding, while Wenze and others use their official positions as a cover for revelry.",
+      descriptionZh: "文泽索画扇面，春喜的画艺渐进；春航待婚与新官交游并行展开。",
+      descriptionEn: "Wenze asks for a painted fan and Chunxi's art improves, while Chunhang's impending marriage unfolds alongside the new officials' socializing.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "魏聘才娶妓收场，随后随唐和尚离京；功名、婚事与梨园旧人各自落幕。",
+      descriptionEn: "Wei Pincai marries a prostitute and leaves the capital with Tang the Monk, bringing contrasting endings for official success, marriage, and the theatre world.",
     }
   ],
   dimensions: [

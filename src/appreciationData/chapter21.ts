@@ -13,17 +13,17 @@ export const chapter21Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：魏聘才得志",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Pincai gains influence while Ziyu pines for Qinyan.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "魏聘才拜访病中的子玉，其新得的傲慢与子玉的忧郁形成对比。",
-      descriptionEn: "Wei Pincai visits the sick Ziyu, contrasting his new arrogance with Ziyu's melancholy.",
+      descriptionZh: "魏聘才探病时借机贬低琴言、编造流言，子玉当面为琴言辩护。",
+      descriptionEn: "During his visit to the ill Ziyu, Pincai slanders Qinyan and invents a story; Ziyu defends Qinyan.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "琴言从素兰处得知流言与子玉的相思，悲恸落泪，也看清聘才的恶意。",
+      descriptionEn: "Qinyan learns of the rumor and Ziyu's lovesickness from Sulan, weeps in grief, and sees Pincai's malice clearly.",
     }
   ],
   dimensions: [
@@ -31,7 +31,7 @@ export const chapter21Appreciation: ChapterAppreciationData = {
       iconType: "GitBranch", titleZh: "文本结构与布局", titleEn: "Structure & Layout", score: 85,
       subsections: [
         { labelZh: "承上启下", labelEn: "Connection", textZh: "本章紧接上文，推动了核心情节发展。", textEn: "This chapter directly follows the previous text, advancing the core plot." },
-        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕 '第二十一章：魏聘才得志与子玉相思' 展开，结构严密。", textEn: "The plot revolves around 'Chapter 21: Wei Pincai's Schemes and Ziyu's Lovesickness', with a tight structure." },
+        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕“造谣言徒遭冷眼、问衷曲暗泣同心”展开：聘才借探病造谣，琴言由素兰得知真相。", textEn: "The chapter follows Pincai's slander during a sickbed visit and Qinyan learning the truth from Sulan." },
         { labelZh: "节奏掌控", labelEn: "Pacing", textZh: "张弛有度，高潮处情感饱满。", textEn: "Pacing is well-controlled with emotional fullness at the climax." }
       ]
     },

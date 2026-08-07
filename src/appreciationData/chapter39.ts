@@ -13,7 +13,7 @@ export const chapter39Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：元茂筹婚",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Yuanmao prepares for his wedding with Pincai's help.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter39Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "婚礼夜里新郎以假发遮掩白发，婚姻喜剧以外表与真实的错位收束。",
+      descriptionEn: "On the wedding night the groom uses a false hairpiece to hide his white hair, closing the marriage comedy on the gap between appearance and reality.",
     }
   ],
   dimensions: [

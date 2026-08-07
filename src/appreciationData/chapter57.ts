@@ -13,7 +13,7 @@ export const chapter57Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：怡园的女眷雅集",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "The wives of the scholars gather at Yiyuan for poetry and tile games.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter57Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "袁绮香以酒令戏群芳，王琼华凭诗牌作盟主，女眷的才情与社交秩序在游戏中成形。",
+      descriptionEn: "Yuan Qixiang leads the ladies in drinking games and Wang Qionghua presides through poetry tiles, shaping their social order through play.",
     }
   ],
   dimensions: [

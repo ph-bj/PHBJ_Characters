@@ -13,7 +13,7 @@ export const chapter49Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：子玉旧病复发",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Ziyu's old illness returns after Qinxian's departure.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter49Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "许三姐与苏蕙芳的姐弟身份意外相认，病中求婚与亲情认领交织成新的情感转折。",
+      descriptionEn: "Xu Sanjie and Su Huifang unexpectedly recognize their sibling relationship, intertwining a marriage proposal with a new family revelation.",
     }
   ],
   dimensions: [

@@ -13,7 +13,7 @@ export const chapter40Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：十一报复",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Xi Shiyi turns to retaliation after losing influence over Qinyan.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter40Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "奚十一与潘其观分别遭遇荒唐的医治与羞辱，恶毒报复最终转成自食其果的闹剧。",
+      descriptionEn: "Xi Shiyi and Pan Qiguan suffer absurd medical treatment and humiliation, turning their spiteful schemes into self-inflicted farce.",
     }
   ],
   dimensions: [

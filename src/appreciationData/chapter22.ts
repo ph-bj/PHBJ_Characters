@@ -13,17 +13,17 @@ export const chapter22Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：素兰定计",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Sulan devises a canal outing to reunite Ziyu and Qinyan.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "素兰为子玉安排了一艘安静的画舫，以期与琴言相会。",
-      descriptionEn: "Sulan arranges a quiet boat for Ziyu to finally meet Qinyan.",
+      descriptionZh: "素兰借游运河设局；琴言寓所又遭奚府无赖上门滋扰，主仆被迫以钱息事。",
+      descriptionEn: "Sulan arranges a canal outing, while thugs from Xi's household harass Qinyan's lodging and are paid off.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "梅子玉与杜琴言终于在画舫重逢，琴言的病势也因相见而大减。",
+      descriptionEn: "Mei Ziyu and Du Qinyan finally reunite on the boat, and Qinyan's illness eases after seeing him.",
     }
   ],
   dimensions: [
@@ -31,7 +31,7 @@ export const chapter22Appreciation: ChapterAppreciationData = {
       iconType: "GitBranch", titleZh: "文本结构与布局", titleEn: "Structure & Layout", score: 85,
       subsections: [
         { labelZh: "承上启下", labelEn: "Connection", textZh: "本章紧接上文，推动了核心情节发展。", textEn: "This chapter directly follows the previous text, advancing the core plot." },
-        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕 '第二十二章：素兰定计与画舫相会' 展开，结构严密。", textEn: "The plot revolves around 'Chapter 22: Sulan's Plan and the Boat Meeting', with a tight structure." },
+        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节将琴言遭无赖滋扰的屈辱，与梅杜二人在运河画舫的重逢并置，形成强烈反差。", textEn: "The chapter contrasts the humiliation at Qinyan's lodging with the reunion of Ziyu and Qinyan on the canal." },
         { labelZh: "节奏掌控", labelEn: "Pacing", textZh: "张弛有度，高潮处情感饱满。", textEn: "Pacing is well-controlled with emotional fullness at the climax." }
       ]
     },
@@ -96,12 +96,12 @@ export const chapter22Appreciation: ChapterAppreciationData = {
       "rumors": [
         {
           "id": 1,
-          "rumorZh": "琴言在华府受委屈",
-          "rumorEn": "Qinyan suffers in Hua mansion",
-          "originZh": "优伶间的私下议论",
-          "originEn": "Private chatter among actors",
-          "effectZh": "加重了外界的刻板印象",
-          "effectEn": "Reinforces external stereotypes"
+          "rumorZh": "琴言寓所被奚府无赖滋扰",
+          "rumorEn": "Qinyan's lodging is harassed by Xi's thugs",
+          "originZh": "奚府车夫与厨役上门闹事",
+          "originEn": "A coachman and kitchen hand from Xi's household",
+          "effectZh": "琴言与素兰相继受辱，主仆只得以钱暂时息事",
+          "effectEn": "Qinyan and Sulan are humiliated, and the household pays to end the disturbance"
         }
       ]
     },

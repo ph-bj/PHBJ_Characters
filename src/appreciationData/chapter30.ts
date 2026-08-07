@@ -13,7 +13,7 @@ export const chapter30Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：琴言泣凤仙",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qinyan remains confined, using the plucked flowers and Fengxian as mirrors for his fate.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter30Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "琴言由凤仙花想到被采折、被占有的命运，花木意象把禁闭中的哀痛推向高潮。",
+      descriptionEn: "Qinyan compares his fate to flowers plucked and possessed, making the floral imagery the emotional climax of his confinement.",
     }
   ],
   dimensions: [

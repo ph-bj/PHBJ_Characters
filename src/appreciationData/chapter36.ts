@@ -13,7 +13,7 @@ export const chapter36Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：元宵落泪",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "The Lantern Festival performance places Qinyan under Hua's watchful gaze.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter36Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "琴言把受辱归咎于聘才，悲愤到几欲自尽，华府的赏罚把舞台悲剧推入现实。",
+      descriptionEn: "Qinyan blames Pincai for his humiliation and nearly takes his own life, as Hua's punishment turns stage sorrow into real danger.",
     }
   ],
   dimensions: [

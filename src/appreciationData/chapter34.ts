@@ -12,18 +12,18 @@ export const chapter34Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：巧遇聘才",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "元茂为婚事借钱，聘才也自称债台高筑，婚事与债务同时压来。",
+      descriptionEn: "Yuanmao borrows money for his wedding while Pincai claims to be deeply in debt, putting marriage and debt pressure together.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "元茂找到聘才求助筹办婚礼，并分享了子玉即将成婚的消息。",
-      descriptionEn: "Yuanmao tracks down Pincai for help with his impending wedding, sharing news of Ziyu's marriage.",
+      descriptionZh: "唐和尚与兄弟密议借官缺收取富三谢仪，元茂的婚债卷入一场更大的贪腐盘算。",
+      descriptionEn: "Tang the Monk and his brothers plot to sell an official vacancy for a large fee, drawing Yuanmao's wedding debts into a wider scheme of corruption.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "聘才房中箱匣与财物被窃，婚事、借债和盗窃在同一夜里收束成闹剧。",
+      descriptionEn: "A trunk and valuables are stolen from Pincai's room, bringing the wedding, debts, and burglary together in one farce.",
     }
   ],
   dimensions: [

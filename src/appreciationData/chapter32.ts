@@ -12,18 +12,18 @@ export const chapter32Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：秋雨连绵",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "秋雨连绵，众士子在放榜前守候，功名得失压在每个人心头。",
+      descriptionEn: "Autumn rain falls as the scholars wait for the results, with the stakes of success and failure weighing on everyone.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "在连绵的秋雨中，科考放榜日临近，考生们饱受焦虑折磨。",
-      descriptionEn: "As the exam results approach during a long autumn rain, the candidates suffer from severe anxiety.",
+      descriptionZh: "春航、高品彻夜谈论科名得失，放榜后有人欢喜有人失意。",
+      descriptionEn: "Chunhang and Gao Pin debate the stakes of examination success through the night; the results bring both joy and disappointment.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "老司官以判词讥刺归自荣，放榜场景由个人荣辱转成对官场文书与科名的讽刺。",
+      descriptionEn: "An old examiner satirizes Gui Zirong through his judgment, turning the results scene into a critique of official literary absurdity.",
     }
   ],
   dimensions: [

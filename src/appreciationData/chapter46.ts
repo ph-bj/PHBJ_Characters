@@ -13,7 +13,7 @@ export const chapter46Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：琴仙从学",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qinxian begins studying under the learned Master Qu.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter46Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "名士们分题联集、请屈道翁作序，琴仙从梨园才子转入文人雅集的世界。",
+      descriptionEn: "The scholars compose a themed collection and ask Master Qu for a preface, moving Qinxian from performer into the world of literary gatherings.",
     }
   ],
   dimensions: [

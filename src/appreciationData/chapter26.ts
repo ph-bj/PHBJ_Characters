@@ -12,18 +12,18 @@ export const chapter26Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：星楼春晓",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "华府星楼春晓，十名侍女整齐侍奉，华府的奢华内宅正式展开。",
+      descriptionEn: "Dawn in Hua's Star Tower presents ten identically arranged maids, opening the chapter on the mansion's luxury.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "华公子回府，十名着装统一的侍女在星楼等候。",
-      descriptionEn: "Hua returns to his mansion to find ten identically dressed maids awaiting him.",
+      descriptionZh: "魏聘才借华公子的赏识向长庆施压，谋求把琴言送入华府。",
+      descriptionEn: "Using Hua's favor, Pincai pressures Changqing and seeks to place Qinyan in Hua's mansion.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "十名侍女的标准化陈设转为聘才、长庆关于琴言去留的博弈，‘购名花’的权力逻辑浮现。",
+      descriptionEn: "The standardized display of the ten maids gives way to the power struggle over Qinyan's fate, turning the chapter's 'purchase of a famous flower' into reality.",
     }
   ],
   dimensions: [

@@ -13,7 +13,7 @@ export const chapter55Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：南下之旅",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qinxian travels south with Qu Daoweng and Liu Xi attending him.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter55Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "屈道翁南行途中病势加重，琴仙的侍奉与沿途凭吊把离京之情推到沉痛处。",
+      descriptionEn: "Qu Daoweng's illness worsens on the southern journey; Qinxian's care and the memorial sites deepen the sorrow of leaving the capital.",
     }
   ],
   dimensions: [

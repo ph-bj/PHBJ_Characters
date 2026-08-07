@@ -13,7 +13,7 @@ export const chapter54Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：子玉相思",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Ziyu receives Qinyan's poem and grieves over their separation.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter54Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "父亲来信同时安排婚期并告知博学宏词考试，子玉把相思与仕途压力一并承受。",
+      descriptionEn: "His father's letter fixes the marriage and announces the special examination, leaving Ziyu to bear longing alongside career pressure.",
     }
   ],
   dimensions: [

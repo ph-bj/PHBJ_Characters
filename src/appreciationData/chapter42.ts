@@ -13,7 +13,7 @@ export const chapter42Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：琴言的债务",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qinyan's shiniang demands a fixed monthly allowance for his support.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter42Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "师娘以赡养为名逐月勒价，琴言被迫面对情感关系背后的金钱束缚。",
+      descriptionEn: "His shiniang raises the monthly price of support, forcing Qinyan to confront the financial bondage behind the relationship.",
     }
   ],
   dimensions: [

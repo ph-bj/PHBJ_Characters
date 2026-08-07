@@ -13,7 +13,7 @@ export const chapter52Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：春航大婚",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Chunhang's wedding begins with an extraordinary dowry and the arrival of the new household.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter52Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "婚礼后的华府花园与绣阁宴饮把新贵、名士和佳人重新编入一张社交网络。",
+      descriptionEn: "The garden celebrations and embroidered-room feast weave the new dignitary, scholars, and ladies back into one social network.",
     }
   ],
   dimensions: [

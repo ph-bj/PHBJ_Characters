@@ -13,7 +13,7 @@ export const chapter37Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：琴言绝望",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qinyan returns in despair after the Lantern Festival humiliation.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter37Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "琴言被召到怡园，终于与子玉相见；相逢的慰藉暂时压过了此前的绝望。",
+      descriptionEn: "Qinyan is summoned to Yiyuan and finally meets Ziyu, whose presence briefly overcomes his despair.",
     }
   ],
   dimensions: [

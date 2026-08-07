@@ -12,18 +12,18 @@ export const chapter47Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：科举高捷",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "屈道翁的学问声望先被众人称许，随后春航、南湘的会试成绩传来。",
+      descriptionEn: "The chapter first praises Qu Daoweng's learning and reputation, then brings news of Chunhang and Nanxiang's metropolitan-exam results.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "春航和南湘考中进士，成绩优异，给所有人带来了欢乐。",
-      descriptionEn: "Chunhang and Nanxiang pass the jinshi examinations with high honors, bringing joy to all.",
+      descriptionZh: "南湘中二十一名、春航中三十四名，二人同登进士，众人设法安置新贵。",
+      descriptionEn: "Nanxiang places twenty-first and Chunhang thirty-fourth; both become jinshi, and the group arranges housing for the new graduates.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "奚十一求医修补下体，潘其观忍辱治臀的医学闹剧，与科举喜事形成荒诞对照。",
+      descriptionEn: "Xi Shiyi seeks a bodily repair while Pan Qiguan endures the humiliating treatment, a medical farce set against the examination celebrations.",
     }
   ],
   dimensions: [
@@ -81,8 +81,8 @@ export const chapter47Appreciation: ChapterAppreciationData = {
           id: 1,
           characterZh: "田春航", characterEn: "Tian Chunhang",
           initialStatusZh: "风流才子/普通举人", initialStatusEn: "Romantic talent / Provincial graduate",
-          finalStatusZh: "新科状元/翰林院修撰", finalStatusEn: "Zhuangyuan (First Place) / Hanlin Compiler",
-          methodZh: "通过科举考试的最高选拔（殿试）", methodEn: "Through the highest selection of the imperial examination (Palace Exam)"
+          finalStatusZh: "新科进士（南湘二十一名、春航三十四名）", finalStatusEn: "New jinshi graduates (Nanxiang 21st, Chunhang 34th)",
+          methodZh: "会试中式", methodEn: "Passing the metropolitan examination"
         }
       ]
   },

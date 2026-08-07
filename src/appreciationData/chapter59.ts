@@ -13,7 +13,7 @@ export const chapter59Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：琴仙守孝",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qinxian keeps vigil for Qu Daoweng at the Huguo Temple despite having little money.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter59Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "梅侍郎为屈公建祠，屈少君重返都门；琴仙的守孝由个人苦节转为公共纪念。",
+      descriptionEn: "Mei Shilang builds a shrine for Qu Daoweng and Qu Shaojun returns to the capital, turning Qinxian's private mourning into public remembrance.",
     }
   ],
   dimensions: [

@@ -13,7 +13,7 @@ export const chapter43Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：无聊的应酬",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qinyan is worn down by tedious callers and empty conversation.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter43Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "苏蕙芳与寡妇等人商议以重金赎琴言，徐子云也参与周旋，琴言终于出现脱身的希望。",
+      descriptionEn: "Su Huifang and the widow negotiate Qinyan's ransom, with Xu Ziyun involved in the maneuvering; escape finally becomes possible.",
     }
   ],
   dimensions: [
@@ -82,7 +82,7 @@ export const chapter43Appreciation: ChapterAppreciationData = {
           characterZh: "杜琴言", characterEn: "Du Qinyan",
           surfaceEmotionZh: "疲于应付的沉默与礼貌", surfaceEmotionEn: "Exhausted silence and politeness",
           hiddenEmotionZh: "对庸俗文人的极度厌恶与对真正知己的渴望", hiddenEmotionEn: "Extreme disgust for vulgar scholars and longing for true soulmates",
-          triggerZh: "面对季良轩与吴大傻的空洞高谈阔论", triggerEn: "Facing the empty, grandiose talk of Ji Liangxuan and Wu Dasha"
+          triggerZh: "面对姬亮轩与吴大傻的空洞高谈阔论", triggerEn: "Facing the empty, grandiose talk of Ji Liangxuan and Wu Dasha"
         }
       ]
   },

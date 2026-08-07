@@ -13,7 +13,7 @@ export const chapter53Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：错换桃花扇",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Hua realizes that the Peach Blossom Fan he gave away was his wife's treasured fan.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter53Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "琴言把诗寄给子玉，扇子失误与远方相思互相照应；梨园众人也开始筹谋新生计。",
+      descriptionEn: "Qinyan sends a poem to Ziyu, linking the fan mistake to their distant longing as the performers plan a new livelihood.",
     }
   ],
   dimensions: [

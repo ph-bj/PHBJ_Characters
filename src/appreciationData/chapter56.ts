@@ -13,7 +13,7 @@ export const chapter56Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：屈公跌伤",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qu Daoweng's illness worsens as Qinxian encounters Du Fairy's tomb.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter56Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "琴仙凭吊屈仙遗冢，屈道翁又因病托梦；古人遗迹与当下离愁彼此映照。",
+      descriptionEn: "Qinxian visits the tomb of the Du Fairy while Qu Daoweng entrusts a dream through illness, mirroring present grief in an older legend.",
     }
   ],
   dimensions: [

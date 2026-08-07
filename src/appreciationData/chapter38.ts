@@ -12,18 +12,18 @@ export const chapter38Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：梅花庵雅集",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "徐子云请屈道翁到梅崦，名士、名旦借雅集请益论学。",
+      descriptionEn: "Xu Ziyun invites Qu Daoweng to Mei Yan, where scholars and performers gather to seek his learning.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "众人举办了一场高雅的聚会，让琴言和子玉在一个受人尊重的环境中重聚。",
-      descriptionEn: "A refined gathering is hosted, bringing Qinyan and Ziyu together in a respectful environment.",
+      descriptionZh: "屈公讲解神禹碑、太乙数等学问，众人围绕真赝与灾祥展开清谈。",
+      descriptionEn: "Master Qu discusses the Yu Stele and the Taiyi calculations while the gathering debates authenticity, omens, and calamity.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "屈公为名旦题诗留墨，琴言等人以敬意相求；本章的高潮是学问、书艺与梨园人物的相互映照。",
+      descriptionEn: "Master Qu leaves poems and calligraphy for the performers; the chapter culminates in the mutual reflection of scholarship, art, and the theatre world.",
     }
   ],
   dimensions: [
@@ -31,14 +31,14 @@ export const chapter38Appreciation: ChapterAppreciationData = {
       iconType: "GitBranch", titleZh: "文本结构与布局", titleEn: "Structure & Layout", score: 85,
       subsections: [
         { labelZh: "承上启下", labelEn: "Connection", textZh: "本章紧接上文，推动了核心情节发展。", textEn: "This chapter directly follows the previous text, advancing the core plot." },
-        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕 '第三十八章：梅花庵雅集与故人重逢' 展开，结构严密。", textEn: "The plot revolves around 'Chapter 38: Gathering at the Plum-Blossom Hermitage', with a tight structure." },
+        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕“论真赝注释神禹碑、数灾祥驳翻太乙数”展开，以屈道翁的学问串联雅集。", textEn: "The chapter centers on debating the Yu Stele and Taiyi calculations, using Qu Daoweng's learning to connect the gathering." },
         { labelZh: "节奏掌控", labelEn: "Pacing", textZh: "张弛有度，高潮处情感饱满。", textEn: "Pacing is well-controlled with emotional fullness at the climax." }
       ]
     },
     {
       iconType: "User", titleZh: "人物塑造与心理", titleEn: "Characterization & Psychology", score: 90,
       subsections: [
-        { labelZh: "性格展现", labelEn: "Character", textZh: "屈公与子云创造了一个高雅的空间，让子玉和琴言得以体面地互动。", textEn: "Master Qu and Ziyun create a refined space where Ziyu and Qinyan can interact properly." },
+        { labelZh: "性格展现", labelEn: "Character", textZh: "屈道翁的博学与名士、名旦的敬学相互映衬，雅集不以琴言与子玉重逢为中心。", textEn: "Qu Daoweng's learning is set against the scholars' and performers' respect for learning; the gathering is not centered on a Qinyan–Ziyu reunion." },
         { labelZh: "心理深度", labelEn: "Psychology", textZh: "人物内心的挣扎和波澜描写真实细腻。", textEn: "The inner struggles and psychological waves of the characters are depicted authentically and delicately." },
         { labelZh: "人物关系", labelEn: "Relationships", textZh: "人物间的互动微妙地改变了彼此的权力或情感平衡。", textEn: "Interactions between characters subtly alter their power or emotional balance." }
       ]

@@ -12,18 +12,18 @@ export const chapter31Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：戏台上下",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "华公子赏戏并称赞聘才、子佩，台上台下的名利目光同时聚拢。",
+      descriptionEn: "Hua watches the performance and praises Pincai and Zipei, drawing the gaze of status and reputation onstage and off.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "一场戏曲表演引发了后台的争吵以及观众和演员之间的嫉妒。",
-      descriptionEn: "A theatrical performance leads to backstage bickering and jealousy among the audience and actors.",
+      descriptionZh: "子佩误会文泽讥评自己，台下争执把戏曲场面中的嫉妒与自尊暴露出来。",
+      descriptionEn: "Zipei mistakes Wenze's remarks for ridicule; their argument exposes jealousy and wounded pride behind the performance.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "群花各献诗书画技，名士联作《秋坟》，戏台上的争风转化为一场才艺竞逐。",
+      descriptionEn: "The performers display poetry, calligraphy, and painting, while the scholars compose 'Autumn Tomb', turning rivalry into an artistic contest.",
     }
   ],
   dimensions: [

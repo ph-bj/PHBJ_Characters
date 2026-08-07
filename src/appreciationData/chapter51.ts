@@ -12,18 +12,18 @@ export const chapter51Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：冒名顶替",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "元茂与孙氏兄弟冒顺天籍赴通州院试，科场闹剧从冒籍开始。",
+      descriptionEn: "Yuanmao and the Sun brothers use Shuntian registration to sit the Tongzhou academy examination, beginning the examination farce.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "元茂与孙氏兄弟在科举考试中冒名顶替，甚至雇佣代笔。",
-      descriptionEn: "Yuanmao and the Sun brothers fraudulently participate in exams, resorting to bribery and ghostwriters.",
+      descriptionZh: "元茂得秀才，嗣徽花钱雇枪手，嗣元文卷荒唐而挨杖，科场作弊层层升级。",
+      descriptionEn: "Yuanmao obtains the licentiate degree, Sihui pays for a substitute writer, and Siyuan's absurd paper earns him a beating; the cheating escalates.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "缝穷婆引发兄弟争风，孙嗣徽与嗣元同室操戈，元茂旁观又受牵连。",
+      descriptionEn: "A woman who patches clothes for a living triggers rivalry between the brothers; Sihui and Siyuan fight under one roof, with Yuanmao caught nearby.",
     }
   ],
   dimensions: [

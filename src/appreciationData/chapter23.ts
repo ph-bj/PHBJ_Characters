@@ -13,17 +13,17 @@ export const chapter23Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：李元茂借银",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Yuanmao borrows money and exchanges it for notes before wandering into danger.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "元茂向子玉借钱并换成银票，引发了新的风波。",
-      descriptionEn: "Yuanmao borrows money from Ziyu and exchanges it for notes, leading to new troubles.",
+      descriptionZh: "元茂借得八吊钱并换成银票，随后误入土窑子，被骗钱、剥衣，裹草帘狼狈脱身。",
+      descriptionEn: "Yuanmao borrows eight strings of cash, exchanges some for notes, then is robbed and stripped in a brothel-like dive, escaping wrapped in a straw mat.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "叙事转向劣幕姬亮轩与凤林的淫邪闲谈，小说明说以此反衬“好色不淫”的正邪两途。",
+      descriptionEn: "The narrative turns to the corrupt tutor Ji Liangxuan's obscene talk with Fenglin, explicitly contrasting it with the novel's ideal of 'loving beauty without licentiousness.'",
     }
   ],
   dimensions: [
@@ -31,7 +31,7 @@ export const chapter23Appreciation: ChapterAppreciationData = {
       iconType: "GitBranch", titleZh: "文本结构与布局", titleEn: "Structure & Layout", score: 85,
       subsections: [
         { labelZh: "承上启下", labelEn: "Connection", textZh: "本章紧接上文，推动了核心情节发展。", textEn: "This chapter directly follows the previous text, advancing the core plot." },
-        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕 '第二十三章：李元茂借银与银票风波' 展开，结构严密。", textEn: "The plot revolves around 'Chapter 23: Li Yuanmao and the Silver Notes', with a tight structure." },
+        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节先写李元茂在土窑子遭劫，后以姬亮轩的淫邪议论收束，正邪两线相互映照。", textEn: "The chapter moves from Yuanmao's robbery in the dive to Ji Liangxuan's obscene discourse, setting corrupt and idealized desire against each other." },
         { labelZh: "节奏掌控", labelEn: "Pacing", textZh: "张弛有度，高潮处情感饱满。", textEn: "Pacing is well-controlled with emotional fullness at the climax." }
       ]
     },

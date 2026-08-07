@@ -13,7 +13,7 @@ export const chapter41Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：华公子垂钓",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Hua's leave from Qinyan expires while he tries to distract himself in the garden.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter41Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "华公子借垂钓排遣对琴言的思念，却把赏花、听曲与相思写成一场无法拥有的梦。",
+      descriptionEn: "Hua fishes to distract himself from missing Qinyan, but flowers and song turn his desire into a dream he cannot possess.",
     }
   ],
   dimensions: [

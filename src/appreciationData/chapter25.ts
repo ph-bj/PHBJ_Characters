@@ -12,18 +12,18 @@ export const chapter25Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：华公子游怡园",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "刘文泽携妻归来，华公子到怡园看新戏，园中名流与优伶齐集。",
+      descriptionEn: "Liu Wenze returns with his wife, and Young Master Hua visits Yiyuan for a new play amid a gathering of notables and performers.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "众人谈论新戏，为华公子游园做铺垫。",
-      descriptionEn: "Discussions of new plays precede Young Master Hua's visit to the garden.",
+      descriptionZh: "新戏开演，华公子注意到琴言；琴言却以直率言辞与张仲宇冲撞。",
+      descriptionEn: "The new play begins and Hua notices Qinyan, who then clashes with Zhang Zhongyu through his blunt speech.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "怡园的赏戏与琴言的锋芒并置：华公子的赏识带来机会，也让琴言卷入更复杂的权力关系。",
+      descriptionEn: "Hua's appreciation at Yiyuan creates an opportunity for Qinyan while drawing him into a more complicated power structure.",
     }
   ],
   dimensions: [
@@ -91,12 +91,12 @@ export const chapter25Appreciation: ChapterAppreciationData = {
       "spaces": [
         {
           "id": 1,
-          "locationZh": "华府内宅",
-          "locationEn": "Hua Mansion Inner Quarters",
-          "atmosphereZh": "封闭压抑",
-          "atmosphereEn": "Enclosed and oppressive",
-          "significanceZh": "代表琴言受困的牢笼",
-          "significanceEn": "Represents Qinyan's cage"
+          "locationZh": "怡园水榭戏台",
+          "locationEn": "Yiyuan Waterside Stage",
+          "atmosphereZh": "华美热闹而暗含试探",
+          "atmosphereEn": "Lavish and lively, yet full of testing glances",
+          "significanceZh": "赏戏、交游与人物初次显露彼此心思的公共场所",
+          "significanceEn": "A public setting where performance, sociability, and first impressions reveal hidden agendas"
         }
       ]
     },

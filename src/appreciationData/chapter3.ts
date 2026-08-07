@@ -45,7 +45,7 @@ export const chapter3Appreciation: ChapterAppreciationData = {
       "stageZh": "2. 遭遇讹诈",
       "stageEn": "2. Extorted",
       "sentiment": 10,
-      "descriptionZh": "被卖玉老头碰瓷讹诈，极度憋屈、愤怒且无助",
+      "descriptionZh": "被卖玉器的老王以松香烟壶索诈，陷入尴尬与憋屈",
       "descriptionEn": "Extorted by the jade seller over a broken bottle; feels angry and helpless"
     },
     {

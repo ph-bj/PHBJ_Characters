@@ -13,7 +13,7 @@ export const chapter60Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：元宵大团圆",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "The Lantern Festival gathering brings the surviving characters together and restores Qinxian's standing.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter60Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "金吉甫提议为群芳画像、分配花神名目，众人以祝文与品评为琴仙及全书人物收束余韵。",
+      descriptionEn: "Jin Jifu proposes portraits and flower-deity roles for the performers, while the group closes the novel's afterglow with encomiums and judgments.",
     }
   ],
   dimensions: [

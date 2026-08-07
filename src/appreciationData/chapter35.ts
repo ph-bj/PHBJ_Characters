@@ -12,18 +12,18 @@ export const chapter35Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：失窃疑云",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "聘才继续追查失窃，众人散去后，叙事转入名士与名伶的文字游戏。",
+      descriptionEn: "Pincai continues investigating the theft; after the searchers disperse, the narrative turns to literary games among scholars and performers.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "聘才发现自己的箱子被盗，引发了一场混乱的半夜搜查。",
-      descriptionEn: "Pincai discovers his trunk has been stolen, leading to a chaotic midnight search.",
+      descriptionZh: "众人行飞花、葩经等酒令，以诗句和曲文彼此较量，失窃案退到背景。",
+      descriptionEn: "The group plays flying-flower and 'Classic of Flowers' drinking games, competing through verse and song while the theft recedes into the background.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "红豆掷相思，众人以艳曲联句收令，才情与相思在游戏中交织。",
+      descriptionEn: "Red beans become tokens of longing, and the group closes the game with linked lyrics, intertwining talent and desire.",
     }
   ],
   dimensions: [

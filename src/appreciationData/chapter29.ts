@@ -13,7 +13,7 @@ export const chapter29Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：琴言慰子玉",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qinyan enters the Mei residence and is allowed to comfort the sick Ziyu.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter29Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "华公子得知琴言外出后将他拘入洗红居，重逢的温情随即被占有与禁闭打断。",
+      descriptionEn: "After learning that Qinyan went out, Hua confines him to Xihong Residence, interrupting the reunion's warmth with possession and imprisonment.",
     }
   ],
   dimensions: [

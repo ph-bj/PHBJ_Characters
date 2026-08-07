@@ -13,7 +13,7 @@ export const chapter48Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：离别之宴",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionEn: "Qu Daoweng prepares to take office as the friends arrange farewells.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -22,8 +22,8 @@ export const chapter48Appreciation: ChapterAppreciationData = {
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "春航殿试夺魁、妻子病逝，琴仙又将与众人分离；功名、丧偶与离情叠成一回。",
+      descriptionEn: "Chunhang wins first place in the palace examination while his wife dies and Qinxian prepares to part from his friends, layering triumph, bereavement, and farewell.",
     }
   ],
   dimensions: [

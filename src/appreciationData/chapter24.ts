@@ -12,18 +12,18 @@ export const chapter24Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：潘三纠缠",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "颜仲清、王恂谈及潘三纠缠苏蕙芳，准备设法应对。",
+      descriptionEn: "Yan Zhongqing and Wang Xun discuss Pan the Third's harassment of Su Huifang and how to respond.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "潘三强求收苏蕙芳为义子的流言四起。",
-      descriptionEn: "Rumors spread about Pan the Third demanding to adopt Su Huifang.",
+      descriptionZh: "众人议论潘三强求收蕙芳为义子，苏蕙芳的处境因流言与纠缠更加难堪。",
+      descriptionEn: "Talk spreads that Pan the Third is forcing Huifang to become his adopted son, worsening her predicament.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "王恂提出以新戏和社交周旋化解潘三纠缠，传闻与现实的错位把权势压迫推到台前。",
+      descriptionEn: "Wang Xun proposes using a new play and social maneuvering to defuse Pan's pressure, bringing the abuse of power into view.",
     }
   ],
   dimensions: [
@@ -92,8 +92,8 @@ export const chapter24Appreciation: ChapterAppreciationData = {
           "id": 1,
           "titleZh": "清高名伶",
           "titleEn": "The Aloof Performer",
-          "roleZh": "杜琴言",
-          "roleEn": "Du Qinyan",
+          "roleZh": "苏蕙芳",
+          "roleEn": "Su Huifang",
           "descZh": "面对金钱与权势依然孤高",
           "descEn": "Maintaining aloofness in the face of money and power"
         }

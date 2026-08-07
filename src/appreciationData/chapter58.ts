@@ -12,18 +12,18 @@ export const chapter58Appreciation: ChapterAppreciationData = {
   timelineData: [
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
-      descriptionZh: "本章开篇局势：奚十一的破产",
-      descriptionEn: "The situation at the beginning of the chapter.",
+      descriptionZh: "奚十一的洋行、盐场相继败落，债务把主仆二人推到穷途末路。",
+      descriptionEn: "Xi Shiyi's foreign-trade and salt businesses collapse in succession, with debt driving master and servant to desperation.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
-      descriptionZh: "奚十一得知家族的洋行和盐业生意彻底垮台，倾家荡产。",
-      descriptionEn: "Xi Shiyi receives news that his family's foreign trade and salt businesses have collapsed, ruining him.",
+      descriptionZh: "潘其观逼讨欠债，奚十一主仆走投无路，往日的权势与奢靡尽数反噬。",
+      descriptionEn: "Pan Qiguan presses for repayment, leaving Xi Shiyi and his servant desperate as their former power and extravagance turn against them.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
-      descriptionZh: "本章的高潮点与情感爆发",
-      descriptionEn: "The climax and emotional burst of this chapter.",
+      descriptionZh: "石氏捉到潘三与得月私通，抓伤潘三鼻子；主仆与夫妻各自承受恶报。",
+      descriptionEn: "Shishi catches Pan the Third with Deyue and injures his nose; master and servant, husband and wife, each receive their retribution.",
     }
   ],
   dimensions: [
