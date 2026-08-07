@@ -438,6 +438,11 @@ into the mansion of his own accord," and the English of 27:1 opens "He meant to 
 until the boy could find no peace and had no choice but to enter the mansion." One sentence,
 two paragraphs, both in English, only one in Chinese.
 
+Both cases are paraphrases rather than verbatim repeats, so a word-matching sweep does not
+find them: screening every adjacent pair for a shared six-word content n-gram returns ten
+hits, all of them legitimate (a line quoted in one paragraph and discussed in the next).
+Enumerating this class properly needs a paragraph-by-paragraph comparison, not a script.
+
 ---
 
 ## 5. 意境 — the atmospheric and tonal reading
