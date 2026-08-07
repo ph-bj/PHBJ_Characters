@@ -549,7 +549,15 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
         .attr("stroke-width", 1.25);
     });
 
-    // 3. Central Flower Core Circle
+    // 3. Opaque center mask to completely block overlapping petal stroke lines under the text area
+    node
+      .append("circle")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", centerRadius)
+      .attr("fill", "var(--paper-bg)");
+
+    // 4. Central Flower Core Circle
     node
       .append("circle")
       .attr("cx", 0)
