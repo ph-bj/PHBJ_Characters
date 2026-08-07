@@ -47,22 +47,21 @@ export function useFinePointerDevice(): boolean {
       mediaQuery.addEventListener("change", handleMediaChange);
     }
 
-    // Dynamic detection for hybrid touch/mouse devices (e.g. iPads/laptops with touch)
     const handlePointerType = (e: PointerEvent) => {
       if (e.pointerType === "mouse" || e.pointerType === "pen") {
         setIsFinePointer(true);
       }
     };
 
-    window.addEventListener("pointerdown", handlePointerType, { passive: true });
-    window.addEventListener("pointermove", handlePointerType, { passive: true });
+    window.addEventListener("pointerdown", handlePointerType, { capture: true, passive: true });
+    window.addEventListener("pointermove", handlePointerType, { capture: true, passive: true });
 
     return () => {
       if (mediaQuery.removeEventListener) {
         mediaQuery.removeEventListener("change", handleMediaChange);
       }
-      window.removeEventListener("pointerdown", handlePointerType);
-      window.removeEventListener("pointermove", handlePointerType);
+      window.removeEventListener("pointerdown", handlePointerType, { capture: true });
+      window.removeEventListener("pointermove", handlePointerType, { capture: true });
     };
   }, []);
 
@@ -169,7 +168,7 @@ export function CalligraphyCursorOverlay() {
     }
   }, [isCursorActive]);
 
-  // Main Canvas Ink System
+  // Main Canvas Ink Engine - Continuous Capture-Phase Event Loop
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -189,8 +188,8 @@ export function CalligraphyCursorOverlay() {
     };
     handleResize();
 
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleResize, { passive: true });
+    window.addEventListener("resize", handleResize, { capture: true, passive: true });
+    window.addEventListener("scroll", handleResize, { capture: true, passive: true });
 
     // Traditional Chinese Ink Tone Palette Generator (墨分五色: 焦, 浓, 重, 淡, 清)
     const getInkToneColors = (tone: InkTone) => {
@@ -233,164 +232,154 @@ export function CalligraphyCursorOverlay() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
 
-      if (!activeRef.current) {
-        animFrameRef.current = null;
-        return;
-      }
+      if (activeRef.current) {
+        // 1. Render Ink Ripples & Seals (from mouse clicks)
+        const ripples = ripplesRef.current;
+        for (let i = ripples.length - 1; i >= 0; i--) {
+          const r = ripples[i];
+          r.radius += (r.maxRadius - r.radius) * 0.15 + 0.6;
+          r.alpha *= 0.89;
 
-      // 1. Render Ink Ripples & Seals (from mouse clicks)
-      const ripples = ripplesRef.current;
-      for (let i = ripples.length - 1; i >= 0; i--) {
-        const r = ripples[i];
-        r.radius += (r.maxRadius - r.radius) * 0.15 + 0.6;
-        r.alpha *= 0.89;
+          if (r.alpha < 0.01) {
+            ripples.splice(i, 1);
+            continue;
+          }
 
-        if (r.alpha < 0.01) {
-          ripples.splice(i, 1);
-          continue;
-        }
-
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = r.washColor;
-        ctx.globalAlpha = r.alpha * 0.75;
-        ctx.lineWidth = 3.0;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(r.x, r.y, r.radius * 0.48, 0, Math.PI * 2);
-        ctx.fillStyle = r.color;
-        ctx.globalAlpha = r.alpha * 0.65;
-        ctx.fill();
-        ctx.restore();
-      }
-
-      // 2. Render Continuous Calligraphy Ink Stroke Ribbon (水墨飞白笔触)
-      const points = strokePointsRef.current;
-      for (let i = points.length - 1; i >= 0; i--) {
-        const p = points[i];
-        p.life += 1;
-        const progress = p.life / p.maxLife;
-        p.alpha = (1 - progress) * p.maxAlpha;
-
-        if (p.life >= p.maxLife || p.alpha <= 0.01) {
-          points.splice(i, 1);
-        }
-      }
-
-      if (points.length >= 2) {
-        // Pass A: 清墨 / 淡墨 Outer Water Wash Bleed Halo (清墨水晕底)
-        ctx.save();
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
-        for (let i = 0; i < points.length - 1; i++) {
-          const p1 = points[i];
-          const p2 = points[i + 1];
-          const midX = (p1.x + p2.x) / 2;
-          const midY = (p1.y + p2.y) / 2;
-
+          ctx.save();
           ctx.beginPath();
-          ctx.moveTo(p1.x, p1.y);
-          ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
-          ctx.strokeStyle = p1.qingColor;
-          ctx.lineWidth = Math.max(p1.width + 8, 10);
-          ctx.globalAlpha = p1.alpha * 0.4;
+          ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
+          ctx.strokeStyle = r.washColor;
+          ctx.globalAlpha = r.alpha * 0.75;
+          ctx.lineWidth = 3.0;
           ctx.stroke();
-        }
-        ctx.restore();
-
-        // Pass B: 重墨 / 淡墨 Mid-Stroke Water Wash Body (淡墨润色层)
-        ctx.save();
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
-        for (let i = 0; i < points.length - 1; i++) {
-          const p1 = points[i];
-          const p2 = points[i + 1];
-          const midX = (p1.x + p2.x) / 2;
-          const midY = (p1.y + p2.y) / 2;
 
           ctx.beginPath();
-          ctx.moveTo(p1.x, p1.y);
-          ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
-          ctx.strokeStyle = p1.danColor;
-          ctx.lineWidth = Math.max(p1.width + 3, 5);
-          ctx.globalAlpha = p1.alpha * 0.65;
-          ctx.stroke();
-        }
-        ctx.restore();
-
-        // Pass C: 焦墨 / 浓墨 Dense Black Ink Core Ribbon (焦墨主笔锋)
-        ctx.save();
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
-        for (let i = 0; i < points.length - 1; i++) {
-          const p1 = points[i];
-          const p2 = points[i + 1];
-          const midX = (p1.x + p2.x) / 2;
-          const midY = (p1.y + p2.y) / 2;
-
-          ctx.beginPath();
-          ctx.moveTo(p1.x, p1.y);
-          ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
-          ctx.strokeStyle = p1.jiaoColor;
-          ctx.lineWidth = p1.width;
-          ctx.globalAlpha = p1.alpha;
-          ctx.stroke();
-        }
-        ctx.restore();
-      }
-
-      // 3. Render Ink Splash & Diffusion Particles (墨滴水墨晕染)
-      const particles = particlesRef.current;
-      for (let i = particles.length - 1; i >= 0; i--) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vx *= 0.94;
-        p.vy *= 0.94;
-        p.life += 1;
-        const progress = p.life / p.maxLife;
-        p.alpha = (1 - progress) * 0.85;
-        p.radius += p.expandRate;
-
-        if (p.life >= p.maxLife || p.alpha <= 0.01) {
-          particles.splice(i, 1);
-          continue;
-        }
-
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = p.alpha;
-        ctx.fill();
-
-        if (p.radius > 3) {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius * 1.6, 0, Math.PI * 2);
-          ctx.fillStyle = p.washColor;
-          ctx.globalAlpha = p.alpha * 0.4;
+          ctx.arc(r.x, r.y, r.radius * 0.48, 0, Math.PI * 2);
+          ctx.fillStyle = r.color;
+          ctx.globalAlpha = r.alpha * 0.65;
           ctx.fill();
+          ctx.restore();
         }
-        ctx.restore();
+
+        // 2. Render Continuous Calligraphy Ink Stroke Ribbon (水墨飞白笔触)
+        const points = strokePointsRef.current;
+        for (let i = points.length - 1; i >= 0; i--) {
+          const p = points[i];
+          p.life += 1;
+          const progress = p.life / p.maxLife;
+          p.alpha = (1 - progress) * p.maxAlpha;
+
+          if (p.life >= p.maxLife || p.alpha <= 0.01) {
+            points.splice(i, 1);
+          }
+        }
+
+        if (points.length >= 2) {
+          // Pass A: 清墨 / 淡墨 Outer Water Wash Bleed Halo (清墨水晕底)
+          ctx.save();
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
+          for (let i = 0; i < points.length - 1; i++) {
+            const p1 = points[i];
+            const p2 = points[i + 1];
+            const midX = (p1.x + p2.x) / 2;
+            const midY = (p1.y + p2.y) / 2;
+
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
+            ctx.strokeStyle = p1.qingColor;
+            ctx.lineWidth = Math.max(p1.width + 8, 10);
+            ctx.globalAlpha = p1.alpha * 0.4;
+            ctx.stroke();
+          }
+          ctx.restore();
+
+          // Pass B: 重墨 / 淡墨 Mid-Stroke Water Wash Body (淡墨润色层)
+          ctx.save();
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
+          for (let i = 0; i < points.length - 1; i++) {
+            const p1 = points[i];
+            const p2 = points[i + 1];
+            const midX = (p1.x + p2.x) / 2;
+            const midY = (p1.y + p2.y) / 2;
+
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
+            ctx.strokeStyle = p1.danColor;
+            ctx.lineWidth = Math.max(p1.width + 3, 5);
+            ctx.globalAlpha = p1.alpha * 0.65;
+            ctx.stroke();
+          }
+          ctx.restore();
+
+          // Pass C: 焦墨 / 浓墨 Dense Black Ink Core Ribbon (焦墨主笔锋)
+          ctx.save();
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
+          for (let i = 0; i < points.length - 1; i++) {
+            const p1 = points[i];
+            const p2 = points[i + 1];
+            const midX = (p1.x + p2.x) / 2;
+            const midY = (p1.y + p2.y) / 2;
+
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
+            ctx.strokeStyle = p1.jiaoColor;
+            ctx.lineWidth = p1.width;
+            ctx.globalAlpha = p1.alpha;
+            ctx.stroke();
+          }
+          ctx.restore();
+        }
+
+        // 3. Render Ink Splash & Diffusion Particles (墨滴水墨晕染)
+        const particles = particlesRef.current;
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vx *= 0.94;
+          p.vy *= 0.94;
+          p.life += 1;
+          const progress = p.life / p.maxLife;
+          p.alpha = (1 - progress) * 0.85;
+          p.radius += p.expandRate;
+
+          if (p.life >= p.maxLife || p.alpha <= 0.01) {
+            particles.splice(i, 1);
+            continue;
+          }
+
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = p.alpha;
+          ctx.fill();
+
+          if (p.radius > 3) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius * 1.6, 0, Math.PI * 2);
+            ctx.fillStyle = p.washColor;
+            ctx.globalAlpha = p.alpha * 0.4;
+            ctx.fill();
+          }
+          ctx.restore();
+        }
       }
 
-      if (points.length > 0 || particles.length > 0 || ripples.length > 0) {
-        animFrameRef.current = requestAnimationFrame(render);
-      } else {
-        animFrameRef.current = null;
-      }
+      // Always request next frame for silky smooth continuous tracking across modals
+      animFrameRef.current = requestAnimationFrame(render);
     };
 
-    const startAnimIfNeeded = () => {
-      if (!animFrameRef.current && activeRef.current) {
-        animFrameRef.current = requestAnimationFrame(render);
-      }
-    };
+    // Start permanent animation loop
+    animFrameRef.current = requestAnimationFrame(render);
 
     const onMouseMove = (e: MouseEvent) => {
-      // Ignore only if cursor feature disabled or synthetically fired touch event
       if (!activeRef.current || (e as any).sourceCapabilities?.firesTouchEvents) return;
 
       const x = e.clientX;
@@ -420,7 +409,6 @@ export function CalligraphyCursorOverlay() {
           const danColors = getInkToneColors("dan");
           const qingColors = getInkToneColors("qing");
 
-          // Bounded point queue limit to prevent GC overhead
           if (strokePointsRef.current.length > 50) {
             strokePointsRef.current.shift();
           }
@@ -479,7 +467,6 @@ export function CalligraphyCursorOverlay() {
       }
 
       lastPosRef.current = { x, y, time: now };
-      startAnimIfNeeded();
     };
 
     const onMouseDown = (e: MouseEvent) => {
@@ -528,18 +515,17 @@ export function CalligraphyCursorOverlay() {
           expandRate: 0.26,
         });
       }
-
-      startAnimIfNeeded();
     };
 
-    window.addEventListener("mousemove", onMouseMove, { passive: true });
-    window.addEventListener("mousedown", onMouseDown, { passive: true });
+    // Capture-phase event listeners fire first on window BEFORE any modal panel can call stopPropagation()
+    window.addEventListener("mousemove", onMouseMove, { capture: true, passive: true });
+    window.addEventListener("mousedown", onMouseDown, { capture: true, passive: true });
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleResize);
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mousedown", onMouseDown);
+      window.removeEventListener("resize", handleResize, { capture: true });
+      window.removeEventListener("scroll", handleResize, { capture: true });
+      window.removeEventListener("mousemove", onMouseMove, { capture: true });
+      window.removeEventListener("mousedown", onMouseDown, { capture: true });
       if (animFrameRef.current) {
         cancelAnimationFrame(animFrameRef.current);
       }
