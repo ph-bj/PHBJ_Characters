@@ -60,9 +60,21 @@ quotation marks, taking spoken lines and critical judgements down with them.
 **Third — and this is the 意境 problem — the translation has one register where the novel has
 several.** *Pinhua Baojian* alternates between ornate parallel prose for its connoisseur
 set-pieces and brisk, coarse, often obscene vernacular for its street scenes. The English is
-uniformly elevated. It adds ornament where the Chinese is plain, and it softens obscenity
-where the Chinese is filthy. Since the book's comedy and much of its moral argument live in
-the gap between those two voices, closing the gap costs more than any individual mistranslation.
+uniformly elevated: it adds ornament where the Chinese is plain, and it softens where the
+Chinese is filthy.
+
+The complete reading makes the shape of this precise, and it is not squeamishness. Chapters 36,
+38, 40, 47 and 58 translate their obscenity without a flinch, up to and including the
+gynaecological inspection at 38:34 and the penis-grafting conversation at 47:3–47:8. What gets
+euphemised is not explicitness but **vulgarity** — the same anatomy is rendered at length in a
+literary register and refused in a coarse one. The conversion of direct speech to reported
+speech follows the same rule: chapter 42 quotes the widow's extortion scene at full length and
+narrates the eleven consecutive paragraphs of low comedy that follow it.
+
+Since the book's comedy and much of its moral argument live in the gap between its two voices,
+closing the gap costs more than any individual mistranslation. But because the rule is a
+consistent preference rather than a limit, it is a decision that can be revisited passage by
+passage.
 
 The prior `TRANSLATION_AUDIT.md` states that name romanisation, official titles, and
 paragraph-level omissions were fixed. Those fixes were real but partial: they reached some
@@ -976,9 +988,18 @@ places, and they show what the rest could be:
 6. **Fix the two surviving female pronouns** at 28:5 and 29:9 (S13), and the stray `\n\t` at
    30:4. Two minutes of work, and both currently misgender or garble on screen.
 7. **Fix the errors in §4.1** — they are few, they are checkable, and each one currently
-   breaks a scene rather than blurring it.
-8. **Then, if there is appetite for it, the register work in §5.1–5.2**, which is real
-   editorial labour rather than correction, and which is where the remaining 意境 is.
+   breaks a scene rather than blurring it. 56:4's 阳九 is the one to do first: it is a single
+   phrase, and repairing it restores a link across twenty chapters.
+8. **Settle the measures** (S12, S15, S16). 时辰, the lunar months and 里 are each rendered
+   several ways, two of them wrong by factors of two and three. Pick one convention per unit,
+   gloss it once, and apply it — this is find-and-replace with a decision attached.
+9. **Retranslate the 41 note-form paragraphs** (S14), chapter 46 first. These are not stylistic
+   choices to argue about; they are working notes standing in for prose, and they carry real
+   losses with them (46:52's critical judgements, 46:29's spoken line).
+10. **Then, if there is appetite for it, the register work in §5.1–5.2**, which is real
+   editorial labour rather than correction, and which is where the remaining 意境 is. §5.2's
+   list is a set of local decisions, not a ceiling — the same translator gets the same material
+   right elsewhere in the book.
 
 ---
 
