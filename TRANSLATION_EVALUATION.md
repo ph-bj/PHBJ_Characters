@@ -638,8 +638,28 @@ this was a wretched fate."
 「你说这命运低不低？」 is a wounded question put directly to the man in front of him. The
 paragraph then closes 说到此，便硬咽起来 → "Speaking to this point, he choked back tears" —
 but nothing has been spoken on the page. The emotional centre of Huifang's characterisation
-is narrated instead of performed. The same happens to Cao Changqing's widow (ch. 42) and the
-Tian household (ch. 48).
+is narrated instead of performed. The same happens to the Tian household (ch. 48).
+
+**Chapter 42 shows the rule the conversion follows.** Counting Chinese speech-openings against
+English quotation marks paragraph by paragraph, the chapter divides cleanly in two:
+
+| quoted in English | narrated in English |
+| --- | --- |
+| 42:2 (2→8) · 42:3 (2→8) · 42:8 (3→10) · 42:12 (5→14) · 42:14 (4→13) · 42:32 (2→5) | 42:15 (15→3) · 42:16 (13→1) · 42:17 (3→0) · 42:19 (2→0) · 42:20 (4→1) · 42:22 (3→0) · 42:24 (7→1) · 42:25 (6→4) · 42:27 (7→4) · 42:29 (7→1) |
+
+The left column is Changqing's widow extorting Qinyan — quoted at full length and done well:
+her cold laugh, her 靠山吃山 arithmetic, her two-paths ultimatum, his stung silence. The right
+column begins the instant the two spongers Wu Dasha and Ji Liangxuan walk in at 42:13 and runs
+unbroken to the end of their scene. 「没有阿，我们就是师兄弟两个。」 becomes "Tianfu replied
+that there was no one else; it was just the two of them, brothers"; 「天报！天报！叫他多病几
+天。」 becomes "Tianfu cried out that it was Heaven's justice, wishing for him to be ill a good
+many more days."
+
+That comedy is entirely rhythmic — short lines, fast returns, a child's flat refusal — and
+reported speech has no rhythm; what is left is a summary of what was funny. And the selection
+rule is the same one §5.2 identifies: within a single chapter, the same hand keeps direct
+speech for the scene of pathos and converts it for the scene of low comedy. 42:33, the widow's
+obscene tirade, falls on the comic side of that line and loses both its voice and its lacuna.
 
 ### 5.4 Verse: two standards, and only one of them is good
 The snow poems of **chapter 4** are the best work in the book: line-for-line, restrained,
@@ -769,8 +789,8 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S13): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–41 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 42, 45, 46, 51, 52, 53, 54, 56, 57 and 58.
+**Close reading, paragraph by paragraph:** ch. 1–42 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 45, 46, 51, 52, 53, 54, 56, 57 and 58.
 
 The remaining chapters are covered by the mechanical screens only. Findings from them that
 appear above (41:27, 48:20/22, 42:15/16, 54:11/33/39, 59:8–10, 57:35–52, 51:16–21, the
