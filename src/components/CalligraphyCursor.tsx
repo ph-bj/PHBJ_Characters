@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
+import { createPortal } from "react-dom";
 import { Feather } from "lucide-react";
 
 const CURSOR_STORAGE_KEY = "phbj-cursor-brush";
@@ -151,7 +152,7 @@ export function CalligraphyCursorOverlay() {
   const isCursorActive = enabled && isFinePointer;
   const activeRef = useRef<boolean>(isCursorActive);
 
-  // Keep active state ref updated for event handlers
+  // Keep active state ref updated for event handlers & DOM classes
   useEffect(() => {
     activeRef.current = isCursorActive;
     if (isCursorActive) {
@@ -192,11 +193,16 @@ export function CalligraphyCursorOverlay() {
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleResize, { passive: true });
 
-    // Track active pointer type to suppress ink trails on finger touch drags
-    const handlePointerDown = (e: PointerEvent) => {
-      activeInputRef.current = e.pointerType === "touch" ? "touch" : "mouse";
+    // Dynamic pointer type tracker - automatically restores "mouse" input mode on pointermove
+    const handlePointerType = (e: PointerEvent) => {
+      if (e.pointerType === "mouse" || e.pointerType === "pen") {
+        activeInputRef.current = "mouse";
+      } else if (e.pointerType === "touch") {
+        activeInputRef.current = "touch";
+      }
     };
-    window.addEventListener("pointerdown", handlePointerDown, { passive: true });
+    window.addEventListener("pointerdown", handlePointerType, { passive: true });
+    window.addEventListener("pointermove", handlePointerType, { passive: true });
 
     // Traditional Chinese Ink Tone Palette Generator (墨分五色: 焦, 浓, 重, 淡, 清)
     const getInkToneColors = (tone: InkTone) => {
@@ -396,7 +402,7 @@ export function CalligraphyCursorOverlay() {
     };
 
     const onMouseMove = (e: MouseEvent) => {
-      // Suppress ink particle generation on direct touch dragging
+      // Suppress ink particle generation only on active touch dragging
       if (!activeRef.current || activeInputRef.current === "touch") return;
 
       const x = e.clientX;
@@ -544,7 +550,8 @@ export function CalligraphyCursorOverlay() {
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleResize);
-      window.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("pointerdown", handlePointerType);
+      window.removeEventListener("pointermove", handlePointerType);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mousedown", onMouseDown);
       if (animFrameRef.current) {
@@ -553,12 +560,16 @@ export function CalligraphyCursorOverlay() {
     };
   }, []);
 
-  return (
+  if (typeof document === "undefined") return null;
+
+  // Render via createPortal to document.body at z-[999999] so canvas sits above all reader panels & modals
+  return createPortal(
     <canvas
       ref={canvasRef}
-      className={`fixed inset-0 pointer-events-none z-[99999] opacity-95 ${isCursorActive ? "" : "hidden"}`}
+      className={`fixed inset-0 pointer-events-none z-[999999] opacity-95 ${isCursorActive ? "" : "hidden"}`}
       aria-hidden="true"
-    />
+    />,
+    document.body
   );
 }
 
