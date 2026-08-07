@@ -192,26 +192,29 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Chinese Calligraphy Brush Pen replaces default pointer on fine mouse/trackpad devices.
+/* Chinese Calligraphy Brush Pen Cursor
    The hotspot sits precisely at (2, 30) (the ink-dipped brush tip) for accurate clicking.
-   Text entry preserves its native caret cursor. Touch devices remain untouched. */
-@media (pointer: fine) and (hover: hover) {
-  html,
-  html.custom-brush-enabled,
-  html.custom-brush-enabled * {
-    cursor: url("./assets/brush-pen-cursor.svg") 2 30, auto !important;
-  }
+   Text entry preserves its native caret cursor. */
+html.custom-brush-enabled,
+html.custom-brush-enabled *,
+html.custom-brush-enabled button,
+html.custom-brush-enabled a,
+html.custom-brush-enabled [role="button"] {
+  cursor: url("./assets/brush-pen-cursor.svg") 2 30, pointer !important;
+}
 
-  html:not(.custom-brush-enabled),
-  html:not(.custom-brush-enabled) * {
-    cursor: auto;
-  }
+html:not(.custom-brush-enabled),
+html:not(.custom-brush-enabled) * {
+  cursor: auto;
+}
 
-  input,
-  textarea,
-  [contenteditable="true"] {
-    cursor: text !important;
-  }
+input,
+textarea,
+[contenteditable="true"],
+html.custom-brush-enabled input,
+html.custom-brush-enabled textarea,
+html.custom-brush-enabled [contenteditable="true"] {
+  cursor: text !important;
 }
 
 .parchment {

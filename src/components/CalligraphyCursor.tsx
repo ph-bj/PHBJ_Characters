@@ -30,6 +30,7 @@ interface StrokePoint {
   life: number;
   maxLife: number;
   color: string;
+  washColor: string;
 }
 
 interface InkParticle {
@@ -40,6 +41,7 @@ interface InkParticle {
   radius: number;
   alpha: number;
   color: string;
+  washColor: string;
   life: number;
   maxLife: number;
   expandRate: number;
@@ -89,11 +91,6 @@ export function CalligraphyCursorOverlay() {
   useEffect(() => {
     if (!enabled) return;
 
-    // Check touch screen / reduced motion
-    const isTouch = window.matchMedia("(pointer: coarse)").matches;
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (isTouch || prefersReducedMotion) return;
-
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -106,6 +103,29 @@ export function CalligraphyCursorOverlay() {
     };
     handleResize();
     window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleResize, { passive: true });
+
+    // Detect if dark theme (plum) is active to choose high-contrast ink palette
+    const getInkPalette = () => {
+      const isDark = document.documentElement.getAttribute("data-theme") === "plum";
+      if (isDark) {
+        // Dark Plum Mode: Luminous Gold Calligraphy Ink & Bright Vermilion
+        return {
+          primaryInk: "#e2c889",      // Gold Ink (金粉墨)
+          vermilionInk: "#ff5722",    // Radiant Seal Vermilion (朱砂)
+          washColor: "rgba(226, 200, 137, 0.4)",
+          vermilionWash: "rgba(255, 87, 34, 0.4)",
+        };
+      } else {
+        // Light Parchment Mode: Deep Pine-Soot Black Ink & Seal Vermilion
+        return {
+          primaryInk: "#140d0b",      // Pine-Soot Black Ink (松烟墨)
+          vermilionInk: "#8b2500",    // Seal Red (朱砂)
+          washColor: "rgba(20, 13, 11, 0.35)",
+          vermilionWash: "rgba(139, 37, 0, 0.35)",
+        };
+      }
+    };
 
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -127,8 +147,8 @@ export function CalligraphyCursorOverlay() {
         ctx.beginPath();
         ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
         ctx.strokeStyle = r.color;
-        ctx.globalAlpha = r.alpha * 0.7;
-        ctx.lineWidth = 2.5;
+        ctx.globalAlpha = r.alpha * 0.75;
+        ctx.lineWidth = 2.8;
         ctx.stroke();
 
         // Inner solid ink bloom
@@ -142,7 +162,6 @@ export function CalligraphyCursorOverlay() {
 
       // 2. Render Continuous Calligraphy Ink Stroke Ribbon (水墨飞白笔触)
       const points = strokePointsRef.current;
-      // Age stroke points
       for (let i = points.length - 1; i >= 0; i--) {
         const p = points[i];
         p.life += 1;
@@ -168,14 +187,14 @@ export function CalligraphyCursorOverlay() {
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
-          ctx.strokeStyle = p1.color === "#8b2500" ? "rgba(139, 37, 0, 0.35)" : "rgba(20, 13, 11, 0.35)";
-          ctx.lineWidth = Math.max(p1.width + 5, 6);
-          ctx.globalAlpha = p1.alpha * 0.45;
+          ctx.strokeStyle = p1.washColor;
+          ctx.lineWidth = Math.max(p1.width + 6, 8);
+          ctx.globalAlpha = p1.alpha * 0.5;
           ctx.stroke();
         }
         ctx.restore();
 
-        // Pass B: Dense Black Ink Core Ribbon (浓墨主笔道)
+        // Pass B: Dense Ink Core Ribbon (浓墨主笔道)
         ctx.save();
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
@@ -202,12 +221,12 @@ export function CalligraphyCursorOverlay() {
         const p = particles[i];
         p.x += p.vx;
         p.y += p.vy;
-        p.vx *= 0.95;
-        p.vy *= 0.95;
+        p.vx *= 0.94;
+        p.vy *= 0.94;
         p.life += 1;
         const progress = p.life / p.maxLife;
-        p.alpha = (1 - progress) * 0.7;
-        p.radius += p.expandRate; // Soft ink wash bleeding expand
+        p.alpha = (1 - progress) * 0.8;
+        p.radius += p.expandRate; // Bleeding wash expand
 
         if (p.life >= p.maxLife || p.alpha <= 0.01) {
           particles.splice(i, 1);
@@ -222,11 +241,11 @@ export function CalligraphyCursorOverlay() {
         ctx.fill();
 
         // Outer water wash blur ring on larger particles
-        if (p.radius > 4) {
+        if (p.radius > 3.5) {
           ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius * 1.4, 0, Math.PI * 2);
-          ctx.fillStyle = p.color === "#8b2500" ? "rgba(139, 37, 0, 0.2)" : "rgba(20, 13, 11, 0.2)";
-          ctx.globalAlpha = p.alpha * 0.4;
+          ctx.arc(p.x, p.y, p.radius * 1.5, 0, Math.PI * 2);
+          ctx.fillStyle = p.washColor;
+          ctx.globalAlpha = p.alpha * 0.45;
           ctx.fill();
         }
         ctx.restore();
@@ -249,6 +268,7 @@ export function CalligraphyCursorOverlay() {
       const x = e.clientX;
       const y = e.clientY;
       const now = performance.now();
+      const palette = getInkPalette();
 
       if (lastPosRef.current) {
         const dx = x - lastPosRef.current.x;
@@ -256,28 +276,30 @@ export function CalligraphyCursorOverlay() {
         const dt = Math.max(1, now - lastPosRef.current.time);
         const dist = Math.hypot(dx, dy);
 
-        if (dist > 1.5) {
+        if (dist > 1.2) {
           const speed = dist / dt; // Mouse move velocity
 
-          // Dynamic brush stroke width: slow = rich juicy 10px-14px stroke; fast = tapered 3px-6px stroke
-          const strokeWidth = Math.max(3, Math.min(14, 12 - speed * 4));
-          const isVermilion = Math.random() > 0.92; // Occasional seal vermilion stroke segment
-          const strokeColor = isVermilion ? "#8b2500" : "#140d0b";
+          // Dynamic brush stroke width: slow = rich juicy 10px-15px stroke; fast = tapered 3px-6px stroke
+          const strokeWidth = Math.max(3.5, Math.min(15, 13 - speed * 3.5));
+          const isVermilion = Math.random() > 0.92;
+          const strokeColor = isVermilion ? palette.vermilionInk : palette.primaryInk;
+          const washColor = isVermilion ? palette.vermilionWash : palette.washColor;
 
           // Add continuous stroke point
           strokePointsRef.current.push({
             x,
             y,
             width: strokeWidth,
-            alpha: 0.85,
-            maxAlpha: 0.85,
+            alpha: 0.9,
+            maxAlpha: 0.9,
             life: 0,
-            maxLife: 35, // Remains visible for ~0.6s
+            maxLife: 45, // Visible for ~0.75s
             color: strokeColor,
+            washColor,
           });
 
           // Spawn ink droplets & splatters along movement path
-          const numParticles = Math.min(4, Math.floor(dist / 4));
+          const numParticles = Math.min(4, Math.floor(dist / 3.5));
           for (let i = 0; i < numParticles; i++) {
             const ratio = i / numParticles;
             const px = lastPosRef.current.x + dx * ratio;
@@ -286,14 +308,15 @@ export function CalligraphyCursorOverlay() {
             particlesRef.current.push({
               x: px + (Math.random() - 0.5) * 4,
               y: py + (Math.random() - 0.5) * 4,
-              vx: (Math.random() - 0.5) * (speed * 0.4 + 0.3),
-              vy: (Math.random() - 0.5) * (speed * 0.4 + 0.3),
-              radius: Math.random() * 3.5 + 1.8,
-              alpha: 0.75,
-              color: isVermilion ? "#8b2500" : Math.random() > 0.8 ? "#2c1d17" : "#140d0b",
+              vx: (Math.random() - 0.5) * (speed * 0.4 + 0.4),
+              vy: (Math.random() - 0.5) * (speed * 0.4 + 0.4),
+              radius: Math.random() * 3.8 + 1.8,
+              alpha: 0.8,
+              color: strokeColor,
+              washColor,
               life: 0,
               maxLife: Math.floor(Math.random() * 25) + 20,
-              expandRate: 0.18,
+              expandRate: 0.2,
             });
           }
         }
@@ -304,31 +327,36 @@ export function CalligraphyCursorOverlay() {
     };
 
     const onMouseDown = (e: MouseEvent) => {
+      const palette = getInkPalette();
+
       // Bold ink stamp bloom on click
       ripplesRef.current.push({
         x: e.clientX,
         y: e.clientY,
         radius: 4,
-        maxRadius: 28,
-        alpha: 0.8,
-        color: "#140d0b",
+        maxRadius: 30,
+        alpha: 0.85,
+        color: palette.primaryInk,
       });
 
       // 10 radial ink splash droplets
       for (let i = 0; i < 10; i++) {
         const angle = (i / 10) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
-        const speed = Math.random() * 2.5 + 1.2;
+        const speed = Math.random() * 2.8 + 1.2;
+        const isVermilion = i % 4 === 0;
+
         particlesRef.current.push({
           x: e.clientX,
           y: e.clientY,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
-          radius: Math.random() * 4 + 2,
-          alpha: 0.85,
-          color: i % 4 === 0 ? "#8b2500" : "#140d0b",
+          radius: Math.random() * 4.5 + 2,
+          alpha: 0.9,
+          color: isVermilion ? palette.vermilionInk : palette.primaryInk,
+          washColor: isVermilion ? palette.vermilionWash : palette.washColor,
           life: 0,
-          maxLife: 30,
-          expandRate: 0.22,
+          maxLife: 32,
+          expandRate: 0.25,
         });
       }
 
@@ -340,6 +368,7 @@ export function CalligraphyCursorOverlay() {
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleResize);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mousedown", onMouseDown);
       if (animFrameRef.current) {
