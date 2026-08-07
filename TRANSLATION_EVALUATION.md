@@ -17,9 +17,9 @@ below cites its paragraph as `chapter:index`, so each can be checked directly. C
 covered by close reading so far are listed in §7; the close reading is still in progress and
 this document is updated as it advances.
 
-**Whole-corpus mechanical screens.** Fifteen screens were run over all 2,023 paragraph pairs
+**Whole-corpus mechanical screens.** Sixteen screens were run over all 2,023 paragraph pairs
 in all 60 chapters. These have complete coverage and their counts are exact — they are the
-S1–S14 findings in §3 (S9 has two parts) — and they are what allow this report to make claims
+S1–S15 findings in §3 (S9 has two parts) — and they are what allow this report to make claims
 about chapters the close reading has not yet reached.
 
 The alignment itself is sound: all 60 chapters match paragraph-for-paragraph, 2,023 pairs,
@@ -348,6 +348,25 @@ scrolls—Jingyi must wield the brush." The quotation marks are there; the sente
 This is separated from S10 because it changes what the fix is. A low ratio can be defended as
 concision. Forty-one paragraphs that drop articles, verbs and quotation marks are a different
 piece of work sitting in the same file as the prose on either side of them.
+
+### S15 — lunar months given Gregorian names in 13 places
+The book dates by the lunar calendar and the translation nearly always says so: "the
+twenty-seventh day of the first month" (36:3), "the first day of the second month" (37:1),
+"the fifteenth day of the first month" (40:16), "the eleventh day of the fourth month" (47:1).
+In 13 places it uses an English month name instead, which is a different month:
+
+    26:17 十月→October · 27:11 五月→May · 32:9 十月→October · 32:10 八月→August
+    32:11 八月→August · 32:12 十月→October · 32:14 三月→March · 32:14 八月→August
+    32:15 八月→August · 52:0 六月→June · 52:0 七月→July · 52:26 八月→August
+    58:2 十月→October
+
+Two things make this more than a rounding error. **It clusters in chapter 32, the examination
+chapter.** 八月 is the autumn provincial examination and 三月 the spring metropolitan one — the
+two fixed points the plot of chapters 32, 47 and 52 turns on. As "August" and "March" the
+秋闱/春闱 pairing disappears and the dates stop matching the seasons described around them.
+**And it contradicts itself inside one paragraph:** 52:0 reads "June passed and July began" and
+then, four sentences later, "the tenth day of the eighth month" — two calendars in one
+paragraph, so the reader cannot tell whether the examination falls one month later or two.
 
 ### S11 — bold markdown in the translated text
 29 `**…**` spans in 20 paragraphs, all in chapters 45 and 46, marking place names
@@ -921,10 +940,10 @@ places, and they show what the rest could be:
 
 ## 7. Coverage log
 
-**Whole-corpus screens (S1–S14): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
+**Whole-corpus screens (S1–S15): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–51 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 52, 53, 54, 56, 57 and 58.
+**Close reading, paragraph by paragraph:** ch. 1–52 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 53, 54, 56, 57 and 58.
 
 Chapters 49 and 50 are recorded with no significant accuracy failure found. That is worth
 saying explicitly: they are ordinary narrative and social comedy — the bulk of the book — and
