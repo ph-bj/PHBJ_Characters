@@ -23,7 +23,7 @@
     </linearGradient>
 
     <!-- Metallic Gold Band Gradient -->
-    <linearGradient id="gold-gradient" x1="-2.1" y1="0" x2="2.1" y2="0" gradientUnits="userSpaceOnUse">
+    <linearGradient id="gold-gradient" x1="-1.5" y1="0" x2="1.5" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#8a6418"/>
       <stop offset="35%" stop-color="#f5e0a3"/>
       <stop offset="70%" stop-color="#d4af37"/>
@@ -31,15 +31,15 @@
     </linearGradient>
 
     <!-- Vermilion Seal Red Collar Gradient -->
-    <linearGradient id="vermilion-gradient" x1="-2.0" y1="0" x2="2.0" y2="0" gradientUnits="userSpaceOnUse">
+    <linearGradient id="vermilion-gradient" x1="-1.5" y1="0" x2="1.5" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#4d1000"/>
       <stop offset="45%" stop-color="#9e2a0b"/>
       <stop offset="80%" stop-color="#b83614"/>
       <stop offset="100%" stop-color="#3e0d00"/>
     </linearGradient>
 
-    <!-- Lacquered Bamboo Shaft 3D Cylinder Gradient -->
-    <linearGradient id="bamboo-gradient" x1="-1.6" y1="0" x2="1.6" y2="0" gradientUnits="userSpaceOnUse">
+    <!-- Lacquered Bamboo Shaft 3D Cylinder Gradient (Equally Thin Uniform Shaft) -->
+    <linearGradient id="bamboo-gradient" x1="-1.3" y1="0" x2="1.3" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#24140b"/>
       <stop offset="30%" stop-color="#7a4828"/>
       <stop offset="65%" stop-color="#a36b3f"/>
@@ -61,29 +61,29 @@
       <!-- 0. White Parchment Halo Outline -->
       <g stroke="#faf5e8" stroke-width="0.75" stroke-linejoin="round" stroke-linecap="round" fill="none" opacity="0.95">
         <!-- Plump Ink-Soaked Hair Bristle Head Contour -->
-        <path d="M 0 0 C -0.8 -1.8, -2.4 -4.5, -2.0 -9.5 L 2.0 -9.5 C 2.4 -4.5, 0.8 -1.8, 0 0 Z"/>
-        <!-- Vermilion Ferrule Contour -->
-        <path d="M -2.0 -9.5 L -1.8 -12.5 L 1.8 -12.5 L 2.0 -9.5 Z"/>
-        <!-- Longer Slender Bamboo Shaft Contour -->
-        <path d="M -1.6 -12.5 L -1.1 -34.5 L 1.1 -34.5 L 1.6 -12.5 Z"/>
+        <path d="M 0 0 C -0.8 -1.8, -2.2 -4.5, -1.5 -9.5 L 1.5 -9.5 C 2.2 -4.5, 0.8 -1.8, 0 0 Z"/>
+        <!-- Vermilion Ferrule Contour (Equally Thin 3.0px) -->
+        <path d="M -1.5 -9.5 L -1.5 -12.5 L 1.5 -12.5 L 1.5 -9.5 Z"/>
+        <!-- Uniformly Thin Bamboo Shaft Contour (Equally Thin 2.6px) -->
+        <path d="M -1.3 -12.5 L -1.3 -34.5 L 1.3 -34.5 L 1.3 -12.5 Z"/>
         <!-- End Cap Contour -->
-        <path d="M -1.1 -34.5 L -0.9 -36.5 C -0.4 -36.9, 0.4 -36.9, 0.9 -36.5 L 1.1 -34.5 Z"/>
+        <path d="M -1.3 -34.5 L -1.1 -36.5 C -0.5 -36.9, 0.4 -36.9, 1.1 -36.5 L 1.3 -34.5 Z"/>
         <!-- Shorter Compact Crimson Tassel Loop Contour -->
         <path d="M -0.5 -36.5 C -0.9 -37.3, -0.8 -38.2, 0 -38.2 C 0.8 -38.2, 0.9 -37.3, 0.5 -36.5"/>
       </g>
 
       <!-- 1. Plump Wet Ink-Loaded Hair Bristle Head (润墨饱满笔头) -->
-      <path d="M 0 0 C -0.8 -1.8, -2.4 -4.5, -2.0 -9.5 L 2.0 -9.5 C 2.4 -4.5, 0.8 -1.8, 0 0 Z" fill="url(#bristle-gradient)"/>
+      <path d="M 0 0 C -0.8 -1.8, -2.2 -4.5, -1.5 -9.5 L 1.5 -9.5 C 2.2 -4.5, 0.8 -1.8, 0 0 Z" fill="url(#bristle-gradient)"/>
 
-      <!-- Wet Ink Sheen / Specular Highlight (水墨润泽光泽) -->
-      <path d="M 0 0 C -0.5 -2.0, -1.8 -5.0, -1.3 -8.5 L -0.4 -8.5 C -0.8 -5.0, -0.2 -2.0, 0 0 Z" fill="url(#ink-sheen)"/>
+      <!-- Wet Ink Sheen / Specular Highlight -->
+      <path d="M 0 0 C -0.5 -2.0, -1.6 -5.0, -1.1 -8.5 L -0.3 -8.5 C -0.7 -5.0, -0.2 -2.0, 0 0 Z" fill="url(#ink-sheen)"/>
 
       <!-- Wet Ink Hair Texture Strands -->
       <g stroke="#3a281e" stroke-width="0.35" opacity="0.8" stroke-linecap="round">
-        <path d="M -0.6 -8.5 L -0.2 -2.0"/>
-        <path d="M 0.6 -8.5 L 0.2 -2.0"/>
-        <path d="M -1.3 -8.5 L -0.6 -4.0"/>
-        <path d="M 1.3 -8.5 L 0.6 -4.0"/>
+        <path d="M -0.5 -8.5 L -0.2 -2.0"/>
+        <path d="M 0.5 -8.5 L 0.2 -2.0"/>
+        <path d="M -1.1 -8.5 L -0.5 -4.0"/>
+        <path d="M 1.1 -8.5 L 0.5 -4.0"/>
       </g>
       <!-- Deep Wet Pitch-Black Center Ink Core -->
       <path d="M 0 0 L 0 -9" stroke="#000000" stroke-width="0.75" stroke-linecap="round"/>
@@ -92,25 +92,25 @@
       <circle cx="0" cy="-0.2" r="0.5" fill="#000000"/>
 
       <!-- 2. Vermilion Seal Red Collar / Horn Ferrule -->
-      <path d="M -2.0 -9.5 L -1.8 -12.5 L 1.8 -12.5 L 2.0 -9.5 Z" fill="url(#vermilion-gradient)"/>
+      <path d="M -1.5 -9.5 L -1.5 -12.5 L 1.5 -12.5 L 1.5 -9.5 Z" fill="url(#vermilion-gradient)"/>
 
       <!-- Symmetrical Metallic Gold Retaining Bands -->
-      <path d="M -2.1 -10.0 L -2.1 -10.7 L 2.1 -10.7 L 2.1 -10.0 Z" fill="url(#gold-gradient)"/>
-      <path d="M -2.0 -11.3 L -2.0 -12.0 L 2.0 -12.0 L 2.0 -11.3 Z" fill="url(#gold-gradient)"/>
+      <path d="M -1.6 -10.0 L -1.6 -10.7 L 1.6 -10.7 L 1.6 -10.0 Z" fill="url(#gold-gradient)"/>
+      <path d="M -1.6 -11.3 L -1.6 -12.0 L 1.6 -12.0 L 1.6 -11.3 Z" fill="url(#gold-gradient)"/>
 
-      <!-- 3. Longer Slender Lacquered Bamboo Handle Shaft -->
-      <path d="M -1.6 -12.5 L -1.1 -34.5 L 1.1 -34.5 L 1.6 -12.5 Z" fill="url(#bamboo-gradient)"/>
+      <!-- 3. Uniformly Thin Lacquered Bamboo Handle Shaft (Equally Thin 2.6px from End to End) -->
+      <path d="M -1.3 -12.5 L -1.3 -34.5 L 1.3 -34.5 L 1.3 -12.5 Z" fill="url(#bamboo-gradient)"/>
 
       <!-- Bamboo Node (Joint) Ring Accent -->
-      <path d="M -1.3 -23.5 L 1.3 -23.5" stroke="url(#gold-gradient)" stroke-width="0.5" opacity="0.85"/>
-      <path d="M -1.3 -24.1 L 1.3 -24.1" stroke="#24140b" stroke-width="0.3" opacity="0.7"/>
+      <path d="M -1.4 -23.5 L 1.4 -23.5" stroke="url(#gold-gradient)" stroke-width="0.5" opacity="0.85"/>
+      <path d="M -1.4 -24.1 L 1.4 -24.1" stroke="#24140b" stroke-width="0.3" opacity="0.7"/>
 
       <!-- Shaft 3D Specular Highlight Line -->
-      <path d="M -0.6 -13 L -0.3 -34" stroke="#e8b88a" stroke-width="0.35" opacity="0.55"/>
+      <path d="M -0.5 -13 L -0.5 -34" stroke="#e8b88a" stroke-width="0.35" opacity="0.55"/>
 
       <!-- 4. Ivory / Brass End Cap -->
-      <path d="M -1.1 -34.5 L -0.9 -36.5 C -0.4 -36.9, 0.4 -36.9, 0.9 -36.5 L 1.1 -34.5 Z" fill="#e8dfd1"/>
-      <path d="M -1.1 -34.5 L 1.1 -34.5" stroke="url(#gold-gradient)" stroke-width="0.35"/>
+      <path d="M -1.3 -34.5 L -1.1 -36.5 C -0.5 -36.9, 0.4 -36.9, 1.1 -36.5 L 1.3 -34.5 Z" fill="#e8dfd1"/>
+      <path d="M -1.3 -34.5 L 1.3 -34.5" stroke="url(#gold-gradient)" stroke-width="0.35"/>
 
       <!-- 5. Shorter, Subtle Crimson Silk Hanging Loop Cord -->
       <path d="M -0.5 -36.5 C -0.9 -37.3, -0.8 -38.2, 0 -38.2 C 0.8 -38.2, 0.9 -37.3, 0.5 -36.5 Z" 
