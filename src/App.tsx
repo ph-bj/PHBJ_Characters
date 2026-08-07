@@ -1921,6 +1921,7 @@ export default function App() {
               <div className="flex flex-col gap-1.5">
                 {continueReadingChapter && (() => {
                   const parts = getChapterTitleParts(continueReadingChapter, lang);
+                  const hasTwoParts = Boolean(parts.part1 || parts.part2);
                   return (
                     <>
                       <button
@@ -1928,25 +1929,38 @@ export default function App() {
                         onClick={() => setSelectedChapter(continueReadingChapter)}
                         className="w-full text-left p-2.5 sm:p-3 rounded-sm border border-[var(--accent)]/40 bg-[var(--accent)]/8 hover:bg-[var(--accent)]/15 transition-all group flex items-start gap-2 cursor-pointer"
                       >
-                        <BookOpen size={14} className="text-[var(--accent)] shrink-0 mt-0.5" />
-                        <span className="min-w-0 flex-1 space-y-0.5">
+                        <BookOpen size={14} className="text-[var(--accent)] shrink-0 mt-1" />
+                        <div className="flex-1 min-w-0">
                           <span className="block text-xs uppercase tracking-widest text-[var(--accent)] font-bold mb-1">
                             {lang === "zh" ? "继续阅读" : "Continue reading"}
                           </span>
-                          <div className={`text-xs font-bold tracking-wider text-[var(--accent)] uppercase ${lang === "en" ? "font-sans" : "font-hans"}`}>
-                            {parts.chapterNum}
-                          </div>
-                          {parts.part1 && (
-                            <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug ${lang === "en" ? "font-sans" : "font-hans"}`}>
-                              {parts.part1}
+                          {hasTwoParts ? (
+                            <div className="flex flex-col sm:flex-row sm:items-start gap-0.5 sm:gap-2">
+                              {/* Col 1: Chapter Number */}
+                              <div className={`text-xs font-bold tracking-wider text-[var(--accent)] uppercase shrink-0 sm:w-20 sm:pt-0.5 ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                                {parts.chapterNum}
+                              </div>
+
+                              {/* Col 2: Two Rows */}
+                              <div className="flex-1 min-w-0 space-y-0.5">
+                                {parts.part1 && (
+                                  <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                                    {parts.part1}
+                                  </div>
+                                )}
+                                {parts.part2 && (
+                                  <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                                    {parts.part2}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          ) : (
+                            <div className={`text-xs font-medium text-[var(--ink-title)] ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                              {parts.chapterNum}
                             </div>
                           )}
-                          {parts.part2 && (
-                            <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug ${lang === "en" ? "font-sans" : "font-hans"}`}>
-                              {parts.part2}
-                            </div>
-                          )}
-                        </span>
+                        </div>
                       </button>
                       <div className="border-t border-[var(--paper-border)]/60 my-1" />
                     </>
@@ -1975,6 +1989,7 @@ export default function App() {
                 </button>
                 {chapters.map((chapter) => {
                   const parts = getChapterTitleParts(chapter, lang);
+                  const hasTwoParts = Boolean(parts.part1 || parts.part2);
                   return (
                     <button
                       key={chapter.id}
@@ -1983,25 +1998,33 @@ export default function App() {
                     >
                       <Book
                         size={12}
-                        className="text-[var(--accent)]/40 group-hover:text-[var(--accent)] shrink-0 mt-0.5"
+                        className="text-[var(--accent)]/40 group-hover:text-[var(--accent)] shrink-0 mt-1"
                       />
-                      <div className="flex-1 min-w-0 space-y-0.5">
-                        {/* Row 1: Chapter Number */}
-                        <div className={`text-xs font-bold tracking-wider text-[var(--accent)] uppercase ${lang === "en" ? "font-sans" : "font-hans"}`}>
-                          {parts.chapterNum}
-                        </div>
+                      <div className="flex-1 min-w-0">
+                        {hasTwoParts ? (
+                          <div className="flex flex-col sm:flex-row sm:items-start gap-0.5 sm:gap-2">
+                            {/* Col 1: Chapter Number */}
+                            <div className={`text-xs font-bold tracking-wider text-[var(--accent)] uppercase shrink-0 sm:w-20 sm:pt-0.5 ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                              {parts.chapterNum}
+                            </div>
 
-                        {/* Row 2: First Part */}
-                        {parts.part1 && (
-                          <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
-                            {parts.part1}
+                            {/* Col 2: Two Rows (Upper Row = Part 1, Lower Row = Part 2) */}
+                            <div className="flex-1 min-w-0 space-y-0.5">
+                              {parts.part1 && (
+                                <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                                  {parts.part1}
+                                </div>
+                              )}
+                              {parts.part2 && (
+                                <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                                  {parts.part2}
+                                </div>
+                              )}
+                            </div>
                           </div>
-                        )}
-
-                        {/* Row 3: Second Part */}
-                        {parts.part2 && (
-                          <div className={`text-xs font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
-                            {parts.part2}
+                        ) : (
+                          <div className={`text-xs font-medium text-[var(--ink-title)] group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                            {parts.chapterNum}
                           </div>
                         )}
                       </div>

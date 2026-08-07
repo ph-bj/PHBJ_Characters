@@ -1205,73 +1205,100 @@ function ChapterReaderComponent({
                 const isMainZh = lang === "zh";
                 const isSubZh = subLang === "zh";
 
+                const hasMainTitle = Boolean(mainParts.part1 || mainParts.part2);
+                const hasSubTitle = Boolean(subParts.part1 || subParts.part2);
+
                 return (
                   <div className="space-y-6">
-                    {/* Primary Chapter Title (3 Rows) */}
-                    <div className="space-y-1.5 sm:space-y-2 max-w-3xl mx-auto">
-                      {/* Row 1: Chapter Number */}
-                      <div
-                        className={`text-lg sm:text-xl font-bold tracking-widest text-[var(--accent)] uppercase ${
-                          isMainZh ? "font-hans" : "font-sans"
-                        }`}
-                      >
-                        {mainParts.chapterNum}
-                      </div>
+                    {/* Primary Chapter Title: Two Columns */}
+                    <div className="max-w-3xl mx-auto">
+                      {hasMainTitle ? (
+                        <div className="flex flex-col sm:flex-row items-center sm:items-baseline justify-center gap-2 sm:gap-6 text-center sm:text-left">
+                          {/* Column 1: Chapter Number */}
+                          <div
+                            className={`text-lg sm:text-2xl font-bold tracking-widest text-[var(--accent)] shrink-0 sm:self-start sm:pt-1 ${
+                              isMainZh ? "font-hans" : "font-sans"
+                            }`}
+                          >
+                            {mainParts.chapterNum}
+                          </div>
 
-                      {/* Row 2: First Part of Title */}
-                      {mainParts.part1 && (
+                          {/* Column 2: Two Rows (Upper Row = Part 1, Lower Row = Part 2) */}
+                          <div className="flex flex-col gap-1 sm:gap-2 flex-1 min-w-0">
+                            {mainParts.part1 && (
+                              <h3
+                                className={`text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug ${
+                                  isMainZh ? "font-hans" : "font-sans"
+                                }`}
+                              >
+                                {mainParts.part1}
+                              </h3>
+                            )}
+                            {mainParts.part2 && (
+                              <h3
+                                className={`text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug ${
+                                  isMainZh ? "font-hans" : "font-sans"
+                                }`}
+                              >
+                                {mainParts.part2}
+                              </h3>
+                            )}
+                          </div>
+                        </div>
+                      ) : (
                         <h3
-                          className={`text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug ${
+                          className={`text-2xl sm:text-3xl font-bold text-[var(--ink-title)] text-center ${
                             isMainZh ? "font-hans" : "font-sans"
                           }`}
                         >
-                          {mainParts.part1}
-                        </h3>
-                      )}
-
-                      {/* Row 3: Second Part of Title */}
-                      {mainParts.part2 && (
-                        <h3
-                          className={`text-2xl sm:text-3xl font-bold text-[var(--ink-title)] leading-snug ${
-                            isMainZh ? "font-hans" : "font-sans"
-                          }`}
-                        >
-                          {mainParts.part2}
+                          {mainParts.chapterNum}
                         </h3>
                       )}
                     </div>
 
-                    {/* Subtitle / Secondary Language Title (3 Rows) */}
-                    {chapter.id >= 0 && (subParts.part1 || subParts.chapterNum) && (
-                      <div className="pt-4 border-t border-[var(--paper-border)]/40 max-w-2xl mx-auto space-y-1 opacity-85">
-                        {/* Subtitle Row 1: Chapter Number */}
-                        <div
-                          className={`text-xs sm:text-sm font-semibold tracking-wider text-[var(--ink-dim-text)] ${
-                            isSubZh ? "font-hans" : "font-sans"
-                          }`}
-                        >
-                          {subParts.chapterNum}
-                        </div>
+                    {/* Secondary Language Subtitle: Two Columns */}
+                    {chapter.id >= 0 && (
+                      <div className="pt-4 border-t border-[var(--paper-border)]/40 max-w-2xl mx-auto opacity-85">
+                        {hasSubTitle ? (
+                          <div className="flex flex-col sm:flex-row items-center sm:items-baseline justify-center gap-1.5 sm:gap-4 text-center sm:text-left">
+                            {/* Subtitle Column 1: Chapter Number */}
+                            <div
+                              className={`text-xs sm:text-sm font-semibold tracking-wider text-[var(--ink-dim-text)] shrink-0 sm:self-start sm:pt-0.5 ${
+                                isSubZh ? "font-hans" : "font-sans"
+                              }`}
+                            >
+                              {subParts.chapterNum}
+                            </div>
 
-                        {/* Subtitle Row 2: First Part */}
-                        {subParts.part1 && (
+                            {/* Subtitle Column 2: Two Rows */}
+                            <div className="flex flex-col gap-0.5 flex-1 min-w-0">
+                              {subParts.part1 && (
+                                <p
+                                  className={`text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed ${
+                                    isSubZh ? "font-hans" : "font-sans"
+                                  }`}
+                                >
+                                  {subParts.part1}
+                                </p>
+                              )}
+                              {subParts.part2 && (
+                                <p
+                                  className={`text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed ${
+                                    isSubZh ? "font-hans" : "font-sans"
+                                  }`}
+                                >
+                                  {subParts.part2}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                        ) : (
                           <p
-                            className={`text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed ${
+                            className={`text-sm sm:text-base font-medium text-[var(--ink-dim)] text-center ${
                               isSubZh ? "font-hans" : "font-sans"
                             }`}
                           >
-                            {subParts.part1}
-                          </p>
-                        )}
-
-                        {/* Subtitle Row 3: Second Part */}
-                        {subParts.part2 && (
-                          <p
-                            className={`text-sm sm:text-base font-medium text-[var(--ink-dim)] leading-relaxed ${
-                              isSubZh ? "font-hans" : "font-sans"
-                            }`}
-                          >
-                            {subParts.part2}
+                            {subParts.chapterNum}
                           </p>
                         )}
                       </div>
@@ -1333,6 +1360,7 @@ function ChapterReaderComponent({
               <div className="space-y-3">
                 {chapters.filter(c => c.id >= 0).map((c) => {
                   const parts = getChapterTitleParts(c, lang);
+                  const hasTwoParts = Boolean(parts.part1 || parts.part2);
                   return (
                     <button
                       key={c.id}
@@ -1341,34 +1369,47 @@ function ChapterReaderComponent({
                       title={lang === "zh" ? "打开本回" : "Open this chapter"}
                       className="w-full text-left p-3.5 sm:p-4 rounded-sm border border-[var(--paper-border)]/70 bg-[var(--paper-bg)]/60 hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/50 transition-all duration-200 group cursor-pointer flex items-center justify-between gap-3 shadow-xs hover:shadow-sm"
                     >
-                      <div className="flex-1 min-w-0 space-y-0.5 sm:space-y-1">
-                        {/* Row 1: Chapter Number */}
-                        <div className={`text-xs font-bold tracking-wider text-[var(--accent)] uppercase ${lang === "en" ? "font-sans" : "font-hans"}`}>
-                          {renderTextWithSearchHighlight(
-                            parts.chapterNum,
-                            chapterSearchQuery,
-                            chapterSearchMatchIndex,
-                            chapterSearchMatchCounter,
-                          )}
-                        </div>
+                      <div className="flex-1 min-w-0">
+                        {hasTwoParts ? (
+                          <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
+                            {/* Column 1: Chapter Number */}
+                            <div className={`text-xs sm:text-sm font-bold tracking-wider text-[var(--accent)] uppercase shrink-0 sm:w-24 sm:pt-0.5 ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                              {renderTextWithSearchHighlight(
+                                parts.chapterNum,
+                                chapterSearchQuery,
+                                chapterSearchMatchIndex,
+                                chapterSearchMatchCounter,
+                              )}
+                            </div>
 
-                        {/* Row 2: First Part */}
-                        {parts.part1 && (
-                          <div className={`text-[0.95em] sm:text-[1em] font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
-                            {renderTextWithSearchHighlight(
-                              parts.part1,
-                              chapterSearchQuery,
-                              chapterSearchMatchIndex,
-                              chapterSearchMatchCounter,
-                            )}
+                            {/* Column 2: Two Rows (Upper Row = Part 1, Lower Row = Part 2) */}
+                            <div className="flex-1 min-w-0 space-y-0.5 sm:space-y-1">
+                              {parts.part1 && (
+                                <div className={`text-[0.95em] sm:text-[1em] font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                                  {renderTextWithSearchHighlight(
+                                    parts.part1,
+                                    chapterSearchQuery,
+                                    chapterSearchMatchIndex,
+                                    chapterSearchMatchCounter,
+                                  )}
+                                </div>
+                              )}
+                              {parts.part2 && (
+                                <div className={`text-[0.95em] sm:text-[1em] font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                                  {renderTextWithSearchHighlight(
+                                    parts.part2,
+                                    chapterSearchQuery,
+                                    chapterSearchMatchIndex,
+                                    chapterSearchMatchCounter,
+                                  )}
+                                </div>
+                              )}
+                            </div>
                           </div>
-                        )}
-
-                        {/* Row 3: Second Part */}
-                        {parts.part2 && (
-                          <div className={`text-[0.95em] sm:text-[1em] font-medium text-[var(--ink-title)] leading-snug group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
+                        ) : (
+                          <div className={`text-[0.95em] sm:text-[1em] font-medium text-[var(--ink-title)] group-hover:text-[var(--accent)] transition-colors ${lang === "en" ? "font-sans" : "font-hans"}`}>
                             {renderTextWithSearchHighlight(
-                              parts.part2,
+                              parts.chapterNum,
                               chapterSearchQuery,
                               chapterSearchMatchIndex,
                               chapterSearchMatchCounter,
