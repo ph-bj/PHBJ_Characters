@@ -608,6 +608,9 @@ glossed. A three-paragraph build-up lands on a blank page.
 - 十珠 — "the Ten Pearls" ×12 (ch. 11, 26) / "the Ten Zhus" ×7 (all in ch. 41) / "the ten
   Pearl-maids" ×1 (44:7). Three names for one standing group, each confined to its own chapter.
 - 姑苏会馆 — "the Gusu Guildhall" (2:0) / "the Suzhou Guild Hall" (3:6).
+- 吟秋榭 — "the Autumn-Chant Waterside Pavilion" (46:29, 48:12, 48:15) / "the Yinqiu Pavilion"
+  (57:7, 57:8) / "the Autumn-Refining Pavilion" (53:5). Three names for one building, and the
+  third is also wrong: 吟 is to chant, not to refine.
 - 梅崦 — "the Plum Blossom Retreat" (2:34, 37:2) / "the Meiyan" (10:11) / "the Plum Knoll"
   (36:3, 38:0). Three forms, two of them in consecutive chapters.
 - 《商子》 and 《商君书》 are the same book and become "*Book of Shang*" and "*Book of Lord
@@ -942,8 +945,8 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S15): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–52 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 53, 54, 56, 57 and 58.
+**Close reading, paragraph by paragraph:** ch. 1–53 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 54, 56, 57 and 58.
 
 Chapters 49 and 50 are recorded with no significant accuracy failure found. That is worth
 saying explicitly: they are ordinary narrative and social comedy — the bulk of the book — and
