@@ -17,9 +17,9 @@ below cites its paragraph as `chapter:index`, so each can be checked directly. C
 covered by close reading so far are listed in §7; the close reading is still in progress and
 this document is updated as it advances.
 
-**Whole-corpus mechanical screens.** Nine screens were run over all 2,023 paragraph pairs in
-all 60 chapters. These have complete coverage and their counts are exact — they are the S1–S9
-findings in §3, and they are what allows this report to make claims about chapters the close
+**Whole-corpus mechanical screens.** Eleven screens were run over all 2,023 paragraph pairs in
+all 60 chapters. These have complete coverage and their counts are exact — they are the S1–S11
+findings in §3, and they are what allow this report to make claims about chapters the close
 reading has not yet reached.
 
 The alignment itself is sound: all 60 chapters match paragraph-for-paragraph, 2,023 pairs,
@@ -39,14 +39,21 @@ Three things hold it back, in descending order of how fixable they are.
 
 **First, the text is contaminated with production artifacts.** 299 stray character-name tags
 sit inside the English prose, in 56 of the 60 chapters, and they render on screen. 209
-asterisk-italic spans render with their asterisks visible. This is not a translation problem
-at all, but it is the first thing a reader sees.
+asterisk-italic spans and 29 bold-markdown spans render with their asterisks visible. This is
+not a translation problem at all, but it is the first thing a reader sees.
 
 **Second, consistency has not been enforced.** The male lead's name is spelled two ways, 113
-times one way and 759 the other. Official titles vary from chapter to chapter — 员外郎 has
-four English renderings, three of them inside a single paragraph. Dialogue is in single
-quotes in 16 chapters and double in 32. These are not judgement calls; they are the same
-decision made differently on different days.
+times one way and 759 the other. One secondary character has six English names, and one of
+them collides with a different character in the same chapter. Official titles vary from
+chapter to chapter — 员外郎 has four English renderings, three of them inside a single
+paragraph. Dialogue is in single quotes in 16 chapters and double in 32. These are not
+judgement calls; they are the same decision made differently on different days.
+
+Related, and worth separating out: an earlier repair pass ran paragraph by paragraph, so
+several chapters now read at two visibly different densities — chapter 54 has one paragraph
+at 1.43 words per hanzi and another at 0.44 in the same conversation. Two of the compressed
+paragraphs are outright omissions of quoted Tang poetry (54:11, 54:33), which the previous
+audit reports as no longer existing.
 
 **Third — and this is the 意境 problem — the translation has one register where the novel has
 several.** *Pinhua Baojian* alternates between ornate parallel prose for its connoisseur
@@ -177,6 +184,58 @@ Worst: 48:22 (15 openings → 5 quote marks), 48:20 (14 → 1), 42:15 (15 → 3)
 
 See §5 for why this is the most damaging of the 意境 findings.
 
+### S9b — 潘三: six English names for one man, one of them a collision
+| form | count |  | form | count |
+| --- | --- | --- | --- | --- |
+| "Pan Third" | 48 | | "Third Master Pan" | 11 |
+| "Pan San" | 25 | | "Pan the Third" | 5 |
+| "Pan Qiguan" | 17 | | "Third Brother Pan" | 1 |
+
+His registered name is 潘其观, so "Pan Qiguan" is defensible in itself — but the Chinese says
+潘三 in all these paragraphs, and the form collides head-on with 琪官 **Qiguan**, one of the
+young dan actors. Chapter 19 is the acute case: 19:9–19:13 describe **Qiguan the actor**
+having his hands mangled in Xi Eleven's barrel trap, and 19:16–19:21, a few paragraphs later,
+call the banker **"Pan Qiguan"**. Nothing tells the reader these are two different people.
+
+### S10 — the repair pass ran paragraph by paragraph and left the neighbours
+Words-per-hanzi, measured for every paragraph over 80 hanzi, shows several chapters now
+reading at two densities at once:
+
+| chapter | paragraphs under 0.62 | paragraphs over 0.85 |
+| --- | --- | --- |
+| 46 | 27 (46:29 at 0.38, 46:52 at 0.39, 46:44 at 0.41) | 3 (to 1.10) |
+| 54 | 7 (54:33 at 0.36, 54:39 at 0.40, 54:11 at 0.44) | 14 (to 1.43) |
+| 27 | 9 (to 0.54) | 4 (to 1.14) |
+| 21 | 1 | 4 |
+
+Chapter 54 is the clearest: 54:15 runs at 1.43 words per hanzi and 54:11 at 0.44, in the same
+conversation on the same subject. Chapter 21 shows the seam directly — 21:0–21:5 are
+telegraphic, with em-dashes doing the work of connectives ("They drank tea; Ziyun sent for a
+boat"), while 21:6 is fully expanded with the dialogue broken out into separate speeches.
+
+**Two paragraph-level omissions that the audit says do not exist.** `TRANSLATION_AUDIT.md`
+records "No known paragraph-level omissions remain," and attributes the low ratios to "dense
+classical phrasing and translation style." Both counter-examples are in chapter 54, whose
+entire content is three women discussing Tang poetry:
+
+- **54:11** quotes eight lines of Cen Shen's 《白雪歌送武判官归京》. The English gives the first
+  couplet, an ellipsis, and a prose summary — dropping six lines including
+  忽如一夜春风来，千树万树梨花开, the most famous line in the poem and the one the commentary
+  that follows is explicitly *about* ("interwove 'pear blossoms,' bead curtains…").
+- **54:33** carries six quoted lines — four from Du Fu's 《北征》, one from Liu Yuxi, one from
+  Bai Juyi. Every one is deleted, replaced by "citing favorite lines" and "surpassed later
+  poets' treatments." Qionghua's technical argument about the 阙/阙 and 卒/卒 rhyme categories
+  is reduced to paraphrase, so the reader cannot see what is being argued.
+
+Chapters 45–46 carry the same compression in prose: 46:29's 137 hanzi become 52 words of
+note-form ("They drank tea; Ziyun sent for a boat. Broad water opened…"), and 46:24 renders
+reported dialogue as dash-joined fragments.
+
+### S11 — bold markdown in the translated text
+29 `**…**` spans in 20 paragraphs, all in chapters 45 and 46, marking place names
+(`**Lychee Lane**`, `**Autumn-Chant Waterside Pavilion**`). The renderer has no handling for
+double asterisks, so these reach the screen with asterisks attached, like the S2 spans.
+
 ### S9 — names are romanised, translated, and roster-mismatched simultaneously
 Checking every paragraph against the project's own 204-character roster in `data.ts`, 256
 cases have a character named in Chinese with no corresponding name in the aligned English.
@@ -252,6 +311,12 @@ react to nothing.
 - **1:34, 1:46** 没字碑 → "a wordless stele"; 万选青钱 → "the flawless bronze coins of ten
   thousand selections". Transposed word for word with no bridge: the shape of an allusion
   without its sense.
+- **18:2** the four-stage satire of a troupe master's life. 凿开混沌，两阳相交，人说是兔 →
+  "When the undifferentiated was breached and the two positives met, people called them
+  'rabbits.'" 凿开混沌 is a Zhuangzi phrase doing duty as a sodomy euphemism, 两阳相交 is male
+  with male, and 兔/兔子 is the standard slang for a catamite — the same word behind 兔儿爷 at
+  7:10. Rendered term by term, the first rung of the rabbit → fox → tiger → dog ladder cannot
+  be decoded, and it is the rung that explains the other three.
 - **6:27** 恶用是鶃鶃者为哉 → "Why resort to such reproachable language?" Sihui is misquoting
   Mencius at a joke about a red nose. The one thing that characterises him — reflexive,
   incompetent classical quotation — disappears from his line.
@@ -295,6 +360,13 @@ glossed. A three-paragraph build-up lands on a blank page.
 - **1:29** 紫云回雪 → "the 'Purple Cloud Return'", set as a single dance title — it is two
   images (Du Mu's singer Ziyun; the whirling snow of the Luoshen fu), and the Yuan/Su-vs-Guibao
   contrast collapses.
+- **18:2** 开口要三千五千吊 → "demand three or five thousand cash" — 吊 is a *string* of cash,
+  so the price of an apprentice's freedom, the climactic figure of the passage, is understated
+  a thousandfold. The corpus is otherwise good here (94 of 97 paragraphs with 吊 sums say
+  "strings"); the other two, 30:23 and 30:25, leave it as untranslated "diao of cash".
+- **20:9** 我度香先生当以玉佩要之 → "Duxiang-**xiong** would receive them with his jade pendant
+  offering" — an honorific suffix found nowhere else and not in the source, on an allusion
+  that runs the other way (Zheng Jiaofu *asks the river goddesses for* their pendants).
 - **1:33** 黄金争掷作缠头 → "Gold is eagerly thrown to form his silken headband" — 缠头 is the
   gratuity flung to a performer, which 1:34 gets right one screen later. It becomes "the
   embroidered silk wrapping" at 9:27: three renderings.
@@ -435,6 +507,14 @@ places, and they show what the rest could be:
 - **14:17's** ox-and-rabbit zodiac chain is carried whole, from insult to summons, precisely
   because the translation stopped to make the zodiac years explicit. It is the model the
   obscene jokes are not given.
+- **19:11–19:13**, Erxi's account of Xi Eleven's barrel trap — the novel's darkest sequence, a
+  mechanical rape device and two assaults — is rendered plainly and completely, at the
+  euphemistic register the Chinese itself uses, with the ward-office collusion and the ransom
+  intact. It is the strongest evidence that the softening catalogued in §5.2 is a local
+  choice rather than a limit.
+- **20:6–20:10**, the ride through the Yiyuan, is the descriptive prose at its most
+  comfortable, and the four painters invoked in the appraisal (Wang Lutai, Xiao Chizhu, Ni
+  Yunlin, Xu Qingteng) are all correctly identified.
 
 ---
 
@@ -459,11 +539,13 @@ places, and they show what the rest could be:
 
 ## 7. Coverage log
 
-**Whole-corpus screens (S1–S9): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
+**Whole-corpus screens (S1–S11): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–16 complete.
+**Close reading, paragraph by paragraph:** ch. 1–21 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 27, 30, 38, 41, 45, 46, 53, 54 and 58.
 
-Chapters 17–60 are so far covered only by the mechanical screens. Findings from those
-chapters that appear above (41:27, 48:20/22, 42:15/16, 54:39, 59:8–10, 57:35–52, 51:16–21,
-and the name and title counts) come from the screens, which is why they are stated as counts
-and locations rather than as readings.
+The remaining chapters are covered by the mechanical screens only. Findings from them that
+appear above (41:27, 48:20/22, 42:15/16, 54:11/33/39, 59:8–10, 57:35–52, 51:16–21, the
+ch. 45–46 compression and bold markup, and all the name, title and unit counts) come from the
+screens plus verification of the individual paragraphs cited — which is why they are stated
+as counts and specific locations rather than as continuous readings.
