@@ -2,12 +2,12 @@
   <title>Chinese Calligraphy Brush Pen Cursor</title>
   <defs>
     <!-- Soft ink drop shadow for high contrast on light parchment backgrounds -->
-    <filter id="brush-shadow" x="-30%" y="-30%" width="160%" height="160%" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0.8" dy="1.0" stdDeviation="0.8" flood-color="#0f0d0c" flood-opacity="0.55"/>
+    <filter id="brush-shadow" x="-40%" y="-40%" width="180%" height="180%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0.6" dy="0.8" stdDeviation="0.7" flood-color="#0f0d0c" flood-opacity="0.55"/>
     </filter>
 
     <!-- Ink-dipped bristle head gradient: pitch black ink tip transitioning to wolf/goat hair base -->
-    <linearGradient id="bristle-gradient" x1="0" y1="0" x2="0" y2="-11" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bristle-gradient" x1="0" y1="0" x2="0" y2="-9" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#080605"/>
       <stop offset="25%" stop-color="#181310"/>
       <stop offset="55%" stop-color="#3d2c23"/>
@@ -16,7 +16,7 @@
     </linearGradient>
 
     <!-- Metallic Gold Band Gradient -->
-    <linearGradient id="gold-gradient" x1="-2.8" y1="0" x2="2.8" y2="0" gradientUnits="userSpaceOnUse">
+    <linearGradient id="gold-gradient" x1="-1.8" y1="0" x2="1.8" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#8a6418"/>
       <stop offset="35%" stop-color="#f5e0a3"/>
       <stop offset="70%" stop-color="#d4af37"/>
@@ -24,7 +24,7 @@
     </linearGradient>
 
     <!-- Vermilion Seal Red Collar Gradient -->
-    <linearGradient id="vermilion-gradient" x1="-2.8" y1="0" x2="2.8" y2="0" gradientUnits="userSpaceOnUse">
+    <linearGradient id="vermilion-gradient" x1="-1.8" y1="0" x2="1.8" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#4d1000"/>
       <stop offset="45%" stop-color="#9e2a0b"/>
       <stop offset="80%" stop-color="#b83614"/>
@@ -32,7 +32,7 @@
     </linearGradient>
 
     <!-- Lacquered Bamboo Shaft 3D Cylinder Gradient -->
-    <linearGradient id="bamboo-gradient" x1="-2.2" y1="0" x2="2.2" y2="0" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bamboo-gradient" x1="-1.6" y1="0" x2="1.6" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#24140b"/>
       <stop offset="30%" stop-color="#7a4828"/>
       <stop offset="65%" stop-color="#a36b3f"/>
@@ -40,68 +40,74 @@
       <stop offset="100%" stop-color="#2a170d"/>
     </linearGradient>
 
-    <!-- Crimson Silk Tassel Gradient -->
-    <linearGradient id="tassel-gradient" x1="-1.5" y1="-38.5" x2="1.5" y2="-42" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#800c0c"/>
-      <stop offset="50%" stop-color="#d32f2f"/>
-      <stop offset="100%" stop-color="#7a0a0a"/>
+    <!-- Vibrant Imperial Crimson Silk Tassel Gradient -->
+    <linearGradient id="tassel-gradient" x1="-2" y1="-33" x2="2" y2="-37.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#991b1b"/>
+      <stop offset="50%" stop-color="#ef5350"/>
+      <stop offset="100%" stop-color="#b71c1c"/>
     </linearGradient>
   </defs>
 
-  <!-- Main transformed group: Tip positioned at (2, 30), rotated 45deg to align straight towards top-right (30, 2) -->
+  <!-- Main transformed group: Tip positioned at (2, 30), rotated 45deg to fit comfortably inside (0 0 32 32) -->
   <g filter="url(#brush-shadow)">
     <g transform="translate(2, 30) rotate(45)">
-      <!-- 0. White Parchment Halo Outline (Guarantees high contrast over dark & light backgrounds) -->
-      <g stroke="#faf5e8" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round" fill="none" opacity="0.95">
+      <!-- 0. White Parchment Halo Outline (Guarantees crisp contrast for all brush elements including tassel) -->
+      <g stroke="#faf5e8" stroke-width="0.8" stroke-linejoin="round" stroke-linecap="round" fill="none" opacity="0.95">
         <!-- Slender Hair Bristle Head Contour -->
-        <path d="M 0 0 C -0.8 -2.5, -2.4 -5.5, -2.8 -11 L 2.8 -11 C 2.4 -5.5, 0.8 -2.5, 0 0 Z"/>
+        <path d="M 0 0 C -0.5 -2.0, -1.4 -4.8, -1.8 -9 L 1.8 -9 C 1.4 -4.8, 0.5 -2.0, 0 0 Z"/>
         <!-- Vermilion Ferrule Contour -->
-        <path d="M -2.8 -11 L -2.8 -16 L 2.8 -16 L 2.8 -11 Z"/>
+        <path d="M -1.8 -9 L -1.8 -12.5 L 1.8 -12.5 L 1.8 -9 Z"/>
         <!-- Long Slender Bamboo Shaft Contour -->
-        <path d="M -2.5 -16 L -1.9 -36 L 1.9 -36 L 2.5 -16 Z"/>
+        <path d="M -1.6 -12.5 L -1.2 -31 L 1.2 -31 L 1.6 -12.5 Z"/>
         <!-- End Cap Contour -->
-        <path d="M -1.9 -36 L -1.6 -38.5 C -0.8 -39.2, 0.8 -39.2, 1.6 -38.5 L 1.9 -36 Z"/>
-        <!-- Red Tassel Loop Contour -->
-        <path d="M -1.0 -38.5 C -2.2 -40.2, -1.6 -42.2, 0 -42.2 C 1.6 -42.2, 2.2 -40.2, 1.0 -38.5"/>
+        <path d="M -1.2 -31 L -1.0 -33 C -0.5 -33.5, 0.5 -33.5, 1.0 -33 L 1.2 -31 Z"/>
+        <!-- Crimson Silk Tassel Loop & Twin Fringe Contour -->
+        <path d="M -0.8 -33.0 C -1.8 -34.5, -1.5 -36.5, 0 -36.5 C 1.5 -36.5, 1.8 -34.5, 0.8 -33.0"/>
+        <path d="M -0.6 -36.5 L -1.2 -37.5 M 0.6 -36.5 L 1.2 -37.5"/>
       </g>
 
-      <!-- 1. Long Tapered Hair Bristle Head (Tip at 0,0) -->
-      <path d="M 0 0 C -0.8 -2.5, -2.4 -5.5, -2.8 -11 L 2.8 -11 C 2.4 -5.5, 0.8 -2.5, 0 0 Z" fill="url(#bristle-gradient)"/>
+      <!-- 1. Slender Tapered Hair Bristle Head (Tip at 0,0) -->
+      <path d="M 0 0 C -0.5 -2.0, -1.4 -4.8, -1.8 -9 L 1.8 -9 C 1.4 -4.8, 0.5 -2.0, 0 0 Z" fill="url(#bristle-gradient)"/>
 
       <!-- Symmetrical Goat/Wolf Bristle Hair Texture Lines -->
       <g stroke="#9e7b66" stroke-width="0.35" opacity="0.75" stroke-linecap="round">
-        <path d="M -0.8 -10 L -0.3 -2.2"/>
-        <path d="M 0.8 -10 L 0.3 -2.2"/>
-        <path d="M -1.8 -10 L -0.9 -4.5"/>
-        <path d="M 1.8 -10 L 0.9 -4.5"/>
+        <path d="M -0.5 -8 L -0.2 -2.0"/>
+        <path d="M 0.5 -8 L 0.2 -2.0"/>
+        <path d="M -1.2 -8 L -0.6 -4.0"/>
+        <path d="M 1.2 -8 L 0.6 -4.0"/>
       </g>
       <!-- Center Dark Ink Core Strand -->
-      <path d="M 0 0 L 0 -10" stroke="#080605" stroke-width="0.5" opacity="0.9"/>
+      <path d="M 0 0 L 0 -8" stroke="#080605" stroke-width="0.45" opacity="0.9"/>
 
       <!-- 2. Vermilion Seal Red Collar / Horn Ferrule -->
-      <path d="M -2.8 -11 L -2.8 -16 L 2.8 -16 L 2.8 -11 Z" fill="url(#vermilion-gradient)"/>
+      <path d="M -1.8 -9 L -1.8 -12.5 L 1.8 -12.5 L 1.8 -9 Z" fill="url(#vermilion-gradient)"/>
 
       <!-- Symmetrical Metallic Gold Retaining Bands -->
-      <path d="M -2.9 -12.0 L -2.9 -12.9 L 2.9 -12.9 L 2.9 -12.0 Z" fill="url(#gold-gradient)"/>
-      <path d="M -2.9 -14.2 L -2.9 -15.1 L 2.9 -15.1 L 2.9 -14.2 Z" fill="url(#gold-gradient)"/>
+      <path d="M -1.9 -9.7 L -1.9 -10.4 L 1.9 -10.4 L 1.9 -9.7 Z" fill="url(#gold-gradient)"/>
+      <path d="M -1.9 -11.1 L -1.9 -11.8 L 1.9 -11.8 L 1.9 -11.1 Z" fill="url(#gold-gradient)"/>
 
       <!-- 3. Long Slender Lacquered Bamboo Handle (Shaft) -->
-      <path d="M -2.5 -16 L -1.9 -36 L 1.9 -36 L 2.5 -16 Z" fill="url(#bamboo-gradient)"/>
+      <path d="M -1.6 -12.5 L -1.2 -31 L 1.2 -31 L 1.6 -12.5 Z" fill="url(#bamboo-gradient)"/>
 
       <!-- Bamboo Node (Joint) Ring Accent -->
-      <path d="M -2.3 -26 L 2.3 -26" stroke="url(#gold-gradient)" stroke-width="0.65" opacity="0.85"/>
-      <path d="M -2.2 -26.8 L 2.2 -26.8" stroke="#24140b" stroke-width="0.35" opacity="0.7"/>
+      <path d="M -1.4 -21 L 1.4 -21" stroke="url(#gold-gradient)" stroke-width="0.55" opacity="0.85"/>
+      <path d="M -1.4 -21.6 L 1.4 -21.6" stroke="#24140b" stroke-width="0.3" opacity="0.7"/>
 
       <!-- Shaft 3D Specular Highlight Line -->
-      <path d="M -0.9 -16.5 L -0.7 -35.5" stroke="#e8b88a" stroke-width="0.45" opacity="0.55"/>
+      <path d="M -0.6 -13 L -0.4 -30.5" stroke="#e8b88a" stroke-width="0.35" opacity="0.55"/>
 
       <!-- 4. Ivory / Brass End Cap -->
-      <path d="M -1.9 -36 L -1.6 -38.5 C -0.8 -39.2, 0.8 -39.2, 1.6 -38.5 L 1.9 -36 Z" fill="#e8dfd1"/>
-      <path d="M -1.9 -36 L 1.9 -36" stroke="url(#gold-gradient)" stroke-width="0.5"/>
+      <path d="M -1.2 -31 L -1.0 -33 C -0.5 -33.5, 0.5 -33.5, 1.0 -33 L 1.2 -31 Z" fill="#e8dfd1"/>
+      <path d="M -1.2 -31 L 1.2 -31" stroke="url(#gold-gradient)" stroke-width="0.4"/>
 
-      <!-- 5. Crimson Silk Tassel Hanging Loop -->
-      <path d="M -1.0 -38.5 C -2.2 -40.2, -1.6 -42.2, 0 -42.2 C 1.6 -42.2, 2.2 -40.2, 1.0 -38.5" 
-            fill="none" stroke="url(#tassel-gradient)" stroke-width="1.0" stroke-linecap="round"/>
+      <!-- 5. Prominent Crimson Silk Tassel Loop & Dangling Fringe (红双穗 - 100% Fully Visible) -->
+      <path d="M -0.8 -33.0 C -1.8 -34.5, -1.5 -36.5, 0 -36.5 C 1.5 -36.5, 1.8 -34.5, 0.8 -33.0 Z" 
+            fill="none" stroke="url(#tassel-gradient)" stroke-width="1.1" stroke-linecap="round"/>
+      <!-- Small Brass Ring Connector -->
+      <circle cx="0" cy="-33" r="0.6" fill="url(#gold-gradient)"/>
+      <!-- Symmetrical Crimson Silk Tassel Twin Threads -->
+      <path d="M -0.4 -36.5 L -1.2 -37.8 M 0.4 -36.5 L 1.2 -37.8 M 0 -36.5 L 0 -38.0" 
+            stroke="url(#tassel-gradient)" stroke-width="0.8" stroke-linecap="round"/>
     </g>
   </g>
 </svg>
