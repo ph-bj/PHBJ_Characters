@@ -231,6 +231,21 @@ Chapters 45–46 carry the same compression in prose: 46:29's 137 hanzi become 5
 note-form ("They drank tea; Ziyun sent for a boat. Broad water opened…"), and 46:24 renders
 reported dialogue as dash-joined fragments.
 
+### S12 — 时辰 (the double-hour) is still wrong in four places
+The audit lists 时辰 as corrected in ch. 16, 25, 29 and 44, and those four are right. Checking
+all 18 paragraphs that use the unit:
+
+| where | Chinese | English | correct |
+| --- | --- | --- | --- |
+| 33:19 | 半个时辰 | "About half an hour later" | one hour |
+| 56:21 | 半个时辰 | "over half an hour" | one hour |
+| 39:22 | 一个时辰 | "the better part of an hour" | two hours |
+| 52:10 | 两三个时辰 | "two or three hours" | four to six hours |
+
+半个时辰 alone receives four English values across the book — "a full hour" (16:13, 22:10),
+"half an hour" (33:19), "over half an hour" (56:21), "nearly one double-hour" (58:4) — two of
+them off by a factor of two.
+
 ### S11 — bold markdown in the translated text
 29 `**…**` spans in 20 paragraphs, all in chapters 45 and 46, marking place names
 (`**Lychee Lane**`, `**Autumn-Chant Waterside Pavilion**`). The renderer has no handling for
@@ -353,6 +368,13 @@ glossed. A three-paragraph build-up lands on a blank page.
   thatched cottage.
 - **16:2** 为诸花物色 → "seeking out rare flowers" — 诸花 throughout this book means the
   boy-actors; Duxiang is procuring fragrances and silks *for them*.
+- **24:0** 若论女貌郎才倒是一对 → "A handsome face hiding a dull wit." 女貌郎才 is the standard
+  phrase for a well-matched couple, used ironically; the English replaces the joke with an
+  unrelated observation.
+- **24:0** 皮杯 → "his lecherous 'leather-cup' toast" — 皮杯 is the mouth-to-mouth passing of
+  wine, glossed correctly as "a 'skin cup' (a kiss)" at 2:39.
+- **24:0** 萍水相逢 → "like dew on the grass" — duckweed on water; the image matters, because
+  the sentence goes on to contrast it with clinging "like a shadow to a body".
 - **1:16** 风流林下 → "romantic grace amidst the woods" — 林下风致 is the unaffected elegance of
   a well-bred recluse, and 1:20 renders the same idiom correctly.
 - **1:18** 《絮阁》 → "The Pavilion of Gossamer" — 絮 here is 絮聒, to nag; the Changsheng dian
@@ -507,11 +529,21 @@ places, and they show what the rest could be:
 - **14:17's** ox-and-rabbit zodiac chain is carried whole, from insult to summons, precisely
   because the translation stopped to make the zodiac years explicit. It is the model the
   obscene jokes are not given.
+- **Chapter 22 throughout.** The two hired thugs shouting Qinyan out of his sickbed keep every
+  obscenity the Chinese gives them, and Qinyan's answer — his suicide speech at 22:8, asking
+  to be buried under the plum trees of Meiyan or burned and scattered "where the mountains are
+  high and the waters deep… and spare the world one wretched relic of an ill-fated life" — is
+  the best sustained emotional writing encountered anywhere in this reading. Coarse and
+  lyrical registers sit side by side in one chapter and both are right.
 - **19:11–19:13**, Erxi's account of Xi Eleven's barrel trap — the novel's darkest sequence, a
   mechanical rape device and two assaults — is rendered plainly and completely, at the
   euphemistic register the Chinese itself uses, with the ward-office collusion and the ransom
   intact. It is the strongest evidence that the softening catalogued in §5.2 is a local
   choice rather than a limit.
+- **23:1–23:6**, Yuanmao's disastrous visit to the East Garden brothel, is translated without
+  euphemism — the basin behind the kang, the woman's contempt, the shakedown at the door, the
+  straw mat he has to wrap himself in — at exactly the flat, unsparing register the Chinese
+  uses.
 - **20:6–20:10**, the ride through the Yiyuan, is the descriptive prose at its most
   comfortable, and the four painters invoked in the appraisal (Wang Lutai, Xiao Chizhu, Ni
   Yunlin, Xu Qingteng) are all correctly identified.
@@ -541,8 +573,9 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S11): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–21 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 27, 30, 38, 41, 45, 46, 53, 54 and 58.
+**Close reading, paragraph by paragraph:** ch. 1–24 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 27, 30, 33, 38, 39, 41, 45, 46, 52, 53, 54, 56
+and 58.
 
 The remaining chapters are covered by the mechanical screens only. Findings from them that
 appear above (41:27, 48:20/22, 42:15/16, 54:11/33/39, 59:8–10, 57:35–52, 51:16–21, the
