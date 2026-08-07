@@ -73,16 +73,17 @@ export function CalligraphyCursorOverlay() {
   const animFrameRef = useRef<number | null>(null);
   const lastPosRef = useRef<{ x: number; y: number; time: number } | null>(null);
 
-  // Sync preference state changes across components & windows
+  // Sync preference state changes across components & windows (Always remains mounted & active)
   useEffect(() => {
-    const handleStorage = () => {
-      setEnabled(getStoredCursorPreference());
+    const handleSync = () => {
+      const pref = getStoredCursorPreference();
+      setEnabled(pref);
     };
-    window.addEventListener("storage", handleStorage);
-    window.addEventListener("phbj-cursor-change", handleStorage);
+    window.addEventListener("storage", handleSync);
+    window.addEventListener("phbj-cursor-change", handleSync);
     return () => {
-      window.removeEventListener("storage", handleStorage);
-      window.removeEventListener("phbj-cursor-change", handleStorage);
+      window.removeEventListener("storage", handleSync);
+      window.removeEventListener("phbj-cursor-change", handleSync);
     };
   }, []);
 
@@ -92,6 +93,14 @@ export function CalligraphyCursorOverlay() {
       document.documentElement.classList.add("custom-brush-enabled");
     } else {
       document.documentElement.classList.remove("custom-brush-enabled");
+      // Clear canvas buffers on disable
+      strokePointsRef.current = [];
+      particlesRef.current = [];
+      ripplesRef.current = [];
+      if (canvasRef.current) {
+        const ctx = canvasRef.current.getContext("2d");
+        ctx?.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+      }
     }
   }, [enabled]);
 
@@ -114,7 +123,6 @@ export function CalligraphyCursorOverlay() {
     window.addEventListener("scroll", handleResize, { passive: true });
 
     // Traditional Chinese Ink Tone Palette Generator (墨分五色: 焦, 浓, 重, 淡, 清)
-    // Applies authentic Chinese black ink opacities across both Parchment and Plum Jade themes.
     const getInkToneColors = (tone: InkTone) => {
       const isPlumTheme = document.documentElement.getAttribute("data-theme") === "plum";
 
@@ -454,12 +462,11 @@ export function CalligraphyCursorOverlay() {
     };
   }, [enabled]);
 
-  if (!enabled) return null;
-
+  // Keep component mounted at all times so event listeners for phbj-cursor-change stay active!
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[99999] opacity-95"
+      className={`fixed inset-0 pointer-events-none z-[99999] opacity-95 ${enabled ? "" : "hidden"}`}
       aria-hidden="true"
     />
   );
@@ -473,6 +480,19 @@ export function CalligraphyCursorToggle({
   className?: string;
 }) {
   const [enabled, setEnabled] = useState<boolean>(getStoredCursorPreference);
+
+  // Synchronize state with phbj-cursor-change events
+  useEffect(() => {
+    const handleSync = () => {
+      setEnabled(getStoredCursorPreference());
+    };
+    window.addEventListener("storage", handleSync);
+    window.addEventListener("phbj-cursor-change", handleSync);
+    return () => {
+      window.removeEventListener("storage", handleSync);
+      window.removeEventListener("phbj-cursor-change", handleSync);
+    };
+  }, []);
 
   const toggle = useCallback(() => {
     const next = !enabled;
