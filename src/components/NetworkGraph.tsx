@@ -567,19 +567,6 @@ export default function NetworkGraph({ characters, relationships, lang, onNodeCl
       .attr("stroke", (d: any) => getRoleColorVar(d.role))
       .attr("stroke-width", 1.5);
 
-    // 4. Subtle Stamen Accents
-    petalAngles.forEach((angle) => {
-      const sx = (centerRadius * 0.72) * Math.cos(angle);
-      const sy = (centerRadius * 0.72) * Math.sin(angle);
-      node
-        .append("circle")
-        .attr("cx", sx)
-        .attr("cy", sy)
-        .attr("r", 1)
-        .attr("fill", (d: any) => getRoleColorVar(d.role))
-        .attr("opacity", 0.6);
-    });
-
     // 5. Character Name Text sitting at the center of each flower
     node
       .append("text")
