@@ -192,6 +192,22 @@ body {
   font-family: var(--font-sans);
 }
 
+/* A calligraphy brush replaces the default pointer on mouse/trackpad devices.
+   The hotspot sits at the ink tip so clicking still feels precise. Text entry
+   keeps its native caret cursor, and touch devices are intentionally untouched. */
+@media (pointer: fine) and (hover: hover) {
+  html,
+  html * {
+    cursor: url("./assets/brush-pen-cursor.svg") 4 29, auto !important;
+  }
+
+  input,
+  textarea,
+  [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
+
 .parchment {
   position: relative;
   background-color: var(--paper-bg);
@@ -280,4 +296,3 @@ body {
   line-height: 1;
   padding-bottom: 2px;
 }
-
