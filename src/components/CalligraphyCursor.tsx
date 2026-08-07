@@ -114,27 +114,28 @@ export function CalligraphyCursorOverlay() {
     window.addEventListener("scroll", handleResize, { passive: true });
 
     // Traditional Chinese Ink Tone Palette Generator (墨分五色: 焦, 浓, 重, 淡, 清)
+    // Applies authentic Chinese black ink opacities across both Parchment and Plum Jade themes.
     const getInkToneColors = (tone: InkTone) => {
-      const isDark = document.documentElement.getAttribute("data-theme") === "plum";
+      const isPlumTheme = document.documentElement.getAttribute("data-theme") === "plum";
 
-      if (isDark) {
-        // Dark Plum Mode: Luminous Gold Calligraphy Ink & Radiant Seal Vermilion
+      if (isPlumTheme) {
+        // 青梅 (Plum Jade Paper Theme): Traditional Chinese Dark Jade Black Ink (黛墨/松烟墨)
         switch (tone) {
-          case "jiao": // 焦墨 (Pitch Gold)
-            return { core: "#f3e0a0", wash: "rgba(243, 224, 160, 0.4)", alpha: 0.95 };
-          case "nong": // 浓墨 (Dense Gold)
-            return { core: "#e2c889", wash: "rgba(226, 200, 137, 0.35)", alpha: 0.8 };
-          case "zhong": // 重墨 (Medium Gold)
-            return { core: "#cbb06d", wash: "rgba(203, 176, 109, 0.28)", alpha: 0.65 };
-          case "dan": // 淡墨 (Light Gold Wash)
-            return { core: "#b89b54", wash: "rgba(184, 155, 84, 0.2)", alpha: 0.4 };
-          case "qing": // 清墨 (Water Clear Wash)
-            return { core: "#9e8140", wash: "rgba(158, 129, 64, 0.12)", alpha: 0.22 };
+          case "jiao": // 焦墨 (Pitch Jade Black Ink - 0.95 opacity)
+            return { core: "#0c1809", wash: "rgba(12, 24, 9, 0.4)", alpha: 0.95 };
+          case "nong": // 浓墨 (Thick Dark Black Ink - 0.80 opacity)
+            return { core: "#162210", wash: "rgba(22, 34, 16, 0.35)", alpha: 0.8 };
+          case "zhong": // 重墨 (Heavy Medium Black Ink - 0.60 opacity)
+            return { core: "#283620", wash: "rgba(40, 54, 32, 0.28)", alpha: 0.6 };
+          case "dan": // 淡墨 (Diluted Light Black Ink - 0.38 opacity)
+            return { core: "#485a3c", wash: "rgba(72, 90, 60, 0.2)", alpha: 0.38 };
+          case "qing": // 清墨 (Clear Water Wash Ink - 0.18 opacity)
+            return { core: "#6a7e5c", wash: "rgba(106, 126, 92, 0.12)", alpha: 0.18 };
           case "vermilion": // 朱砂 (Seal Vermilion)
-            return { core: "#ff5722", wash: "rgba(255, 87, 34, 0.4)", alpha: 0.9 };
+            return { core: "#8b2500", wash: "rgba(139, 37, 0, 0.35)", alpha: 0.88 };
         }
       } else {
-        // Light Parchment Mode: Traditional Chinese Pine-Soot Black Ink (松烟墨) & Seal Vermilion
+        // 古卷 (Warm Parchment Paper Theme): Traditional Chinese Pine-Soot Black Ink (松烟墨)
         switch (tone) {
           case "jiao": // 焦墨 (Scorched Pitch Black Ink - 0.95 opacity)
             return { core: "#080605", wash: "rgba(8, 6, 5, 0.4)", alpha: 0.95 };
