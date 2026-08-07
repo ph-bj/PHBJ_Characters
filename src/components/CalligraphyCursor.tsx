@@ -21,6 +21,32 @@ export function setStoredCursorPreference(enabled: boolean) {
   }
 }
 
+// Unified Custom Hook for Calligraphy Cursor State Sync
+export function useCalligraphyCursorState() {
+  const [enabled, setEnabled] = useState<boolean>(getStoredCursorPreference);
+
+  useEffect(() => {
+    const syncState = () => {
+      setEnabled(getStoredCursorPreference());
+    };
+    window.addEventListener("phbj-cursor-change", syncState);
+    window.addEventListener("storage", syncState);
+    return () => {
+      window.removeEventListener("phbj-cursor-change", syncState);
+      window.removeEventListener("storage", syncState);
+    };
+  }, []);
+
+  const toggle = useCallback(() => {
+    const next = !enabled;
+    setStoredCursorPreference(next);
+    setEnabled(next);
+    window.dispatchEvent(new CustomEvent("phbj-cursor-change"));
+  }, [enabled]);
+
+  return { enabled, toggle };
+}
+
 // 墨分五色 (Five Tones of Traditional Chinese Calligraphy Ink)
 export type InkTone = "jiao" | "nong" | "zhong" | "dan" | "qing" | "vermilion";
 
@@ -65,35 +91,22 @@ interface InkRipple {
 }
 
 export function CalligraphyCursorOverlay() {
-  const [enabled, setEnabled] = useState<boolean>(getStoredCursorPreference);
+  const { enabled } = useCalligraphyCursorState();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const strokePointsRef = useRef<StrokePoint[]>([]);
   const particlesRef = useRef<InkParticle[]>([]);
   const ripplesRef = useRef<InkRipple[]>([]);
   const animFrameRef = useRef<number | null>(null);
   const lastPosRef = useRef<{ x: number; y: number; time: number } | null>(null);
+  const enabledRef = useRef<boolean>(enabled);
 
-  // Sync preference state changes across components & windows (Always remains mounted & active)
+  // Keep mutable ref in sync for event listeners
   useEffect(() => {
-    const handleSync = () => {
-      const pref = getStoredCursorPreference();
-      setEnabled(pref);
-    };
-    window.addEventListener("storage", handleSync);
-    window.addEventListener("phbj-cursor-change", handleSync);
-    return () => {
-      window.removeEventListener("storage", handleSync);
-      window.removeEventListener("phbj-cursor-change", handleSync);
-    };
-  }, []);
-
-  // Update root element class when enabled status changes
-  useEffect(() => {
+    enabledRef.current = enabled;
     if (enabled) {
       document.documentElement.classList.add("custom-brush-enabled");
     } else {
       document.documentElement.classList.remove("custom-brush-enabled");
-      // Clear canvas & refs when disabled
       strokePointsRef.current = [];
       particlesRef.current = [];
       ripplesRef.current = [];
@@ -105,16 +118,8 @@ export function CalligraphyCursorOverlay() {
     }
   }, [enabled]);
 
-  // Canvas Ink Animation Loop
+  // Main Canvas Ink System (Runs permanently, checks enabledRef dynamically)
   useEffect(() => {
-    if (!enabled) return;
-
-    // Reset position ref on enable to avoid stale timestamps
-    lastPosRef.current = null;
-    strokePointsRef.current = [];
-    particlesRef.current = [];
-    ripplesRef.current = [];
-
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -127,12 +132,7 @@ export function CalligraphyCursorOverlay() {
         canvas.height = window.innerHeight;
       }
     };
-
-    // RAF ensures canvas is visible in DOM layout before sizing
-    const rafId = requestAnimationFrame(() => {
-      handleResize();
-    });
-
+    handleResize();
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleResize, { passive: true });
 
@@ -143,33 +143,33 @@ export function CalligraphyCursorOverlay() {
       if (isPlumTheme) {
         // 青梅 (Plum Jade Paper Theme): Traditional Chinese Dark Jade Black Ink (黛墨/松烟墨)
         switch (tone) {
-          case "jiao": // 焦墨 (Pitch Jade Black Ink - 0.95 opacity)
+          case "jiao":
             return { core: "#0c1809", wash: "rgba(12, 24, 9, 0.4)", alpha: 0.95 };
-          case "nong": // 浓墨 (Thick Dark Black Ink - 0.80 opacity)
+          case "nong":
             return { core: "#162210", wash: "rgba(22, 34, 16, 0.35)", alpha: 0.8 };
-          case "zhong": // 重墨 (Heavy Medium Black Ink - 0.60 opacity)
+          case "zhong":
             return { core: "#283620", wash: "rgba(40, 54, 32, 0.28)", alpha: 0.6 };
-          case "dan": // 淡墨 (Diluted Light Black Ink - 0.38 opacity)
+          case "dan":
             return { core: "#485a3c", wash: "rgba(72, 90, 60, 0.2)", alpha: 0.38 };
-          case "qing": // 清墨 (Clear Water Wash Ink - 0.18 opacity)
+          case "qing":
             return { core: "#6a7e5c", wash: "rgba(106, 126, 92, 0.12)", alpha: 0.18 };
-          case "vermilion": // 朱砂 (Seal Vermilion)
+          case "vermilion":
             return { core: "#8b2500", wash: "rgba(139, 37, 0, 0.35)", alpha: 0.88 };
         }
       } else {
         // 古卷 (Warm Parchment Paper Theme): Traditional Chinese Pine-Soot Black Ink (松烟墨)
         switch (tone) {
-          case "jiao": // 焦墨 (Scorched Pitch Black Ink - 0.95 opacity)
+          case "jiao":
             return { core: "#080605", wash: "rgba(8, 6, 5, 0.4)", alpha: 0.95 };
-          case "nong": // 浓墨 (Thick Dark Black Ink - 0.80 opacity)
+          case "nong":
             return { core: "#140d0b", wash: "rgba(20, 13, 11, 0.35)", alpha: 0.8 };
-          case "zhong": // 重墨 (Heavy Medium Black Ink - 0.60 opacity)
+          case "zhong":
             return { core: "#281e19", wash: "rgba(40, 30, 25, 0.28)", alpha: 0.6 };
-          case "dan": // 淡墨 (Diluted Light Black Ink - 0.38 opacity)
+          case "dan":
             return { core: "#473830", wash: "rgba(71, 56, 48, 0.2)", alpha: 0.38 };
-          case "qing": // 清墨 (Clear Water Wash Ink - 0.18 opacity)
+          case "qing":
             return { core: "#6e594d", wash: "rgba(110, 89, 77, 0.12)", alpha: 0.18 };
-          case "vermilion": // 朱砂 (Seal Vermilion)
+          case "vermilion":
             return { core: "#8b2500", wash: "rgba(139, 37, 0, 0.35)", alpha: 0.88 };
         }
       }
@@ -177,6 +177,11 @@ export function CalligraphyCursorOverlay() {
 
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (!enabledRef.current) {
+        animFrameRef.current = null;
+        return;
+      }
 
       // 1. Render Ink Ripples & Seals (from mouse clicks)
       const ripples = ripplesRef.current;
@@ -191,7 +196,6 @@ export function CalligraphyCursorOverlay() {
         }
 
         ctx.save();
-        // Outer 清墨 clear water wash ring
         ctx.beginPath();
         ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
         ctx.strokeStyle = r.washColor;
@@ -199,7 +203,6 @@ export function CalligraphyCursorOverlay() {
         ctx.lineWidth = 3.0;
         ctx.stroke();
 
-        // Inner 焦墨/浓墨 solid ink bloom
         ctx.beginPath();
         ctx.arc(r.x, r.y, r.radius * 0.48, 0, Math.PI * 2);
         ctx.fillStyle = r.color;
@@ -294,7 +297,7 @@ export function CalligraphyCursorOverlay() {
         p.life += 1;
         const progress = p.life / p.maxLife;
         p.alpha = (1 - progress) * 0.85;
-        p.radius += p.expandRate; // Bleeding wash expand
+        p.radius += p.expandRate;
 
         if (p.life >= p.maxLife || p.alpha <= 0.01) {
           particles.splice(i, 1);
@@ -302,14 +305,12 @@ export function CalligraphyCursorOverlay() {
         }
 
         ctx.save();
-        // Inner ink dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
         ctx.globalAlpha = p.alpha;
         ctx.fill();
 
-        // Outer 清墨/淡墨 water wash blur ring on larger particles
         if (p.radius > 3) {
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius * 1.6, 0, Math.PI * 2);
@@ -328,12 +329,14 @@ export function CalligraphyCursorOverlay() {
     };
 
     const startAnimIfNeeded = () => {
-      if (!animFrameRef.current) {
+      if (!animFrameRef.current && enabledRef.current) {
         animFrameRef.current = requestAnimationFrame(render);
       }
     };
 
     const onMouseMove = (e: MouseEvent) => {
+      if (!enabledRef.current) return;
+
       const x = e.clientX;
       const y = e.clientY;
       const now = performance.now();
@@ -344,28 +347,23 @@ export function CalligraphyCursorOverlay() {
         const dt = Math.max(1, now - lastPosRef.current.time);
         const dist = Math.hypot(dx, dy);
 
-        // Sanity check dt and dist to prevent giant delta spikes after tab switch/toggle
         if (dist > 1.2 && dt < 500) {
-          const speed = dist / dt; // Mouse move velocity
-
-          // Dynamic brush stroke width: slow = rich juicy 11px-16px stroke; fast = tapered 3.5px-6px stroke
+          const speed = dist / dt;
           const strokeWidth = Math.max(3.5, Math.min(16, 14 - speed * 3.8));
 
-          // Determine Ink Tone (焦、浓、重、淡、朱砂)
           let tone: InkTone = "nong";
           const rand = Math.random();
-          if (rand > 0.92) tone = "vermilion";       // 朱砂 (Seal Vermilion)
-          else if (rand > 0.70) tone = "jiao";      // 焦墨 (Scorched Pitch Black)
-          else if (rand > 0.40) tone = "nong";      // 浓墨 (Thick Dark Black)
-          else if (rand > 0.15) tone = "zhong";     // 重墨 (Heavy Medium Black)
-          else tone = "dan";                         // 淡墨 (Diluted Light Black)
+          if (rand > 0.92) tone = "vermilion";
+          else if (rand > 0.70) tone = "jiao";
+          else if (rand > 0.40) tone = "nong";
+          else if (rand > 0.15) tone = "zhong";
+          else tone = "dan";
 
           const jiaoColors = getInkToneColors("jiao");
           const nongColors = getInkToneColors(tone);
           const danColors = getInkToneColors("dan");
           const qingColors = getInkToneColors("qing");
 
-          // Add continuous stroke point with multi-tone ink properties
           strokePointsRef.current.push({
             x,
             y,
@@ -374,21 +372,19 @@ export function CalligraphyCursorOverlay() {
             maxAlpha: nongColors.alpha,
             tone,
             life: 0,
-            maxLife: 45, // Visible for ~0.75s
+            maxLife: 45,
             jiaoColor: jiaoColors.core,
             nongColor: nongColors.core,
             danColor: danColors.core,
             qingColor: qingColors.wash,
           });
 
-          // Spawn ink droplets & splatters along movement path in different black ink transparencies
           const numParticles = Math.min(4, Math.floor(dist / 3.5));
           for (let i = 0; i < numParticles; i++) {
             const ratio = i / numParticles;
             const px = lastPosRef.current.x + dx * ratio;
             const py = lastPosRef.current.y + dy * ratio;
 
-            // Pick particle tone for natural ink splatter gradation
             const pRand = Math.random();
             let pTone: InkTone = "nong";
             if (pRand > 0.90) pTone = "vermilion";
@@ -422,10 +418,11 @@ export function CalligraphyCursorOverlay() {
     };
 
     const onMouseDown = (e: MouseEvent) => {
+      if (!enabledRef.current) return;
+
       const jiaoColors = getInkToneColors("jiao");
       const qingColors = getInkToneColors("qing");
 
-      // Bold ink stamp bloom on click
       ripplesRef.current.push({
         x: e.clientX,
         y: e.clientY,
@@ -436,7 +433,6 @@ export function CalligraphyCursorOverlay() {
         washColor: qingColors.wash,
       });
 
-      // 12 radial ink splash droplets featuring Five Ink Tones (焦、浓、重、淡、朱砂)
       const tones: InkTone[] = ["jiao", "nong", "zhong", "dan", "vermilion"];
       for (let i = 0; i < 12; i++) {
         const angle = (i / 12) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
@@ -467,7 +463,6 @@ export function CalligraphyCursorOverlay() {
     window.addEventListener("mousedown", onMouseDown, { passive: true });
 
     return () => {
-      cancelAnimationFrame(rafId);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleResize);
       window.removeEventListener("mousemove", onMouseMove);
@@ -476,14 +471,12 @@ export function CalligraphyCursorOverlay() {
         cancelAnimationFrame(animFrameRef.current);
       }
     };
-  }, [enabled]);
+  }, []); // Mounted once permanently, reads enabledRef dynamically!
 
-  // Keep component mounted at all times so event listeners for phbj-cursor-change stay active!
   return (
     <canvas
       ref={canvasRef}
-      style={{ display: enabled ? "block" : "none" }}
-      className="fixed inset-0 pointer-events-none z-[99999] opacity-95"
+      className={`fixed inset-0 pointer-events-none z-[99999] opacity-95 ${enabled ? "" : "hidden"}`}
       aria-hidden="true"
     />
   );
@@ -496,27 +489,7 @@ export function CalligraphyCursorToggle({
   lang: "en" | "zh";
   className?: string;
 }) {
-  const [enabled, setEnabled] = useState<boolean>(getStoredCursorPreference);
-
-  // Synchronize state with phbj-cursor-change events
-  useEffect(() => {
-    const handleSync = () => {
-      setEnabled(getStoredCursorPreference());
-    };
-    window.addEventListener("storage", handleSync);
-    window.addEventListener("phbj-cursor-change", handleSync);
-    return () => {
-      window.removeEventListener("storage", handleSync);
-      window.removeEventListener("phbj-cursor-change", handleSync);
-    };
-  }, []);
-
-  const toggle = useCallback(() => {
-    const next = !enabled;
-    setEnabled(next);
-    setStoredCursorPreference(next);
-    window.dispatchEvent(new CustomEvent("phbj-cursor-change"));
-  }, [enabled]);
+  const { enabled, toggle } = useCalligraphyCursorState();
 
   return (
     <button
