@@ -17,9 +17,9 @@ below cites its paragraph as `chapter:index`, so each can be checked directly. C
 covered by close reading so far are listed in §7; the close reading is still in progress and
 this document is updated as it advances.
 
-**Whole-corpus mechanical screens.** Fourteen screens were run over all 2,023 paragraph pairs
+**Whole-corpus mechanical screens.** Fifteen screens were run over all 2,023 paragraph pairs
 in all 60 chapters. These have complete coverage and their counts are exact — they are the
-S1–S13 findings in §3 (S9 has two parts) — and they are what allow this report to make claims
+S1–S14 findings in §3 (S9 has two parts) — and they are what allow this report to make claims
 about chapters the close reading has not yet reached.
 
 The alignment itself is sound: all 60 chapters match paragraph-for-paragraph, 2,023 pairs,
@@ -54,7 +54,9 @@ Related, and worth separating out: an earlier repair pass ran paragraph by parag
 several chapters now read at two visibly different densities — chapter 54 has one paragraph
 at 1.43 words per hanzi and another at 0.44 in the same conversation. Two of the compressed
 paragraphs are outright omissions of quoted Tang poetry (54:11, 54:33), which the previous
-audit reports as no longer existing.
+audit reports as no longer existing. And 41 paragraphs — 25 of them in chapter 46 — are not
+in the book's prose voice at all but in a telegraphic note-form that drops articles, verbs and
+quotation marks, taking spoken lines and critical judgements down with them.
 
 **Third — and this is the 意境 problem — the translation has one register where the novel has
 several.** *Pinhua Baojian* alternates between ornate parallel prose for its connoisseur
@@ -253,9 +255,9 @@ entire content is three women discussing Tang poetry:
   poets' treatments." Qionghua's technical argument about the 阙/阙 and 卒/卒 rhyme categories
   is reduced to paraphrase, so the reader cannot see what is being argued.
 
-Chapters 45–46 carry the same compression in prose: 46:29's 137 hanzi become 52 words of
-note-form ("They drank tea; Ziyun sent for a boat. Broad water opened…"), and 46:24 renders
-reported dialogue as dash-joined fragments.
+Chapters 45–46 carry the same compression in prose — and reading those paragraphs shows it is
+not compression at all but a second translational voice. That is now separated out as **S14**,
+which counts it exactly: 41 paragraphs corpus-wide, 25 of them in chapter 46.
 
 ### S12 — 时辰 (the double-hour) is still wrong in four places
 The audit lists 时辰 as corrected in ch. 16, 25, 29 and 44, and those four are right. Checking
@@ -286,6 +288,42 @@ The screen also shows the fix largely did work: the other 130 candidates are leg
 the Chinese names directly rather than by a gendered noun, quoted verse with a female speaker,
 and the chapter 54 poetry discussion, where the run of "She explained… She called… She
 observed…" is correct as to gender but is itself the reported-speech problem of S8.
+
+### S14 — a second translational voice: 41 paragraphs in note-form
+S10 records chapters reading "at two densities". Reading the low-ratio paragraphs shows the
+difference is not compression but a different **register**: articles dropped, finite verbs
+dropped, clauses strung on em-dashes and semicolons, quotation marks absent. It reads like a
+translator's working notes rather than prose.
+
+Screening every paragraph over 80 hanzi for a words-per-hanzi ratio below 0.62 **and** three or
+more em-dashes/semicolons returns **41 paragraphs**: ch. 21 ×1 · 24 ×1 · 25 ×2 · 27 ×5 ·
+**46 ×25** · 54 ×5 · 57 ×2. Chapter 46 carries 25 of the 41. 46:29 (161 hanzi → 52 words) is
+the type case:
+
+> They drank tea; Ziyun sent for a boat. Broad water opened; they boarded a painted barge,
+> slipped from a narrow reach into wide expanse, and soon reached the **Autumn-Chant Waterside
+> Pavilion**. Daosheng toured all three tiers—wearied, he rested on the middle deck while
+> Ziyun ordered light wine and nested boxes for each.
+
+Ziyun's spoken line 「少酌几杯，此处已预备了」 has become the clause "ordered light wine";
+令人豁目爽心 and 绕过了河堤 are gone.
+
+The losses are not only atmospheric. **46:52** puts Qu Daosheng's central critical speech —
+quoted in the Chinese — into notes, and mistranslates as it goes. His eight-way appraisal of
+the day's couplets (高超的是剑潭，沉着的是竹君，细腻风光的是庾香，风华绮丽的是湘帆，
+秀润工稳的是庸阉、前舟，潇洒跌宕的是静宜) becomes "Jiantan soared, Nanxiang weighed steady,
+Yuxiang delicate, Xiangfan gorgeous, Yong'an and Qianzhou polished, Jingyi free" — one word
+apiece for six graded critical judgements that are the whole content of the speech. And
+外边那些名宿 becomes "famous hacks outside": 名宿 means eminent senior figures, so a courteous
+connoisseur making a technical point about 虚字 versus 实字 turns into a sneerer.
+
+**46:44** adds an outright error to the same treatment: 温柔乡 → "the tender trap". 温柔乡 is
+the Land of Tenderness, the name Ziyu has just inscribed on a building; "the tender trap" is a
+mid-twentieth-century English idiom, with the wrong connotation, attached to a place name.
+
+This is separated from S10 because it changes what the fix is. A low ratio can be defended as
+concision. Forty-one paragraphs that drop articles, verbs and quotation marks are a different
+piece of work sitting in the same file as the prose on either side of them.
 
 ### S11 — bold markdown in the translated text
 29 `**…**` spans in 20 paragraphs, all in chapters 45 and 46, marking place names
@@ -815,7 +853,7 @@ places, and they show what the rest could be:
 
 ## 7. Coverage log
 
-**Whole-corpus screens (S1–S13): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
+**Whole-corpus screens (S1–S14): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
 **Close reading, paragraph by paragraph:** ch. 1–44 complete, plus targeted close reading of
 the paragraphs the screens flagged in ch. 45, 46, 51, 52, 53, 54, 56, 57 and 58.
