@@ -17,10 +17,10 @@ below cites its paragraph as `chapter:index`, so each can be checked directly. C
 covered by close reading so far are listed in §7; the close reading is still in progress and
 this document is updated as it advances.
 
-**Whole-corpus mechanical screens.** Eleven screens were run over all 2,023 paragraph pairs in
-all 60 chapters. These have complete coverage and their counts are exact — they are the S1–S11
-findings in §3, and they are what allow this report to make claims about chapters the close
-reading has not yet reached.
+**Whole-corpus mechanical screens.** Fourteen screens were run over all 2,023 paragraph pairs
+in all 60 chapters. These have complete coverage and their counts are exact — they are the
+S1–S13 findings in §3 (S9 has two parts) — and they are what allow this report to make claims
+about chapters the close reading has not yet reached.
 
 The alignment itself is sound: all 60 chapters match paragraph-for-paragraph, 2,023 pairs,
 no empty cells on either side. Nothing in this report is an alignment problem.
@@ -44,10 +44,11 @@ not a translation problem at all, but it is the first thing a reader sees.
 
 **Second, consistency has not been enforced.** The male lead's name is spelled two ways, 113
 times one way and 759 the other. One secondary character has six English names, and one of
-them collides with a different character in the same chapter. Official titles vary from
-chapter to chapter — 员外郎 has four English renderings, three of them inside a single
-paragraph. Dialogue is in single quotes in 16 chapters and double in 32. These are not
-judgement calls; they are the same decision made differently on different days.
+them collides with a different character in the same chapter; the boys' troupe 八龄班 also has
+six, and its last form collides with a surname. Official titles vary from chapter to chapter —
+员外郎 has four English renderings, three of them inside a single paragraph. 半个时辰 has five,
+two of them wrong by a factor of two. Dialogue is in single quotes in 16 chapters and double in
+32. These are not judgement calls; they are the same decision made differently on different days.
 
 Related, and worth separating out: an earlier repair pass ran paragraph by paragraph, so
 several chapters now read at two visibly different densities — chapter 54 has one paragraph
@@ -165,8 +166,22 @@ The Chinese carries 25 lacuna glyphs (□/▉) in 22 paragraphs: 3:20, 10:26, 12
 The project treats these as significant — the glyphs render as clickable buttons opening a
 lacunae archive (`src/lacunae.ts`). A Chinese reader is told the source is defective and can
 consult the note. An English reader gets a confident conjecture with no indication anything
-is missing: 3:20 便命家人□他出去 → "ordering his servants to throw the old man out";
-10:26 其实焉能□我？ → "how could it ever move me?"
+is missing. The English resolves the gaps four different ways and never says which it used:
+
+- **Silent, correct reconstruction.** 3:20 便命家人□他出去 → "ordering his servants to throw
+  the old man out"; 10:26 其实焉能□我？ → "how could it ever move me?"; 23:14 □东家墙 → "scale
+  the host's wall"; 12:14 竞无▉国夫人 → "no Li Wa … ennobled as your Lady of Qian" (汧国夫人,
+  with the identification of Li Wa supplied as well); 37:11 水字，加一点是□字 → 'add a dot to
+  make it "ice" (冰)'. This is good editorial work presented as though no editing occurred.
+- **Silent guess.** 46:31 ▉字阑杆丁字帘 → "cross-shaped balustrades, T-shaped blinds". The
+  couplet's conceit is that *both* halves name a character-shape; the English invents one for
+  the half the source has lost.
+- **Silent deletion.** 51:16 声声中▉ is simply absent from the English sentence; 57:36's
+  咮咮□□ — the onomatopoeia itself — becomes "a shrill imitation of a rooster's crowing".
+- **Absorbed into summary.** 42:33 这些个不要脸的狗鸡巴□的，真他妈的可恶 falls inside the
+  stretch where Changqing's widow's tirade is converted from direct speech to reported speech
+  ("Changqing's widow cried out that they were all blind fools…"), so the gap vanishes along
+  with her voice. It is an S8 case and an S7 case at once.
 
 Meanwhile 15:10 leaves an emendation *visible* — "**[radiant]** as peach and plum" — inside
 the running prose, as do 32:4 and 32:22. So emendations are marked in three places and hidden
@@ -243,14 +258,35 @@ all 18 paragraphs that use the unit:
 | 39:22 | 一个时辰 | "the better part of an hour" | two hours |
 | 52:10 | 两三个时辰 | "two or three hours" | four to six hours |
 
-半个时辰 alone receives four English values across the book — "a full hour" (16:13, 22:10),
-"half an hour" (33:19), "over half an hour" (56:21), "nearly one double-hour" (58:4) — two of
-them off by a factor of two.
+半个时辰 alone receives five English values across the book — "a full hour" (16:13, 22:10),
+"half an hour" (33:19), "over half an hour" (56:21), "nearly one double-hour" (58:4) and "half
+a **shichen**" (31:8) — two of them off by a factor of two and one left untranslated.
+
+### S13 — female pronouns for male characters: the audit's own fix is incomplete
+`TRANSLATION_AUDIT.md` records this class as corrected, naming "Sulan (ch. 28)" among the
+repairs. Screening every paragraph whose English uses *she/her/herself* against the Chinese for
+a female referent, then reading all 132 candidates, two survive as genuine errors — and both
+are in the chapters the audit says it fixed:
+
+- **28:5** — "Realizing **his** words had made it sound as though Yunong were dead, **she**
+  hurried out to Ziyu." Lu Sulan is a man; the same sentence gets it right the first time.
+- **29:9** — 想既能如此欢笑 → "**She** reasoned to **herself**…". The reasoner is Ziyu.
+
+The screen also shows the fix largely did work: the other 130 candidates are legitimate — women
+the Chinese names directly rather than by a gendered noun, quoted verse with a female speaker,
+and the chapter 54 poetry discussion, where the run of "She explained… She called… She
+observed…" is correct as to gender but is itself the reported-speech problem of S8.
 
 ### S11 — bold markdown in the translated text
 29 `**…**` spans in 20 paragraphs, all in chapters 45 and 46, marking place names
 (`**Lychee Lane**`, `**Autumn-Chant Waterside Pavilion**`). The renderer has no handling for
 double asterisks, so these reach the screen with asterisks attached, like the S2 spans.
+
+A related single-paragraph defect: **30:4** carries the literal two-character sequences `\n`
+and `\t` in mid-sentence — "…taken a carriage straight to the Hua mansion.`\n\t`Meanwhile,
+Young Master Hua had personally decorated various spots." An escape was written into a source
+string where it never became a real line break, so the backslashes reach the reader. It is the
+only paragraph in the corpus with this defect.
 
 ### S9 — names are romanised, translated, and roster-mismatched simultaneously
 Checking every paragraph against the project's own 204-character roster in `data.ts`, 256
@@ -294,6 +330,13 @@ Errors found in close reading, grouped by kind. Each is checkable at the cited p
 | 7:9 | 雅字竟当他实字 | "took an elegant word and gave it a crude, literal twist" | 虚字/实字 are the grammatical terms function-word and content-word. The plaque says 虚白; the joke is that Gao Pin has read the 虚 as an 实. It is a grammarian's pun on the room's name. |
 | 7:25 | 红毛国 | "the Red Feather Nation" | 红毛 is the standard Qing term for the Dutch ("red hair"). The mock-allusion works because 朱毛 / 红毛 / 一毛不拔 are all 毛 = hair; the English uses "feather" for two of the three and "hair" for the Mencius quotation, so the chain breaks mid-joke. |
 | 11:3 | 只愿一见侯门大小苏 | "the Marquis's twin jades" | 大小苏 names the two Su sisters and puns on the two Song Su brothers. Removing the surname removes both. |
+| 32:4 | 倒叫我太山太水空喜欢了半夜 | "leaving me to realize I had rejoiced over nothing for half the night" | 太山太水 (泰山/泰水) are the father- and mother-in-law — *they* celebrated all night on a false report. Both are deleted and the disappointment transferred to Zhongqing. The same idiom is flattened to "my in-laws" at 24:0, so it is lost in both of its two appearances. |
+| 30:2 | 如花之落圂飘茵 | "like a fallen flower swept into the privy or the mud" | The allusion is a *contrast*: petals from one branch, some landing on a silk cushion (茵), some in a cesspit (圂) — fortune's caprice. Turning 茵 into "mud" collapses the two destinations into one and removes the governing metaphor of Qinyan's whole meditation in 30:0–30:2. |
+| 31:8 | 遣风吹送上华堂 | "sent the wind to waft **her** down into this splendid hall" | Two losses. "Her" makes Chang'e descend; what the wind carries is the moonlight. And 华堂 puns on 华 — the *Hua* hall — so Huifang has hidden a compliment to his host in the poem's last two characters. That is why Young Master Hua "slapped the table" in the next sentence; in English he is applauding a generic phrase for a nice room. |
+| 35:3 | 好红相公 | "What a fine famous gentleman!" | 红相公 is a *sought-after* boy-actor, which is exactly how 3:12 has it ("you sought-after darling"). "Famous gentleman" also collides with 名士, the book's word for the scholars, so Fu the Third appears to be calling Rongguan a literatus. |
+| 35:11 | 坐月到黄昏 | "sitting in the moonlight until dusk" | Impossible in that order. The line is the flower-lover sitting on into the evening *waiting for* the moon. |
+| 33:4 | 小琅嬛室 | "Little **Langgan** Studio" | 琅嬛 is *Langhuan*, the legendary celestial library — and the translation itself uses "the heavenly Langhuan library" at 1:21. 琅玕 (*langgan*) is a different word, a jade-like stone. The misromanisation also severs Baozhu's studio name from the compliment paid to Jin Shufang in chapter 1. |
+| 36:23 | 你还当我相公看待 | "you still treat me like a gigolo" | 相公 is the book's own word for its boy-actors, elsewhere "Master", "gentleman", "darling". "Gigolo" imports a modern kept-man-of-women sense that is precisely the wrong transaction. |
 
 ### 4.2 Allusions dissolved into paraphrase
 The translation is capable of glossing — 10:27 explains 柳下惠 inline, 6:14 spells out the
@@ -403,6 +446,10 @@ glossed. A three-paragraph build-up lands on a blank page.
 - **1:33** 黄金争掷作缠头 → "Gold is eagerly thrown to form his silken headband" — 缠头 is the
   gratuity flung to a performer, which 1:34 gets right one screen later. It becomes "the
   embroidered silk wrapping" at 9:27: three renderings.
+- **30:10** 酉戌二时 → "Through the hours of you and xu", romanised with no gloss. The audit
+  records fixing this from "five to seven"; the arithmetic is now right, but an English reader
+  still cannot tell it means roughly 5 p.m. to 9 p.m. **36:9** 辰刻 goes the other way and is
+  generalised to "tomorrow morning".
 
 ### 4.5 Internal contradictions (the same thing, two ways)
 - 海棠 — "begonia" at 1:21 and in the garden name 海棠春圃 (5:13, recurring throughout);
@@ -417,6 +464,13 @@ glossed. A three-paragraph build-up lands on a blank page.
   "Moth-Eaten Thousand-Character Classic" / "The Stuttering Dictionary" (2:25) versus
   "Worm-Eaten Thousand Character Classic" / "the Rhyme-and-Alliteration Compendium" (6:25).
   The ch. 6 versions are the better ones, which makes the ch. 2 versions the errors.
+- 八龄班 — **six** English names for one troupe, and the last of them is a collision:
+  "Eight-Ages Troupe" (11:4), "Eight-Age" (11:4, 30:11, 30:26), "eight young pages" (18:10,
+  19:0), "Eight-Year Troupe" (19:2), "Eight Ling" (21:2, 24:3, 25:24, 26:5, 26:6) and
+  "**Baling**" (36:0, 36:6, 41:36). "Baling" is indistinguishable from the surname 巴 — 巴英官
+  is "Ba Yingguan" in chapter 36 itself and 巴霖 is "Ba Lin" — so a reader meeting "the Baling
+  boys" has no way to know it is not a person. "eight young pages" is not a name at all; it
+  reads as a headcount.
 - 姑苏会馆 — "the Gusu Guildhall" (2:0) / "the Suzhou Guild Hall" (3:6).
 - 梅崦 — "the Plum Blossom Retreat" (2:34) / "the Meiyan" (10:11).
 - 金牌楼 — "Jinpai Tower Lane" (3:35) / "the Gold Pailou" (5:26).
@@ -502,6 +556,15 @@ intact through a four-part gloss (shaved bare / worn bare / spent bare / eats ba
 磨镜子 is kept as "grinding mirrors" without flinching. The same translator, handling the same
 material, elsewhere declines.
 
+Chapter 36 makes the point again, and at length. Monk Tang's 鸡巴脑袋 is rendered "a
+dick-head" and his follow-up boast lands; his blessing 前门增百福，后户纳千祥 keeps the
+front-door/back-door anatomy, so it stays filthy; the sea-cucumber innuendo at 36:17 ("slides
+down smooth and easy, and won't make your stomach swell") survives whole; Juhua on the chamber
+pot and Xi Eleven's drain joke at 36:15 are unsoftened. 27:30's 打烂你这娘卖□的 becomes "I will
+smash this whore-womb den". Whatever governs the softening catalogued above, it is not a policy
+the translation applies to itself consistently — which means §5.2 is a list of local decisions
+that can be revisited one by one, not a ceiling.
+
 ### 5.3 Voice: first-person confession turned into third-person summary
 S8 quantifies this; chapter 13 shows what it costs. Su Huifang's autobiography — orphaning in
 Yunnan, his father's impeachment and death, the year begging on the road to Suzhou, the old
@@ -526,6 +589,11 @@ that standard. All eight are third-person appraisals in a connoisseur's register
 point of a 花谱 — and all eight are turned into second-person direct address: "Your dancing
 sleeves drift light and frail…". Fluent, and wrong for the genre: a catalogue of judgements
 becomes a sequence of love-notes, and the appraising distance the form depends on is gone.
+
+**Verse layout is not a settled convention.** Chapters 4, 11 and 31 set their poems out as
+lines; **35:11** runs its quatrain into the surrounding prose as a sentence, so the reader is
+given no signal that a poem has started. This is the same class of inconsistency as S4, but it
+falls on the material where it costs most.
 
 **Chapter 11** states a rule and then breaks it three times. Mrs. Yuan explains that the five
 phrases "must weave into a single rhyme, ringing out with a pleasing, poetic cadence when
@@ -570,6 +638,25 @@ places, and they show what the rest could be:
 - **20:6–20:10**, the ride through the Yiyuan, is the descriptive prose at its most
   comfortable, and the four painters invoked in the appraisal (Wang Lutai, Xiao Chizhu, Ni
   Yunlin, Xu Qingteng) are all correctly identified.
+- **30:0–30:2**, Qinyan's balsam-flower soliloquy — the plucked flower, the potted flower, the
+  flower trained on wire, and the man who may not laugh or cry — is carried whole and at full
+  length. It is one of the passages where the translation's elevated register is the right one.
+- **32:0** is the model of how the wordplay *should* be handled. The Tai-hexagram divination is
+  given in full, 帝乙归妹，以祉元吉 correctly attributed to Di Yi, and the year-pun is spelled
+  out for the reader: "the 'Yi' of Di Yi, and the character 'Mei' (sister) without the woman
+  radical, doesn't that make the characters 'Yiwei'?" This is exactly the treatment 7:13 and
+  7:34 do not get.
+- **33:4–33:5** handle the connoisseur vocabulary precisely — 唐花 as "forced hothouse blooms",
+  粉定 as "Ding-kiln porcelain", 此君 kept as "this gentleman" with the context carrying Wang
+  Huizhi's joke — and quote Bai Juyi's 同是天涯沦落人 accurately at the moment it makes Baozhu weep.
+- **36:23**, the bracelet scene, is the best-rendered sequence in chapters 28–36: 脸上先闻了一闻
+  as "buried his face in Qinyan's cheek, deeply inhaling his scent", the bracelet smashed into
+  three pieces in the courtyard, and Ba Yingguan's closing joke about having the fragments
+  mounted, all at the right pitch.
+- **37:11** deserves separate credit as the hardest thing in the book. The graph-building
+  drinking game — 水/冰/永, 十/士/干, 杳/查/香, 丁/于/亍, 卜/上/下, 白/自/百 and the bawdy
+  曰/田/由/甲/申 finish, where one man wants the stroke pushed up and the other pulled down —
+  is translated complete, every character printed beside its gloss, and it works.
 
 ---
 
@@ -585,20 +672,22 @@ places, and they show what the rest could be:
 4. **Mark the lacunae** (S7). Twenty-two paragraphs currently present conjecture as text while
    the Chinese beside them flags a gap.
 5. **Restore direct speech** in the 34 paragraphs of S8, beginning with chapter 13.
-6. **Fix the errors in §4.1** — they are few, they are checkable, and each one currently
+6. **Fix the two surviving female pronouns** at 28:5 and 29:9 (S13), and the stray `\n\t` at
+   30:4. Two minutes of work, and both currently misgender or garble on screen.
+7. **Fix the errors in §4.1** — they are few, they are checkable, and each one currently
    breaks a scene rather than blurring it.
-7. **Then, if there is appetite for it, the register work in §5.1–5.2**, which is real
+8. **Then, if there is appetite for it, the register work in §5.1–5.2**, which is real
    editorial labour rather than correction, and which is where the remaining 意境 is.
 
 ---
 
 ## 7. Coverage log
 
-**Whole-corpus screens (S1–S11): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
+**Whole-corpus screens (S1–S13): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–27 complete, plus targeted close reading of
-the paragraphs the screens flagged in ch. 27, 30, 33, 38, 39, 41, 45, 46, 52, 53, 54, 56
-and 58.
+**Close reading, paragraph by paragraph:** ch. 1–36 complete, plus targeted close reading of
+the paragraphs the screens flagged in ch. 37, 38, 39, 40, 41, 42, 45, 46, 51, 52, 53, 54, 56,
+57 and 58.
 
 The remaining chapters are covered by the mechanical screens only. Findings from them that
 appear above (41:27, 48:20/22, 42:15/16, 54:11/33/39, 59:8–10, 57:35–52, 51:16–21, the
