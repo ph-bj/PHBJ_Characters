@@ -3,7 +3,7 @@
   <defs>
     <!-- Soft ink drop shadow for high contrast on light parchment backgrounds -->
     <filter id="brush-shadow" x="-40%" y="-40%" width="180%" height="180%" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0.6" dy="0.8" stdDeviation="0.7" flood-color="#0f0d0c" flood-opacity="0.55"/>
+      <feDropShadow dx="0.6" dy="0.8" stdDeviation="0.7" flood-color="#0f0d0c" flood-opacity="0.5"/>
     </filter>
 
     <!-- Ink-dipped bristle head gradient: pitch black ink tip transitioning to wolf/goat hair base -->
@@ -40,19 +40,19 @@
       <stop offset="100%" stop-color="#2a170d"/>
     </linearGradient>
 
-    <!-- Vibrant Imperial Crimson Silk Tassel Gradient -->
-    <linearGradient id="tassel-gradient" x1="-2" y1="-33" x2="2" y2="-37.5" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#991b1b"/>
-      <stop offset="50%" stop-color="#ef5350"/>
-      <stop offset="100%" stop-color="#b71c1c"/>
+    <!-- Subtle Deep Seal Crimson Silk Tassel Gradient -->
+    <linearGradient id="tassel-gradient" x1="-1" y1="-33" x2="1" y2="-36.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7a1212"/>
+      <stop offset="50%" stop-color="#b82e2e"/>
+      <stop offset="100%" stop-color="#8b1c1c"/>
     </linearGradient>
   </defs>
 
-  <!-- Main transformed group: Tip positioned at (2, 30), rotated 45deg to fit comfortably inside (0 0 32 32) -->
+  <!-- Main transformed group: Tip positioned at (2, 30), rotated 45deg -->
   <g filter="url(#brush-shadow)">
     <g transform="translate(2, 30) rotate(45)">
-      <!-- 0. White Parchment Halo Outline (Guarantees crisp contrast for all brush elements including tassel) -->
-      <g stroke="#faf5e8" stroke-width="0.8" stroke-linejoin="round" stroke-linecap="round" fill="none" opacity="0.95">
+      <!-- 0. White Parchment Halo Outline -->
+      <g stroke="#faf5e8" stroke-width="0.75" stroke-linejoin="round" stroke-linecap="round" fill="none" opacity="0.95">
         <!-- Slender Hair Bristle Head Contour -->
         <path d="M 0 0 C -0.5 -2.0, -1.4 -4.8, -1.8 -9 L 1.8 -9 C 1.4 -4.8, 0.5 -2.0, 0 0 Z"/>
         <!-- Vermilion Ferrule Contour -->
@@ -60,10 +60,9 @@
         <!-- Long Slender Bamboo Shaft Contour -->
         <path d="M -1.6 -12.5 L -1.2 -31 L 1.2 -31 L 1.6 -12.5 Z"/>
         <!-- End Cap Contour -->
-        <path d="M -1.2 -31 L -1.0 -33 C -0.5 -33.5, 0.5 -33.5, 1.0 -33 L 1.2 -31 Z"/>
-        <!-- Crimson Silk Tassel Loop & Twin Fringe Contour -->
-        <path d="M -0.8 -33.0 C -1.8 -34.5, -1.5 -36.5, 0 -36.5 C 1.5 -36.5, 1.8 -34.5, 0.8 -33.0"/>
-        <path d="M -0.6 -36.5 L -1.2 -37.5 M 0.6 -36.5 L 1.2 -37.5"/>
+        <path d="M -1.2 -31 L -1.0 -33 C -0.5 -33.4, 0.5 -33.4, 1.0 -33 L 1.2 -31 Z"/>
+        <!-- Subtle Crimson Silk Tassel Loop Contour -->
+        <path d="M -0.6 -33.0 C -1.2 -34.2, -1.0 -35.8, 0 -35.8 C 1.0 -35.8, 1.2 -34.2, 0.6 -33.0"/>
       </g>
 
       <!-- 1. Slender Tapered Hair Bristle Head (Tip at 0,0) -->
@@ -97,17 +96,16 @@
       <path d="M -0.6 -13 L -0.4 -30.5" stroke="#e8b88a" stroke-width="0.35" opacity="0.55"/>
 
       <!-- 4. Ivory / Brass End Cap -->
-      <path d="M -1.2 -31 L -1.0 -33 C -0.5 -33.5, 0.5 -33.5, 1.0 -33 L 1.2 -31 Z" fill="#e8dfd1"/>
+      <path d="M -1.2 -31 L -1.0 -33 C -0.5 -33.4, 0.5 -33.4, 1.0 -33 L 1.2 -31 Z" fill="#e8dfd1"/>
       <path d="M -1.2 -31 L 1.2 -31" stroke="url(#gold-gradient)" stroke-width="0.4"/>
 
-      <!-- 5. Prominent Crimson Silk Tassel Loop & Dangling Fringe (红双穗 - 100% Fully Visible) -->
-      <path d="M -0.8 -33.0 C -1.8 -34.5, -1.5 -36.5, 0 -36.5 C 1.5 -36.5, 1.8 -34.5, 0.8 -33.0 Z" 
-            fill="none" stroke="url(#tassel-gradient)" stroke-width="1.1" stroke-linecap="round"/>
-      <!-- Small Brass Ring Connector -->
-      <circle cx="0" cy="-33" r="0.6" fill="url(#gold-gradient)"/>
-      <!-- Symmetrical Crimson Silk Tassel Twin Threads -->
-      <path d="M -0.4 -36.5 L -1.2 -37.8 M 0.4 -36.5 L 1.2 -37.8 M 0 -36.5 L 0 -38.0" 
-            stroke="url(#tassel-gradient)" stroke-width="0.8" stroke-linecap="round"/>
+      <!-- 5. Subtle, Refined Crimson Silk Hanging Loop Cord (含蓄秀气的吊绳) -->
+      <path d="M -0.6 -33.0 C -1.2 -34.2, -1.0 -35.8, 0 -35.8 C 1.0 -35.8, 1.2 -34.2, 0.6 -33.0 Z" 
+            fill="none" stroke="url(#tassel-gradient)" stroke-width="0.75" stroke-linecap="round" opacity="0.88"/>
+      <!-- Delicate Brass Connector Ring Dot -->
+      <circle cx="0" cy="-33" r="0.45" fill="url(#gold-gradient)"/>
+      <!-- Fine Subtle Tassel Tail Thread -->
+      <path d="M 0 -35.8 L 0 -36.6" stroke="url(#tassel-gradient)" stroke-width="0.6" stroke-linecap="round" opacity="0.85"/>
     </g>
   </g>
 </svg>
