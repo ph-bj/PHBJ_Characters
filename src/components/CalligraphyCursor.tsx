@@ -21,16 +21,22 @@ export function setStoredCursorPreference(enabled: boolean) {
   }
 }
 
+// 墨分五色 (Five Tones of Traditional Chinese Calligraphy Ink)
+export type InkTone = "jiao" | "nong" | "zhong" | "dan" | "qing" | "vermilion";
+
 interface StrokePoint {
   x: number;
   y: number;
   width: number;
   alpha: number;
   maxAlpha: number;
+  tone: InkTone;
   life: number;
   maxLife: number;
-  color: string;
-  washColor: string;
+  jiaoColor: string;
+  nongColor: string;
+  danColor: string;
+  qingColor: string;
 }
 
 interface InkParticle {
@@ -40,6 +46,7 @@ interface InkParticle {
   vy: number;
   radius: number;
   alpha: number;
+  tone: InkTone;
   color: string;
   washColor: string;
   life: number;
@@ -54,6 +61,7 @@ interface InkRipple {
   maxRadius: number;
   alpha: number;
   color: string;
+  washColor: string;
 }
 
 export function CalligraphyCursorOverlay() {
@@ -105,25 +113,42 @@ export function CalligraphyCursorOverlay() {
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleResize, { passive: true });
 
-    // Detect if dark theme (plum) is active to choose high-contrast ink palette
-    const getInkPalette = () => {
+    // Traditional Chinese Ink Tone Palette Generator (墨分五色: 焦, 浓, 重, 淡, 清)
+    const getInkToneColors = (tone: InkTone) => {
       const isDark = document.documentElement.getAttribute("data-theme") === "plum";
+
       if (isDark) {
-        // Dark Plum Mode: Luminous Gold Calligraphy Ink & Bright Vermilion
-        return {
-          primaryInk: "#e2c889",      // Gold Ink (金粉墨)
-          vermilionInk: "#ff5722",    // Radiant Seal Vermilion (朱砂)
-          washColor: "rgba(226, 200, 137, 0.4)",
-          vermilionWash: "rgba(255, 87, 34, 0.4)",
-        };
+        // Dark Plum Mode: Luminous Gold Calligraphy Ink & Radiant Seal Vermilion
+        switch (tone) {
+          case "jiao": // 焦墨 (Pitch Gold)
+            return { core: "#f3e0a0", wash: "rgba(243, 224, 160, 0.4)", alpha: 0.95 };
+          case "nong": // 浓墨 (Dense Gold)
+            return { core: "#e2c889", wash: "rgba(226, 200, 137, 0.35)", alpha: 0.8 };
+          case "zhong": // 重墨 (Medium Gold)
+            return { core: "#cbb06d", wash: "rgba(203, 176, 109, 0.28)", alpha: 0.65 };
+          case "dan": // 淡墨 (Light Gold Wash)
+            return { core: "#b89b54", wash: "rgba(184, 155, 84, 0.2)", alpha: 0.4 };
+          case "qing": // 清墨 (Water Clear Wash)
+            return { core: "#9e8140", wash: "rgba(158, 129, 64, 0.12)", alpha: 0.22 };
+          case "vermilion": // 朱砂 (Seal Vermilion)
+            return { core: "#ff5722", wash: "rgba(255, 87, 34, 0.4)", alpha: 0.9 };
+        }
       } else {
-        // Light Parchment Mode: Deep Pine-Soot Black Ink & Seal Vermilion
-        return {
-          primaryInk: "#140d0b",      // Pine-Soot Black Ink (松烟墨)
-          vermilionInk: "#8b2500",    // Seal Red (朱砂)
-          washColor: "rgba(20, 13, 11, 0.35)",
-          vermilionWash: "rgba(139, 37, 0, 0.35)",
-        };
+        // Light Parchment Mode: Traditional Chinese Pine-Soot Black Ink (松烟墨) & Seal Vermilion
+        switch (tone) {
+          case "jiao": // 焦墨 (Scorched Pitch Black Ink - 0.95 opacity)
+            return { core: "#080605", wash: "rgba(8, 6, 5, 0.4)", alpha: 0.95 };
+          case "nong": // 浓墨 (Thick Dark Black Ink - 0.80 opacity)
+            return { core: "#140d0b", wash: "rgba(20, 13, 11, 0.35)", alpha: 0.8 };
+          case "zhong": // 重墨 (Heavy Medium Black Ink - 0.60 opacity)
+            return { core: "#281e19", wash: "rgba(40, 30, 25, 0.28)", alpha: 0.6 };
+          case "dan": // 淡墨 (Diluted Light Black Ink - 0.38 opacity)
+            return { core: "#473830", wash: "rgba(71, 56, 48, 0.2)", alpha: 0.38 };
+          case "qing": // 清墨 (Clear Water Wash Ink - 0.18 opacity)
+            return { core: "#6e594d", wash: "rgba(110, 89, 77, 0.12)", alpha: 0.18 };
+          case "vermilion": // 朱砂 (Seal Vermilion)
+            return { core: "#8b2500", wash: "rgba(139, 37, 0, 0.35)", alpha: 0.88 };
+        }
       }
     };
 
@@ -143,19 +168,19 @@ export function CalligraphyCursorOverlay() {
         }
 
         ctx.save();
-        // Outer wash ring
+        // Outer 清墨 clear water wash ring
         ctx.beginPath();
         ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = r.color;
+        ctx.strokeStyle = r.washColor;
         ctx.globalAlpha = r.alpha * 0.75;
-        ctx.lineWidth = 2.8;
+        ctx.lineWidth = 3.0;
         ctx.stroke();
 
-        // Inner solid ink bloom
+        // Inner 焦墨/浓墨 solid ink bloom
         ctx.beginPath();
-        ctx.arc(r.x, r.y, r.radius * 0.5, 0, Math.PI * 2);
+        ctx.arc(r.x, r.y, r.radius * 0.48, 0, Math.PI * 2);
         ctx.fillStyle = r.color;
-        ctx.globalAlpha = r.alpha * 0.6;
+        ctx.globalAlpha = r.alpha * 0.65;
         ctx.fill();
         ctx.restore();
       }
@@ -174,7 +199,7 @@ export function CalligraphyCursorOverlay() {
       }
 
       if (points.length >= 2) {
-        // Pass A: Soft Water-Wash Outer Halo (水墨晕染底)
+        // Pass A: 清墨 / 淡墨 Outer Water Wash Bleed Halo (清墨水晕底)
         ctx.save();
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
@@ -187,14 +212,14 @@ export function CalligraphyCursorOverlay() {
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
-          ctx.strokeStyle = p1.washColor;
-          ctx.lineWidth = Math.max(p1.width + 6, 8);
-          ctx.globalAlpha = p1.alpha * 0.5;
+          ctx.strokeStyle = p1.qingColor;
+          ctx.lineWidth = Math.max(p1.width + 8, 10);
+          ctx.globalAlpha = p1.alpha * 0.4;
           ctx.stroke();
         }
         ctx.restore();
 
-        // Pass B: Dense Ink Core Ribbon (浓墨主笔道)
+        // Pass B: 重墨 / 淡墨 Mid-Stroke Water Wash Body (淡墨润色层)
         ctx.save();
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
@@ -207,7 +232,27 @@ export function CalligraphyCursorOverlay() {
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
-          ctx.strokeStyle = p1.color;
+          ctx.strokeStyle = p1.danColor;
+          ctx.lineWidth = Math.max(p1.width + 3, 5);
+          ctx.globalAlpha = p1.alpha * 0.65;
+          ctx.stroke();
+        }
+        ctx.restore();
+
+        // Pass C: 焦墨 / 浓墨 Dense Black Ink Core Ribbon (焦墨主笔锋)
+        ctx.save();
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        for (let i = 0; i < points.length - 1; i++) {
+          const p1 = points[i];
+          const p2 = points[i + 1];
+          const midX = (p1.x + p2.x) / 2;
+          const midY = (p1.y + p2.y) / 2;
+
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
+          ctx.strokeStyle = p1.jiaoColor;
           ctx.lineWidth = p1.width;
           ctx.globalAlpha = p1.alpha;
           ctx.stroke();
@@ -215,7 +260,7 @@ export function CalligraphyCursorOverlay() {
         ctx.restore();
       }
 
-      // 3. Render Ink Splash & Diffusion Particles (墨滴 & 飞溅)
+      // 3. Render Ink Splash & Diffusion Particles (墨滴水墨晕染)
       const particles = particlesRef.current;
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
@@ -225,7 +270,7 @@ export function CalligraphyCursorOverlay() {
         p.vy *= 0.94;
         p.life += 1;
         const progress = p.life / p.maxLife;
-        p.alpha = (1 - progress) * 0.8;
+        p.alpha = (1 - progress) * 0.85;
         p.radius += p.expandRate; // Bleeding wash expand
 
         if (p.life >= p.maxLife || p.alpha <= 0.01) {
@@ -234,18 +279,19 @@ export function CalligraphyCursorOverlay() {
         }
 
         ctx.save();
+        // Inner ink dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
         ctx.globalAlpha = p.alpha;
         ctx.fill();
 
-        // Outer water wash blur ring on larger particles
-        if (p.radius > 3.5) {
+        // Outer 清墨/淡墨 water wash blur ring on larger particles
+        if (p.radius > 3) {
           ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius * 1.5, 0, Math.PI * 2);
+          ctx.arc(p.x, p.y, p.radius * 1.6, 0, Math.PI * 2);
           ctx.fillStyle = p.washColor;
-          ctx.globalAlpha = p.alpha * 0.45;
+          ctx.globalAlpha = p.alpha * 0.4;
           ctx.fill();
         }
         ctx.restore();
@@ -268,7 +314,6 @@ export function CalligraphyCursorOverlay() {
       const x = e.clientX;
       const y = e.clientY;
       const now = performance.now();
-      const palette = getInkPalette();
 
       if (lastPosRef.current) {
         const dx = x - lastPosRef.current.x;
@@ -279,44 +324,70 @@ export function CalligraphyCursorOverlay() {
         if (dist > 1.2) {
           const speed = dist / dt; // Mouse move velocity
 
-          // Dynamic brush stroke width: slow = rich juicy 10px-15px stroke; fast = tapered 3px-6px stroke
-          const strokeWidth = Math.max(3.5, Math.min(15, 13 - speed * 3.5));
-          const isVermilion = Math.random() > 0.92;
-          const strokeColor = isVermilion ? palette.vermilionInk : palette.primaryInk;
-          const washColor = isVermilion ? palette.vermilionWash : palette.washColor;
+          // Dynamic brush stroke width: slow = rich juicy 11px-16px stroke; fast = tapered 3.5px-6px stroke
+          const strokeWidth = Math.max(3.5, Math.min(16, 14 - speed * 3.8));
 
-          // Add continuous stroke point
+          // Determine Ink Tone (焦、浓、重、淡、朱砂)
+          let tone: InkTone = "nong";
+          const rand = Math.random();
+          if (rand > 0.92) tone = "vermilion";       // 朱砂 (Seal Vermilion)
+          else if (rand > 0.70) tone = "jiao";      // 焦墨 (Scorched Pitch Black)
+          else if (rand > 0.40) tone = "nong";      // 浓墨 (Thick Dark Black)
+          else if (rand > 0.15) tone = "zhong";     // 重墨 (Heavy Medium Black)
+          else tone = "dan";                         // 淡墨 (Diluted Light Black)
+
+          const jiaoColors = getInkToneColors("jiao");
+          const nongColors = getInkToneColors(tone);
+          const danColors = getInkToneColors("dan");
+          const qingColors = getInkToneColors("qing");
+
+          // Add continuous stroke point with multi-tone ink properties
           strokePointsRef.current.push({
             x,
             y,
             width: strokeWidth,
-            alpha: 0.9,
-            maxAlpha: 0.9,
+            alpha: nongColors.alpha,
+            maxAlpha: nongColors.alpha,
+            tone,
             life: 0,
             maxLife: 45, // Visible for ~0.75s
-            color: strokeColor,
-            washColor,
+            jiaoColor: jiaoColors.core,
+            nongColor: nongColors.core,
+            danColor: danColors.core,
+            qingColor: qingColors.wash,
           });
 
-          // Spawn ink droplets & splatters along movement path
+          // Spawn ink droplets & splatters along movement path in different black ink transparencies
           const numParticles = Math.min(4, Math.floor(dist / 3.5));
           for (let i = 0; i < numParticles; i++) {
             const ratio = i / numParticles;
             const px = lastPosRef.current.x + dx * ratio;
             const py = lastPosRef.current.y + dy * ratio;
 
+            // Pick particle tone for natural ink splatter gradation
+            const pRand = Math.random();
+            let pTone: InkTone = "nong";
+            if (pRand > 0.90) pTone = "vermilion";
+            else if (pRand > 0.65) pTone = "jiao";
+            else if (pRand > 0.35) pTone = "zhong";
+            else if (pRand > 0.15) pTone = "dan";
+            else pTone = "qing";
+
+            const pColors = getInkToneColors(pTone);
+
             particlesRef.current.push({
-              x: px + (Math.random() - 0.5) * 4,
-              y: py + (Math.random() - 0.5) * 4,
+              x: px + (Math.random() - 0.5) * 5,
+              y: py + (Math.random() - 0.5) * 5,
               vx: (Math.random() - 0.5) * (speed * 0.4 + 0.4),
               vy: (Math.random() - 0.5) * (speed * 0.4 + 0.4),
-              radius: Math.random() * 3.8 + 1.8,
-              alpha: 0.8,
-              color: strokeColor,
-              washColor,
+              radius: Math.random() * 4.0 + 1.8,
+              alpha: pColors.alpha,
+              tone: pTone,
+              color: pColors.core,
+              washColor: pColors.wash,
               life: 0,
               maxLife: Math.floor(Math.random() * 25) + 20,
-              expandRate: 0.2,
+              expandRate: 0.22,
             });
           }
         }
@@ -327,36 +398,41 @@ export function CalligraphyCursorOverlay() {
     };
 
     const onMouseDown = (e: MouseEvent) => {
-      const palette = getInkPalette();
+      const jiaoColors = getInkToneColors("jiao");
+      const qingColors = getInkToneColors("qing");
 
       // Bold ink stamp bloom on click
       ripplesRef.current.push({
         x: e.clientX,
         y: e.clientY,
         radius: 4,
-        maxRadius: 30,
-        alpha: 0.85,
-        color: palette.primaryInk,
+        maxRadius: 32,
+        alpha: 0.88,
+        color: jiaoColors.core,
+        washColor: qingColors.wash,
       });
 
-      // 10 radial ink splash droplets
-      for (let i = 0; i < 10; i++) {
-        const angle = (i / 10) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
-        const speed = Math.random() * 2.8 + 1.2;
-        const isVermilion = i % 4 === 0;
+      // 12 radial ink splash droplets featuring Five Ink Tones (焦、浓、重、淡、朱砂)
+      const tones: InkTone[] = ["jiao", "nong", "zhong", "dan", "vermilion"];
+      for (let i = 0; i < 12; i++) {
+        const angle = (i / 12) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+        const speed = Math.random() * 3.0 + 1.2;
+        const t = tones[i % tones.length];
+        const tColors = getInkToneColors(t);
 
         particlesRef.current.push({
           x: e.clientX,
           y: e.clientY,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
-          radius: Math.random() * 4.5 + 2,
-          alpha: 0.9,
-          color: isVermilion ? palette.vermilionInk : palette.primaryInk,
-          washColor: isVermilion ? palette.vermilionWash : palette.washColor,
+          radius: Math.random() * 4.8 + 2.0,
+          alpha: tColors.alpha,
+          tone: t,
+          color: tColors.core,
+          washColor: tColors.wash,
           life: 0,
-          maxLife: 32,
-          expandRate: 0.25,
+          maxLife: 35,
+          expandRate: 0.26,
         });
       }
 
