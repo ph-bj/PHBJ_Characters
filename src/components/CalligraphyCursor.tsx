@@ -147,7 +147,6 @@ export function CalligraphyCursorOverlay() {
   const ripplesRef = useRef<InkRipple[]>([]);
   const animFrameRef = useRef<number | null>(null);
   const lastPosRef = useRef<{ x: number; y: number; time: number } | null>(null);
-  const activeInputRef = useRef<"mouse" | "touch">("mouse");
 
   const isCursorActive = enabled && isFinePointer;
   const activeRef = useRef<boolean>(isCursorActive);
@@ -192,17 +191,6 @@ export function CalligraphyCursorOverlay() {
 
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleResize, { passive: true });
-
-    // Dynamic pointer type tracker - automatically restores "mouse" input mode on pointermove
-    const handlePointerType = (e: PointerEvent) => {
-      if (e.pointerType === "mouse" || e.pointerType === "pen") {
-        activeInputRef.current = "mouse";
-      } else if (e.pointerType === "touch") {
-        activeInputRef.current = "touch";
-      }
-    };
-    window.addEventListener("pointerdown", handlePointerType, { passive: true });
-    window.addEventListener("pointermove", handlePointerType, { passive: true });
 
     // Traditional Chinese Ink Tone Palette Generator (墨分五色: 焦, 浓, 重, 淡, 清)
     const getInkToneColors = (tone: InkTone) => {
@@ -402,8 +390,8 @@ export function CalligraphyCursorOverlay() {
     };
 
     const onMouseMove = (e: MouseEvent) => {
-      // Suppress ink particle generation only on active touch dragging
-      if (!activeRef.current || activeInputRef.current === "touch") return;
+      // Ignore only if cursor feature disabled or synthetically fired touch event
+      if (!activeRef.current || (e as any).sourceCapabilities?.firesTouchEvents) return;
 
       const x = e.clientX;
       const y = e.clientY;
@@ -495,7 +483,7 @@ export function CalligraphyCursorOverlay() {
     };
 
     const onMouseDown = (e: MouseEvent) => {
-      if (!activeRef.current || activeInputRef.current === "touch") return;
+      if (!activeRef.current || (e as any).sourceCapabilities?.firesTouchEvents) return;
 
       const jiaoColors = getInkToneColors("jiao");
       const qingColors = getInkToneColors("qing");
@@ -550,8 +538,6 @@ export function CalligraphyCursorOverlay() {
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleResize);
-      window.removeEventListener("pointerdown", handlePointerType);
-      window.removeEventListener("pointermove", handlePointerType);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mousedown", onMouseDown);
       if (animFrameRef.current) {
