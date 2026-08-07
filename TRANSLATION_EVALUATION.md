@@ -451,6 +451,16 @@ glossed. A three-paragraph build-up lands on a blank page.
   a well-bred recluse, and 1:20 renders the same idiom correctly.
 - **1:18** 《絮阁》 → "The Pavilion of Gossamer" — 絮 here is 絮聒, to nag; the Changsheng dian
   scene is Yang Guifei's jealous tirade, so reading 絮 as willow-floss inverts the scene.
+- **43:12** 红牙白雪选词场 → "red castanets and ivory raps choose the songs of the
+  singing-rooms". 红牙 is the red sandalwood clapper and is caught correctly; 白雪 is not a
+  second instrument but 阳春白雪, the loftiest songs — the standard the couplet is measuring
+  against, and the half that answers 北宋南唐评乐府 in the line above.
+- **43:24, 38:37** 命中磨蝎 / 命宫磨蝎 → "riddled with afflictions" / "his horoscope". 磨蝎 is
+  Capricorn in the natal palace, the standard sign of a life dogged by slander — which is why
+  the book invokes Han Yu and Su Shi around it. Paraphrased away both times, so a recurring
+  motif reads as two unrelated remarks.
+- **44:2** 二百银 → "two hundred silver" — not a unit; the Chinese means taels, and the figure
+  is the measure of the ingratitude the household is accusing Qinyan of.
 - **41:26, 41:28** 《前腔》 → "[Opening Aria and Closing Aria]". 前腔 is not a tune name; it
   means "to the tune above". Rendered as a title it invents an aria that does not exist, twice
   in one suite.
@@ -499,6 +509,12 @@ glossed. A three-paragraph build-up lands on a blank page.
   is "Ba Yingguan" in chapter 36 itself and 巴霖 is "Ba Lin" — so a reader meeting "the Baling
   boys" has no way to know it is not a person. "eight young pages" is not a name at all; it
   reads as a headcount.
+- 翡翠 — "jadeite" 5 times, "emerald" once. The single exception is 44:4, and it names the
+  *same pair of bracelets* that chapter 36 calls jadeite three times (36:15, 36:22, 36:24) —
+  a plot object the reader is expected to recognise from eight chapters earlier. The stone
+  changes when the bracelets change hands.
+- 十珠 — "the Ten Pearls" ×12 (ch. 11, 26) / "the Ten Zhus" ×7 (all in ch. 41) / "the ten
+  Pearl-maids" ×1 (44:7). Three names for one standing group, each confined to its own chapter.
 - 姑苏会馆 — "the Gusu Guildhall" (2:0) / "the Suzhou Guild Hall" (3:6).
 - 梅崦 — "the Plum Blossom Retreat" (2:34, 37:2) / "the Meiyan" (10:11) / "the Plum Knoll"
   (36:3, 38:0). Three forms, two of them in consecutive chapters.
@@ -717,6 +733,18 @@ places, and they show what the rest could be:
   euphemism — the basin behind the kang, the woman's contempt, the shakedown at the door, the
   straw mat he has to wrap himself in — at exactly the flat, unsparing register the Chinese
   uses.
+- **Chapter 43's money.** The negotiation at 43:21–43:23 runs entirely on the difference
+  between 两 and 吊 — the widow demanding 三千两上好纹银 against Huifang's offer of 三千吊钱,
+  and her own arithmetic that Qinyan earned 整万吊 in half a year — and the English holds
+  "taels" and "strings" apart at every step, then reconciles 一千九百两 plus 五百两 to the
+  二千四百两 draft Ziyun actually writes. This is the distinction 18:2 gets wrong by a factor
+  of a thousand, handled correctly across a whole scene built on it. 43:12 is the same kind of
+  win in another register: four fur jackets described by cut and pattern rather than collapsed
+  into "fur coats".
+- **44:1–44:5**, a chain of hearsay passed through four mouths, keeps every link in direct
+  speech and tracks the distortion at each step ("with his tongue loosened, he added a good
+  many embellishments of his own"). The plot turns on the rumour getting worse as it travels,
+  and in English it does.
 - **20:6–20:10**, the ride through the Yiyuan, is the descriptive prose at its most
   comfortable, and the four painters invoked in the appraisal (Wang Lutai, Xiao Chizhu, Ni
   Yunlin, Xu Qingteng) are all correctly identified.
@@ -789,7 +817,7 @@ places, and they show what the rest could be:
 
 **Whole-corpus screens (S1–S13): all 60 chapters, all 2,023 paragraph pairs.** Counts are exact.
 
-**Close reading, paragraph by paragraph:** ch. 1–42 complete, plus targeted close reading of
+**Close reading, paragraph by paragraph:** ch. 1–44 complete, plus targeted close reading of
 the paragraphs the screens flagged in ch. 45, 46, 51, 52, 53, 54, 56, 57 and 58.
 
 The remaining chapters are covered by the mechanical screens only. Findings from them that
