@@ -85,7 +85,7 @@ export const gardens: Garden[] = [
       'latticed balustrades wind through a forest of blossoms. When the plums are open, the ' +
       'buildings and trees merge into a single snowscape of white petals. The Plum Ravine hosts ' +
       'the novel\'s most important literary gatherings — the ten-day plum-blossom assembly, ' +
-      'Qu Daosheng\'s first visit, and countless poetic exchanges between Ziyu and his friends.',
+      'Qu Daoweng\'s first visit, and countless poetic exchanges between Ziyu and his friends.',
     descriptionZh:
       '五处相连的庭舍，依山而筑，梅树环抱，长廊曲槛钩连，绿萼红香围绕。' +
       '花开时节，林屋难分，宛若一片香雪。梅崦是怡园最重要的雅集之所：' +

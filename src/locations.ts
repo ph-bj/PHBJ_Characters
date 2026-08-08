@@ -168,7 +168,7 @@ export const novelLocations: NovelLocation[] = [
   { id: 'venue-hanlin', name: '翰林院', nameEn: 'Hanlin Academy', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['翰林院'] },
   { id: 'venue-liubu', name: '礼部', nameEn: 'Ministry of Rites', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['礼部'] },
   { id: 'venue-fuyin', name: '府尹', nameEn: 'Prefectural Office', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['府尹'] },
-  { id: 'temple-qu', name: '屈公祠', nameEn: 'Qu Shrine', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['屈公祠堂', '屈公祠', '屈子祠', '屈祠'], aliasesEn: ['Qu Shrine', 'Shrine of Qu Daosheng'] },
+  { id: 'temple-qu', name: '屈公祠', nameEn: 'Qu Shrine', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['屈公祠堂', '屈公祠', '屈子祠', '屈祠'], aliasesEn: ['Qu Shrine', 'Shrine of Qu Daoweng', 'Shrine of Qu Daosheng'] },
   { id: 'temple-hongji', name: '宏济寺', nameEn: 'Hongji Temple', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['宏济寺', '鸿济寺'] },
   { id: 'temple-huguo', name: '护国寺', nameEn: 'Huguo Temple', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['护国寺'] },
   { id: 'temple-shoufo', name: '寿佛寺', nameEn: 'Shoufo Temple', type: 'site', typeZh: '府邸街巷与场馆', searchTokens: ['寿佛寺'] },
