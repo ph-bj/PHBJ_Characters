@@ -132,7 +132,7 @@ export const novelLocations: NovelLocation[] = [
   { id: 'feature-woyun', name: '卧云香院', nameEn: 'Fragrant Court of Resting Clouds', type: 'garden', typeZh: '园林', searchTokens: ['卧云香院'] },
   { id: 'feature-yinqiu', name: '吟秋榭', nameEn: 'Autumn-Chanting Waterside Pavilion', type: 'garden', typeZh: '园林', searchTokens: ['吟秋榭', '吟秋水榭'] },
   { id: 'feature-tingyun', name: '停云叙雨轩', nameEn: 'Studio of Lingering Clouds and Speaking Rain', type: 'garden', typeZh: '园林', searchTokens: ['停云叙雨轩'] },
-  { id: 'feature-lianqiu', name: '练秋阁', nameEn: 'Autumn-Silk Pavilion', type: 'garden', typeZh: '园林', searchTokens: ['练秋阁'] },
+  { id: 'feature-lianqiu', name: '练秋阁', nameEn: 'Autumn-Silk Pavilion', type: 'garden', typeZh: '园林', searchTokens: ['练秋阁'], aliasesEn: ['Refining Autumn Loft'] },
   { id: 'feature-guiling', name: '桂岭', nameEn: 'Cassia Ridge', type: 'garden', typeZh: '园林', searchTokens: ['桂岭'] },
   { id: 'feature-conggui', name: '丛桂山房', nameEn: 'Cassia-Grove Mountain House', type: 'garden', typeZh: '园林', searchTokens: ['丛桂山房'] },
   { id: 'feature-piaomiao', name: '缥渺亭', nameEn: 'Mist-Veiled Pavilion', type: 'garden', typeZh: '园林', searchTokens: ['缥渺亭'] },
