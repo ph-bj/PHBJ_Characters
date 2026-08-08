@@ -4,6 +4,12 @@
 An assessment of `src/chapterTranslations/chapterTranslations{1..60}.ts` against the parallel
 Chinese in `src/chapterTranslations/chinese/chapterChinese{1..60}.ts`.
 
+> **Status.** The findings in §3–§5 have since been repaired in the translation files.
+> **§8 records what changed, re-runs every screen, and states what is still open.** Sections
+> 1–7 are deliberately left as first written — they describe the text as it was found, and the
+> paragraph citations in them are the evidence for the repairs, not a description of the
+> current text.
+
 ---
 
 ## 1. Method and coverage
@@ -1027,3 +1033,129 @@ Seed Garden" manuals.
 
 Both passes are now complete over the same material, so every finding above is either an exact
 count over all 2,023 pairs or a paragraph read in its own context, and in most cases both.
+
+---
+
+## 8. Repairs applied
+
+Everything catalogued above has now been repaired in `src/chapterTranslations/`, together with
+the supporting data files the findings implicated (`src/data.ts`, `src/englishWorkTitles.ts`,
+`src/locations.ts`, `src/gardens.ts`, `src/summaries_51to60.ts`). Sections 1–7 are left as
+written: they are the record of what the reading found, not a to-do list to be edited into
+agreement with the result. This section records what changed and what is still open.
+
+The alignment was preserved throughout. After every batch, all 60 modules were parsed as real
+JavaScript and the pair count re-checked: **2,023 Chinese paragraphs, 2,023 English, aligned.**
+
+### The screens, re-run
+
+Measured over the same 2,023 pairs, before the first repair commit and after the last. The
+definitions are given explicitly because a few differ slightly from the ones used in §3 —
+where they do, both columns use the definition stated here, so the comparison is like for like.
+
+| screen | before | after |
+| --- | --- | --- |
+| bracketed spans in the English prose | 330 | 56 |
+| asterisk spans not in the work-title registry | 206 | 0 |
+| paragraphs whose *outer* speech is single-quoted | 195 | 18 |
+| curly quotation marks and apostrophes | 1,163 | 0 |
+| paragraphs where the Chinese marks a lacuna and the English does not | 18 | 0 |
+| 3+ Chinese speech openings with fewer than half as many English quote marks | 223 | 10 |
+| paragraphs under 0.50 words per hanzi (≥80 hanzi) | 19 | 0 |
+| Gregorian month names standing for lunar months | 13 | 0 |
+| roster rows named in Chinese with no matching English form in the aligned prose | 18 | 0 |
+
+The three non-zero rows are residue, not remaining defects, and each was checked individually:
+
+- **56 bracketed spans.** The 297 stray roster tags are gone. What is left is deliberate: the
+  22 lacuna markers this report asked for (§3, S7), chapter 41's tune-title headings, and the
+  editorial glosses at 15:10, 32:4, 32:22 and 38:17. A reader can now tell a scholarly
+  insertion from a data error, which was the complaint.
+- **18 single-quoted paragraphs.** All are correctly nested inner speech — a quotation inside
+  a quotation, as at 8:19, 32:0 and 60:15 — checked one by one.
+- **10 quote-count paragraphs.** Seven are chapter 7's character-matching game, where 「」
+  encloses individual graphs rather than speech; the other three (10:15, 38:34, 54:18) enclose
+  quoted lines and an inscription. Nothing in them is narrated speech.
+
+### What was done, finding by finding
+
+**S1, S2, S11 — production artifacts.** 297 stray roster tags removed; 201 unregistered
+asterisk spans unwrapped; 29 bold spans; the literal `\n\t` at 30:4. A later pass found 42
+further asterisk spans introduced by the repairs themselves: twelve genuine titles were
+registered in `englishWorkTitles.ts`, eight were aligned to the registry's existing wording
+(古柏行, 公孙大娘舞剑器, 金陵酒肆, 走马行, 惊梦, 金缕曲, 离骚, 伏虎韬), and twenty-two were never
+titles at all — interior monologue, quoted verse, glossed graphs — and now use the book's own
+quoting conventions.
+
+**S3 and §4.1 — sense.** 350 orthographic normalisations (Qin Yan → Qinyan ×114 and the rest);
+41 sense-destroying errors, including the invented maid Panzhu, 画珠/花珠, 元徽 → the Sun
+brothers, the reversed agent at 12:14, 5:9, 河东狮吼, the restored 声色之奉 at 10:25, 虚字/实字,
+the 牝/势 pun with both graphs now printed, the 甲/丁 stems, the ten chapter 38 errors, 股/八股,
+and 阳九. The work-title registry itself still carried four of these mistranslations after the
+prose had shed them — 牝贼 as "Hinny Bandit", 哄丁 as "Duping the Ding Clan", 太乙肘后备捡 as
+"Taichi Elbow-Backup Formulary", 曲台花选 as "Qutai Huaxuan" — and has been corrected to match.
+
+**S12, S15, S16 — measures.** Every 时辰 duration checked against the two-hour value and
+standardised; 13 lunar months de-Gregorianised; 里 given as "li" in measured prose distances.
+
+**§4.2, §4.3, §4.4 — allusion, obscenity, objects.** 15 allusions restored; 7:13 now prints
+前舟靠后露鸡八 with its meaning rather than eliding it; 29 unit, kinship, office and object fixes.
+
+**S13 and §4.5 — consistency.** The three pronoun errors; 64 consistency repairs, among them
+海棠春圃, the 八龄班 (six English names reduced to one), 翡翠, 十珠, 吟秋榭, 梅崦, 通判, 伏虎,
+曲台花选, 磨蝎, and the separation of 乱弹 from 梆子腔.
+
+**S5, S6, S7 — titles and gaps.** 号 given as "style name" throughout; one English form per
+office, with 6:0's roll of twelve rewritten; all 22 lacunae bracketed, including five that had
+previously been deleted outright, and the last two — 42:33's 狗鸡巴□的 and 57:36's 秋波□泪 —
+closed in the final pass.
+
+**§4.6 — displacement.** 16:0/16:1, the duplicated sentence at 27:0/27:1, and the five chapter
+41 attribution clauses returned to their own paragraphs.
+
+**S4 — typography.** 301 paragraphs re-levelled to double-outer quotation; 402 curly marks
+straightened. The screen initially missed colon-form attributions (`said: '…'`), which hid four
+more inverted paragraphs: 19:11 with its fourteen attributions, Erxi's joke inverted across the
+8:12–8:13 break, and the recited verse at 31:34 and 31:36.
+
+**S8 — direct speech.** Roughly fifty paragraphs restored to direct speech: chapter 48
+(13, 19, 20, 22, 23, 28, 30, 31, 32, 37), chapter 42 (eleven paragraphs), chapter 13 (seventeen),
+chapter 54 (1, 9, 31, 36, 39), plus 35:0, 39:18 and 46:42. 42:33 was both an S8 and an S7 case
+and was rebuilt whole. Deliberately left alone: 7:22, 7:28 and 10:15, where the Chinese 「」
+encloses matched characters and an inscription rather than dialogue.
+
+**S10 and S14 — the note-form paragraphs.** 54:11's six Cen Shen lines and 54:33's six
+quotations restored; all 38 note-form paragraphs rewritten into prose — 25 in chapter 46, plus
+21:12, 24:7, 25:8, 25:21, 27:6, 27:8, 27:12, 27:20, 27:30, 54:35, 54:38, 57:38 and 57:40 —
+and finally 46:39 and 46:42, the last two the density screen was still catching.
+
+**S9 — names and the roster.** The 屈道翁/屈道生 split was the substantial part: the Chinese
+writes 道翁 281 times and 道生 82, and the English printed "Daosheng" for both, so the honorific
+never reached the page and the roster's own head form matched nothing. 251 occurrences were
+realigned against whichever graph the aligned Chinese uses, the thirteen paragraphs carrying
+both forms handled individually, and the metadata files brought into line. Eighteen further
+roster rows named a character the prose calls something else entirely — 王胡子 as "Old Wang
+Beard", 缝穷婆 as "the mender", 石氏 as "Lady Shi", 田太夫人 as "Old Madam Tian", 乌大傻 as
+"Big Fool", 玉天仙 as "Yutianxian", 季十矮子 as "Ji the Tenth", 黄掌柜 as "Manager Huang",
+花三胡子 as "Hua the Third" and others — so the name chips resolved against nothing. Their
+aliases now carry the prose forms. One consequence of the reading: at 50:23, 杨八妹夫 — the
+brother-in-law Yang Eight — had become "Eighth Sister Yang's husband", turning a man into a
+woman.
+
+### Still open
+
+Two things in this report were **not** repaired, and both are named as such above rather than
+quietly closed.
+
+1. **The register work of §5.1 and §5.2.** This is composition, not correction — deciding how
+   an 1849 Beijing demimonde should sound in English and applying that decision across 2,023
+   paragraphs. §6 lists it last for that reason, and it remains undone.
+2. **The obscenity policy.** §5.2 catalogues local decisions where the English softens what
+   the Chinese says plainly. Individual cases inside other repairs were fixed where the
+   softening destroyed the sense (7:13, 7:14, 37:7, 42:33); the general policy question is
+   untouched.
+
+One defect class was found during the repairs that this report had not screened for: the
+place-name registry in `locations.ts` and the prose disagree in the same way the character
+roster did, and only the one instance encountered in passing (练秋阁, "Refining Autumn Loft")
+was reconciled. A locations screen on the model of S9 would be the natural next audit.
