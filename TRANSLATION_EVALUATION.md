@@ -1064,6 +1064,9 @@ where they do, both columns use the definition stated here, so the comparison is
 | paragraphs under 0.50 words per hanzi (≥80 hanzi) | 19 | 0 |
 | Gregorian month names standing for lunar months | 13 | 0 |
 | roster rows named in Chinese with no matching English form in the aligned prose | 18 | 0 |
+| `locations.ts` entries never matched in the paragraphs that name the place | 77 | 6 |
+| paragraphs where the Chinese is coarse and the English has no coarse word | 44 | 0 |
+| manner adverbs on a speech verb with no Chinese manner marker in the paragraph | 29 | 0 |
 
 The three non-zero rows are residue, not remaining defects, and each was checked individually:
 
@@ -1142,20 +1145,49 @@ aliases now carry the prose forms. One consequence of the reading: at 50:23, 杨
 brother-in-law Yang Eight — had become "Eighth Sister Yang's husband", turning a man into a
 woman.
 
+### The 意境 work (§5.1, §5.2) and the locations screen
+
+These three were left open in the first pass and have since been done. Two of them turned out
+to be more checkable than "composition" suggested; the third was a whole defect class this
+report never screened for.
+
+**§5.2 — the obscenity policy.** The report catalogued the softening but stopped short of a
+rule, because the translation has none: it renders 《杂事秘辛》's gynaecology at length in
+chapter 38 and Xi Eleven's grafting in chapter 47 without flinching, then writes "three pairs
+of chicken... parts" in chapter 7. What it euphemises is not explicitness but *vulgarity*. The
+rule now applied is to match the Chinese — where the source is coarse the English is coarse,
+at the same pitch. All seven cases §5.2 lists are repaired, and the same screen over the whole
+book (Chinese coarse, English with no coarse word: 44 paragraphs) found twelve more that were
+real — 19:14's 狗鸡巴蛋的, 22:4's 他妈的巴子, 51:20's 狗肏狗卵, 40:23's 王八奶奶, 12:18 where
+the 屁 chain had lost its first link, and others.
+
+**§5.1 — the register.** Part of this is composition and remains so; a good deal of it is not.
+The six cases the report names are fixed, including the reverse one at 1:52. Beyond them, two
+testable rules. *Invented manner*: where the Chinese attribution is a bare 道 and the paragraph
+carries no manner marker at all, an English manner adverb on the speech verb has no source —
+29 of those, now removed. *Invented ornament in vernacular narration*: classifying each
+paragraph's Chinese by particle density (之其也矣焉 against 的了么呢儿) isolates the plainly
+colloquial paragraphs, and purple diction inside those is suspect — 46 hits, of which 11 had
+nothing behind them. The other 35 turned out to be translating 满面笑容, 笑嘻嘻, 珠围翠绕,
+纤纤女手 and the like, and were kept. That is worth recording against the original finding:
+the ornament is mostly *earned*, and the 花谱 passages need theirs. The reverse screen — casual
+English against literary Chinese — returned 34, of which 32 were the word "cool" meaning
+temperature; the two real ones were 38:12 and 46:53's 怪石 as "weird stones".
+
+**The locations screen.** `locations.ts` disagreed with the prose exactly as the character
+roster had, and 77 of its 194 entries never matched the paragraphs where the Chinese names the
+place. Three kinds of defect. The prose was internally inconsistent — 含万楼 under three
+English names, 桃花坞 under four, 吟秋榭 under four, 桂 wandering between cassia, cinnamon and
+osmanthus; each is now one name, and two romanisation errors surfaced on the way (三乐园 as
+"Sanyue Garden", 仪征 as "Yizhen"). The prose was consistent but the registry disagreed — some
+fifty entries, whose prose forms are now registered. And five entries were not places at all:
+泰山 means 岳父 in all ten of its occurrences, 香山 is always 白香山, 南山 is always Han Yu's
+poem, 楚台 never occurs, and 湖上 is always 莫愁湖. The screen now returns six, each checked and
+each defensible.
+
 ### Still open
 
-Two things in this report were **not** repaired, and both are named as such above rather than
-quietly closed.
-
-1. **The register work of §5.1 and §5.2.** This is composition, not correction — deciding how
-   an 1849 Beijing demimonde should sound in English and applying that decision across 2,023
-   paragraphs. §6 lists it last for that reason, and it remains undone.
-2. **The obscenity policy.** §5.2 catalogues local decisions where the English softens what
-   the Chinese says plainly. Individual cases inside other repairs were fixed where the
-   softening destroyed the sense (7:13, 7:14, 37:7, 42:33); the general policy question is
-   untouched.
-
-One defect class was found during the repairs that this report had not screened for: the
-place-name registry in `locations.ts` and the prose disagree in the same way the character
-roster did, and only the one instance encountered in passing (练秋阁, "Refining Autumn Loft")
-was reconciled. A locations screen on the model of S9 would be the natural next audit.
+**The composition half of §5.1.** Deciding how an 1849 Beijing demimonde should sound in
+English — and applying that decision across 2,023 paragraphs — is authorship, not correction.
+What could be checked against the Chinese has been; what is left is a translator's judgement
+about the whole book, and it is not something a screen can settle.
