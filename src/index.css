@@ -75,15 +75,9 @@
   --art-seal: #8b2500;
   --art-bloom: #b4494e;
 
-  /* Search highlight + evidence-confidence scale */
+  /* Search highlight */
   --highlight: rgba(214, 168, 42, 0.45);
   --highlight-strong: rgba(214, 168, 42, 0.62);
-  --confidence-certain: #2f6146;
-  --confidence-certain-bg: rgba(47, 97, 70, 0.12);
-  --confidence-probable: #7a5410;
-  --confidence-probable-bg: rgba(122, 84, 16, 0.12);
-  --confidence-speculative: #5f4383;
-  --confidence-speculative-bg: rgba(95, 67, 131, 0.12);
 
   /* Chapter content markers */
   --marker-game: #7a5410;
@@ -144,15 +138,9 @@
   --art-seal: #8b2500;
   --art-bloom: #b4494e;
 
-  /* Search highlight + evidence-confidence scale */
+  /* Search highlight */
   --highlight: rgba(198, 176, 60, 0.45);
   --highlight-strong: rgba(198, 176, 60, 0.62);
-  --confidence-certain: #2b5c41;
-  --confidence-certain-bg: rgba(43, 92, 65, 0.12);
-  --confidence-probable: #6d5417;
-  --confidence-probable-bg: rgba(109, 84, 23, 0.12);
-  --confidence-speculative: #5a3f7d;
-  --confidence-speculative-bg: rgba(90, 63, 125, 0.12);
 
   /* Chapter content markers */
   --marker-game: #6d5417;

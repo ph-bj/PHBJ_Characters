@@ -148,7 +148,17 @@ English field is still the placeholder.
 
 ## 4. The lacunae archive contradicts the app's own chapter text
 
-`src/lacunae.ts` ships 112 lacuna records, each rendered in `LacunaeModal` as a
+> **Resolved by removal.** The lacunae archive was deleted after this audit
+> (`src/lacunae.ts`, `src/components/LacunaeModal.tsx`, the `#/lacunae/<n>`
+> deep link, and the modal's wiring). The □/▉ glyphs still render in the
+> chapter text as marked gaps, but the app no longer offers a conjecture about
+> what stood in them. The section below is kept as the record of why.
+>
+> Note that this does **not** fix §5: six of the readings the archive proposed
+> were *better* than the text beside them, and those corrections now survive
+> only in this document.
+
+`src/lacunae.ts` shipped 112 lacuna records, each rendered in `LacunaeModal` as a
 snippet with a highlighted gap, an inferred character and a confidence badge
 (确证 / 可能 / 推测). `App.tsx:208` builds these straight from the file — nothing
 checks them against the chapter being read.
@@ -354,10 +364,12 @@ Worth recording, both to bound the audit and because it locates where the risk i
 2. §3 and §2 — the nine wrong attributions and two wrong-word entries. Six of
    the nine can be fixed by copying the app's own correct entry elsewhere in
    the same file.
-3. §4 — either gate `LacunaeModal` on the gap actually being present in the
-   chapter text, or reconcile the 18 conflicts. A build-time assertion that
-   every lacuna context resolves against its chapter would prevent recurrence.
-4. §5 — the six transcription errors, with 孙愐 and 周颙 first.
+3. ~~§4 — either gate `LacunaeModal` on the gap actually being present in the
+   chapter text, or reconcile the 18 conflicts.~~ **Done** — the archive was
+   removed outright.
+4. §5 — the six transcription errors, with 孙愐 and 周颙 first. This is now
+   more urgent, not less: the archive that carried the correct 黹, 愐 and 颙
+   readings is gone, so this document is the only remaining record of them.
 5. §6.1 — restore 情中上 to the English chapter-1 summary.
 6. §7 — pick one English name per place and one rule for 州.
 
