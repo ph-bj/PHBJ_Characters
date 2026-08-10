@@ -25,11 +25,11 @@ export const question: QuestionDefinition = {
 - **Participants:** Xiao Cixian, Liu Wenze, Ziyu, Ziyun, Zhongqing, Chunhang, Wang Xun, and five performers (Baozhu, Huifang, Sulan, Shufang, Yulin).
 - **Wins and Losses:**
   - This is a highly elegant gathering of scholars, so there are no mocked losers; instead, players are rewarded with "congratulatory drinks" (贺酒) for good answers.
-  - **Ziyu** again excels. In the Flying Numbers game, he perfectly continues the chain with "娉娉袅袅十三余" (Graceful and elegant at just over thirteen). In the Hundred Beauties game, he draws "Luoshen" and perfectly quotes Leng Chaoyang to match it, earning a round of congratulatory drinks from everyone.
+  - **Ziyu** again excels. In the Flying Numbers game, he perfectly continues the chain with "娉娉袅袅十三余" (Graceful and elegant at just over thirteen). In the Hundred Beauties game, he draws "Luoshen" and matches it by splicing a line of Leng Chaoyang to a line of Meng Haoran, so that 洛 and 神 fall at the head of each, earning a round of congratulatory drinks from everyone.
 - **Quoted Paragraphs:**
   > 宝珠喝了，想了一会，飞出一句道：「南陌青楼十二重。」飞到子玉。子玉喝了酒，道：「已经十二了，还要飞吗？」次贤道：「座中媚香还没有轮到。轮到了他，我们再换令罢。如今只可飞十三了。」子玉飞出一句是：「娉娉袅袅十三余。」
   
-  > 子玉掣了个地理门，美人名洛神，花是并头花。想了两句不见甚佳，才要另想，只见蕙芳掷了一个么三...子玉赞道：「实在绣口锦心，愧煞我辈。」...子玉得了，即道：「我用冷朝阳《送红线》诗，是：洛阳神童正待看，神期一向在云端。」...大家赞赏，满贺一杯。
+  > 子玉掣了个地理门，美人名洛神，花是并头花。想了两句不见甚佳，才要另想，只见蕙芳掷了一个么三...子玉赞道：「实在绣口锦心，愧煞我辈。」...子玉得了，即道：「我用冷朝阳《送红线》诗一句，孟浩然《登襄城楼》一句，合着是：还似洛妃乘雾去，更凝神女弄珠游。」...大家赞赏，满贺一杯。
 
 ### Chapter 37: "Matching Play Titles" at Yiyuan
 - **Game Rules:** The participants take turns matching four-character titles of traditional opera plays. The matches need to be contextually and grammatically parallel.
@@ -69,11 +69,11 @@ export const question: QuestionDefinition = {
 - **参与者：** 萧次贤、刘文泽、子玉、子云、仲清、春航、王恂，以及五位名旦（宝珠、蕙芳、素兰、漱芳、玉林）。
 - **胜负情况：**
   - 这是一场高雅的文人集会，主要以答得好赢得“贺酒”为主，没有像高品那样的受罚嘲笑者。
-  - **子玉** 再次大放异彩。在飞觞令中，他机智地用“娉娉袅袅十三余”接续；在百美捧觞令中，他抽到“洛神”，完美引用冷朝阳的诗句对应，获得了满堂喝彩与贺酒。
+  - **子玉** 再次大放异彩。在飞觞令中，他机智地用“娉娉袅袅十三余”接续；在百美捧觞令中，他抽到“洛神”，以冷朝阳一句配孟浩然一句，令“洛”“神”二字分嵌句首，获得了满堂喝彩与贺酒。
 - **具体引用段落：**
   > 宝珠喝了，想了一会，飞出一句道：「南陌青楼十二重。」飞到子玉。子玉喝了酒，道：「已经十二了，还要飞吗？」次贤道：「座中媚香还没有轮到。轮到了他，我们再换令罢。如今只可飞十三了。」子玉飞出一句是：「娉娉袅袅十三余。」
   
-  > 子玉掣了个地理门，美人名洛神，花是并头花。想了两句不见甚佳，才要另想，只见蕙芳掷了一个么三……子玉赞道：「实在绣口锦心，愧煞我辈。」……子玉得了，即道：「我用冷朝阳《送红线》诗，是：洛阳神童正待看，神期一向在云端。」……大家赞赏，满贺一杯。
+  > 子玉掣了个地理门，美人名洛神，花是并头花。想了两句不见甚佳，才要另想，只见蕙芳掷了一个么三……子玉赞道：「实在绣口锦心，愧煞我辈。」……子玉得了，即道：「我用冷朝阳《送红线》诗一句，孟浩然《登襄城楼》一句，合着是：还似洛妃乘雾去，更凝神女弄珠游。」……大家赞赏，满贺一杯。
 
 ### 第三十七回：怡园中的“对戏目令”
 - **游戏规则：** 参与者轮流出传统戏曲剧目名字，对方要用字数相同、词性相对的戏目名字来对答。

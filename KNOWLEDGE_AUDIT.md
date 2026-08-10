@@ -19,6 +19,28 @@ the appendix.
 
 ---
 
+## Status — all findings resolved except where noted
+
+Every section below has been repaired on this branch. Three things were
+deliberately **not** done, and each is flagged in place:
+
+- **55 of the 62 placeholder entries in `worksData.json` remain placeholders.**
+  Seven were answerable from the novel itself or from material already in the
+  repo and have been written; the rest are opera scenes I could not source, and
+  the network egress here blocks the text repositories that would settle them.
+  Writing plausible-sounding entries for them is precisely the failure this
+  audit documents in §2 and §3, so they are left empty and honest.
+- **One chapter-38 corruption is left standing.** 「崭崭韵谱」 is certainly wrong —
+  韵谱 has been pulled in from two clauses earlier — but I could not establish
+  the true reading, so the text is untouched rather than guessed at.
+- **§4 was resolved by deleting the feature**, not by reconciling the records.
+
+One further error surfaced while re-running the checks and has been fixed: the
+chapter-11 drinking-game rule quoted in `main-drinking-game-scenes.ts` spliced
+together the *two different* rule-sets the novel gives in that passage,
+producing a rule with 骨牌名 in two positions that appears nowhere in the text.
+
+
 ## Summary
 
 | # | Class | Severity | Count |
@@ -42,9 +64,9 @@ claims.
 
 ---
 
-## 1. Fabricated and misattributed quotations
+## 1. Fabricated and misattributed quotations — **fixed**
 
-These are the most damaging findings, because they are presented as primary-text
+These were the most damaging findings, because they are presented as primary-text
 evidence, in both languages, inside comparative essays.
 
 ### 1.1 A wholly invented description of Du Qinyan
@@ -102,9 +124,10 @@ present and legible. A quotation should not manufacture a gap.
 
 ---
 
-## 2. Opera and work attributions that are wrong
+## 2. Opera and work attributions that are wrong — **fixed**
 
-All in `src/worksData.json`. Each is asserted, not hedged, in both languages.
+All in `src/worksData.json`. Each was asserted, not hedged, in both languages.
+All nine entries have been rewritten in both languages.
 
 | Entry | Cited in ch. | App says | Correct |
 |---|---|---|---|
@@ -126,7 +149,7 @@ as written. The pattern is diagnostic: entries containing 可能指 / 多出自 
 
 ---
 
-## 3. Two entries about the wrong word entirely
+## 3. Two entries about the wrong word entirely — **fixed**
 
 Both have substantive Chinese text scraped from a general encyclopedia and an
 untouched English placeholder, which is how they escaped review.
@@ -146,7 +169,7 @@ English field is still the placeholder.
 
 ---
 
-## 4. The lacunae archive contradicts the app's own chapter text
+## 4. The lacunae archive contradicts the app's own chapter text — **removed**
 
 > **Resolved by removal.** The lacunae archive was deleted after this audit
 > (`src/lacunae.ts`, `src/components/LacunaeModal.tsx`, the `#/lacunae/<n>`
@@ -220,7 +243,7 @@ misread it:
 
 ---
 
-## 5. Transcription corruption in the bundled Chinese text
+## 5. Transcription corruption in the bundled Chinese text — **5 of 6 emended**
 
 Found while resolving §4 — mostly in chapter 38, the erudition chapter, where a
 single wrong graph turns a real scholar into a non-person. These read as OCR
@@ -242,7 +265,7 @@ match them.
 
 ---
 
-## 6. Enumeration and gloss errors
+## 6. Enumeration and gloss errors — **fixed**
 
 **6.1 — The English chapter-1 summary drops one of the ten grades.**
 `src/summaries_0to10.ts` says gentry patrons are "graded into ten degrees of
@@ -278,7 +301,7 @@ it is an alternate name of the 昭君怨 tune, which the app already documents;
 
 ---
 
-## 7. Cross-file contradictions
+## 7. Cross-file contradictions — **fixed**
 
 | Fact | One file says | Another says |
 |---|---|---|
@@ -299,12 +322,17 @@ novel's geography into its gazetteer.
 
 ---
 
-## 8. Coverage gaps
+## 8. Coverage gaps — **7 filled, 55 left open deliberately**
 
 - **62 of 469 `worksData.json` entries carry placeholder text.** 60 are
   placeholders in both languages; 2 (`孟子`, `独占`) have Chinese prose and an
   English placeholder — the mismatch is exactly what let §3 through.
-- Several placeholders are answerable from material already in the repo:
+- **Seven have been written** from evidence internal to the novel: `势利`/`势僧`
+  and `女盗`/`牝贼` (chapter 37 identifies each pair as two names for one scene,
+  and turns the 势/牝 pun on them), `登襄城楼` (chapter 35 attributes it to Meng
+  Haoran), plus the rewritten `独占` and `孟子`. **55 remain placeholders** —
+  see the status note at the top of this document for why.
+- Several of those remaining are answerable from material already in the repo:
   `势僧` and `牝贼` are glossed in `TRANSLATION_AUDIT.md` §8; `登襄城楼` is
   attributed to Meng Haoran by the novel itself at ch. 35; `断机` is the
   Mencius's-mother scene.
@@ -359,21 +387,22 @@ Worth recording, both to bound the audit and because it locates where the risk i
 
 ## Recommended order of repair
 
-1. §1 — remove or replace the three fabricated quotations. They are the only
-   findings that put invented primary text in front of a reader.
-2. §3 and §2 — the nine wrong attributions and two wrong-word entries. Six of
-   the nine can be fixed by copying the app's own correct entry elsewhere in
-   the same file.
-3. ~~§4 — either gate `LacunaeModal` on the gap actually being present in the
-   chapter text, or reconcile the 18 conflicts.~~ **Done** — the archive was
-   removed outright.
-4. §5 — the six transcription errors, with 孙愐 and 周颙 first. This is now
-   more urgent, not less: the archive that carried the correct 黹, 愐 and 颙
-   readings is gone, so this document is the only remaining record of them.
-5. §6.1 — restore 情中上 to the English chapter-1 summary.
-6. §7 — pick one English name per place and one rule for 州.
+All done on this branch, in this order:
 
----
+1. ~~§1 — the three fabricated quotations.~~ **Done.** The Qinyan portrait is
+   replaced by the chapter-5 passage where he is asked about his origins
+   (「面泛桃花，眼含珠泪……如微风振箫，幽鸣欲泣」), which serves the Daiyu comparison
+   better than the invention did; the Mei Ziyu portrait by the real chapter-1
+   description; the drinking-game couplet by the real one.
+2. ~~§2 and §3 — the nine wrong attributions and two wrong-word entries.~~ **Done.**
+3. ~~§4 — gate or reconcile the lacunae archive.~~ **Done** — removed outright.
+4. ~~§5 — the transcription errors.~~ **Five of six done**; 崭崭韵谱 left standing.
+5. ~~§6.1 — restore 情中上 to the English chapter-1 summary.~~ **Done**, and the
+   performers' ten grades are now named there too.
+6. ~~§7 — one English name per place, one rule for 州.~~ **Done.**
+
+Remaining: the 55 unsourced `worksData.json` placeholders, and 崭崭韵谱. Both
+need a printed edition to settle, which the network here cannot reach.
 
 ## Appendix — reproduction
 

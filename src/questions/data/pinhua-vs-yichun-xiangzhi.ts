@@ -11,11 +11,11 @@ Here is a detailed comparison across the requested dimensions:
 
 ### 1. Word Count and Scale
 - **Yichun Xiangzhi**: A collection of four novellas (each containing five chapters), totaling 20 chapters. The overall word count is relatively brief, roughly around 60,000 Chinese characters.
-- **Pinhua Baojian**: A full-length novel of 60 chapters containing roughly 500,000 Chinese characters.
+- **Pinhua Baojian**: A full-length novel of 60 chapters containing roughly 430,000 Chinese characters.
 
 ### 2. Number of Characters
 - **Yichun Xiangzhi**: Features a highly focused cast, usually revolving around two or three main protagonists per novella (such as Sun Yizhi in the first story), along with a few supporting characters.
-- **Pinhua Baojian**: Features a massive ensemble cast of over 150 characters, mapping out complex social networks among scholars, officials, actors, and servants.
+- **Pinhua Baojian**: Features a cast of 207 named characters, mapping out complex social networks among scholars, officials, actors, and servants.
 
 ### 3. Historical Era
 - **Yichun Xiangzhi**: Written in the late Ming Dynasty (early 17th century). It reflects the late Ming cult of *qing* (emotion/passion) and a highly permissive, often explicit approach to sexuality in popular literature.
@@ -52,10 +52,10 @@ Both works frequently describe the extraordinary beauty of young men, but their 
 This description highlights physical charm and an inviting demeanor ("loved to make friends"), setting the stage for the highly erotic and physical encounters that follow immediately in the narrative.
 
 **Excerpt from *Pinhua Baojian* (Chapter 1, describing Mei Ziyu):**
-> "只见那人生得面如冠玉，唇若涂朱。眉不画而翠，眼不点而黑。洵是翩翩佳公子，不似凡尘俗骨。"
-*(He saw that the man had a face like jade adorning a cap, and lips like applied cinnabar. His eyebrows were green without being painted, his eyes black without being dotted. He was truly a dashing, elegant young gentleman, not like a vulgar mortal of the ordinary dust.)*
+> "这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。……虽在罗绮丛中，却无纨绔习气，不佩罗囊而自丽，不傅香粉而自华。"
+*(This Mei Ziyu was seventeen this year, his looks like fine jade and his substance like refined gold, precious as a pearl still in the shell, radiant as the bright moon rising over a ridge... Raised amid silks, he had not a trace of the wastrel in him; he wore no scent-pouch yet was lovely, wore no powder yet was radiant.)*
 
-While using similar tropes of jade-like skin and cinnabar lips, *Pinhua Baojian* emphasizes a pristine, almost aristocratic purity ("not like a vulgar mortal"). The focus is on spiritual refinement, aligning perfectly with its theme of chaste, elevated love, in stark contrast to the explicit carnality of *Yichun Xiangzhi*.`,
+*Yichun Xiangzhi* introduces its youth as alluring and sociable, and the erotic scenes follow at once. *Pinhua Baojian* spends its clauses on what Mei Ziyu is **not** — no wastrel habits, no scent-pouch, no powder — defining him by ornament refused. The negative construction is the point: the novel's ideal is beauty that has declined the apparatus of seduction.`,
   answerZh: `《品花宝鉴》与《宜春香质》都是中国古代文学中描写男性同性情感的作品，但它们在基调、尺度和文学旨趣上有着天壤之别。《宜春香质》是晚明时期的一部艳情小说集（通常认为与《弁而钗》同为“醉西湖心月主人”所作），侧重于露骨的性爱描写、激烈的情欲以及佛教的因果报应；而清代中叶的《品花宝鉴》则是一部全景式的长篇小说，极力推崇北京梨园界中“好色而不淫”的理想化、柏拉图式情感。
 
 以下是针对您提出的几个维度的详细比较：
@@ -66,7 +66,7 @@ While using similar tropes of jade-like skin and cinnabar lips, *Pinhua Baojian*
 
 ### 2. 人物数量
 - **《宜春香质》**：人物高度集中，每个故事通常围绕两到三个核心主角展开（例如第一集中的孙宜之），辅以少数几个配角。
-- **《品花宝鉴》**：拥有超过150个人物的庞大群像，构建了文人、官员、优伶、仆役之间错综复杂的社会关系网。
+- **《品花宝鉴》**：共207个有名有姓的人物的庞大群像，构建了文人、官员、优伶、仆役之间错综复杂的社会关系网。
 
 ### 3. 时代背景
 - **《宜春香质》**：成书于明代晚期（17世纪初）。它反映了晚明时期文学中对“情”与“欲”的极度放纵，以及对同性性行为极其露骨的描写。
@@ -102,7 +102,7 @@ While using similar tropes of jade-like skin and cinnabar lips, *Pinhua Baojian*
 《宜春香质》中的这段描写，在强调人物外貌“妩媚”、“玉琢粉捏”的同时，特意点出他“喜结交朋友”，这种带有诱惑性的性格特征，直接为下文极其露骨的肉体交欢和色情描写作了铺垫。
 
 **《品花宝鉴》中的段落（第一回，描写梅子玉）：**
-> “只见那人生得面如冠玉，唇若涂朱。眉不画而翠，眼不点而黑。洵是翩翩佳公子，不似凡尘俗骨。”
+> “这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。……虽在罗绮丛中，却无纨绔习气，不佩罗囊而自丽，不傅香粉而自华。”
 
-《品花宝鉴》的这段描写，虽然也使用了“面如冠玉”、“唇若涂朱”等传统词汇，但落脚点在于“不似凡尘俗骨”。它极力强调一种超脱世俗、近乎贵族化的纯洁感。这种对精神高洁的赞美，与小说推崇的贞洁、高尚的精神恋爱主题完全契合，与《宜春香质》中直白的肉欲描写形成了鲜明对比。`
+《宜春香质》开篇即点出少年“妩媚”“喜结交朋友”，随即转入狎昵；《品花宝鉴》却把笔墨花在梅子玉**没有**什么上——无纨绔习气，不佩罗囊，不傅香粉，以所弃之饰来定其人。这一连串否定正是要害：小说所推崇的美，是谢绝了一切诱惑手段的美。`
 };

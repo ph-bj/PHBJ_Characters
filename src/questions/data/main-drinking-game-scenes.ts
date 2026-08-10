@@ -32,7 +32,7 @@ Below is a summary of each passage, its rules, and who wins or loses.
   - Miss Su rolled "General Hanging the Seal"—heroic; praised as "the latecomer surpasses the former."
 - **Original quote:**
 
-> Madam Yuan said: "I recently saw someone playing a drinking game, which is quite interesting: using five idioms to form a string... The first line uses a domino name, the second line uses Tang poetry, the third line uses a domino name, the fourth line uses a tune name, and the fifth line uses the 'Time Constitution Book'... These five lines must rhyme, so that they sound sonorous and in tune when read out."
+> Madam Yuan said: "I recently saw someone playing a drinking game, which is quite interesting: five set phrases strung together — though it wants for rhyme... Theirs took ancient prose for the first line, Tang poetry for the second, a domino name for the third, a tune name for the fourth, and the Shixian Almanac for the fifth, each player choosing freely, which made it easy. We have six dice here; whatever pattern comes up, we start from that: the domino name for the first line, a five-character Tang line for the second, lyrics from the *Western Chamber* for the third, a tune name for the fourth, and the *Mao Odes* for the fifth. These five lines must rhyme, so that they sound sonorous and in tune when read out."
 
 ### Chapter 20: The "Water Margin Drifting Gourd Game" in the Water Pavilion of Yi Garden
 
@@ -102,7 +102,7 @@ These scenes reflect the characters' learning and temperaments, and the banqueti
   - 苏小姐掷「将军挂印」，行令豪迈有势，被赞「后来居上」「令人五体投地」。
 - **原文引用：**
 
-> 「袁夫人道：「我新见人行一个酒令，倒也有趣：用五句成语凑成一串……第一句用骨牌名，第二句用唐诗，第三句用骨牌名，第四句用曲牌名，第五句用《时宪书》……这五句须要有韵，念出来才觉得铿锵入调。」
+> 「袁夫人道：「我新见人行一个酒令，倒也有趣：用五句成语凑成一串，但嫌其没有韵……他第一句用古文，第二句用唐诗，第三句用骨牌名，第四句用曲牌名，第五句用《时宪书》，凭人自己检用，便容易了。我们如今六个骰子，随手掷出什么色样，就从这个色样起，第一句用骨牌名，第二句用五言唐诗，第三句用《西厢》曲文，第四句用曲牌名，第五句用《毛诗》。这五句须要有韵，念出来才觉得铿锵入调。」
 
 ### 第二十回：怡园水阁的「《水浒传》漂葫芦令」
 

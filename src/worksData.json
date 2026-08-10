@@ -1,7 +1,7 @@
 {
   "惊梦": {
-    "descZh": "《惊梦》（游园惊梦）是明代剧作家汤显祖创作的传奇《牡丹亭》中的经典折子戏。描写杜丽娘在花园游玩后，梦见书生柳梦梅，两人在梦中相会相恋的故事。",
-    "descEn": "Jingmeng (Waking from a Dream) is a classic scene from The Peony Pavilion (Mudan Ting) by Ming dynasty playwright Tang Xianzu, where Du Liniang falls in love with the scholar Liu Mengmei in a dream.",
+    "descZh": "《惊梦》（游园惊梦）是明代剧作家汤显祖创作的传奇《牡丹亭》中的经典折子戏。写杜丽娘游园归来困眠，梦中与书生柳梦梅幽会，为落花惊觉，好梦不终——「惊」谓梦为外物所断，非谓梦醒，故下接《寻梦》一出。",
+    "descEn": "Jingmeng (The Interrupted Dream) is the celebrated scene from The Peony Pavilion (Mudan Ting) by the Ming playwright Tang Xianzu, in which Du Liniang, asleep in the garden, dreams of the scholar Liu Mengmei and is woken before the dream can finish — the loss that drives the following scene, \"Pursuing the Dream.\"",
     "contextZh": "在小说第1回中被引用，例如：“...善丹青，娴吟咏。其演《鹊桥》、《密誓》、《惊梦》、《寻梦》等出，艳夺明霞，朗涵仙露。正使...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -33,8 +33,8 @@
     ]
   },
   "题曲": {
-    "descZh": "《题曲》是明代汤显祖《牡丹亭》中的折子戏（有些演出中也会指《西厢记》或其他剧目的相关折子），表现剧中人物吟诗题曲抒发情怀。",
-    "descEn": "Tiqu (Inscribing the Song) is an opera scene, often associated with classic plays like The Peony Pavilion, depicting characters expressing their feelings through poetry and song.",
+    "descZh": "昆曲折子戏，出自明吴炳传奇《疗妒羹》（原第九出），演乔小青被大妇幽禁后园，雨夜孤灯下读《牡丹亭》，感杜丽娘之情而题诗自伤，为闺门旦罕见的独角唱工重头戏。剧中人所读者为《牡丹亭》，此折本身非汤显祖作。",
+    "descEn": "The kunqu scene \"Inscribing the Song\" from Wu Bing's Ming chuanqi The Cure for Jealousy (Liaodu Geng): the concubine Qiao Xiaoqing, shut away in the back garden, reads The Peony Pavilion alone by lamplight on a rainy night and inscribes a poem on her own sorrow — a rare solo showpiece for the guimen dan. The play she reads is Tang Xianzu's; the scene itself is not.",
     "contextZh": "在小说第1回中被引用，例如：“...楚有林下风致。其演戏最多，而尤擅名者，为《题曲》一出。...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -46,8 +46,8 @@
     ]
   },
   "孟子": {
-    "descZh": "孟子（前372年—前289年），姬姓，孟氏，名轲，鄒國（今山東省鄒城市）人，战国时期儒家代表人物。其字號在漢代以前的古書未有記載，但曹魏、晉代之後卻傳出子車、子居、子舆、子展等不同的字號。生卒年月因史傳未記載而說法繁多，其中以《孟子世家谱》上所記載之生於周烈王四年（前372年），卒於周赧王二十六年（前289年）較為多數學者採用。\n孟子之弟子萬章與其餘弟子著有《孟子》一书。继承并发扬孔子的思想，成为仅次于孔子的一代儒家宗师，獲尊称亞聖（僅次於「至聖」孔子），与孔子合称为「孔孟」。\n",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "儒家经典，「四书」之一，记孟轲（约前372—前289）与时君及弟子问答，旧题孟子与万章等弟子共撰，七篇。以性善、仁政、民贵君轻为宗，宋朱熹作《集注》后为科举必读。小说中屡引其语为酒令、议论之资。",
+    "descEn": "The Mencius, one of the Four Books: seven chapters recording the debates of Meng Ke (c. 372–289 BCE) with rulers and disciples, traditionally compiled by Mencius with Wan Zhang and others. Its doctrines of innate goodness, benevolent government and \"the people first, the ruler last\" became examination orthodoxy after Zhu Xi's commentary. The novel quotes it repeatedly in argument and in drinking games.",
     "contextZh": "在小说第2回中被引用，例如：“...生道：「这不是书。」家、家、家兄道：「是《孟子》上的。」先生道：...”。",
     "contextEn": "Cited in chapter 2 of the novel.",
     "chapters": [
@@ -96,8 +96,8 @@
     ]
   },
   "独占": {
-    "descZh": "獨占，或称独占，舊譯辜榷，一般指唯一的卖者在一个或多个市场，通过一个或多个阶段，面对竞争性的消费者，与买方垄断相反。在垄断中，永远只有一个卖家，有很高的进入门槛，商品通常是独一无二的。垄断者通常指垄断一个行业的公司或企业。\n",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自清初李玉传奇《占花魁》，为全剧压卷一出，演卖油郎秦重终得花魁娘子莘瑶琴之心、独占花魁事。小说第四回聘才即言「用《占花魁》上《独占》这一出戏」，第十二回苏蕙芳、第三十回归自荣皆串演此出。",
+    "descEn": "The kunqu scene \"Winning Her Alone\" — the finale of Li Yu's The Oil Peddler Wins the Flower Queen, in which the oil seller Qin Zhong at last wins the courtesan Xin Yaoqin for himself. Chapter 4 names it outright as \"the scene 'Duzhan' from Zhan Huakui\"; Su Huifang performs it in chapter 12 and Gui Zirong in chapter 30.",
     "contextZh": "在小说第4回中被引用，例如：“...「第三句是空的，未了一句，用《占花魁》上《独占》这一出戏，我就拉他来用做古曲。」子玉道：...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -154,7 +154,7 @@
   },
   "絮阁": {
     "descZh": "《絮阁》是清代传奇《长生殿》中的折子戏。写唐明皇临幸梅妃，杨贵妃闻讯前往捉奸，明皇与贵妃争吵后又和好的经过。",
-    "descEn": "Xuge (The Pavilion of Gossamer) is a scene from The Palace of Eternal Life, depicting the jealousy and subsequent reconciliation between Emperor Minghuang and Concubine Yang.",
+    "descEn": "Xuge (\"The Scolding in the Pavilion\") is a scene from The Palace of Everlasting Life: learning that the emperor has spent the night with the Plum Consort, Yang Guifei forces her way into the pavilion at dawn and berates him until he placates her. The 絮 of the title is 絮聒, to nag.",
     "contextZh": "在小说第1回中被引用，例如：“...之月。常演《制谱》、《舞盘》、《小宴》、《絮阁》诸戏，俨然又一杨太真也。就使陈鸿立传，未...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -164,8 +164,8 @@
     ]
   },
   "琴挑": {
-    "descZh": "《琴挑》是明代高濂创作的传奇《玉簪记》中的折子戏。讲述书生潘必正与女尼陈妙常在秋夜以琴音互相试探心意，暗生情愫。",
-    "descEn": "Qintiao (Flirting with a Zither) is a scene from The Jade Hairpin (Yuzan Ji) by Gao Lian, where the scholar Pan Bizheng and the nun Chen Miaochang express their mutual affection through zither playing.",
+    "descZh": "《琴挑》是明代高濂创作的传奇《玉簪记》中的折子戏。讲述书生潘必正与女贞观道姑陈妙常在秋夜以琴音互相试探心意，暗生情愫。",
+    "descEn": "Qintiao (\"Flirtation on the Qin\") is a scene from The Jade Hairpin (Yuzan Ji) by Gao Lian, in which the scholar Pan Bizheng and Chen Miaochang — a Daoist nun of the Nüzhen Convent, not a Buddhist one — sound each other out through their playing on an autumn night.",
     "contextZh": "在小说第1回中被引用，例如：“...将放，其色香一界，几欲使神仙堕刼矣。其余《琴挑》、《秋江》诸戏，情韵如生，亦非他人所能。...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -313,8 +313,8 @@
     ]
   },
   "制谱": {
-    "descZh": "《制谱》是清代传奇《长生殿》中的折子戏。写唐明皇梦游月宫，听得仙乐，醒后命人制成《霓裳羽衣曲》的情节。",
-    "descEn": "Zhipu (Composing the Score) is a scene from The Palace of Eternal Life, where the Emperor composes the 'Neon Clothes and Feather Choirs' based on a dream.",
+    "descZh": "昆曲折子戏，出自清洪昇《长生殿》「闻乐」「制谱」两出：嫦娥召杨贵妃梦魂上月宫听仙乐，贵妃醒后追忆宫商，谱成《霓裳羽衣曲》，唐明皇得谱叹为非人间所有，命李龟年率梨园子弟按习。梦游月宫、记谱者皆杨贵妃，非明皇。",
+    "descEn": "The kunqu scenes \"Hearing the Music\" and \"Composing the Score\" from The Palace of Everlasting Life: Chang'e summons Consort Yang's dream-soul to the moon palace to hear the immortals' music, and on waking she recalls and notates it as the Rainbow Skirts and Feathered Robes. The emperor, receiving the finished tablature, declares it no music of this world and sets Li Guinian's academy to learning it. It is Yang, not the emperor, who dreams and who writes the score.",
     "contextZh": "在小说第1回中被引用，例如：“...逾沉水之香；令德是娴，色夺瑶林之月。常演《制谱》、《舞盘》、《小宴》、《絮阁》诸戏，俨然...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -353,8 +353,8 @@
     ]
   },
   "相约": {
-    "descZh": "《相约》是昆曲《红梅记》（或《西厢记》等才子佳人剧）中的折子戏，讲述男女主人公私下约定幽会的情景。",
-    "descEn": "Xiangyue (The Rendezvous) is an opera scene from classic romances, depicting lovers secretly arranging to meet.",
+    "descZh": "昆曲折子戏，出自明传奇《钗钏记》（旧题月榭主人撰），演丫鬟芸香代小姐史碧桃与皇甫吟约期相会事，与《讨钗》《相骂》同为一系贴旦做工名剧。",
+    "descEn": "A kunqu scene from the Ming chuanqi The Hairpin and Bracelet (Chaichuan Ji): the maid Yunxiang arranges her mistress Shi Bitao's tryst with Huangfu Yin — companion piece to \"Demanding the Hairpin\" and \"The Quarrel.\"",
     "contextZh": "在小说第1回中被引用，例如：“...亸红酣，真令潘骑省心醉欲死矣。又演《相约》、《讨钗》、《拷艳》诸小出，如娇鸟弄晴，...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -403,8 +403,8 @@
     ]
   },
   "南浦": {
-    "descZh": "《南浦》指昆曲中有关离别的送别折子，如《牡丹亭·南浦》（又名《折柳阳关》）或《琵琶记·南浦》，表现依依惜别之情。",
-    "descEn": "Nanpu usually refers to a farewell scene in Kunqu opera, such as in The Peony Pavilion or The Tale of the Lute, symbolizing sorrowful parting.",
+    "descZh": "昆曲折子戏，出自元末高明《琵琶记》「南浦嘱别」一出，演蔡伯喈赴京应试、赵五娘南浦送别事。小说第五十回隔壁所唱「无限别离情，两月夫妻，一旦孤另」即此折曲文。",
+    "descEn": "The kunqu scene \"Farewell at Nanpu\" from Gao Ming's The Lute (Pipa Ji): Zhao Wuniang sees her husband off to the capital examinations. The lines overheard next door in chapter 50 — \"boundless the grief of parting; two months man and wife, and now alone\" — are from this scene.",
     "contextZh": "在小说第3回中被引用，例如：“...第三出是《南浦》，很熟的曲文，用脚在板凳上踏了两板，就倒...”。",
     "contextEn": "Cited in chapter 3 of the novel.",
     "chapters": [
@@ -443,8 +443,8 @@
     ]
   },
   "扫花": {
-    "descZh": "《扫花》是昆曲折子戏，出自《西厢记》等，表现丫鬟或女尼在花园扫花时触景生情，为男女主角相遇做铺垫。",
-    "descEn": "Saohua (Sweeping Flowers) is a Kunqu opera scene where a maid sweeps fallen flowers in a garden, often setting the mood for romance.",
+    "descZh": "昆曲折子戏，出自明汤显祖《邯郸记》（1601年），演何仙姑遣扫花使者扫落花、点出蓬莱仙境岁月的一折，常与《三醉》连演。",
+    "descEn": "The kunqu scene \"Sweeping Petals\" from Tang Xianzu's The Handan Dream (Handan Ji, 1601), in which the flower-sweeping immortal clears fallen blossoms on Penglai — habitually staged together with \"Thrice Drunk.\"",
     "contextZh": "在小说第6回中被引用，例如：“...戏单。」子玉过来，与聘才同看，见头几出是《扫花》、《三醉》、《议剑》、《谒师》、《赏荷》...”。",
     "contextEn": "Cited in chapter 6 of the novel.",
     "chapters": [
@@ -453,8 +453,8 @@
     ]
   },
   "山门": {
-    "descZh": "《山门》（醉打山门）是昆曲名折，出自《水浒记》等，描写鲁智深醉酒大闹五台山的情节，是著名的净角唱做吃重戏。",
-    "descEn": "Shanmen (The Monastery Gate) is a famous Kunqu scene featuring the water margin hero Lu Zhishen getting drunk and causing a ruckus at the monastery.",
+    "descZh": "昆曲名折《山门》（醉打山门），出自清初传奇《虎囊弹》（旧题丘园作，一说朱佐朝），演鲁智深五台山出家后不耐清规，山下夺酒大醉，回寺打坏山门事，为净脚唱、念、做、打俱重的骨子老戏。",
+    "descEn": "The famous kunqu scene \"The Monastery Gate\" (Drunk at the Monastery Gate) from the early-Qing chuanqi The Tiger-Pouch Pellet (Hunang Tan, attributed to Qiu Yuan): Lu Zhishen, chafing under monastic rule at Wutai, seizes a peddler's wine, gets roaring drunk and wrecks the gate on his return — a demanding staple for the jing role.",
     "contextZh": "在小说第6回中被引用，例如：“...《瑶台》、《舞盘》、《偷诗》、《题曲》、《山门》、《出猎》、《回猎》、《游园惊梦》，末后...”。",
     "contextEn": "Cited in chapter 6 of the novel.",
     "chapters": [
@@ -464,7 +464,7 @@
   },
   "游园惊梦": {
     "descZh": "《游园惊梦》是明代传奇《牡丹亭》中最著名的折子戏，常连演。讲述南宋太守之女杜丽娘游览后花园，春心萌动，梦中与书生柳梦梅幽会的浪漫爱情故事。",
-    "descEn": "Youyuan Jingmeng (A Stroll in the Garden and Waking from a Dream) is the most famous act of The Peony Pavilion, depicting Du Liniang's dream encounter with Liu Mengmei.",
+    "descEn": "Youyuan Jingmeng (A Stroll in the Garden; The Interrupted Dream) is the most famous act of The Peony Pavilion, in which Du Liniang walks in the garden, dreams of Liu Mengmei, and is woken before the dream can finish.",
     "contextZh": "在小说第6回中被引用，例如：“...《题曲》、《山门》、《出猎》、《回猎》、《游园惊梦》，末后是《明珠记》上的《侠隐》，子玉悄悄...”。",
     "contextEn": "Cited in chapter 6 of the novel.",
     "chapters": [
@@ -553,8 +553,8 @@
     ]
   },
   "阳告": {
-    "descZh": "《阳告》是元杂剧或昆曲中的悲剧折子戏，如《窦娥冤》或《琵琶记》中的情节，表现主人公含冤向神明或官府泣诉。",
-    "descEn": "Yanggao (The Piteous Appeal) is a tragic opera scene where a deeply wronged character tearfully appeals to heaven or officials for justice.",
+    "descZh": "昆曲折子戏，出自明王玉峰传奇《焚香记》，演敫桂英为负心的王魁所弃，赴海神庙焚香泣诉、指神为证事，与《阴告》（打神告庙）连演，为正旦悲愤唱工名剧。",
+    "descEn": "The kunqu scene \"The Appeal to Heaven\" from Wang Yufeng's Ming chuanqi The Burning of Incense (Fenxiang Ji): abandoned by the faithless Wang Kui, Jiao Guiying burns incense at the sea-god's temple and calls the god to witness her wrong — paired with \"The Appeal Below\" and a great lament for the zhengdan.",
     "contextZh": "在小说第27回中被引用，例如：“...盼不到他，一样的悲苦，无人可诉，你还能唱《阳告》吗？再要死时，就难再活了。」...”。",
     "contextEn": "Cited in chapter 27 of the novel.",
     "chapters": [
@@ -563,8 +563,8 @@
     ]
   },
   "折柳": {
-    "descZh": "《折柳》是昆曲《牡丹亭》或《剑阁闻铃》等剧中的折子戏，古人有折柳送别的习俗，故多用来表现离愁别绪。",
-    "descEn": "Zheliu (Plucking a Willow Branch) is an opera scene associated with farewells, stemming from the ancient Chinese custom of giving a willow branch to a departing friend.",
+    "descZh": "昆曲折子戏，即《折柳阳关》，出自明汤显祖《紫钗记》（约1587年），演李益出塞赴任，霍小玉灞桥折柳、阳关饯别事，为旦脚哀艳缠绵的代表剧目。",
+    "descEn": "The kunqu scene \"Snapping the Willow\" (i.e. \"Snapping the Willow at Yang Pass\") from Tang Xianzu's The Purple Hairpin (Zichai Ji, c. 1587): Huo Xiaoyu's heartbroken farewell to Li Yi as he leaves for the frontier.",
     "contextZh": "在小说第30回中被引用，例如：“...叫人传了上来。在台上伺候。聘才便自述所唱《折柳》、《独占》、《赏荷》、《小宴》、《琴挑》...”。",
     "contextEn": "Cited in chapter 30 of the novel.",
     "chapters": [
@@ -633,8 +633,8 @@
     ]
   },
   "九宫谱": {
-    "descZh": "《九宫谱》即《九宫大成南词腔谱》，是清代乾隆年间编纂的昆曲曲谱集成，是中国古代最宏大、最权威的戏曲声腔曲谱。",
-    "descEn": "Jiugong Pu (The Nine Modes Score) refers to a monumental, authoritative compilation of Kunqu opera musical scores compiled during the Qing dynasty.",
+    "descZh": "《九宫谱》即《新定九宫大成南北词宫谱》，清乾隆十一年（1746）庄亲王允禄等奉敕编成，八十二卷，收南北曲曲牌及例曲工尺谱四千余首，为中国古代规模最大的戏曲曲谱。",
+    "descEn": "The Jiugong Pu — properly the Xinding Jiugong Dacheng Nanbei Ci Gongpu (1746), compiled by imperial command in 82 juan — is the largest of all Chinese dramatic score collections, giving gongche notation for some four thousand northern and southern tunes.",
     "contextZh": "在小说第41回中被引用，例如：“...讲究了。有曲文好些的，偏又没人会唱。从那《九宫谱》一定之后，人人只会改字换音，不会移宫就谱...”。",
     "contextEn": "Cited in chapter 41 of the novel.",
     "chapters": [
@@ -664,7 +664,7 @@
   },
   "图书集成": {
     "descZh": "即《古今图书集成》，清代官修大型类书，陈梦雷主持编纂、蒋廷锡奉敕校订，雍正四年（1726）以铜活字排印，共一万卷，为中国现存规模最大的类书。小说中王胡子欲以三千两将一部转卖给徐子云。",
-    "descEn": "The Gujin Tushu Jicheng (Complete Collection of Illustrations and Writings from Antiquity to the Present), the vast Qing imperial encyclopedia compiled under Chen Mengléi and printed with bronze movable type in 1726, totaling 10,000 juan. In the novel Old Wang tries to sell a set to Xu Ziyun for 3,000 taels.",
+    "descEn": "The Gujin Tushu Jicheng (Complete Collection of Illustrations and Writings from Antiquity to the Present), the vast Qing imperial encyclopedia compiled under Chen Menglei and printed with bronze movable type in 1726, totaling 10,000 juan. In the novel Old Wang tries to sell a set to Xu Ziyun for 3,000 taels.",
     "contextZh": "在小说第45回中被引用，例如：“...奈王胡子要候子云回来，消些东西。还有一部《图书集成》，这部书是个难消的，心上要想求子云买这部...”。",
     "contextEn": "Cited in chapter 45 of the novel.",
     "chapters": [
@@ -1132,8 +1132,8 @@
     ]
   },
   "占花魁": {
-    "descZh": "清初李玉所作传奇，据《醒世恒言》\"卖油郎独占花魁\"改编，演卖油郎秦钟以诚心感动名妓花魁娘子莘瑶琴、终成眷属事，《受吐》《独占》为常演折子。",
-    "descEn": "Li Yu's early-Qing chuanqi The Oil Peddler Wins the Flower Queen, from the Xingshi Hengyan story: the humble oil seller Qin Zhong wins the courtesan Xin Yaoqin through sheer devotion.",
+    "descZh": "清初李玉所作传奇，据《醒世恒言》「卖油郎独占花魁」改编，演卖油郎秦重以诚心感动名妓花魁娘子莘瑶琴、终成眷属事（李玉本将秦重改写为乱离中失散的世家子），《受吐》《独占》为常演折子。",
+    "descEn": "Li Yu's early-Qing chuanqi The Oil Peddler Wins the Flower Queen, from the Xingshi Hengyan story: the oil seller Qin Zhong wins the courtesan Xin Yaoqin through sheer devotion — Li Yu recasts him as a gentleman's son displaced by war. \"Tending the Drunken Beauty\" and \"Winning Her\" are the scenes usually staged.",
     "contextZh": "在小说第4回中被引用，例如：“...？」聘才道：「第三句是空的，未了一句，用《占花魁》上《独占》这一出戏，我就拉他来用做古曲。...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -1969,8 +1969,8 @@
     ]
   },
   "一痕沙": {
-    "descZh": "词牌名（又作《一斛珠》别体相混者非；此调即《一痕沙》小令）；小说第三十一回玉林即席填《一痕沙》咏堂会盛集。",
-    "descEn": "Yihensha (\"A Trace on the Sand\"), a short cipai; Yulin fills one on the spot at the chapter 31 gathering.",
+    "descZh": "词牌名，《昭君怨》的别名（一名《宴西园》《一痕沙》），双调四十字，前后段各四句两仄韵两平韵，宜写幽怨。小说第三十一回玉林即席填《一痕沙》咏堂会盛集。",
+    "descEn": "Yihensha (\"A Trace on the Sand\") is an alternate name for the cipai Zhaojun Yuan — a forty-character lyric metre in two matching stanzas, suited to quiet complaint. Yulin fills one on the spot at the chapter 31 gathering.",
     "contextZh": "在小说第31回中被引用，例如：“...，及到此刻才放了心。再看玉林的填词，填的《一痕沙》小令，看词是：娇舞酣歌深院，绣幕锦屏香软...”。",
     "contextEn": "Cited in chapter 31 of the novel.",
     "chapters": [
@@ -2086,8 +2086,8 @@
     ]
   },
   "登襄城楼": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "唐孟浩然诗，小说第三十五回百美捧觞令中，子玉取其一句与冷朝阳《送红线》一句合成「还似洛妃乘雾去，更凝神女弄珠游」，以嵌「洛神」二字，众人推为席上第一。",
+    "descEn": "A poem by the Tang poet Meng Haoran. In the chapter 35 drinking game Ziyu splices one of its lines to a line of Leng Chaoyang's \"Seeing Off Hongxian\" to make a couplet embedding the name Luoshen — judged the best of the evening.",
     "contextZh": "在小说第35回中被引用，例如：“...道：「我用冷朝阳《送红线》诗一句，孟浩然《登襄城楼》一句，合着是：还似洛妃乘雾去，更凝神女弄...”。",
     "contextEn": "Cited in chapter 35 of the novel.",
     "chapters": [
@@ -2284,8 +2284,8 @@
     ]
   },
   "女盗": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子，小说第三十七回蕙芳云「《女盗》有名《牝贼》」，是同一出戏的两个名目，蕙芳以其「牝」字新奇出令难人。",
+    "descEn": "An opera scene the novel gives under two names: in chapter 37 Huifang notes that \"Woman Thief has another name, Bitch Bandit,\" and sets it as a challenge on the strength of its unusual character 牝.",
     "contextZh": "在小说第37回中被引用，例如：“...去。你且说来，教我想想也好。」蕙芳道：「《女盗》有名《牝贼》，这两字却新奇，你对出来，我...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2293,8 +2293,8 @@
     ]
   },
   "牝贼": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子《女盗》的别名，见小说第三十七回。「牝」谓禽兽之雌，蕙芳以为字面新奇，自谓无对，次贤竟以《势僧》之「势」对之。",
+    "descEn": "An alternate title for the scene Woman Thief, cited in chapter 37. 牝 is the female of animals; Huifang offers it as unanswerable, and Cixian answers it with the 势 of The Potent Monk.",
     "contextZh": "在小说第37回中被引用，例如：“...，教我想想也好。」蕙芳道：「《女盗》有名《牝贼》，这两字却新奇，你对出来，我情愿喝三杯。...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2302,8 +2302,8 @@
     ]
   },
   "势利": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子，小说第三十七回次贤云「那《势利》又叫《势僧》」，是同一出戏的两个名目。第三十七回对戏令中以「势」字与「牝」字相对，为全书最著名的谐谑一联。",
+    "descEn": "An opera scene the novel gives under two names: chapter 37 has Cixian note that \"Profit and Place also goes by the name The Potent Monk.\" Its 势 is set against 牝 in the chapter's title-matching game — the book's most celebrated off-colour pairing.",
     "contextZh": "在小说第37回中被引用，例如：“...次贤道：「要喝的。那《势利》又叫《势僧》，这不是绝对么？」蕙芳道：「...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -2311,8 +2311,8 @@
     ]
   },
   "势僧": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "戏曲折子《势利》的别名，见小说第三十七回。「势」字兼有权势与男根（如「去势」）两义，次贤即以此与蕙芳所出《牝贼》之「牝」相对，众人会意大笑。",
+    "descEn": "An alternate title for the scene Profit and Place, cited in chapter 37. The character 势 carries both \"influence\" and \"the male member\" (as in 去势, to geld); Cixian pairs it against the 牝 of Bitch Bandit, to the table's delight.",
     "contextZh": "在小说第37回中被引用，例如：“...次贤道：「要喝的。那《势利》又叫《势僧》，这不是绝对么？」蕙芳道：「势字怎么对得...”。",
     "contextEn": "Cited in chapter 37 of the novel.",
     "chapters": [
@@ -3464,7 +3464,7 @@
   },
   "古今图书集成": {
     "descZh": "清代官修大型类书，康熙间陈梦雷编纂、雍正间蒋廷锡校订奏进，雍正四年（1726）铜活字印行，一万卷、分六汇编三十二典，为现存最大类书；小说中王胡子售与徐子云一部，装了五大车。",
-    "descEn": "The Complete Collection of Illustrations and Writings (1726), the 10,000-juan imperial encyclopedia begun by Chen Mengléi; in the novel a set fills five carts on its way into Yi Garden's library.",
+    "descEn": "The Complete Collection of Illustrations and Writings (1726), the 10,000-juan imperial encyclopedia begun by Chen Menglei; in the novel a set fills five carts on its way into Yi Garden's library.",
     "contextZh": "在小说第45回中被引用，例如：“...这个人，倒也不讨人嫌，就是利心过于重些。《古今图书集成》我虽有一部，这个也只好我们留下罢。这部书...”。",
     "contextEn": "Cited in chapter 45 of the novel.",
     "chapters": [
@@ -4075,8 +4075,8 @@
     ]
   },
   "北征": {
-    "descZh": "杜甫五古长篇《北征》（757年），七百字自凤翔归鄜州省家，兼陈国事家事，用险韵一百五十韵，与《南山》并称五古双璧。",
-    "descEn": "Du Fu's \"Northern Journey\" (757), the 700-character homeward epic mixing statecraft and family in one hundred fifty difficult rhymes—twin summit with Han Yu's \"Southern Mountains.\"",
+    "descZh": "杜甫五古长篇《北征》（757年），七百字自凤翔归鄜州省家，兼陈国事家事，一百四十句七十韵，与韩愈《南山诗》并称五古双璧。",
+    "descEn": "Du Fu's \"Northern Journey\" (757), the 700-character homeward epic mixing statecraft and family — 140 pentasyllabic lines in seventy rhymes, twin summit with Han Yu's \"Southern Mountains.\"",
     "contextZh": "在小说第54回中被引用，例如：“...是没有学过做诗，但我前日听他们说杜少陵的《北征》、韩昌黎的《南山》，我将他翻出来看时，用...”。",
     "contextEn": "Cited in chapter 54 of the novel.",
     "chapters": [

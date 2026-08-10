@@ -72,7 +72,7 @@ export const gardens: Garden[] = [
   {
     id: 'garden-meian',
     name: '梅崦',
-    pinyin: 'Méi Ān',
+    pinyin: 'Méi Yān',
     nameEn: 'Plum Ravine',
     type: 'sublocation',
     parentId: 'garden-yiyuan',
