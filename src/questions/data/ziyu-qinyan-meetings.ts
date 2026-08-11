@@ -9,7 +9,7 @@ export const question: QuestionDefinition = {
 
 Here is the complete collection of their encounters, along with relevant paragraph citations:
 
-### 1. Chapter 10: First Meeting at Yiyuan (怡园)
+### 1. Chapter 10: First Meeting at the Garden of Contentment (怡园)
 Ziyu and Qinyan meet for the first time during a gathering hosted by Xu Ziyun.
 > "Just as they were talking, Baozhu came in with someone dressed gorgeously. Ziyu saw it was none other than Qinyan, whom he had been thinking about day and night, and was secretly startled. Then he heard Ziyun say: 'Yunong, your person of interest is here, come and meet him.' Qinyan smiled sweetly, came up and curtsied, making Ziyu neither want to sit nor stand..."
 > (正说着，只见宝珠同着花枝招展的一个人来，子玉一看不是别人，就是朝思暮想的琴言，心里暗暗吃惊。又听得子云道：「玉侬，你的意中人在此，过来见了。」琴言嫣然一笑，走上来请了一个安，倒弄得子玉坐不是，站不是...)
@@ -36,8 +36,8 @@ Qinyan is brought to the Mei residence again to wake Ziyu from his feverish deli
 > "After Ziyu sat up, his spirit felt a bit clearer. Suddenly, his eyes cleared and he saw Qinyan sitting beside him, so he asked: 'Who are you? Sitting here?' Qinyan cried and said: 'How can you not even recognize me?'"
 > (子玉坐起后，精神稍觉清爽，猛然眼中一清，见琴言坐在旁边，便问道：「你是谁？坐在这里？」琴言带着哭道：「怎么连我也不认得了？」)
 
-### 6. Chapter 37: Reunion at Yiyuan
-After Qinyan leaves the Hua residence, a banquet is held at Yiyuan to celebrate.
+### 6. Chapter 37: Reunion at the Garden of Contentment
+After Qinyan leaves the Hua residence, a banquet is held at the Garden of Contentment to celebrate.
 > "Ziyun ordered the banquet to be set and did not send wine. Ziyun said to Wang Xun: 'In terms of age, you are older than Yuxiang, but today's drink is specially set for Yunong. I want Yunong to take the chief seat, with Yuxiang accompanying.' Qinyan said: 'How can this be? I will not sit.' Ziyu said: 'It should be Yong'an.'"
 > (子云吩咐摆起席面来，也不送酒。子云对王恂道：「论年齿，吾弟长于庾香，但今日之酌特为玉侬而设，要玉侬坐个首席，庾香作陪。」琴言道：「这个如何使得？我是不坐的。」子玉道：「应是庸庵。」)
 
@@ -48,7 +48,7 @@ They talk intimately at Haitang Chunpu.
 
 ### 8. Chapter 48: Farewell on the Canal
 Their final major meeting before Qinyan departs for Nanchang with Qu Daoweng.
-> "Ziyu and Jinsu were both in casual clothes, each bringing a servant boy, and took a carriage to Yiyuan... Ziyu and Qinxian also sat together, leaning against a window, slowly rowing to the bridge..."
+> "Ziyu and Jinsu were both in casual clothes, each bringing a servant boy, and took a carriage to the Garden of Contentment... Ziyu and Qinxian also sat together, leaning against a window, slowly rowing to the bridge..."
 > (子玉、金粟都是随身便服，各带了书童，坐车到怡园。……子玉也与琴仙并坐，靠在一个窗里，慢慢的荡到桥边……)
 > "He also said: 'Yunong will be leaving in two or three days, what should Yuxiang do today? We should all have a good talk. After this parting, who knows how many years it will be before we meet again.' Ziyu and Qinxian heard this and both felt sorrowful, almost shedding tears."
 > (又道：「玉侬两三天就要走了，今日庾香应当怎样，也应大家叙个痛快。这一别不知几年再见呢。」子玉、琴仙听了，都觉凄然，几乎堕泪。)

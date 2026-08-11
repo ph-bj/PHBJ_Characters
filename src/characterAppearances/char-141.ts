@@ -51,13 +51,13 @@ export const char_141Appearances: Record<number, SceneBullet[]> = {
   ],
   46: [
     {
-      en: "Qu Daoweng moves into Yiyuan Garden with Qinxian, acting as his strict but caring tutor, though he eventually finds his own carefree lifestyle constrained by his student's intense dedication to studying.",
+      en: "Qu Daoweng moves into the Garden of Contentment with Qinxian, acting as his strict but caring tutor, though he eventually finds his own carefree lifestyle constrained by his student's intense dedication to studying.",
       zh: "屈道翁搬入怡园与琴仙同住，悉心教导他读书写字；然而琴仙闭门苦读的刻苦劲头，反而让向来潇洒的道翁感到有些被拘束。",
     },
   ],
   47: [
     {
-      en: "Qu Daosheng writes a preface for Yiyuan and pens sixteen screen panels with his calligraphy. Having been appointed assistant prefect of Nanchang, he prepares to depart the capital with Qinxian.",
+      en: "Qu Daosheng writes a preface for the Garden of Contentment and pens sixteen screen panels with his calligraphy. Having been appointed assistant prefect of Nanchang, he prepares to depart the capital with Qinxian.",
       zh: "屈道翁为怡园撰写了一篇序文，并用真行字写了十六扇屏风。他已被选任为南昌府通判，准备不日带着琴仙一同离京赴任。",
     },
   ],

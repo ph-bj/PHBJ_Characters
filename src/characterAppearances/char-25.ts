@@ -29,7 +29,7 @@ export const char_25Appearances: Record<number, SceneBullet[]> = {
   ],
   10: [
     {
-      en: "Discussed at the Garden of Ease, highlighting her artistic talent and presence in the elite social circle.",
+      en: "Discussed at the Garden of Contentment, highlighting her artistic talent and presence in the elite social circle.",
       zh: "在怡园的聚会中被提及，展现了她的艺术才华和在名士圈子中的地位。"
     }
   ],
@@ -65,7 +65,7 @@ export const char_25Appearances: Record<number, SceneBullet[]> = {
   ],
   20: [
     {
-      en: "Joins the Dragon Boat Festival excursion at the Garden of Ease, arriving on a painted pleasure boat and enjoying the garden's splendours.",
+      en: "Joins the Dragon Boat Festival excursion at the Garden of Contentment, arriving on a painted pleasure boat and enjoying the garden's splendours.",
       zh: "参加在怡园举办的端午游园会，乘画舫而来，与众名士共赏园中胜景。"
     }
   ],
@@ -137,7 +137,7 @@ export const char_25Appearances: Record<number, SceneBullet[]> = {
   ],
   35: [
     {
-      en: "Participates in another poetry and wine gathering at the Garden of Ease, engaging in sophisticated literary games.",
+      en: "Participates in another poetry and wine gathering at the Garden of Contentment, engaging in sophisticated literary games.",
       zh: "参加在怡园举办的又一次诗酒雅集，参与了文雅的行酒令游戏。"
     }
   ],
@@ -149,7 +149,7 @@ export const char_25Appearances: Record<number, SceneBullet[]> = {
   ],
   37: [
     {
-      en: "Attends the Ten-Day Plum Gathering at the Garden of Ease, participating in elegant conversations and poetry.",
+      en: "Attends the Ten-Day Plum Gathering at the Garden of Contentment, participating in elegant conversations and poetry.",
       zh: "出席怡园的十日梅叙，参与了高雅的谈话与诗词创作。"
     }
   ],
@@ -173,7 +173,7 @@ export const char_25Appearances: Record<number, SceneBullet[]> = {
   ],
   45: [
     {
-      en: "Attends another gathering at the Garden of Ease, contributing to the harmonious and joyful atmosphere.",
+      en: "Attends another gathering at the Garden of Contentment, contributing to the harmonious and joyful atmosphere.",
       zh: "参加怡园的又一次聚会，为和谐欢乐的气氛增光添彩。"
     }
   ],

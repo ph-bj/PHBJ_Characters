@@ -27,7 +27,7 @@ export const char_23Appearances: Record<number, SceneBullet[]> = {
       zh: "徐子云对众名旦皆珍爱有加，但他对袁宝珠尤为钟情，视其为奇珍异宝。",
     },
     {
-      en: "Ziyun specifically tasks Baozhu with guiding the newcomers Qinguan (Qinyan) and Qiguan around the Yi Garden, reflecting Baozhu's trusted status.",
+      en: "Ziyun specifically tasks Baozhu with guiding the newcomers Qinguan (Qinyan) and Qiguan around the Garden of Contentment, reflecting Baozhu's trusted status.",
       zh: "子云特意嘱托宝珠带领新来的琴官和琪官游览怡园，可见宝珠在他心中的亲信地位。",
     },
   ],
@@ -45,7 +45,7 @@ export const char_23Appearances: Record<number, SceneBullet[]> = {
   ],
   "9": [
     {
-      en: "At the Lantern Festival gathering in the Yi Garden, Baozhu helps serve wine, tends to the drunken Shi Nanxiang, and answers Mei Ziyu's inquiries about Qinyan.",
+      en: "At the Lantern Festival gathering in the Garden of Contentment, Baozhu helps serve wine, tends to the drunken Shi Nanxiang, and answers Mei Ziyu's inquiries about Qinyan.",
       zh: "在怡园的元宵灯会上，宝珠不仅帮忙侍酒、照料醉酒的史南湘，还回答了梅子玉关于琴官的询问。",
     },
   ],
@@ -79,7 +79,7 @@ export const char_23Appearances: Record<number, SceneBullet[]> = {
   ],
   "14": [
     {
-      en: "Baozhu attends a cheerful lunch at the Yi Garden with Shi Nanxiang and other close companions.",
+      en: "Baozhu attends a cheerful lunch at the Garden of Contentment with Shi Nanxiang and other close companions.",
       zh: "宝珠在怡园与史南湘及其他密友共进了一顿愉快的午餐。",
     },
   ],
@@ -91,7 +91,7 @@ export const char_23Appearances: Record<number, SceneBullet[]> = {
   ],
   "17": [
     {
-      en: "Baozhu enjoys a scenic gathering at the Yi Garden to view the blooming peach blossoms.",
+      en: "Baozhu enjoys a scenic gathering at the Garden of Contentment to view the blooming peach blossoms.",
       zh: "宝珠在怡园参加了赏桃花的雅集，尽享春日美景。",
     },
   ],
@@ -109,7 +109,7 @@ export const char_23Appearances: Record<number, SceneBullet[]> = {
   ],
   "20": [
     {
-      en: "During the Dragon Boat Festival at Yi Garden, Baozhu arrives on a painted pleasure boat, serving wine and joining the scholars in festive games.",
+      en: "During the Dragon Boat Festival at the Garden of Contentment, Baozhu arrives on a painted pleasure boat, serving wine and joining the scholars in festive games.",
       zh: "端午佳节的怡园聚会上，宝珠乘画舫翩然而至，为众名士侍酒，并一同参与节日的酒令游戏。",
     },
   ],
@@ -175,7 +175,7 @@ export const char_23Appearances: Record<number, SceneBullet[]> = {
   ],
   "35": [
     {
-      en: "Baozhu celebrates his birthday with a grand banquet hosted by Ziyun at Yi Garden, participating enthusiastically in elaborate drinking and dice games.",
+      en: "Baozhu celebrates his birthday with a grand banquet hosted by Ziyun at the Garden of Contentment, participating enthusiastically in elaborate drinking and dice games.",
       zh: "子云在怡园为宝珠举办了盛大的生日宴会，宝珠兴致勃勃地参与了席间繁复的酒令和掷骰子游戏。",
     },
   ],
@@ -187,7 +187,7 @@ export const char_23Appearances: Record<number, SceneBullet[]> = {
   ],
   "37": [
     {
-      en: "Baozhu attends a scholarly gathering at Yi Garden, cleverly matching opera titles and playing word games with the literati.",
+      en: "Baozhu attends a scholarly gathering at the Garden of Contentment, cleverly matching opera titles and playing word games with the literati.",
       zh: "宝珠参加了怡园的名士聚会，在席间与文人们巧妙地对仗戏名、大玩字谜。",
     },
   ],

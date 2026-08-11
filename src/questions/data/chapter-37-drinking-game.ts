@@ -10,7 +10,7 @@ export const question: QuestionDefinition = {
   answerEn: `The drinking game in Chapter 37 of Pinhua Baojian is an elegant and intellectual "opera title matching" game (对戏名).
 
 **Location:**
-It takes place at the "Meiyan" (Plum Blossom Arbor) within the Yi Garden (怡园), owned by Xu Ziyun. The arbor is surrounded by plum blossoms, creating an atmosphere of "a sea of fragrant snow" (一片香雪).
+It takes place at the "Meiyan" (Plum Blossom Arbor) within the Garden of Contentment (怡园), owned by Xu Ziyun. The arbor is surrounded by plum blossoms, creating an atmosphere of "a sea of fragrant snow" (一片香雪).
 
 **Participants:**
 There are eight participants, evenly divided between patrons and actors. The patrons are Xu Ziyun (the host), Mei Ziyu, Xiao Cixian, and Wang Xun. The actors are Du Qinyan, Su Huifang, Lin Baozhu, and Wang Guibao.

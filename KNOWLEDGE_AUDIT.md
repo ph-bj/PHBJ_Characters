@@ -64,6 +64,28 @@ classes the audit describes and one introduced by the repair itself. All are fix
   the poetic name kept as an alias; the same for 留青精舍, 三乐园, 牡丹台 and
   牡丹香国.
 
+### 怡园 unified to "Garden of Contentment"
+
+Subsequently, at the author's direction, the rename was made in the other
+direction — properly this time, by changing the translation rather than
+detaching the gazetteer from it. Counting all variants, 怡园 was appearing in
+English as **Yiyuan (362), Yi Garden (51), Garden of Ease (28) and Garden of
+Contentment (3)** — 444 occurrences of four different names for the same place,
+across the chapter translations, summaries, gists, appreciation data, character
+appearances, FAQ answers, relationship labels and work titles. All are now
+*Garden of Contentment*.
+
+The substitution was not mechanical: bare occurrences take the article
+("at the Garden of Contentment"), already-articled ones do not double it,
+possessives resolve to "Xu Ziyun's Garden of Contentment", redundant compounds
+collapse ("the Yiyuan garden" → "the Garden of Contentment"), attributive uses
+keep no article ("Garden of Contentment Salon Scholar Peers"), and display
+labels — `nameEn`, relationship types, work titles — carry no article at all.
+Merging the variants also revealed a duplicate in `ENGLISH_WORK_TITLES` (怡园序
+had been listed twice, as "Preface to Yiyuan" and "Preface to the Garden of
+Ease") and a map value that pointed at no array entry, so that scene's
+annotation had never rendered.
+
 
 ## Summary
 
@@ -332,7 +354,7 @@ it is an alternate name of the 昭君怨 tune, which the app already documents;
 | Cast size | `metadata.json`: "207 characters"; `data.ts` resolves to **207** at runtime | four FAQ answers: "over 150 characters" |
 | 三乐园 | `locations.ts`: type `garden`, "Three Joys **Garden**" | `gardens.ts`: "Three Joys **Theater**" — and ch. 3 says 「见一个戏园写着三乐园」, a commercial playhouse. It should not be under "Gardens & Garden Sites". |
 | 留青精舍 | `locations.ts`: "Quiet-Green Lodge" | `gardens.ts`: "Stay-Green Studio" |
-| 怡园 | `locations.ts`: "Yiyuan" | `gardens.ts`: "Garden of Contentment" |
+| 怡园 | `locations.ts`: "Yiyuan" | `gardens.ts`: "Garden of Contentment" — and the English text also carried "Yi Garden" (51×) and "Garden of Ease" (28×). **Four renderings of one place.** Unified to *Garden of Contentment* throughout at the author's direction; see the note below. |
 | 潘金莲雪天戏叔 | `worksData.json` (EN): "her **brother-in-law** Wu Song" ✅ | `englishWorkTitles.ts`: "Her **Uncle-in-Law**" |
 | 芍药圃 / 牡丹台 | both rendered "Peony …" in `locations.ts` | 芍药 is the herbaceous peony, 牡丹 the tree peony — the distinction is the point of having two garden plots |
 | 州 vs 府 | `locations.ts` renders 济宁州, 通州, 嘉应州, 无为州 all as "Prefecture" | `TRANSLATION_AUDIT.md` §4 sets the house rule that 州 ≠ 府 ("independent-department magistracy, not 'Zhili prefecture'") |

@@ -36,10 +36,10 @@ export const chapter20Appreciation: ChapterAppreciationData = {
   "timelineData": [
     {
       "stageZh": "1. 怡园重聚",
-      "stageEn": "1. Reunion at Yiyuan",
+      "stageEn": "1. Reunion at the Garden of Contentment",
       "sentiment": 80,
       "descriptionZh": "端午前夕，众名士受邀至怡园赏榴花、看龙舟（子玉、王恂、仲清因故未至）",
-      "descriptionEn": "On the eve of Duanwu, the scholars gather at Yiyuan for pomegranate blossoms and dragon boats (Ziyu, absent due to illness)."
+      "descriptionEn": "On the eve of Duanwu, the scholars gather at the Garden of Contentment for pomegranate blossoms and dragon boats (Ziyu, absent due to illness)."
     },
     {
       "stageZh": "2. 画舫惊艳",
@@ -74,7 +74,7 @@ export const chapter20Appreciation: ChapterAppreciationData = {
           "labelZh": "承上启下",
           "labelEn": "Connection",
           "textZh": "本章承接上文子玉因相思与失落而染病，通过一场极尽奢华的怡园雅集，将原本零散的众多名士与名伶重新汇聚，为后续更复杂的情感纠葛和群像互动搭建了华丽的舞台。",
-          "textEn": "Following Ziyu's lovesick illness, this chapter gathers scattered scholars and actors into a lavish Yiyuan assembly, setting a grand stage for future complex interactions."
+          "textEn": "Following Ziyu's lovesick illness, this chapter gathers scattered scholars and actors into a lavish the Garden of Contentment assembly, setting a grand stage for future complex interactions."
         },
         {
           "labelZh": "节奏掌控",
@@ -114,7 +114,7 @@ export const chapter20Appreciation: ChapterAppreciationData = {
           "labelZh": "繁华如梦",
           "labelEn": "Illusory Prosperity",
           "textZh": "极度细致地描写怡园的绝美风光与龙舟的机巧奢华，表面上是展现晚清士大夫钟鸣鼎食的生活，内里却隐隐透出一种“烈火烹油、鲜花着锦”的极致幻灭感，暗示繁华易逝。",
-          "textEn": "The extreme detail of Yiyuan's beauty and the mechanical dragon boat highlights the lavish lifestyle of late Qing elites, yet subtly hints at the transient, dreamlike nature of such fragile prosperity."
+          "textEn": "The extreme detail of the Garden of Contentment's beauty and the mechanical dragon boat highlights the lavish lifestyle of late Qing elites, yet subtly hints at the transient, dreamlike nature of such fragile prosperity."
         },
         {
           "labelZh": "雅俗共赏",
@@ -230,7 +230,7 @@ export const chapter20Appreciation: ChapterAppreciationData = {
           "pairZh": "徐子云 ⇄ 萧次贤",
           "pairEn": "Xu Ziyun ⇄ Xiao Cixian",
           "relationZh": "怡园双璧",
-          "relationEn": "Twin Pillars of Yiyuan",
+          "relationEn": "Twin Pillars of the Garden of Contentment",
           "temperature": 85,
           "noteZh": "携群贤赏榴观舟，是这场声色盛宴的总导演。",
           "noteEn": "Leading the company through pomegranates and dragon boats — co-directors of the spectacle."

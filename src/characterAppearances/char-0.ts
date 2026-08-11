@@ -97,7 +97,7 @@ export const char_0Appearances: Record<number, SceneBullet[]> = {
       "zh": "元宵夜同刘文泽、颜仲清、王珣出游灯市。"
     },
     {
-      "en": "Visits the Yiyuan garden to solve lantern riddles and meets Xiao Cixian in a refined literary gathering.",
+      "en": "Visits the Garden of Contentment to solve lantern riddles and meets Xiao Cixian in a refined literary gathering.",
       "zh": "至怡园灯谜会中，与萧次贤相识于雅集。"
     },
     {

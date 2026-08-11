@@ -140,7 +140,7 @@ export const chapter38Appreciation: ChapterAppreciationData = {
         {
           "id": 1,
           "decisionZh": "子云设宴，将老名士屈道生请入怡园",
-          "decisionEn": "Ziyun hosts a feast to draw the venerable Qu Daosheng into Yiyuan",
+          "decisionEn": "Ziyun hosts a feast to draw the venerable Qu Daosheng into the Garden of Contentment",
           "rippleZh": "老名士与群贤诗酒论道，尽兴而归。",
           "rippleEn": "The old master debates poetry and wine with the company, deeply content.",
           "echoZh": "这场相识让屈公日后收琴仙为义子（第46回），改写琴言后半生。",

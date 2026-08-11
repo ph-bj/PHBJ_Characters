@@ -13,12 +13,12 @@ export const chapter57Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：怡园的女眷雅集",
-      descriptionEn: "The wives of the scholars gather at Yiyuan for poetry and tile games.",
+      descriptionEn: "The wives of the scholars gather at the Garden of Contentment for poetry and tile games.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
       descriptionZh: "当琴仙在南方受苦时，名士们的妻子在怡园举办了一场精彩的诗会。",
-      descriptionEn: "While Qinxian suffers in the south, the wives of the main scholars hold a brilliant poetry gathering at Yiyuan.",
+      descriptionEn: "While Qinxian suffers in the south, the wives of the main scholars hold a brilliant poetry gathering at the Garden of Contentment.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
@@ -31,7 +31,7 @@ export const chapter57Appreciation: ChapterAppreciationData = {
       iconType: "GitBranch", titleZh: "文本结构与布局", titleEn: "Structure & Layout", score: 85,
       subsections: [
         { labelZh: "承上启下", labelEn: "Connection", textZh: "本章紧接上文，推动了核心情节发展。", textEn: "This chapter directly follows the previous text, advancing the core plot." },
-        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕 '第五十七章：怡园的女眷雅集' 展开，结构严密。", textEn: "The plot revolves around 'Chapter 57: The Wives' Gathering at Yiyuan', with a tight structure." },
+        { labelZh: "情节逻辑", labelEn: "Plot Logic", textZh: "情节围绕 '第五十七章：怡园的女眷雅集' 展开，结构严密。", textEn: "The plot revolves around 'Chapter 57: The Wives' Gathering at the Garden of Contentment', with a tight structure." },
         { labelZh: "节奏掌控", labelEn: "Pacing", textZh: "张弛有度，高潮处情感饱满。", textEn: "Pacing is well-controlled with emotional fullness at the climax." }
       ]
     },
@@ -80,7 +80,7 @@ export const chapter57Appreciation: ChapterAppreciationData = {
         {
           id: 1,
           titleZh: "内闱百花诗阵", titleEn: "The Floral Poetry Matrix of the Inner Chambers",
-          contentZh: "群芳竞秀怡园中，\n才情不让须眉雄。\n五色秋菊开正好，\n且将心事付微风。", contentEn: "A myriad of beauties compete in Yi Garden,\nTheir talent yielding not to the heroes of men.\nThe five-colored autumn chrysanthemums bloom just right,\nLet us entrust our thoughts to the gentle breeze.",
+          contentZh: "群芳竞秀怡园中，\n才情不让须眉雄。\n五色秋菊开正好，\n且将心事付微风。", contentEn: "A myriad of beauties compete in the Garden of Contentment,\nTheir talent yielding not to the heroes of men.\nThe five-colored autumn chrysanthemums bloom just right,\nLet us entrust our thoughts to the gentle breeze.",
           critiqueZh: "这一章刻画了晚清贵族女性的理想化群像。她们并非仅仅是附庸，而是拥有极高文学修养的独立审视者。这场诗会与男性视角的欢场形成了对照，是纯粹高雅的‘女儿国’。", critiqueEn: "This chapter portrays an idealized group of late Qing aristocratic women. They are not mere appendages, but independent observers with high literary cultivation. This poetry gathering contrasts with the male-dominated pleasure houses, forming a pure, elegant 'Kingdom of Women'."
         }
       ]

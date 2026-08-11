@@ -131,7 +131,7 @@ export const char_10Appearances: Record<number, SceneBullet[]> = {
   ],
   "52": [
     {
-      en: "Gao Pin returns to the capital and rejoins the circle of friends at Yiyuan, catching up on recent events.",
+      en: "Gao Pin returns to the capital and rejoins the circle of friends at the Garden of Contentment, catching up on recent events.",
       zh: "高品返回京城，并在怡园重新加入了朋友圈，了解最近发生的事件。",
     },
   ],
@@ -155,7 +155,7 @@ export const char_10Appearances: Record<number, SceneBullet[]> = {
   ],
   "59": [
     {
-      en: "Gao Pin attends the grand Lantern Festival banquet at Yiyuan and reads the ceremonial prayer aloud to the assembly.",
+      en: "Gao Pin attends the grand Lantern Festival banquet at the Garden of Contentment and reads the ceremonial prayer aloud to the assembly.",
       zh: "高品参加了在怡园举办的盛大元宵节宴会，并向众人高声朗读了祭文。",
     },
   ],

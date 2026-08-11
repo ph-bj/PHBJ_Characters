@@ -27,7 +27,7 @@ export const char_17Appearances: Record<number, SceneBullet[]> = {
   ],
   "47": [
     {
-      "en": "Jin Jifu arrives at Yiyuan to view the newly completed couplets and plaques, praising Qu Daoweng's elegant calligraphy.",
+      "en": "Jin Jifu arrives at the Garden of Contentment to view the newly completed couplets and plaques, praising Qu Daoweng's elegant calligraphy.",
       "zh": "金吉甫来到怡园观看新完成的对联和匾额，称赞屈道翁优雅的书法。"
     }
   ],
@@ -37,7 +37,7 @@ export const char_17Appearances: Record<number, SceneBullet[]> = {
       "zh": "南湘现已成为翰林学士，经常请金吉甫和子玉代笔写文章和诗歌。"
     },
     {
-      "en": "Jin Jifu and Ziyu visit Yiyuan for a gathering with Nanxiang and Qinxian, engaging in profound discussions about poetry and life.",
+      "en": "Jin Jifu and Ziyu visit the Garden of Contentment for a gathering with Nanxiang and Qinxian, engaging in profound discussions about poetry and life.",
       "zh": "金吉甫和子玉来到怡园与南湘、琴仙聚会，深入讨论诗词和人生。"
     },
     {

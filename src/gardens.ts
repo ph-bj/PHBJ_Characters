@@ -58,7 +58,7 @@ export const gardens: Garden[] = [
       'The imposing Beijing residence associated with Hua Guangsu, the novel\'s most feared aristocratic patron. ' +
       'The text repeatedly identifies Hua as the young master of Jinchun Garden; the compound is divided into ' +
       'east and west gardens, formal reception halls, and private quarters. Its carefully recorded luxury ' +
-      'forms a powerful contrast with the cultivated sociability of Yiyuan.',
+      'forms a powerful contrast with the cultivated sociability of the Garden of Contentment.',
     descriptionZh:
       '全书最令人敬畏的贵族公子华光宿所居之府。原文屡以“锦春园的华公子”称之；宅院宏阔，分东园、西园、正厅、内室诸区，' +
       '气派远超寻常园林。其豪奢不让怡园，然所弥漫者是权势而非风雅。' +
@@ -79,7 +79,7 @@ export const gardens: Garden[] = [
     owner: '徐子云',
     ownerEn: 'Xu Ziyun',
     location: '怡园内，园之名胜',
-    locationEn: 'Within Yiyuan — the garden\'s most celebrated spot',
+    locationEn: 'Within the Garden of Contentment — the garden\'s most celebrated spot',
     description:
       'Five interlocking chambers set among plum trees and rocky hills, where corridors and ' +
       'latticed balustrades wind through a forest of blossoms. When the plums are open, the ' +
@@ -103,9 +103,9 @@ export const gardens: Garden[] = [
     owner: '徐子云',
     ownerEn: 'Xu Ziyun',
     location: '怡园中央，园之主楼',
-    locationEn: 'Centre of Yiyuan — the garden\'s main tower',
+    locationEn: 'Centre of the Garden of Contentment — the garden\'s main tower',
     description:
-      'The grand central tower of Yiyuan, four sides thrown open to views of every quarter of ' +
+      'The grand central tower of the Garden of Contentment, four sides thrown open to views of every quarter of ' +
       'the garden. Its name — "containing ten thousand things and transforming them into light" — ' +
       'reflects Xu Ziyun\'s philosophy of generous hospitality. Elder scholar Qu Daoweng later ' +
       'renamed it 赐书楼 (Tower of Gifted Books) in recognition of the literary culture nurtured here.',
@@ -126,7 +126,7 @@ export const gardens: Garden[] = [
     owner: '徐子云',
     ownerEn: 'Xu Ziyun',
     location: '怡园内，苏堤深处',
-    locationEn: 'Within Yiyuan, beyond the Su Causeway',
+    locationEn: 'Within the Garden of Contentment, beyond the Su Causeway',
     description:
       'Reached by boat along willow-lined waterways and across a small bridge, ' +
       'the Fairy-Detaining Courtyard opens onto a grove of pink and white peach ' +
@@ -150,7 +150,7 @@ export const gardens: Garden[] = [
     owner: '徐子云、萧次贤',
     ownerEn: 'Xu Ziyun & Xiao Cixian',
     location: '怡园内',
-    locationEn: 'Within Yiyuan',
+    locationEn: 'Within the Garden of Contentment',
     description:
       'A suite of over twenty interconnected rooms — pavilions, inner chambers and ' +
       'side halls — where Xu Ziyun and Xiao Cixian most often receive intimate guests. ' +
@@ -173,7 +173,7 @@ export const gardens: Garden[] = [
     owner: '萧次贤',
     ownerEn: 'Xiao Cixian',
     location: '怡园内，梅崦之前，梨院海棠春圃之后',
-    locationEn: 'Within Yiyuan, between Plum Ravine and Crabapple Garden',
+    locationEn: 'Within the Garden of Contentment, between Plum Ravine and Crabapple Garden',
     description:
       'A recently built pavilion set between the Plum Ravine and Crabapple Garden, ' +
       'with two magnificent Yingzhou spirit-rocks flanking its entrance and a grand ' +
@@ -198,13 +198,13 @@ export const gardens: Garden[] = [
     owner: '史南湘（后居）',
     ownerEn: 'Shi Nanxiang (later resident)',
     location: '怡园内，原名积翠轩',
-    locationEn: 'Within Yiyuan, originally called Accumulated-Green Pavilion',
+    locationEn: 'Within the Garden of Contentment, originally called Accumulated-Green Pavilion',
     description:
       'Originally named 积翠轩 (Accumulated-Green Pavilion), Qu Daoweng renames it ' +
       '"Cool Poetic Realm" on his tour of the garden, declaring the name perfectly captures ' +
       'the spirit of the space. After passing the Hanlin examination, Shi Nanxiang moves in ' +
       'and makes it his permanent residence, hosting Gao Pin here and receiving Tian Chunhang ' +
-      'when Hua Guangsu arrives at Yiyuan.',
+      'when Hua Guangsu arrives at the Garden of Contentment.',
     descriptionZh:
       '原名积翠轩，屈道翁游园时将其更名为"清凉诗境"，众名士皆称妙绝。' +
       '史南湘馆选后搬入此处长住，与屈道翁、萧次贤、徐子云诗酒相处，' +
@@ -222,7 +222,7 @@ export const gardens: Garden[] = [
     owner: '徐子云',
     ownerEn: 'Xu Ziyun',
     location: '怡园内，含万楼以北',
-    locationEn: 'Within Yiyuan, north of Hanwan Tower',
+    locationEn: 'Within the Garden of Contentment, north of Hanwan Tower',
     description:
       'A two-to-three-acre enclosure surrounded by low flower walls, filled with meticulously ' +
       'placed rocks, pavilions and peony beds so artfully arranged that it feels like a ' +
@@ -245,9 +245,9 @@ export const gardens: Garden[] = [
     owner: '萧次贤',
     ownerEn: 'Xiao Cixian',
     location: '怡园内',
-    locationEn: 'Within Yiyuan',
+    locationEn: 'Within the Garden of Contentment',
     description:
-      'An elegant pavilion studio within Yiyuan, often used by Xiao Cixian and Xu Ziyun for receiving refined guests and poetry exchanges.',
+      'An elegant pavilion studio within the Garden of Contentment, often used by Xiao Cixian and Xu Ziyun for receiving refined guests and poetry exchanges.',
     descriptionZh:
       '怡园内一处雅致的轩馆，萧次贤与徐子云常在此接待佳客、诗酒吟咏。',
     searchTokens: ['春风沉醉轩'],

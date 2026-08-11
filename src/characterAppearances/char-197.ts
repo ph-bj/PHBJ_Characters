@@ -5,13 +5,13 @@ import type { SceneBullet } from './types';
 export const char_197Appearances: Record<number, SceneBullet[]> = {
   46: [
     {
-      en: "Mentioned by Qu Daoweng and Jin Jifu as a skilled stone and wood carver whose craftsmanship is excellent, recommended to carve Daoweng's calligraphy onto Yiyuan screen panels.",
+      en: "Mentioned by Qu Daoweng and Jin Jifu as a skilled stone and wood carver whose craftsmanship is excellent, recommended to carve Daoweng's calligraphy onto the Garden of Contentment screen panels.",
       zh: "被屈道翁与金吉甫提及，赞其雕刻技艺精湛，被推荐负责雕刻怡园含万楼屏风上的屈道翁手迹。"
     }
   ],
   47: [
     {
-      en: "Hired by Xu Ziyun on Jin Jifu's recommendation to carve Qu Daoweng's running-script calligraphy onto the sixteen screen panels in Yiyuan.",
+      en: "Hired by Xu Ziyun on Jin Jifu's recommendation to carve Qu Daoweng's running-script calligraphy onto the sixteen screen panels in the Garden of Contentment.",
       zh: "由金吉甫推荐、徐子云开工请到怡园，负责将屈道翁的十六扇屏风字画雕刻在屏风上。"
     }
   ],

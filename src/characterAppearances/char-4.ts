@@ -139,19 +139,19 @@ export const char_4Appearances: Record<number, SceneBullet[]> = {
   ],
   "35": [
     {
-      en: "Attends the Lantern Festival gathering at Yiyuan Garden, taking part in the elaborate stone-inscription drinking games alongside the other gentlemen.",
+      en: "Attends the Lantern Festival gathering at the Garden of Contentment, taking part in the elaborate stone-inscription drinking games alongside the other gentlemen.",
       zh: "赴怡园参加元宵雅集，与众名士一同参与梅花墩旁的刻石行令游戏。",
     },
   ],
   "37": [
     {
-      en: "Participates in the extensive springtime garden parties at Yiyuan, enjoying wine, poetry contests, and theatrical performances with the entire literary circle.",
+      en: "Participates in the extensive springtime garden parties at the Garden of Contentment, enjoying wine, poetry contests, and theatrical performances with the entire literary circle.",
       zh: "参加怡园盛大的春日游园会，在酒宴、诗赛与戏曲表演中与众人同乐。",
     },
   ],
   "38": [
     {
-      en: "Continues his involvement in the festive celebrations at Yiyuan, demonstrating his ease and familiarity in both scholarly and theatrical settings.",
+      en: "Continues his involvement in the festive celebrations at the Garden of Contentment, demonstrating his ease and familiarity in both scholarly and theatrical settings.",
       zh: "继续参与怡园的欢庆活动，在文人雅集与戏曲交际中皆显得游刃有余。",
     },
   ],
@@ -217,7 +217,7 @@ export const char_4Appearances: Record<number, SceneBullet[]> = {
   ],
   "60": [
     {
-      en: "Participates in the grand finale gathering at Yiyuan, celebrating the enduring bonds of friendship and romance as the performers honor the scholars.",
+      en: "Participates in the grand finale gathering at the Garden of Contentment, celebrating the enduring bonds of friendship and romance as the performers honor the scholars.",
       zh: "参加怡园的大团圆聚会，见证伶人向名士致敬，共庆经久不衰的友谊与情缘。",
     },
   ],

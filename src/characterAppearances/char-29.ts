@@ -89,13 +89,13 @@ export const char_29Appearances: Record<number, SceneBullet[]> = {
   ],
   "36": [
     {
-      en: "Baozhu recounts how they spent a day talking with Guibao and others at Yiyuan.",
+      en: "Baozhu recounts how they spent a day talking with Guibao and others at the Garden of Contentment.",
       zh: "宝珠讲述了他们之前如何在怡园与桂保等人谈论了一天。"
     }
   ],
   "37": [
     {
-      en: "Baozhu and Guibao arrive at Yiyuan, explaining that Qinyan has not yet arrived.",
+      en: "Baozhu and Guibao arrive at the Garden of Contentment, explaining that Qinyan has not yet arrived.",
       zh: "宝珠和桂保来到怡园，解释说琴言还没有到。"
     },
     {

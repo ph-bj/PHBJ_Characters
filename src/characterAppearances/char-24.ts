@@ -125,7 +125,7 @@ export const char_24Appearances: Record<number, SceneBullet[]> = {
   ],
   "35": [
     {
-      en: "Su Huifang attends an elegant gathering at the Garden of Ease with other top performers and scholars, enjoying a rare moment of cultured leisure.",
+      en: "Su Huifang attends an elegant gathering at the Garden of Contentment with other top performers and scholars, enjoying a rare moment of cultured leisure.",
       zh: "蕙芳与其他名旦一同赴怡园雅集，与名士们共赏春光，谈诗论画。"
     },
   ],

@@ -41,7 +41,7 @@ export const char_56Appearances: Record<number, SceneBullet[]> = {
   ],
   "22": [
     {
-      en: "Cao Changqing allows Qin Yan to get up and go to the Yi Garden with Su Lan after the latter requests it.",
+      en: "Cao Changqing allows Qin Yan to get up and go to the Garden of Contentment with Su Lan after the latter requests it.",
       zh: "素兰着人来请琴言去怡园，曹长庆应允并催促琴言起身。"
     }
   ],

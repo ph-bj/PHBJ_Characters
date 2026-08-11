@@ -123,25 +123,25 @@ export const char_2Appearances: Record<number, SceneBullet[]> = {
   ],
   "35": [
     {
-      "en": "Joins the Lantern Festival viewing at Yiyuan Garden, participating in the stone-inscription drinking games and reciting poetry among friends and performers.",
+      "en": "Joins the Lantern Festival viewing at the Garden of Contentment, participating in the stone-inscription drinking games and reciting poetry among friends and performers.",
       "zh": "赴怡园赏元宵花灯，参与梅花墩旁的刻石行令游戏，与众名士和伶人饮酒赋诗。"
     }
   ],
   "37": [
     {
-      "en": "Joins the extensive springtime garden parties at Yiyuan, partaking in wine, poetry, and theatrical performances with the entire circle.",
+      "en": "Joins the extensive springtime garden parties at the Garden of Contentment, partaking in wine, poetry, and theatrical performances with the entire circle.",
       "zh": "参加怡园盛大的春日游园会，与众人在酒宴、诗会及戏曲表演中同乐。"
     }
   ],
   "38": [
     {
-      "en": "Continues the festive celebrations at Yiyuan, demonstrating his usual easy brilliance in literary games.",
+      "en": "Continues the festive celebrations at the Garden of Contentment, demonstrating his usual easy brilliance in literary games.",
       "zh": "继续参与怡园的欢庆活动，在文字游戏中展现其一贯的才思敏捷。"
     }
   ],
   "39": [
     {
-      "en": "Engages in deeper conversations with the group at Yiyuan, helping to navigate the complex social dynamics between the scholars and the performers.",
+      "en": "Engages in deeper conversations with the group at the Garden of Contentment, helping to navigate the complex social dynamics between the scholars and the performers.",
       "zh": "在怡园与众人深入交谈，协助调和名士与伶人间复杂的社交关系。"
     }
   ],
@@ -213,7 +213,7 @@ export const char_2Appearances: Record<number, SceneBullet[]> = {
   ],
   "60": [
     {
-      "en": "Participates in the grand finale gathering at Yiyuan where the performers honor the scholars. He writes the encomium for Qin Qiguan as the 'Tribute-Ranking Flower Scribe' and is himself honored with a portrait and poem as the 'Eminent Scribe Among Immortals'.",
+      "en": "Participates in the grand finale gathering at the Garden of Contentment where the performers honor the scholars. He writes the encomium for Qin Qiguan as the 'Tribute-Ranking Flower Scribe' and is himself honored with a portrait and poem as the 'Eminent Scribe Among Immortals'.",
       "zh": "参加怡园的大团圆聚会。他为秦琪官撰写“及第花史”的赞语，并被伶人们尊为“仙中高品”，获赠画像与颂诗。"
     }
   ]

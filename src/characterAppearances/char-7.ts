@@ -29,13 +29,13 @@ export const char_7Appearances: Record<number, SceneBullet[]> = {
   ],
   "19": [
     {
-      en: "The guest list is refined with care: Xu Ziyun and Xiao Cixian from the Garden of Ease, the scholars, and a constellation of dan performers including — after some pointed prompting — Du Qinyan himself. After the others leave he sits alone and composes an invitation letter to Ziyun and Cixian that is half formal note, half lyric poem, its courtesy barely concealing his longing.",
+      en: "The guest list is refined with care: Xu Ziyun and Xiao Cixian from the Garden of Contentment, the scholars, and a constellation of dan performers including — after some pointed prompting — Du Qinyan himself. After the others leave he sits alone and composes an invitation letter to Ziyun and Cixian that is half formal note, half lyric poem, its courtesy barely concealing his longing.",
       zh: "大家定妥人数、席位，子玉独自挥毫，写就一封情文并茂的邀帖，送与怡园的徐子云和萧次贤，措辞既典雅又真挚。",
     },
   ],
   "22": [
     {
-      en: "As the Dragon Boat Festival approaches, Xu Ziyun and Xiao Cixian host a garden excursion at the Garden of Ease for the remaining scholars. In the Pavilion of Gathering Clouds they discover a couplet brushed in bold calligraphy by Hua Guangsu, and Ziyun gently defends the notorious young aristocrat: his taste and his circumstances, he suggests, are entirely at odds.",
+      en: "As the Dragon Boat Festival approaches, Xu Ziyun and Xiao Cixian host a garden excursion at the Garden of Contentment for the remaining scholars. In the Pavilion of Gathering Clouds they discover a couplet brushed in bold calligraphy by Hua Guangsu, and Ziyun gently defends the notorious young aristocrat: his taste and his circumstances, he suggests, are entirely at odds.",
       zh: "端午前夕，徐子云与萧次贤邀众名士至怡园赏榴花、观龙舟。王恂、仲清因家中有事未能成行，子云、次贤、春航、南湘四人骑马穿越园中胜景，峭壁、古松、缥缈亭、十亩方塘，一一入目，春航诗兴大发。",
     },
   ],
@@ -47,7 +47,7 @@ export const char_7Appearances: Record<number, SceneBullet[]> = {
   ],
   "29": [
     {
-      en: "Late summer finds Hua Guangsu hosting an elaborate banquet at the Garden of Ease, with Xu Ziyun and Liu Wenze among the few who actually appear. Ziyun leads Wenze through the garden's engineered splendours — the cascading artificial waterfall, the lotus-covered lake, the grand Hanwan Pavilion open to the breeze on all four sides.",
+      en: "Late summer finds Hua Guangsu hosting an elaborate banquet at the Garden of Contentment, with Xu Ziyun and Liu Wenze among the few who actually appear. Ziyun leads Wenze through the garden's engineered splendours — the cascading artificial waterfall, the lotus-covered lake, the grand Hanwan Pavilion open to the breeze on all four sides.",
       zh: "夏末时节，华公子在怡园大摆宴席，邀请刘文泽、徐子云等人观赏新排的堂会戏。园中荷香满院，含万楼气宇轩昂，子云一一介绍园中布置之巧。",
     },
   ],
@@ -65,7 +65,7 @@ export const char_7Appearances: Record<number, SceneBullet[]> = {
   ],
   "42": [
     {
-      en: "The next morning a messenger from Xu Ziyun arrives: Mei Ziyu is already at Yiyuan and waiting. Ziyun proposes a Ten-Day Plum Gathering — an open invitation for any friend with a free afternoon to come and sit among the flowers without ceremony or fixed numbers.",
+      en: "The next morning a messenger from Xu Ziyun arrives: Mei Ziyu is already at the Garden of Contentment and waiting. Ziyun proposes a Ten-Day Plum Gathering — an open invitation for any friend with a free afternoon to come and sit among the flowers without ceremony or fixed numbers.",
       zh: "翌日清晨，徐子云遣人相召，言梅子玉已先到园中等候。子云提议以十日梅叙会友，不拘人数多寡，随兴而至。",
     },
   ],
@@ -77,7 +77,7 @@ export const char_7Appearances: Record<number, SceneBullet[]> = {
   ],
   "49": [
     {
-      en: "The name Xu Ziyun rises naturally: master of the Garden of Ease, patron of talent, a man whose generosity is as reliable as the seasons. If Ziyun were to offer the money under the guise of a formal redemption, it would satisfy the widow's greed while giving Qinyan a dignified path to freedom.",
+      en: "The name Xu Ziyun rises naturally: master of the Garden of Contentment, patron of talent, a man whose generosity is as reliable as the seasons. If Ziyun were to offer the money under the guise of a formal redemption, it would satisfy the widow's greed while giving Qinyan a dignified path to freedom.",
       zh: "话锋一转，议及子云——怡园的徐子云素来慷慨，且对琴言颇有情谊。若能由他出面，必能周全此事。",
     },
   ],
@@ -131,7 +131,7 @@ export const char_7Appearances: Record<number, SceneBullet[]> = {
   ],
   "67": [
     {
-      en: "Xu Ziyun hosts one last great gathering at the Yi Garden; fireworks turn the night sky to daylight; Du Qinyan sits among friends.",
+      en: "Xu Ziyun hosts one last great gathering at the Garden of Contentment; fireworks turn the night sky to daylight; Du Qinyan sits among friends.",
       zh: "元宵佳节，子云大宴群友，琴仙重回京城，与众名旦、名士把酒言欢，旧日艰辛恍若隔世一梦。",
     },
   ],

@@ -24,7 +24,7 @@ export const char_31Appearances: Record<number, SceneBullet[]> = {
   "5": [
     {
       zh: "琪官与琴官被袁宝珠带入怡园游览，初次结识徐子云。子云对两人的容貌气度赞叹不已，视若珍宝，这一遇也让琪官感受到了文人雅客的真诚相待。",
-      en: "Qiguan and Qinyan are brought to Yiyuan garden by Yuan Baozhu and formally introduced to Xu Ziyun. Ziyun is deeply enchanted by their bearing and treats them with genuine reverence, offering Qiguan his first taste of true literati patronage.",
+      en: "Qiguan and Qinyan are brought to the Garden of Contentment by Yuan Baozhu and formally introduced to Xu Ziyun. Ziyun is deeply enchanted by their bearing and treats them with genuine reverence, offering Qiguan his first taste of true literati patronage.",
     },
   ],
   "8": [
@@ -72,7 +72,7 @@ export const char_31Appearances: Record<number, SceneBullet[]> = {
   "30": [
     {
       zh: "在怡园五大名班合演的盛会上，琪官与其他顶尖名旦同台献唱《秦淮河看花大会》。众人各展风采，琪官的娇娆艳丽赢得了满堂喝彩与赏赐。",
-      en: "At the grand joint performance of the five major troupes at Yiyuan, Qiguan joins the other top dan actors in performing the 'Qinhuai River Flower Viewing.' Each displays their unique charm, with Qiguan's dazzling beauty earning immense applause and rewards.",
+      en: "At the grand joint performance of the five major troupes at the Garden of Contentment, Qiguan joins the other top dan actors in performing the 'Qinhuai River Flower Viewing.' Each displays their unique charm, with Qiguan's dazzling beauty earning immense applause and rewards.",
     },
   ],
   "45": [

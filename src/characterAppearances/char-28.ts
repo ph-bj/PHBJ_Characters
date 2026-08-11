@@ -77,7 +77,7 @@ export const char_28Appearances: Record<number, SceneBullet[]> = {
   ],
   "37": [
     {
-      en: "Lanbao is mentioned as being too busy with performances to attend the current gathering at Yiyuan.",
+      en: "Lanbao is mentioned as being too busy with performances to attend the current gathering at the Garden of Contentment.",
       zh: "因为忙于演出，兰保被提及未能参加当前在怡园的聚会。",
     },
   ],

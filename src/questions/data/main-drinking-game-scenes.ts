@@ -34,7 +34,7 @@ Below is a summary of each passage, its rules, and who wins or loses.
 
 > Madam Yuan said: "I recently saw someone playing a drinking game, which is quite interesting: five set phrases strung together — though it wants for rhyme... Theirs took ancient prose for the first line, Tang poetry for the second, a domino name for the third, a tune name for the fourth, and the Shixian Almanac for the fifth, each player choosing freely, which made it easy. We have six dice here; whatever pattern comes up, we start from that: the domino name for the first line, a five-character Tang line for the second, lyrics from the *Western Chamber* for the third, a tune name for the fourth, and the *Mao Odes* for the fifth. These five lines must rhyme, so that they sound sonorous and in tune when read out."
 
-### Chapter 20: The "Water Margin Drifting Gourd Game" in the Water Pavilion of Yi Garden
+### Chapter 20: The "Water Margin Drifting Gourd Game" in the Water Pavilion of the Garden of Contentment
 
 - **Game type:** Drifting a gourd and blindly drawing ivory chips (Water Margin drinking stories)
 - **Participants:** Xiao Cixian (game master), Shi Nanxiang, Tian Chunhang, Ziyun, Lanbao, and other scholars

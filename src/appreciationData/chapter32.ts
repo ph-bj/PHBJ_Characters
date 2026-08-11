@@ -132,7 +132,7 @@ export const chapter32Appreciation: ChapterAppreciationData = {
           "decisionZh": "放榜之日，高品中式而春航名落孙山",
           "decisionEn": "The list goes up: Gao Pin passes, Chunhang fails",
           "rippleZh": "怡园众人或贺或慰，几家欢喜几家愁。",
-          "rippleEn": "At Yiyuan, congratulations and consolations mingle — joy in one house, gloom in the next.",
+          "rippleEn": "At the Garden of Contentment, congratulations and consolations mingle — joy in one house, gloom in the next.",
           "echoZh": "落第之痛为第47、48回春航进士及第、殿试夺魁作了最深的铺垫。",
           "echoEn": "The sting of failure lays the deepest groundwork for his triumph — jinshi and then top graduate (ch. 47-48)."
         },

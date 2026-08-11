@@ -18,7 +18,7 @@ export const question: QuestionDefinition = {
   
   > 独高品对得别致，是「除伊放粪」，大家看了已经发笑... 文泽道：「卓然将来死了，定坐拔舌地狱。」小厮斟了酒。高品道：「五杯一口气喝，定要醉倒。还是与各人豁一拳，或者可以希冀。」
 
-### Chapter 35: "Flying Numbers" and "Hundred Beauties Offering Wine" at Yiyuan
+### Chapter 35: "Flying Numbers" and "Hundred Beauties Offering Wine" at the Garden of Contentment
 - **Game Rules:** 
   - **Flying Numbers (飞觞):** A person recites a line of Tang poetry containing a number. Starting from themselves, they count around the table to that number. The person landed on must drink and recite the next line with a number.
   - **Hundred Beauties Offering Wine (百美捧觞):** A player draws a chip with a historical beauty's name. They must compose or recall two 7-character lines of Tang poetry embedding the first and last characters of the name, followed by two lines from the *Classic of Poetry* (*Mao Shi*) that contain a specific type of flower name (e.g., twin-flower).
@@ -31,7 +31,7 @@ export const question: QuestionDefinition = {
   
   > 子玉掣了个地理门，美人名洛神，花是并头花。想了两句不见甚佳，才要另想，只见蕙芳掷了一个么三...子玉赞道：「实在绣口锦心，愧煞我辈。」...子玉得了，即道：「我用冷朝阳《送红线》诗一句，孟浩然《登襄城楼》一句，合着是：还似洛妃乘雾去，更凝神女弄珠游。」...大家赞赏，满贺一杯。
 
-### Chapter 37: "Matching Play Titles" at Yiyuan
+### Chapter 37: "Matching Play Titles" at the Garden of Contentment
 - **Game Rules:** The participants take turns matching four-character titles of traditional opera plays. The matches need to be contextually and grammatically parallel.
 - **Participants:** Xu Ziyun (host), Xiao Cixian, Mei Ziyu, Wang Xun, Wang Guibao, Du Qinyan, and others.
 - **Wins and Losses:**

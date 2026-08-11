@@ -293,7 +293,7 @@ export const char_1Appearances: Record<number, SceneBullet[]> = {
   ],
   "42": [
     {
-      en: "Lives in seclusion at the Yiyuan garden with Ziyu, recovering from illness and finding rare contentment, while financial pressure mounts as his widowed teacher's mother demands ongoing support.",
+      en: "Lives in seclusion at the Garden of Contentment with Ziyu, recovering from illness and finding rare contentment, while financial pressure mounts as his widowed teacher's mother demands ongoing support.",
       zh: "与子玉偕隐怡园，疾愈而心乐；然师母纠缠索钱，经济拮据，两人陷入两难之境。",
     },
   ],
@@ -319,7 +319,7 @@ export const char_1Appearances: Record<number, SceneBullet[]> = {
   ],
   "45": [
     {
-      en: "Settles at the Yiyuan garden and gradually recovers emotionally through literary and social gatherings.",
+      en: "Settles at the Garden of Contentment and gradually recovers emotionally through literary and social gatherings.",
       zh: "安居怡园，借文会以疗心伤，渐复其明慧清爽之姿。",
     },
     {
@@ -333,7 +333,7 @@ export const char_1Appearances: Record<number, SceneBullet[]> = {
   ],
   "46": [
     {
-      en: "Studies diligently under Qu Daosheng at the Garden of Ease, mastering regular script calligraphy and composition, establishing a deep father-son bond.",
+      en: "Studies diligently under Qu Daosheng at the Garden of Contentment, mastering regular script calligraphy and composition, establishing a deep father-son bond.",
       zh: "在怡园随屈道翁潜心向学，习字学文，两人渐生深厚之父子亲情。",
     },
     {

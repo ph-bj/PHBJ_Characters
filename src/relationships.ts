@@ -18,20 +18,20 @@ import { Relationship } from './types';
 export const relationships: Relationship[] = [
   { source: 'char-0', target: 'char-1', type: 'Platonic Soulmates', typeZh: '精神知己与生死契' }, // 梅子玉 — 杜琴言
   { source: 'char-0', target: 'char-2', type: 'Chivalrous Cousin-Friend', typeZh: '侠义表兄与文会同道' }, // 梅子玉 — 颜仲清
-  { source: 'char-0', target: 'char-3', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 史南湘
+  { source: 'char-0', target: 'char-3', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 史南湘
   { source: 'char-0', target: 'char-4', type: 'Maternal Cousin & Opera Host', typeZh: '表兄弟与戏曲文席同好' }, // 梅子玉 — 王恂
   { source: 'char-0', target: 'char-5', type: 'Parasitic Guest & Household Gossip', typeZh: '寄居造谣与家庭嫌隙' }, // 梅子玉 — 魏聘才
-  { source: 'char-0', target: 'char-6', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 李元茂
-  { source: 'char-0', target: 'char-7', type: 'Yiyuan Salon Host & Guest', typeZh: '怡园雅集主宾与艺术知音' }, // 梅子玉 — 徐子云
-  { source: 'char-0', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 萧次贤
-  { source: 'char-0', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 刘文泽
-  { source: 'char-0', target: 'char-10', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 高品
-  { source: 'char-0', target: 'char-11', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 张仲雨
-  { source: 'char-0', target: 'char-14', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 冯子佩
-  { source: 'char-0', target: 'char-15', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 田春航
+  { source: 'char-0', target: 'char-6', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 李元茂
+  { source: 'char-0', target: 'char-7', type: 'Garden of Contentment Salon Host & Guest', typeZh: '怡园雅集主宾与艺术知音' }, // 梅子玉 — 徐子云
+  { source: 'char-0', target: 'char-8', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 萧次贤
+  { source: 'char-0', target: 'char-9', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 刘文泽
+  { source: 'char-0', target: 'char-10', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 高品
+  { source: 'char-0', target: 'char-11', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 张仲雨
+  { source: 'char-0', target: 'char-14', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 冯子佩
+  { source: 'char-0', target: 'char-15', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 田春航
   { source: 'char-0', target: 'char-17', type: 'Senior Literary Arbiter & Historian', typeZh: '文坛耆宿与结语名士' }, // 梅子玉 — 金吉甫
   { source: 'char-0', target: 'char-20', type: 'Student/Tutor', typeZh: '师生' }, // 梅子玉 — 李性全
-  { source: 'char-0', target: 'char-21', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 孙嗣徽
+  { source: 'char-0', target: 'char-21', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 梅子玉 — 孙嗣徽
   { source: 'char-0', target: 'char-22', type: 'Literary Peer', typeZh: '同好文人' }, // 梅子玉 — 孙嗣元
   { source: 'char-0', target: 'char-23', type: 'Literary Confidant & Performer', typeZh: '清高琴友与画中知音' }, // 梅子玉 — 袁宝珠
   { source: 'char-0', target: 'char-24', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 梅子玉 — 苏蕙芳
@@ -199,13 +199,13 @@ export const relationships: Relationship[] = [
   { source: 'char-1', target: 'char-194', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 杜琴言 — 黄掌柜
   { source: 'char-1', target: 'char-196', type: 'Dream Encounter', typeZh: '梦中相识' }, // 杜琴言 — 华正昌书铺掌柜
   { source: 'char-1', target: 'char-197', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 杜琴言 — 季十矮子
-  { source: 'char-2', target: 'char-3', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 史南湘
-  { source: 'char-2', target: 'char-4', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 王恂
+  { source: 'char-2', target: 'char-3', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 史南湘
+  { source: 'char-2', target: 'char-4', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 王恂
   { source: 'char-2', target: 'char-5', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 颜仲清 — 魏聘才
-  { source: 'char-2', target: 'char-6', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 李元茂
-  { source: 'char-2', target: 'char-7', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 徐子云
-  { source: 'char-2', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 萧次贤
-  { source: 'char-2', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 刘文泽
+  { source: 'char-2', target: 'char-6', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 李元茂
+  { source: 'char-2', target: 'char-7', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 徐子云
+  { source: 'char-2', target: 'char-8', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 萧次贤
+  { source: 'char-2', target: 'char-9', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 颜仲清 — 刘文泽
   { source: 'char-2', target: 'char-20', type: 'Literary Peer', typeZh: '同好文人' }, // 颜仲清 — 李性全
   { source: 'char-2', target: 'char-21', type: 'Literary Peer', typeZh: '同好文人' }, // 颜仲清 — 孙嗣徽
   { source: 'char-2', target: 'char-22', type: 'Literary Peer', typeZh: '同好文人' }, // 颜仲清 — 孙嗣元
@@ -247,12 +247,12 @@ export const relationships: Relationship[] = [
   { source: 'char-2', target: 'char-90', type: 'Family/Household', typeZh: '家属/内眷' }, // 颜仲清 — 王琼华
   { source: 'char-2', target: 'char-92', type: 'Mother/Son', typeZh: '母子' }, // 颜仲清 — 郑氏
   { source: 'char-2', target: 'char-94', type: 'Family/Household', typeZh: '家属/内眷' }, // 颜仲清 — 许三姐
-  { source: 'char-3', target: 'char-4', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 史南湘 — 王恂
+  { source: 'char-3', target: 'char-4', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 史南湘 — 王恂
   { source: 'char-3', target: 'char-5', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 史南湘 — 魏聘才
   { source: 'char-3', target: 'char-6', type: 'Literary Peer', typeZh: '同好文人' }, // 史南湘 — 李元茂
   { source: 'char-3', target: 'char-7', type: 'Literary Peer', typeZh: '同好文人' }, // 史南湘 — 徐子云
-  { source: 'char-3', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 史南湘 — 萧次贤
-  { source: 'char-3', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 史南湘 — 刘文泽
+  { source: 'char-3', target: 'char-8', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 史南湘 — 萧次贤
+  { source: 'char-3', target: 'char-9', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 史南湘 — 刘文泽
   { source: 'char-3', target: 'char-30', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 史南湘 — 林春喜
   { source: 'char-3', target: 'char-31', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 史南湘 — 秦琪官
   { source: 'char-3', target: 'char-38', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 史南湘 — 保珠
@@ -270,10 +270,10 @@ export const relationships: Relationship[] = [
   { source: 'char-3', target: 'char-88', type: 'Family/Household', typeZh: '家属/内眷' }, // 史南湘 — 孙氏
   { source: 'char-3', target: 'char-90', type: 'Family/Household', typeZh: '家属/内眷' }, // 史南湘 — 王琼华
   { source: 'char-4', target: 'char-5', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 王恂 — 魏聘才
-  { source: 'char-4', target: 'char-6', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 王恂 — 李元茂
-  { source: 'char-4', target: 'char-7', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 王恂 — 徐子云
-  { source: 'char-4', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 王恂 — 萧次贤
-  { source: 'char-4', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 王恂 — 刘文泽
+  { source: 'char-4', target: 'char-6', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 王恂 — 李元茂
+  { source: 'char-4', target: 'char-7', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 王恂 — 徐子云
+  { source: 'char-4', target: 'char-8', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 王恂 — 萧次贤
+  { source: 'char-4', target: 'char-9', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 王恂 — 刘文泽
   { source: 'char-4', target: 'char-40', type: 'Family/Household', typeZh: '家属/内眷' }, // 王恂 — 袁绮香
   { source: 'char-4', target: 'char-42', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 王恂 — 林珊枝
   { source: 'char-4', target: 'char-45', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 王恂 — 二喜
@@ -319,9 +319,9 @@ export const relationships: Relationship[] = [
   { source: 'char-5', target: 'char-94', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 魏聘才 — 许三姐
   { source: 'char-5', target: 'char-95', type: 'Marriage', typeZh: '夫妻' }, // 魏聘才 — 玉天仙
   { source: 'char-5', target: 'char-96', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 魏聘才 — 孙家陆夫人
-  { source: 'char-6', target: 'char-7', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 李元茂 — 徐子云
-  { source: 'char-6', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 李元茂 — 萧次贤
-  { source: 'char-6', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 李元茂 — 刘文泽
+  { source: 'char-6', target: 'char-7', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 李元茂 — 徐子云
+  { source: 'char-6', target: 'char-8', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 李元茂 — 萧次贤
+  { source: 'char-6', target: 'char-9', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 李元茂 — 刘文泽
   { source: 'char-6', target: 'char-61', type: 'Official & Scholar', typeZh: '官员与名士' }, // 李元茂 — 刘侍郎
   { source: 'char-6', target: 'char-72', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 李元茂 — 奚十一
   { source: 'char-6', target: 'char-73', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 李元茂 — 潘其观
@@ -331,8 +331,8 @@ export const relationships: Relationship[] = [
   { source: 'char-6', target: 'char-95', type: 'Family/Household', typeZh: '家属/内眷' }, // 李元茂 — 玉天仙
   { source: 'char-6', target: 'char-96', type: 'Family/Household', typeZh: '家属/内眷' }, // 李元茂 — 孙家陆夫人
   { source: 'char-6', target: 'char-99', type: 'Marriage', typeZh: '夫妻' }, // 李元茂 — 孙大姑娘
-  { source: 'char-7', target: 'char-8', type: 'Yiyuan Designers & Polymath Intimates', typeZh: '怡园营造同道与莫逆之交' }, // 徐子云 — 萧次贤
-  { source: 'char-7', target: 'char-9', type: 'Banquet Host & Yiyuan Patron', typeZh: '侍郎之子与怡园主客' }, // 徐子云 — 刘文泽
+  { source: 'char-7', target: 'char-8', type: 'Garden of Contentment Designers & Polymath Intimates', typeZh: '怡园营造同道与莫逆之交' }, // 徐子云 — 萧次贤
+  { source: 'char-7', target: 'char-9', type: 'Banquet Host & Garden of Contentment Patron', typeZh: '侍郎之子与怡园主客' }, // 徐子云 — 刘文泽
   { source: 'char-7', target: 'char-72', type: 'Adversary', typeZh: '死敌宿仇' }, // 徐子云 — 奚十一
   { source: 'char-7', target: 'char-73', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 徐子云 — 潘其观
   { source: 'char-7', target: 'char-75', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 徐子云 — 唐和尚
@@ -340,7 +340,7 @@ export const relationships: Relationship[] = [
   { source: 'char-7', target: 'char-88', type: 'Family/Household', typeZh: '家属/内眷' }, // 徐子云 — 孙氏
   { source: 'char-7', target: 'char-89', type: 'Family/Household', typeZh: '家属/内眷' }, // 徐子云 — 蓉华
   { source: 'char-7', target: 'char-95', type: 'Family/Household', typeZh: '家属/内眷' }, // 徐子云 — 玉天仙
-  { source: 'char-8', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 萧次贤 — 刘文泽
+  { source: 'char-8', target: 'char-9', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 萧次贤 — 刘文泽
   { source: 'char-8', target: 'char-86', type: 'Inner Household Lady & Scholar Cousin', typeZh: '闺阁内眷与文人表亲' }, // 萧次贤 — 颜夫人
   { source: 'char-8', target: 'char-89', type: 'Family/Household', typeZh: '家属/内眷' }, // 萧次贤 — 蓉华
   { source: 'char-8', target: 'char-90', type: 'Family/Household', typeZh: '家属/内眷' }, // 萧次贤 — 王琼华
@@ -348,18 +348,18 @@ export const relationships: Relationship[] = [
   { source: 'char-9', target: 'char-90', type: 'Family/Household', typeZh: '家属/内眷' }, // 刘文泽 — 王琼华
   { source: 'char-9', target: 'char-94', type: 'Family/Household', typeZh: '家属/内眷' }, // 刘文泽 — 许三姐
   { source: 'char-10', target: 'char-2', type: 'Witty Tribute Student & Hongji Temple Peer', typeZh: '鸿济寺幽默拔贡与戏考同好' }, // 高品 — 颜仲清
-  { source: 'char-10', target: 'char-3', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 史南湘
-  { source: 'char-10', target: 'char-4', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 王恂
+  { source: 'char-10', target: 'char-3', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 史南湘
+  { source: 'char-10', target: 'char-4', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 王恂
   { source: 'char-10', target: 'char-5', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 高品 — 魏聘才
   { source: 'char-10', target: 'char-6', type: 'Literary Peer', typeZh: '同好文人' }, // 高品 — 李元茂
-  { source: 'char-10', target: 'char-7', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 徐子云
-  { source: 'char-10', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 萧次贤
-  { source: 'char-10', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 刘文泽
-  { source: 'char-10', target: 'char-11', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 张仲雨
+  { source: 'char-10', target: 'char-7', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 徐子云
+  { source: 'char-10', target: 'char-8', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 萧次贤
+  { source: 'char-10', target: 'char-9', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 刘文泽
+  { source: 'char-10', target: 'char-11', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 张仲雨
   { source: 'char-10', target: 'char-12', type: 'Literary Peer', typeZh: '同好文人' }, // 高品 — 沈伯才
   { source: 'char-10', target: 'char-13', type: 'Literary Peer', typeZh: '同好文人' }, // 高品 — 巴霖
   { source: 'char-10', target: 'char-14', type: 'Literary Peer', typeZh: '同好文人' }, // 高品 — 冯子佩
-  { source: 'char-10', target: 'char-15', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 田春航
+  { source: 'char-10', target: 'char-15', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 田春航
   { source: 'char-10', target: 'char-17', type: 'Literary Peer', typeZh: '同好文人' }, // 高品 — 金吉甫
   { source: 'char-10', target: 'char-20', type: 'Literary Peer', typeZh: '同好文人' }, // 高品 — 李性全
   { source: 'char-10', target: 'char-21', type: 'Mockery', typeZh: '嘲弄' }, // 高品 — 孙嗣徽
@@ -407,7 +407,7 @@ export const relationships: Relationship[] = [
   { source: 'char-10', target: 'char-123', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 老三
   { source: 'char-10', target: 'char-135', type: 'Literary Peer', typeZh: '同好文人' }, // 高品 — 侯石翁
   { source: 'char-10', target: 'char-137', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 高品 — 菊花
-  { source: 'char-10', target: 'char-141', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 屈道翁
+  { source: 'char-10', target: 'char-141', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 高品 — 屈道翁
   { source: 'char-10', target: 'char-142', type: 'Official & Scholar', typeZh: '官员与名士' }, // 高品 — 苏侯
   { source: 'char-10', target: 'char-145', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 高品 — 张笑梅
   { source: 'char-10', target: 'char-150', type: 'Family/Household', typeZh: '家属/内眷' }, // 高品 — 吴紫烟
@@ -417,18 +417,18 @@ export const relationships: Relationship[] = [
   { source: 'char-10', target: 'char-157', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 花珠
   { source: 'char-10', target: 'char-159', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 明珠
   { source: 'char-10', target: 'char-161', type: 'Master & Servant', typeZh: '主仆/雇佣' }, // 高品 — 蕊珠
-  { source: 'char-11', target: 'char-2', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 颜仲清
+  { source: 'char-11', target: 'char-2', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 颜仲清
   { source: 'char-11', target: 'char-3', type: 'Literary Peer', typeZh: '同好文人' }, // 张仲雨 — 史南湘
-  { source: 'char-11', target: 'char-4', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 王恂
+  { source: 'char-11', target: 'char-4', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 王恂
   { source: 'char-11', target: 'char-5', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 张仲雨 — 魏聘才
-  { source: 'char-11', target: 'char-6', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 李元茂
-  { source: 'char-11', target: 'char-7', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 徐子云
-  { source: 'char-11', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 萧次贤
-  { source: 'char-11', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 刘文泽
+  { source: 'char-11', target: 'char-6', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 李元茂
+  { source: 'char-11', target: 'char-7', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 徐子云
+  { source: 'char-11', target: 'char-8', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 萧次贤
+  { source: 'char-11', target: 'char-9', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 刘文泽
   { source: 'char-11', target: 'char-12', type: 'Literary Peer', typeZh: '同好文人' }, // 张仲雨 — 沈伯才
   { source: 'char-11', target: 'char-13', type: 'Literary Peer', typeZh: '同好文人' }, // 张仲雨 — 巴霖
-  { source: 'char-11', target: 'char-14', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 冯子佩
-  { source: 'char-11', target: 'char-15', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 田春航
+  { source: 'char-11', target: 'char-14', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 冯子佩
+  { source: 'char-11', target: 'char-15', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 张仲雨 — 田春航
   { source: 'char-11', target: 'char-21', type: 'Literary Peer', typeZh: '同好文人' }, // 张仲雨 — 孙嗣徽
   { source: 'char-11', target: 'char-23', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 张仲雨 — 袁宝珠
   { source: 'char-11', target: 'char-24', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 张仲雨 — 苏蕙芳
@@ -499,7 +499,7 @@ export const relationships: Relationship[] = [
   { source: 'char-14', target: 'char-7', type: 'Literary Peer', typeZh: '同好文人' }, // 冯子佩 — 徐子云
   { source: 'char-14', target: 'char-8', type: 'Literary Peer', typeZh: '同好文人' }, // 冯子佩 — 萧次贤
   { source: 'char-14', target: 'char-9', type: 'Literary Peer', typeZh: '同好文人' }, // 冯子佩 — 刘文泽
-  { source: 'char-14', target: 'char-15', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 冯子佩 — 田春航
+  { source: 'char-14', target: 'char-15', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 冯子佩 — 田春航
   { source: 'char-14', target: 'char-21', type: 'Literary Peer', typeZh: '同好文人' }, // 冯子佩 — 孙嗣徽
   { source: 'char-14', target: 'char-23', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 冯子佩 — 袁宝珠
   { source: 'char-14', target: 'char-24', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 冯子佩 — 苏蕙芳
@@ -528,15 +528,15 @@ export const relationships: Relationship[] = [
   { source: 'char-14', target: 'char-146', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 冯子佩 — 杨梅窗
   { source: 'char-14', target: 'char-163', type: 'Brothers-in-law', typeZh: '郎舅' }, // 冯子佩 — 归自荣
   { source: 'char-14', target: 'char-194', type: 'Social Acquaintance', typeZh: '泛泛之交' }, // 冯子佩 — 黄掌柜
-  { source: 'char-15', target: 'char-2', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 颜仲清
-  { source: 'char-15', target: 'char-3', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 史南湘
-  { source: 'char-15', target: 'char-4', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 王恂
+  { source: 'char-15', target: 'char-2', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 颜仲清
+  { source: 'char-15', target: 'char-3', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 史南湘
+  { source: 'char-15', target: 'char-4', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 王恂
   { source: 'char-15', target: 'char-5', type: 'Literary Circle & Parasitic Villain', typeZh: '雅集名士与投机恶少' }, // 田春航 — 魏聘才
-  { source: 'char-15', target: 'char-6', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 李元茂
-  { source: 'char-15', target: 'char-7', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 徐子云
-  { source: 'char-15', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 萧次贤
-  { source: 'char-15', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 刘文泽
-  { source: 'char-15', target: 'char-17', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 金吉甫
+  { source: 'char-15', target: 'char-6', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 李元茂
+  { source: 'char-15', target: 'char-7', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 徐子云
+  { source: 'char-15', target: 'char-8', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 萧次贤
+  { source: 'char-15', target: 'char-9', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 刘文泽
+  { source: 'char-15', target: 'char-17', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 田春航 — 金吉甫
   { source: 'char-15', target: 'char-21', type: 'Literary Peer', typeZh: '同好文人' }, // 田春航 — 孙嗣徽
   { source: 'char-15', target: 'char-23', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 田春航 — 袁宝珠
   { source: 'char-15', target: 'char-24', type: 'Romantic Soulmates & Exam Laureate', typeZh: '情投意合与状元知己' }, // 田春航 — 苏蕙芳
@@ -580,7 +580,7 @@ export const relationships: Relationship[] = [
   { source: 'char-17', target: 'char-3', type: 'Literary Peer', typeZh: '同好文人' }, // 金吉甫 — 史南湘
   { source: 'char-17', target: 'char-4', type: 'Literary Peer', typeZh: '同好文人' }, // 金吉甫 — 王恂
   { source: 'char-17', target: 'char-5', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 金吉甫 — 魏聘才
-  { source: 'char-17', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 金吉甫 — 萧次贤
+  { source: 'char-17', target: 'char-8', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 金吉甫 — 萧次贤
   { source: 'char-17', target: 'char-9', type: 'Literary Peer', typeZh: '同好文人' }, // 金吉甫 — 刘文泽
   { source: 'char-17', target: 'char-23', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 金吉甫 — 袁宝珠
   { source: 'char-17', target: 'char-24', type: 'Patron & Performer', typeZh: '名士与伶人' }, // 金吉甫 — 苏蕙芳
@@ -656,7 +656,7 @@ export const relationships: Relationship[] = [
   { source: 'char-23', target: 'char-4', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 袁宝珠 — 王恂
   { source: 'char-23', target: 'char-5', type: 'Harassed Performer & Entangled Villain', typeZh: '名伶与纠缠市井恶少' }, // 袁宝珠 — 魏聘才
   { source: 'char-23', target: 'char-6', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 袁宝珠 — 李元茂
-  { source: 'char-23', target: 'char-7', type: 'Yiyuan Patron & Flower Champion', typeZh: '怡园主人与花榜状元知音' }, // 袁宝珠 — 徐子云
+  { source: 'char-23', target: 'char-7', type: 'Garden of Contentment Patron & Flower Champion', typeZh: '怡园主人与花榜状元知音' }, // 袁宝珠 — 徐子云
   { source: 'char-23', target: 'char-8', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 袁宝珠 — 萧次贤
   { source: 'char-23', target: 'char-9', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 袁宝珠 — 刘文泽
   { source: 'char-23', target: 'char-24', type: 'Troupe Performers & Flower Rank Peers', typeZh: '花榜名伶与同台场友' }, // 袁宝珠 — 苏蕙芳
@@ -1592,16 +1592,16 @@ export const relationships: Relationship[] = [
   { source: 'char-140', target: 'char-72', type: 'Physician/Patient', typeZh: '医患' }, // 阳善修 — 奚十一
   { source: 'char-140', target: 'char-73', type: 'Physician/Patient', typeZh: '医患' }, // 阳善修 — 潘其观
   { source: 'char-140', target: 'char-75', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 阳善修 — 唐和尚
-  { source: 'char-141', target: 'char-2', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 颜仲清
-  { source: 'char-141', target: 'char-3', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 史南湘
-  { source: 'char-141', target: 'char-4', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 王恂
+  { source: 'char-141', target: 'char-2', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 颜仲清
+  { source: 'char-141', target: 'char-3', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 史南湘
+  { source: 'char-141', target: 'char-4', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 王恂
   { source: 'char-141', target: 'char-5', type: 'Antagonistic Tie', typeZh: '结怨/算计' }, // 屈道翁 — 魏聘才
   { source: 'char-141', target: 'char-6', type: 'Literary Peer', typeZh: '同好文人' }, // 屈道翁 — 李元茂
   { source: 'char-141', target: 'char-7', type: 'Literary Peer', typeZh: '同好文人' }, // 屈道翁 — 徐子云
-  { source: 'char-141', target: 'char-8', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 萧次贤
-  { source: 'char-141', target: 'char-9', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 刘文泽
-  { source: 'char-141', target: 'char-15', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 田春航
-  { source: 'char-141', target: 'char-17', type: 'Yiyuan Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 金吉甫
+  { source: 'char-141', target: 'char-8', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 萧次贤
+  { source: 'char-141', target: 'char-9', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 刘文泽
+  { source: 'char-141', target: 'char-15', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 田春航
+  { source: 'char-141', target: 'char-17', type: 'Garden of Contentment Salon Scholar Peers', typeZh: '怡园雅集同道文人' }, // 屈道翁 — 金吉甫
   { source: 'char-141', target: 'char-23', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 屈道翁 — 袁宝珠
   { source: 'char-141', target: 'char-24', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 屈道翁 — 苏蕙芳
   { source: 'char-141', target: 'char-25', type: 'Literary Patron & Opera Performer', typeZh: '雅集名士与应酬名伶' }, // 屈道翁 — 陆素兰

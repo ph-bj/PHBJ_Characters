@@ -126,7 +126,7 @@ export const chapter44Appreciation: ChapterAppreciationData = {
         {
           "id": 3,
           "pairZh": "杜琴言 ⇄ 怡园",
-          "pairEn": "Du Qinyan ⇄ Yiyuan",
+          "pairEn": "Du Qinyan ⇄ the Garden of Contentment",
           "relationZh": "新生之所",
           "relationEn": "Place of Rebirth",
           "temperature": 90,
@@ -150,7 +150,7 @@ export const chapter44Appreciation: ChapterAppreciationData = {
         {
           "id": 2,
           "decisionZh": "琴言悄然住进怡园",
-          "decisionEn": "Qinyan quietly moves into Yiyuan",
+          "decisionEn": "Qinyan quietly moves into the Garden of Contentment",
           "rippleZh": "从此告别樊笼岁月。",
           "rippleEn": "The years of the cage end without fanfare.",
           "echoZh": "从优伶到义子、再到受人尊敬的士人（第46、60回），命运的转折自此起笔。",

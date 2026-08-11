@@ -13,12 +13,12 @@ export const chapter45Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "本章开篇局势：怡园的慰藉",
-      descriptionEn: "Qinyan remains at Yiyuan while friends gather around him after the conflict.",
+      descriptionEn: "Qinyan remains at the Garden of Contentment while friends gather around him after the conflict.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
       descriptionZh: "琴言留在怡园，在科考前夕于名士和优伶的陪伴下找到了慰藉。",
-      descriptionEn: "Qinyan stays at Yiyuan, finding comfort in the company of scholars and actors before exam day.",
+      descriptionEn: "Qinyan stays at the Garden of Contentment, finding comfort in the company of scholars and actors before exam day.",
     },
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
@@ -81,7 +81,7 @@ export const chapter45Appreciation: ChapterAppreciationData = {
           id: 1,
           locationZh: "牡丹台与芍药栏", locationEn: "Peony Terrace and Herbaceous Peony Beds",
           atmosphereZh: "生机勃勃、风雅、包容", atmosphereEn: "Vibrant, elegant, inclusive",
-          significanceZh: "怡园的自然美景不仅是赏玩的客体，更是琴言心理创伤愈合的温床，象征着自由与重生。", significanceEn: "The natural beauty of Yiyuan is not just for viewing, but a hotbed for healing Qinyan's psychological trauma, symbolizing freedom and rebirth."
+          significanceZh: "怡园的自然美景不仅是赏玩的客体，更是琴言心理创伤愈合的温床，象征着自由与重生。", significanceEn: "The natural beauty of the Garden of Contentment is not just for viewing, but a hotbed for healing Qinyan's psychological trauma, symbolizing freedom and rebirth."
         }
       ]
   },
@@ -141,7 +141,7 @@ export const chapter45Appreciation: ChapterAppreciationData = {
         {
           "id": 2,
           "decisionZh": "琴言留居怡园，在陪伴中渐复精神",
-          "decisionEn": "Qinyan stays on at Yiyuan, mending among friends",
+          "decisionEn": "Qinyan stays on at the Garden of Contentment, mending among friends",
           "rippleZh": "科考前夕的名士优伶相聚为他重筑生活。",
           "rippleEn": "Scholars and performers gathering before the examinations rebuild his daily world.",
           "echoZh": "疗愈之后，扶乩认义父开启他弃伶从学的第二人生。",

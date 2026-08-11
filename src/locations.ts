@@ -85,7 +85,7 @@ export const novelLocations: NovelLocation[] = [
   { id: 'county-wuwei', name: '无为州', nameEn: 'Wuwei Department', type: 'place', typeZh: '地方', searchTokens: ['无为州'], aliasesEn: ['Wuwei Prefecture'] },
 
   // —— Gardens & spots within them (mostly Beijing) ——
-  { id: 'garden-yiyuan', name: '怡园', nameEn: 'Yiyuan', type: 'garden', typeZh: '园林', searchTokens: ['怡园'], aliasesEn: ['Garden of Contentment', 'Yi Garden'] },
+  { id: 'garden-yiyuan', name: '怡园', nameEn: 'Garden of Contentment', type: 'garden', typeZh: '园林', searchTokens: ['怡园'] },
   { id: 'garden-jinchun', name: '锦春园', nameEn: 'Jinchun Garden', type: 'garden', typeZh: '园林', searchTokens: ['锦春园'] },
   { id: 'garden-west', name: '西园', nameEn: 'West Garden (Hua mansion)', type: 'garden', typeZh: '园林', searchTokens: ['西园'], aliasesEn: ['West Garden', 'Western Garden'] },
   { id: 'garden-east', name: '东园', nameEn: 'East Garden', type: 'garden', typeZh: '园林', searchTokens: ['东园'], aliasesEn: ['East Garden'] },
@@ -98,7 +98,7 @@ export const novelLocations: NovelLocation[] = [
   { id: 'garden-rainbow', name: '虹园', nameEn: 'Rainbow Garden', type: 'garden', typeZh: '园林', searchTokens: ['虹园'] },
   { id: 'garden-qifeng', name: '起凤园', nameEn: 'Qifeng Garden', type: 'garden', typeZh: '园林', searchTokens: ['起凤园'] },
   { id: 'site-shizilin', name: '狮子林', nameEn: 'Lion Grove Garden', type: 'allusion', typeZh: '典故', searchTokens: ['狮子林'], aliasesEn: ['Lion Grove'] },
-  { id: 'feature-meian', name: '梅崦', nameEn: 'Plum Ravine (Yiyuan)', type: 'garden', typeZh: '园林', searchTokens: ['梅崦'], aliasesEn: ['Plum Knoll'] },
+  { id: 'feature-meian', name: '梅崦', nameEn: 'Plum Ravine (Garden of Contentment)', type: 'garden', typeZh: '园林', searchTokens: ['梅崦'], aliasesEn: ['Plum Knoll'] },
   { id: 'feature-hanwanlou', name: '含万楼', nameEn: 'Tower of Ten Thousand', type: 'garden', typeZh: '园林', searchTokens: ['含万楼'], aliasesEn: ['Tower of Myriad Containment'] },
   { id: 'feature-cishulou', name: '赐书楼', nameEn: 'Tower of Gifted Books', type: 'garden', typeZh: '园林', searchTokens: ['赐书楼'], aliasesEn: ['Tower of Imperial Bestowals'] },
   { id: 'feature-liuxian', name: '留仙院', nameEn: 'Fairy-Detaining Courtyard', type: 'garden', typeZh: '园林', searchTokens: ['留仙院'], aliasesEn: ['Liuxian Courtyard'] },
@@ -117,7 +117,7 @@ export const novelLocations: NovelLocation[] = [
   { id: 'feature-jiuxianglou', name: '九香楼', nameEn: 'Nine-Fragrance Tower', type: 'garden', typeZh: '园林', searchTokens: ['九香楼'] },
   { id: 'feature-chunfeng', name: '春风沉醉轩', nameEn: 'Spring Breeze Lodge', type: 'garden', typeZh: '园林', searchTokens: ['春风沉醉轩'], aliasesEn: ['Spring Breeze Lodge', 'Pavilion of Spring-Wind Intoxication'] },
   { id: 'feature-cinnamon', name: '桂花厅', nameEn: 'Osmanthus Hall', type: 'garden', typeZh: '园林', searchTokens: ['桂花厅'], aliasesEn: ['Osmanthus Hall'] },
-  { id: 'water-jade-belt', name: '玉带河', nameEn: 'Jade Belt River (Yiyuan)', type: 'garden', typeZh: '园林', searchTokens: ['玉带河'], aliasesEn: ['Jade Belt River'] },
+  { id: 'water-jade-belt', name: '玉带河', nameEn: 'Jade Belt River (Garden of Contentment)', type: 'garden', typeZh: '园林', searchTokens: ['玉带河'], aliasesEn: ['Jade Belt River'] },
   { id: 'feature-chengyintang', name: '承荫堂', nameEn: 'Hall of Inherited Blessings', type: 'garden', typeZh: '园林', searchTokens: ['承荫堂'], aliasesEn: ['Hall of Inherited Shade'] },
   { id: 'feature-baoxiang', name: '宝香堂', nameEn: 'Hall of Precious Fragrance', type: 'garden', typeZh: '园林', searchTokens: ['宝香堂'], aliasesEn: ['Hall of Treasured Fragrance'] },
   { id: 'feature-huxiang', name: '护香廊', nameEn: 'Fragrance-Guarding Gallery', type: 'garden', typeZh: '园林', searchTokens: ['护香廊'], aliasesEn: ['Fragrance-Guarding Colonnade'] },

@@ -71,7 +71,7 @@ export const char_55Appearances: Record<number, SceneBullet[]> = {
   ],
   "25": [
     {
-      en: "Hua Guangsu hosts an elaborate late-summer banquet at the Garden of Ease, though many invited scholars find excuses not to attend due to his overwhelming influence.",
+      en: "Hua Guangsu hosts an elaborate late-summer banquet at the Garden of Contentment, though many invited scholars find excuses not to attend due to his overwhelming influence.",
       zh: "夏末，华公子在怡园大摆宴席，然而许多名士因忌惮其权势与行事作风而借故缺席。"
     }
   ],

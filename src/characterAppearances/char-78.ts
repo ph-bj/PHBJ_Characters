@@ -17,7 +17,7 @@ export const char_78Appearances: Record<number, SceneBullet[]> = {
   ],
   26: [
     {
-      en: "Hua Furen asks about the situation at Yi Garden.",
+      en: "Hua Furen asks about the situation at the Garden of Contentment.",
       zh: "华夫人询问了怡园里的光景。",
     },
   ],

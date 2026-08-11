@@ -13,7 +13,7 @@ export const chapter25Appreciation: ChapterAppreciationData = {
     {
       stageZh: "1. 阶段起因", stageEn: "1. The Cause", sentiment: 50,
       descriptionZh: "刘文泽携妻归来，华公子到怡园看新戏，园中名流与优伶齐集。",
-      descriptionEn: "Liu Wenze returns with his wife, and Young Master Hua visits Yiyuan for a new play amid a gathering of notables and performers.",
+      descriptionEn: "Liu Wenze returns with his wife, and Young Master Hua visits the Garden of Contentment for a new play amid a gathering of notables and performers.",
     },
     {
       stageZh: "2. 冲突发展", stageEn: "2. Conflict Development", sentiment: 30,
@@ -23,7 +23,7 @@ export const chapter25Appreciation: ChapterAppreciationData = {
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
       descriptionZh: "怡园的赏戏与琴言的锋芒并置：华公子的赏识带来机会，也让琴言卷入更复杂的权力关系。",
-      descriptionEn: "Hua's appreciation at Yiyuan creates an opportunity for Qinyan while drawing him into a more complicated power structure.",
+      descriptionEn: "Hua's appreciation at the Garden of Contentment creates an opportunity for Qinyan while drawing him into a more complicated power structure.",
     }
   ],
   dimensions: [
@@ -92,7 +92,7 @@ export const chapter25Appreciation: ChapterAppreciationData = {
         {
           "id": 1,
           "locationZh": "怡园水榭戏台",
-          "locationEn": "Yiyuan Waterside Stage",
+          "locationEn": "The Garden of Contentment Waterside Stage",
           "atmosphereZh": "华美热闹而暗含试探",
           "atmosphereEn": "Lavish and lively, yet full of testing glances",
           "significanceZh": "赏戏、交游与人物初次显露彼此心思的公共场所",
@@ -111,7 +111,7 @@ export const chapter25Appreciation: ChapterAppreciationData = {
           "relationEn": "Nobles Exchanging Courtesies",
           "temperature": 55,
           "noteZh": "怡园设宴看戏，豪门社交的雍容之下各有心思。",
-          "noteEn": "A banquet and opera at Yiyuan — beneath the aristocratic polish, separate agendas."
+          "noteEn": "A banquet and opera at the Garden of Contentment — beneath the aristocratic polish, separate agendas."
         },
         {
           "id": 2,
@@ -131,7 +131,7 @@ export const chapter25Appreciation: ChapterAppreciationData = {
         {
           "id": 1,
           "decisionZh": "华公子在怡园大摆宴席邀名士看戏",
-          "decisionEn": "Young Master Hua throws a grand opera banquet at Yiyuan",
+          "decisionEn": "Young Master Hua throws a grand opera banquet at the Garden of Contentment",
           "rippleZh": "名士纷纷借故缺席，宾主之间隐有暗流。",
           "rippleEn": "The scholars beg off one after another; undercurrents run beneath the courtesies.",
           "echoZh": "名士圈与华府的疏离，预示了琴言日后入府的孤立无援。",
@@ -142,7 +142,7 @@ export const chapter25Appreciation: ChapterAppreciationData = {
           "decisionZh": "萧次贤在后台指点演员声律",
           "decisionEn": "Xiao Cixian coaches the performers on melody backstage",
           "rippleZh": "华公子见识了怡园的艺文底蕴。",
-          "rippleEn": "Young Master Hua glimpses Yiyuan's artistic depth.",
+          "rippleEn": "Young Master Hua glimpses the Garden of Contentment's artistic depth.",
           "echoZh": "对“名花”的欣赏渐成占有欲——第26回便密谋购琴言入府。",
           "echoEn": "Appreciation of 'famous flowers' curdles into possession — by chapter 26 he is scheming to acquire Qinyan."
         }

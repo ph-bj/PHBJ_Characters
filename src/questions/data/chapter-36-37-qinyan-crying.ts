@@ -9,7 +9,7 @@ export const question: QuestionDefinition = {
     '第三十六回，发生了什么，为什么第三十七回，琴言会哭着回家',
   answerEn: `### What Chapter 36 establishes
 
-Qinyan is already under severe pressure before the bracelet incident. At the Lantern Festival, his genuine tears during a performance anger Hua Guangsu, who treats him as a disobedient servant rather than as the admired artist he had been at Yiyuan. Isolated among hostile household attendants, Qinyan thinks bitterly about losing both freedom and reputation. Changqing’s sudden death then recalls him to his former troupe household. Hua does **not initially grant a fixed month**: the message is only to return after the funeral. At his friends’ urging, Qinyan later sends Wu Mazi to request a month, which Hua approves.
+Qinyan is already under severe pressure before the bracelet incident. At the Lantern Festival, his genuine tears during a performance anger Hua Guangsu, who treats him as a disobedient servant rather than as the admired artist he had been at the Garden of Contentment. Isolated among hostile household attendants, Qinyan thinks bitterly about losing both freedom and reputation. Changqing’s sudden death then recalls him to his former troupe household. Hua does **not initially grant a fixed month**: the message is only to return after the funeral. At his friends’ urging, Qinyan later sends Wu Mazi to request a month, which Hua approves.
 
 Qinyan gives Changqing’s widow the fifty or sixty taels he has saved. Baozhu, Huifang, and Sulan visit during the mourning and tell him about Ziyu’s response to his poem at Meiyan. Wanting to see Lady Yan and Ziyu but uneasy about approaching the Mei residence alone, Qinyan asks Wei Pincai to accompany him.
 

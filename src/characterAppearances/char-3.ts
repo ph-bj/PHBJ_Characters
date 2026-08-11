@@ -107,7 +107,7 @@ export const char_3Appearances: Record<number, SceneBullet[]> = {
   ],
   "60": [
     {
-      "en": "Attends the grand finale at Yiyuan Garden, celebrating the reunion of all couples and contributing a final poem that immortalizes the performers.",
+      "en": "Attends the grand finale at the Garden of Contentment, celebrating the reunion of all couples and contributing a final poem that immortalizes the performers.",
       "zh": "参加怡园的大团圆盛会，庆祝所有有情人的重逢，并赋诗一首，使名伶们的风采得以流芳百世。"
     }
   ]
