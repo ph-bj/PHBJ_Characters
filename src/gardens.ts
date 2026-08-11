@@ -282,7 +282,7 @@ export const gardens: Garden[] = [
     id: 'garden-liuqing',
     name: '留青精舍',
     pinyin: 'Liúqīng Jīng Shè',
-    nameEn: 'Stay-Green Studio',
+    nameEn: 'Quiet-Green Retreat',
     type: 'sublocation',
     parentId: 'garden-jinchun',
     owner: '华光宿',

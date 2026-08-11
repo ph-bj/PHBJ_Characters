@@ -24,8 +24,8 @@ the appendix.
 Every section below has been repaired on this branch. Three things were
 deliberately **not** done, and each is flagged in place:
 
-- **55 of the 62 placeholder entries in `worksData.json` remain placeholders.**
-  Seven were answerable from the novel itself or from material already in the
+- **54 of the 62 placeholder entries in `worksData.json` remain placeholders.**
+  Eight were answerable from the novel itself or from material already in the
   repo and have been written; the rest are opera scenes I could not source, and
   the network egress here blocks the text repositories that would settle them.
   Writing plausible-sounding entries for them is precisely the failure this
@@ -35,17 +35,41 @@ deliberately **not** done, and each is flagged in place:
   the true reading, so the text is untouched rather than guessed at.
 - **§4 was resolved by deleting the feature**, not by reconciling the records.
 
-One further error surfaced while re-running the checks and has been fixed: the
-chapter-11 drinking-game rule quoted in `main-drinking-game-scenes.ts` spliced
-together the *two different* rule-sets the novel gives in that passage,
-producing a rule with 骨牌名 in two positions that appears nowhere in the text.
+### Found by re-checking the repairs
+
+A second verification pass turned up four more defects, three of them of the same
+classes the audit describes and one introduced by the repair itself. All are fixed:
+
+- **A fifth misquotation.** `negative-attitude-homosexuality.ts` and
+  `contemporary-homosexual-relationships.ts` both cut chapter 32's
+  「此等污秽东西算个**孝廉**，真辱抹杀多少人」 down to 「此等污秽东西算个人！」,
+  turning "how can such a filthy creature count as a **licentiate**" into "count
+  as a **person**" — a different and much cruder insult. The English gloss
+  carried the same error.
+- **A mangled game rule.** The chapter-11 drinking game quoted in
+  `main-drinking-game-scenes.ts` spliced together the *two different* rule-sets
+  the novel gives in that passage, producing a rule with 骨牌名 in two positions
+  that appears nowhere in the text. Fixed in both languages.
+- **A wrong direction of address in a repair.** The rewritten `扫花` entry had
+  He Xiangu dispatching the petal-sweeper. It is the other way round: Lü Dongbin
+  holds the office, has converted He Xiangu to sweep daily, and is recruiting one
+  more — the errand that takes him to the Handan road.
+- **Nine locations whose English never matched.** `nameEn` is not only a display
+  label; it is a matching token against the translated text. Nine entries carried
+  a disambiguating parenthetical (`Mochou Lake (Nanjing)`, `Lake Tai (Taihu)`…)
+  and so highlighted nothing. The bare form is now an alias on each. **This was
+  also the flaw in the first pass's §7 repair**, which renamed 怡园 from `Yiyuan`
+  — the form the translation uses 127 times — to `Garden of Contentment`, and
+  silently killed highlighting for the novel's central location. Reverted, with
+  the poetic name kept as an alias; the same for 留青精舍, 三乐园, 牡丹台 and
+  牡丹香国.
 
 
 ## Summary
 
 | # | Class | Severity | Count |
 |---|---|---|---|
-| 1 | Quotations attributed to the novel that the novel does not contain | **High** | 3 |
+| 1 | Quotations attributed to the novel that the novel does not contain | **High** | 5 |
 | 2 | Opera/work attributions that are wrong | **High** | 9 |
 | 3 | Reference entries whose subject is the wrong word entirely | **High** | 2 |
 | 4 | Lacunae archive contradicted by the app's own chapter text | Medium | 18 confirmed (of 112) |
@@ -330,7 +354,8 @@ novel's geography into its gazetteer.
 - **Seven have been written** from evidence internal to the novel: `势利`/`势僧`
   and `女盗`/`牝贼` (chapter 37 identifies each pair as two names for one scene,
   and turns the 势/牝 pun on them), `登襄城楼` (chapter 35 attributes it to Meng
-  Haoran), plus the rewritten `独占` and `孟子`. **55 remain placeholders** —
+  Haoran), `番儿` (a standard excerpt of the *Handan Dream*), plus the rewritten
+  `独占` and `孟子`. **54 remain placeholders** —
   see the status note at the top of this document for why.
 - Several of those remaining are answerable from material already in the repo:
   `势僧` and `牝贼` are glossed in `TRANSLATION_AUDIT.md` §8; `登襄城楼` is
@@ -401,7 +426,7 @@ All done on this branch, in this order:
    performers' ten grades are now named there too.
 6. ~~§7 — one English name per place, one rule for 州.~~ **Done.**
 
-Remaining: the 55 unsourced `worksData.json` placeholders, and 崭崭韵谱. Both
+Remaining: the 54 unsourced `worksData.json` placeholders, and 崭崭韵谱. Both
 need a printed edition to settle, which the network here cannot reach.
 
 ## Appendix — reproduction

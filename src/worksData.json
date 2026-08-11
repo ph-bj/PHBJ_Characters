@@ -97,7 +97,7 @@
   },
   "独占": {
     "descZh": "昆曲折子戏，出自清初李玉传奇《占花魁》，为全剧压卷一出，演卖油郎秦重终得花魁娘子莘瑶琴之心、独占花魁事。小说第四回聘才即言「用《占花魁》上《独占》这一出戏」，第十二回苏蕙芳、第三十回归自荣皆串演此出。",
-    "descEn": "The kunqu scene \"Winning Her Alone\" — the finale of Li Yu's The Oil Peddler Wins the Flower Queen, in which the oil seller Qin Zhong at last wins the courtesan Xin Yaoqin for himself. Chapter 4 names it outright as \"the scene 'Duzhan' from Zhan Huakui\"; Su Huifang performs it in chapter 12 and Gui Zirong in chapter 30.",
+    "descEn": "The kunqu scene \"Winning Her Alone\" — the finale of Li Yu's The Oil Peddler Wins the Flower Queen, in which the oil seller Qin Zhong 秦重 at last wins the courtesan Xin Yaoqin for himself. Chapter 4 names it outright as \"the scene 'Duzhan' from Zhan Huakui\"; Su Huifang performs it in chapter 12 and Gui Zirong in chapter 30.",
     "contextZh": "在小说第4回中被引用，例如：“...「第三句是空的，未了一句，用《占花魁》上《独占》这一出戏，我就拉他来用做古曲。」子玉道：...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
@@ -443,8 +443,8 @@
     ]
   },
   "扫花": {
-    "descZh": "昆曲折子戏，出自明汤显祖《邯郸记》（1601年），演何仙姑遣扫花使者扫落花、点出蓬莱仙境岁月的一折，常与《三醉》连演。",
-    "descEn": "The kunqu scene \"Sweeping Petals\" from Tang Xianzu's The Handan Dream (Handan Ji, 1601), in which the flower-sweeping immortal clears fallen blossoms on Penglai — habitually staged together with \"Thrice Drunk.\"",
+    "descZh": "昆曲折子戏，出自明汤显祖《邯郸记》（1601年），本第三出《度世》前半。吕洞宾奉敕修蓬莱山门，门外蟠桃三百年一开花，落英堵门，遂度何仙姑逐日扫花，又欲再度一人充「扫花使者」，因而下邯郸道遇卢生。常与《三醉》连演。",
+    "descEn": "The kunqu scene \"Sweeping Petals\" from Tang Xianzu's The Handan Dream (Handan Ji, 1601), the first half of scene 3. Lü Dongbin, charged with the gate of Penglai, has converted He Xiangu to sweep daily the blossoms that fall from a peach tree flowering once in three hundred years, and is seeking one more recruit as \"petal-sweeper\" — the errand that takes him to the Handan road and Lu Sheng. Habitually staged with \"Thrice Drunk.\"",
     "contextZh": "在小说第6回中被引用，例如：“...戏单。」子玉过来，与聘才同看，见头几出是《扫花》、《三醉》、《议剑》、《谒师》、《赏荷》...”。",
     "contextEn": "Cited in chapter 6 of the novel.",
     "chapters": [
@@ -871,8 +871,8 @@
     ]
   },
   "番儿": {
-    "descZh": "这是小说《品花宝鉴》中提到的一部作品或曲目。",
-    "descEn": "A literary work, opera scene, or book cited in Pinhua Baojian.",
+    "descZh": "昆曲折子戏，出自明汤显祖《邯郸记》，为该剧常演折子之一（与《扫花》《三醉》《云阳》《法场》并称），演番将一路情节；小说第一回名旦所演诸出中即列此目。",
+    "descEn": "A kunqu scene from Tang Xianzu's The Handan Dream, one of the play's standard excerpts alongside \"Sweeping Petals,\" \"Thrice Drunk,\" \"Yunyang\" and \"The Execution Ground\"; listed in chapter 1 among the pieces the celebrated dan perform.",
     "contextZh": "在小说第1回中被引用，例如：“...《寄子》、《储谏》、《回猎》、《断机》、《番儿》、《冥勘》、《女弹》等戏，长眉秀颊，如见...”。",
     "contextEn": "Cited in chapter 1 of the novel.",
     "chapters": [
@@ -1133,7 +1133,7 @@
   },
   "占花魁": {
     "descZh": "清初李玉所作传奇，据《醒世恒言》「卖油郎独占花魁」改编，演卖油郎秦重以诚心感动名妓花魁娘子莘瑶琴、终成眷属事（李玉本将秦重改写为乱离中失散的世家子），《受吐》《独占》为常演折子。",
-    "descEn": "Li Yu's early-Qing chuanqi The Oil Peddler Wins the Flower Queen, from the Xingshi Hengyan story: the oil seller Qin Zhong wins the courtesan Xin Yaoqin through sheer devotion — Li Yu recasts him as a gentleman's son displaced by war. \"Tending the Drunken Beauty\" and \"Winning Her\" are the scenes usually staged.",
+    "descEn": "Li Yu's early-Qing chuanqi The Oil Peddler Wins the Flower Queen, from the Xingshi Hengyan story: the oil seller Qin Zhong 秦重 wins the courtesan Xin Yaoqin through sheer devotion — Li Yu recasts him as a gentleman's son displaced by war. \"Tending the Drunken Beauty\" and \"Winning Her\" are the scenes usually staged.",
     "contextZh": "在小说第4回中被引用，例如：“...？」聘才道：「第三句是空的，未了一句，用《占花魁》上《独占》这一出戏，我就拉他来用做古曲。...”。",
     "contextEn": "Cited in chapter 4 of the novel.",
     "chapters": [
