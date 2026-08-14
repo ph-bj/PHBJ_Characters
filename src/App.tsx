@@ -64,7 +64,6 @@ import {
   getCharacterSceneBullets,
   type SceneBullet,
 } from "./characterAppearances";
-import { chapterLacunae } from "./lacunae";
 import { questions } from "./questions";
 import { QuestionAnswer } from "./QuestionAnswer";
 
@@ -83,13 +82,12 @@ import {
 } from "./workCategories";
 import { CiteButton } from "./components/CiteButton";
 
-import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, getChapterTitleParts, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, ROLE_CHIP_BOXED, extractChineseTokens, stripDiacritics, Segment, LacunaConfidence, LacunaEntry, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, getCharacterMentionCountsAll, getCharacterSortKeyZh, getCharacterSortKeyEn, NavSection, readLastReadingPosition, parseCharacterAge } from "./utils";
+import { worksData, escapeRegExp, englishWorkTitleRegexFragment, ENGLISH_WORK_SPLIT_PATTERN, CHAPTER_ANNOTATION_TOKEN_SPLIT_REGEX, ENGLISH_WORK_TITLE_LOWERCASE, chapterTitleTranslations, translationMap, getChapterReaderTitle, getChapterReaderSubtitle, getChapterTitleParts, ROLE_ORDER, ROLE_ICONS, ROLE_TINTS, ROLE_TEXT_COLORS, ROLE_ACCENTS, ROLE_CHIP_IDLE, ROLE_CHIP_ACTIVE, ROLE_CHIP_BOXED, extractChineseTokens, stripDiacritics, Segment, NovelLocationWithChapters, CONTEXT_SENSITIVE_TOKENS, ENGLISH_ALIAS_TOKENS, getEnglishAliasTokens, isPersonNameContext, getChineseShortFormTokens, removeTrailingSurname, segmentText, countTextSearchMatches, renderTextWithSearchHighlight, isWorkAnnotationToken, isChineseWorkAnnotationToken, CHINESE_WORK_BY_ENGLISH_LOWER, workKeyFromAnnotationToken, chapterWorkAnchorId, getSegmentChipLabel, ENGLISH_CHARACTER_NAME_FALLBACKS, getCharacterNameForLanguage, countSearchMatchesInRenderedText, getChapterMentionedCharacters, getCharacterTotalMentions, getCharacterMentionCountsAll, getCharacterSortKeyZh, getCharacterSortKeyEn, NavSection, readLastReadingPosition, parseCharacterAge } from "./utils";
 
 import { LanguageSwitch } from "./components/LanguageSwitch";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { CalligraphyCursorOverlay, CalligraphyCursorToggle } from "./components/CalligraphyCursor";
 import { NavMenuDropdown } from "./components/NavMenuDropdown";
-const LacunaeModal = React.lazy(() => import("./components/LacunaeModal").then(m => ({ default: m.LacunaeModal })));
 const QuestionsModal = React.lazy(() => import("./components/QuestionsModal").then(m => ({ default: m.QuestionsModal })));
 const WorkModal = React.lazy(() => import("./components/WorkModal").then(m => ({ default: m.WorkModal })));
 const LocationDetail = React.lazy(() => import("./components/LocationDetail").then(m => ({ default: m.LocationDetail })));
@@ -145,9 +143,6 @@ export default function App() {
       // Ignore
     }
   }, [lang]);
-  const [activeLacunaChapter, setActiveLacunaChapter] = useState<number | null>(
-    null,
-  );
   const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null);
   const [selectedQuestionCategory, setSelectedQuestionCategory] = useState<string | null>(null);
   const [networkGraphFullscreen, setNetworkGraphFullscreen] = useState(false);
@@ -197,40 +192,6 @@ export default function App() {
     return Array.from(map.values());
   }, []);
 
-  const lacunaChapterNumbers = useMemo(
-    () =>
-      chapters
-        .filter((chapter) => Number(chapter.id) > 0)
-        .map((chapter) => Number(chapter.id)),
-    [],
-  );
-
-  const lacunaeByChapter = useMemo(() => {
-    const grouped = new Map<number, LacunaEntry[]>();
-    for (const chapter of chapterLacunae) {
-      grouped.set(
-        chapter.chapterId,
-        chapter.lacunae.map((lacuna) => ({
-          chapterId: chapter.chapterId,
-          snippet: lacuna.context,
-          symbol: lacuna.context.includes("▉") ? "▉" : "□",
-          inferredCharacter: lacuna.inference,
-          confidence: lacuna.confidence,
-          note: lacuna.note,
-        })),
-      );
-    }
-    return grouped;
-  }, []);
-
-  const lacunaCountByChapter = useMemo(() => {
-    const counts: Record<number, number> = {};
-    for (const chapterNumber of lacunaChapterNumbers) counts[chapterNumber] = 0;
-    for (const chapterNumber of lacunaChapterNumbers) {
-      counts[chapterNumber] = lacunaeByChapter.get(chapterNumber)?.length ?? 0;
-    }
-    return counts;
-  }, [lacunaeByChapter, lacunaChapterNumbers]);
 
   const t = {
     en: {
@@ -617,10 +578,6 @@ export default function App() {
           }
           break;
         }
-        case "lacunae": {
-          setActiveLacunaChapter(link.chapter);
-          break;
-        }
       }
     },
     [locationsByType],
@@ -641,8 +598,6 @@ export default function App() {
   const currentDeepLink: DeepLink | null = useMemo(() => {
     // Order mirrors modal stacking (later-rendered modals sit on top).
     if (selectedQuestion) return { kind: "question", slug: selectedQuestion, lang };
-    if (activeLacunaChapter !== null)
-      return { kind: "lacunae", chapter: activeLacunaChapter, lang };
     if (selectedLocation) return { kind: "location", id: selectedLocation.id, lang };
     if (selectedWork) return { kind: "work", key: selectedWork, lang };
     if (selectedGarden) return { kind: "location", id: selectedGarden.id, lang };
@@ -655,7 +610,6 @@ export default function App() {
     selectedGarden,
     selectedLocation,
     selectedQuestion,
-    activeLacunaChapter,
     selectedChapter,
     lang,
   ]);
@@ -846,7 +800,6 @@ export default function App() {
     selectedGarden ||
     selectedLocation ||
     selectedWork ||
-    activeLacunaChapter !== null ||
     selectedQuestion !== null,
   );
   const hasOpenOverlay = hasOpenModal;
@@ -858,7 +811,6 @@ export default function App() {
     selectedGarden ||
     selectedLocation ||
     selectedWork ||
-    activeLacunaChapter !== null ||
     selectedQuestion !== null,
   );
 
@@ -889,8 +841,6 @@ export default function App() {
       const closeTopmost = (): boolean => {
         if (selectedWork) {
           setSelectedWork(null);
-        } else if (activeLacunaChapter !== null) {
-          setActiveLacunaChapter(null);
         } else if (selectedQuestion !== null) {
           setSelectedQuestion(null);
         } else if (selectedCharacter) {
@@ -912,7 +862,6 @@ export default function App() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [
     selectedWork,
-    activeLacunaChapter,
     selectedQuestion,
     selectedCharacter,
     selectedGarden,
@@ -2319,7 +2268,6 @@ export default function App() {
               setLang={setLang}
               onSelectCharacter={setSelectedCharacter}
               onSelectChapter={setSelectedChapter}
-              onSelectLacuna={() => setActiveLacunaChapter(selectedChapter.id)}
               onSelectWork={setSelectedWork}
               keysSuspended={readerObscured}
             />
@@ -2386,18 +2334,6 @@ export default function App() {
                 setSelectedCharacter(character);
               }}
               onSelectChapter={setSelectedChapter}
-            />
-          )}
-        </AnimatePresence>
-
-        {/* Lacunae Modal */}
-        <AnimatePresence>
-          {activeLacunaChapter !== null && (
-            <LacunaeModal
-              chapterId={activeLacunaChapter}
-              entries={lacunaeByChapter.get(activeLacunaChapter) ?? []}
-              onClose={() => setActiveLacunaChapter(null)}
-              lang={lang}
             />
           )}
         </AnimatePresence>

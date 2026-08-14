@@ -5,7 +5,7 @@ import type { SceneBullet } from "./types";
 export const char_50Appearances: Record<number, SceneBullet[]> = {
   "2": [
     {
-      en: "Yang Fangyou attends Wang Wenhui's drinking party at the Yi Garden, participating in the lively 'pounding the stage' drinking games.",
+      en: "Yang Fangyou attends Wang Wenhui's drinking party at the Garden of Contentment, participating in the lively 'pounding the stage' drinking games.",
       zh: "杨方猷在怡园参加王文辉的宴会，并参与了热闹的酒令游戏。",
     },
   ],

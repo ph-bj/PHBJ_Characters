@@ -5,7 +5,7 @@ import type { SceneBullet } from "./types";
 export const char_8Appearances: Record<number, SceneBullet[]> = {
   "5": [
     {
-      en: "Introduced as Xu Ziyun's closest friend and the brilliant polymath who supervised the three-to-four-year transformation of a derelict plot into Yiyuan — four hundred rooms of winding streams, ancient trees, and engineered splendour.",
+      en: "Introduced as Xu Ziyun's closest friend and the brilliant polymath who supervised the three-to-four-year transformation of a derelict plot into the Garden of Contentment — four hundred rooms of winding streams, ancient trees, and engineered splendour.",
       zh: "正式登场：徐子云挚友，博学多才，监工三四年，将废园改造成楼台四百余间的怡园。",
     },
     {
@@ -15,7 +15,7 @@ export const char_8Appearances: Record<number, SceneBullet[]> = {
   ],
   "9": [
     {
-      en: "Hosts the Lantern Festival riddle gathering at Yiyuan, setting a zither as the prize for Qinyan's riddle with a hidden matchmaking intent known only to himself and Ziyun.",
+      en: "Hosts the Lantern Festival riddle gathering at the Garden of Contentment, setting a zither as the prize for Qinyan's riddle with a hidden matchmaking intent known only to himself and Ziyun.",
       zh: "怡园主持元宵灯谜会，以琴为彩，暗寓为琴言觅知己之意。",
     },
     {
@@ -59,13 +59,13 @@ export const char_8Appearances: Record<number, SceneBullet[]> = {
   ],
   "15": [
     {
-      en: "Returns early from sending off Ziyu and Jiantan to drink with Baozhu and Shufang in the peach blossom grove at Yiyuan; joined by Ziyun to discuss the performers and play poetry drinking games.",
+      en: "Returns early from sending off Ziyu and Jiantan to drink with Baozhu and Shufang in the peach blossom grove at the Garden of Contentment; joined by Ziyun to discuss the performers and play poetry drinking games.",
       zh: "送别子玉、剑潭后先回怡园，于桃花坞与宝珠、漱芳饮酒；后子云至，共论群旦并掷骰行令。",
     },
   ],
   "16": [
     {
-      en: "Mentioned by Lu Sulan, who observes that Qinyan has been acting strangely, frequently talking about Yiyuan's Meiyan pavilion and asking Cixian to paint four scrolls of plum blossoms for him.",
+      en: "Mentioned by Lu Sulan, who observes that Qinyan has been acting strangely, frequently talking about the Garden of Contentment's Meiyan pavilion and asking Cixian to paint four scrolls of plum blossoms for him.",
       zh: "素兰向子玉提及琴言近来神色异常，时常念及怡园梅崦，并央静宜画四幅各色梅花。",
     },
   ],
@@ -77,14 +77,14 @@ export const char_8Appearances: Record<number, SceneBullet[]> = {
   ],
   "20": [
     {
-      en: "Hosts a dragon boat and pomegranate viewing gathering at Yiyuan with Ziyun; plays a lively water-borne drinking game using floating gourds inscribed with literary and historical references.",
+      en: "Hosts a dragon boat and pomegranate viewing gathering at the Garden of Contentment with Ziyun; plays a lively water-borne drinking game using floating gourds inscribed with literary and historical references.",
       zh: "与子云招诸名士赴怡园赏榴花、观龙舟；席间出主意，以水面抛掷写有《水浒》人物之漆葫芦行令罚酒。",
     },
   ],
 
   "21": [
     {
-      en: "Mentioned in Lu Sulan's account of a comic misunderstanding at Yiyuan: when Ziyu misheard praise of Tian Chunhang's preface as a comparison between Qinyan and Qiguan, Cixian and Ziyun laughed uncontrollably.",
+      en: "Mentioned in Lu Sulan's account of a comic misunderstanding at the Garden of Contentment: when Ziyu misheard praise of Tian Chunhang's preface as a comparison between Qinyan and Qiguan, Cixian and Ziyun laughed uncontrollably.",
       zh: "素兰述及怡园一事：庾香误听“愈浓、愈艳”为问琴言、琪官孰美，次贤、子云笑不可抑。",
     },
   ],
@@ -96,13 +96,13 @@ export const char_8Appearances: Record<number, SceneBullet[]> = {
   ],
   "24": [
     {
-      en: "The Yiyuan name lends credibility to Lu Sulan's covert invitation for Ziyu to join the canal outing — Cixian's and Ziyun's reputations making the letter believable.",
+      en: "The Garden of Contentment name lends credibility to Lu Sulan's covert invitation for Ziyu to join the canal outing — Cixian's and Ziyun's reputations making the letter believable.",
       zh: "素兰以怡园徐子云名义发书，借子云、次贤之声望成全琴言与子玉再会。",
     },
   ],
   "25": [
     {
-      en: "Behind the scenes at Hua Guangsu's late-summer banquet at Yiyuan, coaches the theatrical troupe on musical precision while Wenze and Zhongyu converse with the host.",
+      en: "Behind the scenes at Hua Guangsu's late-summer banquet at the Garden of Contentment, coaches the theatrical troupe on musical precision while Wenze and Zhongyu converse with the host.",
       zh: "华公子怡园宴上，次贤于后台指点演员声律，文泽、仲雨席间周旋。",
     },
     {
@@ -116,7 +116,7 @@ export const char_8Appearances: Record<number, SceneBullet[]> = {
       zh: "与子云、文泽赴华府西园中秋前夕夜宴，子玉因回避之例独坐书斋。",
     },
     {
-      en: "When Wei Pincai asks about Yiyuan, describes the garden's scenery to him; comments that the Qinhuai River has grown cold compared with former days.",
+      en: "When Wei Pincai asks about the Garden of Contentment, describes the garden's scenery to him; comments that the Qinhuai River has grown cold compared with former days.",
       zh: "聘才问怡园光景，次贤略述几处；又论秦淮河今不如昔。",
     },
     {
@@ -136,13 +136,13 @@ export const char_8Appearances: Record<number, SceneBullet[]> = {
   ],
   "35": [
     {
-      en: "Present at Yiyuan lantern-viewing gatherings with the scholars; Mei Ziyu attends one day and is struck by nostalgia for his first glimpse of Qinyan exactly a year before.",
+      en: "Present at the Garden of Contentment lantern-viewing gatherings with the scholars; Mei Ziyu attends one day and is struck by nostalgia for his first glimpse of Qinyan exactly a year before.",
       zh: "诸名士于怡园赏灯饮酒，子玉一日往游，忆及去年此日初见琴言。",
     },
   ],
   "36": [
     {
-      en: "Referenced when Yuan Baozhu tells Qinyan about the recent Yiyuan gathering — Cixian's newly designed wine cups and pot among the delights Qinyan missed while confined at the Hua mansion.",
+      en: "Referenced when Yuan Baozhu tells Qinyan about the recent Garden of Contentment gathering — Cixian's newly designed wine cups and pot among the delights Qinyan missed while confined at the Hua mansion.",
       zh: "宝珠述怡园叙集，言及次贤新制酒壶、杯子，琴言闻之羡慕不已。",
     },
   ],
@@ -186,7 +186,7 @@ export const char_8Appearances: Record<number, SceneBullet[]> = {
       zh: "与子云同接华公子送还琴言箱笼及恶札，子云气极，次贤言明日当面说明。",
     },
     {
-      en: "After Qinyan collapses reading Hua's letter, comforts him and proposes he abandon performing entirely to study painting, poetry, and qin at Yiyuan as Cixian's young friend.",
+      en: "After Qinyan collapses reading Hua's letter, comforts him and proposes he abandon performing entirely to study painting, poetry, and qin at the Garden of Contentment as Cixian's young friend.",
       zh: "琴言阅信昏倒，次贤慰之，劝其留园从己学琴棋书画，不再理旧业。",
     },
     {
@@ -240,7 +240,7 @@ export const char_8Appearances: Record<number, SceneBullet[]> = {
       zh: "赴华府向华公子说明琴言出师始末，使华星北悔悟，与子云复好。",
     },
     {
-      en: "The night before, drinks heavily with Shi Nanxiang on a boat until both are incapacitated — Nanxiang falling into the water — leaving him bedridden when Hua visits Yiyuan.",
+      en: "The night before, drinks heavily with Shi Nanxiang on a boat until both are incapacitated — Nanxiang falling into the water — leaving him bedridden when Hua visits the Garden of Contentment.",
       zh: "前夜与南湘舟中纵饮，南湘落水，次贤大醉，次日未能陪华公子。",
     },
   ],
@@ -270,7 +270,7 @@ export const char_8Appearances: Record<number, SceneBullet[]> = {
   ],
   "57": [
     {
-      en: "As autumn chrysanthemum season returns, Yiyuan resumes its social rhythm — Cixian's artistic presence anchoring the garden while Qinyan languishes in hardship far to the south.",
+      en: "As autumn chrysanthemum season returns, the Garden of Contentment resumes its social rhythm — Cixian's artistic presence anchoring the garden while Qinyan languishes in hardship far to the south.",
       zh: "十月初旬，怡园复趋热闹，次贤仍主园中风雅；而琴仙远在江宁，困苦度日。",
     },
   ],

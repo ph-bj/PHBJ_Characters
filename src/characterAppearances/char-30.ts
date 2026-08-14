@@ -11,7 +11,7 @@ export const char_30Appearances: Record<number, SceneBullet[]> = {
   ],
   4: [
     {
-      en: "Zhong Qing and Wang Xun encounter Chunxi on their way to the Yiyuan garden, noting his striking and delicate appearance.",
+      en: "Zhong Qing and Wang Xun encounter Chunxi on their way to the Garden of Contentment, noting his striking and delicate appearance.",
       zh: "仲清和王恂在去怡园的路上遇到了春喜，注意到他引人注目、清秀的面容。"
     },
     {
@@ -21,7 +21,7 @@ export const char_30Appearances: Record<number, SceneBullet[]> = {
   ],
   5: [
     {
-      en: "The narrative recalls Chunxi's earlier conversation with Zhong Qing about the poetry gathering at Yiyuan.",
+      en: "The narrative recalls Chunxi's earlier conversation with Zhong Qing about the poetry gathering at the Garden of Contentment.",
       zh: "叙事回顾了春喜之前与仲清关于怡园消寒赋诗之会的谈话。"
     }
   ],

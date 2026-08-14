@@ -36,10 +36,10 @@ export const chapter5Appreciation: ChapterAppreciationData = {
   "timelineData": [
     {
       "stageZh": "怡园建园",
-      "stageEn": "Building Yiyuan",
+      "stageEn": "Building the Garden of Contentment",
       "sentiment": 70,
       "descriptionZh": "介绍徐子云的显赫家世及修建怡园的盛况",
-      "descriptionEn": "Introduces Xu Ziyun's prominent family and the grand construction of Yiyuan garden."
+      "descriptionEn": "Introduces Xu Ziyun's prominent family and the grand construction of the Garden of Contentment."
     },
     {
       "stageZh": "琴官身世",
@@ -64,7 +64,7 @@ export const chapter5Appreciation: ChapterAppreciationData = {
     },
     {
       "stageZh": "初入怡园",
-      "stageEn": "Entering Yiyuan",
+      "stageEn": "Entering the Garden of Contentment",
       "sentiment": 80,
       "descriptionZh": "琴官面见徐子云，诉说身世，得子云、次贤怜惜",
       "descriptionEn": "Qinguan meets Xu Ziyun, recounts his past, and gains the pity of Ziyun and Cixian."
@@ -77,7 +77,7 @@ export const chapter5Appreciation: ChapterAppreciationData = {
       "titleEn": "Structure & Layout",
       "score": 85,
       "textZh": "本章在全书结构中起到了‘群像展开’与‘宿命交织’的关键作用，正式拉开了怡园群芳会的序幕。",
-      "textEn": "This chapter plays a key role in unfolding the ensemble cast and intertwining destinies, officially raising the curtain on the Yiyuan gathering.",
+      "textEn": "This chapter plays a key role in unfolding the ensemble cast and intertwining destinies, officially raising the curtain on the Garden of Contentment gathering.",
       "subsections": [
         {
           "labelZh": "承上启下",
@@ -89,7 +89,7 @@ export const chapter5Appreciation: ChapterAppreciationData = {
           "labelZh": "节奏掌控",
           "labelEn": "Pacing",
           "textZh": "在叙述徐子云的宏大背景后，突然转入琴官悲惨细腻的身世，宏观与微观交替。马车相遇的一瞬是本章情感的高潮，随后又在怡园的温情对话中平缓降落。",
-          "textEn": "After the grand background of Xu Ziyun, it sharply shifts to Qinguan's tragic, delicate past. The brief carriage encounter is the emotional climax, gracefully landing in the warm dialogue at Yiyuan."
+          "textEn": "After the grand background of Xu Ziyun, it sharply shifts to Qinguan's tragic, delicate past. The brief carriage encounter is the emotional climax, gracefully landing in the warm dialogue at the Garden of Contentment."
         }
       ]
     },
@@ -272,7 +272,7 @@ export const chapter5Appreciation: ChapterAppreciationData = {
           "relationEn": "Compassion at First Sight",
           "temperature": 60,
           "noteZh": "诉说孤苦身世而得怜惜，怡园成为乱世中的避风港。",
-          "noteEn": "His orphan's tale wins compassion; Yiyuan becomes his shelter in a merciless world."
+          "noteEn": "His orphan's tale wins compassion; the Garden of Contentment becomes his shelter in a merciless world."
         }
       ]
     },
@@ -284,9 +284,9 @@ export const chapter5Appreciation: ChapterAppreciationData = {
           "decisionZh": "子云命人连夜赶制服饰赠与琴官、琪官",
           "decisionEn": "Ziyun has costumes made overnight as gifts for Qinguan and Qiguan",
           "rippleZh": "初入怡园的琴言第一次感受到不带亵玩的尊重。",
-          "rippleEn": "Entering Yiyuan, Qinyan feels respect without exploitation for the first time.",
+          "rippleEn": "Entering the Garden of Contentment, Qinyan feels respect without exploitation for the first time.",
           "echoZh": "怡园此后屡为琴言庇护之所，直至子云出重金赎其自由身（第43-44回）。",
-          "echoEn": "Yiyuan shelters Qinyan again and again — until Ziyun buys his freedom outright (ch. 43-44)."
+          "echoEn": "The Garden of Contentment shelters Qinyan again and again — until Ziyun buys his freedom outright (ch. 43-44)."
         },
         {
           "id": 2,

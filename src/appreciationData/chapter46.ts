@@ -144,7 +144,7 @@ export const chapter46Appreciation: ChapterAppreciationData = {
           "rippleZh": "分题赋对、觥筹交错，雅集之乐达于鼎盛。",
           "rippleEn": "Assigned verses and flowing cups — the gatherings at their absolute zenith.",
           "echoZh": "怡园的黄金时代在此定格，此后聚散渐多、盛景难再。",
-          "echoEn": "Yiyuan's golden age is fixed in this frame; from here, partings multiply and the splendor never quite returns."
+          "echoEn": "the Garden of Contentment's golden age is fixed in this frame; from here, partings multiply and the splendor never quite returns."
         }
       ]
     }

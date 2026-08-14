@@ -258,7 +258,7 @@ export function HometownMap({
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--ink-dim-text)]">
               {lang === 'zh'
                 ? '从人物籍贯到怡园雅集，沿章回线索寻访《品花宝鉴》的空间世界。'
-                : 'Trace the novel from its characters’ places of origin to Yiyuan gatherings and chapter-linked journeys.'}
+                : 'Trace the novel from its characters’ places of origin to Garden of Contentment gatherings and chapter-linked journeys.'}
             </p>
           </div>
           <dl className="grid grid-cols-3 gap-px overflow-hidden rounded-sm border border-[var(--paper-border)] bg-[var(--paper-border)]/70 shadow-sm">

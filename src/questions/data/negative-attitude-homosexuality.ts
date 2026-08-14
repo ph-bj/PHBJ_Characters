@@ -25,7 +25,7 @@ The author explicitly criticizes characters who engage in physical abuse or pure
 ### Chapter 32
 The novel portrays the punishment of such figures as 'heavenly retribution', explicitly linking their behavior with filth:
 
-> "It is fitting to first strip him of his scholar's robes to eliminate the lingering charms of the cut sleeve allusion; ... Zhongqing said: 'This is clear heavenly retribution, unfailing in its justice. If it weren't for the commotion caused by the runner, who would have known? This kind of filthy thing, how can it be considered a person!'"
+> "It is fitting to first strip him of his scholar's robes to eliminate the lingering charms of the cut sleeve allusion; ... Zhongqing said: 'This is clear heavenly retribution, unfailing in its justice. If it weren't for the commotion caused by the runner, who would have known? How can such a filthy creature count as a licentiate? He shames and blots out any number of men.'"
 
 ### Chapter 34
 Characters mock a lewd painting, using derogatory terms for physical male-male intimacy:
@@ -56,7 +56,7 @@ Pan San's lust for male lovers is depicted as lecherous and base, typical of the
 ### 第32回
 小说将这类剥削性人物受到的惩罚描绘为“天理昭彰”，明确将他们的行为与污秽联系起来：
 
-> 「是宜先除巾服，消断袖之余妍；……仲清道：「这是天理昭彰，报应不爽。若没有那皂隶一闹，又有谁人知道？此等污秽东西算个人！」
+> 「是宜先除巾服，消断袖之余妍；……仲清道：「这是天理昭彰，报应不爽。若没有那皂隶一闹，又有谁人知道？此等污秽东西算个孝廉，真辱抹杀多少人。」
 
 ### 第34回
 角色嘲笑一幅春宫画，对男男肉体亲密行为使用了贬义词：

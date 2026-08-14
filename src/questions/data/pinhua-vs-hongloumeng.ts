@@ -8,12 +8,12 @@ export const question: QuestionDefinition = {
   answerEn: `"Pinhua Baojian" (A Precious Mirror for Judging Flowers) is often compared with "Dream of the Red Chamber" (Honglou Meng). The surviving prefaces and title poems make the comparison explicit, but they do not establish that Chen Sen himself made a direct statement of admiration, nor do they prove influence in every part of the novel. Here is a detailed comparison across multiple dimensions:
 
 ### 1. Word Count and Scale
-- **Honglou Meng**: The standard 120-chapter version is approximately 800,000 to 1,000,000 Chinese characters.
-- **Pinhua Baojian**: The 60-chapter novel contains roughly 500,000 Chinese characters.
+- **Honglou Meng**: The standard 120-chapter version is roughly 730,000 to 800,000 Chinese characters.
+- **Pinhua Baojian**: The 60-chapter novel contains roughly 430,000 Chinese characters.
 
 ### 2. Number of Characters
 - **Honglou Meng**: Features an enormous cast of over 400 characters, with a core group centering around Jia Baoyu and the women of the Jia household.
-- **Pinhua Baojian**: Features over 150 characters, tightly clustered around the young scholars (like Mei Ziyu, Yan Zhongqing) and the male performers (like Du Qinyan, Su Huifang).
+- **Pinhua Baojian**: Features 207 named characters, tightly clustered around the young scholars (like Mei Ziyu, Yan Zhongqing) and the male performers (like Du Qinyan, Su Huifang).
 
 ### 3. Historical Era
 - **Honglou Meng**: Set in an unspecified era (though widely understood to reflect the mid-Qing Dynasty, specifically the reigns of Kangxi and Qianlong, early to mid-18th century).
@@ -49,20 +49,20 @@ Both novels use illness and tears to signify deep, spiritual sensitivity and vul
 > "两弯似蹙非蹙罥烟眉，一双似喜非喜含情目。态生两靥之愁，娇袭一身之病。泪光点点，娇喘微微。"
 > *(Two delicate eyebrows, seemingly frowning yet not frowning; a pair of eyes, seemingly joyful yet not joyful, full of emotion. A sorrowful state born on her cheeks, a delicate illness invading her entire body. Tears shimmering, breath delicately shallow.)*
 
-> **Pinhua Baojian (Chapter 3) - Describing Du Qinyan:**
-> "原来这小旦生得十分瘦弱...眉含新月，愁黛依然；眼凝秋水，泪光先满。有一种幽娴贞静之态，不但见之使人魂销，即他自视亦若不胜幽怨。"
-> *(It turned out this young actor was exceedingly frail... His eyebrows held the crescent moon, the dark sorrow still present; his eyes condensed the autumn waters, brimming with tears before he even cried. He possessed a state of quiet grace and chaste stillness; not only did seeing him make one's soul melt, but even he himself seemed unable to bear his own hidden sorrow.)*
+> **Pinhua Baojian (Chapter 5) - Du Qinyan asked about his origins:**
+> "但见他那生生怯怯、畏畏缩缩的神情，教人怜惜之心，随感而发……琴官见问他的出身，便提动他的积恨，不知不觉的面泛桃花，眼含珠泪……说到他父母双亡，叔父收养，叔父又没，婶母再蘸等事，便如微风振箫，幽鸣欲泣。"
+> *(But they saw his tentative, bashful, nervous bearing, and feelings of tender regard arose in them unbidden... When asked about his background, Qinyan's accumulated sorrow was stirred; without realizing it, his face flushed rose-red and his eyes brimmed with pearly tears... When he came to his parents' deaths, his uncle's care, his uncle's death, and his aunt's remarriage, his voice became like a gentle breeze playing a flute, softly keening as though about to weep.)*
 
 In conclusion, *Pinhua Baojian* adopts the aesthetic language, character archetypes, and thematic obsession with "Qing" (emotion/love) from *Honglou Meng*, but translates them from the domestic female sphere into the male theatrical world of 19th-century Beijing.`,
   answerZh: `《品花宝鉴》常被拿来与《红楼梦》比较。现存序文和题词明确制造了这种比较，但不能据此断言陈森本人曾直接表达推崇，也不能证明这种影响贯穿小说每一处。以下是几个维度的详细对比：
 
 ### 1. 字数与规模
-- **《红楼梦》**：标准的120回版本大约在80万到100万字之间。
-- **《品花宝鉴》**：全书60回，大约50万字。
+- **《红楼梦》**：标准的120回版本约73万至80万字。
+- **《品花宝鉴》**：全书60回，约43万字。
 
 ### 2. 人物数量
 - **《红楼梦》**：拥有庞大的人物阵容，出场人物超过400人，核心群体围绕贾宝玉和贾府的女性。
-- **《品花宝鉴》**：有超过150个人物，紧密围绕着年轻的才子（如梅子玉、颜仲清）和男旦（如杜琴言、苏蕙芳）。
+- **《品花宝鉴》**：有207个有名有姓的人物，紧密围绕着年轻的才子（如梅子玉、颜仲清）和男旦（如杜琴言、苏蕙芳）。
 
 ### 3. 历史时代
 - **《红楼梦》**：背景设定在一个未明确的时代（尽管被广泛认为反映了清朝中期，特别是康雍乾时期，即18世纪中前期）。
@@ -97,8 +97,8 @@ In conclusion, *Pinhua Baojian* adopts the aesthetic language, character archety
 > **《红楼梦》段落（第3回） - 描写林黛玉：**
 > “两弯似蹙非蹙罥烟眉，一双似喜非喜含情目。态生两靥之愁，娇袭一身之病。泪光点点，娇喘微微。”
 
-> **《品花宝鉴》段落（第3回） - 描写杜琴言：**
-> “原来这小旦生得十分瘦弱...眉含新月，愁黛依然；眼凝秋水，泪光先满。有一种幽娴贞静之态，不但见之使人魂销，即他自视亦若不胜幽怨。”
+> **《品花宝鉴》段落（第5回） - 杜琴言被问及身世：**
+> “但见他那生生怯怯、畏畏缩缩的神情，教人怜惜之心，随感而发……琴官见问他的出身，便提动他的积恨，不知不觉的面泛桃花，眼含珠泪……说到他父母双亡，叔父收养，叔父又没，婶母再蘸等事，便如微风振箫，幽鸣欲泣。”
 
 总而言之，《品花宝鉴》继承了《红楼梦》的审美语言、人物原型和对“情”的主题痴迷，但将它们从女性的内闱世界，转移到了19世纪北京男性的戏曲世界之中。`
 };

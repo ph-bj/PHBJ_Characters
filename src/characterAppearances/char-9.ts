@@ -29,7 +29,7 @@ export const char_9Appearances: Record<number, SceneBullet[]> = {
   ],
   "10": [
     {
-      en: "Wenze enjoys the literary gatherings at Yiyuan, partaking in the refined games and poetry exchanges among the scholars.",
+      en: "Wenze enjoys the literary gatherings at the Garden of Contentment, partaking in the refined games and poetry exchanges among the scholars.",
       zh: "文泽在怡园的文会中自得其乐，参与名士间风雅的行令与诗词唱和。"
     }
   ],
@@ -77,7 +77,7 @@ export const char_9Appearances: Record<number, SceneBullet[]> = {
   ],
   "25": [
     {
-      en: "Having returned to the capital, Wenze attends a banquet hosted by Hua Guangsu at Yiyuan, observing the host's lavish lifestyle and engaging in polite conversation.",
+      en: "Having returned to the capital, Wenze attends a banquet hosted by Hua Guangsu at the Garden of Contentment, observing the host's lavish lifestyle and engaging in polite conversation.",
       zh: "文泽回京后参加了华公子在怡园举办的宴会，观察着主人的奢靡生活并与之寒暄交谈。"
     }
   ],
@@ -107,7 +107,7 @@ export const char_9Appearances: Record<number, SceneBullet[]> = {
   ],
   "37": [
     {
-      en: "He is absent from a gathering at Yiyuan due to a conflicting engagement related to his father's scholarly networks.",
+      en: "He is absent from a gathering at the Garden of Contentment due to a conflicting engagement related to his father's scholarly networks.",
       zh: "由于要参加与其父学政关系相关的另一场聚会，他缺席了怡园的集会。"
     }
   ],

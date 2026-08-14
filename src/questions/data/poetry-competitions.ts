@@ -32,7 +32,7 @@ At Jinqiu Mound and Haoran Pavilion, Chunhang, Nanxiang, Zhongqing, and Gao Pin 
 
 ### Chapter 39 — two simultaneous poetry games
 
-The Yiyuan company first flies Tang lines containing numbers. Cixian then introduces “A Hundred Beauties Offering Wine,” requiring assembled Tang lines with women’s names and lines from the *Mao Odes* containing flower names; Ziyun gives the performers a parallel dice-and-aria game. The scholars repeatedly concede and pay congratulatory cups. The scene makes citation, speed, and memory—not solitary inspiration—the measure of talent.
+The Garden of Contentment company first flies Tang lines containing numbers. Cixian then introduces “A Hundred Beauties Offering Wine,” requiring assembled Tang lines with women’s names and lines from the *Mao Odes* containing flower names; Ziyun gives the performers a parallel dice-and-aria game. The scholars repeatedly concede and pay congratulatory cups. The scene makes citation, speed, and memory—not solitary inspiration—the measure of talent.
 
 ### Chapter 54 — Qionghua and Peiqiu debate and test poetic judgment
 

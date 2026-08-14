@@ -65,7 +65,7 @@ export const char_27Appearances: Record<number, SceneBullet[]> = {
   ],
   "25": [
     {
-      en: "Li Yulin and Gui Bao discuss the rehearsals for the new play at Yi Garden.",
+      en: "Li Yulin and Gui Bao discuss the rehearsals for the new play at the Garden of Contentment.",
       zh: "李玉林与桂保谈论怡园排练新戏的情况。"
     }
   ],

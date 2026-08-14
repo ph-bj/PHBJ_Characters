@@ -83,7 +83,7 @@ export const summaryGists: Record<number, ChapterGists> = {
     en: [
       `The chapter sets out Xu Ziyun's lineage and his way of choosing friends, then tells how Du Qinyan's father died over a smashed lute and how the orphaned boy was sold into a troupe.`,
       `Fastidious and proud, he had tried more than once to hang himself; and the youth who lifted him from the pit in a dream proves, when their carriages meet, to be Mei Ziyu.`,
-      `At Yiyuan Ziyun renames him Qinyan, styled Yunong; Pincai's attempt to blacken him only raises him in Ziyu's esteem; and the chapter closes on Hua Guangsu's magnificence and a sober New Year's Eve at the Mei mansion.`,
+      `At the Garden of Contentment Ziyun renames him Qinyan, styled Yunong; Pincai's attempt to blacken him only raises him in Ziyu's esteem; and the chapter closes on Hua Guangsu's magnificence and a sober New Year's Eve at the Mei mansion.`,
     ],
   },
   6: {
@@ -130,7 +130,7 @@ export const summaryGists: Record<number, ChapterGists> = {
     ],
     en: [
       `The debt is quietly settled and Ziyu kept in the dark; and at the Lantern Festival Liu Wenze, Yan Zhongqing and Wang Xun call for him and they walk into the blaze of the lantern market.`,
-      `A young wife in a carriage displays her tiny foot and a press of women bowls the party over; then at Yiyuan Ziyu alone solves the riddle the master set for Yunong, and carries off a lute as the prize.`,
+      `A young wife in a carriage displays her tiny foot and a press of women bowls the party over; then at the Garden of Contentment Ziyu alone solves the riddle the master set for Yunong, and carries off a lute as the prize.`,
       `From the terrace they watch fireworks and a thousand lantern-beasts, and Shi Nanxiang is drunk and revived by a pill — while Yuan Baozhu tells Ziyu that Qinguan is now called Qinyan and has been taken elsewhere for the evening.`,
     ],
   },
@@ -203,7 +203,7 @@ export const summaryGists: Record<number, ChapterGists> = {
     en: [
       `Nanxiang describes the friendship forged in hardship between Chunhang and Huifang; Pincai goes alone to Cherry Lane and arranges for Ziyu to meet Qinyan next day — and Mei Shixie's appointment to Jiangxi fills the house with well-wishers and cancels it.`,
       `The betrothal is formalized before the departure, and Sun Lianggong quietly lays a second match for Li Yuanmao; Ziyu, teased and dragged off to Cherry Lane, finds Qinyan taken elsewhere and calls on Lu Sulan instead.`,
-      `Sulan reveals that Qinyan borrows his likeness to comfort his longing, and Ziyu swallows his tears; and after Mei Shixie is seen off, the peach-blossom party at Yiyuan ends with Cixian's prophecy that so much happiness must slowly breed sorrow.`,
+      `Sulan reveals that Qinyan borrows his likeness to comfort his longing, and Ziyu swallows his tears; and after Mei Shixie is seen off, the peach-blossom party at the Garden of Contentment ends with Cixian's prophecy that so much happiness must slowly breed sorrow.`,
     ],
   },
   16: {
@@ -294,7 +294,7 @@ export const summaryGists: Record<number, ChapterGists> = {
     ],
     en: [
       `Sulan hits on a boating party and uses Xu Ziyun's name to bring Ziyu; but carrying the good news in, he finds two bullies pounding the table and cursing, who go only when paid — hired, it turns out, by Wei Pincai.`,
-      `Qinyan speaks of dying — buried under the plums at Yiyuan, or burnt and scattered where the hills are high and the water deep — until the bullies are traced to Pincai; and only Ziyu's answering letter draws a faint smile from him.`,
+      `Qinyan speaks of dying — buried under the plums at the Garden of Contentment, or burnt and scattered where the hills are high and the water deep — until the bullies are traced to Pincai; and only Ziyu's answering letter draws a faint smile from him.`,
       `On the boat Sulan tests him first with news of illness and then with the offer of a double, both refused; Qinyan comes out at last and the three weep together — while a few feet of water away Pan Qiguan's boat roars with wine and women.`,
     ],
   },
@@ -319,7 +319,7 @@ export const summaryGists: Record<number, ChapterGists> = {
     en: [
       `Yan Zhongqing and Wang Xun run through the season's news — Pan Qiguan's proposed adoption, Li Yuanmao in his straw blind, Wei Pincai's hired bullies — and end with the good news: the day on the canal that cured both Ziyu and Qinyan.`,
       `Asked how a single meeting could bind them so, Zhongqing shows that this purest of attachments was rooted by the least pure of men, then grades the whole circle and sets Pincai, Pan Qiguan and their like down as the moths and thieves of feeling.`,
-      `Li Yulin and Wang Guibao bring word from Yiyuan: Hua Guangsu will visit on the lotus birthday and Xiao Cixian is assembling a combined troupe for newly written plays; the cast of ten is settled, each performer is weighed in turn, and the story of Qiguan's broken barrel and the Xi family's fortune comes out.`,
+      `Li Yulin and Wang Guibao bring word from the Garden of Contentment: Hua Guangsu will visit on the lotus birthday and Xiao Cixian is assembling a combined troupe for newly written plays; the cast of ten is settled, each performer is weighed in turn, and the story of Qiguan's broken barrel and the Xi family's fortune comes out.`,
     ],
   },
   25: {
@@ -329,7 +329,7 @@ export const summaryGists: Record<number, ChapterGists> = {
       `华公子解汉玉双龙佩相赠，众人都劝琴言领情；他越想越气竟至垂泪，一句硬话顶得张仲雨变色——日后无数苦况即由此生。`,
     ],
     en: [
-      `On the lotus birthday Yiyuan feasts Hua Guangsu; the garden and its master's thoughtfulness are described at length, and it is explained why nearly every scholar has excused himself, leaving only Zhang Zhongyu and Xiao Cixian.`,
+      `On the lotus birthday the Garden of Contentment feasts Hua Guangsu; the garden and its master's thoughtfulness are described at length, and it is explained why nearly every scholar has excused himself, leaving only Zhang Zhongyu and Xiao Cixian.`,
       `The ten performers make their bows and Hua Guangsu notices Qinyan alone; after the splendours of the new plays, Qinyan and Yuan Baozhu enter from opposite wings for a doubled *Seeking the Dream* that brings him to his feet — while Qinyan gets through it only by pretending the man upstairs is Ziyu.`,
       `Hua Guangsu unties a jade pendant for him and everyone urges him to be grateful; the more he thinks of it the more he weeps, and one hard word changes Zhang Zhongyu's face — sowing the sorrows to come.`,
     ],
@@ -582,7 +582,7 @@ export const summaryGists: Record<number, ChapterGists> = {
     ],
     en: [
       `Baozhu reckons it up — twenty-four hundred strings a year and no end to her keep — and says he must first decide whether to buy his freedom; Sulan claps his hands, having already worked it out with Huifang, and says friends could raise half of four or five thousand between them.`,
-      `The four go to Yiyuan among the apricot blossom and hear a flute above — Cixian has found an old friend's play in his book-chest and is setting it to notation; and Huifang warns him never to give it to the troupe teachers, who will alter it to suit their own mouths until it makes no sense.`,
+      `The four go to the Garden of Contentment among the apricot blossom and hear a flute above — Cixian has found an old friend's play in his book-chest and is setting it to notation; and Huifang warns him never to give it to the troupe teachers, who will alter it to suit their own mouths until it makes no sense.`,
       `Talk of dried lychees becomes a meditation on how few days a flower has, and how a person's savour sours with the years; and after the meal Baozhu lays the widow's price before Ziyun, whose friends pledge eighteen hundred between them — and who quietly covers the rest, urging only speed.`,
       `Ye Maolin is chosen to open the matter but insists that Huifang come too; at the widow's house, after a long recital of her hardships, Huifang invents a Jiangnan magistrate who wants the boy for a son and offers three thousand strings — and is told nothing under three thousand taels will do, since the great houses would pay more.`,
       `Huifang answers coldly that Hua Guangsu has tired of the boy and Ziyun grown weary too, and the widow, tied by that soft rope, settles at twenty-four hundred taels; the papers are signed next day, and Qinyan weeps at his master's bier and at her door — and is barely free before fresh trouble begins.`,
@@ -598,7 +598,7 @@ export const summaryGists: Record<number, ChapterGists> = {
     en: [
       `Hua Guangsu sends a servant to fetch Qinyan back and the man finds him gone; over wine with two other households' servants he hears one true thing — that Ziyun paid twenty-four hundred taels — and one false, that Qinyan drank at the temple and took a jade bracelet.`,
       `The servant embroiders further, and Lin Shanzhi, glad of a chance to shame a rival, repeats it all; Hua Guangsu turns white, cries that Qinyan is without conscience and Duxiang a smiling knife, and swears to drive the boy out of the capital until the household talks him down.`,
-      `His wife says coolly that if others choose to buy the boy out it is no business of theirs, and that a quarrel would fix the name of catamite-keeper on both houses; but a night's sleep revives his anger, and he sends the trunks to Yiyuan with a letter of studied savagery.`,
+      `His wife says coolly that if others choose to buy the boy out it is no business of theirs, and that a quarrel would fix the name of catamite-keeper on both houses; but a night's sleep revives his anger, and he sends the trunks to the Garden of Contentment with a letter of studied savagery.`,
       `Reading it word by word, Qinyan chokes, faints and wakes to a storm of weeping; Ziyun breaks off the friendship altogether, Cixian offers to make him a young friend and teach him everything he knows, and Huifang and Baozhu speak of leaving the stage themselves — while Shanzhi reports only that Ziyun laughed once and kept the trunks, which leaves his master speechless.`,
     ],
   },
@@ -611,7 +611,7 @@ export const summaryGists: Record<number, ChapterGists> = {
       `道翁应允，琴言红着脸点头，铺下红毡拜了八拜；道翁当席为他改名——依我的姓，改名勤先，留一个琴字，号琴仙。自此他便称屈勤先，不复叫琴言了。`,
     ],
     en: [
-      `Qinyan settles at Yiyuan and half his gloom lifts; Ziyu, coming again by new moon, escapes an antique dealer's chatter and finds him among the crabapples, where they decide that the flower's scent is not absent but hidden in its colour and skin, to be drawn out only by long looking — a fragrance of the mind.`,
+      `Qinyan settles at the Garden of Contentment and half his gloom lifts; Ziyu, coming again by new moon, escapes an antique dealer's chatter and finds him among the crabapples, where they decide that the flower's scent is not absent but hidden in its colour and skin, to be drawn out only by long looking — a fragrance of the mind.`,
       `Qinyan confesses that on stage he used to pretend the body was not his, and that now, though safe, his mind is less at rest than before — he will not act and will not serve, and does not know what else there is; Ziyu says that away from the capital he would be like anyone else, and wishes only for a small provincial post so that they might go together.`,
       `Next day nineteen of them gather for the planchette, and the goddess who descends bids Qinyan kneel and ask his fortune — answering with a verse about a rebirth that remembers nothing and a father and child who meet without knowing it, and then, pressed for a gloss, with eight words calling Qu Daoweng forward in his place.`,
       `The spirit declares that in a former life Daoweng was a Jiangning judge and Qinyan the daughter he lost at fifteen; a second sitting brings Su Shi, who writes a long poem working every guest into it and ends on a grieving daughter turned into a jade youth — at which the old man weeps, and Ziyun proposes the adoption.`,
@@ -658,7 +658,7 @@ export const summaryGists: Record<number, ChapterGists> = {
     ],
     en: [
       `The palace examination makes Tian Chunhang first in the empire and Shi Nanxiang a Hanlin bachelor; the book notes how much he owes to the name Su — to Su Huifang last year and to the Marquis Su this — and then a letter comes: his wife died suddenly in the second month, and his mother is on her way north.`,
-      `Lady Tian arrives and Chunhang praises Huifang to her until she treats him as one of the family; Shi Nanxiang, installed at Yiyuan, ignores his fellow graduates entirely and, pestered for poems, has Jin Su, Ziyu and even Qinxian write them for him — to universal praise and no suspicion.`,
+      `Lady Tian arrives and Chunhang praises Huifang to her until she treats him as one of the family; Shi Nanxiang, installed at the Garden of Contentment, ignores his fellow graduates entirely and, pestered for poems, has Jin Su, Ziyu and even Qinxian write them for him — to universal praise and no suspicion.`,
       `Nanxiang carries Qinxian, Jin Su and Ziyu off to watch the dragon boats; on the water Qinxian asks whether the swallows that leave will come back, and says that of all the fates of fallen blossom the water is at least the cleanest — while Ziyu prays silently that a passing carp may turn, and it turns.`,
       `Qinxian brings out the farewell fan Cixian has painted, on which Ziyun has begun a lyric and Ziyu now answers it; at the line about believing they would be together for life he breaks down and soaks half the draft with tears. Then Qin Qiguan gives a parting dinner and recalls that of the ten who came north together only two are left, and all three weep.`,
       `Qinxian throws the dice on a vow that three hearts should hold together, and twice they come up all red — the dice being red on every face, a trick of Qiguan's that lifts the gloom; and at the pavilion ten li from the city, catching sight of Ziyu wiping his eyes behind the others, he faints away — and when the wheels move and the carriage is lost to sight, Ziyu weeps aloud and turns home.`,
@@ -801,7 +801,7 @@ export const summaryGists: Record<number, ChapterGists> = {
       `韩国以骰子摆诗句、以棋谱决胜，青琴扮博浪椎竟一人打败六人；日暮移席清谈，琼华独斗成一首七律，绮香最爱那一联"任说朝朝依玉树，终应步步让金莲"，说是为闺阁吐气——"不然，这个园几成了那几个名旦的梨园了"。`,
     ],
     en: [
-      `The scene returns to the capital, where in the tenth month Yuan Qixiang gathers six ladies at Yiyuan among the chrysanthemums — and before the wine begins proposes that they swear sisterhood, rank themselves by age, and never defer to one another again.`,
+      `The scene returns to the capital, where in the tenth month Yuan Qixiang gathers six ladies at the Garden of Contentment among the chrysanthemums — and before the wine begins proposes that they swear sisterhood, rank themselves by age, and never defer to one another again.`,
       `Qionghua reminds them they came to see the garden; Qixiang laughs that the garden was only the pretext and that such feet were never made for five li of rock — so they take to the water, and at the pavilion she produces the war-game she and her husband devised, with the seven kingdoms drawn by lot and everyone boasting before a blow is struck.`,
       `The drawing of personages is pure comedy — Chu gets a sycophant, a dream-goddess and a poet, and Yan has lost two heads before the army marches — and then the fighting begins, with a false white beard for Lian Po, cat's cradle for Lord Pingyuan, and lines of verse that fine every gold bracelet and phoenix pin in the room.`,
       `The evening's most elegant turn is a duel of couplets built entirely from the titles of ci tunes, which makes its two authors league-leaders; then come pitch-pot, silent games and Tang couplets answered with dice — and finally Third Sister, condemned as the dog-thief to crawl and bark, feigns obedience, seizes a maid by both ankles, and scatters the company in laughter that drops hairpins and spills wine.`,

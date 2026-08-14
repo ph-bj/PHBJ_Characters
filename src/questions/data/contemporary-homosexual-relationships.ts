@@ -21,7 +21,7 @@ However, the novel inherently links male-male physical intimacy to baseness, vie
 
 Furthermore, when characters engage in purely physical acts, they are harshly punished and dehumanized, as seen in Chapter 32 when the debauched scholar is exposed: 
 
-> "This is clear heavenly retribution, unfailing in its justice... This kind of filthy thing, how can it be considered a person!"
+> "This is clear heavenly retribution, unfailing in its justice... How can such a filthy creature count as a licentiate? He shames and blots out any number of men."
 
 ### Conclusion
 The novel's philosophical core relies on "loving beauty without being lustful" (好色不淫). It would fundamentally struggle to accept a modern relationship where physical love is seen as a healthy expression of spiritual love. While it would praise the emotional devotion and spiritual alignment of contemporary gay partners, it would likely view their physical consummation as a tragic fall from grace—a descent from pure aesthetic appreciation into the "filth" of bodily desire.`,
@@ -41,7 +41,7 @@ The novel's philosophical core relies on "loving beauty without being lustful" (
 
 此外，当角色发生纯粹的肉体关系时，他们会受到严厉的惩罚和贬低，如第32回中那名荒淫的孝廉被揭发时：
 
-> 「这是天理昭彰，报应不爽。……此等污秽东西算个人！」
+> 「这是天理昭彰，报应不爽。……此等污秽东西算个孝廉，真辱抹杀多少人。」
 
 ### 结论
 小说的哲学核心在于“好色不淫”。它从根本上难以接受一种将肉体之爱视为精神之爱的健康表达的现代关系模式。虽然它会赞美当代同志伴侣间的情感投入和精神契合，但它很可能会将他们的肉体结合视为一种悲剧性的堕落——从纯粹的审美欣赏跌入肉欲的“污秽”之中。`,

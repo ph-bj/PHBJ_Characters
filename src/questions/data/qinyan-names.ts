@@ -11,7 +11,7 @@ export const question: QuestionDefinition = {
 
 Chapter 5 explains that his father was known as Master Du the qin player and maker: “Having this son, he used the character *qin* in naming him and called him Qinguan” (生了这个儿子就以琴字为名，叫为琴官). This is the earliest narrated name. The text links it to the father’s craft; it does not explicitly separate a private “birth name” from a later “stage name.” We should therefore avoid claiming more than the chapter says.
 
-### 2. Du Qinyan 杜琴言 — the name bestowed at Yiyuan
+### 2. Du Qinyan 杜琴言 — the name bestowed at the Garden of Contentment
 
 In Chapter 5, Ziyun judges 琴官 insufficiently elegant and asks Cixian to replace 官 and provide a sobriquet. Cixian proposes: “Change it to Qinyan and call him Yunong” (改为琴言，号玉侬). Ziyun approves 琴言 as “new and elegant.” This naming is affectionate, but it is also an act of elite classification: patrons assert the power to refine the actor’s public identity.
 

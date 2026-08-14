@@ -29,7 +29,7 @@ export const char_150Appearances: Record<number, SceneBullet[]> = {
   ],
   "57": [
     {
-      en: "Xu Ziyun's wife, Yuan Qixiang, invites Wu Ziyan, Liu Wenze's wife, along with other ladies to a gathering at her garden, Yiyuan, on the tenth day of the tenth month.",
+      en: "Xu Ziyun's wife, Yuan Qixiang, invites Wu Ziyan, Liu Wenze's wife, along with other ladies to a gathering at her garden, the Garden of Contentment, on the tenth day of the tenth month.",
       zh: "徐子云的夫人袁绮香于十月初十邀请刘文泽的妻子吴紫烟等诸位夫人到怡园聚会。"
     },
     {

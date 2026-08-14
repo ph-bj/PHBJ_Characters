@@ -21,7 +21,7 @@ export const char_40Appearances: Record<number, SceneBullet[]> = {
   ],
   "57": [
     {
-      en: "Yuan Qixiang hosts a grand chrysanthemum viewing and drinking game for the ladies at the Yi Garden, organizing the elaborate rules and serving as a central, witty figure throughout the festivities.",
+      en: "Yuan Qixiang hosts a grand chrysanthemum viewing and drinking game for the ladies at the Garden of Contentment, organizing the elaborate rules and serving as a central, witty figure throughout the festivities.",
       zh: "袁绮香在怡园设宴邀请诸位名门夫人赏菊，组织了复杂的酒令游戏，并在整场聚会中展现出机智风雅的核心作用。"
     },
     {

@@ -5,7 +5,7 @@ import type { SceneBullet } from './types';
 export const char_39Appearances: Record<number, SceneBullet[]> = {
   "5": [
     {
-      en: "Appears briefly in the background during the gathering at Yi Garden.",
+      en: "Appears briefly in the background during the gathering at the Garden of Contentment.",
       zh: "在怡园聚会中作为背景人物出现。"
     }
   ],
@@ -35,7 +35,7 @@ export const char_39Appearances: Record<number, SceneBullet[]> = {
   ],
   "25": [
     {
-      en: "Present during the preparations for Young Master Hua's visit to Yi Garden.",
+      en: "Present during the preparations for Young Master Hua's visit to the Garden of Contentment.",
       zh: "华公子游怡园的准备过程中在场。"
     }
   ],
@@ -95,7 +95,7 @@ export const char_39Appearances: Record<number, SceneBullet[]> = {
   ],
   "45": [
     {
-      en: "Mentioned in passing during Qinyan's stay at Yi Garden.",
+      en: "Mentioned in passing during Qinyan's stay at the Garden of Contentment.",
       zh: "琴言在怡园居住期间被简短提及。"
     }
   ],

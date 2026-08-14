@@ -50,17 +50,17 @@ export const chapter9Appreciation: ChapterAppreciationData = {
     },
     {
       "stageZh": "怡园猜谜",
-      "stageEn": "Guessing Riddles at Yi Garden",
+      "stageEn": "Guessing Riddles at the Garden of Contentment",
       "sentiment": 85,
       "descriptionZh": "进入怡园，展现名士风流，子玉连猜灯谜，拔得头筹获赠瑶琴。",
-      "descriptionEn": "Entering Yi Garden reveals scholar elegance; Ziyu solves riddles and wins a jade lute."
+      "descriptionEn": "Entering the Garden of Contentment reveals scholar elegance; Ziyu solves riddles and wins a jade lute."
     },
     {
       "stageZh": "烟火奇观",
       "stageEn": "Fireworks Spectacle",
       "sentiment": 95,
       "descriptionZh": "萧次贤款待众人，怡园上演盛大的烟火与百兽灯阵，视觉震撼。",
-      "descriptionEn": "Xiao Cixian entertains the guests; Yi Garden puts on a grand fireworks and beast-lantern display, visually stunning."
+      "descriptionEn": "Xiao Cixian entertains the guests; the Garden of Contentment puts on a grand fireworks and beast-lantern display, visually stunning."
     },
     {
       "stageZh": "醉汉登场",
@@ -84,7 +84,7 @@ export const chapter9Appreciation: ChapterAppreciationData = {
       "titleEn": "Structure",
       "score": 85,
       "textZh": "本章结构以“动—静—大动—微波”为脉络。从灯市的世俗喧闹起笔（动），转入怡园猜谜的文雅清幽（静），再掀起满园烟火百兽齐舞的视觉高潮（大动），最后落脚于子玉对琴言的暗自思慕与情书灯谜的细腻解读（微波）。这种张弛有度的结构，不仅推动了子玉由避俗到入雅的情节发展，更为后续他与琴言的结缘埋下伏笔（瑶琴之赠与未见之憾）。",
-      "textEn": "The chapter is structured with a rhythm of 'movement-stillness-climax-ripple'. It moves from the secular noise of the lantern market to the elegant quiet of riddle-guessing at Yi Garden, peaks with the spectacular fireworks and beast lanterns, and settles on Ziyu's quiet yearning for Qin Yan. This well-paced structure drives the plot and lays the groundwork for Ziyu's future connection with Qin Yan."
+      "textEn": "The chapter is structured with a rhythm of 'movement-stillness-climax-ripple'. It moves from the secular noise of the lantern market to the elegant quiet of riddle-guessing at the Garden of Contentment, peaks with the spectacular fireworks and beast lanterns, and settles on Ziyu's quiet yearning for Qin Yan. This well-paced structure drives the plot and lays the groundwork for Ziyu's future connection with Qin Yan."
     },
     {
       "iconType": "User",
@@ -92,7 +92,7 @@ export const chapter9Appreciation: ChapterAppreciationData = {
       "titleEn": "Characterization",
       "score": 90,
       "textZh": "本章通过强烈的对比刻画人物。灯市中粗俗与轻佻的妇人，反衬出子玉的洁身自好与孤高；怡园中萧次贤的从容旷达，史南湘的狂放不羁（“只恨仙人丹药少”），勾勒出名士群像。最精彩的是子玉的心理描写：在热闹非凡的灯会上，他却因错失与琴言相见的机缘而感到“缘悭”，在与宝珠的对视中走神，生动展现了他作为“情痴”的专注与纯粹。",
-      "textEn": "Characterization is achieved through strong contrasts. The vulgar and frivolous women in the market highlight Ziyu's aloofness. In Yi Garden, Xiao Cixian's composure and Shi Nanxiang's wild drunkenness sketch a vivid portrait of literary figures. Ziyu's psychological depth is striking: amidst the festivity, he feels the regret of missing Qin Yan, drifting into a trance while looking at Baozhu, revealing his nature as a 'love-fool'."
+      "textEn": "Characterization is achieved through strong contrasts. The vulgar and frivolous women in the market highlight Ziyu's aloofness. In the Garden of Contentment, Xiao Cixian's composure and Shi Nanxiang's wild drunkenness sketch a vivid portrait of literary figures. Ziyu's psychological depth is striking: amidst the festivity, he feels the regret of missing Qin Yan, drifting into a trance while looking at Baozhu, revealing his nature as a 'love-fool'."
     },
     {
       "iconType": "Heart",
@@ -100,7 +100,7 @@ export const chapter9Appreciation: ChapterAppreciationData = {
       "titleEn": "Themes",
       "score": 80,
       "textZh": "本章探讨了“雅与俗”以及“真情与假意”的对立。灯市的拥挤、踩踏与庸俗之美，代表了泥沙俱下的世俗社会；而怡园的机锋对答、雅致彩头（瑶琴）与两封绝妙的药名花名情书，则构筑了一个文人乌托邦。作者借南湘之口嘲讽“假名士”，借子玉之口辨明“瓦砾”与“珠玉”的区别，强调了在浊世中保持艺术品味与真挚情感的可贵。",
-      "textEn": "The chapter explores the dichotomy of 'elegance vs. vulgarity' and 'genuine feeling vs. pretense'. The crowded market represents the chaotic secular world, while Yi Garden's poetic riddles and elegant prizes construct a literary utopia. Through the characters' dialogue, the author mocks 'pseudo-scholars' and distinguishes 'rubble' from 'pearls', emphasizing the value of artistic taste and genuine emotion in a murky world."
+      "textEn": "The chapter explores the dichotomy of 'elegance vs. vulgarity' and 'genuine feeling vs. pretense'. The crowded market represents the chaotic secular world, while the Garden of Contentment's poetic riddles and elegant prizes construct a literary utopia. Through the characters' dialogue, the author mocks 'pseudo-scholars' and distinguishes 'rubble' from 'pearls', emphasizing the value of artistic taste and genuine emotion in a murky world."
     },
     {
       "iconType": "Eye",
@@ -108,7 +108,7 @@ export const chapter9Appreciation: ChapterAppreciationData = {
       "titleEn": "Point of View & Voice",
       "score": 80,
       "textZh": "小说采用全知视角，但本章大量通过梅子玉和刘文泽的“限知”眼光来观察世界。通过他们的视线，读者看到了灯市的纷繁与怡园的奇观。作者的语调在描写市井时带有一丝幽默与讽刺（如王恂被踩黑的靴子），而在描写怡园风月与情书时，则转为极度的抒情与赞美，声音切换自然，营造出亦庄亦谐的阅读氛围。",
-      "textEn": "Using an omniscient perspective, the chapter heavily relies on the limited viewpoints of Ziyu and Wen Ze to observe the surroundings. The author's tone shifts naturally: it carries humor and subtle irony when describing the market (like Wang Xun's stepped-on boot), but turns highly lyrical and praising when depicting the poetic romance of Yi Garden, creating a reading atmosphere that is both playful and serious."
+      "textEn": "Using an omniscient perspective, the chapter heavily relies on the limited viewpoints of Ziyu and Wen Ze to observe the surroundings. The author's tone shifts naturally: it carries humor and subtle irony when describing the market (like Wang Xun's stepped-on boot), but turns highly lyrical and praising when depicting the poetic romance of the Garden of Contentment, creating a reading atmosphere that is both playful and serious."
     },
     {
       "iconType": "PenTool",
@@ -215,7 +215,7 @@ export const chapter9Appreciation: ChapterAppreciationData = {
         {
           "id": 1,
           "decisionZh": "子玉在怡园连猜灯谜，拔得头筹",
-          "decisionEn": "Ziyu sweeps the lantern riddles at Yiyuan and takes first prize",
+          "decisionEn": "Ziyu sweeps the lantern riddles at the Garden of Contentment and takes first prize",
           "rippleZh": "获赠瑶琴彩头，风头一时无两。",
           "rippleEn": "He wins a jade qin as his prize, the toast of the evening.",
           "echoZh": "他猜中的正是琴言所制的谜——“琴”之彩头暗扣“琴言”，缘分自此系上一线（第10回点明）。",

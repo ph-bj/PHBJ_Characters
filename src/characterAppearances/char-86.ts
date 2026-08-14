@@ -95,7 +95,7 @@ export const char_86Appearances: Record<number, SceneBullet[]> = {
   ],
   35: [
     {
-      en: "Ziyu simply informs Lady Yan that he is going to a gathering at Yiyuan before leaving.",
+      en: "Ziyu simply informs Lady Yan that he is going to a gathering at the Garden of Contentment before leaving.",
       zh: "子玉向颜夫人禀明自己要去怡园赴宴后便出了门。",
     },
   ],
@@ -107,7 +107,7 @@ export const char_86Appearances: Record<number, SceneBullet[]> = {
   ],
   45: [
     {
-      en: "Ziyu reports his plans to Lady Yan before going to Yiyuan in the evening and attending a spirit-writing session the next morning.",
+      en: "Ziyu reports his plans to Lady Yan before going to the Garden of Contentment in the evening and attending a spirit-writing session the next morning.",
       zh: "子玉在晚上去怡园和次日清早去看扶乩前，都向颜夫人禀明了去向。",
     },
   ],

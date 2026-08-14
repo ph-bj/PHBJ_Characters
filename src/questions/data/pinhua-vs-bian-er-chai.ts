@@ -11,11 +11,11 @@ Here is a detailed comparison across the requested dimensions:
 
 ### 1. Word Count and Scale
 - **Bian er chai**: A collection of four separate novellas (each containing five chapters), totaling 20 chapters. The overall word count is relatively brief, typical of late Ming short story collections (around 50,000 to 60,000 Chinese characters in total).
-- **Pinhua Baojian**: A full-length novel of 60 chapters containing roughly 500,000 Chinese characters.
+- **Pinhua Baojian**: A full-length novel of 60 chapters containing roughly 430,000 Chinese characters.
 
 ### 2. Number of Characters
 - **Bian er chai**: Features a highly focused, small cast of characters, usually revolving around two main male protagonists per novella (e.g., Zhao Wangsun and Feng Xia in "Qing Zhen Ji" / The Record of Pure Love), along with a few supporting figures like servants or villains.
-- **Pinhua Baojian**: Features a massive ensemble cast of over 150 characters, mapping out complex social networks among scholars, officials, merchants, actors, and servants.
+- **Pinhua Baojian**: Features a cast of 207 named characters, mapping out complex social networks among scholars, officials, merchants, actors, and servants.
 
 ### 3. Historical Era
 - **Bian er chai**: Written in the late Ming Dynasty (early 17th century) under the pseudonym **Zuixi Hu Xinyue Zhuren** (醉西湖心月主人). It reflects the late Ming literary preoccupation with *qing* (emotion/passion) and explores male same-sex relationships without implying a modern identity category.
@@ -52,10 +52,10 @@ Both works share the trope of a profoundly beautiful, almost otherworldly young 
 This description from *Bian er chai* focuses on striking physical beauty and its immediate, overwhelming emotional/erotic impact on onlookers ("lose their soul").
 
 **Excerpt from *Pinhua Baojian* (Chapter 1, describing Mei Ziyu):**
-> "只見那人生得面如冠玉，唇若塗朱。眉不畫而翠，眼不點而黑。洵是翩翩佳公子，不似凡塵俗骨。"
-*(He saw that the man had a face like jade adorning a cap, and lips like applied cinnabar. His eyebrows were green without being painted, his eyes black without being dotted. He was truly a dashing, elegant young gentleman, not like a vulgar mortal of the ordinary dust.)*
+> "这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。而且天授神奇，胸罗斗宿，虽只十年诵读，已是万卷贯通。"
+*(This Mei Ziyu was seventeen this year, his looks like fine jade and his substance like refined gold, precious as a pearl still in the shell, radiant as the bright moon rising over a ridge. Heaven had granted him a rare gift, the constellations were arrayed in his breast, and though he had studied only ten years he had mastered ten thousand volumes.)*
 
-This description from *Pinhua Baojian*, while using similar traditional idioms ("lips like applied cinnabar"), emphasizes a refined, almost aristocratic purity ("jade adorning a cap," "not like a vulgar mortal"). The focus in *Pinhua Baojian* is on the spiritual refinement and the elevation of the character above the "vulgar dust," aligning with its theme of chaste, elevated love, whereas *Bian er chai* emphasizes raw, passionate attraction.`,
+Where *Bian er chai* itemises the body — hair, face, lips, teeth, skin — *Pinhua Baojian* reaches straight for mineral and celestial metaphor (jade, gold, pearl, moon) and, in the same breath, turns to learning. The beauty is a claim about worth and cultivation rather than an inventory of features, and the passage never pauses on the effect the boy has on an onlooker. What each book bothers to describe is the difference between them.`,
   answerZh: `《品花宝鉴》与《弁而钗》都是中国古代文学中描写男性同性情感的重要作品，但它们在篇幅、基调以及所反映的时代背景上有着巨大的差异。《弁而钗》是晚明时期的一部短篇小说集，包含四个独立的中篇，侧重于描写激烈、甚至带有悲剧色彩的忠贞情感；而《品花宝鉴》则是清代中叶的一部长篇小说，全景式地、理想化地展现了北京梨园界的风貌，以及名士与伶人之间被浪漫化的情感互动。
 
 以下是针对您提出的几个维度的详细比较：
@@ -66,7 +66,7 @@ This description from *Pinhua Baojian*, while using similar traditional idioms (
 
 ### 2. 人物数量
 - **《弁而钗》**：人物高度集中，每个故事通常围绕两位核心男性主角展开（如《情贞纪》中的赵王孙与风霞），辅以少数几个配角（如仆人或反面角色）。
-- **《品花宝鉴》**：拥有超过150个人物的庞大群像，构建了文人、官员、商人、优伶、仆役之间复杂的社会关系网。
+- **《品花宝鉴》**：共207个有名有姓的人物的庞大群像，构建了文人、官员、商人、优伶、仆役之间复杂的社会关系网。
 
 ### 3. 时代背景
 - **《弁而钗》**：成书于明代晚期（17世纪初），作者署名“醉西湖心月主人”。它反映了晚明时期文学对“情”的重视，并以传统的社会关系和情感范畴探索男性之间的亲密关系。
@@ -102,7 +102,7 @@ This description from *Pinhua Baojian*, while using similar traditional idioms (
 《弁而钗》中的这段描写侧重于惊艳的肉体美及其对旁观者产生的直接的、压倒性的情感/情欲冲击（“莫不魂消”）。
 
 **《品花宝鉴》中的段落（第一回，描写梅子玉）：**
-> “只見那人生得面如冠玉，唇若塗朱。眉不畫而翠，眼不點而黑。洵是翩翩佳公子，不似凡塵俗骨。”
+> “这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光彩如华月升岫。而且天授神奇，胸罗斗宿，虽只十年诵读，已是万卷贯通。”
 
-《品花宝鉴》的这段描写，虽然也使用了传统的形容词（如“唇若塗朱”），但更强调一种精致的、近乎贵族化的纯洁感（“面如冠玉”、“不似凡塵俗骨”）。《品花宝鉴》的焦点在于人物精神上的高洁以及将其拔高于“凡尘俗骨”之上，这与小说推崇的贞洁、高尚的精神恋爱主题相契合，而《弁而钗》则更强调原始的、充满激情的吸引力。`
+《弁而钗》逐一点数身体——发、面、唇、齿、肌；《品花宝鉴》则径取金玉珠月为喻，且在同一口气里转入学问。这里的“美”是对品格与教养的判断，而非五官的清单，全段也不曾停留在旁观者的反应上。两书肯落笔之处的不同，正是两书的不同。`
 };

@@ -7,18 +7,18 @@ export const question: QuestionDefinition = {
   questionZh: "结合全书，谈谈梅子玉、杜琴言、王恂、苏蕙芳、萧次贤这五个人的命运如何交织。",
   answerEn: `### Short answer
 
-The five do not form a single, equal friendship group. Their lives intersect through **two overlapping networks**: Ziyu and Qinyan’s bond of *zhiji* (知己), and the Yiyuan circle in which scholars and performers exchange poems, money, protection, criticism, and introductions.
+The five do not form a single, equal friendship group. Their lives intersect through **two overlapping networks**: Ziyu and Qinyan’s bond of *zhiji* (知己), and the Garden of Contentment circle in which scholars and performers exchange poems, money, protection, criticism, and introductions.
 
 ### The five narrative functions
 
 1. **Mei Ziyu and Du Qinyan — the emotional axis.** Their story begins with Ziyu’s uncomprehending glance at Qinyan in **Chapter 1** and develops through delayed meetings, illness, coded gifts, poems, and separation. The novel tests whether affection can become ethical recognition rather than the purchase of a performer.
-2. **Wang Xun — kinship and mediation.** Wang Xun is Ziyu’s maternal cousin and a participant in the scholar circle. He helps connect private feeling to family and social life, but he is not the principal organizer of Yiyuan—that role belongs to **Xu Ziyun**. This distinction matters because the novel distributes power among kinship, friendship, and patronage rather than giving it to one character.
+2. **Wang Xun — kinship and mediation.** Wang Xun is Ziyu’s maternal cousin and a participant in the scholar circle. He helps connect private feeling to family and social life, but he is not the principal organizer of the Garden of Contentment—that role belongs to **Xu Ziyun**. This distinction matters because the novel distributes power among kinship, friendship, and patronage rather than giving it to one character.
 3. **Su Huifang — a parallel, not merely a helper.** Huifang’s devoted relationship with Tian Chunhang offers a second model of scholar–performer attachment. His intelligence, financial initiative, and loyalty make him central to the performers’ collective movement toward independence, but it is inaccurate to credit him alone with Qinyan’s release. Qinyan’s change of status depends on a network, especially Xu Ziyun and later Qu Daosheng.
-4. **Xiao Cixian — critic and cultural maker.** Cixian helps shape Yiyuan as a literary space and repeatedly judges poetry, painting, character, and conduct. Near the end, portraiture and commemorative writing convert living performers into “flower histories,” showing both the dignity conferred by art and the scholars’ power to classify them.
+4. **Xiao Cixian — critic and cultural maker.** Cixian helps shape the Garden of Contentment as a literary space and repeatedly judges poetry, painting, character, and conduct. Near the end, portraiture and commemorative writing convert living performers into “flower histories,” showing both the dignity conferred by art and the scholars’ power to classify them.
 
 ### Where their fates converge
 
-* **Yiyuan gatherings:** Wang Xun, Ziyu, and Cixian participate in the social world where Huifang and Qinyan can be heard as artists and moral speakers, not only viewed as commodities.
+* **Garden of Contentment gatherings:** Wang Xun, Ziyu, and Cixian participate in the social world where Huifang and Qinyan can be heard as artists and moral speakers, not only viewed as commodities.
 * **Qinyan’s exit from the theatre:** friends provide practical support, while Qu Daosheng’s adoption of Qinyan as a **son** and his education as Qinxian make a new social identity possible.
 * **The final reunion (Chapter 60):** Qinxian has moved from the “actor party” to the “scholar party,” and the former performers commemorate their scholar patrons. The symmetry is celebratory but incomplete: their freedom still depends on elite recognition.
 

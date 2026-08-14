@@ -58,9 +58,9 @@ The narration is not a daily chronicle: it sometimes moves backward to supply a 
 
 ### Year One, late winter to the Lantern Festival (Chapters 1–10): encounter and awakening
 
-- **Twelfth month and heavy snow (Chs. 1–5):** Seventeen-year-old Mei Ziyu initially doubts that men can possess extraordinary beauty. Shi Nanxiang shows him the *Qutai Huaxuan*; Ziyu then glimpses Du Qinyan in a carriage and learns his identity from Wei Pincai. Qinyan and Qiguan have newly reached Beijing, while the Yiyuan circle is being formed.
-- **Sixth day of the first month through the Lantern Festival (Chs. 6–9):** Guild-hall performances, Yiyuan gatherings, and the lantern festivities follow one another. Ziyu sees Qinyan perform *Awakening from the Dream* and later meets him behind a screen at Yiyuan. They say almost nothing, yet their mutual attachment is established.
-- **Chapter 10 looks backward** to Qinyan's earlier reception at Yiyuan. Chapter order therefore cannot always be treated as strict date order.
+- **Twelfth month and heavy snow (Chs. 1–5):** Seventeen-year-old Mei Ziyu initially doubts that men can possess extraordinary beauty. Shi Nanxiang shows him the *Qutai Huaxuan*; Ziyu then glimpses Du Qinyan in a carriage and learns his identity from Wei Pincai. Qinyan and Qiguan have newly reached Beijing, while the Garden of Contentment circle is being formed.
+- **Sixth day of the first month through the Lantern Festival (Chs. 6–9):** Guild-hall performances, Garden of Contentment gatherings, and the lantern festivities follow one another. Ziyu sees Qinyan perform *Awakening from the Dream* and later meets him behind a screen at the Garden of Contentment. They say almost nothing, yet their mutual attachment is established.
+- **Chapter 10 looks backward** to Qinyan's earlier reception at the Garden of Contentment. Chapter order therefore cannot always be treated as strict date order.
 
 ### Year One, spring through year-end (Chapters 11–35): obstruction and diverging paths
 
@@ -74,7 +74,7 @@ The narration is not a daily chronicle: it sometimes moves backward to supply a 
 - **Lantern Festival (Ch. 36):** Qinyan's genuine tears onstage anger Hua Guangsu. After Changqing's death he returns temporarily to the troupe household; at Hongji Temple, Xi Shiyi and others force drink and a bracelet on him. He smashes the bracelet and flees.
 - **First day of the second month (Ch. 37):** Qinyan tells Ziyu what happened. The confession removes the distrust created by Pincai and establishes genuine mutual confidence.
 - **Early second month (Chs. 38–40):** Qu Daoweng arrives and recognizes Qinyan's pride and literary gifts; Li Yuanmao marries into the Sun family on the tenth.
-- **Following months (Chs. 41–47):** Qinyan leaves Hua's control and studies at Yiyuan. A spirit-writing session reveals a former-life bond with Qu, who adopts him, changes his surname and his name to **Qinxian**, and directs him away from public performance toward study.
+- **Following months (Chs. 41–47):** Qinyan leaves Hua's control and studies at the Garden of Contentment. A spirit-writing session reveals a former-life bond with Qu, who adopts him, changes his surname and his name to **Qinxian**, and directs him away from public performance toward study.
 - **Late spring into the fifth month (Chs. 48–50):** Qu departs to take office in Nanchang and Qinxian leaves Beijing with him. Ziyu relapses for a month after the farewell; Chapter 50 states that the fifth month is ending.
 
 ### Year Two, sixth month through year-end (Chapters 50–59): marriage, examination, death, and return
@@ -82,7 +82,7 @@ The narration is not a daily chronicle: it sometimes moves backward to supply a 
 - **Sixth month and early seventh month (Chs. 50–54):** Chunhang's wedding is set for the seventh day of the seventh month; Gao Pin reaches the capital in the seventh month. Ziyu succeeds through the examination rounds and is appointed a Hanlin compiler.
 - **Eighth day of the sixth month to seventh day of the seventh month (Chs. 55–56):** Qu falls at Liangshan in Nanjing on the sixth month's eighth day. His final testament is dated the seventh month's seventh day, and he dies soon afterward. Qinxian keeps vigil in a temple, is robbed by servants, and rejects Hou Shiweng's predatory offer of “protection.”
 - **Seventh month through the end of the mourning period (Chs. 56–58):** Qinxian obeys his adoptive father's last wishes. Mei Shixie travels south, arranges Qu's burial, and brings him back toward Beijing. Meanwhile the famous performers gain release, marry, or enter new livelihoods.
-- **Tenth month through the twelfth month (Chs. 57–59):** The text explicitly reaches the tenth month. News of Qu's death reaches Yiyuan and the group mourns him. Around the twenty-second of the twelfth month, Mei Shixie and Qinxian return; Ziyu and Qinxian talk through the night, earning Zhongqing's reflection on their “two years” of grief. The old year ends.
+- **Tenth month through the twelfth month (Chs. 57–59):** The text explicitly reaches the tenth month. News of Qu's death reaches the Garden of Contentment and the group mourns him. Around the twenty-second of the twelfth month, Mei Shixie and Qinxian return; Ziyu and Qinxian talk through the night, earning Zhongqing's reflection on their “two years” of grief. The old year ends.
 
 ### Year Three, first month to the third day of the third month (Chapter 60): self-definition
 

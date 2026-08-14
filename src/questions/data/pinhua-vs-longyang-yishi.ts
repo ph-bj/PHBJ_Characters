@@ -11,11 +11,11 @@ Here is a detailed comparison across the requested dimensions:
 
 ### 1. Word Count and Scale
 - **Longyang Yishi**: A collection of 20 short episodic stories (huaben). The overall word count is relatively brief, typical of Ming short story collections (roughly around 60,000 Chinese characters).
-- **Pinhua Baojian**: A full-length novel of 60 chapters containing roughly 500,000 Chinese characters.
+- **Pinhua Baojian**: A full-length novel of 60 chapters containing roughly 430,000 Chinese characters.
 
 ### 2. Number of Characters
 - **Longyang Yishi**: Features a fragmented cast since it is a collection of 20 independent stories. Each story typically focuses on a very small set of characters (a "dalao" / older patron and a "xiaoguan" / young male prostitute).
-- **Pinhua Baojian**: Features a massive, interconnected ensemble cast of over 150 characters, mapping out complex social networks among scholars, officials, merchants, actors, and servants across the capital.
+- **Pinhua Baojian**: Features a cast of 207 named characters, densely interconnected,, mapping out complex social networks among scholars, officials, merchants, actors, and servants across the capital.
 
 ### 3. Historical Era
 - **Longyang Yishi**: Written and published in the late Ming Dynasty (around Chongzhen 5, 1632) by "Zuizhu Jushi" (The Drunken Bamboo Householder). It reflects the late Ming commercialization of sex and the prevalent urban male prostitution culture.
@@ -52,7 +52,7 @@ Both works describe young males who are the object of desire, but their tone and
 This description from *Longyang Yishi* is highly transactional and pragmatic, focusing on the short "shelf life" and commercial reality of male prostitution in the late Ming urban setting.
 
 **Excerpt from *Pinhua Baojian* (Chapter 1, describing the scholar Mei Ziyu):**
-> "這梅子玉今年已十七歲了，生得貌如良玉，質比精金..."
+> "这梅子玉今年已十七岁了，生得貌如良玉，质比精金……"
 *(This Mei Ziyu was already seventeen years old this year; he was born with an appearance like fine jade, and a substance comparable to refined gold...)*
 
 This excerpt from *Pinhua Baojian* emphasizes innate, aristocratic refinement ("fine jade," "refined gold") and moral purity. The description elevates the character above mere physical transaction, aligning with the novel's overarching theme of spiritual, idealized love.`,
@@ -66,7 +66,7 @@ This excerpt from *Pinhua Baojian* emphasizes innate, aristocratic refinement ("
 
 ### 2. 人物数量
 - **《龙阳逸史》**：由于是20个独立故事的合集，人物较为分散。每个故事通常只围绕极少数几个角色（通常是一个“大老”狎客和一个“小官”男妓）展开。
-- **《品花宝鉴》**：拥有超过150个人物的庞大群像，构建了文人、官员、商人、优伶、仆役之间复杂的社会关系网。
+- **《品花宝鉴》**：共207个有名有姓的人物的庞大群像，构建了文人、官员、商人、优伶、仆役之间复杂的社会关系网。
 
 ### 3. 时代背景
 - **《龙阳逸史》**：成书并刊行于明代晚期（约崇祯五年，1632年），作者署名“醉竹居士”。它反映了晚明时期城市商业的发达以及男色交易（男妓文化）的泛滥。
@@ -102,7 +102,7 @@ This excerpt from *Pinhua Baojian* emphasizes innate, aristocratic refinement ("
 这段摘自《龙阳逸史》的描写极其务实且充满了交易色彩，直白地道出了晚明城市男妓短暂的“保质期”以及他们必须面对的商业现实。
 
 **《品花宝鉴》中的段落（第一回，描写名士梅子玉）：**
-> “這梅子玉今年已十七歲了，生得貌如良玉，質比精金...”
+> “这梅子玉今年已十七岁了，生得貌如良玉，质比精金……”
 
 《品花宝鉴》的这段描写，强调的是天生的、贵族化的精致（“良玉”、“精金”）以及道德上的高洁。这种描写将人物从单纯的肉体交易中拔高，契合了小说推崇的精神化、理想化恋爱的主题。`
 };

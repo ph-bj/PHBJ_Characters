@@ -47,7 +47,7 @@ export const char_15Appearances: Record<number, SceneBullet[]> = {
   ],
   "20": [
     {
-      en: "Before the Dragon Boat Festival, Chunhang tours the Garden of Ease with Xu Ziyun. Inspired by the scenery, Chunhang composes poetry and enjoys a boat ride with Huifang and other top performers.",
+      en: "Before the Dragon Boat Festival, Chunhang tours the Garden of Contentment with Xu Ziyun. Inspired by the scenery, Chunhang composes poetry and enjoys a boat ride with Huifang and other top performers.",
       zh: "端午前夕，春航随徐子云等人游览怡园。面对园中美景，春航诗兴大发，与蕙芳等名旦同船游湖，共度佳节。"
     },
   ],
@@ -89,7 +89,7 @@ export const char_15Appearances: Record<number, SceneBullet[]> = {
   ],
   "33": [
     {
-      en: "The group admires flowers and enjoys tea in the Garden of Ease, where Chunhang expresses his feelings through verse, sharing poetry and wine with his confidants.",
+      en: "The group admires flowers and enjoys tea in the Garden of Contentment, where Chunhang expresses his feelings through verse, sharing poetry and wine with his confidants.",
       zh: "众人在怡园赏花品茗，春航赋诗抒怀。他与知己们的交往往往伴随着诗酒唱和。"
     },
   ],
@@ -131,13 +131,13 @@ export const char_15Appearances: Record<number, SceneBullet[]> = {
   ],
   "45": [
     {
-      en: "Following the exams, Chunhang reunites with the other scholars at the Garden of Ease to relax, eagerly awaiting the announcement of the results.",
+      en: "Following the exams, Chunhang reunites with the other scholars at the Garden of Contentment to relax, eagerly awaiting the announcement of the results.",
       zh: "考试结束后，春航与其他名士在怡园重聚，放松身心。大家期待着放榜的日子。"
     },
   ],
   "46": [
     {
-      en: "As Qu Daosheng composes couplets for the Garden of Ease, Chunhang and the other scholars join in, leaving behind masterful works of calligraphy and poetry.",
+      en: "As Qu Daosheng composes couplets for the Garden of Contentment, Chunhang and the other scholars join in, leaving behind masterful works of calligraphy and poetry.",
       zh: "屈道生为怡园题写对联，春航等众名士也纷纷挥毫泼墨，留下传世佳作。"
     },
   ],
@@ -167,7 +167,7 @@ export const char_15Appearances: Record<number, SceneBullet[]> = {
   ],
   "52": [
     {
-      en: "Chunhang marries the Marquis's daughter in an extraordinarily lavish wedding ceremony, for which Xu Ziyun generously lends a section of the Garden of Ease to host the festivities.",
+      en: "Chunhang marries the Marquis's daughter in an extraordinarily lavish wedding ceremony, for which Xu Ziyun generously lends a section of the Garden of Contentment to host the festivities.",
       zh: "春航迎娶苏侯家的小姐，婚礼极其奢华。徐子云更是将怡园借出一部分供其大婚之用。"
     },
   ],
@@ -185,7 +185,7 @@ export const char_15Appearances: Record<number, SceneBullet[]> = {
   ],
   "60": [
     {
-      en: "During the Lantern Festival, Xu Ziyun hosts a grand finale gathering at the Garden of Ease. Chunhang and his peers reunite, honoring the performers by inscribing their virtues on stone, bringing the tale to a joyous close.",
+      en: "During the Lantern Festival, Xu Ziyun hosts a grand finale gathering at the Garden of Contentment. Chunhang and his peers reunite, honoring the performers by inscribing their virtues on stone, bringing the tale to a joyous close.",
       zh: "元宵佳节，徐子云在怡园举办盛大聚会。春航与众名士、名旦再次齐聚，众人为名旦们立传刻石，圆满落幕。"
     },
   ],

@@ -23,7 +23,7 @@ export const chapter37Appreciation: ChapterAppreciationData = {
     {
       stageZh: "3. 剧情高潮", stageEn: "3. Climax", sentiment: 80,
       descriptionZh: "琴言被召到怡园，终于与子玉相见；相逢的慰藉暂时压过了此前的绝望。",
-      descriptionEn: "Qinyan is summoned to Yiyuan and finally meets Ziyu, whose presence briefly overcomes his despair.",
+      descriptionEn: "Qinyan is summoned to the Garden of Contentment and finally meets Ziyu, whose presence briefly overcomes his despair.",
     }
   ],
   dimensions: [
@@ -122,7 +122,7 @@ export const chapter37Appreciation: ChapterAppreciationData = {
           "relationEn": "Summons to the Plum Feast",
           "temperature": 75,
           "noteZh": "十日梅花之约不拘形迹，怡园自成桃源。",
-          "noteEn": "A ten-day plum-blossom pact, free of ceremony — Yiyuan as its own Peach Blossom Spring."
+          "noteEn": "A ten-day plum-blossom pact, free of ceremony — the Garden of Contentment as its own Peach Blossom Spring."
         },
         {
           "id": 3,
@@ -155,7 +155,7 @@ export const chapter37Appreciation: ChapterAppreciationData = {
           "rippleZh": "梅崦成了城中烦扰之外的世外桃源。",
           "rippleEn": "The Meiyan becomes a refuge beyond the city's torments.",
           "echoZh": "怡园的庇护性在琴言最黑暗的日子里愈发重要。",
-          "echoEn": "Yiyuan's shelter matters more and more as Qinyan's darkest days close in."
+          "echoEn": "the Garden of Contentment's shelter matters more and more as Qinyan's darkest days close in."
         }
       ]
     }

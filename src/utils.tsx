@@ -385,16 +385,6 @@ import {
 } from "./nameChips";
 import type { Segment } from "./nameChips";
 
-export type LacunaConfidence = "certain" | "probable" | "speculative";
-
-export type LacunaEntry = {
-  chapterId: number;
-  snippet: string;
-  symbol: "□" | "▉";
-  inferredCharacter: string;
-  confidence: LacunaConfidence;
-  note: string;
-};
 export type NovelLocationWithChapters = NovelLocation & { chapterIds: number[] };
 
 const locationChapterIdsCache = new Map<string, number[]>();

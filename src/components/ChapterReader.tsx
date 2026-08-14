@@ -259,7 +259,6 @@ function ChapterReaderComponent({
   setLang,
   onSelectCharacter,
   onSelectChapter,
-  onSelectLacuna,
   onSelectWork,
   keysSuspended = false,
 }: {
@@ -269,7 +268,6 @@ function ChapterReaderComponent({
   setLang: (lang: "en" | "zh") => void;
   onSelectCharacter: (character: Character) => void;
   onSelectChapter: (chapter: Chapter) => void;
-  onSelectLacuna: () => void;
   onSelectWork?: (workKey: string) => void;
   /** True while another modal is stacked above the reader. */
   keysSuspended?: boolean;
@@ -824,15 +822,16 @@ function ChapterReaderComponent({
           if (!part) return null;
 
           if (part === "▉" || part === "□") {
+            // A gap in the source text. Marked so the defect is visible, but
+            // the app offers no conjecture about what stood here.
             return (
-              <button
+              <span
                 key={`${i}-${j}`}
-                onClick={onSelectLacuna}
-                className="inline-flex items-center rounded-sm border px-1 py-[1px] mx-[1px] align-baseline cursor-pointer transition-all hover:brightness-95 bg-[var(--highlight)] text-[var(--ink-title)] border-[var(--highlight-strong)]"
-                title={lang === "zh" ? "查看缺文档案" : "View Lacunae"}
+                className="inline-flex items-center rounded-sm border px-1 py-[1px] mx-[1px] align-baseline bg-[var(--highlight)] text-[var(--ink-title)] border-[var(--highlight-strong)]"
+                title={lang === "zh" ? "底本缺文" : "Gap in the source text"}
               >
                 {part}
-              </button>
+              </span>
             );
           }
 
