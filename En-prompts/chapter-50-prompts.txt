@@ -140,7 +140,7 @@ Wenze was overjoyed to see them
 and asked, "How is it that you all arrived together here today,
 without even arranging it?"
 Zhongqing explained, "Yong'an was on his way to see Ruixiang,
-but ran into Jade Yan.
+but ran into Yuyan.
 We thought we might go sit for a while at the newly opened establishment.
 Seeing your carriage parked outside,
 we decided to come in here first."
@@ -231,8 +231,8 @@ But Yuxiang simply couldn't hide it;
 staring blankly, resisting when pulled toward the carriage,
 refusing to move, and then
 that sudden wail... what was that all about?
-Fortunately, Duxiang hurried Daosheng away;
-otherwise, seeing that, Daosheng would surely have grown suspicious."
+Fortunately, Duxiang hurried Daoweng away;
+otherwise, seeing that, Daoweng would surely have grown suspicious."
 Wenze nodded.
 "Is it not so?
 When you compare Yuxiang with Xiangfan, the contrast in their suffering and joy is stark.
@@ -250,14 +250,14 @@ why is that?"
 Zhongqing explained, "Ah, Zhujun... failing
 to rank in the top three really dampened his drive.
 Now, he seems to prefer seeking cool refuge away from the heat;
-he stays in the Yi Garden
+he stays in the Garden of Contentment
 and completely avoids mingling with his new cohort of graduates."
 Wenze said, "If you all pass the grand-diction exam this year, all will be well.
 We must make sure to advise Yuxiang;
 preserving his health is of the utmost importance."
 Zhongqing and Wang Xun nodded in solemn agreement.
 Guibao turned to Wang Xun
-and said, "Back in the Yi Garden,
+and said, "Back in the Garden of Contentment,
 when we played that game of turning one character into three,
 you couldn't come up with a single one.
 Well, I've just thought of a new character-dissection game.
@@ -265,10 +265,10 @@ It's divided into four columns:
 'Old Stock', 'New Intake', 'Removed', and 'Actual Remainder'.
 Take the character for 'wine' (酒) for example..." As he spoke,
 he traced the characters on the table with his finger.
-"The 'Old Stock' is the character *you* (酉).
+"The 'Old Stock' is the character you (酉).
 The 'New Intake' is the three water drops radical (氵),
 which together form the character for 'wine' (酒).
-If you 'Remove' the inner stroke from the *you* character,
+If you 'Remove' the inner stroke from the you character,
 the 'Actual Remainder' becomes the character for 'sprinkle' (洒).
 They all follow this pattern.
 Everyone must take a turn;
@@ -277,24 +277,24 @@ or cannot think of one must drink a penalty cup of wine!"
 Chunxi quickly spoke up, "That's easy enough;
 no one will need to be penalized.
 I shall start with the character for 'sky' (天).
-The 'Old Stock' is *tian* (天).
+The 'Old Stock' is tian (天).
 The 'New Intake' is the bamboo radical (⺮),
 combining to form the character for 'laugh' (笑).
 'Remove' the character for 'person' (人),
-and the 'Actual Remainder' is the character *zhu* (竺,
+and the 'Actual Remainder' is the character zhu (竺,
 meaning bamboo or India)."
 The others cheered, "Excellent!"
 Qiguan said, "I have one too.
 The 'Old Stock' is 'gold' (金).
 The 'New Intake' is 'rule' (则)."
-Reaching this point, he traced the character *zha* (铡, a fodder chopper).
+Reaching this point, he traced the character zha (铡, a fodder chopper).
 "'Remove' the shell character (贝),
-and the 'Actual Remainder' is *zhao* (钊,
+and the 'Actual Remainder' is zhao (钊,
 to encourage or a surname)."
 Guibao looked puzzled, "What character is formed by adding 'rule' to 'gold'?"
 Qiguan admitted, "It is a real character,
 but I can't quite say it aloud at the moment."
-Chunxi offered, "It looks like the *zha* in *zhacao* (铡草, chopping fodder)."
+Chunxi offered, "It looks like the zha in zhacao (铡草, chopping fodder)."
 Qiguan nodded, "Exactly."
 Guibao established a rule:
 "From now on, no obscure characters are allowed.
@@ -308,14 +308,14 @@ I say the 'Old Stock' is 'shoot' (射).
 The 'New Intake' is 'wood' (木), forming 'pavilion' (榭).
 'Remove' 'body' (身), and the 'Actual Remainder' is 'village' (村)."
 Guibao praised him, "Excellent, very neat and sharp."
-Wenze followed, "The 'Old Stock' is *gui* (圭, jade tablet).
+Wenze followed, "The 'Old Stock' is gui (圭, jade tablet).
 The 'New Intake' is 'wood' (木),
-forming *gui* (桂, osmanthus).
-'Remove' 'earth' (土), and the 'Actual Remainder' is *du* (杜, a surname or pear tree)."
+forming gui (桂, osmanthus).
+'Remove' 'earth' (土), and the 'Actual Remainder' is du (杜, a surname or pear tree)."
 Wang Xun said, "The 'Old Stock' is 'temple' (寺).
 The 'New Intake' is 'speech' (言), forming 'poetry' (诗).
 'Remove' 'earth' (土), and the 'Actual Remainder' is 'demand' (讨)."
-Guibao noted, "This is much better than his explanation of the character *tian* (田) from before.
+Guibao noted, "This is much better than his explanation of the character tian (田) from before.
 I say the 'Old Stock' is 'one' (一).
 The 'New Intake' is 'history' (史), forming 'official' (吏).
 'Remove' 'mouth' (口), and the 'Actual Remainder' is 'measure' (丈)."
@@ -324,7 +324,7 @@ The 'New Intake' is 'heart' (心), forming 'worry' (患).
 'Remove' 'mouth' (口), and the 'Actual Remainder' is 'loyal' (忠)."
 Chunxi chimed in, "My 'Old Stock' is 'prosperous' (昌).
 The 'New Intake' is 'door' (门),
-forming *chang* (阊, heavenly gate).
+forming chang (阊, heavenly gate).
 'Remove' 'say' (曰), and the 'Actual Remainder' is 'between' (间)."
 Zhongqing added, "My 'Old Stock' is 'cheap' (贱).
 The 'New Intake' is the three water drops (氵), forming 'splash' (溅).
@@ -347,8 +347,8 @@ Qiguan chuckled, "What character is left
 if you take 'skin' away from 'old woman'?"
 Chunxi dramatically mimed the action, "You have
 to yank those three water drops off, hoist the 'woman' up,
-and wouldn't that make the character *ru* (汝, thou)?"
-Wenze laughed, "Indeed, it is *ru*."
+and wouldn't that make the character ru (汝, thou)?"
+Wenze laughed, "Indeed, it is ru."
 Guibao judged, "Too unnatural and forced;
 you must drink a penalty cup."
 Wenze, still laughing, conceded, "I'm not playing with you all anymore," and drank his cup.
@@ -368,9 +368,9 @@ Even if it's slightly off,
 it doesn't require nearly as much effort as hauling
 that 'woman' (女) character around!"
 The others laughed even harder.
-Qiguan said, "The 'Old Stock' is *hu* (胡).
+Qiguan said, "The 'Old Stock' is hu (胡).
 The 'New Intake' is the three water drops (氵), forming 'lake' (湖).
-'Remove' *gu* (沽, to buy),
+'Remove' gu (沽, to buy),
 and the 'Actual Remainder' is 'moon' (月)."
 Chunxi said, "The 'Old Stock' is 'city' (邑).
 The 'New Intake' is 'talent' (才),
@@ -381,7 +381,7 @@ I won't play anymore;
 let's talk of something else."
 They drank a few more cups of wine,
 when suddenly they heard singing drifting from the next room.
-Listening closely, they realized it was a tune from *Nanpu*:
+Listening closely, they realized it was a tune from *The Southern Shore*:
 "Endless grief of parting;
 two months as husband
 and wife, in a single dawn left utterly alone."
@@ -395,8 +395,8 @@ it strictly ought to be broken."
 Guibao agreed, "Naturally, it should be broken.
 But listen to the singing just now;
 it's exactly how we sing it.
-On the flute, the notation for 'wife' (妻) is *wu-liu-gong-chi-gong*.
-For the character 'one' (一), the notation is *liu-wu*.
+On the flute, the notation for 'wife' (妻) is wu-liu-gong-chi-gong.
+For the character 'one' (一), the notation is liu-wu.
 Listen:
 'Two months as husband
 and wife... in a single dawn left alone.'
@@ -404,48 +404,48 @@ How can that 'one' (一) possibly be broken?"
 Chunxi explained, "You must adjust the meter—
 the strong and weak beats (banyan)—
 and then it will break.
-As it is sung now, the *wu* note on 'wife' starts on a middle-weak beat,
-the *liu* on a syncopated beat, the *gong* on the first weak beat,
-the *chi* on the middle weak beat,
-and the *gong* on the final weak beat.
+As it is sung now, the wu note on 'wife' starts on a middle-weak beat,
+the liu on a syncopated beat, the gong on the first weak beat,
+the chi on the middle weak beat,
+and the gong on the final weak beat.
 The notes on 'one' then fall on the first strong beat,
-first weak beat, middle weak beat of the *liu* note,
-and the final weak beat of the *wu* note.
+first weak beat, middle weak beat of the liu note,
+and the final weak beat of the wu note.
 Sung this way, how could 'one' ever break?
 But if it doesn't break,
 it ultimately violates the rules for singing entering-tones in Southern tunes.
 If you want that 'one' to break, it's not difficult.
-You simply prolong the *wu* note on 'wife', change the *liu* to a middle-weak beat,
-change the *gong* to the first strong beat of 'one',
-the *chi* to the first weak beat of 'one', the *liu* to the middle-weak beat,
-and the *wu* to the final weak beat.
+You simply prolong the wu note on 'wife', change the liu to a middle-weak beat,
+change the gong to the first strong beat of 'one',
+the chi to the first weak beat of 'one', the liu to the middle-weak beat,
+and the wu to the final weak beat.
 By cutting the rhythm this way,
 it aligns perfectly with the Southern entering-tone method."
 Slapping his hand sharply on the table, Chunxi demonstrated:
 "Listen:
 'Two months as husband and wife—
-*snap*—
+snap—
 in a single dawn left alone.'"
 Guibao praised him, "You explain it brilliantly."
 He then asked, "Do you know
-if the *yi-fan* pitch is ever used when singing Southern tunes?"
+if the yi-fan pitch is ever used when singing Southern tunes?"
 Chunxi replied confidently, "It is common knowledge
-that Southern tunes do not use *yi-fan*.
+that Southern tunes do not use yi-fan.
 There is only one single exception.
 I once asked your esteemed elder brother about this—
 he specializes in martial heroine roles.
-When I asked if the flute ever played *yi-fan* in Southern tunes,
+When I asked if the flute ever played yi-fan in Southern tunes,
 he also said no.
 But I pointed out
 that when he performs the scene *Assassinating Liang*,
 which mixes Northern and Southern suites, the arias sung by Liang Ji are all Southern.
 Yet, when Liang sings 'Drunk
-and down-and-out' (*jiukun liaodao*) upon reading the report,
-the notes on 'down-and-out' require the flute to blow an *yi-fan*.
+and down-and-out' (jiukun liaodao) upon reading the report,
+the notes on 'down-and-out' require the flute to blow an yi-fan.
 Because Wu Feixia must immediately follow with a Northern aria,
 she cannot sing out of key,
-making the *yi-fan* absolutely necessary.
-So, if you say Southern tunes use *yi-fan*,
+making the yi-fan absolutely necessary.
+So, if you say Southern tunes use yi-fan,
 it is only in this one specific place, and nowhere else."
 Guibao nodded slowly, "I heard my brother explaining this to someone else;
 he probably learned it from you."
@@ -454,8 +454,8 @@ But if one does, there are quite a few mistakes commonly sung.
 Take the play *The Small Banquet*, for instance;
 its mixed Northern and Southern rhythms are superb.
 If you try to imagine the emotions of that very moment,
-when you reach the *Startling Change* scene
-and sing, 'You say it is the defeated Geshu Han,' you absolutely must modulate to *wu-liu-wu*
+when you reach the *Startled by Change* scene
+and sing, 'You say it is the defeated Geshu Han,' you absolutely must modulate to wu-liu-wu
 and sing it high and sharp.
 Since it is a 'startling change', the spirit of panic
 and utter bewilderment must ring out beyond the words themselves.
@@ -469,7 +469,7 @@ and by the time they start singing, the flow is entirely disjointed.
 If you break them down line by line,
 they often barely make sense."
 Chunxi agreed vehemently, "Isn't it the truth?
-Take the scene *Pleading to the Sun* as an example.
+Take the scene *The Piteous Appeal* as an example.
 When the character enters,
 she spills the entire story in one long breath,
 so the subsequent aria doesn't connect naturally with the spoken text.
@@ -479,14 +479,14 @@ I'd revise the spoken parts entirely."
 Guibao asked, "How would you revise them?"
 Chunxi explained in detail, "Do you remember the first spoken section?
 'I hope the Great Lord grants a swift retribution.'
-This simply doesn't connect emotionally with the following *Rolling Embroidered Ball* aria,
+This simply doesn't connect emotionally with the following *Rolling Silk Ball* aria,
 'He was kept from returning by his pursuit of fame.'
 The second spoken section:
 'Burning incense and swearing an oath before the gods.'
-This clashes completely with the *Chattering Tune* aria, 'That day heaven knew, and earth knew.'
+This clashes completely with the *Chattering Command* aria, 'That day heaven knew, and earth knew.'
 The third spoken section:
 'Drag his soul here to confront your servant.'
-This fails to lead naturally into the *Taking Off the Cloth Gown* aria,
+This fails to lead naturally into the *Removing the Cloth Jacket* aria,
 'He so readily forgot the trap once the fish was caught.'
 If it were up to me,
 I'd change the first spoken section to:
@@ -508,7 +508,7 @@ I suffered beatings and humiliation.
 My bitter resentment has nowhere to go,
 so I have come before this hall
 to recount the past and beg the Great Lord for swift retribution.
-Oh, that Wang Kui...' *Then* sing the *Rolling Embroidered Ball* aria,
+Oh, that Wang Kui...' Then sing the *Rolling Silk Ball* aria,
 and the emotional flow is perfectly seamless.
 After singing, she would say, 'When we made our pact,
 we swore before the gods,
@@ -516,7 +516,7 @@ vowing to share life and death.
 If either betrayed this heart,
 they would forever fall into hell.
 Oh, it was just like this!'
-*That* is the true 'swearing before the gods, heaven knew, and earth knew.'
+That is the true 'swearing before the gods, heaven knew, and earth knew.'
 Once that is sung,
 she would say, 'It is not
 that my heart is too cruel.
@@ -693,7 +693,7 @@ Now everyone jokes that he 'carved his own flesh for the sake of whoring'.
 Tell me, isn't such self-mutilation utterly ridiculous?"
 The whole room roared with laughter,
 agreeing, "That Pan San was never any good to begin with."
-Wenze remarked, "I know you are close friends with Xi the Eleventh."
+Wenze remarked, "I know you are close friends with Xi Eleven."
 Monk Tang nodded solemnly, "That Elder Master Xi has had a terrible time of it.
 This year he broke out in poisonous sores
 and very nearly lost his life!
@@ -733,7 +733,7 @@ Back in the day,
 he taught Meiqing how to play the qin,
 but ever since Meiqing passed away,
 he has completely refused
-to play 'Three Variations on Plum Blossom' ever again.
+to play 'Three Variations on the Plum Blossom' ever again.
 That is what you call true depth of feeling."
 Zhongqing nodded, "Jifu is naturally serene and profoundly elegant.
 There is no refined art or scholarly pursuit
@@ -793,8 +793,7 @@ Pincai could only curse his rotten luck
 and let the matter drop.
 In the days leading up to his departure from the capital,
 farewell banquets were thrown one after another.
-Pan Qiguan, Xi the Eleventh, Zhang Zhongyu, Feng Zipei,
-Yang Meichuang, Zhang Xiaomei, Gu Yueqing, Monk Tang,
+Pan Qiguan, Xi Eleven, Zhang Zhongyu, Feng Zipei, Yang Meichuang, Zhang Xiaomei, Gu Yueqing, Monk Tang,
 and others took turns hosting him.
 Tang's establishment was exceptionally lively,
 and Pincai ended up postponing his departure for several more days.
@@ -802,9 +801,9 @@ Before Bai Juhua had left her profession,
 she and Yutianxian had worked in the same establishment and were exceedingly close,
 having sworn an oath as adopted sisters;
 Yutianxian was the elder by two years.
-Juhua spoke with Xi the Eleventh,
+Juhua spoke with Xi Eleven,
 expressing her desire to invite Yutianxian over for a farewell meal.
-How could Xi the Eleventh possibly refuse?
+How could Xi Eleven possibly refuse?
 He immediately sent an invitation to Yutianxian.
 When she arrived, Juhua hurried out to welcome her.
 Once inside, they exchanged formal greetings, sat down,
@@ -827,7 +826,7 @@ and bought him a posting.
 Though he may be a minor official,
 he is still, at the end of the day, a gentleman-bureaucrat.
 It is certainly a far better life than receiving clients."
-Juhua replied softly, "Naturally.
+Juhua replied, "Naturally.
 Even if my brother-in-law holds a minor post,
 you, elder sister, are still a proper, primary wife.
 My husband may be a great lord,
@@ -850,8 +849,8 @@ Yutianxian's face lit up with undisguised joy,
 and she laughed, "As long as there's fragrance beneath the skirt,
 who cares if he takes twelve concubines?
 With a woman like you, my sister, how could your husband not be utterly devoted?
-Look at Eighth Sister Yang's husband—
-he's also a minor ninth-rank official with no prospect of a real posting,
+Look at Yang Eight, our brother-in-law—
+he too is only a rank 9b official with no prospect of a real posting,
 surviving entirely on reading feng shui.
 How many people can he really swindle?
 And his household is fiercely strict.
@@ -908,8 +907,7 @@ baked by the sun and battered by the wind,
 it had grown incredibly brittle.
 So entirely absorbed was Liangxuan in his peeping
 that he accidentally leaned his forehead hard against the paper.
-With a loud *snap!
-*, a large piece tore right open.
+With a loud snap!, a large piece tore right open.
 Startled by the noise, Yutianxian turned her head,
 spotted someone spying on them from behind the window,
 and quickly hurried out.

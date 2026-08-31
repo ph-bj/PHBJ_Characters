@@ -10,7 +10,7 @@ lay only a short distance across the road.
 With his parents, elder brother,
 and sister-in-law departed from the capital, the sprawling estate housed only Ziyun, his wife,
 and a retinue of servants.
-When he recounted the tender devotion between Qin Yan
+When he recounted the tender devotion between Qinyan
 and Ziyu to his wife, Mrs. Yuan,
 they both marveled at such delicate affection.
 Smiling, she inquired:
@@ -63,7 +63,7 @@ a zither bridge of precious sinking-wood, a rosary of lignum aloes,
 and an agate seal.
 These treasures were sent ahead by a servant.
 From her retinue of twelve maidservants, each named with the character 'Hong' (Red),
-she chose Hongxue, Hongzhu, Hongxiang, Hongyu, Hongwei, and Hongwen.
+she chose Hongxue, Hongying, Hongxiang, Hongyu, Hongwei, and Hongwen.
 These six, all fifteen years of age
 and in the very springtime of their youth, were slender and graceful.
 They were literate, skilled in calligraphy,
@@ -110,7 +110,7 @@ and painting, equally adept at the qin and chess.
 Every talent they touched reached the pinnacle of exquisite refinement.
 Beyond the high walls of their estate, a popular couplet echoed their fame:
 "Better than ten pecks of dragon-palace pearls, Is
-but a single glimpse of the Marquis's twin jades."
+but a single glimpse of the Marquis's two Sus, the elder and the younger."
 At eighteen, Huanxiang was wed to Hua Guangsu,
 forging a union as harmonious as a jade qin paired with a jade zither,
 as natural as fish swimming in water.
@@ -118,7 +118,7 @@ Their days were spent in quiet refinement,
 chanting beneath the moon
 and gazing at the wind in unutterable leisure.
 Serving them were ten beautiful maids, each bearing the character 'Zhu' (Pearl) in her name:
-Baozhu, Mingzhu, Aizhu, Huazhu, Hezhu, Ruizhu, Zhangzhu, Zhenzhu, a second Huazhu, and Zengzhu.
+Baozhu, Mingzhu, Aizhu, Huazhu, Hezhu, Ruizhu, Zhangzhu, Zhenzhu, Yazhu, and Zengzhu.
 All fifteen or sixteen years of age,
 they bloomed like ten distinct varieties of fresh spring flowers,
 fluttering like a cluster of powdered butterflies.
@@ -144,7 +144,7 @@ Every boy in the troupe bore the character 'ling' (Age) in his name,
 known as Golden-Age, Jade-Age, Orchid-Age, Cassia-Age, and the like.
 Some were cultivated by the household's private tutors,
 while others had been handpicked from renowned traveling companies.
-Though they could not rival the legendary female-role performers celebrated in the Flower Selection,
+Though they could not rival the legendary female-role performers celebrated in the *Selection of Flowers*,
 their artistry easily eclipsed the ordinary stage performers.
 In quieter hours, they were customarily appointed
 to serve in the master's study.
@@ -243,15 +243,15 @@ It strings together five set phrases,
 though I find fault with its lack of rhyme,
 and the final two phrases rely on unnatural filler words.
 That version draws arbitrarily from classical prose, Tang poetry, domino tiles, aria titles,
-and the Almanac, making it far too simplistic.
+and *Calendar Book*, making it far too simplistic.
 I propose a more refined version:
 using six dice, the player begins based on the pattern thrown.
 The first phrase must be a domino name, the second a five-character line of Tang poetry,
-the third a lyric from the Western Chamber, the fourth an aria title,
-and the fifth a line from the Book of Odes.
+the third a lyric from *The Western Chamber*, the fourth an aria title,
+and the fifth a line from the Mao Shi.
 These five phrases must weave into a single rhyme,
 ringing out with a pleasing, poetic cadence when spoken."
-Delighted by the challenge, Miss Su eagerly urged her sister to summon the dice.
+Delighted by the challenge, Miss Su urged her sister to summon the dice.
 "It is a clever game,
 yet quite demanding," Lady Hua observed.
 "One must remain perfectly natural while holding to the rhyme.
@@ -290,7 +290,7 @@ Night Journey on the Boat, Adrift, now sinking, now floating."
 Mrs. Yuan exclaimed, "What did I tell you?
 I knew you possessed verses to astonish the ear.
 These five lines flow as a single breath, far surpassing my own meager attempt.
-Using a phrase from the Sequel to the Western Chamber shows particular wit.
+Using a phrase from the *Sequel to the Western Chamber* shows particular wit.
 Now we must see what Younger Sister Lan will compose.
 Surely it will be finer still,
 proving that the last to speak surpasses the first."
@@ -300,7 +300,7 @@ pulling the dice tray eagerly toward herself.
 With a sharp clatter,
 she threw the pattern 'A General Hangs His Seal.'
 Delighted, she narrowed her autumn-water eyes in deep concentration, arranged her thoughts,
-and recited with a brilliant smile:
+and recited with a smile:
 "A general hangs his seal, Three frontier regions lie in quiet solitude, All
 because within you there are a million troops.
 Song of Victory, A pillar of the realm, a duke and a marquis."
@@ -495,7 +495,7 @@ forming a perfect tripod of grace.
 A few days ago,
 I invited her and her sisters to view the lanterns.
 Right there at the banquet table,
-she composed a 'Lantern-Moon Lyric.'
+she composed a 'Lantern and Moon Lyrics.'
 Within moments, she produced a sweeping masterpiece of seven or eight hundred characters,
 so brilliant and dazzling it astonished both ear and eye.
 It was as if the immortal Li Bai himself had returned to the mortal realm.
@@ -505,8 +505,7 @@ to remember the verses of this poem?"
 Miss Su asked eagerly.
 "I cannot recall it fully," Mrs. Yuan admitted, "but on another day,
 I shall transcribe it carefully and send it to you."
-They drank another cup of wine
-and sampled the delicate dishes before them.
+They each drank another cup of wine and ate a little.
 From the back room, the lively commotion of the maids grew louder:
 a chorus of laughter,
 teasing jokes, and the clinking of penalty cups.
@@ -561,9 +560,9 @@ and beauty come on slow, Last night in the clear moon and gentle breeze,
 deep in the night.
 Good Elder Sister, The gentleman of quality tempts her with his wooing."
 The room erupted in praise for the clever verse.
-Hongwei retorted sharply, "You are indeed a 'good elder sister',
+Hongwei retorted, "You are indeed a 'good elder sister',
 small wonder there are those longing to tempt you!"
-Aizhu replied smoothly, "I was merely describing you and your striking looks.
+Aizhu replied, "I was merely describing you and your striking looks.
 Do you not agree you perfectly resemble an intoxicated Xi Shi?"
 The maids dissolved into laughter once more.
 Ruizhu threw the dice,
@@ -672,31 +671,31 @@ but the others swiftly intervened, hauling her back.
 It was then Hezhu's turn;
 she threw the pattern 'A Single Flower.'
 As she began to quietly arrange her poetic phrases,
-Hongzhu turned toward her with a brilliant, predatory smile.
+Hongying turned toward her with a brilliant, predatory smile.
 "Let me compose for you."
 Suspecting nothing but malice, Hezhu shook her head fiercely.
 "No, thank you."
 "Even if you do not want it,
-I am going to say it regardless," Hongzhu insisted.
+I am going to say it regardless," Hongying insisted.
 Hungry for more amusement, the entire room clamored for her to speak.
-Hongzhu recited loudly:
+Hongying recited loudly:
 "A single flower, We still cherish the time of the embrace,
 This is what is called 'the talented youth
 and the beautiful maiden, indeed.'
 A Single Point of Red, Lightly soiling my private heart."
 The room exploded into utterly irrepressible laughter.
-Beside herself with rage, Hezhu marched over, seized Hongzhu fiercely around the waist,
+Beside herself with rage, Hezhu marched over, seized Hongying fiercely around the waist,
 and with surprising strength, slammed her down onto the heated bed-platform.
 Pinning the struggling girl, Hezhu demanded furiously, "Now,
 let me ask you in absolute earnest about this 'single point of red!'"
-Being the weaker of the two, Hongzhu could not twist free,
-her silken skirt parting wildly to both sides.
+Being the weaker of the two,
+Hongying could not twist free, her silken skirt parting wildly to both sides.
 The room watched in hysterics as her two tiny, bound feet flailed
 and kicked desperately in all directions,
 the maids laughing until they clutched their sides, barely able to remain upright.
 Hongxue and Hongxiang finally rushed over,
 prying the furious Hezhu away.
-Sitting up, Hongzhu discovered the delicate flowers had been torn from her hair,
+Sitting up, Hongying discovered the delicate flowers had been torn from her hair,
 her elegant tresses left a disheveled ruin.
 She spent a long moment smoothing her hair back into place before fiercely scolding Hezhu:
 "What brutish, reckless play!
@@ -760,7 +759,7 @@ that by speaking them, instead of earning a reward,
 we shall only invite punishment."
 Lady Hua laughed, "Go on, recite them one by one."
 Thus, Mingzhu recounted the three offensive entries composed by Aizhu, Baozhu,
-and Hezhu, while Hongwei recited the three scandalous verses authored by Hongxue, Hongwen, and Hongzhu.
+and Hezhu, while Hongwei recited the three scandalous verses authored by Hongxue, Hongwen, and Hongying.
 The effect was absolute:
 both ladies laughed so helplessly
 that the heavy pearl ornaments in their hair quivered and swayed wildly.
@@ -797,7 +796,7 @@ for the most egregious offenses, the penalty was a massive cup of wine
 to be drained in a single draft,
 accompanied by three sharp slaps of the palm as token chastisement.
 For the lesser offenses, a simple forfeit cup of wine was deemed sufficient.
-Thus, Hongxue, Hongzhu, Hezhu,
+Thus, Hongxue, Hongying, Hezhu,
 and Baozhu suffered both the wine and the stinging slaps,
 while Aizhu and Hongwen escaped with only the wine forfeit.
 Receiving their punishments in utter humiliation,

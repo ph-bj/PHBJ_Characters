@@ -48,9 +48,9 @@ Huifang sat down and idly leafed through the books on the writing desk.
 He came upon a manuscript of poems,
 written in a hand halfway between regular and running script,
 running to several dozen pages,
-with the title "Drafts from the Yan Capital" (燕台旅稿) inscribed on the cover.
+with the title "Travel Drafts from Yantai" (燕台旅稿) inscribed on the cover.
 Huifang turned at random to a page
-and found a heptasyllabic ancient-style poem entitled "Vexing the Beloved" (恼公),
+and found a heptasyllabic ancient-style poem entitled "Annoying the Lord" (恼公),
 which he began to read aloud in a low voice:
 The curtain hooks click like jade, their sound crystalline;
 Cherry blossoms are mirrored in the silver latticed window.
@@ -144,7 +144,8 @@ But your heart, I pray, will not follow Wen Sanbian's example."
 Huifang said, "It must open this way, only then does what follows have room to breathe.
 'Wen Sanbian', is that
 to say you have changed your heart?"
-Chunhang replied, "I am drawing on a line from the Preface to the 'Collected Literature' (艺文序):
+Chunhang replied, "I am drawing on a line from the Preface
+to the 'Arts and Literature Preface' (艺文序):
 'Tang literature changed no fewer than three times.'"
 Huifang looked at Chunhang and said, "So by that reckoning,
 you too cannot be counted a man of good conscience."
@@ -172,19 +173,19 @@ Huifang said, "What a clever parallel.
 The pairing of 'Sang-fu's zither'
 and 'Yang Fei's flute' is truly an ingenious oblique correspondence.
 The upper line naturally alludes
-to Luo Fu of the 'Mulberry Path.'
+to Luo Fu of the 'Luofu on the Mulberry Path.'
 But this 'Yang Fei's flute' brings
 to mind Zhang Hu's poem:
 'In the small window of the quiet courtyard, unseen by any,
 At leisure I take up Prince Ning's jade flute to play.'
-And I once read the 'Outer Biography of the Precious Consort' (贵妃外传):
+And I once read the 'Unofficial Biography of the Noble Consort' (贵妃外传):
 "The Emperor Xuanzong was dwelling with his brothers
 when the Consort secretly took Prince Ning's jade flute and played it,
 and for this she incurred the imperial displeasure.
 Is that the allusion you are using?"
 Chunhang said, "That interpretation can stand,
 but it does not quite fit the phrase 'the palace lady leans in grief.'
-My source is a passage in the 'Records of the Unusual' (集异记):
+My source is a passage in the 'Record of Strange Gatherings' (集异记):
 when the Emperor fled
 to Shu, on a moonlit night he ascended a tower,
 and a former attendant of the Precious Consort, Hong Tao,
@@ -193,7 +194,7 @@ while the Emperor took the Consort's jade flute and played along,
 and when it was done they looked at each other
 and covered their faces and wept."
 Huifang nodded, then read on:
-"The begonia flowers, drunk, fall;
+"The crabapple flowers, drunk, fall;
 butterflies drift away;
 Cotton-soft willow catkins, too weak to fly, cling and yearn.
 The water at the bottom of the well is like my heart's intent;
@@ -209,7 +210,7 @@ Huifang said, "This line arrives from out of nowhere.
 The brushwork is bold and startling,
 and then it opens up again.
 Does a phoenix have a red tail?"
-Chunhang said, "Wen Feixing's (Wen Tingyun's) poem has the line:
+Chunhang said, "Wen Feiqing's (Wen Tingyun's) poem has the line:
 'The Qin King's daughter rode upon a red-tailed phoenix.'"
 Huifang continued:
 "Astride the phoenix, following my lord for thirty thousand li.
@@ -248,7 +249,7 @@ Heaven-Wind Gou, transforming to Mountain-Wind Gu,
 with Water-Heaven Xu as the mutual hexagram.
 The line text is rather difficult to interpret."
 He then recited:
-"The field yields one hare;
+"Tian takes a hare;
 Going, one meets rain;
 tarrying in the mud;
 Meeting the golden man;
@@ -306,9 +307,8 @@ Huifang said, "I have already matched it," and recited:
 Chunhang and Gao Pin both laughed
 and said, "Wonderfully matched, quick-witted and apt!"
 Tang the Monk laughed and said, "Many thanks, many thanks!
-This little monk has the great good fortune of being praised by the bodhisattva,
-and it didn't even come out
-to mean what I feared it might."
+This little monk has the great good fortune of being praised by the bodhisattva—
+and at least he did not say my head was like a cock."
 He then drew Gao Pin aside
 and they exchanged a few words in the courtyard, after which the monk departed.
 Gao Pin came back in,
@@ -348,17 +348,19 @@ so he settled on the Man Shang tuning (慢商).
 He slackened both the first
 and third strings by a peg, then adjusted the second, fourth, fifth, sixth,
 and seventh strings in the standard five-tone method.
-He played a few passages from "Chen Tuan the Immortal Sage" (陈抟得道仙翁).
+He played a few passages from "Immortal Chen Tuan Attains the Way" (陈抟得道仙翁).
 Then, sounding some harmonics,
-he launched into the suite "The Young Gallants' Gathering" (结客少年场).
+he launched into the suite "Young Gallants Gathering Clients" (结客少年场).
 Starting with harmonics on the fourth string at the ninth position,
 he plucked the second string
 and struck the sixth, plucked the fourth and struck the fifth,
 producing a qiong-qiong sound for twenty-two notes,
 and back again to harmonics on the ninth position.
 The words of the piece ran:
-"On stony-cornered fields a fine bull grazes;
-A biting-hoof horse neighs through the flowers, apart."
+"There is a field of stony corners;
+there is a horse that bites at its hooves.
+On the stony-cornered field the lone tree stands lush;
+the hoof-biting horse neighs from beyond the flowers."
 After these four lines,
 he swept the seventh string open, then the sixth, hooked the fourth, struck the sixth,
 and hooked the second.
@@ -439,15 +441,15 @@ Huifang made to pinch Gao Pin's mouth shut;
 Gao Pin bowed deeply
 and said, "Grant me pardon this once."
 This made Huifang burst out laughing.
-Huifang asked Chunhang to play "The Eighteen Stanzas on the Nomad Flute" (胡笳十八拍)
+Huifang asked Chunhang to play "Eighteen Songs of a Nomad Flute" (胡笳十八拍)
 and then "Spring Dawn in the Grotto Heaven" (洞天春晓), saying:
 "These two suites I have heard Xiao Jingyi play most beautifully;
 he also has a combined score for qin and xiao flute.
 He once taught me to play the xiao."
 Chunhang said, "'Spring Dawn in the Grotto Heaven' is indeed a fine suite,
 but it is too lengthy.
-'The Eighteen Stanzas' does not quite suit my present mood.
-Better to play 'The Water Immortal's Air' (水仙操)."
+'Eighteen Songs of a Nomad Flute' does not quite suit my present mood.
+Better to play 'Narcissus Lyric' (水仙操)."
 After another pause, he retuned the strings and began to play.
 The music was clear, cool, and spare.
 This suite has twelve sections,
@@ -496,10 +498,10 @@ and asked, "Where have you come from?"
 Nanxiang said, "You asked your young protégé
 to keep it secret from me,
 and now you ask me where I've come from?
-Today I went with Jingfang to Yiyuan;
+Today I went with Jingfang to the Garden of Contentment;
 they were all at home and kept me for dinner.
-Peijian was there too, along with Yaoqing and Shouxiang.
-After dinner, someone came from Peijian's household to fetch him.
+Peixian was there too, along with Yaoqing and Shouxiang.
+After dinner, someone came from Peixian's household to fetch him.
 Duxiang asked about it
 and that's how I learned you had summoned them,
 so I took leave of Duxiang and came along."
@@ -508,7 +510,7 @@ and said, "We were enjoying the apricot blossoms over there today."
 Then he asked Gao Pin:
 "Since when do you know how to play the qin?
 If you want to learn, I'll teach you.
-That 'Water Immortal's Air' just now was rather well played."
+That 'Narcissus Lyric' just now was rather well played."
 Gao Pin said, "When did I ever play?
 The one playing is Tian Xiangfan."
 Nanxiang had already heard of Tian Xiangfan's talents from Zhongqing,
@@ -520,7 +522,7 @@ and promptly drew Nanxiang inside.
 Nanxiang said, "Well!
 You are here too.
 I had no idea
-that Gao Zhuoran's monastic chamber would today become Shi Jilun's Jingu Garden!"
+that Gao Zhuoran's monastic chamber would today become Shi Jilun's Golden Valley!"
 Chunhang also came forward to meet him,
 and the two exchanged the expected words of mutual admiration.
 Yulin and Lanbao greeted Chunhang as well, then sat down with Huifang.
@@ -541,7 +543,7 @@ Tian Xiangfan is the Li Yaoshi of the theater troupe."
 Nanxiang said, "You are talking nonsense again."
 Chunhang said, "How so?
 I don't quite follow."
-Gao Pin said, "Zhujun compiled the 'Yantai Flower Register' (燕台花选),
+Gao Pin said, "Zhujun compiled the '*Yantai Flower Selection*' (燕台花选),
 and all these young dan actors became the peach-and-plum of his gates, every rabbit-toadstool
 and horse-puff ball now a useful ingredient in the medicine chest.
 Is that not Di Renjie?
@@ -706,13 +708,13 @@ Gao Pin said, "Today's drinking is dull without a game.
 Why not use 'Xi Eleven' as the basis for a forfeit round?"
 Nanxiang said, "How can 'Xi Eleven' serve as the basis for a round?"
 Gao Pin said, "The three
-of us will find the character 'xi' (奚) in the Four Books,
+of us will find the character 'xi' (奚) in *The Four Books*,
 starting from the first occurrence and going to the eleventh.
 Whoever makes an error drinks a number of cups equal
 to the number of characters in the passage.
 Those three will serve as our seconds."
 Chunhang said, "There may not be
-that many instances of 'xi' in the Four Books."
+that many instances of 'xi' in *The Four Books*."
 Nanxiang said, "Even if there are,
 we couldn't get through them all."
 Gao Pin said, "We'll simply drink a few cups of forfeit;
@@ -720,7 +722,7 @@ there is no harm in trying.
 I'll go first."
 He said:
 "Xi (奚)."
-Chunhang said, "You must identify which passage in the Four Books the character comes from."
+Chunhang said, "You must identify which passage in *The Four Books* the character comes from."
 Gao Pin said, "'What does he draw on from the three families',
 the 'xi' from that passage."
 Nanxiang said:
