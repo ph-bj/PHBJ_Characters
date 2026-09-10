@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import {
   ArrowUp,
   Book,
+  Clapperboard,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
@@ -42,6 +43,7 @@ import {
   getCharacterNameForLanguage,
   worksData,
 } from "../utils";
+import { ParagraphCinema, type CinemaParagraph } from "./ParagraphCinema";
 import { PermalinkButton } from "./PermalinkButton";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { ChapterScene } from "./illustrations/ChapterScene";
@@ -275,6 +277,8 @@ function ChapterReaderComponent({
   const [chapterSearchInput, setChapterSearchInput] = useState("");
   const [chapterSearchQuery, setChapterSearchQuery] = useState("");
   const [chapterSearchMatchIndex, setChapterSearchMatchIndex] = useState(0);
+  const [cinemaParagraph, setCinemaParagraph] = useState<CinemaParagraph | null>(null);
+  const cinemaOpenerRef = useRef<HTMLButtonElement | null>(null);
   const [speakingParagraph, setSpeakingParagraph] = useState<string | null>(null);
   const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selectedZhVoiceName, setSelectedZhVoiceName] = useState<string>(() => {
@@ -451,7 +455,7 @@ function ChapterReaderComponent({
   }, []);
 
   useEffect(() => {
-    if (keysSuspended) return;
+    if (keysSuspended || cinemaParagraph) return;
     const onKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null;
       if (
@@ -472,7 +476,7 @@ function ChapterReaderComponent({
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [keysSuspended, prevChapter, nextChapter, onSelectChapter]);
+  }, [keysSuspended, cinemaParagraph, prevChapter, nextChapter, onSelectChapter]);
 
   const runChapterSearch = () => {
     setChapterSearchQuery(chapterSearchInput.trim());
@@ -597,6 +601,7 @@ function ChapterReaderComponent({
 
   useEffect(() => {
     clearChapterSearch();
+    setCinemaParagraph(null);
     // Stop any ongoing speech when switching chapters
     if (typeof speechSynthesis !== "undefined") {
       speechSynthesis.cancel();
@@ -661,9 +666,10 @@ function ChapterReaderComponent({
     speechSynthesis.speak(utterance);
   };
 
-  const TtsButton = ({ paraKey, text, speechLang = "zh-CN" }: { paraKey: string; text: string; speechLang?: "zh-CN" | "en-US" }) => {
+  const ParagraphControls = ({ paraKey, text, index, speechLang = "zh-CN" }: { paraKey: string; text: string; index: number; speechLang?: "zh-CN" | "en-US" }) => {
     const isActive = speakingParagraph === paraKey;
     return (
+      <span className="inline-flex items-center">
       <button
         type="button"
         onClick={(e) => {
@@ -687,6 +693,25 @@ function ChapterReaderComponent({
       >
         {isActive ? <Square size={10} /> : <Volume2 size={11} />}
       </button>
+      <button type="button"
+        onClick={event => {
+          event.stopPropagation();
+          cinemaOpenerRef.current = event.currentTarget;
+          const source = chapter.content.split("\n\n")[index];
+          const cast = new Map<string, string>();
+          for (const segment of segmentText(source, tokenMap)) {
+            if (typeof segment !== "string") cast.set(segment.char.id, getCharacterNameForLanguage(segment.char, lang));
+          }
+          setCinemaParagraph({ index, source, text, cast: [...cast.values()] });
+        }}
+        data-cinema-paragraph={index + 1}
+        data-cinema-key={paraKey}
+        className="inline-flex w-5 h-5 items-center justify-center shrink-0 rounded-full border border-[var(--paper-border)] bg-[var(--paper-bg)]/80 text-[var(--ink-dim-text)]/60 hover:text-[var(--accent)] hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/10 transition-colors align-middle select-none focus-visible:outline-2 focus-visible:outline-[var(--accent)]"
+        title={lang === "zh" ? "观看本段光影演绎" : "Watch paragraph cinema"}
+        aria-label={lang === "zh" ? `观看第${index + 1}段光影演绎` : `Watch cinema for paragraph ${index + 1}`}
+        aria-haspopup="dialog"
+      ><Clapperboard size={11} /></button>
+      </span>
     );
   };
 
@@ -1447,13 +1472,13 @@ function ChapterReaderComponent({
                           <span className="text-xs select-none font-sans font-normal text-[var(--ink-dim-text)]/75 leading-none">
                             {i + 1}
                           </span>
-                          <TtsButton paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
+                          <ParagraphControls index={i} paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
                         </div>
                         <div className={READER_EN_TEXT}>
                           {renderTextWithSnowPoems(translationMap[chapter.id][i], false, undefined, false)}
                         </div>
                         <div className={`${READER_EN_MEASURE} mt-3 mb-1.5 flex items-center`}>
-                          <TtsButton paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
+                          <ParagraphControls index={i} paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
                         </div>
                         <div className={READER_ZH_TEXT}>
                           {renderTextWithSnowPoems(para, false, undefined, true)}
@@ -1465,7 +1490,7 @@ function ChapterReaderComponent({
                           <span className="text-xs select-none font-sans font-normal text-[var(--ink-dim-text)]/75 leading-none">
                             {i + 1}
                           </span>
-                          <TtsButton paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
+                          <ParagraphControls index={i} paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
                         </div>
                         <div className={READER_ZH_TEXT}>
                           {renderTextWithSnowPoems(para, false, undefined, true)}
@@ -1473,7 +1498,7 @@ function ChapterReaderComponent({
                         {translationMap[chapter.id][i] && (
                           <>
                             <div className={`${READER_EN_MEASURE} mt-3 mb-1.5 flex items-center`}>
-                              <TtsButton paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
+                              <ParagraphControls index={i} paraKey={`en-${i}`} text={translationMap[chapter.id][i]} speechLang="en-US" />
                             </div>
                             <div className={READER_EN_TEXT}>
                               {renderTextWithSnowPoems(translationMap[chapter.id][i], false, undefined, false)}
@@ -1566,13 +1591,15 @@ function ChapterReaderComponent({
                 ))}
               </div>
             ) : (
-              <div className="whitespace-pre-wrap text-[1em] sm:text-[1.125em] italic font-hans">
-                <div className="mb-1.5 flex items-center">
-                  <TtsButton paraKey="single-0" text={chapter.content} speechLang="zh-CN" />
-                </div>
-                <div>
-                  {renderAnnotated(chapter.content)}
-                </div>
+              <div className="space-y-8 whitespace-pre-wrap text-[1em] sm:text-[1.125em] italic font-hans">
+                {chapter.content.split("\n\n").map((para, i) => (
+                  <div key={i}>
+                    <div className="mb-1.5 flex items-center">
+                      <ParagraphControls index={i} paraKey={`zh-${i}`} text={para} speechLang="zh-CN" />
+                    </div>
+                    <div>{renderAnnotated(para)}</div>
+                  </div>
+                ))}
               </div>
             )}
             {chapter.id >= 1 && <ChapterEndScene chapterId={chapter.id} />}
@@ -1704,6 +1731,15 @@ function ChapterReaderComponent({
           )}
         </div>
       </motion.div>
+      {cinemaParagraph && <ParagraphCinema
+        paragraph={cinemaParagraph} chapterId={chapter.id} lang={lang}
+        onClose={() => {
+          setCinemaParagraph(null);
+          // ParagraphControls is recreated when reader state changes; restore to its current button.
+          const key = cinemaOpenerRef.current?.dataset.cinemaKey;
+          requestAnimationFrame(() => contentScrollRef.current?.querySelector<HTMLButtonElement>(`button[data-cinema-key="${key}"]`)?.focus());
+        }}
+      />}
     </div>
   );
 }
