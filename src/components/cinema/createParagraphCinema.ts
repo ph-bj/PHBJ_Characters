@@ -1,6 +1,7 @@
 import * as THREE from 'three';
+import { createCapitalPrologueCinema } from './createCapitalPrologueCinema';
 import { CINEMA_DURATION, type ScenePlan } from './paragraphScene';
-export type Cinema = { setPlaying: (playing: boolean) => void; replay: () => void; dispose: () => void };
+export type Cinema = { setPlaying: (playing: boolean) => void; replay: () => void; seek: (seconds: number) => void; dispose: () => void };
 
 export function createParagraphCinema(
   host: HTMLDivElement,
@@ -9,6 +10,7 @@ export function createParagraphCinema(
   onProgress: (seconds: number) => void,
   onError: () => void,
 ): Cinema {
+  if (plan.sequence === 'capital-prologue') return createCapitalPrologueCinema(host, onProgress, onError);
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
   renderer.shadowMap.enabled = true;
@@ -245,6 +247,7 @@ export function createParagraphCinema(
   resize();
   return {
     setPlaying(value) { playing = value; sync(); },
+    seek(value) { seconds = THREE.MathUtils.clamp(value, 0, CINEMA_DURATION); onProgress(seconds); render(); sync(); },
     replay() { seconds = 0; onProgress(0); render(); sync(); },
     dispose() {
       disposed = true; observer.disconnect(); renderer.setAnimationLoop(null);

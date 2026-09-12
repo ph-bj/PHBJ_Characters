@@ -2,6 +2,7 @@ export const CINEMA_DURATION = 36;
 
 export type Setting = 'river' | 'garden' | 'stage' | 'study' | 'street' | 'courtyard';
 export type ScenePlan = {
+  sequence?: 'capital-prologue';
   seed: number;
   setting: Setting;
   night: boolean;
@@ -19,9 +20,15 @@ const settings: { setting: Setting; words: RegExp; en: string; zh: string }[] = 
 ];
 
 /** A deterministic, symbolic staging of the source text, shared by both languages. */
-export function planParagraphScene(source: string): ScenePlan {
+export function planParagraphScene(source: string, context?: { chapterId: number; paragraphIndex: number }): ScenePlan {
   let seed = 2166136261;
   for (const char of source) seed = Math.imul(seed ^ char.charCodeAt(0), 16777619) >>> 0;
+  if (context?.chapterId === 1 && context.paragraphIndex === 0) {
+    return {
+      sequence: 'capital-prologue', seed, setting: 'stage', night: true, weather: 'dust', mood: 'festive',
+      title: { en: 'The capital, a theatre of feeling', zh: '京华繁梦，一字情深' },
+    };
+  }
   const ranked = settings.map(item => ({ ...item, score: [...source.matchAll(item.words)].length }))
     .sort((a, b) => b.score - a.score);
   const best = ranked[0].score > 0 ? ranked[0] : { setting: 'courtyard' as const, en: 'An intimate courtyard', zh: '庭院人间' };
