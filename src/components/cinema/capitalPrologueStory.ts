@@ -10,19 +10,19 @@ export const CAPITAL_PROLOGUE_SHOTS = [
     start: 9, end: 20,
     title: { en: 'A city watching the stage', zh: '歌台舞榭' },
     quote: '处处歌台舞榭；……时时醉月评花。',
-    caption: { en: 'Water sleeves turn in the light; over wine, the audience appraises the performance.', zh: '水袖随身而转，满座举杯观戏，灯月相映。' },
+    caption: { en: 'Over wine, patrons turn between their companions and the stage; water sleeves follow the performers’ measured turns.', zh: '看客举杯评艺，时而顾盼同席，时而凝神台上；优伶回身，水袖随转。' },
   },
   {
     start: 20, end: 29,
     title: { en: 'Feeling with dignity', zh: '用情守礼' },
     quote: '用情守礼之君子……洁身自好的优伶',
-    caption: { en: 'A gentleman and a performer exchange a bow, leaving a respectful distance between them.', zh: '君子与优伶隔阶相揖，以彼此的敬重寄托情意。' },
+    caption: { en: 'A gentleman bows; the performer returns the greeting. Their distance remains: affection expressed through mutual respect.', zh: '君子先揖，优伶还礼；相对而不逾距，以彼此的敬重寄托情意。' },
   },
   {
     start: 29, end: 36,
     title: { en: 'One word: feeling', zh: '皆是一个情字' },
-    quote: '遂以游戏之笔，摹写游戏之人。',
-    caption: { en: 'The spectacle becomes a page: ten columns await the portraits, gathered under 情—feeling.', zh: '繁华收入笔底，十行留白待写众生，终归于一个“情”字。' },
+    quote: '先将缙绅中子弟分作十种，皆是一个情字。',
+    caption: { en: 'Ten columns anticipate the portraits to come. Stroke by stroke, the brush gathers them under 情—feeling.', zh: '十列预示将写的十种人物，笔随墨行，一笔一画汇成一个“情”字。' },
   },
 ] as const;
 

@@ -194,7 +194,7 @@ export function createCapitalPrologueCinema(
 
     type Figure = { root: THREE.Group; torso: THREE.Group; left: THREE.Group; right: THREE.Group; phase: number };
     const dancers: Figure[] = [], walkers: Figure[] = [], spectators: Figure[] = [];
-    const ribbons: { geometry: THREE.BufferGeometry; phase: number }[] = [];
+    const ribbons: { geometry: THREE.BufferGeometry; phase: number; dancing: boolean }[] = [];
     function figure(parent: THREE.Object3D, x: number, z: number, robe: THREE.Material, performer = false, y = 0): Figure {
       const root = group(parent, x, y, z), torso = group(root, 0, 0.85, 0);
       add(new THREE.CylinderGeometry(0.2, 0.4, 1.05, 14), robe, root, 0, 0.55, 0);
@@ -228,7 +228,8 @@ export function createCapitalPrologueCinema(
           geometry.setAttribute('position', new THREE.BufferAttribute(points, 3)); geometry.setIndex(indices);
           const sleeveMaterial = material(0xf0e9d8, { side: THREE.DoubleSide });
           add(geometry, sleeveMaterial, arm, 0, -0.55, 0);
-          ribbons.push({ geometry, phase: side + x });
+          // Offstage sleeves hang quietly; only the stage performers flourish them.
+          ribbons.push({ geometry, phase: side + x, dancing: parent === stage });
         }
         return arm;
       });
@@ -237,6 +238,10 @@ export function createCapitalPrologueCinema(
     dancers.push(figure(stage, -1.45, 1, roseSilk, true, 1.34), figure(stage, 1.45, 0.35, whiteSilk, true, 1.34));
     const musician = figure(stage, -3.5, -1.35, blueSilk, false, 1.34);
     musician.root.rotation.y = 0.5;
+    for (const hand of [musician.left, musician.right]) {
+      const stick = rod(hand, 0, -0.68, 0.18, 0.018, 0.55, gold);
+      stick.rotation.x = Math.PI / 3;
+    }
     const drum = rod(stage, -3.2, 1.8, -0.65, 0.34, 0.46, vermilion); rod(stage, -3.2, 2.04, -0.65, 0.35, 0.03, cream);
     drum.rotation.y = 0.2;
     function table(x: number, z: number) {
@@ -247,6 +252,8 @@ export function createCapitalPrologueCinema(
         rod(scene, x + side * 0.32, 1.07, z + 0.13, 0.065, 0.1, cream);
         const f = figure(scene, x + side * 0.9, z + 0.1, side === 1 ? blueSilk : cream);
         f.root.rotation.y = Math.PI + side * 0.5; f.root.scale.setScalar(0.88); spectators.push(f);
+        // A cup follows the patron's hand instead of remaining an inert table prop.
+        rod(f.right, 0, -0.59, 0.08, 0.075, 0.11, cream);
       }
     }
     for (const z of [0.6, 4.5, 8.3]) for (const x of [-5.4, 5.4]) table(x, z);
@@ -257,8 +264,8 @@ export function createCapitalPrologueCinema(
       f.root.rotation.y = i % 3 ? Math.PI : 0; f.root.scale.setScalar(0.75 + (i % 3) * 0.07); walkers.push(f);
     }
     // The paragraph names no individuals: these two figures embody its ethical turn.
-    const gentleman = figure(scene, -1.4, -2.2, jade);
-    const actor = figure(scene, 1.4, -5.4, whiteSilk, true, 0.3);
+    const gentleman = figure(scene, -1.65, -3.5, jade);
+    const actor = figure(scene, 1.65, -3.5, whiteSilk, true);
     gentleman.root.rotation.y = Math.PI / 2; actor.root.rotation.y = -Math.PI / 2;
     const dignityLight = new THREE.PointLight(0xffd7a2, 18, 10, 1.4); dignityLight.position.set(0, 3.2, -1); scene.add(dignityLight);
 
@@ -274,22 +281,83 @@ export function createCapitalPrologueCinema(
     for (const x of [-2.76, 2.76]) { const roller = rod(desk, x, 1.49, 0, 0.13, 4.15, gold); roller.rotation.x = Math.PI / 2; }
     box(desk, 3.03, 1.48, -1, 0.7, 0.14, 0.95, hair);
     box(desk, 3.03, 1.565, -1, 0.47, 0.02, 0.65, darkWood);
-    const brush = group(desk, 0, 1.65, 0); brush.rotation.z = -0.35;
+    // The group's origin is the brush tip, so its path can match the ink exactly.
+    const brush = group(desk, 0, 1.45, 0); brush.rotation.z = -0.18;
     rod(brush, 0, 0.65, 0, 0.045, 1.2, gold);
-    add(new THREE.ConeGeometry(0.085, 0.34, 12), hair, brush, 0, -0.1, 0).rotation.z = Math.PI;
+    add(new THREE.ConeGeometry(0.085, 0.34, 12), hair, brush, 0, 0.17, 0).rotation.z = Math.PI;
     lantern(desk, -3.1, 2.7, -1.4, 0.9);
     const deskLight = new THREE.PointLight(0xffd496, 40, 15, 1.4); deskLight.position.set(58, 5, 3); scene.add(deskLight);
+    // Eleven ordered strokes of 情. The same paths drive both ink and brush;
+    // evaluating absolute time keeps replay and backwards seeking deterministic.
+    const strokes = [
+      [[289, 281], [288, 321], [278, 356], [261, 378]],
+      [[347, 269], [366, 291], [377, 322], [375, 341]],
+      [[329, 185], [320, 214], [324, 363], [317, 515], [308, 574]],
+      [[428, 238], [454, 244], [574, 230], [696, 220], [732, 229]],
+      [[463, 306], [491, 309], [602, 296], [704, 290]],
+      [[580, 173], [590, 190], [582, 270], [574, 366]],
+      [[409, 374], [440, 382], [584, 365], [725, 353], [766, 361]],
+      [[464, 415], [475, 438], [464, 526], [454, 590]],
+      [[466, 419], [590, 409], [700, 408], [707, 426], [694, 558], [687, 581], [653, 560]],
+      [[471, 474], [511, 477], [610, 465], [697, 465]],
+      [[465, 527], [507, 531], [611, 516], [692, 519]],
+    ].map(points => new THREE.CatmullRomCurve3(points.map(([x, y]) => new THREE.Vector3(x, y, 0)), false, 'centripetal'));
+    const strokePoint = (path: THREE.CatmullRomCurve3, progress: number) => {
+      const point = path.getPoint(THREE.MathUtils.clamp(progress, 0, 1));
+      return [point.x, point.y];
+    };
     let paperStep = -1;
     const paintManuscript = (progress: number) => {
-      const step = Math.round(progress * 80); if (step === paperStep) return; paperStep = step;
+      const step = Math.floor(progress * 300); if (step === paperStep) return; paperStep = step;
       const ctx = manuscriptContext;
       ctx.fillStyle = '#e4d2ac'; ctx.fillRect(0, 0, 1024, 768);
       // Ten open columns refer to the classification promised at the paragraph's end.
       ctx.strokeStyle = '#b4987077'; ctx.lineWidth = 2;
       for (let i = 0; i <= 10; i++) { ctx.beginPath(); ctx.moveTo(92 + i * 84, 72); ctx.lineTo(92 + i * 84, 696); ctx.stroke(); }
       ctx.strokeRect(70, 48, 884, 672);
-      ctx.fillStyle = '#302a25'; ctx.font = '490px "Kaiti SC", "STKaiti", "Noto Serif SC", serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.save(); ctx.beginPath(); ctx.rect(210, 100, 610, 575 * progress); ctx.clip(); ctx.fillText('情', 512, 398); ctx.restore();
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#705b43'; ctx.font = '25px "KaiTi", "Noto Serif SC", serif';
+      Array.from('一二三四五六七八九十').forEach((label, i) => {
+        if (progress >= i / 30) ctx.fillText(label, 890 - i * 84, 101);
+      });
+      strokes.forEach((path, index) => {
+        const amount = THREE.MathUtils.clamp(progress * strokes.length - index, 0, 1);
+        if (amount <= 0) return;
+        // Press, travel, lift: broad ink bellies taper into pointed exits.
+        // Fixed samples and fibers keep the texture stable while seeking.
+        const edges: number[][][] = [[], []];
+        const samples = Math.max(1, Math.ceil(amount * 150));
+        for (let sample = 0; sample <= samples; sample++) {
+          const t = Math.min(amount, sample / 150);
+          const point = path.getPoint(t), tangent = path.getTangent(t);
+          const press = Math.pow(Math.sin(Math.PI * t), 0.55);
+          const width = (index < 2 ? 16 : index === 2 || index === 8 ? 19 : 13)
+            * (0.12 + press * (0.85 + 0.18 * Math.sin(t * 9 + index)));
+          for (let side = 0; side < 2; side++) {
+            const spread = (side ? 1 : -1) * width * (1 + 0.055 * Math.sin(sample * 2.7 + index));
+            edges[side].push([point.x - tangent.y * spread, point.y + tangent.x * spread]);
+          }
+        }
+        ctx.beginPath();
+        [...edges[0], ...edges[1].reverse()].forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
+        ctx.closePath();
+        ctx.fillStyle = '#241f1b'; ctx.fill();
+        // A soft ink edge and fine dry-brush channels suggest absorbent paper.
+        ctx.save(); ctx.clip();
+        ctx.strokeStyle = '#dbc6a13d'; ctx.lineWidth = 0.8;
+        for (let fiber = 0; fiber < 7; fiber++) {
+          ctx.beginPath();
+          for (let sample = 0; sample <= 60; sample++) {
+            const t = sample / 60 * amount;
+            const point = path.getPoint(t), tangent = path.getTangent(t);
+            const offset = (fiber - 3) * 3.1 + Math.sin(t * 18 + fiber + index) * 0.65;
+            const x = point.x - tangent.y * offset, y = point.y + tangent.x * offset;
+            if (sample === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+        }
+        ctx.restore();
+      });
       if (progress > 0.94) {
         ctx.strokeStyle = '#953d35'; ctx.lineWidth = 5; ctx.strokeRect(805, 578, 78, 80);
         ctx.fillStyle = '#953d35'; ctx.font = '30px serif'; ctx.fillText('守礼', 844, 620);
@@ -309,18 +377,22 @@ export function createCapitalPrologueCinema(
     const render = () => {
       const shot = Math.max(0, capitalPrologueShotAt(seconds));
       const portrait = camera.aspect < 1.3;
+      gentleman.root.visible = actor.root.visible = shot === 2;
+      dignityLight.intensity = shot === 2 ? 32 : 0;
+      stageLight.intensity = shot === 2 ? 55 : 155;
       if (shot === 0) {
         const t = smooth(seconds / 9);
         from.set(portrait ? 0 : -4, 10, portrait ? 36 : 26); to.set(portrait ? 0 : -1.5, 7.4, portrait ? 29 : 18);
         camera.position.lerpVectors(from, to, t); target.set(0, 3.7, -9);
       } else if (shot === 1) {
         const t = smooth((seconds - 9) / 11);
-        from.set(portrait ? -0.8 : -4.3, 4.2, portrait ? 8 : 2); to.set(portrait ? 0.8 : 3.2, 3.4, portrait ? 6 : -0.2);
-        camera.position.lerpVectors(from, to, t); target.set(0, 2.8, -9);
+        // Begin over the wine tables, then move into the performance.
+        from.set(portrait ? -0.8 : -6.8, 3.2, portrait ? 10 : 5.8); to.set(portrait ? 0.8 : 2.8, 3.4, portrait ? 6 : -0.2);
+        camera.position.lerpVectors(from, to, t); target.set(-1.5 * (1 - t), 2.5, -7.8 - t * 1.2);
       } else if (shot === 2) {
         const t = smooth((seconds - 20) / 9);
         from.set(portrait ? 0 : -1.6, 2.5, portrait ? 6.6 : 4.4); to.set(portrait ? 0.5 : 1.3, 2.2, portrait ? 5.3 : 3.3);
-        camera.position.lerpVectors(from, to, t); target.set(0, 1.3, -2.85);
+        camera.position.lerpVectors(from, to, t); target.set(0, 1.15, -3.5);
       } else {
         const t = smooth((seconds - 29) / 7);
         from.set(60.1, portrait ? 12 : 8.4, 3.7); to.set(60, portrait ? 10.8 : 7.2, 2.8);
@@ -329,17 +401,23 @@ export function createCapitalPrologueCinema(
       camera.lookAt(target);
       lanterns.forEach((lantern, i) => { lantern.rotation.z = Math.sin(seconds * 0.65 + i * 0.4) * 0.04; });
       dancers.forEach((dancer, i) => {
-        dancer.root.rotation.y = Math.sin(seconds * 0.45 + i * Math.PI) * 0.65;
+        const phrase = THREE.MathUtils.clamp((seconds - 10 - i * 0.7) / 7, 0, 1);
+        const turn = smooth(phrase);
+        dancer.root.rotation.y = turn * Math.PI * 2 * (i ? -1 : 1);
+        dancer.root.position.x = (i ? 1.45 : -1.45) + Math.sin(turn * Math.PI * 2) * 0.35;
         dancer.torso.rotation.z = Math.sin(seconds * 0.75 + i) * 0.08;
         dancer.left.rotation.z = -1.2 + Math.sin(seconds * 0.8 + i) * 0.5;
         dancer.right.rotation.z = 1.3 + Math.sin(seconds * 0.8 + i + 1) * 0.5;
       });
-      ribbons.forEach(({ geometry, phase }) => {
+      musician.left.rotation.x = -0.65 + Math.sin(seconds * 5) * 0.22;
+      musician.right.rotation.x = -0.65 + Math.sin(seconds * 5 + Math.PI) * 0.22;
+      ribbons.forEach(({ geometry, phase, dancing }) => {
         const positions = geometry.getAttribute('position');
         for (let i = 0; i <= 12; i++) {
           const t = i / 12;
-          const x = Math.sin(t * 5 - seconds * 1.8 + phase) * t * 0.3;
-          for (let side = 0; side < 2; side++) positions.setXYZ(i * 2 + side, x + (side - 0.5) * 0.31, -t * 1.08, Math.cos(t * 4 + seconds * 1.2 + phase) * t * 0.2);
+          const energy = dancing ? 1 : 0.08;
+          const x = Math.sin(t * 5 - seconds * 1.8 + phase) * t * 0.3 * energy;
+          for (let side = 0; side < 2; side++) positions.setXYZ(i * 2 + side, x + (side - 0.5) * 0.31, -t * (dancing ? 1.08 : 0.65), Math.cos(t * 4 + seconds * 1.2 + phase) * t * 0.2 * energy);
         }
         positions.needsUpdate = true; geometry.computeVertexNormals();
       });
@@ -349,15 +427,27 @@ export function createCapitalPrologueCinema(
         walker.left.rotation.x = Math.sin(seconds * 3 + i) * 0.2;
         walker.right.rotation.x = -walker.left.rotation.x;
       });
-      spectators.forEach((spectator, i) => { spectator.torso.rotation.y = Math.sin(seconds * 0.35 + i) * 0.12; });
-      const bow = seconds >= 20 && seconds <= 29 ? Math.sin(Math.min(1, (seconds - 20) / 5) * Math.PI) * 0.2 : 0;
-      gentleman.torso.rotation.x = bow; actor.torso.rotation.x = bow * 0.85;
-      gentleman.left.rotation.z = -0.8; gentleman.right.rotation.z = 0.8;
-      gentleman.left.rotation.x = -0.5; gentleman.right.rotation.x = -0.5;
-      actor.left.rotation.z = -0.65; actor.right.rotation.z = 0.65;
+      spectators.forEach((spectator, i) => {
+        const toast = Math.max(0, Math.sin(seconds * 0.65 + Math.floor(i / 2) * 1.4));
+        spectator.torso.rotation.y = Math.sin(seconds * 0.35 + i) * 0.28;
+        spectator.right.rotation.x = -0.45 - toast * 1.8;
+        spectator.right.rotation.z = 0.15;
+        spectator.left.rotation.x = -0.3 - Math.max(0, Math.sin(seconds * 0.7 + i)) * 0.6;
+      });
+      const bowAt = (start: number) => smooth((seconds - start) / 1.2) * (1 - smooth((seconds - start - 2.1) / 1.4));
+      // Local +Z is forward: positive X tips each figure toward the other.
+      gentleman.torso.rotation.x = bowAt(21) * 0.3;
+      actor.torso.rotation.x = bowAt(22) * 0.27;
+      for (const person of [gentleman, actor]) {
+        person.left.rotation.z = 0.62; person.right.rotation.z = -0.62;
+        person.left.rotation.x = person.right.rotation.x = -0.9;
+      }
       const written = THREE.MathUtils.clamp((seconds - 29.7) / 5, 0, 1);
       paintManuscript(written);
-      brush.position.set(Math.sin(written * 25) * 0.9, written >= 1 ? 2.15 : 1.68, -1.2 + written * 2.7);
+      const inkIndex = Math.min(strokes.length - 1, Math.floor(written * strokes.length));
+      const inkFraction = written >= 1 ? 1 : written * strokes.length - inkIndex;
+      const tip = strokePoint(strokes[inkIndex], inkFraction);
+      brush.position.set((tip[0] / 1024 - 0.5) * 5.4, written >= 1 ? 2.1 : 1.45, (tip[1] / 768 - 0.5) * 3.9);
       particles.rotation.y = seconds * 0.008;
       renderer.render(scene, camera);
     };
