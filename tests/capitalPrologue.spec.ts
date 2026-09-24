@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 // Paragraph 1 is an authored prologue; the adjacent paragraph keeps its own interpretation.
-test('the opening paragraph has four distinct, bilingual cinematic beats', async ({ page }, testInfo) => {
+test('the opening paragraph has five distinct, bilingual cinematic beats', async ({ page }, testInfo) => {
   test.setTimeout(90000);
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -12,7 +12,7 @@ test('the opening paragraph has four distinct, bilingual cinematic beats', async
   const dialog = page.getByRole('dialog');
   await expect(dialog.getByRole('heading')).toHaveText('The capital, a theatre of feeling');
   await expect(dialog.getByRole('button', { name: 'Play', exact: true })).toBeEnabled({ timeout: 15000 });
-  const sceneNames = ['The capital after dark', 'A city watching the stage', 'Feeling with dignity', 'One word: feeling'];
+  const sceneNames = ['A foot and five from heaven', 'Drunk on the moon, judging flowers', 'A playful brush', 'Fond, never wanton', 'One word: feeling'];
   for (const [index, name] of sceneNames.entries()) {
     const button = dialog.getByRole('button', { name: new RegExp(name) });
     await button.click();
@@ -27,12 +27,12 @@ test('the opening paragraph has four distinct, bilingual cinematic beats', async
   await dialog.getByRole('button', { name: 'Close cinema' }).click();
   await page.locator('[data-cinema-key="en-1"]').click();
   await expect(dialog.getByRole('heading')).not.toHaveText('The capital, a theatre of feeling');
-  await expect(dialog.getByRole('button', { name: /The capital after dark/ })).toHaveCount(0);
+  await expect(dialog.getByRole('button', { name: /A foot and five from heaven/ })).toHaveCount(0);
   await page.keyboard.press('Escape');
   await page.goto('/#/zh/chapter/1');
   await page.locator('[data-cinema-key="zh-0"]').click();
   await expect(dialog.getByRole('heading')).toHaveText('京华繁梦，一字情深');
-  await expect(dialog.getByRole('button', { name: '01京华入夜' })).toBeEnabled();
+  await expect(dialog.getByRole('button', { name: '01尺五天边' })).toBeEnabled();
   expect(errors).toEqual([]);
 });
 
@@ -44,7 +44,7 @@ test('the opening cinema keeps its subjects in frame on mobile', async ({ page }
   await page.locator('[data-cinema-key="en-0"]').click();
   const dialog = page.getByRole('dialog');
   await expect(dialog.getByRole('button', { name: 'Play', exact: true })).toBeEnabled({ timeout: 15000 });
-  for (const [index, name] of ['The capital after dark', 'A city watching the stage', 'Feeling with dignity', 'One word: feeling'].entries()) {
+  for (const [index, name] of ['A foot and five from heaven', 'Drunk on the moon, judging flowers', 'A playful brush', 'Fond, never wanton', 'One word: feeling'].entries()) {
     await dialog.getByRole('button', { name: new RegExp(name) }).click();
     await dialog.getByTestId('paragraph-cinema-canvas').screenshot({ path: testInfo.outputPath(`mobile-${index + 1}.png`) });
   }

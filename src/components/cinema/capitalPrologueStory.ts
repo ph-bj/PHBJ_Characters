@@ -1,28 +1,34 @@
 /** Authored against Chapter 1, paragraph 1. The people here are unnamed archetypes. */
 export const CAPITAL_PROLOGUE_SHOTS = [
   {
-    start: 0, end: 9,
-    title: { en: 'The capital after dark', zh: '京华入夜' },
-    quote: '京师演戏之盛，甲于天下。',
-    caption: { en: 'Lanterns lead through the crowded capital toward its theatres.', zh: '华灯连巷，人影交织，京城的繁华汇向歌台舞榭。' },
+    start: 0, end: 7,
+    title: { en: 'A foot and five from heaven', zh: '尺五天边' },
+    quote: '京师演戏之盛，甲于天下。地当尺五天边，处处歌台舞榭',
+    caption: { en: 'Descending through the clouds to a capital that stands almost at heaven’s edge, stage after stage lights up across the city.', zh: '自云端徐徐而下，京城近在天边，歌台舞榭次第亮起。' },
   },
   {
-    start: 9, end: 20,
-    title: { en: 'A city watching the stage', zh: '歌台舞榭' },
-    quote: '处处歌台舞榭；……时时醉月评花。',
-    caption: { en: 'Over wine, patrons turn between their companions and the stage; water sleeves follow the performers’ measured turns.', zh: '看客举杯评艺，时而顾盼同席，时而凝神台上；优伶回身，水袖随转。' },
+    start: 7, end: 15,
+    title: { en: 'Drunk on the moon, judging flowers', zh: '醉月评花' },
+    quote: '人在大千队里，时时醉月评花。',
+    caption: { en: 'Lanterns stream through the streets below. On a tavern terrace the moon floats in a wine cup as a peony opens, and a petal falls in.', zh: '楼下灯火如流，人海熙攘；楼头杯中浮月，牡丹初绽，一瓣落入酒中。' },
   },
   {
-    start: 20, end: 29,
-    title: { en: 'Feeling with dignity', zh: '用情守礼' },
-    quote: '用情守礼之君子……洁身自好的优伶',
-    caption: { en: 'A gentleman bows; the performer returns the greeting. Their distance remains: affection expressed through mutual respect.', zh: '君子先揖，优伶还礼；相对而不逾距，以彼此的敬重寄托情意。' },
+    start: 15, end: 22,
+    title: { en: 'A playful brush', zh: '游戏之笔' },
+    quote: '遂以游戏之笔，摹写游戏之人。',
+    caption: { en: 'On a lamp-lit shadow-play screen, a brush sketches the city’s players, strange and wonderful, and they begin to move.', zh: '灯影纸幕之上，一支游戏之笔勾出怪怪奇奇的众生，影随笔动。' },
+  },
+  {
+    start: 22, end: 29,
+    title: { en: 'Fond, never wanton', zh: '好色不淫' },
+    quote: '几个用情守礼之君子，与几个洁身自好的优伶',
+    caption: { en: 'At a moon gate, a gentleman bows and the performer returns the bow. Blossoms fall between them, and neither crosses the threshold.', zh: '月洞门前，君子长揖，优伶还礼；落花在二人之间飘过，谁也不越那道门槛。' },
   },
   {
     start: 29, end: 36,
     title: { en: 'One word: feeling', zh: '皆是一个情字' },
     quote: '先将缙绅中子弟分作十种，皆是一个情字。',
-    caption: { en: 'Ten columns anticipate the portraits to come. Stroke by stroke, the brush gathers them under 情—feeling.', zh: '十列预示将写的十种人物，笔随墨行，一笔一画汇成一个“情”字。' },
+    caption: { en: 'The city’s lights gather into ten kinds of people, and all ten are written with the same character: 情, feeling.', zh: '满城灯火聚成十种人物，十种终归一字——情。' },
   },
 ] as const;
 

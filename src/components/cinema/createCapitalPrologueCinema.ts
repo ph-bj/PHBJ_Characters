@@ -1,32 +1,208 @@
 import * as THREE from 'three';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import type { Cinema } from './createParagraphCinema';
 import { CINEMA_DURATION } from './paragraphScene';
-import { capitalPrologueShotAt } from './capitalPrologueStory';
+import { CAPITAL_PROLOGUE_SHOTS, capitalPrologueShotAt } from './capitalPrologueStory';
+import { createShadowPlay } from './prologueShadowPlay';
 
-/** A staged prologue: the city's spectacle, its audience, dignity, then the author's page. */
+const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
+const ease = (value: number) => { const x = clamp01(value); return x * x * (3 - 2 * x); };
+type V3 = [number, number, number];
+
+// Each shot has its own set, placed far apart; only the current one is shown.
+const SET = { shadow: 400, gate: 800, glyph: 1200 };
+// Night palette per shot: sky gradient, moon, stars and fog. Moon direction points from the camera.
+const ENV = [
+  { top: 0x0a1428, horizon: 0x3a3b58, glow: 0x3a1f26, moon: [-0.3, 0.15, -1], moonSize: 0.035, moonGain: 2.4, bloom: 0.9, stars: 1, fog: 0x2a2c46, density: 0.0055 },
+  { top: 0x0a1428, horizon: 0x3a3b58, glow: 0x3a1f26, moon: [-0.3, 0.15, -1], moonSize: 0.035, moonGain: 2.4, bloom: 0.9, stars: 1, fog: 0x2a2c46, density: 0.0055 },
+  { top: 0x05070b, horizon: 0x140e0b, glow: 0x000000, moon: [0, -1, 0], moonSize: 0.01, moonGain: 0, bloom: 0.6, stars: 0.3, fog: 0x0b0908, density: 0.02 },
+  { top: 0x0d1a31, horizon: 0x3e4a68, glow: 0x000000, moon: [0, 0.075, -1], moonSize: 0.07, moonGain: 1.05, bloom: 0.5, stars: 0.6, fog: 0x2e3a56, density: 0.016 },
+  { top: 0x03050b, horizon: 0x0b0e1a, glow: 0x180c06, moon: [0, -1, 0], moonSize: 0.01, moonGain: 0, bloom: 1, stars: 1, fog: 0x03050b, density: 0 },
+] as const;
+
+/** A seeded generator keeps the city identical on every replay. */
+function random(seed: number) {
+  return () => { seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+}
+
+function paint(geometry: THREE.BufferGeometry, color: THREE.Color) {
+  const count = geometry.getAttribute('position').count, colors = new Float32Array(count * 3);
+  for (let i = 0; i < count; i++) color.toArray(colors, i * 3);
+  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  return geometry;
+}
+
+/** A hipped roof whose concave slopes rise to the ridge and whose corners sweep upward. */
+function roofGeometry(width: number, depth: number, height: number, color: THREE.Color) {
+  const nx = 12, nz = 8, positions: number[] = [], uvs: number[] = [], index: number[] = [];
+  for (let iz = 0; iz <= nz; iz++) for (let ix = 0; ix <= nx; ix++) {
+    const u = ix / nx * 2 - 1, v = iz / nz * 2 - 1;
+    const f = Math.min((1 - Math.abs(v)) * depth / 2, (1 - Math.abs(u)) * width / 2) / (depth / 2);
+    positions.push(u * width / 2, height * Math.pow(Math.min(1, f), 1.5) + height * 0.25 * Math.pow(Math.abs(u * v), 5), v * depth / 2);
+    uvs.push(ix / nx, iz / nz);
+    if (ix < nx && iz < nz) { const a = iz * (nx + 1) + ix, b = a + nx + 1; index.push(a, b, a + 1, a + 1, b, b + 1); }
+  }
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+  geometry.setIndex(index); geometry.computeVertexNormals();
+  return paint(geometry.toNonIndexed(), color);
+}
+
+/** One unit hall (plinth, walls, roof) with baked colours, for instancing. */
+function hallGeometry(roof: number, wall: number, base: number) {
+  const box = (w: number, h: number, d: number, y: number, color: number) =>
+    paint(new THREE.BoxGeometry(w, h, d).translate(0, y, 0).toNonIndexed(), new THREE.Color(color));
+  return mergeGeometries([
+    box(0.96, 0.08, 0.72, 0.04, base),
+    box(0.8, 0.42, 0.56, 0.29, wall),
+    roofGeometry(1.12, 0.86, 0.36, new THREE.Color(roof)).translate(0, 0.5, 0),
+  ])!;
+}
+
+/** A petal cupped toward +z, rooted at the origin, darker at its base. */
+function petalGeometry(width: number, height: number, base: number, tip: number) {
+  const geometry = new THREE.PlaneGeometry(width, height, 4, 6).translate(0, height / 2, 0);
+  const position = geometry.getAttribute('position'), colors: number[] = [];
+  const from = new THREE.Color(base), to = new THREE.Color(tip), color = new THREE.Color();
+  for (let i = 0; i < position.count; i++) {
+    const x = position.getX(i), v = position.getY(i) / height;
+    const taper = 0.3 + 0.7 * Math.sin(Math.min(1, v * 1.6) * Math.PI / 2);
+    position.setXYZ(i, x * taper, position.getY(i) + Math.sin(x * 60) * 0.004 * v, (x / (width / 2)) ** 2 * width * 0.3 + Math.sin(v * Math.PI) * height * 0.1);
+    color.lerpColors(from, to, Math.pow(Math.max(0, v), 0.8)).toArray(colors, colors.length);
+  }
+  geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+  geometry.computeVertexNormals();
+  return geometry;
+}
+
+const skyVertex = /* glsl */`
+  varying vec3 vDirection;
+  void main() {
+    vDirection = position;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    gl_Position.z = gl_Position.w;
+  }`;
+const skyFragment = /* glsl */`
+  uniform vec3 uTop, uHorizon, uGlow, uMoon;
+  uniform float uMoonSize, uMoonGain, uStars;
+  varying vec3 vDirection;
+  float hash(vec3 p) { return fract(sin(dot(p, vec3(12.9898, 78.233, 45.164))) * 43758.5453); }
+  void main() {
+    vec3 d = normalize(vDirection);
+    float h = clamp(d.y, -0.3, 1.0);
+    vec3 color = mix(uHorizon, uTop, smoothstep(-0.03, 0.5, h));
+    color += uGlow * pow(1.0 - abs(h), 7.0);
+    float m = dot(d, normalize(uMoon));
+    float disc = smoothstep(cos(uMoonSize), cos(uMoonSize * 0.94), m);
+    float mottle = 0.9 + 0.1 * sin(d.x * 900.0) * sin(d.y * 700.0 + d.z * 300.0);
+    color += vec3(1.0, 0.93, 0.78) * disc * uMoonGain * mottle;
+    color += vec3(0.7, 0.75, 0.9) * (pow(max(m, 0.0), 900.0) * 0.8 + pow(max(m, 0.0), 40.0) * 0.12) * min(1.0, uMoonGain);
+    float star = step(0.9978, hash(floor(d * 300.0))) * smoothstep(0.04, 0.35, h) * uStars;
+    color += vec3(0.8, 0.85, 1.0) * star * (1.0 - disc);
+    gl_FragColor = vec4(color, 1.0);
+  }`;
+// Additive glows for lanterns, windows and blossoms. `aOn` < 0 means always lit.
+const glowVertex = /* glsl */`
+  attribute vec3 aColor;
+  attribute float aSize, aOn, aSeed;
+  uniform float uTime, uScale;
+  varying vec3 vColor;
+  void main() {
+    float on = aOn < 0.0 ? 1.0 : smoothstep(aOn, aOn + 0.7, uTime);
+    vColor = aColor * on * (0.82 + 0.18 * sin(uTime * (5.0 + aSeed * 4.0) + aSeed * 40.0));
+    vec4 mv = modelViewMatrix * vec4(position, 1.0);
+    gl_Position = projectionMatrix * mv;
+    gl_PointSize = on < 0.01 ? 0.0 : min(180.0, aSize * uScale / -mv.z * (0.5 + 0.5 * on));
+  }`;
+// The crowd: every lantern walks its own street, computed from time alone.
+const crowdVertex = /* glsl */`
+  attribute vec3 aColor, aDirection;
+  attribute float aLength, aSpeed, aSeed;
+  uniform float uTime, uScale;
+  varying vec3 vColor;
+  void main() {
+    vec3 p = position + aDirection * mod(aSeed * aLength + uTime * aSpeed, aLength);
+    p.y += sin(uTime * 4.0 + aSeed * 30.0) * 0.05;
+    vColor = aColor * (0.85 + 0.15 * sin(uTime * 6.0 + aSeed * 50.0));
+    vec4 mv = modelViewMatrix * vec4(p, 1.0);
+    gl_Position = projectionMatrix * mv;
+    gl_PointSize = min(64.0, 0.5 * uScale / -mv.z);
+  }`;
+// Lights rise, gather into ten 情, then merge into one.
+const glyphVertex = /* glsl */`
+  attribute vec3 aStart, aColor;
+  attribute vec2 aGlyph;
+  attribute float aCluster, aSeed;
+  uniform float uTime, uScale, uCols, uSpacing, uSmall, uBig;
+  varying vec3 vColor;
+  void main() {
+    float s = uTime - 29.0;
+    vec3 drift = aStart + vec3(sin(aSeed * 20.0 + uTime * 0.6) * 0.5, s * 1.4, cos(aSeed * 13.0 + uTime * 0.5) * 0.5);
+    float rows = 10.0 / uCols, column = mod(aCluster, uCols), row = floor(aCluster / uCols);
+    vec3 center = vec3((column - (uCols - 1.0) * 0.5) * uSpacing, ((rows - 1.0) * 0.5 - row) * uSpacing * 1.08, 0.0);
+    vec3 ten = center + vec3(aGlyph * uSmall, (aSeed - 0.5) * 0.5);
+    vec3 one = vec3(aGlyph * uBig, (aSeed - 0.5) * 1.6);
+    float gather = smoothstep(0.0, 1.0, clamp((s - 0.5 - aSeed * 1.1) / 1.7, 0.0, 1.0));
+    float merge = smoothstep(0.0, 1.0, clamp((s - 3.5 - aSeed * 0.7) / 1.8, 0.0, 1.0));
+    vec3 p = mix(mix(drift, ten, gather), one, merge);
+    p += vec3(sin(uTime * 2.0 + aSeed * 50.0), cos(uTime * 1.7 + aSeed * 31.0), 0.0) * 0.03 * (1.0 + merge * 2.0);
+    float pulse = 1.0 + 0.5 * exp(-pow((s - 6.0) * 2.2, 2.0));
+    vColor = aColor * (0.6 + 0.5 * gather + 0.35 * merge) * pulse * (0.8 + 0.2 * sin(uTime * 3.0 + aSeed * 60.0));
+    vec4 mv = modelViewMatrix * vec4(p, 1.0);
+    gl_Position = projectionMatrix * mv;
+    gl_PointSize = min(48.0, mix(0.34, 0.22, gather) * uScale / -mv.z);
+  }`;
+const glowFragment = /* glsl */`
+  varying vec3 vColor;
+  void main() {
+    float r = length(gl_PointCoord - 0.5) * 2.0;
+    if (r > 1.0) discard;
+    gl_FragColor = vec4(vColor * (exp(-r * r * 5.0) + 0.6 * (1.0 - smoothstep(0.12, 0.32, r))), 1.0);
+  }`;
+const wineFragment = /* glsl */`
+  uniform float uTime, uHit;
+  varying vec2 vUv;
+  void main() {
+    vec2 p = vUv - 0.5, hit = vec2(-0.12, 0.05), moon = vec2(0.05, 0.13);
+    float dt = uTime - uHit, r = length(p - hit), wave = 0.0;
+    if (dt > 0.0) wave = sin(r * 95.0 - dt * 10.0) * exp(-dt * 0.8) * (1.0 - smoothstep(dt * 0.22, dt * 0.22 + 0.03, r)) * exp(-r * 3.0);
+    vec2 q = p + normalize(p - hit + 1e-4) * wave * 0.014;
+    float m = length(q - moon);
+    vec3 color = vec3(0.09, 0.02, 0.015) + vec3(1.0, 0.9, 0.72) * (1.0 - smoothstep(0.1, 0.115, m)) * 1.25 + vec3(0.45, 0.4, 0.35) * exp(-m * 9.0) * 0.4;
+    color += vec3(0.3, 0.2, 0.1) * max(wave, 0.0);
+    gl_FragColor = vec4(color, 1.0 - smoothstep(0.46, 0.5, length(p)));
+  }`;
+
+/** A new staging of the prologue: heaven's doorstep, moon and flowers, a playful brush, a moon gate, and 情. */
 export function createCapitalPrologueCinema(
   host: HTMLDivElement,
   onProgress: (seconds: number) => void,
   onError: () => void,
 ): Cinema {
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 1.6));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.15;
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMappingExposure = 1.1;
   renderer.domElement.setAttribute('aria-hidden', 'true');
   renderer.domElement.style.cssText = 'width:100%;height:100%;display:block';
   host.appendChild(renderer.domElement);
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x101e30);
-  scene.fog = new THREE.FogExp2(0x162739, 0.014);
-  const camera = new THREE.PerspectiveCamera(43, 1, 0.1, 150);
-  const geometries = new Set<THREE.BufferGeometry>();
-  const materials = new Set<THREE.Material>();
+  const fog = new THREE.FogExp2(0x2a2c46, 0.0055);
+  scene.fog = fog;
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.05, 1200);
+  const composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  const bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.9, 0.55, 0.85);
+  composer.addPass(bloom);
+  composer.addPass(new OutputPass());
   const textures = new Set<THREE.Texture>();
-  let disposed = false;
+  let disposed = false, playing = false, seconds = 0, previous = 0, report = -1;
   let observer: ResizeObserver | undefined;
   let sync = () => {};
   const contextLost = (event: Event) => { event.preventDefault(); playing = false; sync(); onError(); };
@@ -37,425 +213,498 @@ export function createCapitalPrologueCinema(
     renderer.setAnimationLoop(null);
     document.removeEventListener('visibilitychange', sync);
     renderer.domElement.removeEventListener('webglcontextlost', contextLost);
-    geometries.forEach(geometry => geometry.dispose());
+    const materials = new Set<THREE.Material>();
+    scene.traverse(object => {
+      const item = object as THREE.Mesh;
+      if (item.geometry && !(object instanceof THREE.Sprite)) item.geometry.dispose();
+      if (item.material) ([] as THREE.Material[]).concat(item.material).forEach(material => materials.add(material));
+    });
     materials.forEach(material => material.dispose());
     textures.forEach(texture => texture.dispose());
+    bloom.dispose(); composer.dispose();
     renderer.dispose(); renderer.forceContextLoss(); renderer.domElement.remove();
   };
-  let playing = false, seconds = 0, previous = 0, report = -1;
   try {
-    const material = (color: number, extra: THREE.MeshStandardMaterialParameters = {}) => {
-      const value = new THREE.MeshStandardMaterial({ color, roughness: 0.75, ...extra });
-      materials.add(value); return value;
+    const rand = random(20260925);
+    const shared = { uTime: { value: 0 }, uScale: { value: 1 } };
+    const group = (parent: THREE.Object3D, x = 0, y = 0, z = 0) => { const value = new THREE.Group(); value.position.set(x, y, z); parent.add(value); return value; };
+    const mesh = <T extends THREE.BufferGeometry>(geometry: T, material: THREE.Material, parent: THREE.Object3D, x = 0, y = 0, z = 0) => {
+      const value = new THREE.Mesh(geometry, material); value.position.set(x, y, z); parent.add(value); return value;
     };
-    const wood = material(0x49262a), darkWood = material(0x231f26), gold = material(0xb88b4b, { metalness: 0.4, roughness: 0.4 });
-    const plaster = material(0x8c9597), roofInk = material(0x213744), roofGold = material(0x8e6e42);
-    const vermilion = material(0x7d2936), cream = material(0xede0c2), jade = material(0x729f9c);
-    const stone = material(0x485763), skin = material(0xe3bd99), hair = material(0x171922);
-    const whiteSilk = material(0xf1e8d5), roseSilk = material(0xc37d85), blueSilk = material(0x638891);
-    const lamp = material(0xffd796, { emissive: 0xffa149, emissiveIntensity: 2 });
-    const sphere = new THREE.SphereGeometry(1, 16, 12);
-    const cube = new THREE.BoxGeometry(1, 1, 1);
-    const tube = new THREE.CylinderGeometry(1, 1, 1, 10);
-    geometries.add(sphere); geometries.add(cube); geometries.add(tube);
-    const add = (geometry: THREE.BufferGeometry, mat: THREE.Material, parent: THREE.Object3D, x = 0, y = 0, z = 0) => {
-      geometries.add(geometry);
-      const object = new THREE.Mesh(geometry, mat);
-      object.position.set(x, y, z); object.castShadow = true; object.receiveShadow = true;
-      parent.add(object); return object;
-    };
-    const box = (parent: THREE.Object3D, x: number, y: number, z: number, w: number, h: number, d: number, mat = wood) => {
-      const object = add(cube, mat, parent, x, y, z); object.scale.set(w, h, d); return object;
-    };
-    const ball = (parent: THREE.Object3D, x: number, y: number, z: number, w: number, h: number, d: number, mat: THREE.Material) => {
-      const object = add(sphere, mat, parent, x, y, z); object.scale.set(w, h, d); return object;
-    };
-    const rod = (parent: THREE.Object3D, x: number, y: number, z: number, r: number, height: number, mat = wood) => {
-      const object = add(tube, mat, parent, x, y, z); object.scale.set(r, height, r); return object;
-    };
-    const group = (parent: THREE.Object3D, x = 0, y = 0, z = 0) => {
-      const value = new THREE.Group(); value.position.set(x, y, z); parent.add(value); return value;
-    };
-    const texture = (canvas: HTMLCanvasElement) => {
-      const value = new THREE.CanvasTexture(canvas); value.colorSpace = THREE.SRGBColorSpace; textures.add(value); return value;
-    };
-    const glowCanvas = document.createElement('canvas'); glowCanvas.width = glowCanvas.height = 64;
-    const glowContext = glowCanvas.getContext('2d')!;
-    const gradient = glowContext.createRadialGradient(32, 32, 0, 32, 32, 32);
-    gradient.addColorStop(0, '#ffe5b1'); gradient.addColorStop(0.18, '#ffc478aa'); gradient.addColorStop(1, '#ffae4200');
-    glowContext.fillStyle = gradient; glowContext.fillRect(0, 0, 64, 64);
-    const glowMaterial = new THREE.SpriteMaterial({ map: texture(glowCanvas), blending: THREE.AdditiveBlending, transparent: true, opacity: 0.6, depthWrite: false });
-    materials.add(glowMaterial);
-    const lanterns: THREE.Group[] = [];
-    function lantern(parent: THREE.Object3D, x: number, y: number, z: number, scale = 1) {
-      const g = group(parent, x, y, z); g.scale.setScalar(scale); lanterns.push(g);
-      rod(g, 0, 0.48, 0, 0.012, 0.6, gold);
-      ball(g, 0, 0, 0, 0.28, 0.38, 0.28, lamp);
-      for (let i = 0; i < 6; i++) {
-        const angle = i * Math.PI / 3;
-        const rib = rod(g, Math.cos(angle) * 0.27, 0, Math.sin(angle) * 0.27, 0.009, 0.52, gold);
-        rib.castShadow = false;
-      }
-      rod(g, 0, 0.36, 0, 0.18, 0.06, gold); rod(g, 0, -0.36, 0, 0.18, 0.06, gold);
-      rod(g, 0, -0.56, 0, 0.018, 0.3, vermilion);
-      const glow = new THREE.Sprite(glowMaterial); glow.scale.set(2, 2, 1); g.add(glow);
+    const box = (parent: THREE.Object3D, material: THREE.Material, [x, y, z]: V3, [w, h, d]: V3) => mesh(new THREE.BoxGeometry(w, h, d), material, parent, x, y, z);
+    const canvasTexture = (canvas: HTMLCanvasElement) => { const value = new THREE.CanvasTexture(canvas); value.colorSpace = THREE.SRGBColorSpace; textures.add(value); return value; };
+    const lambert = (color: number, extra: THREE.MeshLambertMaterialParameters = {}) => new THREE.MeshLambertMaterial({ color, ...extra });
+    const ink = new THREE.MeshBasicMaterial({ color: 0x05070b, side: THREE.DoubleSide });
+
+    /** Additive glowing points; each entry is [position, HDR colour, world size, time lit (-1: always)]. */
+    function glows(parent: THREE.Object3D, entries: [V3, THREE.Color, number, number][]) {
+      const geometry = new THREE.BufferGeometry();
+      const position = new Float32Array(entries.length * 3), colors = new Float32Array(entries.length * 3);
+      const size = new Float32Array(entries.length), on = new Float32Array(entries.length), seed = new Float32Array(entries.length);
+      entries.forEach(([p, color, s, lit], i) => { position.set(p, i * 3); color.toArray(colors, i * 3); size[i] = s; on[i] = lit; seed[i] = rand(); });
+      geometry.setAttribute('position', new THREE.BufferAttribute(position, 3));
+      geometry.setAttribute('aColor', new THREE.BufferAttribute(colors, 3));
+      geometry.setAttribute('aSize', new THREE.BufferAttribute(size, 1));
+      geometry.setAttribute('aOn', new THREE.BufferAttribute(on, 1));
+      geometry.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
+      const points = new THREE.Points(geometry, new THREE.ShaderMaterial({
+        uniforms: shared, vertexShader: glowVertex, fragmentShader: glowFragment,
+        blending: THREE.AdditiveBlending, transparent: true, depthWrite: false,
+      }));
+      points.frustumCulled = false; parent.add(points);
+      return points;
     }
-    function roof(parent: THREE.Object3D, y: number, width: number, depth: number, mat = roofInk) {
-      const vertices: number[] = [], indices: number[] = [];
-      const nx = 20, nz = 16;
-      for (let iz = 0; iz <= nz; iz++) for (let ix = 0; ix <= nx; ix++) {
-        const u = ix / nx * 2 - 1, v = iz / nz * 2 - 1;
-        const rise = (1 - Math.abs(v)) ** 1.6 * depth * 0.23 + Math.abs(v) ** 9 * 0.25 + Math.abs(u) ** 8 * Math.abs(v) ** 4 * 0.3;
-        vertices.push(u * width / 2, y + rise, v * depth / 2);
-        if (ix < nx && iz < nz) {
-          const a = iz * (nx + 1) + ix, b = a + nx + 1;
-          indices.push(a, b, a + 1, a + 1, b, b + 1);
-        }
-      }
-      const geometry = new THREE.BufferGeometry(); geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3)); geometry.setIndex(indices); geometry.computeVertexNormals();
-      add(geometry, mat, parent);
-      box(parent, 0, y + depth * 0.23, 0, width * 0.9, 0.13, 0.17, gold);
-      for (const side of [-1, 1]) {
-        const points: THREE.Vector3[] = [];
-        for (let i = 0; i <= 20; i++) { const u = i / 10 - 1; points.push(new THREE.Vector3(u * width / 2, y + 0.25 + Math.abs(u) ** 8 * 0.3, side * depth / 2)); }
-        add(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), 24, 0.055, 5, false), gold, parent);
-      }
-    }
-    function plaque(parent: THREE.Object3D, text: string, y: number, z: number) {
-      const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 128;
-      const ctx = canvas.getContext('2d')!;
-      ctx.fillStyle = '#29222a'; ctx.fillRect(0, 0, 512, 128);
-      ctx.strokeStyle = '#ba9356'; ctx.lineWidth = 8; ctx.strokeRect(8, 8, 496, 112);
-      ctx.font = '64px "Noto Serif SC", "Songti SC", serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#e0bf82'; ctx.fillText(text, 256, 66);
-      const mat = material(0xffffff, { map: texture(canvas), roughness: 1 });
-      add(new THREE.PlaneGeometry(3.4, 0.85), mat, parent, 0, y, z);
-    }
-    function facade(x: number, z: number, width = 5, height = 5, palace = false) {
-      const g = group(scene, x, 0, z);
-      box(g, 0, height / 2, 0, width, height, 4, palace ? vermilion : plaster);
-      for (const px of [-width * 0.42, width * 0.42]) rod(g, px, height / 2, 2.12, 0.12, height, wood);
-      box(g, 0, 1.15, 2.02, 1.4, 2.3, 0.15, darkWood);
-      for (const px of [-width * 0.3, width * 0.3]) {
-        box(g, px, height * 0.66, 2.04, 1.15, 1.45, 0.12, material(0xe5b775, { emissive: 0xc4823b, emissiveIntensity: 0.5 }));
-        for (let i = 0; i < 4; i++) box(g, px - 0.48 + i * 0.32, height * 0.66, 2.13, 0.035, 1.5, 0.04, wood);
-        box(g, px, height * 0.66, 2.14, 1.2, 0.04, 0.04, wood);
-      }
-      roof(g, height, width + 1.5, 5.2, palace ? roofGold : roofInk);
-      lantern(g, -width * 0.35, height - 0.6, 2.65, 0.8);
-      lantern(g, width * 0.35, height - 0.6, 2.65, 0.8);
+    const warm = (gain: number, hex = 0xffa24c) => new THREE.Color(hex).multiplyScalar(gain);
+
+    function lantern(parent: THREE.Object3D, [x, y, z]: V3, scale = 1) {
+      const g = group(parent, x, y, z); g.scale.setScalar(scale);
+      const shell = new THREE.MeshStandardMaterial({ color: 0xc8402a, emissive: 0xff5a24, emissiveIntensity: 1.8, roughness: 0.6 });
+      const brass = new THREE.MeshStandardMaterial({ color: 0x8a6a34, roughness: 0.5, metalness: 0.4 });
+      mesh(new THREE.SphereGeometry(1, 16, 12), shell, g).scale.set(0.22, 0.27, 0.22);
+      mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.05, 12), brass, g, 0, 0.27, 0);
+      mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.05, 12), brass, g, 0, -0.27, 0);
+      mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.6, 4), brass, g, 0, 0.58, 0);
+      mesh(new THREE.CylinderGeometry(0.03, 0.005, 0.28, 6), shell, g, 0, -0.43, 0);
       return g;
     }
 
-    scene.add(new THREE.HemisphereLight(0x9bbfdf, 0x3d2928, 1.45));
-    const moonlight = new THREE.DirectionalLight(0x9abce2, 2.3); moonlight.position.set(-12, 22, 4); scene.add(moonlight);
-    moonlight.castShadow = true; moonlight.shadow.mapSize.set(1024, 1024);
-    Object.assign(moonlight.shadow.camera, { left: -22, right: 22, top: 22, bottom: -22, near: 1, far: 70 });
-    moonlight.shadow.normalBias = 0.04;
-    const moon = ball(scene, -18, 21, -44, 1.45, 1.45, 1.45, lamp); moon.castShadow = false;
-    const moonGlow = new THREE.Sprite(glowMaterial); moonGlow.position.copy(moon.position); moonGlow.scale.setScalar(8); scene.add(moonGlow);
-    box(scene, 0, -0.17, 0, 80, 0.3, 100, stone);
-    const paving = material(0x6c7377);
-    // A processional street opens onto an inhabited theatre court.
-    for (let z = -18; z < 24; z += 1.8) for (const x of [-3.1, -1.05, 1.05, 3.1]) box(scene, x, 0, z, 1.98, 0.025, 1.72, paving);
-    for (const side of [-1, 1]) for (let i = 0; i < 5; i++) facade(side * (11.2 + i % 2 * 0.5), 13 - i * 8, 5.7, 4.4 + i % 2 * 1.5);
-    box(scene, 0, 3.2, -33, 46, 6.4, 2, material(0x334754));
-    facade(0, -31, 11, 9, true);
-    for (const x of [-18, -9, 9, 18]) facade(x, -36, 6, 7, true);
-    for (let i = 0; i < 7; i++) {
-      lantern(scene, (i - 3) * 2.5, 6.6 - Math.sin(i / 6 * Math.PI) * 0.8, 10);
-      lantern(scene, (i - 3) * 2.3, 7.5 - Math.sin(i / 6 * Math.PI) * 0.8, -1);
+    // --- Sky, moon and light shared by every set -------------------------------------------
+    const sky = new THREE.ShaderMaterial({
+      uniforms: {
+        uTop: { value: new THREE.Color() }, uHorizon: { value: new THREE.Color() }, uGlow: { value: new THREE.Color() },
+        uMoon: { value: new THREE.Vector3() }, uMoonSize: { value: 0.04 }, uMoonGain: { value: 1 }, uStars: { value: 1 },
+      },
+      vertexShader: skyVertex, fragmentShader: skyFragment, side: THREE.BackSide, depthWrite: false, fog: false,
+    });
+    const dome = mesh(new THREE.SphereGeometry(500, 48, 24), sky, scene);
+    dome.renderOrder = -1; dome.frustumCulled = false;
+    scene.add(new THREE.HemisphereLight(0x7d8fbf, 0x2a1f1c, 0.55));
+    const moonlight = new THREE.DirectionalLight(0xa9bde6, 1.1);
+    scene.add(moonlight, moonlight.target);
+
+    // --- Shots 1–2: the capital ------------------------------------------------------------
+    const city = group(scene);
+    mesh(new THREE.PlaneGeometry(1400, 1400).rotateX(-Math.PI / 2), lambert(0x12151d), city);
+    const halls: { x: number; z: number; w: number; h: number; d: number; stage: boolean }[] = [];
+    for (let i = -9; i <= 9; i++) for (let j = -10; j <= 2; j++) {
+      const cx = i * 16, cz = j * 16;
+      if (i === 0 && cz > -40) continue; // the processional avenue
+      if (Math.abs(i) <= 2 && cz <= -36) continue; // the palace precinct
+      for (const ox of [-3.25, 3.25]) for (const oz of [-3.25, 3.25]) {
+        if (rand() > 0.82) continue;
+        const w = 4 + rand() * 2.2, stage = rand() < 0.06;
+        halls.push({ x: cx + ox + (rand() - 0.5), z: cz + oz + (rand() - 0.5), w, h: w * (0.75 + rand() * 0.3) * (stage ? 1.45 : 1), d: w * (0.7 + rand() * 0.15), stage });
+      }
     }
-    for (const z of [10, -1]) {
-      const points = Array.from({ length: 17 }, (_, i) => new THREE.Vector3((i - 8), 7.1 - Math.sin(i / 16 * Math.PI) * 0.8 + (z === -1 ? 0.9 : 0), z));
-      add(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), 24, 0.012, 4, false), darkWood, scene);
+    const cityMaterial = lambert(0xffffff, { vertexColors: true, side: THREE.DoubleSide });
+    const houses = new THREE.InstancedMesh(hallGeometry(0x1a2233, 0x33261f, 0x3a3d45), cityMaterial, halls.length);
+    const matrix = new THREE.Matrix4(), tint = new THREE.Color();
+    halls.forEach((hall, i) => {
+      matrix.makeScale(hall.w, hall.h, hall.d).setPosition(hall.x, 0, hall.z);
+      houses.setMatrixAt(i, matrix);
+      houses.setColorAt(i, tint.setScalar(0.8 + rand() * 0.4));
+    });
+    city.add(houses);
+    // The Forbidden City: vermilion walls, a gate tower and three great halls on marble terraces.
+    const palaceHall = hallGeometry(0x6d5020, 0x5a1914, 0x8e8f96);
+    const palace = new THREE.InstancedMesh(palaceHall, cityMaterial, 4);
+    [[0, 6, -38, 28], [0, 2.4, -64, 30], [0, 2.4, -88, 20], [0, 2.4, -112, 32]].forEach(([x, y, z, w], i) => {
+      palace.setMatrixAt(i, matrix.makeScale(w, w * 0.85, w * 0.72).setPosition(x, y, z));
+    });
+    city.add(palace);
+    const vermilion = lambert(0x4e1714), marble = lambert(0x7d7f88);
+    box(city, vermilion, [0, 3, -38], [34, 6, 10]);
+    for (const z of [-64, -88, -112]) box(city, marble, [0, 1.2, z], [40, 2.4, 26]);
+    for (const x of [-38, 38]) box(city, vermilion, [x, 3, -86], [1.2, 6, 96]);
+    box(city, vermilion, [0, 3, -134], [77, 6, 1.2]);
+    // Western Hills on the horizon, drawn as flat washes beyond the fog.
+    [[-430, 0x1b2036, 60], [-360, 0x232842, 36]].forEach(([z, color, peak]) => {
+      const shape = new THREE.Shape(); shape.moveTo(-900, -40);
+      for (let x = -900; x <= 900; x += 30) shape.lineTo(x, 8 + peak * (0.5 + 0.3 * Math.sin(x * 0.011 + z) + 0.2 * Math.sin(x * 0.031)));
+      shape.lineTo(900, -40);
+      mesh(new THREE.ShapeGeometry(shape), new THREE.MeshBasicMaterial({ color, fog: false }), city, 0, 0, z);
+    });
+    // Windows glow faintly everywhere; the theatres light up in a wave spreading from the palace.
+    const cityGlows: [V3, THREE.Color, number, number][] = [];
+    for (const hall of halls) {
+      const lit = Math.hypot(hall.x, hall.z + 60);
+      for (const side of [-0.2, 0.2]) if (rand() < 0.55) cityGlows.push([[hall.x + side * hall.w, 0.3 * hall.h, hall.z + 0.3 * hall.d], warm(0.45 + rand() * 0.3, 0xffb870), 0.9, -1]);
+      if (!hall.stage) continue;
+      const on = 1.4 + lit / 180 * 4.2 + rand() * 0.4;
+      for (let k = 0; k < 6; k++) cityGlows.push([[hall.x + (k / 5 - 0.5) * 0.8 * hall.w, 0.46 * hall.h, hall.z + 0.46 * hall.d], warm(2.6, 0xff7a3a), 0.55, on + k * 0.05]);
+      cityGlows.push([[hall.x, 0.3 * hall.h, hall.z + 0.6 * hall.d], warm(0.35), 16, on]);
     }
-    const stage = group(scene, 0, 0, -10);
-    box(stage, 0, 0.65, 0, 10, 1.3, 6.6, wood);
-    for (let i = 0; i < 4; i++) box(stage, 0, 0.15 + i * 0.3, 4.55 - i * 0.4, 8, 0.3, 0.5, stone);
-    for (const x of [-4.5, 4.5]) for (const z of [-2.8, 2.8]) {
-      rod(stage, x, 3.7, z, 0.17, 5.3, vermilion);
-      rod(stage, x, 1.6, z, 0.23, 0.45, gold);
+    for (let k = 0; k < 12; k++) for (const x of [-6, 6]) cityGlows.push([[x, 1.6, 30 - k * 6], warm(2.2, 0xff5a2a), 0.5, 0.9 + (12 - k) * 0.08]);
+    for (let k = 0; k < 9; k++) cityGlows.push([[(k - 4) * 3.2, 7.5, -32.5], warm(2.4, 0xff6030), 0.6, 0.6]);
+    glows(city, cityGlows);
+    // 大千队里: a river of hand lanterns along every street, thickest on the avenue.
+    {
+      const count = 3200, geometry = new THREE.BufferGeometry();
+      const start = new Float32Array(count * 3), direction = new Float32Array(count * 3), colors = new Float32Array(count * 3);
+      const length = new Float32Array(count), speed = new Float32Array(count), seed = new Float32Array(count);
+      const hues = [0xffa04a, 0xff7338, 0xffc680];
+      for (let i = 0; i < count; i++) {
+        const along = rand() < 0.5 ? 1 : -1;
+        if (i < 1500) { start.set([(rand() - 0.5) * 9, 1, along > 0 ? -34 : 50], i * 3); direction.set([0, 0, along], i * 3); length[i] = 84; }
+        else if (rand() < 0.5) { const x = (Math.floor(rand() * 18) - 9) * 16 + 8 + (rand() - 0.5) * 2; start.set([x, 1, along > 0 ? -168 : 40], i * 3); direction.set([0, 0, along], i * 3); length[i] = 208; }
+        else { const z = (Math.floor(rand() * 13) - 10) * 16 + 8 + (rand() - 0.5) * 2; start.set([along > 0 ? -152 : 152, 1, z], i * 3); direction.set([along, 0, 0], i * 3); length[i] = 304; }
+        new THREE.Color(hues[i % 3]).multiplyScalar(1.1 + rand() * 0.9).toArray(colors, i * 3);
+        speed[i] = 1 + rand() * 1.2; seed[i] = rand();
+      }
+      geometry.setAttribute('position', new THREE.BufferAttribute(start, 3));
+      geometry.setAttribute('aDirection', new THREE.BufferAttribute(direction, 3));
+      geometry.setAttribute('aColor', new THREE.BufferAttribute(colors, 3));
+      geometry.setAttribute('aLength', new THREE.BufferAttribute(length, 1));
+      geometry.setAttribute('aSpeed', new THREE.BufferAttribute(speed, 1));
+      geometry.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
+      const crowd = new THREE.Points(geometry, new THREE.ShaderMaterial({
+        uniforms: shared, vertexShader: crowdVertex, fragmentShader: glowFragment, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false,
+      }));
+      crowd.frustumCulled = false; city.add(crowd);
     }
-    box(stage, 0, 6.1, 2.8, 9.6, 0.5, 0.4, wood);
-    roof(stage, 6.35, 11.5, 8);
-    box(stage, 0, 3.8, -2.8, 9, 5.1, 0.2, vermilion);
-    for (const x of [-3.7, 3.7]) for (let i = 0; i < 7; i++) {
-      const curtain = rod(stage, x + (i - 3) * 0.19, 3.7, 2.1, 0.16, 4.7, vermilion);
-      curtain.scale.x *= 0.85;
-    }
-    plaque(stage, '歌台舞榭', 5.88, 3.03);
-    for (const x of [-3, -1, 1, 3]) lantern(stage, x, 5.05, 1.5, 0.75);
-    for (let i = 0; i < 13; i++) box(stage, (i - 6) * 0.64, 1.31, 0, 0.61, 0.025, 6.1, i % 2 ? wood : darkWood);
-    const stageLight = new THREE.SpotLight(0xffd39a, 155, 30, Math.PI / 3, 0.75, 1.2);
-    stageLight.position.set(0, 7, -3); stageLight.target.position.set(0, 1.8, -9); scene.add(stageLight, stageLight.target);
-    for (const x of [-6, 6]) {
-      const light = new THREE.PointLight(0xffb96d, 38, 17, 1.6); light.position.set(x, 4, 0); scene.add(light);
+    // Clouds for the descent from 尺五天边.
+    {
+      const canvas = document.createElement('canvas'); canvas.width = canvas.height = 256;
+      const ctx = canvas.getContext('2d')!;
+      for (let i = 0; i < 14; i++) {
+        const x = 60 + rand() * 136, y = 90 + rand() * 76, r = 30 + rand() * 60;
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, r);
+        gradient.addColorStop(0, 'rgba(255,255,255,0.35)'); gradient.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.fillStyle = gradient; ctx.fillRect(0, 0, 256, 256);
+      }
+      const cloud = new THREE.SpriteMaterial({ map: canvasTexture(canvas), color: 0x5a6590, transparent: true, opacity: 0.42, depthWrite: false, fog: false });
+      for (let i = 0; i < 16; i++) {
+        const sprite = new THREE.Sprite(cloud);
+        sprite.position.set((rand() - 0.5) * 170, 55 + rand() * 55, -30 + rand() * 170);
+        sprite.scale.set(50 + rand() * 50, 22 + rand() * 18, 1);
+        city.add(sprite);
+      }
     }
 
-    type Figure = { root: THREE.Group; torso: THREE.Group; left: THREE.Group; right: THREE.Group; phase: number };
-    const dancers: Figure[] = [], walkers: Figure[] = [], spectators: Figure[] = [];
-    const ribbons: { geometry: THREE.BufferGeometry; phase: number; dancing: boolean }[] = [];
-    function figure(parent: THREE.Object3D, x: number, z: number, robe: THREE.Material, performer = false, y = 0): Figure {
-      const root = group(parent, x, y, z), torso = group(root, 0, 0.85, 0);
-      add(new THREE.CylinderGeometry(0.2, 0.4, 1.05, 14), robe, root, 0, 0.55, 0);
-      ball(torso, 0, 0.15, 0, 0.29, 0.34, 0.19, robe);
-      ball(torso, 0, 0.69, 0, 0.18, 0.23, 0.17, skin);
-      ball(torso, 0, 0.8, -0.02, 0.185, 0.15, 0.17, hair);
-      if (performer) {
-        for (let i = 0; i < 5; i++) ball(torso, (i - 2) * 0.075, 0.97 + (2 - Math.abs(i - 2)) * 0.06, 0, 0.04, 0.065, 0.045, gold);
-        for (const side of [-1, 1]) {
-          rod(torso, side * 0.2, 0.76, 0.04, 0.015, 0.33, gold);
-          ball(torso, side * 0.2, 0.57, 0.04, 0.035, 0.035, 0.035, cream);
+    // The tavern terrace at the avenue's south end, looking north to the palace.
+    const terrace = group(city, 0, 16, 52);
+    const lacquer = lambert(0x3a1512), timber = lambert(0x2b1a14);
+    box(terrace, timber, [0, -0.1, 0.5], [8, 0.2, 5]);
+    box(terrace, lacquer, [0, 0.92, -1.3], [7.4, 0.07, 0.08]);
+    box(terrace, lacquer, [0, 0.12, -1.3], [7.4, 0.07, 0.08]);
+    for (let x = -3.6; x <= 3.61; x += 0.4) box(terrace, lacquer, [x, 0.52, -1.3], [0.045, 0.8, 0.045]);
+    for (const x of [-3.7, 3.7]) box(terrace, lacquer, [x, 2.2, -1.3], [0.2, 4.6, 0.2]);
+    box(terrace, lacquer, [0, 4.4, -1.3], [7.8, 0.25, 0.22]);
+    box(terrace, timber, [0, 0.77, 0.5], [1.7, 0.06, 1]);
+    for (const x of [-0.75, 0.75]) for (const z of [0.1, 0.9]) box(terrace, timber, [x, 0.37, z], [0.06, 0.74, 0.06]);
+    const celadon = new THREE.MeshStandardMaterial({ color: 0x8fb8a6, roughness: 0.25, side: THREE.DoubleSide });
+    const cup = mesh(new THREE.LatheGeometry([[0, 0], [0.03, 0], [0.035, 0.008], [0.06, 0.03], [0.075, 0.062], [0.071, 0.064]].map(([x, y]) => new THREE.Vector2(x, y)), 32), celadon, terrace, 0.35, 0.8, 0.55);
+    const wine = new THREE.ShaderMaterial({ uniforms: { uTime: shared.uTime, uHit: { value: 13.4 } }, vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }', fragmentShader: wineFragment, transparent: true });
+    mesh(new THREE.CircleGeometry(0.068, 48).rotateX(-Math.PI / 2), wine, cup, 0, 0.05, 0);
+    // 评花: a single peony in a vase opens as the camera settles.
+    const vase = mesh(new THREE.LatheGeometry([[0, 0], [0.06, 0], [0.085, 0.03], [0.1, 0.1], [0.085, 0.2], [0.05, 0.27], [0.042, 0.3], [0.055, 0.33]].map(([x, y]) => new THREE.Vector2(x, y)), 48), new THREE.MeshStandardMaterial({ color: 0x2c4a66, roughness: 0.3 }), terrace, -0.15, 0.8, 0.28);
+    mesh(new THREE.CylinderGeometry(0.008, 0.01, 0.2, 5), lambert(0x28401e), vase, 0, 0.42, 0);
+    const leaf = lambert(0x2f4a26, { side: THREE.DoubleSide });
+    for (const [a, y] of [[0.6, 0.4], [2.6, 0.44], [4.4, 0.37]]) {
+      const l = mesh(new THREE.SphereGeometry(1, 8, 6), leaf, vase, Math.cos(a) * 0.09, y, Math.sin(a) * 0.09);
+      l.scale.set(0.1, 0.012, 0.04); l.rotation.set(0, -a, -0.4);
+    }
+    const flower = group(vase, 0, 0.5, 0); flower.scale.setScalar(1.4);
+    const petalMaterial = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.55, side: THREE.DoubleSide, emissive: 0x3a0812 });
+    const rings = [{ n: 6, r: 0.01, w: 0.05, h: 0.06 }, { n: 9, r: 0.025, w: 0.08, h: 0.09 }, { n: 12, r: 0.04, w: 0.1, h: 0.11 }, { n: 14, r: 0.055, w: 0.12, h: 0.12 }];
+    const petals = new THREE.InstancedMesh(petalGeometry(1, 1, 0x6a0c22, 0xf5a3b4), petalMaterial, rings.reduce((sum, ring) => sum + ring.n, 0));
+    flower.add(petals);
+    mesh(new THREE.SphereGeometry(0.025, 10, 8), new THREE.MeshStandardMaterial({ color: 0xe8c04a, emissive: 0x5a3a08 }), flower);
+    const euler = new THREE.Euler(0, 0, 0, 'YXZ'), quaternion = new THREE.Quaternion(), place = new THREE.Vector3(), size = new THREE.Vector3();
+    const openPeony = (bloom: number) => {
+      let index = 0;
+      rings.forEach((ring, k) => {
+        for (let i = 0; i < ring.n; i++) {
+          const a = i / ring.n * Math.PI * 2 + k * 0.7;
+          const tilt = THREE.MathUtils.lerp(0.12 + k * 0.08, 0.3 + k * 0.38, bloom);
+          place.set(-Math.sin(a) * ring.r, 0, -Math.cos(a) * ring.r);
+          quaternion.setFromEuler(euler.set(-tilt, a, 0));
+          petals.setMatrixAt(index++, matrix.compose(place, quaternion, size.set(ring.w, ring.h, ring.w)));
         }
-      } else {
-        rod(torso, 0, 0.88, -0.02, 0.18, 0.12, hair);
-        ball(torso, 0, 0.99, -0.03, 0.065, 0.08, 0.065, hair);
-      }
-      for (const side of [-1, 1]) {
-        ball(torso, side * 0.063, 0.7, 0.155, 0.023, 0.013, 0.018, hair);
-        box(torso, side * 0.105, 0.34, 0.177, 0.045, 0.3, 0.035, cream).rotation.z = side * 0.5;
-      }
-      box(torso, 0, 0.01, 0, 0.52, 0.07, 0.39, gold);
-      const arms = [-1, 1].map(side => {
-        const arm = group(torso, side * 0.28, 0.27, 0);
-        const sleeve = add(new THREE.CylinderGeometry(0.13, 0.22, 0.57, 12), robe, arm, 0, -0.25, 0);
-        sleeve.rotation.z = side * 0.12;
-        ball(arm, 0, -0.58, 0.02, 0.07, 0.09, 0.06, skin);
-        arm.rotation.z = side * 0.28;
-        if (performer) {
-          const geometry = new THREE.BufferGeometry(); const points = new Float32Array(26 * 3); const indices: number[] = [];
-          for (let i = 0; i < 12; i++) { const a = i * 2; indices.push(a, a + 1, a + 2, a + 1, a + 3, a + 2); }
-          geometry.setAttribute('position', new THREE.BufferAttribute(points, 3)); geometry.setIndex(indices);
-          const sleeveMaterial = material(0xf0e9d8, { side: THREE.DoubleSide });
-          add(geometry, sleeveMaterial, arm, 0, -0.55, 0);
-          // Offstage sleeves hang quietly; only the stage performers flourish them.
-          ribbons.push({ geometry, phase: side + x, dancing: parent === stage });
-        }
-        return arm;
       });
-      return { root, torso, left: arms[0], right: arms[1], phase: x + z };
-    }
-    dancers.push(figure(stage, -1.45, 1, roseSilk, true, 1.34), figure(stage, 1.45, 0.35, whiteSilk, true, 1.34));
-    const musician = figure(stage, -3.5, -1.35, blueSilk, false, 1.34);
-    musician.root.rotation.y = 0.5;
-    for (const hand of [musician.left, musician.right]) {
-      const stick = rod(hand, 0, -0.68, 0.18, 0.018, 0.55, gold);
-      stick.rotation.x = Math.PI / 3;
-    }
-    const drum = rod(stage, -3.2, 1.8, -0.65, 0.34, 0.46, vermilion); rod(stage, -3.2, 2.04, -0.65, 0.35, 0.03, cream);
-    drum.rotation.y = 0.2;
-    function table(x: number, z: number) {
-      rod(scene, x, 0.97, z, 0.72, 0.12, wood);
-      rod(scene, x, 0.48, z, 0.15, 0.9, darkWood);
-      rod(scene, x + 0.15, 1.16, z, 0.085, 0.25, jade);
-      for (const side of [-1, 1]) {
-        rod(scene, x + side * 0.32, 1.07, z + 0.13, 0.065, 0.1, cream);
-        const f = figure(scene, x + side * 0.9, z + 0.1, side === 1 ? blueSilk : cream);
-        f.root.rotation.y = Math.PI + side * 0.5; f.root.scale.setScalar(0.88); spectators.push(f);
-        // A cup follows the patron's hand instead of remaining an inert table prop.
-        rod(f.right, 0, -0.59, 0.08, 0.075, 0.11, cream);
-      }
-    }
-    for (const z of [0.6, 4.5, 8.3]) for (const x of [-5.4, 5.4]) table(x, z);
-    const crowdColors = [blueSilk, roseSilk, cream, jade, plaster];
-    for (let i = 0; i < 20; i++) {
-      const side = i % 2 ? 1 : -1;
-      const f = figure(scene, side * (7.1 + (i % 3) * 0.55), -14 + i * 1.7, crowdColors[i % 5]);
-      f.root.rotation.y = i % 3 ? Math.PI : 0; f.root.scale.setScalar(0.75 + (i % 3) * 0.07); walkers.push(f);
-    }
-    // The paragraph names no individuals: these two figures embody its ethical turn.
-    const gentleman = figure(scene, -1.65, -3.5, jade);
-    const actor = figure(scene, 1.65, -3.5, whiteSilk, true);
-    gentleman.root.rotation.y = Math.PI / 2; actor.root.rotation.y = -Math.PI / 2;
-    const dignityLight = new THREE.PointLight(0xffd7a2, 18, 10, 1.4); dignityLight.position.set(0, 3.2, -1); scene.add(dignityLight);
-
-    // The closing image belongs to the narrator, spatially separated from the city set.
-    const desk = group(scene, 60, 0, 0);
-    box(desk, 0, 1.3, 0, 7.6, 0.22, 5.4, darkWood);
-    for (const x of [-3.1, 3.1]) for (const z of [-2, 2]) box(desk, x, 0.65, z, 0.18, 1.3, 0.18, wood);
-    const manuscript = document.createElement('canvas'); manuscript.width = 1024; manuscript.height = 768;
-    const manuscriptContext = manuscript.getContext('2d')!;
-    const manuscriptTexture = texture(manuscript);
-    const paperMaterial = material(0xffffff, { map: manuscriptTexture, roughness: 1 });
-    const paper = add(new THREE.PlaneGeometry(5.4, 3.9), paperMaterial, desk, 0, 1.43, 0); paper.rotation.x = -Math.PI / 2;
-    for (const x of [-2.76, 2.76]) { const roller = rod(desk, x, 1.49, 0, 0.13, 4.15, gold); roller.rotation.x = Math.PI / 2; }
-    box(desk, 3.03, 1.48, -1, 0.7, 0.14, 0.95, hair);
-    box(desk, 3.03, 1.565, -1, 0.47, 0.02, 0.65, darkWood);
-    // The group's origin is the brush tip, so its path can match the ink exactly.
-    const brush = group(desk, 0, 1.45, 0); brush.rotation.z = -0.18;
-    rod(brush, 0, 0.65, 0, 0.045, 1.2, gold);
-    add(new THREE.ConeGeometry(0.085, 0.34, 12), hair, brush, 0, 0.17, 0).rotation.z = Math.PI;
-    lantern(desk, -3.1, 2.7, -1.4, 0.9);
-    const deskLight = new THREE.PointLight(0xffd496, 40, 15, 1.4); deskLight.position.set(58, 5, 3); scene.add(deskLight);
-    // Eleven ordered strokes of 情. The same paths drive both ink and brush;
-    // evaluating absolute time keeps replay and backwards seeking deterministic.
-    const strokes = [
-      [[289, 281], [288, 321], [278, 356], [261, 378]],
-      [[347, 269], [366, 291], [377, 322], [375, 341]],
-      [[329, 185], [320, 214], [324, 363], [317, 515], [308, 574]],
-      [[428, 238], [454, 244], [574, 230], [696, 220], [732, 229]],
-      [[463, 306], [491, 309], [602, 296], [704, 290]],
-      [[580, 173], [590, 190], [582, 270], [574, 366]],
-      [[409, 374], [440, 382], [584, 365], [725, 353], [766, 361]],
-      [[464, 415], [475, 438], [464, 526], [454, 590]],
-      [[466, 419], [590, 409], [700, 408], [707, 426], [694, 558], [687, 581], [653, 560]],
-      [[471, 474], [511, 477], [610, 465], [697, 465]],
-      [[465, 527], [507, 531], [611, 516], [692, 519]],
-    ].map(points => new THREE.CatmullRomCurve3(points.map(([x, y]) => new THREE.Vector3(x, y, 0)), false, 'centripetal'));
-    const strokePoint = (path: THREE.CatmullRomCurve3, progress: number) => {
-      const point = path.getPoint(THREE.MathUtils.clamp(progress, 0, 1));
-      return [point.x, point.y];
+      petals.instanceMatrix.needsUpdate = true;
     };
-    let paperStep = -1;
-    const paintManuscript = (progress: number) => {
-      const step = Math.floor(progress * 300); if (step === paperStep) return; paperStep = step;
-      const ctx = manuscriptContext;
-      ctx.fillStyle = '#e4d2ac'; ctx.fillRect(0, 0, 1024, 768);
-      // Ten open columns refer to the classification promised at the paragraph's end.
-      ctx.strokeStyle = '#b4987077'; ctx.lineWidth = 2;
-      for (let i = 0; i <= 10; i++) { ctx.beginPath(); ctx.moveTo(92 + i * 84, 72); ctx.lineTo(92 + i * 84, 696); ctx.stroke(); }
-      ctx.strokeRect(70, 48, 884, 672);
-      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillStyle = '#705b43'; ctx.font = '25px "KaiTi", "Noto Serif SC", serif';
-      Array.from('一二三四五六七八九十').forEach((label, i) => {
-        if (progress >= i / 30) ctx.fillText(label, 890 - i * 84, 101);
-      });
-      strokes.forEach((path, index) => {
-        const amount = THREE.MathUtils.clamp(progress * strokes.length - index, 0, 1);
-        if (amount <= 0) return;
-        // Press, travel, lift: broad ink bellies taper into pointed exits.
-        // Fixed samples and fibers keep the texture stable while seeking.
-        const edges: number[][][] = [[], []];
-        const samples = Math.max(1, Math.ceil(amount * 150));
-        for (let sample = 0; sample <= samples; sample++) {
-          const t = Math.min(amount, sample / 150);
-          const point = path.getPoint(t), tangent = path.getTangent(t);
-          const press = Math.pow(Math.sin(Math.PI * t), 0.55);
-          const width = (index < 2 ? 16 : index === 2 || index === 8 ? 19 : 13)
-            * (0.12 + press * (0.85 + 0.18 * Math.sin(t * 9 + index)));
-          for (let side = 0; side < 2; side++) {
-            const spread = (side ? 1 : -1) * width * (1 + 0.055 * Math.sin(sample * 2.7 + index));
-            edges[side].push([point.x - tangent.y * spread, point.y + tangent.x * spread]);
-          }
-        }
-        ctx.beginPath();
-        [...edges[0], ...edges[1].reverse()].forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
-        ctx.closePath();
-        ctx.fillStyle = '#241f1b'; ctx.fill();
-        // A soft ink edge and fine dry-brush channels suggest absorbent paper.
-        ctx.save(); ctx.clip();
-        ctx.strokeStyle = '#dbc6a13d'; ctx.lineWidth = 0.8;
-        for (let fiber = 0; fiber < 7; fiber++) {
-          ctx.beginPath();
-          for (let sample = 0; sample <= 60; sample++) {
-            const t = sample / 60 * amount;
-            const point = path.getPoint(t), tangent = path.getTangent(t);
-            const offset = (fiber - 3) * 3.1 + Math.sin(t * 18 + fiber + index) * 0.65;
-            const x = point.x - tangent.y * offset, y = point.y + tangent.x * offset;
-            if (sample === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-          }
-          ctx.stroke();
-        }
-        ctx.restore();
-      });
-      if (progress > 0.94) {
-        ctx.strokeStyle = '#953d35'; ctx.lineWidth = 5; ctx.strokeRect(805, 578, 78, 80);
-        ctx.fillStyle = '#953d35'; ctx.font = '30px serif'; ctx.fillText('守礼', 844, 620);
-      }
-      manuscriptTexture.needsUpdate = true;
-    };
-    paintManuscript(0);
-    const particleGeometry = new THREE.BufferGeometry();
-    const motes = new Float32Array(240 * 3);
-    for (let i = 0; i < 240; i++) { motes[i * 3] = Math.sin(i * 73.1) * 15; motes[i * 3 + 1] = ((i * 1.618) % 9) + 0.5; motes[i * 3 + 2] = Math.cos(i * 19.7) * 25; }
-    particleGeometry.setAttribute('position', new THREE.BufferAttribute(motes, 3)); geometries.add(particleGeometry);
-    const moteMaterial = new THREE.PointsMaterial({ color: 0xe9ba72, map: glowMaterial.map, size: 0.13, opacity: 0.55, transparent: true, depthWrite: false }); materials.add(moteMaterial);
-    const particles = new THREE.Points(particleGeometry, moteMaterial); scene.add(particles);
+    const fallingPetal = mesh(petalGeometry(0.08, 0.1, 0xb0304a, 0xf5a3b4), petalMaterial, terrace);
+    lantern(terrace, [-1.5, 2.3, 0.1], 0.9);
+    const lanternLight = new THREE.PointLight(0xffa050, 3, 9, 1.6);
+    lanternLight.position.set(-1.5, 2.2, 0.3); terrace.add(lanternLight);
+    // A candle between vase and cup keys the close-up.
+    mesh(new THREE.CylinderGeometry(0.018, 0.02, 0.14, 12), lambert(0xe9dcc0), terrace, 0.12, 0.87, 0.12);
+    mesh(new THREE.ConeGeometry(0.008, 0.03, 8), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xffd08a).multiplyScalar(3) }), terrace, 0.12, 0.965, 0.12);
+    const candle = new THREE.PointLight(0xffb468, 1.4, 3, 1.4); candle.position.set(0.12, 1.0, 0.16); terrace.add(candle);
+    glows(terrace, [[[-1.5, 2.3, 0.1], warm(0.9), 2.2, -1], [[0.12, 0.97, 0.12], warm(1.4, 0xffc070), 0.12, -1]]);
 
-    const from = new THREE.Vector3(), to = new THREE.Vector3(), target = new THREE.Vector3();
-    const smooth = (value: number) => THREE.MathUtils.smoothstep(value, 0, 1);
+    // --- Shot 3: the shadow-play screen ----------------------------------------------------
+    const shadow = group(scene, SET.shadow);
+    const play = createShadowPlay();
+    const screenTexture = canvasTexture(play.canvas);
+    mesh(new THREE.PlaneGeometry(40, 40).rotateX(-Math.PI / 2), lambert(0x16100d), shadow);
+    const screenMaterial = new THREE.MeshBasicMaterial({ map: screenTexture, fog: false });
+    screenMaterial.color.setRGB(1.08, 1.0, 0.9);
+    mesh(new THREE.PlaneGeometry(7.2, 4.05), screenMaterial, shadow, 0, 2.55, 0);
+    const frame = lambert(0x3a1d14);
+    for (const x of [-3.72, 3.72]) box(shadow, frame, [x, 2.6, 0], [0.22, 5.2, 0.2]);
+    box(shadow, frame, [0, 4.66, 0], [7.8, 0.22, 0.22]);
+    box(shadow, frame, [0, 0.52, 0], [7.8, 0.12, 0.22]);
+    box(shadow, lambert(0x2a140e), [0, 0.24, 0.02], [7.6, 0.46, 0.14]);
+    mesh(roofGeometry(8.8, 1.6, 0.55, new THREE.Color(0x1a1c24)), lambert(0xffffff, { vertexColors: true, side: THREE.DoubleSide }), shadow, 0, 4.78, 0);
+    for (const x of [-4.4, 4.4]) lantern(shadow, [x, 3.9, 0.3]);
+    glows(shadow, [[[-4.4, 3.9, 0.3], warm(1.2), 3, -1], [[4.4, 3.9, 0.3], warm(1.2), 3, -1]]);
+    const screenLight = new THREE.PointLight(0xffc27a, 9, 14, 1.4); screenLight.position.set(0, 2.5, 1.2); shadow.add(screenLight);
+    // Qing-dynasty spectators seen from behind: skullcaps and queues.
+    const audience: THREE.Group[] = [];
+    for (const [x, z] of [[-1.95, 6.8], [-0.7, 7.0], [0.65, 6.8], [1.9, 6.9], [-1.3, 5.0], [1.3, 5.1]]) {
+      const person = group(shadow, x, 0, z);
+      mesh(new THREE.SphereGeometry(1, 16, 12), ink, person, 0, 1.2, 0).scale.set(0.3, 0.36, 0.22);
+      mesh(new THREE.CylinderGeometry(0.06, 0.07, 0.14, 8), ink, person, 0, 1.52, 0);
+      const head = group(person, 0, 1.64, 0);
+      mesh(new THREE.SphereGeometry(0.13, 16, 12), ink, head);
+      mesh(new THREE.SphereGeometry(0.137, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2), ink, head, 0, 0.03, 0);
+      mesh(new THREE.SphereGeometry(0.025, 8, 6), ink, head, 0, 0.17, 0);
+      mesh(new THREE.CylinderGeometry(0.018, 0.01, 0.6, 5), ink, head, 0, -0.32, 0.13).rotation.x = 0.12;
+      audience.push(head);
+    }
+
+    // --- Shot 4: the moon gate --------------------------------------------------------------
+    const gate = group(scene, SET.gate);
+    mesh(new THREE.PlaneGeometry(80, 80).rotateX(-Math.PI / 2), lambert(0x2a2d33), gate);
+    const wallShape = new THREE.Shape([new THREE.Vector2(-9, 0), new THREE.Vector2(9, 0), new THREE.Vector2(9, 5.4), new THREE.Vector2(-9, 5.4)]);
+    const hole = new THREE.Path(); hole.absarc(0, 2.55, 2.25, 0, Math.PI * 2, true); wallShape.holes.push(hole);
+    mesh(new THREE.ExtrudeGeometry(wallShape, { depth: 0.5, bevelEnabled: false, curveSegments: 72 }).translate(0, 0, -0.25), lambert(0xd8cfbf), gate);
+    for (const x of [-4.95, 4.95]) box(gate, lambert(0x474a50), [x, 0.22, 0], [8.1, 0.44, 0.56]);
+    const stone = lambert(0x3b3e44);
+    for (const z of [0.26, -0.26]) mesh(new THREE.TorusGeometry(2.3, 0.08, 8, 72), stone, gate, 0, 2.55, z);
+    mesh(roofGeometry(19, 1.2, 0.4, new THREE.Color(0x20242e)), lambert(0xffffff, { vertexColors: true, side: THREE.DoubleSide }), gate, 0, 5.4, 0);
+    // Beyond the gate: a garden dissolving into moonlit mist.
+    const pavilion = new THREE.Mesh(hallGeometry(0x151a22, 0x1c1a1a, 0x22252a), lambert(0xffffff, { vertexColors: true, side: THREE.DoubleSide }));
+    pavilion.position.set(-3.2, 0, -16); pavilion.scale.set(7, 6, 5); gate.add(pavilion);
+    mesh(new THREE.DodecahedronGeometry(1), ink, gate, -2.6, 0.7, -5.5).scale.set(1.2, 1.5, 0.9);
+    const bambooLeaves: THREE.Matrix4[] = [];
+    for (let i = 0; i < 9; i++) {
+      const x = 2.2 + rand() * 2.6, z = -3 - rand() * 4, height = 6.5 + rand() * 2;
+      mesh(new THREE.CylinderGeometry(0.04, 0.06, height, 6), ink, gate, x, height / 2, z).rotation.z = (rand() - 0.5) * 0.1;
+      for (let k = 0; k < 30; k++) {
+        quaternion.setFromEuler(euler.set(rand() * 2 - 1, rand() * Math.PI * 2, 0.6 + rand() * 0.9));
+        bambooLeaves.push(new THREE.Matrix4().compose(place.set(x + (rand() - 0.5) * 1.2, 3 + rand() * (height - 3), z + (rand() - 0.5) * 1.2), quaternion, size.set(1, 1, 1)));
+      }
+    }
+    const leaves = new THREE.InstancedMesh(new THREE.PlaneGeometry(0.4, 0.06), ink, bambooLeaves.length);
+    bambooLeaves.forEach((m, i) => leaves.setMatrixAt(i, m)); gate.add(leaves);
+    // Plum branch arching over the gate, its blossoms faintly luminous.
+    const branch = new THREE.CatmullRomCurve3([[4.8, 5.7, 0.35], [3.7, 5.3, 0.45], [2.6, 5.0, 0.5], [1.6, 4.95, 0.55], [0.7, 4.6, 0.6], [0.0, 4.15, 0.62]].map(([x, y, z]) => new THREE.Vector3(x, y, z)));
+    mesh(new THREE.TubeGeometry(branch, 48, 0.045, 6), ink, gate);
+    const blossoms: [V3, THREE.Color, number, number][] = [];
+    for (const [from, to] of [[0.3, [2.9, 4.4, 0.6]], [0.55, [1.8, 5.5, 0.5]], [0.75, [0.9, 4.2, 0.7]]] as const) {
+      const p = branch.getPoint(from);
+      const twig = new THREE.CatmullRomCurve3([p, p.clone().lerp(new THREE.Vector3(...to), 0.5).add(new THREE.Vector3(0, 0.12, 0)), new THREE.Vector3(...to)]);
+      mesh(new THREE.TubeGeometry(twig, 12, 0.02, 5), ink, gate);
+      for (let k = 0; k < 6; k++) blossoms.push([twig.getPoint(0.2 + k * 0.15).add(new THREE.Vector3((rand() - 0.5) * 0.1, (rand() - 0.5) * 0.1, 0)).toArray() as V3, new THREE.Color(0xffd4dc).multiplyScalar(0.8), 0.14, -1]);
+    }
+    for (let k = 0; k < 26; k++) blossoms.push([branch.getPoint(rand()).add(new THREE.Vector3((rand() - 0.5) * 0.14, (rand() - 0.5) * 0.14, 0.05)).toArray() as V3, new THREE.Color(0xffd4dc).multiplyScalar(0.7 + rand() * 0.4), 0.13, -1]);
+    for (const x of [-3.6, 3.6]) {
+      lantern(gate, [x, 3.7, 0.6]);
+      blossoms.push([[x, 3.7, 0.6], warm(0.9), 1.1, -1]);
+      const light = new THREE.PointLight(0xffa050, 9, 9, 1.5); light.position.set(x, 3.6, 0.9); gate.add(light);
+      box(gate, ink, [x, 4.35, 0.42], [0.05, 0.05, 0.4]);
+    }
+    blossoms.push([[0, 0.8, -6], new THREE.Color(0x9fb4d8).multiplyScalar(0.16), 8, -1]);
+    const fill = new THREE.DirectionalLight(0x8a9cc8, 0.6); fill.position.set(-4, 7, 12); gate.add(fill, fill.target);
+    glows(gate, blossoms);
+    const fallingPetals = new THREE.InstancedMesh(petalGeometry(0.05, 0.06, 0xd89aa6, 0xffe2e6), new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.DoubleSide }), 90);
+    const petalSeeds = Array.from({ length: 90 }, () => [rand(), rand(), rand(), rand()]);
+    gate.add(fallingPetals);
+    // The gentleman and the performer, as paper-cut silhouettes. The shapes face +x; the upper body
+    // pivots at the waist so each can bow without moving the feet.
+    const spline = (points: number[][]) => { const shape = new THREE.Shape(); shape.moveTo(points[0][0], points[0][1]); shape.splineThru(points.slice(1).map(([x, y]) => new THREE.Vector2(x, y))); shape.closePath(); return shape; };
+    const poly = (points: number[][]) => new THREE.Shape(points.map(([x, y]) => new THREE.Vector2(x, y)));
+    const circle = (x: number, y: number, r: number) => { const shape = new THREE.Shape(); shape.absarc(x, y, r, 0, Math.PI * 2, false); return shape; };
+    const cut = (shapes: THREE.Shape[], parent: THREE.Object3D) => mesh(new THREE.ExtrudeGeometry(shapes, { depth: 0.04, bevelEnabled: false, curveSegments: 16 }), ink, parent);
+    function silhouette(lower: number[][], upper: THREE.Shape[], at: V3, facing: 1 | -1) {
+      const root = group(gate, ...at); root.scale.x = facing;
+      cut([spline(lower)], root);
+      const torso = group(root, 0, 0.95, 0);
+      cut(upper, torso);
+      return { root, torso };
+    }
+    const gentleman = silhouette(
+      [[-0.15, 0.97], [-0.2, 0.6], [-0.27, 0.15], [-0.31, 0.01], [0, 0], [0.3, 0.01], [0.26, 0.2], [0.18, 0.6], [0.14, 0.97]],
+      [
+        spline([[-0.16, 0], [-0.19, 0.25], [-0.15, 0.45], [-0.06, 0.53], [0.06, 0.52], [0.14, 0.44], [0.16, 0.2], [0.14, 0]]),
+        poly([[-0.04, 0.5], [0.06, 0.5], [0.06, 0.62], [-0.04, 0.62]]), circle(0.02, 0.7, 0.105),
+        poly([[0.11, 0.73], [0.145, 0.685], [0.11, 0.665]]),
+        poly([[-0.1, 0.75], [-0.1, 0.9], [0.1, 0.9], [0.12, 0.76]]),
+        poly([[-0.1, 0.87], [-0.24, 0.6], [-0.21, 0.58], [-0.08, 0.8]]),
+        spline([[-0.02, 0.45], [0.12, 0.4], [0.28, 0.28], [0.34, 0.18], [0.3, 0.08], [0.18, 0.04], [0.06, 0.14], [-0.04, 0.3]]),
+        circle(0.35, 0.23, 0.045),
+      ],
+      [-2.7, 0, 1.4], 1,
+    );
+    const performer = silhouette(
+      [[-0.13, 0.97], [-0.17, 0.6], [-0.25, 0.12], [-0.28, 0.01], [0, 0], [0.27, 0.01], [0.22, 0.2], [0.15, 0.6], [0.12, 0.97]],
+      [
+        spline([[-0.13, 0], [-0.16, 0.25], [-0.12, 0.44], [-0.05, 0.5], [0.05, 0.5], [0.12, 0.43], [0.14, 0.2], [0.12, 0]]),
+        poly([[-0.035, 0.47], [0.045, 0.47], [0.045, 0.6], [-0.035, 0.6]]), circle(0.02, 0.67, 0.095),
+        poly([[0.1, 0.7], [0.13, 0.66], [0.1, 0.645]]),
+        circle(-0.08, 0.74, 0.07), circle(0, 0.78, 0.06),
+        poly([[-0.15, 0.8], [0.07, 0.865], [0.075, 0.845], [-0.15, 0.782]]),
+        poly([[-0.145, 0.79], [-0.175, 0.58], [-0.158, 0.58], [-0.13, 0.78]]),
+        spline([[-0.01, 0.44], [0.1, 0.38], [0.2, 0.2], [0.24, -0.1], [0.25, -0.42], [0.17, -0.47], [0.13, -0.12], [0.06, 0.18], [-0.03, 0.3]]),
+      ],
+      [1.0, 0, -1.2], -1,
+    );
+
+    // --- Shot 5: ten kinds, one word ---------------------------------------------------------
+    const glyphSet = group(scene, SET.glyph);
+    const glyphUniforms = { uTime: shared.uTime, uScale: shared.uScale, uCols: { value: 5 }, uSpacing: { value: 6.8 }, uSmall: { value: 5.2 }, uBig: { value: 21 } };
+    {
+      const canvas = document.createElement('canvas'); canvas.width = canvas.height = 200;
+      const ctx = canvas.getContext('2d', { willReadFrequently: true })!;
+      ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.font = 'bold 176px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", "Songti SC", serif';
+      ctx.fillText('情', 100, 104);
+      const data = ctx.getImageData(0, 0, 200, 200).data, pixels: [number, number][] = [];
+      for (let y = 0; y < 200; y += 1) for (let x = 0; x < 200; x += 1) if (data[(y * 200 + x) * 4 + 3] > 128) pixels.push([x, y]);
+      if (!pixels.length) for (let i = 0; i < 400; i++) pixels.push([40 + rand() * 120, 40 + rand() * 120]);
+      const count = 7000, geometry = new THREE.BufferGeometry();
+      const start = new Float32Array(count * 3), glyph = new Float32Array(count * 2), colors = new Float32Array(count * 3);
+      const cluster = new Float32Array(count), seed = new Float32Array(count);
+      for (let i = 0; i < count; i++) {
+        const [px, py] = pixels[Math.floor(rand() * pixels.length)];
+        glyph.set([(px + rand()) / 200 - 0.5, 0.5 - (py + rand()) / 200], i * 2);
+        start.set([(rand() - 0.5) * 70, -24 + rand() * 22, -rand() * 26 + 6], i * 3);
+        new THREE.Color(rand() < 0.12 ? 0xff5a3a : rand() < 0.5 ? 0xffc070 : 0xffa04a).toArray(colors, i * 3);
+        cluster[i] = i % 10; seed[i] = rand();
+      }
+      geometry.setAttribute('position', new THREE.BufferAttribute(start, 3));
+      geometry.setAttribute('aStart', new THREE.BufferAttribute(start, 3));
+      geometry.setAttribute('aGlyph', new THREE.BufferAttribute(glyph, 2));
+      geometry.setAttribute('aColor', new THREE.BufferAttribute(colors, 3));
+      geometry.setAttribute('aCluster', new THREE.BufferAttribute(cluster, 1));
+      geometry.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
+      const points = new THREE.Points(geometry, new THREE.ShaderMaterial({
+        uniforms: glyphUniforms, vertexShader: glyphVertex, fragmentShader: glowFragment, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false,
+      }));
+      points.frustumCulled = false; glyphSet.add(points);
+    }
+    // The author's seal, pressed once the word is whole.
+    const sealCanvas = document.createElement('canvas'); sealCanvas.width = sealCanvas.height = 128;
+    {
+      const ctx = sealCanvas.getContext('2d')!;
+      ctx.fillStyle = '#a3261c'; ctx.fillRect(6, 6, 116, 116);
+      ctx.fillStyle = '#f4e3c4'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.font = 'bold 50px "KaiTi", "STKaiti", "Noto Serif SC", serif';
+      ctx.fillText('品', 64, 38); ctx.fillText('花', 64, 92);
+    }
+    const sealMaterial = new THREE.MeshBasicMaterial({ map: canvasTexture(sealCanvas), transparent: true, opacity: 0, fog: false });
+    const seal = mesh(new THREE.PlaneGeometry(1.8, 1.8), sealMaterial, glyphSet, 0, 0, 1);
+
+    // --- Direction ----------------------------------------------------------------------------
+    type Key = [number, V3, V3];
+    const path = (keys: Key[]) => {
+      const positions = new THREE.CatmullRomCurve3(keys.map(([, p]) => new THREE.Vector3(...p)), false, 'centripetal');
+      const targets = new THREE.CatmullRomCurve3(keys.map(([, , t]) => new THREE.Vector3(...t)), false, 'centripetal');
+      const look = new THREE.Vector3();
+      return (s: number) => {
+        const t0 = keys[0][0], t1 = keys[keys.length - 1][0];
+        const time = t0 + (t1 - t0) * ease((s - t0) / (t1 - t0));
+        let i = 0;
+        while (i < keys.length - 2 && time > keys[i + 1][0]) i++;
+        const u = (i + clamp01((time - keys[i][0]) / (keys[i + 1][0] - keys[i][0]))) / (keys.length - 1);
+        camera.position.copy(positions.getPoint(u));
+        camera.lookAt(targets.getPoint(u, look));
+      };
+    };
+    const shots = [
+      path([[0, [0, 112, 150], [0, 70, -200]], [3.5, [0, 78, 118], [0, 24, -100]], [7, [0, 40, 88], [0, 4, -70]]]),
+      path([[7, [2.2, 18.6, 60], [0, 8, -80]], [10, [1.2, 17.9, 55.8], [-0.2, 14, -20]], [12.4, [0.45, 17.75, 54.0], [0.05, 17.22, 52.42]], [15, [0.45, 17.1, 52.95], [0.35, 16.84, 52.55]]]),
+      path([[15, [SET.shadow + 0.5, 1.7, 11], [SET.shadow, 2.3, 0]], [18.5, [SET.shadow + 0.2, 1.95, 8.2], [SET.shadow, 2.45, 0]], [22, [SET.shadow, 2.55, 5.7], [SET.shadow, 2.55, 0]]]),
+      path([[22, [SET.gate + 0.4, 1.95, 10.4], [SET.gate - 0.35, 2.1, 0]], [29, [SET.gate, 2.05, 7.4], [SET.gate, 2.35, 0]]]),
+    ];
+    const sets = [city, city, shadow, gate, glyphSet];
+    const moonDirection = new THREE.Vector3();
+    let shownShot = -1;
+    const stage = (shot: number) => {
+      if (shot === shownShot) return;
+      shownShot = shot;
+      for (const set of [city, shadow, gate, glyphSet]) set.visible = set === sets[shot];
+      terrace.visible = shot === 1;
+      const env = ENV[shot];
+      sky.uniforms.uTop.value.setHex(env.top); sky.uniforms.uHorizon.value.setHex(env.horizon); sky.uniforms.uGlow.value.setHex(env.glow);
+      moonDirection.set(env.moon[0], env.moon[1], env.moon[2]).normalize();
+      sky.uniforms.uMoon.value.copy(moonDirection); sky.uniforms.uMoonSize.value = env.moonSize; sky.uniforms.uMoonGain.value = env.moonGain; bloom.strength = env.bloom; sky.uniforms.uStars.value = env.stars;
+      fog.color.setHex(env.fog); fog.density = env.density;
+      moonlight.intensity = env.moon[1] > 0 ? 1.1 : 0.15;
+    };
+    const baseFov = 40;
     const render = () => {
-      const shot = Math.max(0, capitalPrologueShotAt(seconds));
-      const portrait = camera.aspect < 1.3;
-      gentleman.root.visible = actor.root.visible = shot === 2;
-      dignityLight.intensity = shot === 2 ? 32 : 0;
-      stageLight.intensity = shot === 2 ? 55 : 155;
-      if (shot === 0) {
-        const t = smooth(seconds / 9);
-        from.set(portrait ? 0 : -4, 10, portrait ? 36 : 26); to.set(portrait ? 0 : -1.5, 7.4, portrait ? 29 : 18);
-        camera.position.lerpVectors(from, to, t); target.set(0, 3.7, -9);
-      } else if (shot === 1) {
-        const t = smooth((seconds - 9) / 11);
-        // Begin over the wine tables, then move into the performance.
-        from.set(portrait ? -0.8 : -6.8, 3.2, portrait ? 10 : 5.8); to.set(portrait ? 0.8 : 2.8, 3.4, portrait ? 6 : -0.2);
-        camera.position.lerpVectors(from, to, t); target.set(-1.5 * (1 - t), 2.5, -7.8 - t * 1.2);
-      } else if (shot === 2) {
-        const t = smooth((seconds - 20) / 9);
-        from.set(portrait ? 0 : -1.6, 2.5, portrait ? 6.6 : 4.4); to.set(portrait ? 0.5 : 1.3, 2.2, portrait ? 5.3 : 3.3);
-        camera.position.lerpVectors(from, to, t); target.set(0, 1.15, -3.5);
-      } else {
-        const t = smooth((seconds - 29) / 7);
-        from.set(60.1, portrait ? 12 : 8.4, 3.7); to.set(60, portrait ? 10.8 : 7.2, 2.8);
-        camera.position.lerpVectors(from, to, t); target.set(60, 1.4, 0);
+      const shot = capitalPrologueShotAt(seconds);
+      stage(shot);
+      shared.uTime.value = seconds;
+      const portrait = camera.aspect < 0.9;
+      if (shot < 4) shots[shot](seconds);
+      else {
+        const s = clamp01((seconds - CAPITAL_PROLOGUE_SHOTS[4].start) / 7);
+        const distance = (portrait ? 58 : 44) - ease(s) * 8;
+        camera.position.set(SET.glyph + Math.sin(s * 1.4) * 3, 0.6, distance);
+        camera.lookAt(SET.glyph, 0, 0);
       }
-      camera.lookAt(target);
-      lanterns.forEach((lantern, i) => { lantern.rotation.z = Math.sin(seconds * 0.65 + i * 0.4) * 0.04; });
-      dancers.forEach((dancer, i) => {
-        const phrase = THREE.MathUtils.clamp((seconds - 10 - i * 0.7) / 7, 0, 1);
-        const turn = smooth(phrase);
-        dancer.root.rotation.y = turn * Math.PI * 2 * (i ? -1 : 1);
-        dancer.root.position.x = (i ? 1.45 : -1.45) + Math.sin(turn * Math.PI * 2) * 0.35;
-        dancer.torso.rotation.z = Math.sin(seconds * 0.75 + i) * 0.08;
-        dancer.left.rotation.z = -1.2 + Math.sin(seconds * 0.8 + i) * 0.5;
-        dancer.right.rotation.z = 1.3 + Math.sin(seconds * 0.8 + i + 1) * 0.5;
-      });
-      musician.left.rotation.x = -0.65 + Math.sin(seconds * 5) * 0.22;
-      musician.right.rotation.x = -0.65 + Math.sin(seconds * 5 + Math.PI) * 0.22;
-      ribbons.forEach(({ geometry, phase, dancing }) => {
-        const positions = geometry.getAttribute('position');
-        for (let i = 0; i <= 12; i++) {
-          const t = i / 12;
-          const energy = dancing ? 1 : 0.08;
-          const x = Math.sin(t * 5 - seconds * 1.8 + phase) * t * 0.3 * energy;
-          for (let side = 0; side < 2; side++) positions.setXYZ(i * 2 + side, x + (side - 0.5) * 0.31, -t * (dancing ? 1.08 : 0.65), Math.cos(t * 4 + seconds * 1.2 + phase) * t * 0.2 * energy);
-        }
-        positions.needsUpdate = true; geometry.computeVertexNormals();
-      });
-      walkers.forEach((walker, i) => {
-        walker.root.position.z = -18 + ((i * 1.7 + seconds * (i % 2 ? 0.23 : -0.2)) % 38 + 38) % 38;
-        walker.torso.rotation.z = Math.sin(seconds * 3 + i) * 0.025;
-        walker.left.rotation.x = Math.sin(seconds * 3 + i) * 0.2;
-        walker.right.rotation.x = -walker.left.rotation.x;
-      });
-      spectators.forEach((spectator, i) => {
-        const toast = Math.max(0, Math.sin(seconds * 0.65 + Math.floor(i / 2) * 1.4));
-        spectator.torso.rotation.y = Math.sin(seconds * 0.35 + i) * 0.28;
-        spectator.right.rotation.x = -0.45 - toast * 1.8;
-        spectator.right.rotation.z = 0.15;
-        spectator.left.rotation.x = -0.3 - Math.max(0, Math.sin(seconds * 0.7 + i)) * 0.6;
-      });
-      const bowAt = (start: number) => smooth((seconds - start) / 1.2) * (1 - smooth((seconds - start - 2.1) / 1.4));
-      // Local +Z is forward: positive X tips each figure toward the other.
-      gentleman.torso.rotation.x = bowAt(21) * 0.3;
-      actor.torso.rotation.x = bowAt(22) * 0.27;
-      for (const person of [gentleman, actor]) {
-        person.left.rotation.z = 0.62; person.right.rotation.z = -0.62;
-        person.left.rotation.x = person.right.rotation.x = -0.9;
+      moonlight.position.copy(camera.position).addScaledVector(moonDirection, 100);
+      moonlight.target.position.copy(camera.position);
+      dome.position.copy(camera.position);
+      if (shot === 1) {
+        openPeony(ease((seconds - 8.2) / 3.8));
+        // One petal drops from the peony into the wine, starting the ripples.
+        const fall = clamp01((seconds - 12.2) / 1.2);
+        fallingPetal.visible = seconds > 12.2;
+        const drift = Math.max(0, seconds - 13.4);
+        fallingPetal.position.set(
+          THREE.MathUtils.lerp(-0.13, 0.334, ease(fall)) + Math.sin(fall * 9) * 0.05 * (1 - fall) + drift * 0.004,
+          THREE.MathUtils.lerp(1.34, 0.852, fall * fall),
+          THREE.MathUtils.lerp(0.3, 0.543, fall) + Math.cos(fall * 7) * 0.04 * (1 - fall),
+        );
+        fallingPetal.rotation.set(fall < 1 ? fall * 8 : -Math.PI / 2, fall * 5 + drift * 0.2, fall < 1 ? Math.sin(fall * 11) : 0);
       }
-      const written = THREE.MathUtils.clamp((seconds - 29.7) / 5, 0, 1);
-      paintManuscript(written);
-      const inkIndex = Math.min(strokes.length - 1, Math.floor(written * strokes.length));
-      const inkFraction = written >= 1 ? 1 : written * strokes.length - inkIndex;
-      const tip = strokePoint(strokes[inkIndex], inkFraction);
-      brush.position.set((tip[0] / 1024 - 0.5) * 5.4, written >= 1 ? 2.1 : 1.45, (tip[1] / 768 - 0.5) * 3.9);
-      particles.rotation.y = seconds * 0.008;
-      renderer.render(scene, camera);
+      if (shot === 2) {
+        play.draw(seconds - 15);
+        screenTexture.needsUpdate = true;
+        audience.forEach((head, i) => { head.rotation.y = Math.sin(seconds * 0.7 + i * 1.9) * 0.35 * Math.max(0, Math.sin(seconds * 0.4 + i)); });
+      }
+      if (shot === 3) {
+        // The gentleman bows first; the performer returns it; neither steps across the threshold.
+        const bow = (start: number, depth: number) => depth * ease((seconds - start) / 1.1) * (1 - ease((seconds - start - 2.2) / 1.2));
+        gentleman.torso.rotation.z = -bow(23, 0.55);
+        performer.torso.rotation.z = -bow(24.3, 0.38);
+        performer.root.position.y = -bow(24.3, 0.05);
+        petalSeeds.forEach(([a, b, c, d], i) => {
+          const fallen = (seconds * (0.3 + c * 0.3) + d * 6) % 5.4;
+          place.set(-0.8 + a * 4.6 - fallen * 0.35 + Math.sin(seconds * 1.3 + d * 10) * 0.15, 5.3 - fallen, -1 + b * 2.4);
+          quaternion.setFromEuler(euler.set(seconds * (1 + a) + d * 6, seconds * 0.7 + b * 6, seconds * (0.5 + c)));
+          fallingPetals.setMatrixAt(i, matrix.compose(place, quaternion, size.set(1, 1, 1)));
+        });
+        fallingPetals.instanceMatrix.needsUpdate = true;
+      }
+      if (shot === 4) {
+        const big = glyphUniforms.uBig.value;
+        glyphUniforms.uCols.value = portrait ? 2 : 5;
+        seal.position.set(big * 0.42, -big * 0.42, 1);
+        sealMaterial.opacity = ease((seconds - 34.4) / 0.5);
+        seal.scale.setScalar(1 + 0.4 * (1 - ease((seconds - 34.4) / 0.35)));
+      }
+      composer.render();
     };
     const resize = () => {
       if (disposed) return;
       const { width, height } = host.getBoundingClientRect();
-      renderer.setSize(Math.max(1, width), Math.max(1, height), false);
-      camera.aspect = Math.max(1, width) / Math.max(1, height); camera.updateProjectionMatrix(); render();
+      const w = Math.max(1, width), h = Math.max(1, height);
+      renderer.setSize(w, h, false);
+      composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(w, h);
+      camera.aspect = w / h;
+      // Keep the horizontal field of a 16:10 frame on narrow screens so subjects stay in view.
+      const horizontal = 2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(baseFov) / 2) * 1.6);
+      camera.fov = Math.min(75, Math.max(baseFov, THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(horizontal / 2) / camera.aspect))));
+      camera.updateProjectionMatrix();
+      shared.uScale.value = h * renderer.getPixelRatio() / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2));
+      render();
     };
     const tick = (now: number) => {
       if (previous && playing && !document.hidden) seconds = Math.min(CINEMA_DURATION, seconds + Math.min((now - previous) / 1000, 0.1));
