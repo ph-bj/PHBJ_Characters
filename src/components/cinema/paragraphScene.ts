@@ -1,8 +1,10 @@
+import type { Sequence } from './stories';
+
 export const CINEMA_DURATION = 36;
 
 export type Setting = 'river' | 'garden' | 'stage' | 'study' | 'street' | 'courtyard';
 export type ScenePlan = {
-  sequence?: 'capital-prologue';
+  sequence?: Sequence;
   seed: number;
   setting: Setting;
   night: boolean;
@@ -27,6 +29,12 @@ export function planParagraphScene(source: string, context?: { chapterId: number
     return {
       sequence: 'capital-prologue', seed, setting: 'stage', night: true, weather: 'dust', mood: 'festive',
       title: { en: 'The capital, a theatre of feeling', zh: '京华繁梦，一字情深' },
+    };
+  }
+  if (context?.chapterId === 1 && context.paragraphIndex === 1) {
+    return {
+      sequence: 'ten-kinds', seed, setting: 'stage', night: true, weather: 'petals', mood: 'tender',
+      title: { en: 'Ten kinds, one word', zh: '十种人物，一个情字' },
     };
   }
   const ranked = settings.map(item => ({ ...item, score: [...source.matchAll(item.words)].length }))

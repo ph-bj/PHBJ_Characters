@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { createCapitalPrologueCinema } from './createCapitalPrologueCinema';
+import { createTenKindsCinema } from './createTenKindsCinema';
 import { CINEMA_DURATION, type ScenePlan } from './paragraphScene';
 export type Cinema = { setPlaying: (playing: boolean) => void; replay: () => void; seek: (seconds: number) => void; dispose: () => void };
 
@@ -11,6 +12,7 @@ export function createParagraphCinema(
   onError: () => void,
 ): Cinema {
   if (plan.sequence === 'capital-prologue') return createCapitalPrologueCinema(host, onProgress, onError);
+  if (plan.sequence === 'ten-kinds') return createTenKindsCinema(host, onProgress, onError);
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
   renderer.shadowMap.enabled = true;

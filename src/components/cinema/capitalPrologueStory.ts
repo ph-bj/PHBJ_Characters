@@ -36,8 +36,3 @@ export function capitalPrologueShotAt(seconds: number) {
   const index = CAPITAL_PROLOGUE_SHOTS.findIndex(shot => seconds < shot.end);
   return index === -1 ? CAPITAL_PROLOGUE_SHOTS.length - 1 : index;
 }
-
-export function capitalPrologueFadeAt(seconds: number) {
-  const distance = Math.min(...CAPITAL_PROLOGUE_SHOTS.slice(1).map(shot => Math.abs(seconds - shot.start)));
-  return Math.max(0, 1 - distance / 0.5);
-}

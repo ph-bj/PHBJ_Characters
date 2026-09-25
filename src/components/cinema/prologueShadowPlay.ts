@@ -1,24 +1,24 @@
 /** A lantern-lit shadow-play screen: a playful brush sketches the city's players into moving silhouettes. */
 export const SHADOW_W = 1024;
 export const SHADOW_H = 576;
-const INK = '#1b110c';
+export const INK = '#1b110c';
 const GROUND = 470;
 
 const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
 const ease = (value: number) => { const x = clamp01(value); return x * x * (3 - 2 * x); };
-type Ctx = CanvasRenderingContext2D;
-type Point = [number, number];
+export type Ctx = CanvasRenderingContext2D;
+export type Point = [number, number];
 
-function limb(ctx: Ctx, points: Point[], width: number) {
+export function limb(ctx: Ctx, points: Point[], width: number) {
   ctx.lineWidth = width; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
   ctx.beginPath();
   points.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
   ctx.stroke();
 }
-function disc(ctx: Ctx, x: number, y: number, rx: number, ry = rx) {
+export function disc(ctx: Ctx, x: number, y: number, rx: number, ry = rx) {
   ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, Math.PI * 2); ctx.fill();
 }
-function robe(ctx: Ctx, x: number, top: number, bottom: number, wTop: number, wBottom: number, sway = 0) {
+export function robe(ctx: Ctx, x: number, top: number, bottom: number, wTop: number, wBottom: number, sway = 0) {
   ctx.beginPath();
   ctx.moveTo(x - wTop, top);
   ctx.quadraticCurveTo(x - wTop - 4, (top + bottom) / 2, x - wBottom + sway, bottom);
@@ -27,7 +27,7 @@ function robe(ctx: Ctx, x: number, top: number, bottom: number, wTop: number, wB
   ctx.closePath(); ctx.fill();
 }
 /** Paper-coloured cut-outs, as in carved leather puppets. */
-function cutout(ctx: Ctx, draw: () => void) {
+export function cutout(ctx: Ctx, draw: () => void) {
   ctx.save(); ctx.shadowBlur = 0; ctx.strokeStyle = ctx.fillStyle = 'rgba(255,214,150,0.4)'; draw(); ctx.restore();
 }
 

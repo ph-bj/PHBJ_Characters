@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Clapperboard, Pause, Play, RotateCcw, X } from 'lucide-react';
 import { CINEMA_DURATION, planParagraphScene, sceneLabels } from './cinema/paragraphScene';
-import { CAPITAL_PROLOGUE_SHOTS, capitalPrologueShotAt, capitalPrologueFadeAt } from './cinema/capitalPrologueStory';
+import { STORIES, fadeAt, shotAt } from './cinema/stories';
 import type { Cinema } from './cinema/createParagraphCinema';
 
 export type CinemaParagraph = {
@@ -30,9 +30,10 @@ export function ParagraphCinema({ paragraph, chapterId, lang, onClose }: {
   const [seconds, setSeconds] = useState(0);
   const [attempt, setAttempt] = useState(0);
   const plan = useMemo(() => planParagraphScene(paragraph.source, { chapterId, paragraphIndex: paragraph.index }), [paragraph.source, paragraph.index, chapterId]);
-  const isPrologue = plan.sequence === 'capital-prologue';
-  const shotIndex = capitalPrologueShotAt(seconds);
-  const shot = CAPITAL_PROLOGUE_SHOTS[shotIndex];
+  // Authored paragraphs have a shot list; the rest get the generic miniature.
+  const story = plan.sequence ? STORIES[plan.sequence] : undefined;
+  const shotIndex = story ? shotAt(story.shots, seconds) : 0;
+  const shot = story?.shots[shotIndex];
   const zh = lang === 'zh';
   const duration = CINEMA_DURATION;
   const finished = seconds >= duration;
@@ -77,8 +78,8 @@ export function ParagraphCinema({ paragraph, chapterId, lang, onClose }: {
   const time = (value: number) => `${Math.floor(value / 60)}:${String(Math.floor(value % 60)).padStart(2, '0')}`;
   // Controls share the app's paper-and-ink vocabulary: square-cornered, paper borders, accent on hover.
   const buttonStyle = 'inline-flex min-h-10 items-center justify-center gap-2 rounded-sm border border-[var(--paper-border)] bg-[var(--paper-bg)]/60 px-4 text-sm text-[var(--ink-title)] transition-colors hover:border-[var(--accent)]/50 hover:bg-[var(--accent)]/5 hover:text-[var(--accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:opacity-40';
-  const stageLabel = isPrologue
-    ? `${String(shotIndex + 1).padStart(2, '0')} / ${String(CAPITAL_PROLOGUE_SHOTS.length).padStart(2, '0')} · ${shot.title[lang]}`
+  const stageLabel = story && shot
+    ? `${String(shotIndex + 1).padStart(2, '0')} / ${String(story.shots.length).padStart(2, '0')} · ${shot.title[lang]}`
     : `${sceneLabels.mood[plan.mood][lang]} / ${sceneLabels.weather[plan.weather][lang]}`;
 
   return createPortal(
@@ -100,7 +101,7 @@ export function ParagraphCinema({ paragraph, chapterId, lang, onClose }: {
       <div className="mx-3 border border-[var(--paper-border)] bg-[var(--paper-bg)] p-1.5 shadow-[inset_0_0_12px_var(--accent-inset)] sm:mx-8 sm:p-2">
         <div className="relative overflow-hidden bg-[var(--art-ink-deep)] ring-1 ring-[var(--ink-title)]/40">
           <div ref={hostRef} data-testid="paragraph-cinema-canvas" role="img" aria-label={`${plan.title[lang]} · ${sceneLabels.mood[plan.mood][lang]} · ${sceneLabels.weather[plan.weather][lang]}`} className="h-[40dvh] min-h-60 w-full sm:h-[48dvh] sm:min-h-80" />
-          {isPrologue && <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 bg-[var(--art-ink-deep)]" style={{ opacity: capitalPrologueFadeAt(seconds) }} />}
+          {story && <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 bg-[var(--art-ink-deep)]" style={{ opacity: fadeAt(story.shots, seconds) }} />}
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(10,8,6,0.45)_100%)]" />
           {status === 'loading' && <div role="status" className="absolute inset-0 flex items-center justify-center bg-[var(--art-ink-deep)] text-sm text-[var(--art-paper)]/80">{zh ? '正在布景…' : 'Setting the scene…'}</div>}
           {status === 'error' && <div role="alert" className="parchment absolute inset-0 flex flex-col items-center justify-center gap-4 px-8 text-center text-sm text-[var(--ink-dim)]"><p>{zh ? '无法显示三维场景。请检查浏览器是否启用了 WebGL，或重试。' : 'The 3D scene could not be displayed. Check that WebGL is enabled in your browser, or try again.'}</p><button type="button" className={buttonStyle} onClick={() => { setSeconds(0); setAttempt(value => value + 1); }}>{zh ? '重试' : 'Try again'}</button></div>}
@@ -117,9 +118,9 @@ export function ParagraphCinema({ paragraph, chapterId, lang, onClose }: {
             className="h-1.5 min-w-16 flex-1 appearance-none overflow-hidden rounded-full bg-[var(--paper-border)] [&::-moz-progress-bar]:bg-[var(--accent)] [&::-webkit-progress-bar]:bg-[var(--paper-border)] [&::-webkit-progress-value]:bg-[var(--accent)]" />
           <span className="text-xs tabular-nums text-[var(--ink-dim-text)]">{time(seconds)} / {time(duration)}</span>
         </div>
-        {isPrologue && <div className="mt-5">
-          <div aria-label={zh ? '选择分镜' : 'Choose a scene'} className="grid grid-cols-2 gap-2 sm:grid-cols-5">
-            {CAPITAL_PROLOGUE_SHOTS.map((item, index) => <button key={item.start} type="button" disabled={status !== 'ready'}
+        {story && shot && <div className="mt-5">
+          <div aria-label={zh ? '选择分镜' : 'Choose a scene'} className={`grid grid-cols-2 gap-2 ${story.shots.length === 5 ? 'sm:grid-cols-5' : 'sm:grid-cols-4'}`}>
+            {story.shots.map((item, index) => <button key={item.start} type="button" disabled={status !== 'ready'}
               aria-pressed={shotIndex === index} onClick={() => seek(item.start + 0.6)}
               className={`rounded-sm border px-3 py-2 text-left text-sm leading-snug transition-colors focus-visible:outline-2 focus-visible:outline-[var(--accent)] disabled:opacity-40 ${shotIndex === index ? 'border-[var(--accent)]/50 bg-[var(--accent)]/10 font-medium text-[var(--accent)]' : 'border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)]'}`}>
               <span className="mr-2 text-xs tabular-nums opacity-70">{String(index + 1).padStart(2, '0')}</span>{item.title[lang]}
@@ -130,7 +131,7 @@ export function ParagraphCinema({ paragraph, chapterId, lang, onClose }: {
             <p className="mt-1 text-sm text-[var(--ink-dim-text)]">{shot.caption[lang]}</p>
           </div>
         </div>}
-        <p id="paragraph-cinema-description" className="mt-5 text-sm text-[var(--ink-dim-text)]">{isPrologue ? zh ? '自天边云端降入京城，经杯中月、灯下影、月洞门，终归一个“情”字。画中人物为本段所写的无名君子与优伶。' : 'From the clouds above the capital, through a moon in a wine cup, a shadow-play screen and a moon gate, to a single word: feeling. The figures represent the unnamed gentlemen and performers in this passage.' : zh ? '依本段文字中的场景与情绪营造的风格化意境。' : 'A stylized interpretation of the setting and mood suggested by this paragraph.'}</p>
+        <p id="paragraph-cinema-description" className="mt-5 text-sm text-[var(--ink-dim-text)]">{story ? story.description[lang] : zh ? '依本段文字中的场景与情绪营造的风格化意境。' : 'A stylized interpretation of the setting and mood suggested by this paragraph.'}</p>
         {paragraph.cast.length > 0 && <p className="mt-2 text-sm text-[var(--accent)]">{zh ? '本段人物：' : 'In this passage: '}{paragraph.cast.join(zh ? '、' : ' · ')}</p>}
         <details className="mt-5 border-t border-[var(--paper-border)] pt-3">
           <summary className="text-sm font-medium text-[var(--accent)]">{zh ? '阅读本段' : 'Read the passage'}</summary>

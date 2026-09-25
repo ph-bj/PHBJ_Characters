@@ -1,11 +1,14 @@
 import { test, expect } from '@playwright/test';
 
 test('paragraph cinema renders, pauses, replays, and closes without leaving the reader', async ({ page }, testInfo) => {
+  // Paragraphs 1 and 2 are both authored 3D sets, which take a while under software WebGL.
+  test.setTimeout(90000);
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/#/en/chapter/1');
   const opener = page.locator('[data-cinema-key="en-0"]');
-  await expect(opener).toBeVisible();
+  // The app shows "Loading..." while chapter data arrives, which can outlast the 5s default.
+  await expect(opener).toBeVisible({ timeout: 30000 });
   await expect(opener.locator('..').getByRole('button', { name: 'Read aloud', exact: true })).toBeVisible();
   await opener.click();
   const dialog = page.getByRole('dialog');
@@ -29,7 +32,7 @@ test('paragraph cinema renders, pauses, replays, and closes without leaving the 
   await expect(opener).toBeFocused();
   await expect(page).toHaveURL(/chapter\/1$/);
   await page.locator('[data-cinema-key="en-1"]').click();
-  await expect(page.getByRole('dialog').locator('canvas')).toBeVisible();
+  await expect(page.getByRole('dialog').locator('canvas')).toBeVisible({ timeout: 15000 });
   await expect(page.getByText('Chapter 1 · Paragraph 2', { exact: false })).toBeVisible();
   await page.getByRole('button', { name: 'Close cinema' }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
