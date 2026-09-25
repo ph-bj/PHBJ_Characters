@@ -2,7 +2,7 @@ import React from 'react';
 
 export function SnowPagodaSVG() {
   return (
-    <div className="parchment p-3 rounded-sm border-double border-4 border-[var(--paper-border)] flex flex-col items-center my-6 opacity-90 transition-opacity hover:opacity-100 max-w-md mx-auto">
+    <div className="flex flex-col items-center my-6 opacity-90 transition-opacity hover:opacity-100 max-w-md mx-auto">
       <svg viewBox="0 0 400 240" className="w-full" style={{ maxHeight: '320px' }}>
         <defs>
           <filter id="snow-pagoda-wobble">

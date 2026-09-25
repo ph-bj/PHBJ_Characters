@@ -634,7 +634,7 @@ const SCENES: Record<number, Scene> = {
   60: { seal: '宵', els: [['ground', 140, 122], ['firework', 75, 35], ['firework', 135, 25, 0.8], ['lanterns', 205, 60, 0.95], ['house', 55, 120, 0.85], ['figStand', 145, 122, 0.9], ['figStand', 175, 122, 0.85], ['figWalk', 230, 122, 0.9]] },
 };
 
-/** Shared parchment-tile renderer used by the opening and closing scenes. */
+/** Shared frameless renderer used by the opening, mid-chapter and closing scenes. */
 export const InkSceneCard: React.FC<{ scene: Scene; className?: string }> = ({
   scene,
   className,
@@ -642,7 +642,7 @@ export const InkSceneCard: React.FC<{ scene: Scene; className?: string }> = ({
   const washEls = scene.wash ?? OUTDOOR_WASH;
 
   return (
-    <div className={`parchment p-3 rounded-sm border-double border-4 border-[var(--paper-border)] flex flex-col items-center${className ? ` ${className}` : ''}`}>
+    <div className={`flex flex-col items-center${className ? ` ${className}` : ''}`}>
       <svg viewBox="0 0 280 150" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ maxHeight: '150px' }}>
         <defs>
           <linearGradient id="csWash" x1="0" y1="0" x2="0" y2="1">
