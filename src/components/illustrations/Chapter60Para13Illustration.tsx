@@ -17,7 +17,7 @@ import React from 'react';
  */
 export const Chapter60Para13Illustration: React.FC = () => {
   return (
-    <div className="parchment p-3 rounded-sm border-double border-4 border-[var(--paper-border)] flex flex-col items-center select-none">
+    <div className="flex flex-col items-center select-none">
       <svg
         viewBox="0 0 520 400"
         xmlns="http://www.w3.org/2000/svg"

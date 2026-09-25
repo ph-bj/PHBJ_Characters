@@ -8,7 +8,7 @@ import React from "react";
  */
 export const Chapter9Para11LanternMarket: React.FC = () => {
   return (
-    <div className="parchment p-3 rounded-sm border-double border-4 border-[var(--paper-border)] flex flex-col items-center mt-4 mb-6">
+    <div className="flex flex-col items-center mt-4 mb-6">
       <svg
         viewBox="0 0 520 400"
         xmlns="http://www.w3.org/2000/svg"

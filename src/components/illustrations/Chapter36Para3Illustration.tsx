@@ -8,7 +8,7 @@ import React from "react";
  */
 export const Chapter36Para3Illustration: React.FC = () => {
   return (
-    <div className="mt-4 mb-6 block w-full parchment p-3 rounded-sm border-double border-4 border-[var(--paper-border)] flex flex-col items-center">
+    <div className="mt-4 mb-6 block w-full flex flex-col items-center">
       <svg
         viewBox="0 0 520 400"
         xmlns="http://www.w3.org/2000/svg"
