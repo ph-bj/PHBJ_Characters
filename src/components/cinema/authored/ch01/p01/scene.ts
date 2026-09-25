@@ -1,8 +1,7 @@
 import * as THREE from 'three';
-import type { Cinema } from './createParagraphCinema';
-import { CAPITAL_PROLOGUE_SHOTS, capitalPrologueShotAt } from './capitalPrologueStory';
-import { createShadowPlay } from './prologueShadowPlay';
-import { clamp01, createCinema, ease, hallGeometry, inkDotFragment, petalGeometry, roofGeometry, type Env, type V3 } from './cinemaKit';
+import { defineScene } from '../../define';
+import { createShadowPlay } from './shadowPlay';
+import { clamp01, ease, hallGeometry, inkDotFragment, petalGeometry, roofGeometry, type Env, type V3 } from '../../../cinemaKit';
 
 // Each shot has its own set, placed far apart; only the current one is shown.
 const SET = { shadow: 400, gate: 800, glyph: 1200 };
@@ -79,12 +78,9 @@ const inkGlyphFragment = /* glsl */`
   }`;
 
 /** A new staging of the prologue: heaven's doorstep, moon and flowers, a playful brush, a moon gate, and 情. */
-export function createCapitalPrologueCinema(
-  host: HTMLDivElement,
-  onProgress: (seconds: number) => void,
-  onError: () => void,
-): Cinema {
-  return createCinema(host, onProgress, onError, 20260925, ({ scene, camera, rand, shared, ink, group, mesh, box, lambert, canvasTexture, glows, warm, lantern, path, setEnv, portrait }) => {
+export default defineScene({
+  seed: 20260925,
+  build: ({ scene, camera, rand, shared, ink, group, mesh, box, lambert, canvasTexture, glows, warm, lantern, path, setEnv, portrait }, story) => {
     // --- Shots 1–2: the capital ------------------------------------------------------------
     const city = group(scene);
     mesh(new THREE.PlaneGeometry(1400, 1400).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0xe6e1d8 }), city);
@@ -404,15 +400,14 @@ export function createCapitalPrologueCinema(
       path([[22, [SET.gate + 0.4, 1.95, 10.4], [SET.gate - 0.35, 2.1, 0]], [29, [SET.gate, 2.05, 7.4], [SET.gate, 2.35, 0]]]),
     ];
     const sets = [city, city, shadow, gate, glyphSet];
-    return (seconds: number) => {
-      const shot = capitalPrologueShotAt(seconds);
+    return (seconds: number, shot: number) => {
       for (const set of [city, shadow, gate, glyphSet]) set.visible = set === sets[shot];
       terrace.visible = shot === 1;
       setEnv(ENV[shot]);
       const isPortrait = portrait();
       if (shot < 4) shots[shot](seconds);
       else {
-        const s = clamp01((seconds - CAPITAL_PROLOGUE_SHOTS[4].start) / 7);
+        const s = clamp01((seconds - story.shots[4].start) / 7);
         const distance = (isPortrait ? 58 : 44) - ease(s) * 8;
         camera.position.set(SET.glyph + Math.sin(s * 1.4) * 3, 0.6, distance);
         camera.lookAt(SET.glyph, 0, 0);
@@ -457,5 +452,5 @@ export function createCapitalPrologueCinema(
         seal.scale.setScalar(1 + 0.4 * (1 - ease((seconds - 34.4) / 0.35)));
       }
     };
-  }, 'ink');
-}
+  },
+});

@@ -5,8 +5,11 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
-import type { Cinema } from './createParagraphCinema';
-import { CINEMA_DURATION } from './paragraphScene';
+/** Every authored cinema runs this long, in seconds. */
+export const CINEMA_DURATION = 36;
+
+/** A running cinema, as driven by the player. */
+export type Cinema = { setPlaying: (playing: boolean) => void; replay: () => void; seek: (seconds: number) => void; dispose: () => void };
 
 /** Shared machinery for the authored, ink-and-lantern paragraph cinemas. */
 
@@ -19,6 +22,20 @@ export type Env = {
   top: number; horizon: number; glow: number;
   moon: readonly [number, number, number]; moonSize: number; moonGain: number;
   bloom: number; stars: number; fog: number; density: number;
+};
+
+/**
+ * Ink tones, from thick ink to bare paper (墨分五色). In the ink style brightness is read as ink
+ * density, so these are the colours to build sets from; only saturated red survives as vermilion.
+ */
+export const INK_TONE = { thick: 0x2f2a26, dark: 0x3f3a35, mid: 0x7d766e, pale: 0xb9b2a8, wash: 0xd6d0c6, paper: 0xf4f0e8 } as const;
+
+/** Ready-made skies for the ink style. */
+export const INK_SKY = {
+  /** Blank paper; white mist fades distance into the paper, faster with higher `density`. */
+  paper: (density = 0.02): Env => ({ top: INK_TONE.paper, horizon: INK_TONE.paper, glow: 0, moon: [0, -1, 0], moonSize: 0.01, moonGain: 0, bloom: 0, stars: 0, fog: INK_TONE.paper, density }),
+  /** A light wash of cloud with the moon left as bare paper (烘云托月). `moon` points from the camera. */
+  moonlit: (moon: readonly [number, number, number] = [0.25, 0.24, -1], density = 0.025): Env => ({ top: 0xb4ada3, horizon: 0xe6e1d8, glow: 0, moon, moonSize: 0.06, moonGain: 0.62, bloom: 0, stars: 0, fog: 0xece8e0, density }),
 };
 
 /** A seeded generator keeps every set identical on each replay. */
@@ -240,6 +257,14 @@ export type Kit = {
   path: (keys: [number, V3, V3][]) => (seconds: number) => void;
   setEnv: (env: Env) => void;
   portrait: () => boolean;
+  /**
+   * Brushed calligraphy on a plane facing +z, written in columns read right to left. Set
+   * `material.uniforms.uReveal.value` from 0 to 1 to let it seep into the paper. `size` is the
+   * height of one character in world units.
+   */
+  calligraphy: (parent: THREE.Object3D, text: string, options?: { size?: number; columns?: number }) => { mesh: THREE.Mesh; material: THREE.ShaderMaterial };
+  /** A square vermilion seal (default 品花). Fade it in with `material.opacity`. */
+  seal: (parent: THREE.Object3D, text?: string, size?: number) => { mesh: THREE.Mesh; material: THREE.MeshBasicMaterial };
 };
 
 /**
@@ -380,9 +405,32 @@ export function createCinema(
       moonlight.intensity = env.moon[1] > 0 ? 1.1 : 0.15;
     };
 
+    const calligraphy: Kit['calligraphy'] = (parent, text, { size = 1, columns = 1 } = {}) => {
+      const chars = [...text], rows = Math.ceil(chars.length / columns), cell = 256;
+      const canvas = document.createElement('canvas'); canvas.width = columns * cell; canvas.height = rows * cell;
+      const ctx = canvas.getContext('2d')!;
+      ctx.fillStyle = '#1c1714'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.font = `bold ${cell * 0.86}px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", serif`;
+      // Traditional layout: top to bottom, columns from right to left.
+      chars.forEach((char, i) => ctx.fillText(char, (columns - 1 - Math.floor(i / rows) + 0.5) * cell, (i % rows + 0.53) * cell));
+      const material = inkRevealMaterial(canvasTexture(canvas));
+      return { mesh: mesh(new THREE.PlaneGeometry(columns * size, rows * size), material, parent), material };
+    };
+    const seal: Kit['seal'] = (parent, text = '品花', size = 1.8) => {
+      const canvas = document.createElement('canvas'); canvas.width = canvas.height = 128;
+      const ctx = canvas.getContext('2d')!;
+      ctx.fillStyle = '#b02e1e'; ctx.fillRect(6, 6, 116, 116);
+      ctx.fillStyle = '#f4ece0'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const chars = [...text], columns = chars.length > 2 ? 2 : 1, rows = Math.ceil(chars.length / columns);
+      ctx.font = `bold ${Math.floor(100 / rows)}px "KaiTi", "STKaiti", "Noto Serif SC", serif`;
+      chars.forEach((char, i) => ctx.fillText(char, 64 + (columns === 2 ? (Math.floor(i / rows) ? -26 : 26) : 0), 12 + (i % rows + 0.5) * (104 / rows)));
+      const material = new THREE.MeshBasicMaterial({ map: canvasTexture(canvas), transparent: true, opacity: 0, fog: false });
+      return { mesh: mesh(new THREE.PlaneGeometry(size, size), material, parent), material };
+    };
+
     const update = build({
       scene, camera, rand, shared, ink, group, mesh, box, lambert, canvasTexture, glows, warm, lantern, path, setEnv,
-      portrait: () => camera.aspect < 0.9,
+      portrait: () => camera.aspect < 0.9, calligraphy, seal,
     });
     const render = () => {
       shared.uTime.value = seconds;

@@ -1,51 +1,9 @@
-import { disc, limb, robe, type Ctx, type Point } from './prologueShadowPlay';
+import { arm, body, disc, drawFigure, head, limb, pierce as cutout, robe, type Ctx, type Point } from '../../../brush';
 
 /**
- * Paper-cut figures for Chapter 1, paragraph 2, drawn in the shadow-play vocabulary.
- * Coordinates are local: the feet sit at the origin and y runs negative upward; a standing
- * figure is about 205 units tall with shoulders at (±24, -145).
+ * Paper-cut figures for Chapter 1, paragraph 2, drawn with the shared brush primitives
+ * (local coordinates: feet at the origin, y negative upward).
  */
-
-export const FIGURE_W = 256;
-export const FIGURE_H = 512;
-const SCALE = 1.75;
-const INK = '#0d0a0c';
-
-/** Pierces the silhouette, like the carved openings in a leather puppet. */
-function cutout(ctx: Ctx, draw: () => void) {
-  ctx.save(); ctx.shadowBlur = 0; ctx.globalCompositeOperation = 'destination-out'; draw(); ctx.restore();
-}
-
-function body(ctx: Ctx, sway = 0) {
-  robe(ctx, 0, -150, -4, 24, 46, sway);
-  disc(ctx, 0, -150, 28, 10);
-  disc(ctx, -14, -2, 12, 5); disc(ctx, 14 + sway, -2, 12, 5);
-  ctx.fillRect(-5, -168, 10, 16);
-}
-
-type Hair = 'cap' | 'bun' | 'loose';
-/** Head and headwear, tilted about the neck. `hair` streams for the loose-haired. */
-function head(ctx: Ctx, t: number, hair: Hair = 'cap', tilt = 0, x = 0, y = -178) {
-  ctx.save(); ctx.translate(x, y + 12); ctx.rotate(tilt); ctx.translate(0, -12);
-  disc(ctx, 0, 0, 15, 17);
-  if (hair === 'cap') {
-    ctx.beginPath(); ctx.moveTo(-16, -6); ctx.lineTo(-14, -26); ctx.lineTo(14, -26); ctx.lineTo(16, -6); ctx.fill();
-    for (const side of [-1, 1]) limb(ctx, [[side * 12, -20], [side * 28, -8 + Math.sin(t * 2 + side) * 4], [side * 38, 12 + Math.sin(t * 2.3 + side) * 5]], 4);
-  } else if (hair === 'bun') {
-    disc(ctx, 0, -18, 10, 8);
-    limb(ctx, [[-16, -20], [16, -16]], 2.5);
-  } else {
-    disc(ctx, 0, -14, 16, 9);
-    for (let k = 0; k < 4; k++) limb(ctx, [[-6 + k * 4, -16], [-20 - k * 6 + Math.sin(t * 3 + k) * 4, 4 + k * 4], [-30 - k * 8 + Math.sin(t * 2.6 + k) * 8, 26 + k * 6]], 3);
-  }
-  ctx.restore();
-}
-
-function arm(ctx: Ctx, points: Point[], width = 12) {
-  limb(ctx, points, width);
-  const [x, y] = points[points.length - 1];
-  disc(ctx, x, y, 7);
-}
 
 /** The ten kinds of gentlemen, in the order the passage names them. */
 const GENTLEMEN: ((ctx: Ctx, t: number) => void)[] = [
@@ -227,19 +185,10 @@ function dan(ctx: Ctx, t: number, pose: DanPose, phase: number) {
   ctx.restore();
 }
 
-function begin(ctx: Ctx) {
-  ctx.clearRect(0, 0, FIGURE_W, FIGURE_H);
-  ctx.save();
-  ctx.translate(FIGURE_W / 2, FIGURE_H - 12);
-  ctx.scale(SCALE, SCALE);
-  ctx.fillStyle = INK; ctx.strokeStyle = INK;
-  ctx.shadowColor = 'rgba(13,10,12,0.6)'; ctx.shadowBlur = 3;
-}
-
 export function drawGentleman(ctx: Ctx, kind: number, t: number) {
-  begin(ctx); GENTLEMEN[kind](ctx, t); ctx.restore();
+  drawFigure(ctx, c => GENTLEMEN[kind](c, t));
 }
 
 export function drawDan(ctx: Ctx, kind: number, t: number) {
-  begin(ctx); dan(ctx, t, DAN[kind], kind * 1.3); ctx.restore();
+  drawFigure(ctx, c => dan(c, t, DAN[kind], kind * 1.3));
 }

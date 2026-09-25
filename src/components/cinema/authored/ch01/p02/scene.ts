@@ -1,9 +1,8 @@
 import * as THREE from 'three';
-import type { Cinema } from './createParagraphCinema';
-import { TEN_KINDS_SHOTS } from './tenKindsStory';
-import { shotAt } from './stories';
-import { clamp01, createCinema, ease, glyphPixels, inkRevealMaterial, petalGeometry, roofGeometry, type Env, type V3 } from './cinemaKit';
-import { FIGURE_H, FIGURE_W, drawDan, drawGentleman } from './tenKindsFigures';
+import { defineScene } from '../../define';
+import { clamp01, ease, glyphPixels, INK_TONE, inkRevealMaterial, petalGeometry, roofGeometry, type Env, type V3 } from '../../../cinemaKit';
+import { FIGURE_H, FIGURE_W } from '../../../brush';
+import { drawDan, drawGentleman } from './figures';
 
 /*
  * Chapter 1, paragraph 2, painted in ink (水墨). The kit's ink pass reads brightness as ink
@@ -23,7 +22,7 @@ const litAt = (k: number) => k === 0 ? 0.3 : STEP * k - 0.2;
 const danAt = (k: number) => 19.5 + k * 0.55;
 
 // Ink tones, from thick ink to the palest wash (墨分五色).
-const TONE = { thick: 0x2f2a26, dark: 0x3f3a35, mid: 0x7d766e, pale: 0xb9b2a8, wash: 0xd6d0c6, paper: 0xf4f0e8 };
+const TONE = INK_TONE;
 
 const ENV = [
   // The gallery: a blank paper sky; mist turns the bamboo behind the wall to pale ink.
@@ -91,12 +90,9 @@ const pairFragment = /* glsl */`
   }`;
 
 /** Chapter 1, paragraph 2: ten kinds of gentlemen, ten leading performers, and one word for them all. */
-export function createTenKindsCinema(
-  host: HTMLDivElement,
-  onProgress: (seconds: number) => void,
-  onError: () => void,
-): Cinema {
-  return createCinema(host, onProgress, onError, 20260926, ({ scene, camera, rand, shared, ink, group, mesh, box, canvasTexture, lantern, path, setEnv, portrait }) => {
+export default defineScene({
+  seed: 20260926,
+  build: ({ scene, camera, rand, shared, ink, group, mesh, box, canvasTexture, lantern, path, setEnv, portrait }, story) => {
     const matrix = new THREE.Matrix4(), quaternion = new THREE.Quaternion(), euler = new THREE.Euler();
     const place = new THREE.Vector3(), size = new THREE.Vector3(1, 1, 1);
     const tone = (hex: number, extra: THREE.MeshBasicMaterialParameters = {}) => new THREE.MeshBasicMaterial({ color: hex, ...extra });
@@ -315,8 +311,7 @@ export function createTenKindsCinema(
     ]);
     const sets = [gallery, gallery, garden, glyphSet];
     const envs = [ENV[0], ENV[0], ENV[1], ENV[2]];
-    return (seconds: number) => {
-      const shot = shotAt(TEN_KINDS_SHOTS, seconds);
+    return (seconds: number, shot: number) => {
       for (const set of [gallery, garden, glyphSet]) set.visible = set === sets[shot];
       setEnv(envs[shot]);
       const isPortrait = portrait();
@@ -353,7 +348,7 @@ export function createTenKindsCinema(
         });
         pearPetals.instanceMatrix.needsUpdate = true;
       } else {
-        const s = clamp01((seconds - TEN_KINDS_SHOTS[3].start) / 7);
+        const s = clamp01((seconds - story.shots[3].start) / 7);
         camera.position.set(SET.glyph + Math.sin(s * 1.4) * 3, 0.6, (isPortrait ? 62 : 44) - ease(s) * 8);
         camera.lookAt(SET.glyph, 0, 0);
         pairUniforms.uPortrait.value = isPortrait ? 1 : 0;
@@ -363,5 +358,5 @@ export function createTenKindsCinema(
         seal.scale.setScalar(1 + 0.4 * (1 - ease((seconds - 34.4) / 0.35)));
       }
     };
-  }, 'ink');
-}
+  },
+});

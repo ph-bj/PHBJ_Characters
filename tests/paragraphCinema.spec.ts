@@ -39,15 +39,15 @@ test('paragraph cinema renders, pauses, replays, and closes without leaving the 
   expect(errors).toEqual([]);
 });
 
-test('Chinese mobile cinema respects reduced motion and stays within the viewport', async ({ page }, testInfo) => {
+test('a paragraph without a film says so plainly, within the mobile viewport', async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/#/zh/chapter/4');
-  await page.locator('[data-cinema-key="zh-0"]').click();
+  await page.locator('[data-cinema-key="zh-0"]').click({ timeout: 30000 });
   const dialog = page.getByRole('dialog');
-  await expect(dialog.locator('canvas')).toBeVisible();
-  await expect(dialog.getByRole('button', { name: '播放', exact: true })).toBeEnabled();
-  await expect(dialog.locator('progress')).toHaveAttribute('value', '0');
+  await expect(dialog.getByRole('heading')).toHaveText('本段影片尚未推出。');
+  // No placeholder film: nothing to render or play.
+  await expect(dialog.locator('canvas')).toHaveCount(0);
+  await expect(dialog.locator('progress')).toHaveCount(0);
   const bounds = await dialog.boundingBox();
   expect(bounds!.x).toBeGreaterThanOrEqual(0);
   expect(bounds!.width).toBeLessThanOrEqual(390);
