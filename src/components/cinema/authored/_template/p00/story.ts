@@ -32,4 +32,9 @@ export default defineStory({
       caption: { en: 'TODO: what the viewer sees in this shot.', zh: 'TODO：本幕画面说明。' },
     },
   ],
+  // Subtitles: phrases of the original with their translation, shown while each is staged.
+  // TODO: drafted from the text; retime them to the shots and trim lines too long for the screen.
+  subtitles: [
+    { start: 0.4, end: 35.6, zh: '{{SOURCE_ZH}}', en: '{{SOURCE_EN}}' }, // SUBTITLES
+  ],
 });

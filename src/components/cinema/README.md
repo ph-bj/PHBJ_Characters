@@ -27,6 +27,10 @@ Then:
 
 1. **Write the story.** Read the passage, split it into 2 to 6 beats and fill in the TODOs in
    `story.ts`. `defineStory` refuses gaps, overlaps, empty text, or a last shot that doesn't end at 36s.
+   Then retime the **subtitles**: each cue pairs a phrase of the original with its English (from the
+   site's translation, condensed to fit), shown over the film in the reader's language while that
+   phrase is staged. The generator drafts them from the text; line them up with the shots. Readers can
+   hide them with the CC button, and `npm run export-cinema` records them into the video.
 2. **Stage the scene.** Replace the placeholder in `scene.ts`. `authored/ch01/p01` and `p02` are
    full worked examples.
 3. **Check it.** Run `npx tsc --noEmit` and

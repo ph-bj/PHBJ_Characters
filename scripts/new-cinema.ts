@@ -59,6 +59,30 @@ const quote2 = sentences.slice(half).join('') || quote1;
 const keyWords = [...(zh.split(/[，。；：！？、]/).find(clause => clause.trim()) ?? zh).replace(/[“”‘’《》（）\s]/g, '')].slice(0, 8).join('');
 
 const inString = (text: string) => text.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+
+// Draft subtitles: the Chinese sentences (merged to at most eight cues), each paired with the
+// matching share of the English translation, timed across the film in proportion to length.
+const draftSubtitles = () => {
+  const groups = [...sentences];
+  while (groups.length > 8) {
+    // Merge the adjacent pair that makes the shortest cue.
+    let best = 1;
+    for (let k = 2; k < groups.length; k++) if (groups[k - 1].length + groups[k].length < groups[best - 1].length + groups[best].length) best = k;
+    groups.splice(best - 1, 2, groups[best - 1] + groups[best]);
+  }
+  const total = groups.reduce((sum, g) => sum + g.length, 0);
+  const enSentences = (en || '').split(/(?<=[.;!?”"])\s+/).filter(Boolean);
+  const enTotal = enSentences.reduce((sum, s) => sum + s.length, 0) || 1;
+  let done = 0, enIndex = 0, enDone = 0, time = 0.4;
+  return groups.map((zhText, i) => {
+    done += zhText.length;
+    const share: string[] = [];
+    while (enIndex < enSentences.length && (i === groups.length - 1 || enDone + enSentences[enIndex].length / 2 <= enTotal * done / total)) { share.push(enSentences[enIndex]); enDone += enSentences[enIndex++].length; }
+    const start = time, end = i === groups.length - 1 ? 35.6 : Math.round((0.4 + 35.2 * done / total) * 10) / 10;
+    time = end + 0.2;
+    return `    { start: ${start.toFixed(1)}, end: ${(end - (i === groups.length - 1 ? 0 : 0.2)).toFixed(1)}, zh: '${inString(zhText)}', en: '${inString(share.join(' ') || 'TODO: translation')}' },`;
+  }).join('\n');
+};
 /** Wraps text for a JSDoc block: `width` characters per line, continuation lines indented. */
 const inComment = (text: string, width: number) => {
   const lines: string[] = [];
@@ -71,7 +95,8 @@ const inComment = (text: string, width: number) => {
   return lines.join('\n *   ');
 };
 const fill = (template: string) => template
-  .split(/\r?\n/).filter(line => !line.includes('TEMPLATE-ONLY')).join('\n')
+  .split(/\r?\n/).filter(line => !line.includes('TEMPLATE-ONLY'))
+  .map(line => line.includes('// SUBTITLES') ? draftSubtitles() : line).join('\n')
   .replaceAll('{{CHAPTER}}', String(chapter))
   .replaceAll('{{PARAGRAPH}}', String(paragraph))
   .replaceAll('{{INDEX}}', String(paragraph - 1))

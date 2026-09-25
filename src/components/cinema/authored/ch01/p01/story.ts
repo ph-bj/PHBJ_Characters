@@ -39,4 +39,15 @@ export default defineStory({
       caption: { en: 'Drops of ink gather into ten kinds of people, and all ten are written with the same character: 情, feeling.', zh: '点点墨迹聚成十种人物，十种终归一字——情。' },
     },
   ],
+  subtitles: [
+    { start: 0.4, end: 3.6, zh: '京师演戏之盛，甲于天下。', en: 'The theatrical arts of the capital are renowned as the finest under heaven.' },
+    { start: 3.6, end: 6.8, zh: '地当尺五天边，处处歌台舞榭；', en: 'Here, at the very foot of the celestial throne, singing pavilions and dancing terraces grace every corner;' },
+    { start: 7.4, end: 11, zh: '人在大千队里，时时醉月评花。', en: 'within the bustling multitudes, people spend their days intoxicated by moonlight and evaluating the beauty of the flowers.' },
+    { start: 11, end: 14.6, zh: '真乃说不尽的繁华，描不尽的情态。', en: 'Truly, its prosperity defies description and its myriad sentiments exceed depiction.' },
+    { start: 15.4, end: 18.6, zh: '一时闻闻见见，怪怪奇奇，事不出于理之所无，人尽入于情之所有，', en: 'The bizarre and wondrous sights here, though strange, do not stray beyond reason, yet touch the depths of human feeling.' },
+    { start: 18.6, end: 21.6, zh: '遂以游戏之笔，摹写游戏之人。', en: 'Thus, with a playful brush, I trace the lives of playful souls.' },
+    { start: 22.4, end: 25.8, zh: '而游戏之中最难得者，几个用情守礼之君子，与几个洁身自好的优伶，', en: 'Yet the rarest among them are a few gentlemen who love deeply while holding fast to propriety, and a few performers who keep themselves pure,' },
+    { start: 25.8, end: 28.6, zh: '真合着《国风》好色不淫一句。', en: 'perfectly embodying the Airs of the States: “fond of beauty yet not licentious.”' },
+    { start: 29.4, end: 35.6, zh: '先将缙绅中子弟分作十种，皆是一个情字。', en: 'Let me first classify the young lords of the gentry into ten kinds, all united by the single word: feeling.' },
+  ],
 });

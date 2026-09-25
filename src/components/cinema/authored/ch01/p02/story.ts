@@ -33,4 +33,18 @@ export default defineStory({
       caption: { en: 'Thick ink for the gentlemen and a pale wash for the performers each settle into 情, then become one.', zh: '浓墨写缙绅，淡墨写名旦，各成一个“情”字，终又合而为一。' },
     },
   ],
+  subtitles: [
+    { start: 0.3, end: 1.9, zh: '一曰情中正，', en: 'The first is feeling rooted in righteousness;' },
+    { start: 1.9, end: 3.8, zh: '一曰情中上，', en: 'the second, feeling lifted in eminence;' },
+    { start: 3.8, end: 5.7, zh: '一曰情中高，', en: 'the third, feeling elevated in loftiness;' },
+    { start: 5.7, end: 7.6, zh: '一曰情中逸，', en: 'the fourth, feeling wandering in ease;' },
+    { start: 7.6, end: 9.5, zh: '一曰情中华，', en: 'the fifth, feeling shining in elegance;' },
+    { start: 9.5, end: 11.4, zh: '一曰情中豪，', en: 'the sixth, feeling soaring in boldness;' },
+    { start: 11.4, end: 13.3, zh: '一曰情中狂，', en: 'the seventh, feeling unfettered in wildness;' },
+    { start: 13.3, end: 15.2, zh: '一曰情中趣，', en: 'the eighth, feeling sparkling in wit;' },
+    { start: 15.2, end: 17.1, zh: '一曰情中和，', en: 'the ninth, feeling settled in harmony;' },
+    { start: 17.1, end: 18.8, zh: '一曰情中乐；', en: 'and the tenth, feeling steeped in joy.' },
+    { start: 19.6, end: 28.6, zh: '再将梨园中名旦分作十种，', en: 'Let me then classify the celebrated dan performers of the pear orchard into ten kinds,' },
+    { start: 29.6, end: 35.6, zh: '也是一个情字。', en: 'similarly united by the single word: feeling.' },
+  ],
 });

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Clapperboard, Pause, Play, RotateCcw, X } from 'lucide-react';
+import { Captions, CaptionsOff, Clapperboard, Pause, Play, RotateCcw, X } from 'lucide-react';
 import { findAuthoredCinema, type AuthoredCinema } from './cinema/authored';
-import { fadeAt, shotAt } from './cinema/authored/define';
+import { cueAt, fadeAt, shotAt } from './cinema/authored/define';
 import { CINEMA_DURATION, type Cinema } from './cinema/cinemaKit';
 
 export type CinemaParagraph = {
@@ -13,6 +13,11 @@ export type CinemaParagraph = {
 };
 
 type Lang = 'en' | 'zh';
+
+// Whether subtitles are shown is a per-reader preference; storage may be unavailable (private mode).
+const SUBTITLES_KEY = 'phbj-cinema-subtitles';
+const readSubtitlesPreference = () => { try { return localStorage.getItem(SUBTITLES_KEY) !== 'off'; } catch { return true; } };
+const writeSubtitlesPreference = (on: boolean) => { try { localStorage.setItem(SUBTITLES_KEY, on ? 'on' : 'off'); } catch { /* not persisted */ } };
 
 export function ParagraphCinema({ paragraph, chapterId, lang, onClose }: {
   paragraph: CinemaParagraph;
@@ -76,8 +81,10 @@ function AuthoredFilm({ story, paragraph, lang }: { story: AuthoredCinema; parag
   playingRef.current = playing;
   const [seconds, setSeconds] = useState(0);
   const [attempt, setAttempt] = useState(0);
+  const [subtitlesOn, setSubtitlesOn] = useState(readSubtitlesPreference);
   const shotIndex = shotAt(story.shots, seconds);
   const shot = story.shots[shotIndex];
+  const cue = subtitlesOn ? cueAt(story.subtitles, seconds) : undefined;
   const zh = lang === 'zh';
   const duration = CINEMA_DURATION;
   const finished = seconds >= duration;
@@ -118,6 +125,11 @@ function AuthoredFilm({ story, paragraph, lang }: { story: AuthoredCinema; parag
         <div ref={hostRef} data-testid="paragraph-cinema-canvas" role="img" aria-label={`${story.title[lang]} · ${shot.title[lang]}`} className="h-[40dvh] min-h-60 w-full sm:h-[48dvh] sm:min-h-80" />
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 bg-[var(--art-ink-deep)]" style={{ opacity: fadeAt(story.shots, seconds) }} />
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(10,8,6,0.45)_100%)]" />
+        {/* Subtitles: the words of the passage being staged, in the reading language. The full text
+            is also available below, so they are hidden from screen readers to avoid repetition. */}
+        {cue && status === 'ready' && <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center px-4 pb-3 sm:px-10 sm:pb-5">
+          <p key={cue.start} data-testid="cinema-subtitle" className={`max-w-3xl rounded-sm bg-[rgba(20,16,14,0.62)] px-3 py-1.5 text-center text-[var(--art-paper)] shadow-sm ${zh ? 'text-base sm:text-lg tracking-wide' : 'text-sm sm:text-base'}`}>{zh ? cue.zh : cue.en}</p>
+        </div>}
         {status === 'loading' && <div role="status" className="absolute inset-0 flex items-center justify-center bg-[var(--art-ink-deep)] text-sm text-[var(--art-paper)]/80">{zh ? '正在布景…' : 'Setting the scene…'}</div>}
         {status === 'error' && <div role="alert" className="parchment absolute inset-0 flex flex-col items-center justify-center gap-4 px-8 text-center text-sm text-[var(--ink-dim)]"><p>{zh ? '无法显示三维场景。请检查浏览器是否启用了 WebGL，或重试。' : 'The 3D scene could not be displayed. Check that WebGL is enabled in your browser, or try again.'}</p><button type="button" className={buttonStyle} onClick={() => { setSeconds(0); setAttempt(value => value + 1); }}>{zh ? '重试' : 'Try again'}</button></div>}
       </div>
@@ -129,12 +141,14 @@ function AuthoredFilm({ story, paragraph, lang }: { story: AuthoredCinema; parag
       <div className="flex flex-wrap items-center gap-3">
         <button type="button" className={buttonStyle} disabled={status !== 'ready'} onClick={() => finished ? replay() : setPlaying(value => !value)}>{playing ? <Pause size={15} /> : <Play size={15} />}{playing ? zh ? '暂停' : 'Pause' : finished ? zh ? '重播' : 'Replay' : zh ? '播放' : 'Play'}</button>
         <button type="button" className={buttonStyle} disabled={status !== 'ready'} aria-label={zh ? '从头播放' : 'Restart cinema'} onClick={replay}><RotateCcw size={15} /></button>
+        <button type="button" className={buttonStyle} aria-pressed={subtitlesOn} aria-label={zh ? '字幕' : 'Subtitles'} title={zh ? (subtitlesOn ? '关闭字幕' : '显示字幕') : (subtitlesOn ? 'Hide subtitles' : 'Show subtitles')}
+          onClick={() => setSubtitlesOn(on => { writeSubtitlesPreference(!on); return !on; })}>{subtitlesOn ? <Captions size={15} /> : <CaptionsOff size={15} />}</button>
         <progress aria-label={zh ? '播放进度' : 'Cinema progress'} max={duration} value={seconds}
           className="h-1.5 min-w-16 flex-1 appearance-none overflow-hidden rounded-full bg-[var(--paper-border)] [&::-moz-progress-bar]:bg-[var(--accent)] [&::-webkit-progress-bar]:bg-[var(--paper-border)] [&::-webkit-progress-value]:bg-[var(--accent)]" />
         <span className="text-xs tabular-nums text-[var(--ink-dim-text)]">{time(seconds)} / {time(duration)}</span>
       </div>
       <div className="mt-5">
-        <div aria-label={zh ? '选择分镜' : 'Choose a scene'} className={`grid grid-cols-2 gap-2 ${shotColumns}`}>
+        <div data-testid="cinema-shots" aria-label={zh ? '选择分镜' : 'Choose a scene'} className={`grid grid-cols-2 gap-2 ${shotColumns}`}>
           {story.shots.map((item, index) => <button key={item.start} type="button" disabled={status !== 'ready'}
             aria-pressed={shotIndex === index} onClick={() => seek(item.start + 0.6)}
             className={`rounded-sm border px-3 py-2 text-left text-sm leading-snug transition-colors focus-visible:outline-2 focus-visible:outline-[var(--accent)] disabled:opacity-40 ${shotIndex === index ? 'border-[var(--accent)]/50 bg-[var(--accent)]/10 font-medium text-[var(--accent)]' : 'border-[var(--paper-border)] text-[var(--ink-dim-text)] hover:border-[var(--accent)]/40 hover:text-[var(--accent)]'}`}>

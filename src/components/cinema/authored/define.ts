@@ -26,11 +26,24 @@ export type StoryShot = {
   readonly cut?: boolean;
 };
 
+/**
+ * A subtitle: a phrase of the original and its translation, shown over the film while that part of
+ * the passage is being staged. Readers see the line in their reading language.
+ */
+export type SubtitleCue = {
+  readonly start: number;
+  readonly end: number;
+  readonly zh: string;
+  readonly en: string;
+};
+
 export type Story = {
   readonly title: Bilingual;
   /** Shown under the player: how the passage has been staged, and who the figures are. */
   readonly description: Bilingual;
   readonly shots: readonly StoryShot[];
+  /** In order, not overlapping, within the film's 36 seconds. */
+  readonly subtitles: readonly SubtitleCue[];
 };
 
 /** Builds the cinema for a story; produced by `defineScene`. */
@@ -51,6 +64,11 @@ export function defineStory<const T extends Story>(story: T): T {
   });
   if (shots.length && shots[shots.length - 1].end !== CINEMA_DURATION) problems.push(`the last shot must end at ${CINEMA_DURATION}s`);
   if (shots[0]?.cut === false) problems.push('the first shot cannot continue a previous one');
+  story.subtitles.forEach((cue, i) => {
+    if (cue.start < 0 || cue.end > CINEMA_DURATION || cue.end <= cue.start) problems.push(`subtitle ${i + 1} must lie between 0 and ${CINEMA_DURATION}s and end after it starts`);
+    if (i > 0 && cue.start < story.subtitles[i - 1].end) problems.push(`subtitle ${i + 1} overlaps the one before it`);
+    if (!cue.zh.trim() || !cue.en.trim()) problems.push(`subtitle ${i + 1} needs both Chinese and English text`);
+  });
   if (problems.length) throw new Error(`Invalid cinema story "${story.title.en}": ${problems.join('; ')}.`);
   return story;
 }
@@ -58,6 +76,11 @@ export function defineStory<const T extends Story>(story: T): T {
 export function shotAt(shots: readonly StoryShot[], seconds: number) {
   const index = shots.findIndex(shot => seconds < shot.end);
   return index === -1 ? shots.length - 1 : index;
+}
+
+/** The subtitle showing at a moment, if any. */
+export function cueAt(cues: readonly SubtitleCue[], seconds: number) {
+  return cues.find(cue => seconds >= cue.start && seconds < cue.end);
 }
 
 /** Opacity of the dip to black around each cut. */
