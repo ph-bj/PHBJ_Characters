@@ -28,7 +28,7 @@ export const CAPITAL_PROLOGUE_SHOTS = [
     start: 29, end: 36,
     title: { en: 'One word: feeling', zh: '皆是一个情字' },
     quote: '先将缙绅中子弟分作十种，皆是一个情字。',
-    caption: { en: 'The city’s lights gather into ten kinds of people, and all ten are written with the same character: 情, feeling.', zh: '满城灯火聚成十种人物，十种终归一字——情。' },
+    caption: { en: 'Drops of ink gather into ten kinds of people, and all ten are written with the same character: 情, feeling.', zh: '点点墨迹聚成十种人物，十种终归一字——情。' },
   },
 ] as const;
 

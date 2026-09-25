@@ -131,6 +131,14 @@ const glowVertex = /* glsl */`
     gl_Position = projectionMatrix * mv;
     gl_PointSize = on < 0.01 ? 0.0 : min(180.0, aSize * uScale / -mv.z * (0.5 + 0.5 * on));
   }`;
+/** The ink-painting counterpart of a glow: a soft dot of ink (or vermilion) laid on the paper. */
+export const inkDotFragment = /* glsl */`
+  varying vec3 vColor;
+  void main() {
+    float r = length(gl_PointCoord - 0.5) * 2.0;
+    if (r > 1.0) discard;
+    gl_FragColor = vec4(min(vColor, vec3(1.0)), 0.85 * (1.0 - smoothstep(0.45, 1.0, r)));
+  }`;
 export const glowFragment = /* glsl */`
   varying vec3 vColor;
   void main() {
@@ -311,9 +319,10 @@ export function createCinema(
       geometry.setAttribute('aSize', new THREE.BufferAttribute(size, 1));
       geometry.setAttribute('aOn', new THREE.BufferAttribute(on, 1));
       geometry.setAttribute('aSeed', new THREE.BufferAttribute(seeds, 1));
+      // Light cannot be added to paper, so in ink the same points are laid down as dots.
       const points = new THREE.Points(geometry, new THREE.ShaderMaterial({
-        uniforms: shared, vertexShader: glowVertex, fragmentShader: glowFragment,
-        blending: THREE.AdditiveBlending, transparent: true, depthWrite: false,
+        uniforms: shared, vertexShader: glowVertex, fragmentShader: style === 'ink' ? inkDotFragment : glowFragment,
+        blending: style === 'ink' ? THREE.NormalBlending : THREE.AdditiveBlending, transparent: true, depthWrite: false,
       }));
       points.frustumCulled = false; parent.add(points);
       return points;

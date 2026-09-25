@@ -1,7 +1,7 @@
 /** A lantern-lit shadow-play screen: a playful brush sketches the city's players into moving silhouettes. */
 export const SHADOW_W = 1024;
 export const SHADOW_H = 576;
-export const INK = '#1b110c';
+export const INK = '#1c1714';
 const GROUND = 470;
 
 const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
@@ -28,7 +28,7 @@ export function robe(ctx: Ctx, x: number, top: number, bottom: number, wTop: num
 }
 /** Paper-coloured cut-outs, as in carved leather puppets. */
 export function cutout(ctx: Ctx, draw: () => void) {
-  ctx.save(); ctx.shadowBlur = 0; ctx.strokeStyle = ctx.fillStyle = 'rgba(255,214,150,0.4)'; draw(); ctx.restore();
+  ctx.save(); ctx.shadowBlur = 0; ctx.strokeStyle = ctx.fillStyle = 'rgba(246,242,234,0.55)'; draw(); ctx.restore();
 }
 
 function scholar(ctx: Ctx, x: number, g: number, t: number) {
@@ -154,11 +154,12 @@ export function createShadowPlay() {
   paper.width = SHADOW_W; paper.height = SHADOW_H;
   const p = paper.getContext('2d')!;
   const glow = p.createRadialGradient(SHADOW_W / 2, SHADOW_H * 0.62, 40, SHADOW_W / 2, SHADOW_H * 0.55, SHADOW_W * 0.62);
-  glow.addColorStop(0, '#fff1cc'); glow.addColorStop(0.45, '#f3c27c'); glow.addColorStop(1, '#8a4a1e');
+  // Neutral paper: the cinema is painted in ink, where any warm tint would read as vermilion.
+  glow.addColorStop(0, '#fbf8f1'); glow.addColorStop(0.45, '#ece6da'); glow.addColorStop(1, '#bdb6ab');
   p.fillStyle = glow; p.fillRect(0, 0, SHADOW_W, SHADOW_H);
   let seed = 7;
   const random = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  p.globalAlpha = 0.08; p.strokeStyle = '#6b3b16'; p.lineWidth = 1;
+  p.globalAlpha = 0.08; p.strokeStyle = '#6b635b'; p.lineWidth = 1;
   for (let i = 0; i < 280; i++) {
     const x = random() * SHADOW_W, y = random() * SHADOW_H, length = 10 + random() * 40, a = random() * Math.PI;
     p.beginPath(); p.moveTo(x, y);
@@ -170,7 +171,7 @@ export function createShadowPlay() {
   function draw(t: number) {
     ctx.shadowBlur = 0;
     ctx.drawImage(paper, 0, 0);
-    ctx.fillStyle = `rgba(60,25,5,${0.07 + 0.04 * Math.sin(t * 9.1) * Math.sin(t * 3.3)})`;
+    ctx.fillStyle = `rgba(40,36,32,${0.07 + 0.04 * Math.sin(t * 9.1) * Math.sin(t * 3.3)})`;
     ctx.fillRect(0, 0, SHADOW_W, SHADOW_H);
     ctx.fillStyle = INK; ctx.strokeStyle = INK;
     ctx.shadowColor = 'rgba(27,17,12,0.7)'; ctx.shadowBlur = 5;

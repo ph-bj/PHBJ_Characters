@@ -2,17 +2,19 @@ import * as THREE from 'three';
 import type { Cinema } from './createParagraphCinema';
 import { CAPITAL_PROLOGUE_SHOTS, capitalPrologueShotAt } from './capitalPrologueStory';
 import { createShadowPlay } from './prologueShadowPlay';
-import { clamp01, createCinema, ease, glowFragment, hallGeometry, petalGeometry, roofGeometry, type Env, type V3 } from './cinemaKit';
+import { clamp01, createCinema, ease, hallGeometry, inkDotFragment, petalGeometry, roofGeometry, type Env, type V3 } from './cinemaKit';
 
 // Each shot has its own set, placed far apart; only the current one is shown.
 const SET = { shadow: 400, gate: 800, glyph: 1200 };
 // Night palette per shot: sky gradient, moon, stars and fog. Moon direction points from the camera.
+// Ink-painting palettes. The kit's ink pass reads brightness as ink density: pale skies stay bare
+// paper, white fog fades distance into the paper, and the moon is left blank inside a light wash.
 const ENV = [
-  { top: 0x0a1428, horizon: 0x3a3b58, glow: 0x3a1f26, moon: [-0.3, 0.15, -1], moonSize: 0.035, moonGain: 2.4, bloom: 0.9, stars: 1, fog: 0x2a2c46, density: 0.0055 },
-  { top: 0x0a1428, horizon: 0x3a3b58, glow: 0x3a1f26, moon: [-0.3, 0.15, -1], moonSize: 0.035, moonGain: 2.4, bloom: 0.9, stars: 1, fog: 0x2a2c46, density: 0.0055 },
-  { top: 0x05070b, horizon: 0x140e0b, glow: 0x000000, moon: [0, -1, 0], moonSize: 0.01, moonGain: 0, bloom: 0.6, stars: 0.3, fog: 0x0b0908, density: 0.02 },
-  { top: 0x0d1a31, horizon: 0x3e4a68, glow: 0x000000, moon: [0, 0.075, -1], moonSize: 0.07, moonGain: 1.05, bloom: 0.5, stars: 0.6, fog: 0x2e3a56, density: 0.016 },
-  { top: 0x03050b, horizon: 0x0b0e1a, glow: 0x180c06, moon: [0, -1, 0], moonSize: 0.01, moonGain: 0, bloom: 1, stars: 1, fog: 0x03050b, density: 0 },
+  { top: 0xcdc7bd, horizon: 0xf0ece4, glow: 0x000000, moon: [-0.3, 0.15, -1], moonSize: 0.035, moonGain: 0.5, bloom: 0, stars: 0, fog: 0xf0ece4, density: 0.0055 },
+  { top: 0xcdc7bd, horizon: 0xf0ece4, glow: 0x000000, moon: [-0.3, 0.15, -1], moonSize: 0.035, moonGain: 0.5, bloom: 0, stars: 0, fog: 0xf0ece4, density: 0.0055 },
+  { top: 0xefebe3, horizon: 0xefebe3, glow: 0x000000, moon: [0, -1, 0], moonSize: 0.01, moonGain: 0, bloom: 0, stars: 0, fog: 0xefebe3, density: 0.02 },
+  { top: 0xb4ada3, horizon: 0xe6e1d8, glow: 0x000000, moon: [0, 0.075, -1], moonSize: 0.07, moonGain: 0.62, bloom: 0, stars: 0, fog: 0xece8e0, density: 0.016 },
+  { top: 0xf4f0e8, horizon: 0xf4f0e8, glow: 0x000000, moon: [0, -1, 0], moonSize: 0.01, moonGain: 0, bloom: 0, stars: 0, fog: 0xf4f0e8, density: 0 },
 ] as const satisfies readonly Env[];
 
 // The crowd: every lantern walks its own street, computed from time alone.
@@ -29,7 +31,7 @@ const crowdVertex = /* glsl */`
     gl_Position = projectionMatrix * mv;
     gl_PointSize = min(64.0, 0.5 * uScale / -mv.z);
   }`;
-// Lights rise, gather into ten 情, then merge into one.
+// Ink drops rise, gather into ten 情, then merge into one.
 const glyphVertex = /* glsl */`
   attribute vec3 aStart, aColor;
   attribute vec2 aGlyph;
@@ -51,7 +53,7 @@ const glyphVertex = /* glsl */`
     vColor = aColor * (0.6 + 0.5 * gather + 0.35 * merge) * pulse * (0.8 + 0.2 * sin(uTime * 3.0 + aSeed * 60.0));
     vec4 mv = modelViewMatrix * vec4(p, 1.0);
     gl_Position = projectionMatrix * mv;
-    gl_PointSize = min(48.0, mix(0.34, 0.22, gather) * uScale / -mv.z);
+    gl_PointSize = min(64.0, mix(0.95, 0.7, gather) * uScale / -mv.z);
   }`;
 const wineFragment = /* glsl */`
   uniform float uTime, uHit;
@@ -67,6 +69,15 @@ const wineFragment = /* glsl */`
     gl_FragColor = vec4(color, 1.0 - smoothstep(0.46, 0.5, length(p)));
   }`;
 
+// Soft, overlapping drops so the strokes pool like wet ink with feathered edges.
+const inkGlyphFragment = /* glsl */`
+  varying vec3 vColor;
+  void main() {
+    float r = length(gl_PointCoord - 0.5) * 2.0;
+    if (r > 1.0) discard;
+    gl_FragColor = vec4(min(vColor, vec3(1.0)), 0.42 * (1.0 - smoothstep(0.0, 1.0, r)));
+  }`;
+
 /** A new staging of the prologue: heaven's doorstep, moon and flowers, a playful brush, a moon gate, and 情. */
 export function createCapitalPrologueCinema(
   host: HTMLDivElement,
@@ -76,7 +87,7 @@ export function createCapitalPrologueCinema(
   return createCinema(host, onProgress, onError, 20260925, ({ scene, camera, rand, shared, ink, group, mesh, box, lambert, canvasTexture, glows, warm, lantern, path, setEnv, portrait }) => {
     // --- Shots 1–2: the capital ------------------------------------------------------------
     const city = group(scene);
-    mesh(new THREE.PlaneGeometry(1400, 1400).rotateX(-Math.PI / 2), lambert(0x12151d), city);
+    mesh(new THREE.PlaneGeometry(1400, 1400).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0xe6e1d8 }), city);
     const halls: { x: number; z: number; w: number; h: number; d: number; stage: boolean }[] = [];
     for (let i = -9; i <= 9; i++) for (let j = -10; j <= 2; j++) {
       const cx = i * 16, cz = j * 16;
@@ -89,7 +100,7 @@ export function createCapitalPrologueCinema(
       }
     }
     const cityMaterial = lambert(0xffffff, { vertexColors: true, side: THREE.DoubleSide });
-    const houses = new THREE.InstancedMesh(hallGeometry(0x1a2233, 0x33261f, 0x3a3d45), cityMaterial, halls.length);
+    const houses = new THREE.InstancedMesh(hallGeometry(0x4a4540, 0x8d867d, 0xb4ada3), cityMaterial, halls.length);
     const matrix = new THREE.Matrix4(), tint = new THREE.Color();
     halls.forEach((hall, i) => {
       matrix.makeScale(hall.w, hall.h, hall.d).setPosition(hall.x, 0, hall.z);
@@ -98,19 +109,19 @@ export function createCapitalPrologueCinema(
     });
     city.add(houses);
     // The Forbidden City: vermilion walls, a gate tower and three great halls on marble terraces.
-    const palaceHall = hallGeometry(0x6d5020, 0x5a1914, 0x8e8f96);
+    const palaceHall = hallGeometry(0x3a3430, 0xa33a26, 0xc9c3b9);
     const palace = new THREE.InstancedMesh(palaceHall, cityMaterial, 4);
     [[0, 6, -38, 28], [0, 2.4, -64, 30], [0, 2.4, -88, 20], [0, 2.4, -112, 32]].forEach(([x, y, z, w], i) => {
       palace.setMatrixAt(i, matrix.makeScale(w, w * 0.85, w * 0.72).setPosition(x, y, z));
     });
     city.add(palace);
-    const vermilion = lambert(0x4e1714), marble = lambert(0x7d7f88);
+    const vermilion = lambert(0xa33a26), marble = lambert(0xc9c3b9);
     box(city, vermilion, [0, 3, -38], [34, 6, 10]);
     for (const z of [-64, -88, -112]) box(city, marble, [0, 1.2, z], [40, 2.4, 26]);
     for (const x of [-38, 38]) box(city, vermilion, [x, 3, -86], [1.2, 6, 96]);
     box(city, vermilion, [0, 3, -134], [77, 6, 1.2]);
     // Western Hills on the horizon, drawn as flat washes beyond the fog.
-    [[-430, 0x1b2036, 60], [-360, 0x232842, 36]].forEach(([z, color, peak]) => {
+    [[-430, 0xc4beb4, 60], [-360, 0xa29b91, 36]].forEach(([z, color, peak]) => {
       const shape = new THREE.Shape(); shape.moveTo(-900, -40);
       for (let x = -900; x <= 900; x += 30) shape.lineTo(x, 8 + peak * (0.5 + 0.3 * Math.sin(x * 0.011 + z) + 0.2 * Math.sin(x * 0.031)));
       shape.lineTo(900, -40);
@@ -120,27 +131,25 @@ export function createCapitalPrologueCinema(
     const cityGlows: [V3, THREE.Color, number, number][] = [];
     for (const hall of halls) {
       const lit = Math.hypot(hall.x, hall.z + 60);
-      for (const side of [-0.2, 0.2]) if (rand() < 0.55) cityGlows.push([[hall.x + side * hall.w, 0.3 * hall.h, hall.z + 0.3 * hall.d], warm(0.45 + rand() * 0.3, 0xffb870), 0.9, -1]);
       if (!hall.stage) continue;
       const on = 1.4 + lit / 180 * 4.2 + rand() * 0.4;
-      for (let k = 0; k < 6; k++) cityGlows.push([[hall.x + (k / 5 - 0.5) * 0.8 * hall.w, 0.46 * hall.h, hall.z + 0.46 * hall.d], warm(2.6, 0xff7a3a), 0.55, on + k * 0.05]);
-      cityGlows.push([[hall.x, 0.3 * hall.h, hall.z + 0.6 * hall.d], warm(0.35), 16, on]);
+      for (let k = 0; k < 6; k++) cityGlows.push([[hall.x + (k / 5 - 0.5) * 0.8 * hall.w, 0.46 * hall.h, hall.z + 0.46 * hall.d], warm(1, 0xc0321e), 0.8, on + k * 0.05]);
     }
-    for (let k = 0; k < 12; k++) for (const x of [-6, 6]) cityGlows.push([[x, 1.6, 30 - k * 6], warm(2.2, 0xff5a2a), 0.5, 0.9 + (12 - k) * 0.08]);
-    for (let k = 0; k < 9; k++) cityGlows.push([[(k - 4) * 3.2, 7.5, -32.5], warm(2.4, 0xff6030), 0.6, 0.6]);
+    for (let k = 0; k < 12; k++) for (const x of [-6, 6]) cityGlows.push([[x, 1.6, 30 - k * 6], warm(1, 0xc0321e), 0.7, 0.9 + (12 - k) * 0.08]);
+    for (let k = 0; k < 9; k++) cityGlows.push([[(k - 4) * 3.2, 7.5, -32.5], warm(1, 0xc0321e), 0.9, 0.6]);
     glows(city, cityGlows);
     // 大千队里: a river of hand lanterns along every street, thickest on the avenue.
     {
       const count = 3200, geometry = new THREE.BufferGeometry();
       const start = new Float32Array(count * 3), direction = new Float32Array(count * 3), colors = new Float32Array(count * 3);
       const length = new Float32Array(count), speed = new Float32Array(count), seed = new Float32Array(count);
-      const hues = [0xffa04a, 0xff7338, 0xffc680];
+      const hues = [0x2f2a26, 0x4a443e, 0xb8321f];
       for (let i = 0; i < count; i++) {
         const along = rand() < 0.5 ? 1 : -1;
         if (i < 1500) { start.set([(rand() - 0.5) * 9, 1, along > 0 ? -34 : 50], i * 3); direction.set([0, 0, along], i * 3); length[i] = 84; }
         else if (rand() < 0.5) { const x = (Math.floor(rand() * 18) - 9) * 16 + 8 + (rand() - 0.5) * 2; start.set([x, 1, along > 0 ? -168 : 40], i * 3); direction.set([0, 0, along], i * 3); length[i] = 208; }
         else { const z = (Math.floor(rand() * 13) - 10) * 16 + 8 + (rand() - 0.5) * 2; start.set([along > 0 ? -152 : 152, 1, z], i * 3); direction.set([along, 0, 0], i * 3); length[i] = 304; }
-        new THREE.Color(hues[i % 3]).multiplyScalar(1.1 + rand() * 0.9).toArray(colors, i * 3);
+        new THREE.Color(hues[i % 3]).toArray(colors, i * 3);
         speed[i] = 1 + rand() * 1.2; seed[i] = rand();
       }
       geometry.setAttribute('position', new THREE.BufferAttribute(start, 3));
@@ -150,7 +159,7 @@ export function createCapitalPrologueCinema(
       geometry.setAttribute('aSpeed', new THREE.BufferAttribute(speed, 1));
       geometry.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
       const crowd = new THREE.Points(geometry, new THREE.ShaderMaterial({
-        uniforms: shared, vertexShader: crowdVertex, fragmentShader: glowFragment, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false,
+        uniforms: shared, vertexShader: crowdVertex, fragmentShader: inkDotFragment, transparent: true, depthWrite: false,
       }));
       crowd.frustumCulled = false; city.add(crowd);
     }
@@ -164,7 +173,7 @@ export function createCapitalPrologueCinema(
         gradient.addColorStop(0, 'rgba(255,255,255,0.35)'); gradient.addColorStop(1, 'rgba(255,255,255,0)');
         ctx.fillStyle = gradient; ctx.fillRect(0, 0, 256, 256);
       }
-      const cloud = new THREE.SpriteMaterial({ map: canvasTexture(canvas), color: 0x5a6590, transparent: true, opacity: 0.42, depthWrite: false, fog: false });
+      const cloud = new THREE.SpriteMaterial({ map: canvasTexture(canvas), color: 0x9a948b, transparent: true, opacity: 0.35, depthWrite: false, fog: false });
       for (let i = 0; i < 16; i++) {
         const sprite = new THREE.Sprite(cloud);
         sprite.position.set((rand() - 0.5) * 170, 55 + rand() * 55, -30 + rand() * 170);
@@ -175,14 +184,15 @@ export function createCapitalPrologueCinema(
 
     // The tavern terrace at the avenue's south end, looking north to the palace.
     const terrace = group(city, 0, 16, 52);
-    const lacquer = lambert(0x3a1512), timber = lambert(0x2b1a14);
-    box(terrace, timber, [0, -0.1, 0.5], [8, 0.2, 5]);
+    const lacquer = lambert(0x3a3431), timber = lambert(0x2e2926);
+    // Floor and table are pale washes so the close-up on the cup is not a pool of ink.
+    box(terrace, lambert(0xc9c2b7), [0, -0.1, 0.5], [8, 0.2, 5]);
     box(terrace, lacquer, [0, 0.92, -1.3], [7.4, 0.07, 0.08]);
     box(terrace, lacquer, [0, 0.12, -1.3], [7.4, 0.07, 0.08]);
     for (let x = -3.6; x <= 3.61; x += 0.4) box(terrace, lacquer, [x, 0.52, -1.3], [0.045, 0.8, 0.045]);
     for (const x of [-3.7, 3.7]) box(terrace, lacquer, [x, 2.2, -1.3], [0.2, 4.6, 0.2]);
     box(terrace, lacquer, [0, 4.4, -1.3], [7.8, 0.25, 0.22]);
-    box(terrace, timber, [0, 0.77, 0.5], [1.7, 0.06, 1]);
+    box(terrace, lambert(0xa39b90), [0, 0.77, 0.5], [1.7, 0.06, 1]);
     for (const x of [-0.75, 0.75]) for (const z of [0.1, 0.9]) box(terrace, timber, [x, 0.37, z], [0.06, 0.74, 0.06]);
     const celadon = new THREE.MeshStandardMaterial({ color: 0x8fb8a6, roughness: 0.25, side: THREE.DoubleSide });
     const cup = mesh(new THREE.LatheGeometry([[0, 0], [0.03, 0], [0.035, 0.008], [0.06, 0.03], [0.075, 0.062], [0.071, 0.064]].map(([x, y]) => new THREE.Vector2(x, y)), 32), celadon, terrace, 0.35, 0.8, 0.55);
@@ -218,31 +228,29 @@ export function createCapitalPrologueCinema(
     };
     const fallingPetal = mesh(petalGeometry(0.08, 0.1, 0xb0304a, 0xf5a3b4), petalMaterial, terrace);
     lantern(terrace, [-1.5, 2.3, 0.1], 0.9);
-    const lanternLight = new THREE.PointLight(0xffa050, 3, 9, 1.6);
+    const lanternLight = new THREE.PointLight(0xfff6ea, 3, 9, 1.6);
     lanternLight.position.set(-1.5, 2.2, 0.3); terrace.add(lanternLight);
     // A candle between vase and cup keys the close-up.
     mesh(new THREE.CylinderGeometry(0.018, 0.02, 0.14, 12), lambert(0xe9dcc0), terrace, 0.12, 0.87, 0.12);
     mesh(new THREE.ConeGeometry(0.008, 0.03, 8), new THREE.MeshBasicMaterial({ color: new THREE.Color(0xffd08a).multiplyScalar(3) }), terrace, 0.12, 0.965, 0.12);
-    const candle = new THREE.PointLight(0xffb468, 1.4, 3, 1.4); candle.position.set(0.12, 1.0, 0.16); terrace.add(candle);
-    glows(terrace, [[[-1.5, 2.3, 0.1], warm(0.9), 2.2, -1], [[0.12, 0.97, 0.12], warm(1.4, 0xffc070), 0.12, -1]]);
+    const candle = new THREE.PointLight(0xfff6ea, 1.4, 3, 1.4); candle.position.set(0.12, 1.0, 0.16); terrace.add(candle);
 
     // --- Shot 3: the shadow-play screen ----------------------------------------------------
     const shadow = group(scene, SET.shadow);
     const play = createShadowPlay();
     const screenTexture = canvasTexture(play.canvas);
-    mesh(new THREE.PlaneGeometry(40, 40).rotateX(-Math.PI / 2), lambert(0x16100d), shadow);
+    mesh(new THREE.PlaneGeometry(40, 40).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0xd8d2c8 }), shadow);
     const screenMaterial = new THREE.MeshBasicMaterial({ map: screenTexture, fog: false });
     screenMaterial.color.setRGB(1.08, 1.0, 0.9);
     mesh(new THREE.PlaneGeometry(7.2, 4.05), screenMaterial, shadow, 0, 2.55, 0);
-    const frame = lambert(0x3a1d14);
+    const frame = lambert(0x3a3431);
     for (const x of [-3.72, 3.72]) box(shadow, frame, [x, 2.6, 0], [0.22, 5.2, 0.2]);
     box(shadow, frame, [0, 4.66, 0], [7.8, 0.22, 0.22]);
     box(shadow, frame, [0, 0.52, 0], [7.8, 0.12, 0.22]);
-    box(shadow, lambert(0x2a140e), [0, 0.24, 0.02], [7.6, 0.46, 0.14]);
+    box(shadow, lambert(0x2a2522), [0, 0.24, 0.02], [7.6, 0.46, 0.14]);
     mesh(roofGeometry(8.8, 1.6, 0.55, new THREE.Color(0x1a1c24)), lambert(0xffffff, { vertexColors: true, side: THREE.DoubleSide }), shadow, 0, 4.78, 0);
     for (const x of [-4.4, 4.4]) lantern(shadow, [x, 3.9, 0.3]);
-    glows(shadow, [[[-4.4, 3.9, 0.3], warm(1.2), 3, -1], [[4.4, 3.9, 0.3], warm(1.2), 3, -1]]);
-    const screenLight = new THREE.PointLight(0xffc27a, 9, 14, 1.4); screenLight.position.set(0, 2.5, 1.2); shadow.add(screenLight);
+    const screenLight = new THREE.PointLight(0xfff6ea, 9, 14, 1.4); screenLight.position.set(0, 2.5, 1.2); shadow.add(screenLight);
     // Qing-dynasty spectators seen from behind: skullcaps and queues.
     const audience: THREE.Group[] = [];
     for (const [x, z] of [[-1.95, 6.8], [-0.7, 7.0], [0.65, 6.8], [1.9, 6.9], [-1.3, 5.0], [1.3, 5.1]]) {
@@ -259,7 +267,7 @@ export function createCapitalPrologueCinema(
 
     // --- Shot 4: the moon gate --------------------------------------------------------------
     const gate = group(scene, SET.gate);
-    mesh(new THREE.PlaneGeometry(80, 80).rotateX(-Math.PI / 2), lambert(0x2a2d33), gate);
+    mesh(new THREE.PlaneGeometry(80, 80).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0xd6d0c6 }), gate);
     const wallShape = new THREE.Shape([new THREE.Vector2(-9, 0), new THREE.Vector2(9, 0), new THREE.Vector2(9, 5.4), new THREE.Vector2(-9, 5.4)]);
     const hole = new THREE.Path(); hole.absarc(0, 2.55, 2.25, 0, Math.PI * 2, true); wallShape.holes.push(hole);
     mesh(new THREE.ExtrudeGeometry(wallShape, { depth: 0.5, bevelEnabled: false, curveSegments: 72 }).translate(0, 0, -0.25), lambert(0xd8cfbf), gate);
@@ -290,16 +298,14 @@ export function createCapitalPrologueCinema(
       const p = branch.getPoint(from);
       const twig = new THREE.CatmullRomCurve3([p, p.clone().lerp(new THREE.Vector3(...to), 0.5).add(new THREE.Vector3(0, 0.12, 0)), new THREE.Vector3(...to)]);
       mesh(new THREE.TubeGeometry(twig, 12, 0.02, 5), ink, gate);
-      for (let k = 0; k < 6; k++) blossoms.push([twig.getPoint(0.2 + k * 0.15).add(new THREE.Vector3((rand() - 0.5) * 0.1, (rand() - 0.5) * 0.1, 0)).toArray() as V3, new THREE.Color(0xffd4dc).multiplyScalar(0.8), 0.14, -1]);
+      for (let k = 0; k < 6; k++) blossoms.push([twig.getPoint(0.2 + k * 0.15).add(new THREE.Vector3((rand() - 0.5) * 0.1, (rand() - 0.5) * 0.1, 0)).toArray() as V3, new THREE.Color(0xc2413a), 0.12, -1]);
     }
-    for (let k = 0; k < 26; k++) blossoms.push([branch.getPoint(rand()).add(new THREE.Vector3((rand() - 0.5) * 0.14, (rand() - 0.5) * 0.14, 0.05)).toArray() as V3, new THREE.Color(0xffd4dc).multiplyScalar(0.7 + rand() * 0.4), 0.13, -1]);
+    for (let k = 0; k < 26; k++) blossoms.push([branch.getPoint(rand()).add(new THREE.Vector3((rand() - 0.5) * 0.14, (rand() - 0.5) * 0.14, 0.05)).toArray() as V3, new THREE.Color(rand() < 0.5 ? 0xc2413a : 0xa8322c), 0.11, -1]);
     for (const x of [-3.6, 3.6]) {
       lantern(gate, [x, 3.7, 0.6]);
-      blossoms.push([[x, 3.7, 0.6], warm(0.9), 1.1, -1]);
-      const light = new THREE.PointLight(0xffa050, 9, 9, 1.5); light.position.set(x, 3.6, 0.9); gate.add(light);
+      const light = new THREE.PointLight(0xfff6ea, 9, 9, 1.5); light.position.set(x, 3.6, 0.9); gate.add(light);
       box(gate, ink, [x, 4.35, 0.42], [0.05, 0.05, 0.4]);
     }
-    blossoms.push([[0, 0.8, -6], new THREE.Color(0x9fb4d8).multiplyScalar(0.16), 8, -1]);
     const fill = new THREE.DirectionalLight(0x8a9cc8, 0.6); fill.position.set(-4, 7, 12); gate.add(fill, fill.target);
     glows(gate, blossoms);
     const fallingPetals = new THREE.InstancedMesh(petalGeometry(0.05, 0.06, 0xd89aa6, 0xffe2e6), new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.DoubleSide }), 90);
@@ -364,7 +370,7 @@ export function createCapitalPrologueCinema(
         const [px, py] = pixels[Math.floor(rand() * pixels.length)];
         glyph.set([(px + rand()) / 200 - 0.5, 0.5 - (py + rand()) / 200], i * 2);
         start.set([(rand() - 0.5) * 70, -24 + rand() * 22, -rand() * 26 + 6], i * 3);
-        new THREE.Color(rand() < 0.12 ? 0xff5a3a : rand() < 0.5 ? 0xffc070 : 0xffa04a).toArray(colors, i * 3);
+        new THREE.Color(rand() < 0.5 ? 0x2f2a26 : 0x3f3a35).toArray(colors, i * 3);
         cluster[i] = i % 10; seed[i] = rand();
       }
       geometry.setAttribute('position', new THREE.BufferAttribute(start, 3));
@@ -374,7 +380,7 @@ export function createCapitalPrologueCinema(
       geometry.setAttribute('aCluster', new THREE.BufferAttribute(cluster, 1));
       geometry.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
       const points = new THREE.Points(geometry, new THREE.ShaderMaterial({
-        uniforms: glyphUniforms, vertexShader: glyphVertex, fragmentShader: glowFragment, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false,
+        uniforms: glyphUniforms, vertexShader: glyphVertex, fragmentShader: inkGlyphFragment, transparent: true, depthWrite: false,
       }));
       points.frustumCulled = false; glyphSet.add(points);
     }
@@ -451,5 +457,5 @@ export function createCapitalPrologueCinema(
         seal.scale.setScalar(1 + 0.4 * (1 - ease((seconds - 34.4) / 0.35)));
       }
     };
-  });
+  }, 'ink');
 }
