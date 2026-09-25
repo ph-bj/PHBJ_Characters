@@ -3,6 +3,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import type { Cinema } from './createParagraphCinema';
 import { CINEMA_DURATION } from './paragraphScene';
@@ -138,6 +139,79 @@ export const glowFragment = /* glsl */`
     gl_FragColor = vec4(vColor * (exp(-r * r * 5.0) + 0.6 * (1.0 - smoothstep(0.12, 0.32, r))), 1.0);
   }`;
 
+const noiseGlsl = /* glsl */`
+  float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+  float noise(vec2 p) {
+    vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x), mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y);
+  }
+  float fbm(vec2 p) { float v = 0.0, a = 0.5; for (int i = 0; i < 4; i++) { v += a * noise(p); p *= 2.03; a *= 0.5; } return v; }`;
+
+/**
+ * Turns the rendered frame into ink on paper: light becomes bare paper, darkness becomes ink,
+ * edges gain brush outlines, and saturated reds stay vermilion (seals, lanterns).
+ */
+const inkPassShader = {
+  uniforms: {
+    tDiffuse: { value: null },
+    uResolution: { value: new THREE.Vector2(1, 1) },
+    uPaper: { value: new THREE.Vector3(0.94, 0.91, 0.84) },
+    uInk: { value: new THREE.Vector3(0.11, 0.09, 0.08) },
+    uSeal: { value: new THREE.Vector3(0.66, 0.2, 0.13) },
+  },
+  vertexShader: 'varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+  fragmentShader: /* glsl */`
+    uniform sampler2D tDiffuse;
+    uniform vec2 uResolution;
+    uniform vec3 uPaper, uInk, uSeal;
+    varying vec2 vUv;
+    ${noiseGlsl}
+    float lum(vec2 uv) { return dot(texture2D(tDiffuse, uv).rgb, vec3(0.299, 0.587, 0.114)); }
+    void main() {
+      vec2 px = 1.0 / uResolution, frag = vUv * uResolution;
+      // The brush never follows the geometry exactly; the offset is fixed so the paper does not swim.
+      vec2 uv = vUv + (vec2(fbm(frag / 90.0), fbm(frag / 90.0 + 7.3)) - 0.5) * px * 3.0;
+      vec3 c = texture2D(tDiffuse, uv).rgb;
+      float l = dot(c, vec3(0.299, 0.587, 0.114));
+      float tl = lum(uv + px * vec2(-1.0, 1.0)), t = lum(uv + px * vec2(0.0, 1.0)), tr = lum(uv + px * vec2(1.0, 1.0));
+      float ml = lum(uv + px * vec2(-1.0, 0.0)), mr = lum(uv + px * vec2(1.0, 0.0));
+      float bl = lum(uv + px * vec2(-1.0, -1.0)), b = lum(uv + px * vec2(0.0, -1.0)), br = lum(uv + px * vec2(1.0, -1.0));
+      float edge = smoothstep(0.1, 0.55, length(vec2(-tl - 2.0 * ml - bl + tr + 2.0 * mr + br, -bl - 2.0 * b - br + tl + 2.0 * t + tr)));
+      float grain = fbm(frag / 2.5), wash = fbm(frag / 140.0);
+      // Uneven washes: ink pools in some places and thins in others.
+      float ink = smoothstep(0.03, 0.97, 1.0 - l) * (0.8 + 0.34 * wash);
+      ink = clamp(max(ink, edge * 0.8), 0.0, 1.0);
+      vec3 paper = uPaper * (0.93 + 0.07 * grain);
+      paper *= 1.0 - 0.2 * pow(length(vUv - 0.5) * 1.3, 3.0);
+      vec3 color = mix(paper, uInk, ink * (0.9 + 0.1 * grain));
+      float red = clamp((c.r - max(c.g, c.b)) * 2.5, 0.0, 1.0);
+      color = mix(color, uSeal * (0.85 + 0.15 * grain), red);
+      gl_FragColor = vec4(color, 1.0);
+    }`,
+};
+
+/** Ink that seeps into the paper: reveals a canvas texture through a noisy, growing threshold. */
+export function inkRevealMaterial(map: THREE.Texture, color = new THREE.Color(1, 1, 1)) {
+  return new THREE.ShaderMaterial({
+    uniforms: { map: { value: map }, uReveal: { value: 0 }, uOpacity: { value: 1 }, uColor: { value: color } },
+    vertexShader: 'varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+    fragmentShader: /* glsl */`
+      uniform sampler2D map;
+      uniform float uReveal, uOpacity;
+      uniform vec3 uColor;
+      varying vec2 vUv;
+      ${noiseGlsl}
+      void main() {
+        vec4 texel = texture2D(map, vUv);
+        float n = noise(vUv * vec2(5.0, 10.0)) * 0.6 + noise(vUv * 40.0) * 0.4;
+        float alpha = texel.a * smoothstep(n - 0.08, n + 0.08, uReveal * 1.3 - 0.15) * uOpacity;
+        if (alpha < 0.02) discard;
+        gl_FragColor = vec4(texel.rgb * uColor, alpha);
+      }`,
+    transparent: true, depthWrite: false,
+  });
+}
+
 export type Kit = {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
@@ -170,11 +244,14 @@ export function createCinema(
   onError: () => void,
   seed: number,
   build: (kit: Kit) => (seconds: number) => void,
+  /** `ink` renders as a traditional ink painting on paper instead of a lantern-lit night. */
+  style: 'night' | 'ink' = 'night',
 ): Cinema {
   const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 1.6));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  // The ink pass reads brightness as ink density, so it needs untoned values.
+  renderer.toneMapping = style === 'ink' ? THREE.NoToneMapping : THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.1;
   renderer.domElement.setAttribute('aria-hidden', 'true');
   renderer.domElement.style.cssText = 'width:100%;height:100%;display:block';
@@ -188,6 +265,8 @@ export function createCinema(
   const bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), 0.9, 0.55, 0.85);
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
+  const inkPass = style === 'ink' ? new ShaderPass(inkPassShader) : undefined;
+  if (inkPass) { bloom.enabled = false; composer.addPass(inkPass); }
   const textures = new Set<THREE.Texture>();
   let disposed = false, playing = false, seconds = 0, previous = 0, report = -1;
   let observer: ResizeObserver | undefined;
@@ -208,7 +287,7 @@ export function createCinema(
     });
     materials.forEach(material => material.dispose());
     textures.forEach(texture => texture.dispose());
-    bloom.dispose(); composer.dispose();
+    bloom.dispose(); inkPass?.dispose(); composer.dispose();
     renderer.dispose(); renderer.forceContextLoss(); renderer.domElement.remove();
   };
   try {
@@ -311,6 +390,7 @@ export function createCinema(
       const w = Math.max(1, width), h = Math.max(1, height);
       renderer.setSize(w, h, false);
       composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(w, h);
+      inkPass?.uniforms.uResolution.value.set(w * renderer.getPixelRatio(), h * renderer.getPixelRatio());
       camera.aspect = w / h;
       // Keep the horizontal field of a 16:10 frame on narrow screens so subjects stay in view.
       const horizontal = 2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(baseFov) / 2) * 1.6);

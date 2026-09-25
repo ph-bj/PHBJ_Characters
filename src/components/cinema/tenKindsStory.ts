@@ -4,7 +4,7 @@ export const TEN_KINDS_SHOTS = [
     start: 0, end: 9.5,
     title: { en: 'Upright, aspiring, lofty, free, splendid', zh: '情中正·上·高·逸·华' },
     quote: '一曰情中正，一曰情中上，一曰情中高，一曰情中逸，一曰情中华',
-    caption: { en: 'Along a moonlit gallery, a lantern lights for each kind of gentleman: the upright, the aspiring, the lofty, the unfettered and the splendid.', zh: '月下长廊，一灯照一人：正者端立，上者仰望，高者临石，逸者闲卧，华者拈花。' },
+    caption: { en: 'Along a gallery unrolled like a handscroll, each lantern is touched with vermilion and a gentleman is brushed in beside it: the upright, the aspiring, the lofty, the unfettered and the splendid.', zh: '长廊如卷徐徐展开，一灯一点朱砂，一人一笔水墨：正者端立，上者仰望，高者临石，逸者闲卧，华者拈花。' },
   },
   {
     start: 9.5, end: 19, cut: false,
@@ -22,6 +22,6 @@ export const TEN_KINDS_SHOTS = [
     start: 29, end: 36,
     title: { en: 'Also one word: feeling', zh: '也是一个情字' },
     quote: '也是一个情字。',
-    caption: { en: 'Lantern light from the gallery and pale blossom light from the garden each form 情, then become one.', zh: '长廊灯火与梨园花光各成一个“情”字，终又合而为一。' },
+    caption: { en: 'Thick ink for the gentlemen and a pale wash for the performers each settle into 情, then become one.', zh: '浓墨写缙绅，淡墨写名旦，各成一个“情”字，终又合而为一。' },
   },
 ] as const;

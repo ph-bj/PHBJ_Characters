@@ -24,8 +24,8 @@ export const STORIES: Record<Sequence, { shots: readonly StoryShot[]; descriptio
   'ten-kinds': {
     shots: TEN_KINDS_SHOTS,
     description: {
-      zh: '长廊十灯，照出缙绅子弟十种情态；梨园水榭，十位名旦次第登场；两般灯火，终归一个“情”字。画中人物均为本段所写的类型，并非具体角色。',
-      en: 'Ten lanterns along a gallery reveal the ten kinds of gentlemen; ten leading dan performers take the stage in the Pear Garden; both sets of lights become one word: feeling. The figures are the types this passage names, not particular characters.',
+      zh: '以水墨写之：长廊十灯，缙绅子弟十种情态；梨园水榭，十位名旦次第登场；浓淡两墨，终归一个“情”字。画中人物均为本段所写的类型，并非具体角色。',
+      en: 'Painted in ink: ten lanterns along a gallery reveal the ten kinds of gentlemen; ten leading dan performers take the stage in the Pear Garden; thick ink and pale wash become one word: feeling. The figures are the types this passage names, not particular characters.',
     },
   },
 };
