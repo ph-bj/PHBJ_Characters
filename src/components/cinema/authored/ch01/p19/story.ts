@@ -1,0 +1,63 @@
+import { defineStory } from '../../define';
+
+/**
+ * Chapter 1, paragraph 19.
+ *
+ * 原文：隶联锦部。玉骨冰肌，锦心绣口。工书法，虽片纸尺绢，士大夫争宝之如拱壁。善心为窈，骨逾沉水
+ *   之香；令德是娴，色夺瑶林之月。常演《制谱》、《舞盘》、《小宴》、《絮阁》诸戏，俨然又一杨
+ *   太真也。就使陈鸿立传，未能绘其声容；香山作歌，岂足形其彷佛。好义若渴，避恶如仇。真守白圭
+ *   之洁，而凛素丝之贞者。丰致之嫣然，犹其余韵耳。为之诗曰：
+ *
+ * Translation: He belongs to the Lianjin troupe. He possesses jade bones and ice-pure skin, an embroidered
+ *   heart and a brocaded mouth. He excels at calligraphy; even a scrap of paper or a foot of
+ *   silk bearing his writing is fought over by scholar-officials, treasured as highly as a
+ *   large jade disc. His benevolent heart is profoundly deep, his essence more fragrant than
+ *   sunken aloeswood; his exemplary virtue is refined, his beauty eclipsing the moon above a
+ *   forest of jade. He frequently performs plays such as "Composing the Score," "Dancing on the
+ *   Tray," "The Small Banquet," and "The Nagging in the Pavilion," appearing for all the world
+ *   as another Yang Guifei reincarnate. Even if Chen Hong were to write his biography, he could
+ *   not fully depict his voice and countenance; even if Bai Juyi were to compose a song, it
+ *   would barely capture his likeness. He thirsts for righteousness and shuns evil as his
+ *   mortal enemy. He is truly one who guards the flawless purity of a white jade scepter and
+ *   maintains the austere chastity of un-dyed silk. The captivating charm of his graceful
+ *   bearing is merely his lingering resonance. Thus, I composed for him this poem:
+ *
+ * Staged from album beats (cinema/beats/album.ts): Lu Sulan’s portrait, his Yang Guifei scenes on stage, and a closing portrait.
+ */
+export default defineStory({
+  title: { en: 'Lu Sulan, another Yang Guifei', zh: '俨然又一杨太真' },
+  description: {
+    en: 'Painted in ink as leaves of Shi Nanxiang’s 《花选》, the album that ranks the leading dan actors of the capital. Lu Sulan: his calligraphy, his Yang Guifei, and his purity.',
+    zh: '以水墨绘作史南湘《花选》册页，品评京师名旦。陆素兰：书法、所演杨太真诸戏，及其洁行。',
+  },
+  shots: [
+    {
+      start: 0, end: 12,
+      title: { en: 'Jade bones, a brocaded heart', zh: '玉骨冰肌' },
+      quote: '隶联锦部。玉骨冰肌，锦心绣口。工书法……',
+      caption: { en: 'Of the Lianjin troupe: jade bones and ice-pure skin; his calligraphy is treasured by scholar-officials.', zh: '隶联锦部，玉骨冰肌，锦心绣口；工书法，士大夫争宝之。' },
+    },
+    {
+      start: 12, end: 26,
+      title: { en: 'Another Yang Guifei', zh: '俨然又一杨太真' },
+      quote: '常演《制谱》、《舞盘》、《小宴》、《絮阁》诸戏，俨然又一杨太真也。',
+      caption: { en: 'He plays Composing the Score, Dancing on the Tray, The Small Banquet and The Nagging in the Pavilion: Yang Guifei reborn.', zh: '《制谱》《舞盘》《小宴》《絮阁》，俨然又一杨太真。' },
+    },
+    {
+      start: 26, end: 36,
+      title: { en: 'Pure as white jade', zh: '守白圭之洁' },
+      quote: '好义若渴，避恶如仇。真守白圭之洁',
+      caption: { en: 'He thirsts for righteousness and shuns evil, keeping the purity of a white jade scepter.', zh: '好义若渴，避恶如仇，守白圭之洁。' },
+    },
+  ],
+  subtitles: [
+    { start: 0.4, end: 4, zh: '隶联锦部。玉骨冰肌，锦心绣口。', en: 'Of the Lianjin troupe: jade bones and ice-pure skin, an embroidered heart and a brocaded mouth.' },
+    { start: 4, end: 8, zh: '工书法，虽片纸尺绢，士大夫争宝之如拱壁。', en: 'He excels at calligraphy; scholar-officials fight over even a scrap of his writing.' },
+    { start: 8, end: 11.6, zh: '善心为窈，骨逾沉水之香；令德是娴，色夺瑶林之月。', en: 'His heart is deep, his essence more fragrant than aloeswood; his beauty eclipses the moon over a jade forest.' },
+    { start: 12.4, end: 18, zh: '常演《制谱》、《舞盘》、《小宴》、《絮阁》诸戏，', en: 'He often performs Composing the Score, Dancing on the Tray, The Small Banquet and The Nagging in the Pavilion,' },
+    { start: 18, end: 21.6, zh: '俨然又一杨太真也。', en: 'appearing for all the world as another Yang Guifei.' },
+    { start: 21.6, end: 25.6, zh: '就使陈鸿立传，未能绘其声容；香山作歌，岂足形其彷佛。', en: 'Chen Hong’s biography could not depict his voice, nor Bai Juyi’s song capture his likeness.' },
+    { start: 26.4, end: 30.4, zh: '好义若渴，避恶如仇。', en: 'He thirsts for righteousness and shuns evil as his mortal enemy.' },
+    { start: 30.4, end: 35.6, zh: '真守白圭之洁，而凛素丝之贞者。为之诗曰：', en: 'He keeps the purity of white jade and the chastity of undyed silk. Thus, I composed for him this poem:' },
+  ],
+});

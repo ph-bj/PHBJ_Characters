@@ -1,5 +1,5 @@
 import { disc, limb, type Ctx } from '../../../brush';
-import { blossom, FLOWER_NAMES, INK, KAITI, leaf, paintFlower, PETAL_RED, RED, seeded, stroke, WASH } from '../../../paint';
+import { FLOWER_NAMES, INK, KAITI, leaf, paintFlower, PETAL_RED, RED, seeded, stroke, WASH } from '../../../paint';
 
 /**
  * Brush paintings for Chapter 1, paragraph 3: a flower album of the ten kinds of leading
@@ -20,7 +20,6 @@ export const LOW_KINDS = ['淫', '邪', '黠', '荡', '贪', '魔', '祟', '蠹'
  * transparent canvas so only the ink seeps in; the paper is a separate plane behind it.
  */
 export function paintFlowerPanel(ctx: Ctx, rank: number) {
-  const rand = seeded(rank + 7);
   ctx.clearRect(0, 0, PANEL_W, PANEL_H);
   ctx.strokeStyle = 'rgba(60,50,45,0.35)'; ctx.lineWidth = 3; ctx.strokeRect(14, 14, PANEL_W - 28, PANEL_H - 28);
   ctx.fillStyle = INK; ctx.strokeStyle = INK;

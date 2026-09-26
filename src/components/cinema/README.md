@@ -11,17 +11,17 @@ Every other paragraph's button opens a short note saying its film is not availab
 npm run new-cinema -- <chapter> <paragraph>     # paragraph is 1-based, as shown in the reader
 ```
 
-This creates three files, prefilled with the paragraph's Chinese and English text:
+This creates two files, prefilled with the paragraph's Chinese and English text:
 
 | File | What it holds |
 | --- | --- |
 | `authored/chNN/pNN/story.ts` | Title, description and shot list: the shot buttons, quotes and captions the player shows |
 | `authored/chNN/pNN/scene.ts` | The 3D staging. It starts as a working placeholder (a moonlit landscape, then the key words in calligraphy) |
-| `tests/cinema-chNN-pNN.spec.ts` | A Playwright check that the cinema opens in both languages, visits every shot and plays to the end |
 
 The cinema appears in the reader immediately. Folders are discovered by `authored/index.ts`, so
 there is nothing to register, and each scene is split into its own chunk that loads only when that
-paragraph's cinema is opened.
+paragraph's cinema is opened. `tests/authoredCinemas.spec.ts` finds the folder on disk too and tests
+it (opens it, visits every shot, checks subtitles and WebGL errors).
 
 Then:
 
@@ -34,9 +34,38 @@ Then:
 2. **Stage the scene.** Replace the placeholder in `scene.ts`. `authored/ch01/p01` and `p02` are
    full worked examples.
 3. **Check it.** Run `npx tsc --noEmit` and
-   `npx playwright test tests/cinema-chNN-pNN.spec.ts --workers=1` with the dev server running.
+   `npx playwright test tests/authoredCinemas.spec.ts --workers=1 --grep "chNN pNN"` with the dev
+   server running, and look at the frames from `npm run cinema-contact-sheet -- <chapter> <p> <p>`.
 4. **Export a video** if you want one: `npm run export-cinema -- <chapter> <paragraph>` writes
    `~/Documents/PHBJ-chNN-pNN-cinema.mp4` (dev server and ffmpeg required).
+
+## Batches: beats and contact sheets
+
+Many paragraphs share a shape (an album entry, a conversation in the study...). For those, don't
+stage a scene by hand: compose it from **beats**, reusable one-shot stagings in `beats/`.
+
+```ts
+// authored/ch01/p13/scene.ts
+export default beatScene(1013, [          // one beat per shot in story.ts, in order
+  emblemBeat(A.baozhu),
+  portraitBeat(A.baozhu, ['善丹青', '娴吟咏']),
+  repertoireBeat(A.baozhu, ['鹊桥', '密誓']),
+  poemBeat(['舞袖轻盈弱不胜', /* ... */], A.baozhu),
+]);
+```
+
+- `beats/engine.ts`: `beatScene`, plus helpers for writing new beats (`painting`, `figure`,
+  `columns`, `albumPage`, `frontCamera`). Each beat builds its own set and animates from the time
+  since its shot began, so shots can be retimed freely.
+- `beats/album.ts`: the 《花选》 album beats: `emblemBeat`, `portraitBeat`, `repertoireBeat`,
+  `poemBeat`, and `readersBeat` (Zhongqing, Ziyu and Nanxiang reacting at given moments).
+- `beats/motifs.ts` paints the emblems; `figures.ts` has dan performers (`dan`, `DAN_POSES`, props)
+  and scholars (`scholar` with gestures); `paint.ts` has brush flowers (`paintFlower`) and strokes.
+- Per-chapter data lives beside the paragraphs, e.g. `authored/ch01/actors.ts`.
+
+Review a batch at a glance: `npm run cinema-contact-sheet -- 1 13 34` saves a frame from the middle of
+every shot plus a grid, `test-results/contact-sheet/sheet.png`. It seeks through the dev-only
+`window.__phbjCinema` and `window.__phbjStory` hooks that `ParagraphCinema` sets.
 
 ## Anatomy of a scene
 

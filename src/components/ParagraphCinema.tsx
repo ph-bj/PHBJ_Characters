@@ -103,6 +103,8 @@ function AuthoredFilm({ story, paragraph, lang }: { story: AuthoredCinema; parag
       if (cancelled || !hostRef.current) return;
       cinema = create(hostRef.current, story, onProgress, onError);
       cinemaRef.current = cinema;
+      // Development only: lets scripts/cinema-contact-sheet.mjs seek to exact moments.
+      if (import.meta.env.DEV) Object.assign(window, { __phbjCinema: cinema, __phbjStory: story });
       cinema.setPlaying(playingRef.current);
       setStatus('ready');
     }).catch(() => { if (!cancelled) { setStatus('error'); setPlaying(false); } });

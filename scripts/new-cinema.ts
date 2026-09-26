@@ -6,8 +6,8 @@
  *
  * Paragraph numbers are 1-based, as the reader shows them. Creates
  *   src/components/cinema/authored/chNN/pNN/{story,scene}.ts   (prefilled with the paragraph's text)
- *   tests/cinema-chNN-pNN.spec.ts
- * The new cinema appears in the reader at once; there is nothing to register.
+ * The new cinema appears in the reader at once, and tests/authoredCinemas.spec.ts covers it; there
+ * is nothing to register.
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
@@ -42,7 +42,6 @@ if (!zh) { console.error(`Chapter ${chapter} has ${zhParagraphs.length} paragrap
 
 const pad = (n: number) => String(n).padStart(2, '0');
 const folder = join(root, `src/components/cinema/authored/ch${pad(chapter)}/p${pad(paragraph)}`);
-const testFile = join(root, `tests/cinema-ch${pad(chapter)}-p${pad(paragraph)}.spec.ts`);
 // PowerShell drops the `--` separator, so npm may take `--force` for itself; it then shows up as npm_config_force.
 const force = flags.includes('--force') || process.env.npm_config_force === 'true';
 if (existsSync(folder) && !force) {
@@ -111,15 +110,14 @@ const fill = (template: string) => template
 const templates = join(root, 'src/components/cinema/authored/_template/p00');
 mkdirSync(folder, { recursive: true });
 for (const name of ['story.ts', 'scene.ts']) writeFileSync(join(folder, name), fill(readFileSync(join(templates, name), 'utf8')));
-writeFileSync(testFile, fill(readFileSync(join(root, 'tests/templates/authored-cinema.spec.ts.tpl'), 'utf8')));
 
 console.log(`Created the cinema for chapter ${chapter}, paragraph ${paragraph}:
   ${relative(root, join(folder, 'story.ts'))}   titles, shots, captions (fill in the TODOs)
   ${relative(root, join(folder, 'scene.ts'))}   the ink staging (starts as a working placeholder)
-  ${relative(root, testFile)}
 
 It already plays in the reader: open chapter ${chapter} and press the cinema button on paragraph ${paragraph}.
 Next: write the story, stage the scene, then run
   npx tsc --noEmit
-  npx playwright test ${relative(root, testFile).replace(/\\/g, '/')} --workers=1
+  npx playwright test tests/authoredCinemas.spec.ts --workers=1 --grep "ch${pad(chapter)} p${pad(paragraph)}"
+  npm run cinema-contact-sheet -- ${chapter} ${paragraph} ${paragraph}
 See src/components/cinema/README.md for the conventions.`);

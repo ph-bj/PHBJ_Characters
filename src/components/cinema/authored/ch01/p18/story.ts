@@ -1,0 +1,37 @@
+import { defineStory } from '../../define';
+
+/**
+ * Chapter 1, paragraph 18.
+ *
+ * 原文：碧海珊枝陆素兰 素兰姓陆氏，宇香畹，年十六岁。姑苏人。
+ *
+ * Translation: Lu Sulan: A Coral Branch in the Azure Sea. Sulan's surname is Lu, his style name Xiangwan,
+ *   and he is sixteen years of age. A native of Suzhou.
+ *
+ * Staged from album beats (cinema/beats/album.ts): Lu Sulan’s emblem page, then a portrait with his particulars.
+ */
+export default defineStory({
+  title: { en: 'Lu Sulan, a coral branch', zh: '碧海珊枝陆素兰' },
+  description: {
+    en: 'Painted in ink as leaves of Shi Nanxiang’s 《花选》, the album that ranks the leading dan actors of the capital. The third entry: Lu Sulan.',
+    zh: '以水墨绘作史南湘《花选》册页，品评京师名旦。第三题：陆素兰。',
+  },
+  shots: [
+    {
+      start: 0, end: 20,
+      title: { en: 'A coral branch in the azure sea', zh: '碧海珊枝' },
+      quote: '碧海珊枝陆素兰',
+      caption: { en: 'The third entry: Lu Sulan, “A Coral Branch in the Azure Sea.”', zh: '第三题：碧海珊枝陆素兰。' },
+    },
+    {
+      start: 20, end: 36,
+      title: { en: 'Sixteen, of Suzhou', zh: '年十六岁，姑苏人' },
+      quote: '素兰姓陆氏，宇香畹，年十六岁。姑苏人。',
+      caption: { en: 'Style name Xiangwan, sixteen years old, a native of Suzhou.', zh: '字香畹，年十六岁，姑苏人。' },
+    },
+  ],
+  subtitles: [
+    { start: 0.4, end: 10, zh: '碧海珊枝陆素兰', en: 'Lu Sulan: A Coral Branch in the Azure Sea.' },
+    { start: 20.4, end: 30, zh: '素兰姓陆氏，宇香畹，年十六岁。姑苏人。', en: 'Sulan’s surname is Lu, his style name Xiangwan; he is sixteen, a native of Suzhou.' },
+  ],
+});
