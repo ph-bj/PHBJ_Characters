@@ -1,270 +1,190 @@
 import * as THREE from 'three';
 import { defineScene } from '../../define';
-import { clamp01, ease, glyphPixels, hallGeometry, INK_SKY, INK_TONE, inkRevealMaterial, type V3 } from '../../../cinemaKit';
-import { arm, body, drawFigure, FIGURE_ASPECT, FIGURE_H, FIGURE_W, head } from '../../../brush';
-import { BLOT_SIZE, DUCKS_SIZE, LOW_KINDS, PANEL_H, PANEL_W, paintBlot, paintDucks, paintFlowerPanel } from './paintings';
+import { INK_SKY } from '../../../cinemaKit';
+import { CAST, G, VERMILION, cue, face, figure, flat, tone, walkAlong, type Pose } from '../../../stage/figure';
+import { floor, pavilion, platform } from '../../../stage/architecture';
+import { bamboo, ground, lotus, peony, pine, plumTree, range, willow } from '../../../stage/nature';
+import { book, lamp, roundTable, writing } from '../../../stage/props';
+import { inkGather, mist, petals, smoke } from '../../../stage/fx';
+import { lights, move, orbit, sets, span } from '../../../stage/direct';
+import { study } from '../../../stage/locations';
+import { DUCKS_SIZE, LOW_KINDS, RANKS, paintDucks } from './paintings';
 
 /*
- * Chapter 1, paragraph 3, in ink: the ten ranks of leading performers as a flower album, the eight
- * lower kinds as blots on which 情 cannot settle, the two paths, sixty volumes and a title slip,
- * and embroidered mandarin ducks with the golden needle withheld.
+ * Chapter 1, paragraph 3. On a garden terrace ten leading performers stand in an arc, each beside a
+ * flower of her own in a pot, and as the camera sweeps round them a slip names each kind: 情中至,
+ * 情中慧 ... 情中媚. Then a smoky den where eight hunched figures crowd a gaming table; over each
+ * hangs a blotted word, and above them all 情 gathers, cannot settle, and scatters. In a misty
+ * landscape a young man stands where the road forks: flagstones climb straight to a pavilion with a
+ * vermilion lantern, a crooked track winds off into dark pines. At night the author writes on, and
+ * volume after volume stacks up on his desk until there are sixty, and the brush writes the title
+ * slip. Last, a lady at her frame finishes a pair of embroidered mandarin ducks for all to see, and
+ * draws the needle away into her sleeve.
  */
 
-// Each shot has its own set, far apart along x; only the current one is shown.
-const SET = { album: 0, blots: 300, paths: 600, desk: 900, hoop: 1200 };
-
-// 情 gathers above the blots, presses down, cannot settle, and scatters. Times are absolute seconds.
-const refuseVertex = /* glsl */`
-  attribute vec3 aStart;
-  attribute vec2 aGlyph;
-  attribute float aSeed;
-  uniform float uTime, uScale, uGather, uPress, uScatter;
-  varying float vAlpha;
-  void main() {
-    float gather = smoothstep(0.0, 1.0, clamp((uTime - uGather - aSeed * 0.8) / 1.5, 0.0, 1.0));
-    float press = smoothstep(0.0, 1.0, clamp((uTime - uPress) / 1.0, 0.0, 1.0));
-    float scatter = smoothstep(0.0, 1.0, clamp((uTime - uScatter - aSeed * 0.4) / 1.6, 0.0, 1.0));
-    // It trembles as it presses against the blots, then is thrown off.
-    vec3 glyph = vec3(aGlyph * 6.0, 2.2 - press * 1.9) + vec3(sin(uTime * 23.0 + aSeed * 40.0), cos(uTime * 19.0 + aSeed * 30.0), 0.0) * 0.05 * press * (1.0 - scatter);
-    vec3 p = mix(aStart, glyph, gather);
-    vec2 away = normalize(aGlyph + (vec2(aSeed, fract(aSeed * 7.3)) - 0.5) * 0.4 + 1e-3);
-    p += vec3(away * scatter * 9.0, scatter * 2.5);
-    vAlpha = 0.55 * gather * (1.0 - scatter) * (1.0 - scatter);
-    vec4 mv = modelViewMatrix * vec4(p, 1.0);
-    gl_Position = projectionMatrix * mv;
-    gl_PointSize = min(48.0, mix(0.55, 0.3, scatter) * uScale / -mv.z);
-  }`;
-const inkDropFragment = /* glsl */`
-  uniform vec3 uInk;
-  varying float vAlpha;
-  void main() {
-    float r = length(gl_PointCoord - 0.5) * 2.0;
-    if (r > 1.0) discard;
-    gl_FragColor = vec4(uInk, vAlpha * (1.0 - smoothstep(0.0, 1.0, r)));
-  }`;
+/** Ten flowers, one per kind, in the passage's order. */
+const FLOWERS: ('plumRed' | 'plumWhite' | 'lotus' | 'peonyWhite' | 'bamboo' | 'peonyRed' | 'pine')[] = ['plumWhite', 'bamboo', 'lotus', 'plumRed', 'peonyWhite', 'peonyRed', 'pine', 'plumRed', 'peonyRed', 'peonyWhite'];
+const DAN_POSE: ((t: number) => Pose)[] = [G.pose, G.shy, t => G.dance(t, 0.5), G.folded, t => ({ ...G.folded(t), bow: 0.15 }), t => ({ ...G.pose(t), turn: -0.3 }), G.rest, t => G.dance(t, 2), G.pose, G.shy];
 
 export default defineScene({
   seed: 1003,
-  build: ({ scene, camera, rand, shared, group, mesh, box, canvasTexture, calligraphy, seal, lantern, path, setEnv, portrait }, story) => {
-    const tone = (hex: number, extra: THREE.MeshBasicMaterialParameters = {}) => new THREE.MeshBasicMaterial({ color: hex, ...extra });
-    const canvas = (width: number, height: number) => { const c = document.createElement('canvas'); c.width = width; c.height = height; return c; };
-    const start = (shot: number) => story.shots[shot].start;
+  build: (kit, story) => {
+    const { groups: [terrace, den, fork, desk, frame], show } = sets(kit, 5);
+    const at = (i: number) => story.shots[i].start;
+    const rand = kit.rand;
 
-    // --- Shot 1: the flower album, unrolled right to left ------------------------------------
-    const album = group(scene, SET.album);
-    mesh(new THREE.PlaneGeometry(53, 7.6), tone(0xcfc8bc), album, 0, 3.1, -0.03);
-    for (const x of [-26.6, 26.6]) mesh(new THREE.CylinderGeometry(0.22, 0.22, 8.2, 16), tone(INK_TONE.dark), album, x, 3.1, 0.05);
-    const panels = Array.from({ length: 10 }, (_, rank) => {
-      // Painted at twice the panel's size so its writing stays crisp.
-      const c = canvas(PANEL_W * 2, PANEL_H * 2), ctx = c.getContext('2d')!;
-      ctx.scale(2, 2);
-      paintFlowerPanel(ctx, rank);
-      const material = inkRevealMaterial(canvasTexture(c, true), undefined, { sharp: true });
-      mesh(new THREE.PlaneGeometry(4.96, 6.2), tone(0xf3eee3), album, 22.5 - rank * 5, 3.1, 0);
-      mesh(new THREE.PlaneGeometry(5, 6.25), material, album, 22.5 - rank * 5, 3.1, 0.01);
-      return material;
+    // --- Shot 1: ten flowers ---------------------------------------------------------------------------
+    ground(kit, terrace, { w: 220, d: 220, height: 1.2, flatten: 16, shade: 0xdcd6cc });
+    platform(kit, terrace, 16, 9, 0.5, { z: -1 });
+    floor(kit, terrace, 16, 9, { kind: 'flag', z: -1, y: 0.51 });
+    willow(kit, terrace, -11, -6, { h: 7, rand }); willow(kit, terrace, 11, -7, { h: 7, rand });
+    range(kit, terrace, { z: -110, span: 400, height: 28, shade: 0xc9c2b7, seed: 103 });
+    const fall = petals(kit, terrace, { count: 80, w: 16, h: 5, d: 8, y: 0.5, red: true, speed: 0.25, wind: 0.2 });
+    const stations = RANKS.map((rank, k) => {
+      const a = (k - 4.5) * 0.28;
+      const x = Math.sin(a) * 6, z = -Math.cos(a) * 6 + 3;
+      const g = kit.group(terrace, x, 0.5, z);
+      g.rotation.y = Math.atan2(-x, 3 - z + 3);
+      const potX = 0.55;
+      kit.mesh(new THREE.CylinderGeometry(0.28, 0.2, 0.4, 14), tone(0x6e675f), g, potX, 0.2, 0);
+      const kind = FLOWERS[k];
+      if (kind === 'plumRed' || kind === 'plumWhite') plumTree(kit, g, potX, 0, { h: 1.6, rand, blossoms: 40, red: kind === 'plumRed' }).position.y = 0.35;
+      else if (kind === 'lotus') lotus(kit, g, potX, 0, { count: 3, rand, radius: 0.25, flowers: 1 }).position.y = 0.4;
+      else if (kind === 'bamboo') bamboo(kit, g, potX, 0, { h: 1.8, count: 3, rand, spread: 0.2 }).group.position.y = 0.35;
+      else if (kind === 'pine') pine(kit, g, potX, 0, { h: 1.5, rand }).position.y = 0.35;
+      else peony(kit, g, potX, 0.45, 0, { s: 1.4, red: kind === 'peonyRed' });
+      const dan = figure(kit, g, { ...CAST.dan, robe: [0xf0ebe2, 0xe6e0d6, 0xd6d0c6][k % 3], jacket: [0xd6d0c6, 0xb9b2a8, 0x9c958b][k % 3], waterSleeves: k % 2 === 0 }, -0.2, 0);
+      const slip = writing(kit, g, `情中${rank}`, { size: 0.17, paper: 0xf4f0e8, margin: 0.25, x: potX, y: 2.2, z: 0 });
+      return { g, dan, slip, x, z };
     });
+    lights(kit, terrace, { key: [6, 10, 12], intensity: 1 });
+    const cam1 = orbit(kit, terrace, [0, 1.4, -1.8], { r: 6.5, y: 2, a0: -0.95, a1: 0.95, t0: 0, t1: at(1), lookY: 1.4, rise: 0.8 });
 
-    // --- Shot 2: eight blots, and a 情 that will not settle -------------------------------------
-    const blots = group(scene, SET.blots);
-    const blotMaterials = LOW_KINDS.map((char, k) => {
-      const c = canvas(BLOT_SIZE * 2, BLOT_SIZE * 2), ctx = c.getContext('2d')!;
-      ctx.scale(2, 2);
-      paintBlot(ctx, char, k);
-      const material = inkRevealMaterial(canvasTexture(c, true), undefined, { sharp: true });
-      mesh(new THREE.PlaneGeometry(3.2, 3.2), material, blots, -6.3 + (k % 4) * 4.2, k < 4 ? 1.9 : -2.3, 0);
-      return material;
+    // --- Shot 2: where feeling will not settle -------------------------------------------------------------
+    floor(kit, den, 30, 30, { kind: 'bricks', shade: 0x8c857c });
+    kit.box(den, tone(0x4a443e), [0, 2, -4], [14, 4, 0.2]);
+    roundTable(kit, den, { r: 0.9 });
+    const lurkers = LOW_KINDS.map((ch, k) => {
+      const a = k / 8 * Math.PI * 2 + 0.3;
+      const x = Math.sin(a) * 1.5, z = Math.cos(a) * 1.5;
+      const f = figure(kit, den, { ...[CAST.merchant, CAST.clown, CAST.servant, CAST.guest, CAST.pedant, CAST.escort, CAST.youth, CAST.official][k], robe: 0x3f3a35, jacket: 0x2a2522 }, x, z);
+      const blot = inkGather(kit, den, ch, { size: 0.55, at: 10.6 + k * 0.6, dur: 0.8, count: 900, spread: 1, drop: 0.05 });
+      blot.points.position.set(x * 1.1, 2.3, z * 1.1);
+      return f;
     });
-    const refuseUniforms = { uTime: shared.uTime, uScale: shared.uScale, uGather: { value: 0 }, uPress: { value: 0 }, uScatter: { value: 0 }, uInk: { value: new THREE.Color(INK_TONE.thick) } };
-    {
-      const sample = glyphPixels('情', rand);
-      const count = 2600, geometry = new THREE.BufferGeometry();
-      const starts = new Float32Array(count * 3), glyph = new Float32Array(count * 2), seeds = new Float32Array(count);
-      for (let i = 0; i < count; i++) {
-        starts.set([(rand() - 0.5) * 30, 6 + rand() * 6, rand() * 4], i * 3);
-        glyph.set(sample(), i * 2); seeds[i] = rand();
-      }
-      geometry.setAttribute('position', new THREE.BufferAttribute(starts, 3));
-      geometry.setAttribute('aStart', new THREE.BufferAttribute(starts, 3));
-      geometry.setAttribute('aGlyph', new THREE.BufferAttribute(glyph, 2));
-      geometry.setAttribute('aSeed', new THREE.BufferAttribute(seeds, 1));
-      const points = new THREE.Points(geometry, new THREE.ShaderMaterial({ uniforms: refuseUniforms, vertexShader: refuseVertex, fragmentShader: inkDropFragment, transparent: true, depthWrite: false }));
-      points.frustumCulled = false; blots.add(points);
-    }
+    const qing = inkGather(kit, den, '情', { size: 1.6, at: 13, dur: 2, scatter: 15.4, count: 3000, spread: 3, ink: 0x9c958b });
+    qing.points.position.set(0, 3.2, 0);
+    smoke(kit, den, 0, 0.9, 0, { h: 2.4, count: 160, size: 0.12 });
+    const dice = [0, 1, 2].map(k => kit.box(den, tone(0xf0ebe2), [(k - 1) * 0.12, 0.84, 0.1], [0.06, 0.06, 0.06]));
+    lights(kit, den, { key: [0, 4, 3], intensity: 0.55, fill: 0.2 });
+    const cam2 = move(kit, den, [[at(1), [3.6, 1.4, 3.8], [0, 1.1, 0]], [at(1) + 3.5, [0.5, 2.4, 4.5], [0, 2, 0]], [at(2), [-2.6, 3.8, 5.2], [0, 2.6, 0]]]);
 
-    // --- Shot 3: the fork between the straight and the crooked path ---------------------------
-    const paths = group(scene, SET.paths);
-    mesh(new THREE.PlaneGeometry(300, 300).rotateX(-Math.PI / 2), tone(0xd9d3c9), paths);
-    [[-80, INK_TONE.pale, 10], [-55, INK_TONE.mid, 6]].forEach(([z, color, height]) => {
-      const shape = new THREE.Shape(); shape.moveTo(-150, -5);
-      for (let x = -150; x <= 150; x += 5) shape.lineTo(x, height * (0.6 + 0.4 * Math.sin(x * 0.05 + z) + 0.2 * Math.sin(x * 0.17)));
-      shape.lineTo(150, -5);
-      mesh(new THREE.ShapeGeometry(shape), tone(color), paths, 0, 0, z);
-    });
-    /** A flat track of bare paper following the points, narrowing with distance. */
-    const ribbon = (points: V3[], width: number) => {
-      const curve = new THREE.CatmullRomCurve3(points.map(p => new THREE.Vector3(...p)));
-      const positions: number[] = [], index: number[] = [], n = 120;
-      for (let i = 0; i <= n; i++) {
-        const u = i / n, p = curve.getPoint(u), t = curve.getTangent(u);
-        const side = new THREE.Vector3(-t.z, 0, t.x).normalize().multiplyScalar(width * (1 - 0.45 * u));
-        positions.push(p.x + side.x, 0.02, p.z + side.z, p.x - side.x, 0.02, p.z - side.z);
-        if (i < n) index.push(i * 2, i * 2 + 1, i * 2 + 2, i * 2 + 1, i * 2 + 3, i * 2 + 2);
-      }
-      const geometry = new THREE.BufferGeometry();
-      geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3)); geometry.setIndex(index);
-      mesh(geometry, tone(INK_TONE.paper, { side: THREE.DoubleSide }), paths);
-      return curve;
-    };
-    ribbon([[0, 0, 16], [0, 0, 10], [0, 0, 6]], 0.9);
-    const straight = ribbon([[0, 0, 6], [1.2, 0, -4], [2.6, 0, -16], [3.8, 0, -28], [4.5, 0, -35]], 0.8);
-    const crooked = ribbon([[0, 0, 6], [-3, 0, 1.5], [-1.4, 0, -3.5], [-6, 0, -8], [-3.8, 0, -13], [-9, 0, -17], [-7.5, 0, -22]], 0.7);
-    const pavilion = new THREE.Mesh(hallGeometry(INK_TONE.thick, INK_TONE.mid, INK_TONE.pale), new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.DoubleSide }));
-    pavilion.position.set(4.6, 0, -39); pavilion.scale.set(9, 8, 6.5); paths.add(pavilion);
-    lantern(paths, [4.6, 3.4, -35.3], 2);
-    const trunk = new THREE.CylinderGeometry(0.12, 0.2, 1, 6), crown = new THREE.IcosahedronGeometry(1, 0);
-    const tree = (x: number, z: number, height: number, color: number) => {
-      mesh(trunk, tone(color), paths, x, height / 2, z).scale.y = height;
-      for (let k = 0; k < 4; k++) mesh(crown, tone(color), paths, x + (rand() - 0.5) * 1.6, height + rand() * 1.2, z + (rand() - 0.5) * 1.6).scale.set(1.2, 0.8, 1.2);
-    };
-    // The crooked path vanishes into a dark wood; the straight one is lined with a few pale trees.
-    for (let i = 0; i < 44; i++) tree(-12 + rand() * 10, -16 - rand() * 12, 3 + rand() * 2.5, INK_TONE.thick);
-    for (const [x, z] of [[4.5, -8], [-0.8, -12], [6.5, -20], [1.6, -26]]) tree(x, z, 2.6, INK_TONE.mid);
-    // Two small walkers, one on each path.
-    const walkers = [straight, crooked].map(curve => {
-      const c = canvas(FIGURE_W, FIGURE_H);
-      const texture = canvasTexture(c);
-      const figure = mesh(new THREE.PlaneGeometry(1.4 * FIGURE_ASPECT, 1.4), new THREE.MeshBasicMaterial({ map: texture, transparent: true, depthWrite: false }), paths);
-      return { curve, c, texture, figure };
-    });
-    const P = SET.paths;
-    const pathsShot = path([
-      [start(2), [P, 1.8, 20], [P, 1.2, 0]],
-      [start(2) + 3.5, [P + 1, 5, 17], [P, 0.4, -10]],
-      [start(3), [P, 10, 17], [P - 1, 0, -15]],
-    ]);
+    // --- Shot 3: two paths ----------------------------------------------------------------------------------
+    ground(kit, fork, { w: 300, d: 300, height: 3, flatten: 10, shade: 0xd6d0c6 });
+    range(kit, fork, { z: -120, span: 400, height: 34, shade: 0xc9c2b7, seed: 303 });
+    // The straight way: flagstones rising in steps to a terrace and pavilion.
+    for (let k = 0; k < 14; k++) kit.box(fork, tone(0xe6e0d6), [3 + k * 0.35, 0.05 + k * 0.18, -2 - k * 0.9], [1.2, 0.1 + k * 0.36, 0.8]);
+    platform(kit, fork, 6, 5, 2.6, { x: 8.2, z: -16, steps: false });
+    const hilltop = kit.group(fork, 8.2, 2.6, -16);
+    pavilion(kit, hilltop, { r: 1.6, h: 2.6 });
+    kit.mesh(new THREE.SphereGeometry(0.22, 12, 8), flat(VERMILION), hilltop, 0, 2.4, 1.6).scale.y = 1.3;
+    // The crooked way: a winding track into dark pines.
+    const bends: [number, number][] = [[0, 0], [-1.5, -2], [-0.6, -4], [-3, -6], [-2, -8.5], [-5, -11], [-4.2, -14]];
+    bends.slice(1).forEach(([x, z], k) => { const [px, pz] = bends[k]; const seg = kit.box(fork, tone(0xb9b2a8), [(x + px) / 2, 0.03, (z + pz) / 2], [0.9, 0.04, Math.hypot(x - px, z - pz) + 0.4]); seg.rotation.y = Math.atan2(x - px, z - pz); });
+    for (let k = 0; k < 14; k++) pine(kit, fork, -4 - rand() * 8, -8 - rand() * 12, { h: 5 + rand() * 3, rand });
+    const shade = mist(kit, fork, { count: 6, w: 14, y: 0.5, d: 8, z: -14, size: 8, opacity: 0.5, shade: 0x8c857c });
+    const traveller = figure(kit, fork, CAST.youth, 0.6, 2.4);
+    lights(kit, fork, { key: [10, 12, 6], intensity: 1 });
+    const cam3 = move(kit, fork, [[at(2), [1.2, 1.6, 6.5], [0.6, 1.4, 2]], [at(2) + 3, [0.8, 3, 8], [0.5, 1.6, -4]], [at(3), [1, 9, 13], [1.5, 1, -8]]]);
 
-    // --- Shot 4: the author's desk and sixty volumes --------------------------------------------
-    const desk = group(scene, SET.desk);
-    box(desk, tone(INK_TONE.pale), [0, -0.15, 0], [14, 0.3, 8]);
-    const cover = tone(INK_TONE.dark), pages = tone(0xece6da);
-    const bookFaces = [pages, pages, cover, cover, pages, pages];
-    const bookGeometry = new THREE.BoxGeometry(1.9, 0.085, 2.7);
-    const stacks: [number, number][] = [[-4.6, -1.2], [-2.3, -1.5], [0, -1.4], [2.3, -1.6]];
-    const books = Array.from({ length: 60 }, (_, i) => {
-      const [x, z] = stacks[i % 4], level = Math.floor(i / 4);
-      const book = new THREE.Mesh(bookGeometry, bookFaces);
-      book.position.set(x, 0.0425 + level * 0.088, z); book.rotation.y = (rand() - 0.5) * 0.08; desk.add(book);
-      return { book, y: book.position.y };
-    });
-    // The first volume, face up in front, with its title slip.
-    const titleBook = new THREE.Mesh(bookGeometry, bookFaces);
-    titleBook.position.set(0.4, 0.0425, 1.9); titleBook.rotation.y = -0.04; desk.add(titleBook);
-    mesh(new THREE.PlaneGeometry(0.5, 1.95).rotateX(-Math.PI / 2), tone(0xf2ecdf), desk, -0.12, 0.09, 1.9);
-    const title = calligraphy(desk, '品花宝鉴', { size: 0.42 });
-    title.mesh.rotation.x = -Math.PI / 2; title.mesh.position.set(-0.12, 0.093, 1.9);
-    const subtitle = calligraphy(desk, '怡情佚史', { size: 0.22 });
-    subtitle.mesh.rotation.x = -Math.PI / 2; subtitle.mesh.position.set(0.42, 0.09, 1.5);
-    box(desk, tone(INK_TONE.thick), [3.7, 0.07, 2.0], [1.0, 0.14, 1.4]);
-    const brush = group(desk);
-    mesh(new THREE.CylinderGeometry(0.035, 0.03, 1.5, 10), tone(INK_TONE.mid), brush, 0, 0.9, 0);
-    mesh(new THREE.ConeGeometry(0.06, 0.2, 10).rotateX(Math.PI), tone(INK_TONE.thick), brush, 0, 0.1, 0);
-    const D = SET.desk;
-    const deskShot = path([
-      [start(3), [D, 7.5, 9.5], [D, 0, -0.5]],
-      [start(3) + 3.5, [D + 0.3, 4.5, 6.2], [D + 0.3, 0, 1]],
-      [start(4), [D + 0.4, 3.1, 4.5], [D + 0.2, 0, 1.7]],
-    ]);
+    // --- Shot 4: sixty volumes --------------------------------------------------------------------------------
+    const room = study(kit, desk, { night: true });
+    const author = figure(kit, desk, { ...CAST.teacher, beard: 'full' }, ...room.seats.desk);
+    const deskLamp = lamp(kit, desk, { x: 0.75, y: 0.82, z: -2.35, h: 0.4, power: 2.4 });
+    const stacks = [-0.85, -0.62, -0.39, 0.39, 0.62, 0.85].flatMap(x => Array.from({ length: 10 }, (_, k) => book(kit, desk, { x, y: 0.82 + k * 0.034, z: -2.05, w: 0.18, d: 0.26 }).group));
+    const slipGroup = kit.group(desk, 0.85, 0.82 + 10 * 0.034 + 0.002, -2.05);
+    kit.box(slipGroup, tone(0xf0ebe2), [0, 0, 0], [0.06, 0.002, 0.2]);
+    const titleSlip = writing(kit, slipGroup, '品花宝鉴', { size: 0.04, margin: 0.1, paper: null });
+    titleSlip.mesh.rotation.x = -Math.PI / 2; titleSlip.mesh.position.y = 0.002;
+    const cam4 = move(kit, desk, [[at(3), [2.4, 1.8, 0.6], [0, 1, -2.2]], [at(3) + 3, [1.6, 1.6, -0.6], [0.2, 1, -2.1]], [at(4), [1.05, 1.35, -1.75], [0.85, 1.1, -2.05]]]);
 
-    // --- Shot 5: the embroidery hoop ------------------------------------------------------------
-    const hoop = group(scene, SET.hoop);
-    const wood = tone(0x6e675f);
-    box(hoop, tone(INK_TONE.dark), [0, -2.85, 0], [3.4, 0.25, 1.2]);
-    // The stand's legs sit behind the silk so they don't show through the embroidery.
-    for (const x of [-1.25, 1.25]) mesh(new THREE.CylinderGeometry(0.07, 0.07, 2.4, 8), wood, hoop, x, -1.7, -0.14);
-    for (const z of [0.03, -0.03]) mesh(new THREE.TorusGeometry(2.25, 0.09, 10, 96), wood, hoop, 0, 0.3, z);
-    mesh(new THREE.CircleGeometry(2.2, 96), tone(0xf7f3eb), hoop, 0, 0.3, 0);
-    const ducksCanvas = canvas(DUCKS_SIZE, DUCKS_SIZE);
-    paintDucks(ducksCanvas.getContext('2d')!);
-    const embroidery = inkRevealMaterial(canvasTexture(ducksCanvas));
-    mesh(new THREE.CircleGeometry(2.2, 96), embroidery, hoop, 0, 0.3, 0.01);
-    const needle = group(hoop);
-    mesh(new THREE.CylinderGeometry(0.022, 0.006, 0.8, 8).rotateX(Math.PI / 2), tone(INK_TONE.dark), needle, 0, 0, 0.4);
-    const threadGeometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]);
-    const thread = new THREE.Line(threadGeometry, new THREE.LineBasicMaterial({ color: 0xb8321f }));
-    hoop.add(thread);
-    const stamp = seal(hoop, '品花', 0.55);
-    stamp.mesh.position.set(1.35, -1.05, 0.03);
-    const stitchAt = (t: number) => new THREE.Vector3(Math.cos(t * 1.7) * 1.1, 0.3 + Math.sin(t * 2.3) * 0.8, 0);
+    // --- Shot 5: the golden needle ----------------------------------------------------------------------------
+    floor(kit, frame, 20, 20, { kind: 'boards', shade: 0xcfc8bc });
+    kit.box(frame, tone(0xe6e0d6), [0, 2, -2.4], [10, 4, 0.1]);
+    const hoop = kit.group(frame, 0, 1.15, 0);
+    hoop.rotation.x = -0.5;
+    kit.mesh(new THREE.TorusGeometry(0.42, 0.025, 8, 40), tone(0x6e675f), hoop);
+    const canvas = document.createElement('canvas'); canvas.width = canvas.height = DUCKS_SIZE;
+    paintDucks(canvas.getContext('2d')!);
+    const silk = new THREE.MeshLambertMaterial({ color: 0xf4f0e8, side: THREE.DoubleSide });
+    kit.mesh(new THREE.CircleGeometry(0.41, 40), silk, hoop, 0, 0, -0.002);
+    const stitched = new THREE.MeshBasicMaterial({ map: kit.canvasTexture(canvas, true), transparent: true, opacity: 0, side: THREE.DoubleSide });
+    kit.mesh(new THREE.CircleGeometry(0.41, 40), stitched, hoop, 0, 0, 0.001);
+    kit.box(frame, tone(0x4a443e), [0, 0.5, 0.2], [0.05, 1, 0.05]);
+    const lady = figure(kit, frame, CAST.lady, 0, -0.7);
+    const needle = kit.group(lady.hands.r, 0, 0, 0.03);
+    kit.mesh(new THREE.CylinderGeometry(0.003, 0.001, 0.09, 5), tone(0x9c958b), needle).rotation.x = Math.PI / 2;
+    const thread = kit.mesh(new THREE.CylinderGeometry(0.002, 0.002, 1, 4).translate(0, -0.5, 0), flat(VERMILION), needle);
+    lights(kit, frame, { key: [3, 5, 5], intensity: 0.9 });
+    const cam5 = move(kit, frame, [[at(4), [0.3, 1.6, 1.1], [0, 1.15, 0]], [at(4) + 3, [0.9, 1.5, 0.9], [0, 1.2, -0.2]], [36, [1.6, 1.8, 2], [0, 1.2, -0.4]]]);
 
-    const sets = [album, blots, paths, desk, hoop];
-    const envs = [INK_SKY.paper(0), INK_SKY.paper(0), INK_SKY.paper(0.011), INK_SKY.paper(0.01), INK_SKY.paper(0)];
     return (seconds: number, shot: number) => {
-      sets.forEach((set, i) => { set.visible = i === shot; });
-      setEnv(envs[shot]);
-      const narrow = portrait();
+      show(shot);
       if (shot === 0) {
-        const x = 24 - 48 * ease(seconds / (start(1) - 0.2));
-        camera.position.set(x, 3.1, narrow ? 13 : 9.5);
-        camera.lookAt(x, 3.1, 0);
-        // Each leaf is painted as it comes into view from the left of the frame.
-        panels.forEach((material, rank) => { material.uniforms.uReveal.value = ease((22.5 - rank * 5 + 8 - x) / 3.5); });
-      } else if (shot === 1) {
-        const t = seconds - start(1);
-        camera.position.set(SET.blots, 0, (narrow ? 24 : 15.5) - ease(t / 7) * 1.2);
-        camera.lookAt(SET.blots, 0, 0);
-        blotMaterials.forEach((material, k) => { material.uniforms.uReveal.value = ease((t - 0.3 - k * 0.22) / 0.9); });
-        refuseUniforms.uGather.value = start(1) + 1.5;
-        refuseUniforms.uPress.value = start(1) + 3.6;
-        refuseUniforms.uScatter.value = start(1) + 5;
-      } else if (shot === 2) {
-        pathsShot(seconds);
-        const t = clamp01((seconds - start(2)) / (start(3) - start(2)));
-        walkers.forEach((walker, i) => {
-          const at = walker.curve.getPointAt(Math.min(0.95, 0.1 + t * 0.7));
-          walker.figure.position.set(at.x, 0.7, at.z);
-          walker.figure.rotation.y = Math.atan2(camera.position.x - SET.paths - at.x, camera.position.z - at.z);
-          drawFigure(walker.c.getContext('2d')!, ctx => {
-            const step = Math.sin(seconds * 6 + i);
-            body(ctx, step * 6); head(ctx, seconds, i ? 'loose' : 'cap');
-            arm(ctx, [[-24, -145], [-30 - step * 6, -110], [-26 - step * 10, -80]]);
-            arm(ctx, [[24, -145], [30 + step * 6, -110], [26 + step * 10, -80]]);
-          });
-          walker.texture.needsUpdate = true;
+        kit.setEnv(INK_SKY.paper(0.02));
+        cam1(seconds);
+        fall.update(seconds);
+        stations.forEach(({ dan, slip }, k) => {
+          const t0 = 0.3 + k * 0.95;
+          dan.pose(DAN_POSE[k](seconds + k));
+          slip.set(span(seconds, t0, t0 + 1));
         });
-      } else if (shot === 3) {
-        deskShot(seconds);
-        books.forEach(({ book, y }, i) => {
-          const appear = start(3) + 0.3 + i * 0.055;
-          book.visible = seconds >= appear;
-          book.position.y = y + (1 - ease((seconds - appear) / 0.18)) * 0.8;
-        });
-        const written = ease((seconds - start(3) - 3.6) / 1.6);
-        title.material.uniforms.uReveal.value = written;
-        subtitle.material.uniforms.uReveal.value = ease((seconds - start(3) - 5.1) / 0.8);
-        // The brush follows the writing down the slip, then lifts away.
-        const lift = ease((seconds - start(3) - 5.2) / 0.6);
-        brush.position.set(-0.12 + Math.sin(seconds * 14) * 0.03, 0.1 + lift * 1.5 + (written > 0 ? 0 : 0.8), 1.06 + written * 1.68);
-        brush.rotation.z = -0.25;
-      } else {
-        const t = seconds - start(4);
-        camera.position.set(SET.hoop + 0.2 * ease(t / 6), 0.4 - 0.2 * ease(t / 6), (narrow ? 12 : 10) - ease(t / 6) * 2.2);
-        camera.lookAt(SET.hoop, 0.05, 0);
-        embroidery.uniforms.uReveal.value = ease((t - 0.2) / 3.6);
-        // The needle stitches in and out, then is drawn away and hidden: the secret is not passed on.
-        const withdraw = ease((t - 3.9) / 0.9);
-        const tip = stitchAt(seconds);
-        needle.position.set(tip.x, tip.y + withdraw * 3, 0.05 + (0.5 + 0.5 * Math.sin(seconds * 9)) * 0.35 + withdraw * 2);
-        needle.rotation.set(-0.35, 0.25, 0);
-        needle.visible = withdraw < 0.98;
-        const anchor = stitchAt(seconds - 0.4);
-        threadGeometry.attributes.position.setXYZ(0, anchor.x, anchor.y, 0.02);
-        threadGeometry.attributes.position.setXYZ(1, needle.position.x, needle.position.y, needle.position.z + 0.6);
-        threadGeometry.attributes.position.needsUpdate = true;
-        thread.visible = needle.visible;
-        stamp.material.opacity = ease((t - 4.7) / 0.4);
-        stamp.mesh.scale.setScalar(1 + 0.4 * (1 - clamp01((t - 4.7) / 0.35)));
+        return;
       }
+      if (shot === 1) {
+        kit.setEnv(INK_SKY.paper(0.05));
+        cam2(seconds);
+        lurkers.forEach((f, k) => {
+          face(f, 0, 0);
+          f.pose(cue(seconds, [[0, t => ({ ...G.rest(t), bow: 0.4, pitch: 0.3 })], [13 + (k % 3) * 0.2, t => ({ ...G.fume(t), pitch: -0.5, bow: 0.1 })], [15.6, t => ({ ...G.rest(t), bow: 0.45, pitch: 0.35, yaw: Math.sin(t + k) * 0.3 })]]));
+        });
+        dice.forEach((d, k) => { d.rotation.set(seconds * (3 + k), seconds * (2 + k), 0); d.position.y = 0.84 + Math.abs(Math.sin(seconds * 4 + k)) * 0.1; });
+        return;
+      }
+      if (shot === 2) {
+        kit.setEnv(INK_SKY.paper(0.02));
+        cam3(seconds);
+        shade.update(seconds);
+        const t = seconds - at(2);
+        walkAlong(traveller, t, 0, 2.2, [[0.6, 2.4], [0.4, 0.6]], G.rest(t), 5);
+        if (t > 2.2) {
+          const look = Math.sin((t - 2.2) * 1.2);
+          traveller.root.rotation.y = Math.PI + look * 0.7;
+          traveller.pose({ ...G.think(t), yaw: look * 0.3 });
+        }
+        return;
+      }
+      if (shot === 3) {
+        kit.setEnv(INK_SKY.paper(0.04));
+        cam4(seconds);
+        deskLamp.update(seconds);
+        face(author, 0, 0);
+        author.pose({ ...G.write(seconds), sit: 1 });
+        const n = Math.floor(span(seconds, at(3) + 0.3, at(3) + 3.6) * 60);
+        stacks.forEach((b, k) => { b.visible = k < n; });
+        slipGroup.visible = n >= 60;
+        titleSlip.set(span(seconds, at(3) + 3.8, at(3) + 5.6));
+        return;
+      }
+      kit.setEnv(INK_SKY.paper(0.03));
+      cam5(seconds);
+      const t = seconds - at(4);
+      stitched.opacity = span(t, 0, 2.6);
+      face(lady, 0, 0.4);
+      // Stitching, then the needle is drawn out and tucked into her left sleeve.
+      lady.pose(cue(t, [[0, tt => ({ ...G.write(tt * 1.6), bow: 0.3, pitch: 0.45 })], [3, tt => ({ ...G.shy(tt), r: { lift: 1.0, out: -0.1, twist: 0.6, bend: 1.9 }, pitch: 0.2 })], [4.6, tt => ({ ...G.folded(tt), pitch: 0.1, mouth: 0.2 })]]));
+      needle.visible = t < 4.4;
+      thread.scale.y = 0.3 + Math.max(0, Math.sin(t * 3)) * 0.3;
     };
   },
 });
