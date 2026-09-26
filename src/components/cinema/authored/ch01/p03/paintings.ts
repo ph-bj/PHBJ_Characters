@@ -1,6 +1,7 @@
 import { disc, limb, type Ctx } from '../../../brush';
 import { WRITING_INK } from '../../../cinemaKit';
-import { FLOWER_NAMES, INK, KAITI, leaf, paintFlower, PETAL_RED, RED, seeded, stroke, WASH } from '../../../paint';
+import { FLOWER_NAMES, INK, leaf, paintFlower, PETAL_RED, RED, seeded, stroke, WASH } from '../../../paint';
+import { appFont } from '../../../fonts';
 
 /**
  * Brush paintings for Chapter 1, paragraph 3: a flower album of the ten kinds of leading
@@ -26,10 +27,10 @@ export function paintFlowerPanel(ctx: Ctx, rank: number) {
   ctx.fillStyle = INK; ctx.strokeStyle = INK;
   paintFlower(ctx, FLOWER_NAMES[rank], rank + 7);
   ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.font = `bold 44px ${KAITI}`;
+  ctx.font = appFont(44, 700);
   ['情', '中', RANKS[rank]].forEach((char, i) => ctx.fillText(char, 452, 76 + i * 52));
   ctx.fillStyle = RED; ctx.fillRect(430, 250, 44, 44);
-  ctx.fillStyle = '#f4ece0'; ctx.font = `bold 32px ${KAITI}`; ctx.fillText(RANKS[rank], 452, 274);
+  ctx.fillStyle = '#f4ece0'; ctx.font = appFont(32, 700); ctx.fillText(RANKS[rank], 452, 274);
 }
 
 /** One of the lower kinds: the word blotted and splattered, as if the ink had spoiled. */
@@ -38,7 +39,7 @@ export function paintBlot(ctx: Ctx, char: string, seed: number) {
   ctx.clearRect(0, 0, BLOT_SIZE, BLOT_SIZE);
   ctx.save(); ctx.translate(c, c); ctx.rotate((rand() - 0.5) * 0.25);
   ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.font = `bold 176px ${KAITI}`;
+  ctx.font = appFont(176, 700);
   // The character itself stays legible; the spoiling is in the splatter and runs around it.
   ctx.fillText(char, 0, 6);
   ctx.restore();

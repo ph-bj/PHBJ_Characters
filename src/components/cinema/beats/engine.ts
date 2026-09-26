@@ -68,6 +68,11 @@ export function painting(kit: Kit, parent: THREE.Object3D, width: number, height
   const ctx = canvas.getContext('2d')!;
   paint(ctx, 0);
   const texture = kit.canvasTexture(canvas, sharp);
+  // Writing is painted in the app's fonts, fetched by character on first use: paint again once
+  // whatever the first paint asked for has loaded (animated paintings repaint every frame anyway).
+  if (sharp && !animate && typeof document !== 'undefined' && document.fonts) {
+    document.fonts.ready.then(() => { ctx.clearRect(0, 0, width, height); paint(ctx, 0); texture.needsUpdate = true; });
+  }
   const material = inkRevealMaterial(texture, undefined, { sharp });
   const mesh = kit.mesh(new THREE.PlaneGeometry(size[0], size[1]), material, parent);
   return {

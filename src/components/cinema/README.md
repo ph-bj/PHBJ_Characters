@@ -132,6 +132,10 @@ Authored scenes render through an ink pass (`createCinema(..., 'ink')`, the defa
 - **Only saturated red survives**, as vermilion: seals, lanterns, plum blossom, a red peony. Any
   warm tint is read as red too, so keep lights white (`0xfff6ea`) and woods grey. A few red particles
   in a mass of ink will speckle the whole mass red.
+- **Fonts are the app's.** Text painted in a film uses the same fonts as the rest of the app (Inter for
+  English, Noto Sans SC for Chinese): set `ctx.font = appFont(px, weight)` from `fonts.ts`, never a
+  separate film font. The player loads the web font for the film's characters before building it, and
+  kit writing repaints itself once any late characters arrive (`writeInAppFont`).
 - **Writing is special.** Characters from `kit.calligraphy`, `kit.glyph` and `wordsBeat` live on
   `WRITING_LAYER`: they skip the ink pass and are drawn over the finished picture in flat ink (or
   vermilion), so they are pure, even fill at any size. Use `asWriting(mesh, material, color)` for any

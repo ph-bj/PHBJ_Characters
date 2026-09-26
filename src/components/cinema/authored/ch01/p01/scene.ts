@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { defineScene } from '../../define';
 import { createShadowPlay } from './shadowPlay';
 import { clamp01, ease, hallGeometry, inkDotFragment, petalGeometry, roofGeometry, type Env, type V3, WRITING_RED } from '../../../cinemaKit';
+import { appFont } from '../../../fonts';
 
 // Each shot has its own set, placed far apart; only the current one is shown.
 const SET = { shadow: 400, gate: 800, glyph: 1200 };
@@ -354,7 +355,7 @@ export default defineScene({
       const canvas = document.createElement('canvas'); canvas.width = canvas.height = 200;
       const ctx = canvas.getContext('2d', { willReadFrequently: true })!;
       ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.font = 'bold 176px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", "Songti SC", serif';
+      ctx.font = appFont(176, 700);
       ctx.fillText('情', 100, 104);
       const data = ctx.getImageData(0, 0, 200, 200).data, pixels: [number, number][] = [];
       for (let y = 0; y < 200; y += 1) for (let x = 0; x < 200; x += 1) if (data[(y * 200 + x) * 4 + 3] > 128) pixels.push([x, y]);
@@ -386,7 +387,7 @@ export default defineScene({
       const ctx = sealCanvas.getContext('2d')!;
       ctx.fillStyle = WRITING_RED; ctx.fillRect(6, 6, 116, 116);
       ctx.fillStyle = '#f4e3c4'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.font = 'bold 50px "KaiTi", "STKaiti", "Noto Serif SC", serif';
+      ctx.font = appFont(50, 700);
       ctx.fillText('品', 64, 38); ctx.fillText('花', 64, 92);
     }
     const sealMaterial = new THREE.MeshBasicMaterial({ map: canvasTexture(sealCanvas, true), transparent: true, opacity: 0, fog: false });

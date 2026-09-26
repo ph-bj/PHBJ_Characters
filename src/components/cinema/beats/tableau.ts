@@ -6,6 +6,7 @@ import { WRITING_INK, WRITING_RED } from '../cinemaKit';
 import { clamp01, columns, ease, figure, frontCamera, painting, tone, type Beat } from './engine';
 import { CART_H, CART_W, cart, horse, person, type Gesture, type PersonKind } from './people';
 import { ANIMATED_PLACES, PLACE_H, PLACE_W, PLACES_WITH_WRITING, paintPlace, type Place } from './places';
+import { appFont } from '../fonts';
 
 /**
  * The tableau: one beat for everyday scenes. A painted place, a cast who can walk, talk, change
@@ -93,7 +94,7 @@ function paintProp(ctx: CanvasRenderingContext2D, p: Prop) {
     ctx.fillStyle = p.kind === 'card' ? red : paper; ctx.fillRect(78, 20, 100, 216);
     ctx.strokeRect(78, 20, 100, 216);
     ctx.fillStyle = WRITING_INK; // black ink, on red paper for a visiting card
-    ctx.font = 'bold 40px "KaiTi", "STKaiti", serif'; ctx.textAlign = 'center';
+    ctx.font = appFont(40, 700); ctx.textAlign = 'center';
     [...(p.text ?? '')].slice(0, 5).forEach((c, i) => ctx.fillText(c, 128, 68 + i * 40));
   } else if (p.kind === 'gifts') {
     for (const [x, y, w, h] of [[30, 130, 110, 90], [120, 90, 100, 130], [70, 60, 80, 70]]) { ctx.fillStyle = '#4e4640'; ctx.fillRect(x, y, w, h); ctx.fillStyle = red; ctx.fillRect(x + w / 2 - 6, y, 12, h); ctx.fillRect(x, y + h / 2 - 6, w, 12); }

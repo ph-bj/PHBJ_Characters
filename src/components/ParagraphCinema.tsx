@@ -4,6 +4,7 @@ import { Captions, CaptionsOff, Clapperboard, Pause, Play, RotateCcw, X } from '
 import { findAuthoredCinema, type AuthoredCinema } from './cinema/authored';
 import { cueAt, fadeAt, shotAt } from './cinema/authored/define';
 import { CINEMA_DURATION, type Cinema } from './cinema/cinemaKit';
+import { loadAppFonts } from './cinema/fonts';
 
 export type CinemaParagraph = {
   index: number;
@@ -98,8 +99,12 @@ function AuthoredFilm({ story, paragraph, lang }: { story: AuthoredCinema; parag
       if (value >= duration) setPlaying(false);
     };
     const onError = () => { setStatus('error'); setPlaying(false); };
-    // Each scene is its own chunk, loaded when its film is first opened.
-    story.loadScene().then(create => {
+    // Each scene is its own chunk, loaded when its film is first opened. The app's fonts (which the
+    // film paints its writing in) are fetched for this film's characters at the same time.
+    const filmText = [story.title.zh, story.description.zh, paragraph.source,
+      ...story.shots.flatMap(shot => [shot.title.zh, shot.quote, shot.caption.zh]),
+      ...story.subtitles.map(cue => cue.zh)].join('');
+    Promise.all([story.loadScene(), loadAppFonts(filmText)]).then(([create]) => {
       if (cancelled || !hostRef.current) return;
       cinema = create(hostRef.current, story, onProgress, onError);
       cinemaRef.current = cinema;

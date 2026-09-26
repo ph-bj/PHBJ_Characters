@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { KAITI } from '../paint';
+import { appFont } from '../fonts';
 import { asWriting, WRITING_FLAT, WRITING_INK, WRITING_RED } from '../cinemaKit';
 import { ease, frontCamera, painting, tone, type Beat } from './engine';
 
@@ -41,7 +41,7 @@ export const wordsBeat = (lines: WordLine[], { seal }: { seal?: string } = {}): 
       if (c !== '、') prev = c;
       const red = line.red?.includes(c);
       const art = painting(kit, set, 256, 256, [s, s], ctx => {
-        ctx.fillStyle = red ? WRITING_RED : WRITING_INK; ctx.font = `bold 216px ${KAITI}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillStyle = red ? WRITING_RED : WRITING_INK; ctx.font = appFont(216, 700); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(c, 128, 138);
       }, false, true);
       // Drawn over the finished ink picture in flat ink or vermilion: pure fill at any size.

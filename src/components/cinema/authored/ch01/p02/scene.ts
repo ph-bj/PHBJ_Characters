@@ -3,6 +3,7 @@ import { defineScene } from '../../define';
 import { clamp01, ease, glyphPixels, INK_TONE, inkRevealMaterial, petalGeometry, roofGeometry, type Env, type V3, WRITING_RED } from '../../../cinemaKit';
 import { FIGURE_ASPECT, FIGURE_H, FIGURE_W } from '../../../brush';
 import { drawDan, drawGentleman } from './figures';
+import { appFont } from '../../../fonts';
 
 /*
  * Chapter 1, paragraph 2, painted in ink (水墨). The kit's ink pass reads brightness as ink
@@ -173,7 +174,7 @@ export default defineScene({
       ctx.strokeStyle = lit ? 'rgba(90,20,10,0.4)' : 'rgba(120,112,102,0.5)'; ctx.lineWidth = 2;
       for (let y = 16; y < 192; y += 22) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(512, y); ctx.stroke(); }
       ctx.fillStyle = lit ? '#1b120e' : '#8a8279'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.font = 'bold 128px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", serif';
+      ctx.font = appFont(128, 700);
       ctx.fillText(char, 256, 100);
       return canvasTexture(canvas, true);
     };
@@ -297,7 +298,7 @@ export default defineScene({
       const ctx = sealCanvas.getContext('2d')!;
       ctx.fillStyle = WRITING_RED; ctx.fillRect(6, 6, 116, 116);
       ctx.fillStyle = '#f4ece0'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.font = 'bold 50px "KaiTi", "STKaiti", "Noto Serif SC", serif';
+      ctx.font = appFont(50, 700);
       ctx.fillText('品', 64, 38); ctx.fillText('花', 64, 92);
     }
     const sealMaterial = tone(0xffffff, { map: canvasTexture(sealCanvas, true), transparent: true, opacity: 0, fog: false });

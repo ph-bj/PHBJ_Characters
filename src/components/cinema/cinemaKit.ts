@@ -7,6 +7,7 @@ import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
 import { Pass } from 'three/examples/jsm/postprocessing/Pass.js';
 import { CopyShader } from 'three/examples/jsm/shaders/CopyShader.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+import { appFont } from './fonts';
 /** Every authored cinema runs this long, in seconds. */
 export const CINEMA_DURATION = 36;
 
@@ -110,7 +111,7 @@ export function glyphPixels(char: string, rand: () => number) {
   const canvas = document.createElement('canvas'); canvas.width = canvas.height = 200;
   const ctx = canvas.getContext('2d', { willReadFrequently: true })!;
   ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.font = 'bold 176px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", "Songti SC", serif';
+  ctx.font = appFont(176, 700);
   ctx.fillText(char, 100, 104);
   const data = ctx.getImageData(0, 0, 200, 200).data, pixels: [number, number][] = [];
   for (let y = 0; y < 200; y++) for (let x = 0; x < 200; x++) if (data[(y * 200 + x) * 4 + 3] > 128) pixels.push([x, y]);
@@ -300,6 +301,16 @@ class WritingPass extends Pass {
     this.camera.layers.mask = mask;
     renderer.autoClear = autoClear;
   }
+}
+
+/**
+ * Draws writing now and again once the app's font for those characters has arrived: Noto Sans SC is
+ * fetched in slices by character, so a first draw may have used a fallback font.
+ */
+export function writeInAppFont(draw: () => void, texture: THREE.Texture, font: string, text: string) {
+  draw();
+  if (typeof document === 'undefined' || !document.fonts) return;
+  document.fonts.load(font, text).then(() => { draw(); texture.needsUpdate = true; }, () => { /* keep the fallback */ });
 }
 
 /** Puts a writing mesh on the writing layer, in flat ink (or vermilion). Ink-style cinemas only. */
@@ -502,12 +513,17 @@ export function createCinema(
       const cell = Math.min(768, Math.max(256, Math.ceil(size * 320 / 64) * 64), Math.floor(4096 / Math.max(rows, columns)));
       const canvas = document.createElement('canvas'); canvas.width = columns * cell; canvas.height = rows * cell;
       const ctx = canvas.getContext('2d')!;
-      ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      // A synthetic bold clogs small characters (满, 楼); only large writing gets it.
-      ctx.font = `${size >= 0.8 ? 'bold ' : ''}${cell * 0.86}px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", serif`;
-      // Traditional layout: top to bottom, columns from right to left.
-      chars.forEach((char, i) => ctx.fillText(char, (columns - 1 - Math.floor(i / rows) + 0.5) * cell, (i % rows + 0.53) * cell));
-      const material = inkRevealMaterial(canvasTexture(canvas, true), undefined, { sharp: true });
+      // Bold clogs small characters (满, 楼); only large writing gets it.
+      const font = appFont(cell * 0.86, size >= 0.8 ? 700 : 500);
+      const draw = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = font;
+        // Traditional layout: top to bottom, columns from right to left.
+        chars.forEach((char, i) => ctx.fillText(char, (columns - 1 - Math.floor(i / rows) + 0.5) * cell, (i % rows + 0.53) * cell));
+      };
+      const texture = canvasTexture(canvas, true);
+      writeInAppFont(draw, texture, font, text);
+      const material = inkRevealMaterial(texture, undefined, { sharp: true });
       const plane = mesh(new THREE.PlaneGeometry(columns * size, rows * size), material, parent);
       if (style === 'ink') asWriting(plane, material);
       return { mesh: plane, material };
@@ -517,10 +533,14 @@ export function createCinema(
       const canvas = document.createElement('canvas'); canvas.width = canvas.height = S;
       const ctx = canvas.getContext('2d')!;
       ctx.scale(k, k);
-      ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.font = 'bold 176px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", "Songti SC", serif';
-      ctx.fillText(char, 100, 104);
-      const material = inkRevealMaterial(canvasTexture(canvas, true), undefined, { sharp: true });
+      const draw = () => {
+        ctx.clearRect(0, 0, 200, 200);
+        ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = appFont(176, 700);
+        ctx.fillText(char, 100, 104);
+      };
+      const texture = canvasTexture(canvas, true);
+      writeInAppFont(draw, texture, appFont(176, 700), char);
+      const material = inkRevealMaterial(texture, undefined, { sharp: true });
       const plane = mesh(new THREE.PlaneGeometry(1, 1), material, parent);
       if (style === 'ink') asWriting(plane, material);
       return { mesh: plane, material };
@@ -530,13 +550,18 @@ export function createCinema(
       const canvas = document.createElement('canvas'); canvas.width = canvas.height = S;
       const ctx = canvas.getContext('2d')!;
       ctx.scale(k, k);
-      // The seal's red is WRITING_RED, so its characters print without outlines.
-      ctx.fillStyle = WRITING_RED; ctx.fillRect(6, 6, 116, 116);
-      ctx.fillStyle = '#f4ece0'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       const chars = [...text], columns = chars.length > 2 ? 2 : 1, rows = Math.ceil(chars.length / columns);
-      ctx.font = `bold ${Math.floor(100 / rows)}px "KaiTi", "STKaiti", "Noto Serif SC", serif`;
-      chars.forEach((char, i) => ctx.fillText(char, 64 + (columns === 2 ? (Math.floor(i / rows) ? -26 : 26) : 0), 12 + (i % rows + 0.5) * (104 / rows)));
-      const material = new THREE.MeshBasicMaterial({ map: canvasTexture(canvas, true), transparent: true, opacity: 0, fog: false });
+      const font = appFont(Math.floor(100 / rows), 700);
+      const draw = () => {
+        ctx.clearRect(0, 0, 128, 128);
+        // The seal's red is WRITING_RED, so its characters print without outlines.
+        ctx.fillStyle = WRITING_RED; ctx.fillRect(6, 6, 116, 116);
+        ctx.fillStyle = '#f4ece0'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = font;
+        chars.forEach((char, i) => ctx.fillText(char, 64 + (columns === 2 ? (Math.floor(i / rows) ? -26 : 26) : 0), 12 + (i % rows + 0.5) * (104 / rows)));
+      };
+      const texture = canvasTexture(canvas, true);
+      writeInAppFont(draw, texture, font, text);
+      const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true, opacity: 0, fog: false });
       return { mesh: mesh(new THREE.PlaneGeometry(size, size), material, parent), material };
     };
 

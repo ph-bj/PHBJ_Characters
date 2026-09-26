@@ -9,7 +9,6 @@ export const INK = '#231d19';
 export const RED = '#b8321f';
 export const PETAL_RED = 'rgba(196,62,48,0.9)';
 export const WASH = 'rgba(40,32,28,0.22)';
-export const KAITI = '"KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", serif';
 
 /** A deterministic generator, so each painting is the same every time it is drawn. */
 export function seeded(seed: number) {
