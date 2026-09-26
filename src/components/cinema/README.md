@@ -67,7 +67,25 @@ export default beatScene(1013, [          // one beat per shot in story.ts, in o
   merchants, escorts, clowns, warriors, horses and carts), an optional table, an inscription slip,
   and weather (north wind, drifting petals, a radiance, a cart-window frame). `who.ziyu(x)` etc. are
   shorthands for chapter 1's regulars. `coverBeat` opens a book.
+- `beats/banquet.ts`: `banquetBeat`, chapter 2's six guests at a round table, with per-guest cues,
+  guests who leave their seat, and props (`cup`, `card`, `gifts`, `coins`, `seeds`, `silver`) — props
+  work in any tableau too. `beats/words.ts`: `wordsBeat`, characters stamped onto paper in columns,
+  with vermilion characters and shrinking stutter repeats ("哥、哥、哥").
 - Per-chapter data lives beside the paragraphs, e.g. `authored/ch01/actors.ts`.
+
+### Specs: most cinemas are generated
+
+Beat-built cinemas are not edited by hand. Each chapter has compact specs in
+`scripts/cinema/specs/chNN-*.ts` (titles, shots, subtitles and beats as code strings), and
+
+```bash
+npm run build-cinemas -- 2            # regenerate every spec'd paragraph of chapter 2
+npm run build-cinemas -- 2 5 6        # or just some
+```
+
+writes their `story.ts` and `scene.ts` (adding the imports each scene needs). Hand-staged cinemas
+(ch01 p01–p03) have no spec and are never touched. Check a batch with
+`npx playwright test tests/authoredCinemas.spec.ts --workers=1 --grep "ch02"`.
 
 Review a batch at a glance: `npm run cinema-contact-sheet -- 1 13 34` saves a frame from the middle of
 every shot plus a grid, `test-results/contact-sheet/sheet.png`. It seeks through the dev-only

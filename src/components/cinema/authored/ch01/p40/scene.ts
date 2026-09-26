@@ -1,6 +1,6 @@
 import { beatScene } from '../../../beats/engine';
-import { tableauBeat as T, who } from '../../../beats/tableau';
 import { poemBeat } from '../../../beats/album';
+import { tableauBeat as T, who } from '../../../beats/tableau';
 
 /** Chapter 1, paragraph 40: the classics on a scroll, plum and pheasant, Ziyu before a mirror, and Xishi washing silk. */
 export default beatScene(1040, [

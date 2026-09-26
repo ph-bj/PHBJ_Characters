@@ -1,6 +1,6 @@
 import { beatScene } from '../../../beats/engine';
-import { tableauBeat as T, who } from '../../../beats/tableau';
 import { poemBeat } from '../../../beats/album';
+import { tableauBeat as T, who } from '../../../beats/tableau';
 
 /** Chapter 1, paragraph 56: the vulgar Baozhu beside the peerless boy, Ziyu’s cart arriving home, and the chapter’s closing words. */
 export default beatScene(1056, [

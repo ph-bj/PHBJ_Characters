@@ -9,9 +9,12 @@ import { RED } from '../paint';
 
 export type PersonKind =
   | 'scholar' | 'lady' | 'deity' | 'page' | 'official' | 'pedant' | 'merchant'
-  | 'escort' | 'clown' | 'warrior' | 'elder' | 'dan' | 'teacher' | 'maid';
+  | 'escort' | 'clown' | 'warrior' | 'elder' | 'dan' | 'teacher' | 'maid'
+  // Chapter 2
+  | 'pincai' | 'yuanmao' | 'wenhui' | 'sihui' | 'siyuan' | 'lianggong' | 'servant' | 'guest';
 
-export type Gesture = ScholarGesture | 'bow' | 'offering' | 'sleeping' | 'hiding' | 'thinking' | 'walking' | 'tugging';
+export type Gesture = ScholarGesture | 'bow' | 'offering' | 'sleeping' | 'hiding' | 'thinking' | 'walking' | 'tugging'
+  | 'kowtow' | 'kneel' | 'handing' | 'whisper' | 'toast' | 'fist' | 'mincing' | 'seated' | 'fuming';
 
 export type PersonStyle = {
   kind: PersonKind;
@@ -94,6 +97,7 @@ function page(ctx: Ctx, t: number, s: PersonStyle) {
   if (s.gesture === 'bow') { arm(ctx, [[-24, -145], [-18, -118], [0, -128]]); arm(ctx, [[24, -145], [18, -118], [0, -128]]); }
   else if (s.gesture === 'offering') { arm(ctx, [[-24, -145], [-30, -120], [-10, -126]]); arm(ctx, [[24, -145], [30, -120], [10, -126]]); ctx.fillRect(-24, -138, 48, 8); disc(ctx, -8, -144, 6, 5); disc(ctx, 8, -144, 6, 5); }
   else if (s.gesture === 'speaking' || s.speaking) { arm(ctx, [[-24, -145], [-30, -112], [-22, -90]]); arm(ctx, [[24, -145], [42, -130], [50 + Math.sin(t * 5) * 5, -150]]); }
+  else if (s.gesture === 'tugging') { const pull = Math.sin(t * 4) * 4; arm(ctx, [[-24, -145], [4, -128], [36 + pull, -120]]); arm(ctx, [[24, -145], [40, -130], [58 + pull, -122]]); }
   else { arm(ctx, [[-24, -145], [-30, -112], [-24, -90]]); arm(ctx, [[24, -145], [30, -112], [24, -90]]); }
   ctx.restore();
 }
@@ -204,9 +208,145 @@ function elder(ctx: Ctx, t: number) {
   arm(ctx, [[-24, -145], [-30, -112], [-4, -102]], 13); arm(ctx, [[24, -145], [30, -112], [4, -102]], 13);
 }
 
+// --- Robed men with a look of their own (chapter 2), and gestures any robed man can make ---------
+
+type Look = {
+  hair: Hair | 'hat';
+  /** Robe width: 1 ordinary, 1.3 stout, 0.85 slight. */
+  girth: number;
+  /** Head sunk into the shoulders (a hunched neck). */
+  sunk?: number;
+  /** Paper-coloured or vermilion touches on the face, drawn around the head centre. */
+  face?: (ctx: Ctx, t: number, x: number, y: number) => void;
+  beard?: 'long' | 'sparse';
+  /** A fur-trimmed official's surcoat. */
+  rank?: boolean;
+};
+
+const LOOKS: Partial<Record<PersonKind, Look>> = {
+  // Slight and quick, always smiling: bright eyes left as paper.
+  pincai: { hair: 'bun', girth: 0.85, face: (ctx, t, x, y) => cutout(ctx, () => { limb(ctx, [[x - 8, y - 2], [x - 3, y - 4]], 2); limb(ctx, [[x + 3, y - 4], [x + 8, y - 2]], 2); limb(ctx, [[x - 6, y + 7], [x, y + 10], [x + 6, y + 7]], 2); }) },
+  // Heavy and sallow, thick brows, peering short-sightedly.
+  yuanmao: { hair: 'bun', girth: 1.3, face: (ctx, t, x, y) => cutout(ctx, () => { ctx.fillRect(x - 11, y - 7, 9, 4); ctx.fillRect(x + 2, y - 7, 9, 4); limb(ctx, [[x - 9, y], [x - 4, y]], 1.5); limb(ctx, [[x + 4, y], [x + 9, y]], 1.5); }) },
+  // A square face, a long grizzled beard, third-rank robes with fur.
+  wenhui: { hair: 'hat', girth: 1.2, beard: 'long', rank: true },
+  // Hunched neck, puffed cheeks, and a red nose among red pimples.
+  sihui: { hair: 'cap', girth: 1.05, sunk: 10, face: (ctx, t, x, y) => { ctx.save(); ctx.fillStyle = RED; ctx.shadowBlur = 0; disc(ctx, x, y + 3, 5); for (const [dx, dy] of [[-9, 2], [8, 5], [-6, 9], [10, -3], [-11, -4]]) disc(ctx, x + dx, y + dy, 1.8); ctx.restore(); } },
+  // Buck teeth and one eyelid hitched up, as if circled in vermilion.
+  siyuan: { hair: 'cap', girth: 0.95, face: (ctx, t, x, y) => { cutout(ctx, () => { ctx.fillRect(x - 4, y + 8, 8, 5); }); ctx.save(); ctx.strokeStyle = RED; ctx.lineWidth = 1.6; ctx.shadowBlur = 0; ctx.beginPath(); ctx.arc(x + 6, y - 3, 5, Math.PI, Math.PI * 1.9); ctx.stroke(); ctx.restore(); } },
+  // A flat face and a few whiskers.
+  lianggong: { hair: 'hat', girth: 1.1, beard: 'sparse', rank: true },
+  servant: { hair: 'hat', girth: 0.9 },
+  guest: { hair: 'hat', girth: 1.1, beard: 'long', rank: true },
+};
+
+function hat(ctx: Ctx, x: number, y: number) {
+  // A round official's hat with an upturned brim and a finial.
+  ctx.beginPath(); ctx.ellipse(x, y - 12, 22, 7, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(x - 14, y - 12); ctx.quadraticCurveTo(x, y - 36, x + 14, y - 12); ctx.fill();
+  disc(ctx, x, y - 32, 4);
+}
+
+function manHead(ctx: Ctx, t: number, look: Look, tilt: number, x = 0, y = -178) {
+  if (look.hair === 'hat') {
+    ctx.save(); ctx.translate(x, y + 12); ctx.rotate(tilt); ctx.translate(0, -12);
+    disc(ctx, 0, 0, 15, 17); hat(ctx, 0, -6);
+    ctx.restore();
+  } else head(ctx, t, look.hair, tilt, x, y);
+  if (look.beard === 'long') cutout(ctx, () => { ctx.beginPath(); ctx.moveTo(x - 9, y + 6); ctx.quadraticCurveTo(x + Math.sin(t) * 2, y + 44, x + 9, y + 6); ctx.fill(); });
+  if (look.beard === 'sparse') cutout(ctx, () => { for (let k = -1; k <= 1; k++) limb(ctx, [[x + k * 5, y + 10], [x + k * 7, y + 24]], 1.5); });
+  look.face?.(ctx, t, x, y);
+}
+
+/** A robed man in any gesture; `look` gives him his build and face. */
+function robedMan(ctx: Ctx, t: number, s: PersonStyle, look: Look) {
+  const g = s.gesture;
+  const talk = s.speaking ? Math.sin(t * 5 + (s.phase ?? 0)) : 0;
+  const w = look.girth;
+  const sunk = look.sunk ?? 0;
+  if (g === 'kowtow') {
+    // Kneeling with the forehead to the floor, bobbing.
+    const bob = Math.max(0, Math.sin(t * 2.4)) * 10;
+    ctx.beginPath(); ctx.ellipse(-8, -34, 44 * w, 30, 0.2, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(22, -40 - bob * 0.5, 30 * w, 20, -0.4 - bob * 0.01, 0, Math.PI * 2); ctx.fill();
+    manHead(ctx, t, look, 1.3, 50, -22 - bob);
+    arm(ctx, [[30, -48 - bob * 0.5], [52, -20], [66, -6]], 10);
+    return;
+  }
+  const kneel = g === 'kneel';
+  const seated = g === 'seated';
+  const drop = kneel ? 58 : 0;
+  ctx.save(); ctx.translate(0, drop);
+  const sway = g === 'mincing' ? Math.sin(t * 3) * 7 : g === 'fuming' ? Math.sin(t * 8) * 3 : Math.sin(t * 0.8 + (s.phase ?? 0)) * 2;
+  if (seated) {
+    // Cross-legged on a couch: knees spread wide at the base.
+    robe(ctx, 0, -150, -30, 24 * w, 36 * w, 0);
+    ctx.beginPath(); ctx.ellipse(0, -30, 62 * w, 22, 0, 0, Math.PI * 2); ctx.fill();
+  } else {
+    robe(ctx, 0, -150, kneel ? -60 : -4, 24 * w, (kneel ? 40 : 46) * w, sway + (s.walking ? Math.sin(t * 6) * 5 : 0));
+    if (!kneel) { disc(ctx, -14, -2, 12, 5); disc(ctx, 14 + sway, -2, 12, 5); }
+  }
+  disc(ctx, 0, -150, 28 * w, 10);
+  if (look.rank) cutout(ctx, () => { ctx.strokeRect(-14, -136, 28, 24); for (let k = -3; k <= 3; k++) limb(ctx, [[k * 8, -156], [k * 8 + 2, -150]], 2); });
+  ctx.fillRect(-5, -168 + sunk, 10, 16);
+  const hx = g === 'whisper' ? 12 : 0;
+  const tilt = g === 'laughing' ? -0.25 + talk * 0.05 : g === 'mincing' ? Math.sin(t * 3) * 0.25 : g === 'bow' || kneel ? 0.28 : g === 'thinking' ? -0.12 : g === 'whisper' ? 0.35 : talk * 0.06;
+  manHead(ctx, t, look, tilt, hx, -178 + sunk);
+  if (s.blush) cheeks(ctx, hx, -176 + sunk);
+  const L: Point = [-24 * w, -145], R: Point = [24 * w, -145];
+  const cup = (x: number, y: number) => { ctx.fillRect(x - 6, y - 12, 12, 10); ctx.fillRect(x - 2, y - 2, 4, 5); };
+  switch (g) {
+    case 'bow': case 'kneel':
+      arm(ctx, [L, [-18, -118], [0, -130]]); arm(ctx, [R, [18, -118], [0, -130]]); break;
+    case 'handing':
+      arm(ctx, [L, [-10, -120], [30, -128]]); arm(ctx, [R, [40, -124], [56, -130]]);
+      ctx.save(); ctx.fillStyle = RED; ctx.fillRect(34, -150, 26, 36); ctx.restore(); break;
+    case 'whisper':
+      arm(ctx, [L, [-30, -112], [-20, -90]]); arm(ctx, [R, [38, -150], [20, -170]]); break;
+    case 'toast':
+      arm(ctx, [L, [-30, -112], [-20, -90]]); arm(ctx, [R, [40, -140], [34, -168 - Math.abs(talk) * 6]]); cup(34, -168 - Math.abs(talk) * 6); break;
+    case 'fist': {
+      const shake = Math.abs(Math.sin(t * 7)) * 14;
+      arm(ctx, [L, [-30, -112], [-20, -90]]); arm(ctx, [R, [44, -136], [64, -146 + shake]], 12); disc(ctx, 64, -146 + shake, 10); break;
+    }
+    case 'mincing':
+      // One hand veils the beard, the other holds out a cup; hips sway.
+      arm(ctx, [L, [-20, -150], [hx - 4, -166]]); arm(ctx, [R, [40, -128], [52, -140]]); cup(52, -140); break;
+    case 'fuming':
+      arm(ctx, [L, [-40, -128], [-30, -110]]); arm(ctx, [R, [40, -128], [30, -110]]); break;
+    case 'seated':
+      arm(ctx, [L, [-40, -112], [-50, -60]]); arm(ctx, [R, [40, -112], [50, -60]]); break;
+    case 'reading':
+      arm(ctx, [L, [-30, -118], [-6, -124]]); arm(ctx, [R, [30, -118], [6, -124]]); ctx.fillRect(-26, -150, 52, 32); break;
+    case 'pointing':
+      arm(ctx, [L, [-30, -110], [-20, -86]]); arm(ctx, [R, [48, -150 + talk * 6], [72, -160 + talk * 8]]); break;
+    case 'speaking':
+      arm(ctx, [L, [-30, -110], [-20, -86]]); arm(ctx, [R, [40, -128], [44 + talk * 6, -150 - Math.abs(talk) * 10]]); break;
+    case 'laughing':
+      arm(ctx, [L, [-36, -126], [-30, -150 - Math.abs(talk) * 6]]); arm(ctx, [R, [36, -126], [30, -150 - Math.abs(talk) * 6]]); break;
+    case 'thinking':
+      arm(ctx, [L, [-30, -112], [-4, -102]], 13); arm(ctx, [R, [30, -130], [12, -162]]); break;
+    case 'walking': {
+      const sw = Math.sin(t * 6) * 5;
+      arm(ctx, [L, [-30 - sw, -112], [-26 - sw, -90]]); arm(ctx, [R, [30 + sw, -112], [26 + sw, -90]]); break;
+    }
+    default:
+      arm(ctx, [L, [-30 * w, -112], [-4, -102]], 13); arm(ctx, [R, [30 * w, -112], [4, -102]], 13);
+  }
+  ctx.restore();
+}
+
+const NEW_GESTURES: Gesture[] = ['kowtow', 'kneel', 'handing', 'whisper', 'toast', 'fist', 'mincing', 'seated', 'fuming'];
+
 /** Draws one person of the given style at time t. */
 export function person(ctx: Ctx, t: number, s: PersonStyle) {
   const g = s.gesture;
+  const look = LOOKS[s.kind];
+  if (look) { robedMan(ctx, t, s, look); return; }
+  if ((s.kind === 'scholar' || s.kind === 'teacher') && g && NEW_GESTURES.includes(g)) {
+    robedMan(ctx, t, s, { hair: s.hair ?? (s.kind === 'teacher' ? 'cap' : 'bun'), girth: 1, beard: s.kind === 'teacher' ? 'sparse' : undefined });
+    return;
+  }
   switch (s.kind) {
     case 'lady': case 'maid': lady(ctx, t, s); return;
     case 'deity': deity(ctx, t, s); return;

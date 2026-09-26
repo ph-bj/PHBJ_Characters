@@ -1,6 +1,6 @@
 import { beatScene } from '../../../beats/engine';
-import { tableauBeat as T, who } from '../../../beats/tableau';
 import { poemBeat } from '../../../beats/album';
+import { tableauBeat as T, who } from '../../../beats/tableau';
 
 /** Chapter 1, paragraph 4: an unsigned book, the Mei ancestral hall, Lady Yan’s dream of jade, and Ziyu at his books. */
 export default beatScene(1004, [

@@ -1,6 +1,6 @@
 import { beatScene } from '../../../beats/engine';
-import { tableauBeat as T, who } from '../../../beats/tableau';
 import { poemBeat } from '../../../beats/album';
+import { tableauBeat as T, who } from '../../../beats/tableau';
 
 /** Chapter 1, paragraph 37: four flaws written beside a faint actor, a lady in her boudoir, and Ziyu’s verdict on a scroll. */
 export default beatScene(1037, [

@@ -48,6 +48,10 @@ export type Tableau = {
   cast?: CastMember[];
   /** A table in front of seated figures: its centre x and width. */
   table?: { x?: number; w?: number };
+  /** A round banquet table with dishes and cups; `cups` of them, filled up to `filled` seconds. */
+  round?: { x?: number; w?: number };
+  /** Small things: wine cups, red visiting cards, gift boxes, coins or melon seeds, a letter. */
+  props?: Prop[];
   /** An inscription slip of short columns; on the right unless `linesSide` is 'left'. */
   lines?: string[];
   linesSide?: 'left' | 'right';
@@ -61,6 +65,43 @@ export type Tableau = {
   window?: boolean;
   camera?: { from?: number; to?: number; y?: number; drift?: number; pan?: [number, number] };
 };
+
+export type Prop = {
+  kind: 'cup' | 'card' | 'gifts' | 'coins' | 'seeds' | 'letter' | 'silver';
+  x: number;
+  /** Height above the ground; a table top is at about 1.15. */
+  y: number;
+  /** Size (world units across). */
+  s?: number;
+  z?: number;
+  from?: number;
+  until?: number;
+  /** Cards and letters: the words on them. */
+  text?: string;
+};
+
+function paintProp(ctx: CanvasRenderingContext2D, p: Prop) {
+  const W = 256;
+  ctx.clearRect(0, 0, W, W);
+  ctx.fillStyle = '#231d19'; ctx.strokeStyle = '#231d19';
+  const red = '#b8321f', paper = '#f2ecdf';
+  if (p.kind === 'cup') { ctx.beginPath(); ctx.moveTo(78, 120); ctx.lineTo(178, 120); ctx.lineTo(150, 190); ctx.lineTo(106, 190); ctx.fill(); ctx.fillRect(116, 190, 24, 30); ctx.fillRect(96, 216, 64, 10); }
+  else if (p.kind === 'card' || p.kind === 'letter') {
+    ctx.fillStyle = p.kind === 'card' ? red : paper; ctx.fillRect(78, 20, 100, 216);
+    ctx.strokeRect(78, 20, 100, 216);
+    ctx.fillStyle = p.kind === 'card' ? paper : '#231d19';
+    ctx.font = '40px "KaiTi", "STKaiti", serif'; ctx.textAlign = 'center';
+    [...(p.text ?? '')].slice(0, 5).forEach((c, i) => ctx.fillText(c, 128, 68 + i * 40));
+  } else if (p.kind === 'gifts') {
+    for (const [x, y, w, h] of [[30, 130, 110, 90], [120, 90, 100, 130], [70, 60, 80, 70]]) { ctx.fillStyle = '#4e4640'; ctx.fillRect(x, y, w, h); ctx.fillStyle = red; ctx.fillRect(x + w / 2 - 6, y, 12, h); ctx.fillRect(x, y + h / 2 - 6, w, 12); }
+  } else if (p.kind === 'coins') {
+    for (let k = 0; k < 6; k++) { const x = 50 + (k % 3) * 60, y = 140 + Math.floor(k / 3) * 50; ctx.beginPath(); ctx.arc(x, y, 22, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = paper; ctx.fillRect(x - 7, y - 7, 14, 14); ctx.fillStyle = '#231d19'; }
+  } else if (p.kind === 'seeds') {
+    for (let k = 0; k < 25; k++) { ctx.save(); ctx.translate(40 + (k * 37) % 180, 120 + (k * 53) % 90); ctx.rotate(k); ctx.beginPath(); ctx.ellipse(0, 0, 9, 5, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore(); }
+  } else if (p.kind === 'silver') {
+    ctx.fillStyle = '#6f675f'; for (const x of [80, 170]) { ctx.beginPath(); ctx.ellipse(x, 180, 44, 18, 0, 0, Math.PI * 2); ctx.fill(); ctx.beginPath(); ctx.ellipse(x, 164, 20, 16, 0, 0, Math.PI * 2); ctx.fill(); }
+  }
+}
 
 const TALKING: Gesture[] = ['speaking', 'pointing', 'laughing'];
 const GROUND = -2.3;
@@ -128,6 +169,22 @@ export const tableauBeat = (spec: Tableau): Beat => ({ kit, set, x, duration }) 
     kit.box(set, tone(0x2f2a26), [tx, -1.18, 0], [w + 0.3, 0.08, 1.8]);
   }
 
+  if (spec.round) {
+    const tx = spec.round.x ?? 0, w = spec.round.w ?? 7;
+    const top = kit.mesh(new THREE.CylinderGeometry(w / 2, w / 2, 0.12, 48), tone(0x2f2a26), set, tx, -1.18, 0.2);
+    top.scale.z = 0.35;
+    kit.mesh(new THREE.CylinderGeometry(w / 2 - 0.1, w / 2 - 0.1, 1.1, 48, 1, true), tone(0x3f3a35), set, tx, -1.8, 0.2).scale.z = 0.35;
+    // Dishes as pale discs along the front rim.
+    for (let k = -2; k <= 2; k++) kit.mesh(new THREE.CircleGeometry(0.34, 24), tone(0xd6d0c6), set, tx + k * 1.15, -1.1, 0.72 - Math.abs(k) * 0.08).scale.y = 0.35;
+  }
+
+  const props = (spec.props ?? []).map(p => {
+    const s = p.s ?? 0.6;
+    const sprite = painting(kit, set, 256, 256, [s, s], ctx => paintProp(ctx, p));
+    sprite.mesh.position.set(p.x, GROUND + p.y + s / 2, p.z ?? 0.75);
+    return { p, sprite };
+  });
+
   const front = spec.flurry || spec.petals ? painting(kit, set, 1024, 576, [16, 9], (ctx, t) => {
     ctx.clearRect(0, 0, 1024, 576);
     const count = spec.flurry ? 70 : 26;
@@ -179,6 +236,11 @@ export const tableauBeat = (spec: Tableau): Beat => ({ kit, set, x, duration }) 
         const since = m.from !== undefined ? t - m.from : t;
         sprite.set(ease(since / 1.1), t);
       }
+      for (const { p, sprite } of props) {
+        const on = (p.from === undefined || t >= p.from) && (p.until === undefined || t < p.until);
+        sprite.mesh.visible = on;
+        if (on) sprite.set(ease((t - (p.from ?? 0)) / 0.6), t);
+      }
       lines?.set(ease((t - (spec.linesAt ?? 1)) / Math.max(2, duration * 0.55)));
     },
   };
@@ -217,4 +279,15 @@ export const who = {
   teacher: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'teacher', x, ...extra }),
   lady: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'lady', x, ...extra }),
   page: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'page', x, ...extra }),
+  // Chapter 2
+  shixie: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'teacher', x, ...extra }),
+  pincai: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'pincai', x, ...extra }),
+  yuanmao: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'yuanmao', x, ...extra }),
+  wenhui: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'wenhui', x, ...extra }),
+  sihui: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'sihui', x, ...extra }),
+  siyuan: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'siyuan', x, ...extra }),
+  lianggong: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'lianggong', x, ...extra }),
+  servant: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'servant', x, h: 4.1, ...extra }),
+  guibao: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'dan', x, h: 4.2, pose: { lift: [0.4, 1.8], swing: 0.25, sleeve: 0.6, turn: 0, crouch: 0, prop: 'fan', crown: true }, ...extra }),
+  maid: (x: number, extra: Partial<CastMember> = {}): CastMember => ({ kind: 'maid', x, h: 3.8, ...extra }),
 };

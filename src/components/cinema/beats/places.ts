@@ -12,7 +12,9 @@ export const PLACE_H = 576;
 export type Place =
   | 'paper' | 'study' | 'hall' | 'boudoir' | 'gate' | 'street' | 'theatre' | 'river' | 'arch'
   | 'landscape' | 'moon-palace' | 'clouds' | 'mirror' | 'stele' | 'still-wine' | 'birds' | 'mud-lotus'
-  | 'cart-window';
+  | 'cart-window'
+  // Chapter 2
+  | 'flower-hall' | 'night-room' | 'banquet' | 'parlor' | 'guild-hall' | 'canal' | 'exam-paper';
 
 const PAPER = '#ece6da';
 const wash = (ctx: Ctx, alpha: number, draw: () => void) => { ctx.save(); ctx.fillStyle = `rgba(40,32,28,${alpha})`; draw(); ctx.restore(); };
@@ -234,6 +236,86 @@ const PAINTERS: Record<Place, (ctx: Ctx, t: number, rand: () => number) => void>
     ctx.save(); ctx.fillStyle = WASH; ctx.strokeStyle = INK; ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(490, 420, 130, 40, 0.05, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); ctx.restore();
   },
   'cart-window': () => {},
+  'flower-hall': (ctx, t) => {
+    // The hanging-flower gate (垂花门): carved pendants under a small roof, lattice walls, potted plum.
+    ctx.fillStyle = INK; roof(ctx, 300, 724, 120, 40);
+    ctx.fillRect(320, 124, 384, 14);
+    for (const x of [340, 684]) { ctx.fillRect(x - 8, 138, 16, 330); disc(ctx, x, 176, 12, 18); ctx.fillRect(x - 3, 190, 6, 14); }
+    for (let k = 0; k < 7; k++) limb(ctx, [[368 + k * 48, 138], [392 + k * 48, 170], [416 + k * 48, 138]], 3);
+    lattice(ctx, 40, 150, 220, 260); lattice(ctx, 764, 150, 220, 260);
+    ctx.fillRect(0, 468, PLACE_W, 6);
+    for (const x of [140, 884]) {
+      ctx.fillRect(x - 40, 400, 80, 60);
+      stroke(ctx, [[x, 400], [x - 20, 330], [x + 10, 280]], 8, 2);
+      for (let k = 0; k < 5; k++) blossom(ctx, x - 26 + k * 12, 300 + (k % 2) * 30, 8, RED, k + t * 0.2);
+    }
+  },
+  'night-room': (ctx, t) => {
+    // Night: the room in wash, a lamp on a stand throwing a pool of bare paper around it.
+    wash(ctx, 0.66, () => ctx.fillRect(0, 0, PLACE_W, PLACE_H));
+    ctx.save(); ctx.globalCompositeOperation = 'destination-out';
+    const flicker = 1 + Math.sin(t * 9) * 0.015 + Math.sin(t * 3.7) * 0.02;
+    const glow = ctx.createRadialGradient(512, 300, 20, 512, 300, 270 * flicker);
+    glow.addColorStop(0, 'rgba(0,0,0,1)'); glow.addColorStop(0.55, 'rgba(0,0,0,0.85)'); glow.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = glow; ctx.fillRect(0, 0, PLACE_W, PLACE_H); ctx.restore();
+    ctx.globalCompositeOperation = 'destination-over'; ctx.fillStyle = PAPER; ctx.fillRect(0, 0, PLACE_W, PLACE_H); ctx.globalCompositeOperation = 'source-over';
+    // A paper window with its lattice, moonlit, and the lamp itself.
+    lattice(ctx, 120, 90, 180, 200);
+    ctx.fillStyle = INK; ctx.fillRect(508, 200, 8, 120); ctx.fillRect(488, 316, 48, 8);
+    ctx.fillStyle = '#6e655c'; ctx.beginPath(); ctx.moveTo(492, 200); ctx.lineTo(532, 200); ctx.lineTo(524, 150); ctx.lineTo(500, 150); ctx.fill();
+    ctx.fillStyle = PAPER; ctx.fillRect(504, 160, 16, 34);
+  },
+  banquet: (ctx, t) => {
+    // A reception hall: a great landscape screen, hanging lanterns, a plaque.
+    ctx.fillStyle = '#4e4640'; ctx.fillRect(260, 70, 504, 330); ctx.fillStyle = PAPER; ctx.fillRect(276, 86, 472, 298);
+    for (let k = 1; k < 4; k++) { ctx.fillStyle = '#4e4640'; ctx.fillRect(276 + k * 118, 86, 4, 298); }
+    ctx.save(); ctx.beginPath(); ctx.rect(276, 86, 472, 298); ctx.clip();
+    for (let l = 0; l < 3; l++) wash(ctx, 0.12 + l * 0.08, () => { ctx.beginPath(); ctx.moveTo(276, 384); for (let x = 276; x <= 748; x += 24) ctx.lineTo(x, 300 - l * 30 - Math.abs(Math.sin(x * 0.012 + l)) * (110 - l * 25)); ctx.lineTo(748, 384); ctx.fill(); });
+    ctx.restore();
+    for (const x of [140, 884]) {
+      ctx.fillStyle = INK; ctx.fillRect(x - 2, 0, 4, 90 + Math.sin(t + x) * 2);
+      ctx.fillStyle = RED; ctx.beginPath(); ctx.ellipse(x, 130, 34, 42, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = INK; ctx.fillRect(x - 20, 86, 40, 6); ctx.fillRect(x - 20, 168, 40, 6); limb(ctx, [[x, 174], [x, 200]], 2);
+    }
+    ctx.fillStyle = INK; ctx.fillRect(0, 440, PLACE_W, 6);
+  },
+  parlor: ctx => {
+    // Wang Wenhui's parlour: a raised couch (kang) with a low table, a scroll of calligraphy, a window seat.
+    ctx.fillStyle = '#6e655c'; ctx.fillRect(420, 40, 184, 250); ctx.fillStyle = '#f2ecdf'; ctx.fillRect(432, 56, 160, 218);
+    ctx.fillStyle = INK; ctx.font = '54px "KaiTi", "STKaiti", serif'; ctx.textAlign = 'center';
+    ['福', '寿'].forEach((c, i) => ctx.fillText(c, 512, 130 + i * 90));
+    ctx.fillStyle = INK; ctx.fillRect(300, 370, 424, 18); ctx.fillRect(300, 388, 424, 70);
+    ctx.fillStyle = '#6e655c'; ctx.fillRect(470, 340, 84, 30);
+    lattice(ctx, 780, 110, 180, 220);
+    ctx.fillStyle = INK; ctx.fillRect(0, 470, PLACE_W, 6);
+  },
+  canal: (ctx, t, rand) => {
+    // The Grand Canal crowded with grain barges; two troupe boats with cabins in the foreground.
+    PAINTERS.river(ctx, t, rand);
+    const boat = (x: number, y: number, w: number, cabin: boolean, bob: number) => {
+      ctx.fillStyle = INK; ctx.beginPath(); ctx.moveTo(x - w / 2, y + bob); ctx.quadraticCurveTo(x, y + 34 + bob, x + w / 2, y - 10 + bob); ctx.lineTo(x + w / 2 - 20, y + 8 + bob); ctx.lineTo(x - w / 2 + 10, y + 8 + bob); ctx.fill();
+      if (cabin) { ctx.fillStyle = '#5a524b'; ctx.fillRect(x - w * 0.3, y - 50 + bob, w * 0.5, 50); ctx.fillStyle = PAPER; for (let k = 0; k < 3; k++) ctx.fillRect(x - w * 0.26 + k * w * 0.15, y - 40 + bob, w * 0.1, 26); ctx.fillStyle = INK; roof(ctx, x - w * 0.32, x + w * 0.22, y - 50 + bob, 18); }
+      else { limb(ctx, [[x, y + bob], [x - 4, y - 150 + bob]], 4); }
+    };
+    wash(ctx, 0.35, () => { for (let k = 0; k < 6; k++) boat(100 + k * 160, 360, 120, false, 0); });
+    boat(330, 440, 300, true, Math.sin(t * 1.4) * 3);
+    boat(720, 470, 320, true, Math.sin(t * 1.2 + 1) * 3);
+  },
+  'exam-paper': ctx => {
+    // An examination booklet: on its cover a blade and a brush, and an ink blot soaking into the shape of a head.
+    ctx.fillStyle = '#d9d2c4'; ctx.fillRect(330, 40, 364, 500); ctx.strokeStyle = INK; ctx.lineWidth = 3; ctx.strokeRect(330, 40, 364, 500);
+    ctx.fillStyle = INK; ctx.font = '30px "KaiTi", "STKaiti", serif'; ctx.textAlign = 'center'; ctx.fillText('試卷', 512, 90);
+    ctx.save(); ctx.translate(420, 250); ctx.rotate(-0.5); ctx.fillRect(-10, -80, 20, 50); ctx.fillStyle = '#8a8178'; ctx.beginPath(); ctx.moveTo(-10, -30); ctx.lineTo(10, -30); ctx.lineTo(4, 110); ctx.lineTo(-10, 90); ctx.fill(); ctx.restore();
+    ctx.save(); ctx.translate(600, 230); ctx.rotate(0.4); ctx.fillStyle = INK; ctx.fillRect(-6, -110, 12, 150); ctx.beginPath(); ctx.moveTo(-9, 40); ctx.quadraticCurveTo(0, 90, 9, 40); ctx.fill(); ctx.restore();
+    ctx.fillStyle = 'rgba(30,24,20,0.85)'; ctx.beginPath(); ctx.ellipse(540, 400, 70, 84, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#d9d2c4'; disc(ctx, 516, 386, 9, 5); disc(ctx, 564, 386, 9, 5); ctx.fillRect(526, 432, 28, 5);
+  },
+  'guild-hall': ctx => {
+    // The Suzhou Guild Hall stage, decked for the spring gathering.
+    PAINTERS.theatre(ctx, 0, () => 0.5);
+    ctx.fillStyle = RED; ctx.fillRect(360, 20, 304, 34);
+    ctx.fillStyle = PAPER; ctx.font = '26px "KaiTi", "STKaiti", serif'; ctx.textAlign = 'center'; ctx.fillText('姑苏会馆', 512, 46);
+  },
 };
 
 /** Paints a backdrop; `seed` keeps its random touches the same on every frame. */
@@ -243,4 +325,4 @@ export function paintPlace(ctx: Ctx, place: Place, t: number, seed = 7) {
 }
 
 /** Backdrops whose painting moves (water, wind, clouds). */
-export const ANIMATED_PLACES: Place[] = ['boudoir', 'gate', 'street', 'theatre', 'river', 'arch', 'landscape', 'moon-palace', 'clouds', 'birds', 'mud-lotus'];
+export const ANIMATED_PLACES: Place[] = ['boudoir', 'gate', 'street', 'theatre', 'river', 'arch', 'landscape', 'moon-palace', 'clouds', 'birds', 'mud-lotus', 'flower-hall', 'night-room', 'banquet', 'canal'];

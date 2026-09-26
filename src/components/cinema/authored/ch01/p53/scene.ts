@@ -1,6 +1,6 @@
 import { beatScene } from '../../../beats/engine';
-import { tableauBeat as T } from '../../../beats/tableau';
 import { portraitBeat } from '../../../beats/album';
+import { tableauBeat as T } from '../../../beats/tableau';
 import { BOY } from '../actors';
 
 /** Chapter 1, paragraph 53: the crabapple boy, the peerless boy in radiance, the gazes across the carts, and the dazzled scattering of light and fragrance. */
