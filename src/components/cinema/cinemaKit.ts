@@ -95,6 +95,12 @@ export function petalGeometry(width: number, height: number, base: number, tip: 
   return geometry;
 }
 
+/**
+ * The ink for characters (calligraphy, labels, cards). Nearly black, with a faint blue excess the ink
+ * pass recognises, so writing prints as solid, crisp ink rather than a washed shape with an outline.
+ */
+export const WRITING_INK = '#0a0822';
+
 /** Pixel coordinates inside a character, for building it out of particles. */
 export function glyphPixels(char: string, rand: () => number) {
   const canvas = document.createElement('canvas'); canvas.width = canvas.height = 200;
@@ -192,6 +198,18 @@ const inkPassShader = {
     varying vec2 vUv;
     ${noiseGlsl}
     float lum(vec2 uv) { return dot(texture2D(tDiffuse, uv).rgb, vec3(0.299, 0.587, 0.114)); }
+    // Writing is drawn in WRITING_INK, whose blue exceeds its red and green; measured relative to its
+    // own blue (values here may be linear and tiny), on dark pixels only.
+    float writingAt(vec3 c) {
+      float l = dot(c, vec3(0.299, 0.587, 0.114));
+      return clamp((c.b - max(c.r, c.g)) / max(c.b, 0.004) * 1.6, 0.0, 1.0) * (1.0 - smoothstep(0.2, 0.35, l));
+    }
+    float writingNear(vec2 uv, vec2 px) {
+      float w = 0.0;
+      for (int dx = -2; dx <= 2; dx++) for (int dy = -2; dy <= 2; dy++)
+        w = max(w, writingAt(texture2D(tDiffuse, uv + px * vec2(float(dx), float(dy))).rgb));
+      return w;
+    }
     void main() {
       vec2 px = 1.0 / uResolution, frag = vUv * uResolution;
       // The brush never follows the geometry exactly; the offset is fixed so the paper does not swim.
@@ -203,9 +221,13 @@ const inkPassShader = {
       float bl = lum(uv + px * vec2(-1.0, -1.0)), b = lum(uv + px * vec2(0.0, -1.0)), br = lum(uv + px * vec2(1.0, -1.0));
       float edge = smoothstep(0.1, 0.55, length(vec2(-tl - 2.0 * ml - bl + tr + 2.0 * mr + br, -bl - 2.0 * b - br + tl + 2.0 * t + tr)));
       float grain = fbm(frag / 2.5), wash = fbm(frag / 140.0);
+      // Writing prints as solid ink, and gets no brush outline beside it, so characters stay crisp.
+      float writing = writingAt(c);
+      float nearWriting = edge > 0.0 ? writingNear(uv, px) : 0.0;
       // Uneven washes: ink pools in some places and thins in others.
       float ink = smoothstep(0.03, 0.97, 1.0 - l) * (0.8 + 0.34 * wash);
-      ink = clamp(max(ink, edge * 0.8), 0.0, 1.0);
+      ink = clamp(max(ink, edge * 0.8 * (1.0 - nearWriting)), 0.0, 1.0);
+      ink = mix(ink, 1.0, writing);
       vec3 paper = uPaper * (0.93 + 0.07 * grain);
       paper *= 1.0 - 0.2 * pow(length(vUv - 0.5) * 1.3, 3.0);
       vec3 color = mix(paper, uInk, ink * (0.9 + 0.1 * grain));
@@ -216,7 +238,7 @@ const inkPassShader = {
 };
 
 /** Ink that seeps into the paper: reveals a canvas texture through a noisy, growing threshold. */
-export function inkRevealMaterial(map: THREE.Texture, color = new THREE.Color(1, 1, 1)) {
+export function inkRevealMaterial(map: THREE.Texture, color = new THREE.Color(1, 1, 1), { sharp = false }: { sharp?: boolean } = {}) {
   return new THREE.ShaderMaterial({
     uniforms: { map: { value: map }, uReveal: { value: 0 }, uOpacity: { value: 1 }, uColor: { value: color } },
     vertexShader: 'varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
@@ -227,7 +249,8 @@ export function inkRevealMaterial(map: THREE.Texture, color = new THREE.Color(1,
       varying vec2 vUv;
       ${noiseGlsl}
       void main() {
-        vec4 texel = texture2D(map, vUv);
+        // Writing samples a sharper mip level, so characters stay crisp when shown small.
+        vec4 texel = texture2D(map, vUv${sharp ? ', -1.0' : ''});
         float n = noise(vUv * vec2(5.0, 10.0)) * 0.6 + noise(vUv * 40.0) * 0.4;
         float alpha = texel.a * smoothstep(n - 0.08, n + 0.08, uReveal * 1.3 - 0.15) * uOpacity;
         if (alpha < 0.02) discard;
@@ -248,7 +271,8 @@ export type Kit = {
   mesh: <T extends THREE.BufferGeometry>(geometry: T, material: THREE.Material, parent: THREE.Object3D, x?: number, y?: number, z?: number) => THREE.Mesh<T, THREE.Material>;
   box: (parent: THREE.Object3D, material: THREE.Material, at: V3, size: V3) => THREE.Mesh;
   lambert: (color: number, extra?: THREE.MeshLambertMaterialParameters) => THREE.MeshLambertMaterial;
-  canvasTexture: (canvas: HTMLCanvasElement) => THREE.CanvasTexture;
+  /** `sharp` for textures carrying writing: maximum anisotropic filtering. */
+  canvasTexture: (canvas: HTMLCanvasElement, sharp?: boolean) => THREE.CanvasTexture;
   /** Additive glowing points; each entry is [position, HDR colour, world size, time lit (-1: always)]. */
   glows: (parent: THREE.Object3D, entries: [V3, THREE.Color, number, number][]) => THREE.Points;
   warm: (gain: number, hex?: number) => THREE.Color;
@@ -263,6 +287,11 @@ export type Kit = {
    * height of one character in world units.
    */
   calligraphy: (parent: THREE.Object3D, text: string, options?: { size?: number; columns?: number }) => { mesh: THREE.Mesh; material: THREE.ShaderMaterial };
+  /**
+   * One crisp character on a 1 × 1 plane, laid out exactly like `glyphPixels`, so it can settle
+   * over a character built from particles (scale the mesh to the particles' size; reveal with uReveal).
+   */
+  glyph: (parent: THREE.Object3D, char: string) => { mesh: THREE.Mesh; material: THREE.ShaderMaterial };
   /** A square vermilion seal (default 品花). Fade it in with `material.opacity`. */
   seal: (parent: THREE.Object3D, text?: string, size?: number) => { mesh: THREE.Mesh; material: THREE.MeshBasicMaterial };
 };
@@ -281,7 +310,8 @@ export function createCinema(
   style: 'night' | 'ink' = 'night',
 ): Cinema {
   const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.6));
+  // Full resolution on high-DPI screens (up to 2×), so fine brushwork and writing stay sharp.
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   // The ink pass reads brightness as ink density, so it needs untoned values.
   renderer.toneMapping = style === 'ink' ? THREE.NoToneMapping : THREE.ACESFilmicToneMapping;
@@ -331,7 +361,12 @@ export function createCinema(
       const value = new THREE.Mesh(geometry, material); value.position.set(x, y, z); parent.add(value); return value;
     };
     const box: Kit['box'] = (parent, material, [x, y, z], [w, h, d]) => mesh(new THREE.BoxGeometry(w, h, d), material, parent, x, y, z);
-    const canvasTexture: Kit['canvasTexture'] = canvas => { const value = new THREE.CanvasTexture(canvas); value.colorSpace = THREE.SRGBColorSpace; textures.add(value); return value; };
+    const canvasTexture: Kit['canvasTexture'] = (canvas, sharp = false) => {
+      const value = new THREE.CanvasTexture(canvas); value.colorSpace = THREE.SRGBColorSpace;
+      // Writing is often seen at a slant or small: full anisotropic filtering keeps strokes clean.
+      if (sharp) value.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      textures.add(value); return value;
+    };
     const lambert: Kit['lambert'] = (color, extra = {}) => new THREE.MeshLambertMaterial({ color, ...extra });
     const ink = new THREE.MeshBasicMaterial({ color: 0x05070b, side: THREE.DoubleSide });
     const glows: Kit['glows'] = (parent, entries) => {
@@ -406,31 +441,47 @@ export function createCinema(
     };
 
     const calligraphy: Kit['calligraphy'] = (parent, text, { size = 1, columns = 1 } = {}) => {
-      const chars = [...text], rows = Math.ceil(chars.length / columns), cell = 256;
+      // Enough pixels per character for its size on screen (about 300 px per world unit at 2× DPR),
+      // within a texture budget.
+      const chars = [...text], rows = Math.ceil(chars.length / columns);
+      const cell = Math.min(768, Math.max(256, Math.ceil(size * 320 / 64) * 64), Math.floor(4096 / Math.max(rows, columns)));
       const canvas = document.createElement('canvas'); canvas.width = columns * cell; canvas.height = rows * cell;
       const ctx = canvas.getContext('2d')!;
-      ctx.fillStyle = '#1c1714'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.font = `bold ${cell * 0.86}px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", serif`;
       // Traditional layout: top to bottom, columns from right to left.
       chars.forEach((char, i) => ctx.fillText(char, (columns - 1 - Math.floor(i / rows) + 0.5) * cell, (i % rows + 0.53) * cell));
-      const material = inkRevealMaterial(canvasTexture(canvas));
+      const material = inkRevealMaterial(canvasTexture(canvas, true), undefined, { sharp: true });
       return { mesh: mesh(new THREE.PlaneGeometry(columns * size, rows * size), material, parent), material };
     };
-    const seal: Kit['seal'] = (parent, text = '品花', size = 1.8) => {
-      const canvas = document.createElement('canvas'); canvas.width = canvas.height = 128;
+    const glyph: Kit['glyph'] = (parent, char) => {
+      const S = 1024, k = S / 200;
+      const canvas = document.createElement('canvas'); canvas.width = canvas.height = S;
       const ctx = canvas.getContext('2d')!;
+      ctx.scale(k, k);
+      ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.font = 'bold 176px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", "Songti SC", serif';
+      ctx.fillText(char, 100, 104);
+      const material = inkRevealMaterial(canvasTexture(canvas, true), undefined, { sharp: true });
+      return { mesh: mesh(new THREE.PlaneGeometry(1, 1), material, parent), material };
+    };
+    const seal: Kit['seal'] = (parent, text = '品花', size = 1.8) => {
+      const S = 256, k = S / 128;
+      const canvas = document.createElement('canvas'); canvas.width = canvas.height = S;
+      const ctx = canvas.getContext('2d')!;
+      ctx.scale(k, k);
       ctx.fillStyle = '#b02e1e'; ctx.fillRect(6, 6, 116, 116);
       ctx.fillStyle = '#f4ece0'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       const chars = [...text], columns = chars.length > 2 ? 2 : 1, rows = Math.ceil(chars.length / columns);
       ctx.font = `bold ${Math.floor(100 / rows)}px "KaiTi", "STKaiti", "Noto Serif SC", serif`;
       chars.forEach((char, i) => ctx.fillText(char, 64 + (columns === 2 ? (Math.floor(i / rows) ? -26 : 26) : 0), 12 + (i % rows + 0.5) * (104 / rows)));
-      const material = new THREE.MeshBasicMaterial({ map: canvasTexture(canvas), transparent: true, opacity: 0, fog: false });
+      const material = new THREE.MeshBasicMaterial({ map: canvasTexture(canvas, true), transparent: true, opacity: 0, fog: false });
       return { mesh: mesh(new THREE.PlaneGeometry(size, size), material, parent), material };
     };
 
     const update = build({
       scene, camera, rand, shared, ink, group, mesh, box, lambert, canvasTexture, glows, warm, lantern, path, setEnv,
-      portrait: () => camera.aspect < 0.9, calligraphy, seal,
+      portrait: () => camera.aspect < 0.9, calligraphy, glyph, seal,
     });
     const render = () => {
       shared.uTime.value = seconds;

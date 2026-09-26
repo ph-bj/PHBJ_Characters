@@ -55,9 +55,11 @@ export default defineScene({
     mesh(new THREE.PlaneGeometry(53, 7.6), tone(0xcfc8bc), album, 0, 3.1, -0.03);
     for (const x of [-26.6, 26.6]) mesh(new THREE.CylinderGeometry(0.22, 0.22, 8.2, 16), tone(INK_TONE.dark), album, x, 3.1, 0.05);
     const panels = Array.from({ length: 10 }, (_, rank) => {
-      const c = canvas(PANEL_W, PANEL_H);
-      paintFlowerPanel(c.getContext('2d')!, rank);
-      const material = inkRevealMaterial(canvasTexture(c));
+      // Painted at twice the panel's size so its writing stays crisp.
+      const c = canvas(PANEL_W * 2, PANEL_H * 2), ctx = c.getContext('2d')!;
+      ctx.scale(2, 2);
+      paintFlowerPanel(ctx, rank);
+      const material = inkRevealMaterial(canvasTexture(c, true), undefined, { sharp: true });
       mesh(new THREE.PlaneGeometry(4.96, 6.2), tone(0xf3eee3), album, 22.5 - rank * 5, 3.1, 0);
       mesh(new THREE.PlaneGeometry(5, 6.25), material, album, 22.5 - rank * 5, 3.1, 0.01);
       return material;
@@ -66,9 +68,10 @@ export default defineScene({
     // --- Shot 2: eight blots, and a 情 that will not settle -------------------------------------
     const blots = group(scene, SET.blots);
     const blotMaterials = LOW_KINDS.map((char, k) => {
-      const c = canvas(BLOT_SIZE, BLOT_SIZE);
-      paintBlot(c.getContext('2d')!, char, k);
-      const material = inkRevealMaterial(canvasTexture(c));
+      const c = canvas(BLOT_SIZE * 2, BLOT_SIZE * 2), ctx = c.getContext('2d')!;
+      ctx.scale(2, 2);
+      paintBlot(ctx, char, k);
+      const material = inkRevealMaterial(canvasTexture(c, true), undefined, { sharp: true });
       mesh(new THREE.PlaneGeometry(3.2, 3.2), material, blots, -6.3 + (k % 4) * 4.2, k < 4 ? 1.9 : -2.3, 0);
       return material;
     });

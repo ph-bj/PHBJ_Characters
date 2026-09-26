@@ -80,7 +80,7 @@ const inkGlyphFragment = /* glsl */`
 /** A new staging of the prologue: heaven's doorstep, moon and flowers, a playful brush, a moon gate, and 情. */
 export default defineScene({
   seed: 20260925,
-  build: ({ scene, camera, rand, shared, ink, group, mesh, box, lambert, canvasTexture, glows, warm, lantern, path, setEnv, portrait }, story) => {
+  build: ({ scene, camera, rand, shared, ink, group, mesh, box, lambert, canvasTexture, glyph, glows, warm, lantern, path, setEnv, portrait }, story) => {
     // --- Shots 1–2: the capital ------------------------------------------------------------
     const city = group(scene);
     mesh(new THREE.PlaneGeometry(1400, 1400).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0xe6e1d8 }), city);
@@ -389,8 +389,11 @@ export default defineScene({
       ctx.font = 'bold 50px "KaiTi", "STKaiti", "Noto Serif SC", serif';
       ctx.fillText('品', 64, 38); ctx.fillText('花', 64, 92);
     }
-    const sealMaterial = new THREE.MeshBasicMaterial({ map: canvasTexture(sealCanvas), transparent: true, opacity: 0, fog: false });
+    const sealMaterial = new THREE.MeshBasicMaterial({ map: canvasTexture(sealCanvas, true), transparent: true, opacity: 0, fog: false });
     const seal = mesh(new THREE.PlaneGeometry(1.8, 1.8), sealMaterial, glyphSet, 0, 0, 1);
+    // Once the drops have merged, the word settles in crisp brushwork over them.
+    const word = glyph(glyphSet, '情');
+    word.mesh.position.z = 0.9;
 
     // --- Direction ----------------------------------------------------------------------------
     const shots = [
@@ -448,6 +451,8 @@ export default defineScene({
         const big = glyphUniforms.uBig.value;
         glyphUniforms.uCols.value = isPortrait ? 2 : 5;
         seal.position.set(big * 0.42, -big * 0.42, 1);
+        word.mesh.scale.setScalar(big);
+        word.material.uniforms.uReveal.value = ease((seconds - 34) / 1);
         sealMaterial.opacity = ease((seconds - 34.4) / 0.5);
         seal.scale.setScalar(1 + 0.4 * (1 - ease((seconds - 34.4) / 0.35)));
       }

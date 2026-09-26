@@ -92,7 +92,7 @@ const pairFragment = /* glsl */`
 /** Chapter 1, paragraph 2: ten kinds of gentlemen, ten leading performers, and one word for them all. */
 export default defineScene({
   seed: 20260926,
-  build: ({ scene, camera, rand, shared, ink, group, mesh, box, canvasTexture, lantern, path, setEnv, portrait }, story) => {
+  build: ({ scene, camera, rand, shared, ink, group, mesh, box, canvasTexture, glyph, lantern, path, setEnv, portrait }, story) => {
     const matrix = new THREE.Matrix4(), quaternion = new THREE.Quaternion(), euler = new THREE.Euler();
     const place = new THREE.Vector3(), size = new THREE.Vector3(1, 1, 1);
     const tone = (hex: number, extra: THREE.MeshBasicMaterialParameters = {}) => new THREE.MeshBasicMaterial({ color: hex, ...extra });
@@ -175,7 +175,7 @@ export default defineScene({
       ctx.fillStyle = lit ? '#1b120e' : '#8a8279'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.font = 'bold 128px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", serif';
       ctx.fillText(char, 256, 100);
-      return canvasTexture(canvas);
+      return canvasTexture(canvas, true);
     };
     const bays = KINDS.map((char, k) => {
       const x = bayX(k);
@@ -300,8 +300,11 @@ export default defineScene({
       ctx.font = 'bold 50px "KaiTi", "STKaiti", "Noto Serif SC", serif';
       ctx.fillText('品', 64, 38); ctx.fillText('花', 64, 92);
     }
-    const sealMaterial = tone(0xffffff, { map: canvasTexture(sealCanvas), transparent: true, opacity: 0, fog: false });
+    const sealMaterial = tone(0xffffff, { map: canvasTexture(sealCanvas, true), transparent: true, opacity: 0, fog: false });
     const seal = mesh(new THREE.PlaneGeometry(1.8, 1.8), sealMaterial, glyphSet, 0, 0, 1);
+    // Once ink and wash have merged, the word settles in crisp brushwork over them.
+    const word = glyph(glyphSet, '情');
+    word.mesh.position.z = 0.9;
 
     // --- Direction ----------------------------------------------------------------------------
     const gardenShot = path([
@@ -354,6 +357,8 @@ export default defineScene({
         pairUniforms.uPortrait.value = isPortrait ? 1 : 0;
         const big = pairUniforms.uBig.value;
         seal.position.set(big * 0.42, -big * 0.42, 1);
+        word.mesh.scale.setScalar(big);
+        word.material.uniforms.uReveal.value = ease((seconds - 34) / 1);
         sealMaterial.opacity = ease((seconds - 34.4) / 0.5);
         seal.scale.setScalar(1 + 0.4 * (1 - ease((seconds - 34.4) / 0.35)));
       }

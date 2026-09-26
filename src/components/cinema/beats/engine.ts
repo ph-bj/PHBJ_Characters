@@ -59,13 +59,16 @@ export function canvasOf(width: number, height: number) {
   return canvas;
 }
 
-/** A canvas painting on a plane that seeps into the paper. Redraws each frame if `animate`. */
-export function painting(kit: Kit, parent: THREE.Object3D, width: number, height: number, size: [number, number], paint: (ctx: Ctx, t: number) => void, animate = false) {
+/**
+ * A canvas painting on a plane that seeps into the paper. Redraws each frame if `animate`; `sharp`
+ * for paintings that carry writing (crisper filtering).
+ */
+export function painting(kit: Kit, parent: THREE.Object3D, width: number, height: number, size: [number, number], paint: (ctx: Ctx, t: number) => void, animate = false, sharp = false) {
   const canvas = canvasOf(width, height);
   const ctx = canvas.getContext('2d')!;
   paint(ctx, 0);
-  const texture = kit.canvasTexture(canvas);
-  const material = inkRevealMaterial(texture);
+  const texture = kit.canvasTexture(canvas, sharp);
+  const material = inkRevealMaterial(texture, undefined, { sharp });
   const mesh = kit.mesh(new THREE.PlaneGeometry(size[0], size[1]), material, parent);
   return {
     mesh, material,

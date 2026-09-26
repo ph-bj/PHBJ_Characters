@@ -1,4 +1,5 @@
 import { disc, limb, type Ctx } from '../../../brush';
+import { WRITING_INK } from '../../../cinemaKit';
 import { FLOWER_NAMES, INK, KAITI, leaf, paintFlower, PETAL_RED, RED, seeded, stroke, WASH } from '../../../paint';
 
 /**
@@ -24,7 +25,7 @@ export function paintFlowerPanel(ctx: Ctx, rank: number) {
   ctx.strokeStyle = 'rgba(60,50,45,0.35)'; ctx.lineWidth = 3; ctx.strokeRect(14, 14, PANEL_W - 28, PANEL_H - 28);
   ctx.fillStyle = INK; ctx.strokeStyle = INK;
   paintFlower(ctx, FLOWER_NAMES[rank], rank + 7);
-  ctx.fillStyle = INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.font = `bold 44px ${KAITI}`;
   ['情', '中', RANKS[rank]].forEach((char, i) => ctx.fillText(char, 452, 76 + i * 52));
   ctx.fillStyle = RED; ctx.fillRect(430, 250, 44, 44);
@@ -36,11 +37,10 @@ export function paintBlot(ctx: Ctx, char: string, seed: number) {
   const rand = seeded(seed + 101), c = BLOT_SIZE / 2;
   ctx.clearRect(0, 0, BLOT_SIZE, BLOT_SIZE);
   ctx.save(); ctx.translate(c, c); ctx.rotate((rand() - 0.5) * 0.25);
-  ctx.fillStyle = '#1d1814'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.font = `bold 176px ${KAITI}`;
-  ctx.filter = 'blur(3px)'; ctx.fillText(char, 0, 6);
-  ctx.globalAlpha = 0.4; ctx.fillText(char, 5 + rand() * 4, 10 + rand() * 4);
-  ctx.filter = 'none'; ctx.globalAlpha = 1;
+  // The character itself stays legible; the spoiling is in the splatter and runs around it.
+  ctx.fillText(char, 0, 6);
   ctx.restore();
   ctx.fillStyle = '#1d1814';
   for (let i = 0; i < 26; i++) { const a = rand() * Math.PI * 2, d = 60 + rand() * 60; disc(ctx, c + Math.cos(a) * d, c + Math.sin(a) * d, 1.5 + rand() * 5); }

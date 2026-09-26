@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import { INK, KAITI, RED } from '../paint';
+import { KAITI, RED } from '../paint';
+import { WRITING_INK } from '../cinemaKit';
 import { ease, frontCamera, painting, tone, type Beat } from './engine';
 
 /**
@@ -39,10 +40,10 @@ export const wordsBeat = (lines: WordLine[], { seal }: { seal?: string } = {}): 
       if (c === prev) repeat++; else if (c !== '、') repeat = 0;
       if (c !== '、') prev = c;
       const red = line.red?.includes(c);
-      const art = painting(kit, set, 128, 128, [s, s], ctx => {
-        ctx.fillStyle = red ? RED : INK; ctx.font = `104px ${KAITI}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.fillText(c, 64, 70);
-      });
+      const art = painting(kit, set, 256, 256, [s, s], ctx => {
+        ctx.fillStyle = red ? RED : WRITING_INK; ctx.font = `bold 216px ${KAITI}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(c, 128, 138);
+      }, false, true);
       art.mesh.position.set(cx, 3.1 - s / 2 - i * s * 1.02, 0.02);
       art.material.uniforms.uOpacity.value = Math.max(0.45, 1 - repeat * 0.2);
       stamps.push({ at: line.at + i * (line.pace ?? 0.22), mesh: art.mesh, material: art.material, s: 1 - Math.min(0.3, repeat * 0.1) });

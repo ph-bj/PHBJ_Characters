@@ -2,9 +2,10 @@ import * as THREE from 'three';
 import type { Hair } from '../brush';
 import type { DanPose } from '../figures';
 import { PETAL_RED } from '../paint';
+import { WRITING_INK } from '../cinemaKit';
 import { clamp01, columns, ease, figure, frontCamera, painting, tone, type Beat } from './engine';
 import { CART_H, CART_W, cart, horse, person, type Gesture, type PersonKind } from './people';
-import { ANIMATED_PLACES, PLACE_H, PLACE_W, paintPlace, type Place } from './places';
+import { ANIMATED_PLACES, PLACE_H, PLACE_W, PLACES_WITH_WRITING, paintPlace, type Place } from './places';
 
 /**
  * The tableau: one beat for everyday scenes. A painted place, a cast who can walk, talk, change
@@ -81,7 +82,9 @@ export type Prop = {
 };
 
 function paintProp(ctx: CanvasRenderingContext2D, p: Prop) {
+  // Drawn in 256-unit coordinates on a larger canvas, so card and letter writing stays sharp.
   const W = 256;
+  ctx.setTransform(ctx.canvas.width / W, 0, 0, ctx.canvas.width / W, 0, 0);
   ctx.clearRect(0, 0, W, W);
   ctx.fillStyle = '#231d19'; ctx.strokeStyle = '#231d19';
   const red = '#b8321f', paper = '#f2ecdf';
@@ -89,8 +92,8 @@ function paintProp(ctx: CanvasRenderingContext2D, p: Prop) {
   else if (p.kind === 'card' || p.kind === 'letter') {
     ctx.fillStyle = p.kind === 'card' ? red : paper; ctx.fillRect(78, 20, 100, 216);
     ctx.strokeRect(78, 20, 100, 216);
-    ctx.fillStyle = p.kind === 'card' ? paper : '#231d19';
-    ctx.font = '40px "KaiTi", "STKaiti", serif'; ctx.textAlign = 'center';
+    ctx.fillStyle = WRITING_INK; // black ink, on red paper for a visiting card
+    ctx.font = 'bold 40px "KaiTi", "STKaiti", serif'; ctx.textAlign = 'center';
     [...(p.text ?? '')].slice(0, 5).forEach((c, i) => ctx.fillText(c, 128, 68 + i * 40));
   } else if (p.kind === 'gifts') {
     for (const [x, y, w, h] of [[30, 130, 110, 90], [120, 90, 100, 130], [70, 60, 80, 70]]) { ctx.fillStyle = '#4e4640'; ctx.fillRect(x, y, w, h); ctx.fillStyle = red; ctx.fillRect(x + w / 2 - 6, y, 12, h); ctx.fillRect(x, y + h / 2 - 6, w, 12); }
@@ -124,7 +127,10 @@ export const tableauBeat = (spec: Tableau): Beat => ({ kit, set, x, duration }) 
   const animated = ANIMATED_PLACES.includes(spec.place);
   // Paper of the backdrop's own tone reaches past the frame, so the painting has no visible edge.
   kit.mesh(new THREE.PlaneGeometry(80, 45), tone(0xece6da), set, 0, 0.5, -2.1);
-  const back = painting(kit, set, PLACE_W, PLACE_H, [19.2, 10.8], (ctx, t) => paintPlace(ctx, spec.place, t), animated);
+  // Backdrops with writing on them (plaques, labels) are painted at a higher resolution so the
+  // characters stay sharp; moving backdrops, repainted every frame, get less.
+  const res = PLACES_WITH_WRITING.includes(spec.place) ? (animated ? 1.5 : 2.5) : 1;
+  const back = painting(kit, set, PLACE_W * res, PLACE_H * res, [19.2, 10.8], (ctx, t) => paintPlace(ctx, spec.place, t), animated, res > 1);
   back.mesh.position.set(0, 0.9, -2);
 
   const back2 = spec.aura ? painting(kit, set, 512, 512, [7, 7], (ctx, t) => {
@@ -180,7 +186,8 @@ export const tableauBeat = (spec: Tableau): Beat => ({ kit, set, x, duration }) 
 
   const props = (spec.props ?? []).map(p => {
     const s = p.s ?? 0.6;
-    const sprite = painting(kit, set, 256, 256, [s, s], ctx => paintProp(ctx, p));
+    const writing = p.kind === 'card' || p.kind === 'letter';
+    const sprite = painting(kit, set, writing ? 1024 : 256, writing ? 1024 : 256, [s, s], ctx => paintProp(ctx, p), false, writing);
     sprite.mesh.position.set(p.x, GROUND + p.y + s / 2, p.z ?? 0.75);
     return { p, sprite };
   });
