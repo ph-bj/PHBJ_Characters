@@ -4,6 +4,8 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
+import { Pass } from 'three/examples/jsm/postprocessing/Pass.js';
+import { CopyShader } from 'three/examples/jsm/shaders/CopyShader.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 /** Every authored cinema runs this long, in seconds. */
 export const CINEMA_DURATION = 36;
@@ -223,6 +225,14 @@ const inkPassShader = {
       vec2 px = 1.0 / uResolution, frag = vUv * uResolution;
       // The brush never follows the geometry exactly; the offset is fixed so the paper does not swim.
       vec2 uv = vUv + (vec2(fbm(frag / 90.0), fbm(frag / 90.0 + 7.3)) - 0.5) * px * 3.0;
+      // Writing is exempt from that wobble: its strokes are sampled exactly where they were drawn.
+      float steady = 0.0;
+      for (int k = 0; k < 5; k++) {
+        vec2 o = k == 0 ? vec2(0.0) : vec2(k == 1 ? 2.0 : k == 2 ? -2.0 : 0.0, k == 3 ? 2.0 : k == 4 ? -2.0 : 0.0);
+        vec3 s = texture2D(tDiffuse, vUv + px * o).rgb;
+        steady = max(steady, max(writingAt(s), redWritingAt(s)));
+      }
+      uv = mix(uv, vUv, steady);
       vec3 c = texture2D(tDiffuse, uv).rgb;
       float l = dot(c, vec3(0.299, 0.587, 0.114));
       float tl = lum(uv + px * vec2(-1.0, 1.0)), t = lum(uv + px * vec2(0.0, 1.0)), tr = lum(uv + px * vec2(1.0, 1.0));
@@ -239,34 +249,64 @@ const inkPassShader = {
       ink = mix(ink, 1.0, writing);
       vec3 paper = uPaper * (0.93 + 0.07 * grain);
       paper *= 1.0 - 0.2 * pow(length(vUv - 0.5) * 1.3, 3.0);
-      vec3 color = mix(paper, uInk, ink * (0.9 + 0.1 * grain));
+      // The paper's grain shows through ink, but not through writing, which stays clean and even.
+      vec3 color = mix(paper, uInk, ink * mix(0.9 + 0.1 * grain, 1.0, writing));
       float red = clamp((c.r - max(c.g, c.b)) * 2.5, 0.0, 1.0);
-      color = mix(color, uSeal * (0.85 + 0.15 * grain), red);
+      color = mix(color, uSeal * mix(0.85 + 0.15 * grain, 0.97, redWritingAt(c)), red);
       gl_FragColor = vec4(color, 1.0);
     }`,
 };
 
 /** Ink that seeps into the paper: reveals a canvas texture through a noisy, growing threshold. */
-export function inkRevealMaterial(map: THREE.Texture, color = new THREE.Color(1, 1, 1), { sharp = false }: { sharp?: boolean } = {}) {
+export function inkRevealMaterial(map: THREE.Texture, color = new THREE.Color(1, 1, 1), { sharp = false, flat }: { sharp?: boolean; flat?: THREE.Color } = {}) {
   return new THREE.ShaderMaterial({
-    uniforms: { map: { value: map }, uReveal: { value: 0 }, uOpacity: { value: 1 }, uColor: { value: color } },
+    uniforms: { map: { value: map }, uReveal: { value: 0 }, uOpacity: { value: 1 }, uColor: { value: color }, uFlat: { value: flat ?? new THREE.Color() }, uFlatOn: { value: flat ? 1 : 0 } },
     vertexShader: 'varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
     fragmentShader: /* glsl */`
       uniform sampler2D map;
       uniform float uReveal, uOpacity;
-      uniform vec3 uColor;
+      uniform vec3 uColor, uFlat;
+      uniform float uFlatOn;
       varying vec2 vUv;
       ${noiseGlsl}
       void main() {
         // Writing samples a sharper mip level, so characters stay crisp when shown small.
-        vec4 texel = texture2D(map, vUv${sharp ? ', -1.0' : ''});
+        vec4 texel = texture2D(map, vUv${sharp ? ', -0.5' : ''});
         float n = noise(vUv * vec2(5.0, 10.0)) * 0.6 + noise(vUv * 40.0) * 0.4;
         float alpha = texel.a * smoothstep(n - 0.08, n + 0.08, uReveal * 1.3 - 0.15) * uOpacity;
         if (alpha < 0.02) discard;
-        gl_FragColor = vec4(texel.rgb * uColor, alpha);
+        // Writing drawn over the finished ink picture uses one flat, display-ready colour.
+        gl_FragColor = vec4(uFlatOn > 0.5 ? uFlat : texel.rgb * uColor, alpha);
       }`,
     transparent: true, depthWrite: false,
   });
+}
+
+/** The render layer for writing in ink-style cinemas: drawn after the ink pass, never through it. */
+export const WRITING_LAYER = 1;
+/** Display-ready colours for writing drawn over the ink picture: the pass's darkest ink and its seal red. */
+export const WRITING_FLAT = { ink: new THREE.Color(0.11, 0.09, 0.08), red: new THREE.Color(0.64, 0.19, 0.13) };
+
+/** Renders only the writing layer over what the composer has so far, without clearing it. */
+class WritingPass extends Pass {
+  constructor(private scene: THREE.Scene, private camera: THREE.Camera) { super(); this.needsSwap = false; }
+  render(renderer: THREE.WebGLRenderer, _write: THREE.WebGLRenderTarget, read: THREE.WebGLRenderTarget) {
+    const autoClear = renderer.autoClear, mask = this.camera.layers.mask;
+    renderer.autoClear = false;
+    this.camera.layers.set(WRITING_LAYER);
+    renderer.setRenderTarget(this.renderToScreen ? null : read);
+    renderer.clearDepth();
+    renderer.render(this.scene, this.camera);
+    this.camera.layers.mask = mask;
+    renderer.autoClear = autoClear;
+  }
+}
+
+/** Puts a writing mesh on the writing layer, in flat ink (or vermilion). Ink-style cinemas only. */
+export function asWriting(mesh: THREE.Object3D, material: THREE.ShaderMaterial, color: THREE.Color = WRITING_FLAT.ink) {
+  mesh.layers.set(WRITING_LAYER);
+  material.uniforms.uFlat.value = color;
+  material.uniforms.uFlatOn.value = 1;
 }
 
 export type Kit = {
@@ -338,7 +378,13 @@ export function createCinema(
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
   const inkPass = style === 'ink' ? new ShaderPass(inkPassShader) : undefined;
-  if (inkPass) { bloom.enabled = false; composer.addPass(inkPass); }
+  if (inkPass) {
+    bloom.enabled = false; composer.addPass(inkPass);
+    // Writing (on WRITING_LAYER) skips the ink pass and is drawn over the finished picture, so
+    // characters are pure, even fill at any size, then the result is copied to the screen.
+    composer.addPass(new WritingPass(scene, camera));
+    composer.addPass(new ShaderPass(CopyShader));
+  }
   const textures = new Set<THREE.Texture>();
   let disposed = false, playing = false, seconds = 0, previous = 0, report = -1;
   let observer: ResizeObserver | undefined;
@@ -457,11 +503,14 @@ export function createCinema(
       const canvas = document.createElement('canvas'); canvas.width = columns * cell; canvas.height = rows * cell;
       const ctx = canvas.getContext('2d')!;
       ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.font = `bold ${cell * 0.86}px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", serif`;
+      // A synthetic bold clogs small characters (满, 楼); only large writing gets it.
+      ctx.font = `${size >= 0.8 ? 'bold ' : ''}${cell * 0.86}px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", serif`;
       // Traditional layout: top to bottom, columns from right to left.
       chars.forEach((char, i) => ctx.fillText(char, (columns - 1 - Math.floor(i / rows) + 0.5) * cell, (i % rows + 0.53) * cell));
       const material = inkRevealMaterial(canvasTexture(canvas, true), undefined, { sharp: true });
-      return { mesh: mesh(new THREE.PlaneGeometry(columns * size, rows * size), material, parent), material };
+      const plane = mesh(new THREE.PlaneGeometry(columns * size, rows * size), material, parent);
+      if (style === 'ink') asWriting(plane, material);
+      return { mesh: plane, material };
     };
     const glyph: Kit['glyph'] = (parent, char) => {
       const S = 1024, k = S / 200;
@@ -472,7 +521,9 @@ export function createCinema(
       ctx.font = 'bold 176px "KaiTi", "STKaiti", "Kaiti SC", "Noto Serif SC", "Songti SC", serif';
       ctx.fillText(char, 100, 104);
       const material = inkRevealMaterial(canvasTexture(canvas, true), undefined, { sharp: true });
-      return { mesh: mesh(new THREE.PlaneGeometry(1, 1), material, parent), material };
+      const plane = mesh(new THREE.PlaneGeometry(1, 1), material, parent);
+      if (style === 'ink') asWriting(plane, material);
+      return { mesh: plane, material };
     };
     const seal: Kit['seal'] = (parent, text = '品花', size = 1.8) => {
       const S = 256, k = S / 128;

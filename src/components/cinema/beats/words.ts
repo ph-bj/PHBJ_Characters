@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { KAITI } from '../paint';
-import { WRITING_INK, WRITING_RED } from '../cinemaKit';
+import { asWriting, WRITING_FLAT, WRITING_INK, WRITING_RED } from '../cinemaKit';
 import { ease, frontCamera, painting, tone, type Beat } from './engine';
 
 /**
@@ -44,6 +44,8 @@ export const wordsBeat = (lines: WordLine[], { seal }: { seal?: string } = {}): 
         ctx.fillStyle = red ? WRITING_RED : WRITING_INK; ctx.font = `bold 216px ${KAITI}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(c, 128, 138);
       }, false, true);
+      // Drawn over the finished ink picture in flat ink or vermilion: pure fill at any size.
+      asWriting(art.mesh, art.material, red ? WRITING_FLAT.red : WRITING_FLAT.ink);
       art.mesh.position.set(cx, 3.1 - s / 2 - i * s * 1.02, 0.02);
       art.material.uniforms.uOpacity.value = Math.max(0.45, 1 - repeat * 0.2);
       stamps.push({ at: line.at + i * (line.pace ?? 0.22), mesh: art.mesh, material: art.material, s: 1 - Math.min(0.3, repeat * 0.1) });

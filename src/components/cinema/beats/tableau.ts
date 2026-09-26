@@ -216,8 +216,11 @@ export const tableauBeat = (spec: Tableau): Beat => ({ kit, set, x, duration }) 
 
   let lines: ReturnType<typeof columns> | undefined;
   if (spec.lines?.length) {
-    const size = 0.44, gap = 0.62, n = spec.lines.length, tall = Math.max(...spec.lines.map(l => [...l].length)) * size;
-    const cx = (spec.linesSide === 'left' ? -1 : 1) * (5.9 - (n - 1) * gap / 2), top = 3.7;
+    // Large enough to read in a small player; long lines shrink to fit the height.
+    const longest = Math.max(...spec.lines.map(l => [...l].length));
+    const size = Math.min(0.56, 4.2 / longest), gap = size * 1.36, n = spec.lines.length, tall = longest * size;
+    // Hung clear of the frame's top edge, even in a wide, short player.
+    const cx = (spec.linesSide === 'left' ? -1 : 1) * (5.9 - (n - 1) * gap / 2), top = 3.05;
     kit.mesh(new THREE.PlaneGeometry((n - 1) * gap + 1, tall + 0.7), tone(0x6e675f), set, cx, top - tall / 2 - 0.1, 0.28);
     kit.mesh(new THREE.PlaneGeometry((n - 1) * gap + 0.86, tall + 0.56), tone(0xf3eee3), set, cx, top - tall / 2 - 0.1, 0.29);
     lines = columns(kit, set, spec.lines, { size, gap, x: cx, y: top + 0.14 });
