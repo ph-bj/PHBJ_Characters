@@ -10,3 +10,4 @@ coverage/
 .claude/worktrees/
 public/downloads/chinese/
 public/downloads/english/
+test-results/
