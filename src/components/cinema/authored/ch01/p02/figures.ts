@@ -1,4 +1,5 @@
 import { arm, body, disc, drawFigure, head, limb, pierce as cutout, robe, type Ctx, type Point } from '../../../brush';
+import { dan, DAN_POSES } from '../../../figures';
 
 /**
  * Paper-cut figures for Chapter 1, paragraph 2, drawn with the shared brush primitives
@@ -122,73 +123,10 @@ const GENTLEMEN: ((ctx: Ctx, t: number) => void)[] = [
   },
 ];
 
-type DanPose = { lift: [number, number]; swing: number; sleeve: number; turn: number; crouch: number; cover?: boolean; fan?: boolean; crown?: boolean };
-/** Ten dan performers: the same costume, each with her own flourish of the water sleeves. */
-const DAN: DanPose[] = [
-  { lift: [2.6, 2.6], swing: 0.3, sleeve: 1, turn: 0, crouch: 0, crown: true },
-  { lift: [0.5, 2.2], swing: 0.2, sleeve: 1.1, turn: 0, crouch: 0, cover: true },
-  { lift: [1.6, 1.6], swing: 0.5, sleeve: 1.3, turn: 1.4, crouch: 0 },
-  { lift: [0.9, 1.2], swing: 0.2, sleeve: 0.9, turn: 0, crouch: 0.5 },
-  { lift: [0.4, 1.8], swing: 0.25, sleeve: 0.6, turn: 0, crouch: 0, fan: true, crown: true },
-  { lift: [1.55, 1.55], swing: 0.15, sleeve: 1.4, turn: 0, crouch: 0 },
-  { lift: [2.2, 0.6], swing: 0.3, sleeve: 1, turn: 0.7, crouch: 0.15 },
-  { lift: [0.6, 0.6], swing: 0.1, sleeve: 1.2, turn: 0, crouch: 0, crown: true },
-  { lift: [2.9, 1.2], swing: 0.35, sleeve: 1.2, turn: 2.2, crouch: 0 },
-  { lift: [1.1, 2.4], swing: 0.3, sleeve: 1, turn: 0, crouch: 0.25, crown: true },
-];
-
-function dan(ctx: Ctx, t: number, pose: DanPose, phase: number) {
-  const turn = pose.turn ? Math.cos(t * pose.turn + phase) : 1;
-  ctx.save(); ctx.scale((turn < 0 ? -1 : 1) * (0.45 + 0.55 * Math.abs(turn)), 1);
-  const drop = pose.crouch * 46;
-  ctx.translate(0, drop);
-  const bob = Math.sin(t * 2.4 + phase) * 3;
-  robe(ctx, 0, -148 + bob, -4 - drop, 20, 58 + pose.crouch * 22 + Math.sin(t * 2 + phase) * 5, Math.sin(t * 1.5 + phase) * 6);
-  disc(ctx, 0, -148 + bob, 23, 9);
-  ctx.fillRect(-4, -166 + bob, 8, 14);
-  disc(ctx, 0, -176 + bob, 14, 16);
-  disc(ctx, 0, -195 + bob, 12, 9);
-  const beads = pose.crown ? 4 : 2;
-  for (let k = -beads; k <= beads; k++) disc(ctx, k * 7, -201 + bob - (beads - Math.abs(k)) * 2.5, 3);
-  if (pose.crown) for (const side of [-1, 1]) limb(ctx, [[side * 16, -196 + bob], [side * 22, -176 + bob], [side * 20 + Math.sin(t * 3) * 2, -156 + bob]], 2);
-  for (const side of [-1, 1] as const) {
-    const i = side < 0 ? 0 : 1;
-    if (pose.cover && side < 0) {
-      // A sleeve raised to veil the face, falling in front of the body.
-      arm(ctx, [[-22, -144 + bob], [-24, -168 + bob], [-4, -182 + bob]], 11);
-      limb(ctx, [[-4, -182 + bob], [4, -160 + bob], [2 + Math.sin(t * 2) * 3, -120 + bob]], 14);
-      continue;
-    }
-    const a = pose.lift[i] + Math.sin(t * 2.2 + phase + i * 1.7) * pose.swing;
-    const dir: Point = [side * Math.sin(a), Math.cos(a)];
-    const shoulder: Point = [side * 20, -144 + bob];
-    const elbow: Point = [shoulder[0] + dir[0] * 30, shoulder[1] + dir[1] * 30];
-    const bend = a + 0.35;
-    const hand: Point = [elbow[0] + side * Math.sin(bend) * 28, elbow[1] + Math.cos(bend) * 28];
-    arm(ctx, [shoulder, elbow, hand], 11);
-    if (pose.fan && side > 0) {
-      ctx.beginPath(); ctx.moveTo(hand[0], hand[1]); ctx.arc(hand[0], hand[1], 34, -2.2, -0.9); ctx.closePath(); ctx.fill();
-      continue;
-    }
-    // Water sleeves continue the arm's line, then fall and ripple.
-    let previous = hand;
-    const count = Math.round(10 * pose.sleeve);
-    for (let k = 1; k <= count; k++) {
-      const next: Point = [
-        hand[0] + side * Math.sin(bend) * k * 7 + Math.sin(t * 2.6 + phase - k * 0.6) * k * 1.6,
-        hand[1] + Math.cos(bend) * k * 7 + k * k * 0.9,
-      ];
-      limb(ctx, [previous, next], Math.max(4, 16 - k));
-      previous = next;
-    }
-  }
-  ctx.restore();
-}
-
 export function drawGentleman(ctx: Ctx, kind: number, t: number) {
   drawFigure(ctx, c => GENTLEMEN[kind](c, t));
 }
 
 export function drawDan(ctx: Ctx, kind: number, t: number) {
-  drawFigure(ctx, c => dan(c, t, DAN[kind], kind * 1.3));
+  drawFigure(ctx, c => dan(c, t, DAN_POSES[kind], kind * 1.3));
 }
