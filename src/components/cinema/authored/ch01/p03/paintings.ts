@@ -1,52 +1,16 @@
-import { disc, limb, type Ctx } from '../../../brush';
-import { WRITING_INK } from '../../../cinemaKit';
-import { FLOWER_NAMES, INK, leaf, paintFlower, PETAL_RED, RED, seeded, stroke, WASH } from '../../../paint';
-import { appFont, fillCentered } from '../../../fonts';
+import { disc, type Ctx } from '../../../brush';
+import { INK, leaf, PETAL_RED, RED, stroke, WASH } from '../../../paint';
 
 /**
- * Brush paintings for Chapter 1, paragraph 3: a flower album of the ten kinds of leading
- * performers, the eight lower kinds as blotted words, and the embroidered mandarin ducks.
+ * Chapter 1, paragraph 3: the passage's two lists of kinds, and the brush painting of the
+ * embroidered mandarin ducks that goes on the lady's silk.
  */
 
-export const PANEL_W = 512;
-export const PANEL_H = 640;
-export const BLOT_SIZE = 256;
 export const DUCKS_SIZE = 1024;
 /** The ten kinds of leading performers, in the passage's order. */
 export const RANKS = ['至', '慧', '韵', '醇', '淑', '烈', '直', '酣', '艳', '媚'];
 /** The eight lower kinds, to whom 情 cannot be applied. */
 export const LOW_KINDS = ['淫', '邪', '黠', '荡', '贪', '魔', '祟', '蠹'];
-
-/**
- * One leaf of the album: a flower, its rank written vertically, and a vermilion seal. Drawn on a
- * transparent canvas so only the ink seeps in; the paper is a separate plane behind it.
- */
-export function paintFlowerPanel(ctx: Ctx, rank: number) {
-  ctx.clearRect(0, 0, PANEL_W, PANEL_H);
-  ctx.strokeStyle = 'rgba(60,50,45,0.35)'; ctx.lineWidth = 3; ctx.strokeRect(14, 14, PANEL_W - 28, PANEL_H - 28);
-  ctx.fillStyle = INK; ctx.strokeStyle = INK;
-  paintFlower(ctx, FLOWER_NAMES[rank], rank + 7);
-  ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.font = appFont(44, 700);
-  ['情', '中', RANKS[rank]].forEach((char, i) => ctx.fillText(char, 452, 76 + i * 52));
-  ctx.fillStyle = RED; ctx.fillRect(430, 250, 44, 44);
-  ctx.fillStyle = '#f4ece0'; ctx.font = appFont(32, 700); fillCentered(ctx, RANKS[rank], 452, 272);
-}
-
-/** One of the lower kinds: the word blotted and splattered, as if the ink had spoiled. */
-export function paintBlot(ctx: Ctx, char: string, seed: number) {
-  const rand = seeded(seed + 101), c = BLOT_SIZE / 2;
-  ctx.clearRect(0, 0, BLOT_SIZE, BLOT_SIZE);
-  ctx.save(); ctx.translate(c, c); ctx.rotate((rand() - 0.5) * 0.25);
-  ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.font = appFont(176, 700);
-  // The character itself stays legible; the spoiling is in the splatter and runs around it.
-  ctx.fillText(char, 0, 6);
-  ctx.restore();
-  ctx.fillStyle = '#1d1814';
-  for (let i = 0; i < 26; i++) { const a = rand() * Math.PI * 2, d = 60 + rand() * 60; disc(ctx, c + Math.cos(a) * d, c + Math.sin(a) * d, 1.5 + rand() * 5); }
-  for (let i = 0; i < 3; i++) { const x = c - 50 + rand() * 100; limb(ctx, [[x, c + 60], [x + (rand() - 0.5) * 6, c + 80 + rand() * 40]], 3 + rand() * 3); }
-}
 
 /** The embroidery: a pair of mandarin ducks among ripples and a lotus, drawn on a transparent disc. */
 export function paintDucks(ctx: Ctx) {

@@ -30,29 +30,29 @@ import { defineStory } from '../../define';
  *   offering the reader moments of spontaneous delight. As the proverb says: "I embroider the
  *   mandarin ducks for you to admire, but I will not silently pass you the golden needle."
  *
- * Staged as five beats: a handscroll of ten flowers for the ten kinds of leading performers; eight
- * lower kinds as ink blots on which 情 will not settle; the fork between the crooked and straight
+ * Staged in five shots: ten leading performers on a garden terrace, each beside her flower; eight
+ * lower kinds in a smoky den, over whom 情 will not settle; the fork between the crooked and straight
  * paths; sixty volumes and the title slip; and the embroidered mandarin ducks with the needle
  * withheld. The flowers and figures stand for types, not particular characters.
  */
 export default defineStory({
   title: { en: 'Ranks of feeling, and a book of flowers', zh: '情有品第，书成宝鉴' },
   description: {
-    en: 'Painted in ink: ten flowers for the ten kinds of leading performers; eight blotted words on which 情 will not settle; the two paths of the pleasure quarters; sixty volumes named Precious Mirror for Ranking Flowers; and a pair of mandarin ducks embroidered for all to see, the golden needle kept back. The flowers and figures stand for types, not particular characters.',
-    zh: '以水墨写之：十种名旦化作十花；八种下品墨污成团，“情”字加之不上；欢场之人，不外邪正两途；六十卷书，名曰《品花宝鉴》；终以绣成鸳鸯作结，金针不度。花与人物皆为类型，并非具体角色。',
+    en: 'In ink: ten performers, each beside a flower, for the ten kinds of leading performers; eight figures in a smoky den over whom 情 will not settle; the two paths of the pleasure quarters; sixty volumes named Precious Mirror for Ranking Flowers; and a pair of mandarin ducks embroidered for all to see, the golden needle kept back. The flowers and figures stand for types, not particular characters.',
+    zh: '以水墨写之：十位名旦各伴一花；八种下品聚于烟室，“情”字加之不上；欢场之人，不外邪正两途；六十卷书，名曰《品花宝鉴》；终以绣成鸳鸯作结，金针不度。花与人物皆为类型，并非具体角色。',
   },
   shots: [
     {
       start: 0, end: 10,
       title: { en: 'Ten flowers of the Pear Garden', zh: '名旦十品' },
       quote: '一曰情中至，一曰情中慧……一曰情中艳，一曰情中媚。这都是上等人物。',
-      caption: { en: 'A handscroll of flowers unrolls, one for each kind of leading performer: the utmost, the wise, the graceful, the mellow, the virtuous, the ardent, the upright, the abandoned, the radiant and the charming.', zh: '花谱长卷徐徐展开，一花一品：至、慧、韵、醇、淑、烈、直、酣、艳、媚。' },
+      caption: { en: 'On a garden terrace ten leading performers stand in an arc, each beside a flower in a pot, and as the camera sweeps round a slip names each kind: the utmost, the wise, the graceful, the mellow, the virtuous, the ardent, the upright, the abandoned, the radiant and the charming.', zh: '园中石台，十位名旦环立，各伴一盆花；镜头环行，一签一品：至、慧、韵、醇、淑、烈、直、酣、艳、媚。' },
     },
     {
       start: 10, end: 17,
       title: { en: 'Where feeling will not settle', zh: '情字加不上' },
       quote: '这个情字便加不上……一曰淫，一曰邪，一曰黠，一曰荡，一曰贪，一曰魔，一曰祟，一曰蠹。',
-      caption: { en: 'Eight lower kinds bleed onto the paper as blotted words. The character 情 gathers above them, but cannot settle, and scatters.', zh: '八种下品化作墨污，情字聚于其上，却终究落不下去，四散而去。' },
+      caption: { en: 'In a smoky den eight hunched figures crowd a gaming table, a blotted word over each. The character 情 gathers above them, but cannot settle, and scatters.', zh: '烟室之中，八人围桌而赌，各悬一团墨字。情字聚于其上，却终究落不下去，四散而去。' },
     },
     {
       start: 17, end: 24,

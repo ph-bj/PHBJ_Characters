@@ -25,71 +25,65 @@ it (opens it, visits every shot, checks subtitles and WebGL errors).
 
 Then:
 
-1. **Write the story.** Read the passage, split it into 2 to 6 beats and fill in the TODOs in
+1. **Write the story.** Read the passage, split it into 2 to 6 shots and fill in the TODOs in
    `story.ts`. `defineStory` refuses gaps, overlaps, empty text, or a last shot that doesn't end at 36s.
    Then retime the **subtitles**: each cue pairs a phrase of the original with its English (from the
    site's translation, condensed to fit), shown over the film in the reader's language while that
    phrase is staged. The generator drafts them from the text; line them up with the shots. Readers can
    hide them with the CC button, and `npm run export-cinema` records them into the video.
-2. **Stage the scene.** Replace the placeholder in `scene.ts`. `authored/ch01/p01` and `p02` are
-   full worked examples.
+2. **Stage the scene.** Replace the placeholder in `scene.ts` with a hand-staged 3D scene built
+   from `stage/` (below). `authored/ch01/p01` is the model to match; any of `ch01/p04` onward shows
+   the toolkit in use.
 3. **Check it.** Run `npx tsc --noEmit` and
    `npx playwright test tests/authoredCinemas.spec.ts --workers=1 --grep "chNN pNN"` with the dev
    server running, and look at the frames from `npm run cinema-contact-sheet -- <chapter> <p> <p>`.
 4. **Export a video** if you want one: `npm run export-cinema -- <chapter> <paragraph>` writes
    `~/Documents/PHBJ-chNN-pNN-cinema.mp4` (dev server and ffmpeg required).
 
-## Batches: beats and contact sheets
+## Staging in 3D: the stage toolkit
 
-Many paragraphs share a shape (an album entry, a conversation in the study...). For those, don't
-stage a scene by hand: compose it from **beats**, reusable one-shot stagings in `beats/`.
+Every film is hand-staged: its own sets, cast, blocking and camera, built in 3D with lit, shaded
+geometry so it reads as a scene with depth rather than flat paintings. `stage/` holds the pieces:
 
-```ts
-// authored/ch01/p13/scene.ts
-export default beatScene(1013, [          // one beat per shot in story.ts, in order
-  emblemBeat(A.baozhu),
-  portraitBeat(A.baozhu, ['善丹青', '娴吟咏']),
-  repertoireBeat(A.baozhu, ['鹊桥', '密誓']),
-  poemBeat(['舞袖轻盈弱不胜', /* ... */], A.baozhu),
-]);
-```
+- `stage/figure.ts`: articulated figures. `figure(kit, parent, spec, x, z)` builds a person from a
+  `FigureSpec` (height, girth, headwear, robe and jacket greys, beard, face, rouge, water sleeves...)
+  and returns a rig whose `pose(p)` sets bow, lean, turn, head yaw/pitch, arms (`lift`, `out`,
+  `twist`, `bend`), kneel, sit, walk and mouth. `G` is the gesture library (`G.salute(t)`,
+  `G.laugh(t)`, `G.kowtow(t)`...), `cue(t, [[time, pose], ...])` blends from one to the next,
+  `walkAlong` walks a figure along a path between two times, and `face` turns it toward a point.
+  `CAST` keeps the recurring characters looking the same from film to film; per-chapter extras live
+  beside the paragraphs (`authored/ch01/actors.ts`, `authored/ch02/actors.ts`).
+- `stage/architecture.ts`: halls with opening doors, rooms, walls, gates, flower gates, moon gates,
+  pavilions, bridges, arches, city gates, shop rows, theatre stages, crowds, plaques.
+- `stage/nature.ts`: ground, mountain ranges, rippling water, trees (bare, plum, pine, willow,
+  bamboo), rocks, lotus, reeds, peonies, cloud banks.
+- `stage/props.ts`: writing on paper (`writing`, revealed with `set(u)`), furniture, lamps and
+  candles, cups, pots, dishes, books, cards, silver, coins, jars, swords, zithers, screens, scrolls.
+- `stage/vehicles.ts`: horses, carts, boats. `stage/fx.ts`: specks of snow or dust, petals, mist,
+  smoke, `inkGather` (particles that gather into a character), fireworks, radiance.
+- `stage/performance.ts`: stage props in hand (`hold`), placards, the 《花选》 album, towers,
+  terraces, the moon, and creatures for the theatre.
+- `stage/locations.ts`: whole places built from the above: the study, the gate lane, a capital
+  street, the theatre, the banquet hall, a garden, the canal, the courtyard, a lady's chamber, the
+  city from above, a formal hall, a boat's cabin.
+- `stage/direct.ts`: direction. `sets(kit, n)` builds n sets far apart with a `show(i)` switch;
+  `lights` gives a set its own key and fill; `move(kit, set, [[t, pos, look], ...])` and `orbit`
+  are camera moves in the set's own coordinates, `aim` a fixed set-up; `span`, `sway`, `blendEnv`.
 
-- `beats/engine.ts`: `beatScene`, plus helpers for writing new beats (`painting`, `figure`,
-  `columns`, `albumPage`, `frontCamera`). Each beat builds its own set and animates from the time
-  since its shot began, so shots can be retimed freely.
-- `beats/album.ts`: the 《花选》 album beats: `emblemBeat`, `portraitBeat`, `repertoireBeat`,
-  `poemBeat`, and `readersBeat` (Zhongqing, Ziyu and Nanxiang reacting at given moments).
-- `beats/motifs.ts` paints the emblems; `figures.ts` has dan performers (`dan`, `DAN_POSES`, props)
-  and scholars (`scholar` with gestures); `paint.ts` has brush flowers (`paintFlower`) and strokes.
-- `beats/tableau.ts`: `tableauBeat`, the everyday-scene beat. A painted place (`beats/places.ts`:
-  study, hall, boudoir, gate, street, theatre, river, arch, moon palace…), a cast who walk, change
-  gesture on cue, blush, fade in and out (`beats/people.ts`: scholars, ladies, pages, officials,
-  merchants, escorts, clowns, warriors, horses and carts), an optional table, an inscription slip,
-  and weather (north wind, drifting petals, a radiance, a cart-window frame). `who.ziyu(x)` etc. are
-  shorthands for chapter 1's regulars. `coverBeat` opens a book.
-- `beats/banquet.ts`: `banquetBeat`, chapter 2's six guests at a round table, with per-guest cues,
-  guests who leave their seat, and props (`cup`, `card`, `gifts`, `coins`, `seeds`, `silver`) — props
-  work in any tableau too. `beats/words.ts`: `wordsBeat`, characters stamped onto paper in columns,
-  with vermilion characters and shrinking stutter repeats ("哥、哥、哥").
-- Per-chapter data lives beside the paragraphs, e.g. `authored/ch01/actors.ts`.
+Chapter helpers show how scenes share a place without sharing a staging: `authored/ch02/banquet.ts`
+seats Wenhui's six diners (`feast`) and frames any of them from inside the ring of chairs (`shoot`),
+and each of paragraphs 35 to 41 then stages its own moment of the evening.
 
-### Specs: most cinemas are generated
+Review your films at a glance: `npm run cinema-contact-sheet -- 1 13 34` saves a frame from the
+middle of every shot plus a grid, `test-results/contact-sheet/sheet.png`. It seeks through the
+dev-only `window.__phbjCinema` and `window.__phbjStory` hooks that `ParagraphCinema` sets.
 
-Beat-built cinemas are not edited by hand. Each chapter has compact specs in
-`scripts/cinema/specs/chNN-*.ts` (titles, shots, subtitles and beats as code strings), and
+Staging habits that have paid off:
 
-```bash
-npm run build-cinemas -- 2            # regenerate every spec'd paragraph of chapter 2
-npm run build-cinemas -- 2 5 6        # or just some
-```
-
-writes their `story.ts` and `scene.ts` (adding the imports each scene needs). Hand-staged cinemas
-(ch01 p01–p03) have no spec and are never touched. Check a batch with
-`npx playwright test tests/authoredCinemas.spec.ts --workers=1 --grep "ch02"`.
-
-Review a batch at a glance: `npm run cinema-contact-sheet -- 1 13 34` saves a frame from the middle of
-every shot plus a grid, `test-results/contact-sheet/sheet.png`. It seeks through the dev-only
-`window.__phbjCinema` and `window.__phbjStory` hooks that `ParagraphCinema` sets.
+- Keep cameras out of walls, heads and chair backs: for close shots at a table, shoot from inside
+  the ring; keep outdoor cameras below a room's ceiling height when a roofed set is in view.
+- Mist sprites are large and white; keep them low and away from the camera or they wash out a frame.
+- Positions passed to `face`, `move`, `orbit` and `aim` are in the set's (parent's) coordinates.
 
 ## Anatomy of a scene
 
@@ -124,8 +118,9 @@ Rules that keep playback correct:
 Authored scenes render through an ink pass (`createCinema(..., 'ink')`, the default for
 `defineScene`) that turns each frame into ink on paper. It reads **brightness as ink density**:
 
-- Bright means bare paper and dark means thick ink. Build sets from the greys in `INK_TONE`
-  (`thick`, `dark`, `mid`, `pale`, `wash`, `paper`), mostly with flat `MeshBasicMaterial`s.
+- Bright means bare paper and dark means thick ink. Build sets from greys (`INK_TONE`: `thick`,
+  `dark`, `mid`, `pale`, `wash`, `paper`). The stage toolkit shades them with Lambert materials
+  (`tone(hex)`) under each set's own white key and fill light, so form reads as graded wash.
 - White fog is mist: distant things fade into the paper, which gives the layered depth of ink
   landscapes. Use `INK_SKY.paper(density)` or `INK_SKY.moonlit(moonDirection)`; the latter leaves
   the moon as bare paper inside a wash of cloud (烘云托月).
@@ -140,17 +135,15 @@ Authored scenes render through an ink pass (`createCinema(..., 'ink')`, the defa
   seal, scroll), centre the block in it with even margins, and centre each character on its cell
   with `fillCentered(ctx, text, x, y)` from `fonts.ts` (it measures the font, rather than trusting
   the text baseline).
-- **Writing is special.** Characters from `kit.calligraphy`, `kit.glyph` and `wordsBeat` live on
+- **Writing is special.** Characters from `kit.calligraphy` and `kit.glyph` live on
   `WRITING_LAYER`: they skip the ink pass and are drawn over the finished picture in flat ink (or
   vermilion), so they are pure, even fill at any size. Use `asWriting(mesh, material, color)` for any
   other writing mesh built on `inkRevealMaterial`. Characters painted into a canvas (cards, album
   pages) use `WRITING_INK`, pure blue: the ink pass reads its coverage in each pixel and prints it as
   clean, even ink over the background, so it stays sharp at any size and figures can still pass in
   front of it. Never use that blue for anything else. `WRITING_RED` does the same for vermilion.
-  Backdrop plaques and labels go in `PLACE_LABELS` (places.ts), not the painting: tableau draws each on
-  its own sharp canvas over its frame. Put
-  writing on sharp textures: `kit.calligraphy`, `kit.glyph` (a crisp character to settle over a
-  particle-built one), `painting(..., animate, true)` or `canvasTexture(canvas, true)`, and give its
+  Put writing on sharp textures: `kit.calligraphy`, `kit.glyph` (a crisp character to settle over a
+  particle-built one), `writing` from `stage/props.ts` or `canvasTexture(canvas, true)`, and give its
   canvas enough pixels for its size on screen (about 300 px per world unit).
 - Additive glows mean nothing on paper. In ink scenes `kit.glows` lays down ink or vermilion dots
   instead; large, soft glow sprites should simply be left out.
@@ -180,8 +173,9 @@ Authored scenes render through an ink pass (`createCinema(..., 'ink')`, the defa
 | `limb`, `disc`, `robe` | Free-form strokes and shapes |
 | `cutout`, `pierce` | Paper-coloured details, or see-through openings on transparent canvases |
 
-`authored/ch01/p02/figures.ts` shows 20 posed figures (gentlemen, and dan performers with water
-sleeves) built from these; `authored/ch01/p01/shadowPlay.ts` animates a whole canvas per frame.
+`authored/ch01/p01/shadowPlay.ts` animates a whole canvas per frame with them, and
+`authored/ch01/p03/paintings.ts` paints the embroidery on a lady's silk. For people in a scene, use
+the 3D figures of `stage/figure.ts` instead.
 
 ## Pitfalls met so far
 
