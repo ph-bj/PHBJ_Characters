@@ -25,7 +25,8 @@ const GENTLEMEN: ((ctx: Ctx, t: number) => void)[] = [
     cutout(ctx, () => { ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-40, -30); ctx.quadraticCurveTo(-20, -20, -26, -6); ctx.moveTo(24, -36); ctx.quadraticCurveTo(34, -22, 30, -10); ctx.stroke(); });
     ctx.save(); ctx.translate(0, -42);
     body(ctx, Math.sin(t * 1.5) * 4); head(ctx, t, 'cap', -0.08);
-    limb(ctx, [[44, 0], [46, -262]], 4); disc(ctx, 46, -266, 6, 8);
+    // The staff tops out inside the figure canvas (about 285 units high), still well above his head.
+    limb(ctx, [[44, 0], [46, -224]], 4); disc(ctx, 46, -228, 6, 8);
     arm(ctx, [[24, -145], [40, -128], [44, -150]]); arm(ctx, [[-24, -145], [-34, -106], [-28, -80]]);
     ctx.restore();
   },

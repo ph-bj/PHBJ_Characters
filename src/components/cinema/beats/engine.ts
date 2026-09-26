@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { defineScene, type SceneFactory, type Story } from '../authored/define';
 import { INK_SKY, inkRevealMaterial, type Env, type Kit } from '../cinemaKit';
-import { drawFigure, FIGURE_H, FIGURE_W, type Ctx } from '../brush';
+import { drawFigure, FIGURE_ASPECT, FIGURE_H, FIGURE_W, type Ctx } from '../brush';
 
 /**
  * Beats: reusable, data-driven shots. A cinema built from beats lists one beat per shot in its
@@ -82,7 +82,7 @@ export function painting(kit: Kit, parent: THREE.Object3D, width: number, height
 
 /** A brushed figure (see figures.ts) on a plane, redrawn every frame so it moves. */
 export function figure(kit: Kit, parent: THREE.Object3D, height: number, draw: (ctx: Ctx, t: number) => void) {
-  return painting(kit, parent, FIGURE_W, FIGURE_H, [height / 2, height], (ctx, t) => drawFigure(ctx, c => draw(c, t)), true);
+  return painting(kit, parent, FIGURE_W, FIGURE_H, [height * FIGURE_ASPECT, height], (ctx, t) => drawFigure(ctx, c => draw(c, t)), true);
 }
 
 /** Calligraphy in columns read right to left; each column seeps in on its own. */

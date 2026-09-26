@@ -42,8 +42,12 @@ export function pierce(ctx: Ctx, draw: () => void) {
 // Local coordinates: the feet sit at the origin and y runs negative upward. A standing figure is
 // about 205 units tall, with shoulders at (±24, -145) and the head centred at (0, -178).
 
-export const FIGURE_W = 256;
+// Wide enough that nothing a figure does is clipped: a dancer's water sleeves can reach about 200
+// units from the body, beyond the old 256-pixel canvas (±73 units).
+export const FIGURE_W = 768;
 export const FIGURE_H = 512;
+/** Width over height of a figure canvas: size a figure's plane as [height * FIGURE_ASPECT, height]. */
+export const FIGURE_ASPECT = FIGURE_W / FIGURE_H;
 const FIGURE_SCALE = 1.75;
 const FIGURE_INK = '#0d0a0c';
 

@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { defineScene } from '../../define';
 import { clamp01, ease, glyphPixels, INK_TONE, inkRevealMaterial, petalGeometry, roofGeometry, type Env, type V3, WRITING_RED } from '../../../cinemaKit';
-import { FIGURE_H, FIGURE_W } from '../../../brush';
+import { FIGURE_ASPECT, FIGURE_H, FIGURE_W } from '../../../brush';
 import { drawDan, drawGentleman } from './figures';
 
 /*
@@ -190,7 +190,7 @@ export default defineScene({
       const figure = figureCanvas();
       const figureTexture = canvasTexture(figure);
       const figureMaterial = inkRevealMaterial(figureTexture);
-      mesh(new THREE.PlaneGeometry(1.6, 3.2), figureMaterial, gallery, x + 0.2, 1.6, -0.6);
+      mesh(new THREE.PlaneGeometry(3.2 * FIGURE_ASPECT, 3.2), figureMaterial, gallery, x + 0.2, 1.6, -0.6);
       drawGentleman(figure.getContext('2d')!, k, 0);
       return { lamp, figure, figureTexture, figureMaterial, hang };
     });
@@ -254,10 +254,10 @@ export default defineScene({
       const canvas = figureCanvas();
       const texture = canvasTexture(canvas);
       const material = inkRevealMaterial(texture);
-      mesh(new THREE.PlaneGeometry(1.05, 2.1), material, garden, x, 0.93 + 1.05, 0.3);
+      mesh(new THREE.PlaneGeometry(2.1 * FIGURE_ASPECT, 2.1), material, garden, x, 0.93 + 1.05, 0.3);
       const echo = inkRevealMaterial(texture);
       echo.uniforms.uOpacity.value = 0.7;
-      const reflection = mesh(new THREE.PlaneGeometry(1.05, 2.1), echo, garden, x, -0.93 - 1.05, 0.3);
+      const reflection = mesh(new THREE.PlaneGeometry(2.1 * FIGURE_ASPECT, 2.1), echo, garden, x, -0.93 - 1.05, 0.3);
       reflection.scale.y = -1;
       return { canvas, texture, material, echo };
     });

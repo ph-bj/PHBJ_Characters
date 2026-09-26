@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { defineScene } from '../../define';
 import { clamp01, ease, glyphPixels, hallGeometry, INK_SKY, INK_TONE, inkRevealMaterial, type V3 } from '../../../cinemaKit';
-import { arm, body, drawFigure, FIGURE_H, FIGURE_W, head } from '../../../brush';
+import { arm, body, drawFigure, FIGURE_ASPECT, FIGURE_H, FIGURE_W, head } from '../../../brush';
 import { BLOT_SIZE, DUCKS_SIZE, LOW_KINDS, PANEL_H, PANEL_W, paintBlot, paintDucks, paintFlowerPanel } from './paintings';
 
 /*
@@ -134,7 +134,7 @@ export default defineScene({
     const walkers = [straight, crooked].map(curve => {
       const c = canvas(FIGURE_W, FIGURE_H);
       const texture = canvasTexture(c);
-      const figure = mesh(new THREE.PlaneGeometry(0.7, 1.4), new THREE.MeshBasicMaterial({ map: texture, transparent: true, depthWrite: false }), paths);
+      const figure = mesh(new THREE.PlaneGeometry(1.4 * FIGURE_ASPECT, 1.4), new THREE.MeshBasicMaterial({ map: texture, transparent: true, depthWrite: false }), paths);
       return { curve, c, texture, figure };
     });
     const P = SET.paths;

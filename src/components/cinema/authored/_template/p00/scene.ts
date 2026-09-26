@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { defineScene } from '../../define';
 import { clamp01, ease, hallGeometry, INK_SKY, INK_TONE, inkRevealMaterial } from '../../../cinemaKit';
-import { arm, body, drawFigure, FIGURE_H, FIGURE_W, head } from '../../../brush';
+import { arm, body, drawFigure, FIGURE_ASPECT, FIGURE_H, FIGURE_W, head } from '../../../brush';
 
 // TEMPLATE-ONLY: scaffolded by `npm run new-cinema -- <chapter> <paragraph>`; lines marked like this one are dropped.
 /*
@@ -44,7 +44,7 @@ export default defineScene({
     const figureCanvas = document.createElement('canvas'); figureCanvas.width = FIGURE_W; figureCanvas.height = FIGURE_H;
     const figureTexture = canvasTexture(figureCanvas);
     const figure = inkRevealMaterial(figureTexture);
-    mesh(new THREE.PlaneGeometry(1.6, 3.2), figure, landscape, -1.5, 1.6, 0);
+    mesh(new THREE.PlaneGeometry(3.2 * FIGURE_ASPECT, 3.2), figure, landscape, -1.5, 1.6, 0);
     const drawScholar = (t: number) => drawFigure(figureCanvas.getContext('2d')!, ctx => {
       body(ctx, Math.sin(t * 1.2) * 3);
       head(ctx, t, 'cap', -0.15);
