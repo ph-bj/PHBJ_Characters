@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import type { Hair } from '../brush';
 import type { DanPose } from '../figures';
 import { PETAL_RED } from '../paint';
-import { WRITING_INK } from '../cinemaKit';
+import { WRITING_INK, WRITING_RED } from '../cinemaKit';
 import { clamp01, columns, ease, figure, frontCamera, painting, tone, type Beat } from './engine';
 import { CART_H, CART_W, cart, horse, person, type Gesture, type PersonKind } from './people';
 import { ANIMATED_PLACES, PLACE_H, PLACE_W, PLACES_WITH_WRITING, paintPlace, type Place } from './places';
@@ -87,7 +87,7 @@ function paintProp(ctx: CanvasRenderingContext2D, p: Prop) {
   ctx.setTransform(ctx.canvas.width / W, 0, 0, ctx.canvas.width / W, 0, 0);
   ctx.clearRect(0, 0, W, W);
   ctx.fillStyle = '#231d19'; ctx.strokeStyle = '#231d19';
-  const red = '#b8321f', paper = '#f2ecdf';
+  const red = p.kind === 'card' ? WRITING_RED : '#b8321f', paper = '#f2ecdf';
   if (p.kind === 'cup') { ctx.beginPath(); ctx.moveTo(78, 120); ctx.lineTo(178, 120); ctx.lineTo(150, 190); ctx.lineTo(106, 190); ctx.fill(); ctx.fillRect(116, 190, 24, 30); ctx.fillRect(96, 216, 64, 10); }
   else if (p.kind === 'card' || p.kind === 'letter') {
     ctx.fillStyle = p.kind === 'card' ? red : paper; ctx.fillRect(78, 20, 100, 216);

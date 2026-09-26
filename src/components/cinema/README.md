@@ -132,8 +132,9 @@ Authored scenes render through an ink pass (`createCinema(..., 'ink')`, the defa
 - **Only saturated red survives**, as vermilion: seals, lanterns, plum blossom, a red peony. Any
   warm tint is read as red too, so keep lights white (`0xfff6ea`) and woods grey. A few red particles
   in a mass of ink will speckle the whole mass red.
-- **Writing is special.** Draw every character in `WRITING_INK` (from `cinemaKit`): the ink pass
-  recognises its faint blue excess and prints it as solid ink with no brush outline beside it. Put
+- **Writing is special.** Draw every character in `WRITING_INK` (from `cinemaKit`), or `WRITING_RED`
+  for vermilion characters and seals: the ink pass recognises them and prints them as pure fill, with no
+  brush outline within three pixels. Put
   writing on sharp textures: `kit.calligraphy`, `kit.glyph` (a crisp character to settle over a
   particle-built one), `painting(..., animate, true)` or `canvasTexture(canvas, true)`, and give its
   canvas enough pixels for its size on screen (about 300 px per world unit).

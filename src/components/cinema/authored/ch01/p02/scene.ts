@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { defineScene } from '../../define';
-import { clamp01, ease, glyphPixels, INK_TONE, inkRevealMaterial, petalGeometry, roofGeometry, type Env, type V3 } from '../../../cinemaKit';
+import { clamp01, ease, glyphPixels, INK_TONE, inkRevealMaterial, petalGeometry, roofGeometry, type Env, type V3, WRITING_RED } from '../../../cinemaKit';
 import { FIGURE_H, FIGURE_W } from '../../../brush';
 import { drawDan, drawGentleman } from './figures';
 
@@ -295,7 +295,7 @@ export default defineScene({
     const sealCanvas = document.createElement('canvas'); sealCanvas.width = sealCanvas.height = 128;
     {
       const ctx = sealCanvas.getContext('2d')!;
-      ctx.fillStyle = '#b02e1e'; ctx.fillRect(6, 6, 116, 116);
+      ctx.fillStyle = WRITING_RED; ctx.fillRect(6, 6, 116, 116);
       ctx.fillStyle = '#f4ece0'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.font = 'bold 50px "KaiTi", "STKaiti", "Noto Serif SC", serif';
       ctx.fillText('品', 64, 38); ctx.fillText('花', 64, 92);

@@ -100,6 +100,8 @@ export function petalGeometry(width: number, height: number, base: number, tip: 
  * pass recognises, so writing prints as solid, crisp ink rather than a washed shape with an outline.
  */
 export const WRITING_INK = '#0a0822';
+/** Vermilion for writing (e.g. the 花 of a verse game): prints as seal red, likewise without an outline. */
+export const WRITING_RED = '#b8283c';
 
 /** Pixel coordinates inside a character, for building it out of particles. */
 export function glyphPixels(char: string, rand: () => number) {
@@ -204,10 +206,17 @@ const inkPassShader = {
       float l = dot(c, vec3(0.299, 0.587, 0.114));
       return clamp((c.b - max(c.r, c.g)) / max(c.b, 0.004) * 1.6, 0.0, 1.0) * (1.0 - smoothstep(0.2, 0.35, l));
     }
+    // Vermilion writing (WRITING_RED) is red with its blue above its green; other reds have blue below.
+    float redWritingAt(vec3 c) {
+      return step(0.0, c.r - max(c.g, c.b) - 0.05) * clamp((c.b - c.g) / max(c.b, 0.004) * 3.0, 0.0, 1.0);
+    }
+    // Any writing within three pixels: no brush outline is drawn there, so characters are pure fill.
     float writingNear(vec2 uv, vec2 px) {
       float w = 0.0;
-      for (int dx = -2; dx <= 2; dx++) for (int dy = -2; dy <= 2; dy++)
-        w = max(w, writingAt(texture2D(tDiffuse, uv + px * vec2(float(dx), float(dy))).rgb));
+      for (int dx = -3; dx <= 3; dx++) for (int dy = -3; dy <= 3; dy++) {
+        vec3 s = texture2D(tDiffuse, uv + px * vec2(float(dx), float(dy))).rgb;
+        w = max(w, max(writingAt(s), redWritingAt(s)));
+      }
       return w;
     }
     void main() {
@@ -470,7 +479,8 @@ export function createCinema(
       const canvas = document.createElement('canvas'); canvas.width = canvas.height = S;
       const ctx = canvas.getContext('2d')!;
       ctx.scale(k, k);
-      ctx.fillStyle = '#b02e1e'; ctx.fillRect(6, 6, 116, 116);
+      // The seal's red is WRITING_RED, so its characters print without outlines.
+      ctx.fillStyle = WRITING_RED; ctx.fillRect(6, 6, 116, 116);
       ctx.fillStyle = '#f4ece0'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       const chars = [...text], columns = chars.length > 2 ? 2 : 1, rows = Math.ceil(chars.length / columns);
       ctx.font = `bold ${Math.floor(100 / rows)}px "KaiTi", "STKaiti", "Noto Serif SC", serif`;

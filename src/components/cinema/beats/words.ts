@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { KAITI, RED } from '../paint';
-import { WRITING_INK } from '../cinemaKit';
+import { KAITI } from '../paint';
+import { WRITING_INK, WRITING_RED } from '../cinemaKit';
 import { ease, frontCamera, painting, tone, type Beat } from './engine';
 
 /**
@@ -41,7 +41,7 @@ export const wordsBeat = (lines: WordLine[], { seal }: { seal?: string } = {}): 
       if (c !== '、') prev = c;
       const red = line.red?.includes(c);
       const art = painting(kit, set, 256, 256, [s, s], ctx => {
-        ctx.fillStyle = red ? RED : WRITING_INK; ctx.font = `bold 216px ${KAITI}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillStyle = red ? WRITING_RED : WRITING_INK; ctx.font = `bold 216px ${KAITI}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(c, 128, 138);
       }, false, true);
       art.mesh.position.set(cx, 3.1 - s / 2 - i * s * 1.02, 0.02);
