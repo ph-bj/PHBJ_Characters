@@ -1,7 +1,5 @@
 import { disc, limb, type Ctx } from '../brush';
 import { blossom, INK, leaf, RED, seeded, stroke, WASH } from '../paint';
-import { WRITING_INK } from '../cinemaKit';
-import { appFont, fillCentered } from '../fonts';
 
 /**
  * Painted backdrops for everyday scenes, each filling a PLACE_W × PLACE_H canvas in ink on paper.
@@ -69,7 +67,6 @@ const PAINTERS: Record<Place, (ctx: Ctx, t: number, rand: () => number) => void>
     ctx.fillRect(0, 30, PLACE_W, 18);
     // Hung low enough to stay inside the frame.
     ctx.fillStyle = '#4e4640'; ctx.fillRect(382, 112, 260, 56); ctx.fillStyle = PAPER; ctx.fillRect(390, 120, 244, 40);
-    ctx.fillStyle = WRITING_INK; ctx.font = appFont(30, 500); fillCentered(ctx, '世德堂', 512, 140);
     ctx.fillRect(300, 470, 424, 14); ctx.fillRect(320, 484, 12, 80); ctx.fillRect(692, 484, 12, 80);
     disc(ctx, 512, 456, 22, 14);
     ctx.save(); ctx.globalAlpha = 0.5; for (let k = 0; k < 3; k++) limb(ctx, [[504 + k * 8, 440], [500 + k * 8, 380], [512 + k * 8, 320]], 1.5); ctx.restore();
@@ -152,7 +149,6 @@ const PAINTERS: Record<Place, (ctx: Ctx, t: number, rand: () => number) => void>
     roof(ctx, 280, 744, 200, 34); roof(ctx, 400, 624, 140, 34);
     ctx.fillRect(300, 230, 424, 18); ctx.fillRect(420, 170, 184, 16);
     ctx.fillStyle = '#4e4640'; ctx.fillRect(452, 190, 120, 40); ctx.fillStyle = PAPER; ctx.fillRect(458, 196, 108, 28);
-    ctx.fillStyle = WRITING_INK; ctx.font = appFont(22, 500); fillCentered(ctx, '贞烈流芳', 512, 210);
     ctx.fillStyle = RED; ctx.fillRect(500, 150, 24, 14);
     ctx.fillStyle = INK; ctx.fillRect(0, 500, PLACE_W, 5);
     wash(ctx, 0.12, () => { for (let k = 0; k < 3; k++) ctx.fillRect(0, 300 + k * 60 + Math.sin(t * 0.3 + k) * 6, PLACE_W, 18); });
@@ -204,7 +200,7 @@ const PAINTERS: Record<Place, (ctx: Ctx, t: number, rand: () => number) => void>
     // A wine jar with its cup, and an ancient sword across a stand.
     ctx.fillStyle = INK; ctx.beginPath(); ctx.ellipse(330, 380, 110, 130, 0, 0, Math.PI * 2); ctx.fill();
     ctx.fillRect(290, 220, 80, 40); ctx.fillStyle = RED; ctx.fillRect(282, 206, 96, 20);
-    ctx.fillStyle = PAPER; ctx.fillRect(300, 330, 60, 90); ctx.fillStyle = WRITING_INK; ctx.font = appFont(48, 500); fillCentered(ctx, '酒', 330, 375);
+    ctx.fillStyle = PAPER; ctx.fillRect(300, 330, 60, 90);
     ctx.fillStyle = INK; ctx.beginPath(); ctx.moveTo(440, 470); ctx.lineTo(500, 470); ctx.lineTo(486, 510); ctx.lineTo(454, 510); ctx.fill();
     ctx.fillRect(560, 440, 360, 10); ctx.fillRect(580, 450, 10, 70); ctx.fillRect(890, 450, 10, 70);
     ctx.save(); ctx.translate(740, 400); ctx.rotate(-0.12);
@@ -285,8 +281,6 @@ const PAINTERS: Record<Place, (ctx: Ctx, t: number, rand: () => number) => void>
   parlor: ctx => {
     // Wang Wenhui's parlour: a raised couch (kang) with a low table, a scroll of calligraphy, a window seat.
     ctx.fillStyle = '#6e655c'; ctx.fillRect(420, 40, 184, 250); ctx.fillStyle = '#f2ecdf'; ctx.fillRect(432, 56, 160, 218);
-    ctx.fillStyle = WRITING_INK; ctx.font = appFont(54, 500); ctx.textAlign = 'center';
-    ['福', '寿'].forEach((c, i) => fillCentered(ctx, c, 512, 165 + (i - 0.5) * 90));
     ctx.fillStyle = INK; ctx.fillRect(300, 370, 424, 18); ctx.fillRect(300, 388, 424, 70);
     ctx.fillStyle = '#6e655c'; ctx.fillRect(470, 340, 84, 30);
     lattice(ctx, 780, 110, 180, 220);
@@ -307,7 +301,6 @@ const PAINTERS: Record<Place, (ctx: Ctx, t: number, rand: () => number) => void>
   'exam-paper': ctx => {
     // An examination booklet: on its cover a blade and a brush, and an ink blot soaking into the shape of a head.
     ctx.fillStyle = '#d9d2c4'; ctx.fillRect(330, 40, 364, 500); ctx.strokeStyle = INK; ctx.lineWidth = 3; ctx.strokeRect(330, 40, 364, 500);
-    ctx.fillStyle = WRITING_INK; ctx.font = appFont(30, 500); ctx.textAlign = 'center'; ctx.fillText('試卷', 512, 90);
     ctx.save(); ctx.translate(420, 250); ctx.rotate(-0.5); ctx.fillRect(-10, -80, 20, 50); ctx.fillStyle = '#8a8178'; ctx.beginPath(); ctx.moveTo(-10, -30); ctx.lineTo(10, -30); ctx.lineTo(4, 110); ctx.lineTo(-10, 90); ctx.fill(); ctx.restore();
     ctx.save(); ctx.translate(600, 230); ctx.rotate(0.4); ctx.fillStyle = INK; ctx.fillRect(-6, -110, 12, 150); ctx.beginPath(); ctx.moveTo(-9, 40); ctx.quadraticCurveTo(0, 90, 9, 40); ctx.fill(); ctx.restore();
     ctx.fillStyle = 'rgba(30,24,20,0.85)'; ctx.beginPath(); ctx.ellipse(540, 400, 70, 84, 0, 0, Math.PI * 2); ctx.fill();
@@ -317,7 +310,6 @@ const PAINTERS: Record<Place, (ctx: Ctx, t: number, rand: () => number) => void>
     // The Suzhou Guild Hall stage, decked for the spring gathering.
     PAINTERS.theatre(ctx, 0, () => 0.5);
     ctx.fillStyle = RED; ctx.fillRect(360, 20, 304, 34);
-    ctx.fillStyle = PAPER; ctx.font = appFont(26, 500); fillCentered(ctx, '姑苏会馆', 512, 37);
   },
 };
 
@@ -330,8 +322,21 @@ export function paintPlace(ctx: Ctx, place: Place, t: number, seed = 7) {
   PAINTERS[place](ctx, t, seeded(seed));
 }
 
-/** Backdrops with characters painted on them (plaques, signs, labels). */
-export const PLACES_WITH_WRITING: Place[] = ['hall', 'arch', 'still-wine', 'parlor', 'guild-hall', 'exam-paper'];
+/**
+ * Writing on a backdrop's plaques, labels and banners. It is not painted into the backdrop (which is
+ * stretched across the frame and would soften it) but drawn on its own sharp canvas laid over its
+ * frame (see tableau.ts). Positions and font sizes are in backdrop units (PLACE_W × PLACE_H); each
+ * label is centred on (x, y) and runs across, or down when `vertical`.
+ */
+export type PlaceLabel = { text: string; x: number; y: number; px: number; vertical?: boolean };
+export const PLACE_LABELS: Partial<Record<Place, PlaceLabel[]>> = {
+  hall: [{ text: '世德堂', x: 512, y: 140, px: 30 }],
+  arch: [{ text: '贞烈流芳', x: 512, y: 210, px: 22 }],
+  'still-wine': [{ text: '酒', x: 330, y: 375, px: 48 }],
+  parlor: [{ text: '福寿', x: 512, y: 165, px: 54, vertical: true }],
+  'exam-paper': [{ text: '試卷', x: 512, y: 80, px: 30 }],
+  'guild-hall': [{ text: '姑苏会馆', x: 512, y: 37, px: 26 }],
+};
 
 /** Backdrops whose painting moves (water, wind, clouds). */
 export const ANIMATED_PLACES: Place[] = ['boudoir', 'gate', 'street', 'theatre', 'river', 'arch', 'landscape', 'moon-palace', 'clouds', 'birds', 'mud-lotus', 'flower-hall', 'night-room', 'banquet', 'canal'];

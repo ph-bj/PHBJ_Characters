@@ -5,7 +5,7 @@ import { PETAL_RED } from '../paint';
 import { WRITING_INK, WRITING_RED } from '../cinemaKit';
 import { clamp01, columns, ease, figure, frontCamera, painting, tone, type Beat } from './engine';
 import { CART_H, CART_W, cart, horse, person, type Gesture, type PersonKind } from './people';
-import { ANIMATED_PLACES, PLACE_H, PLACE_W, PLACES_WITH_WRITING, paintPlace, type Place } from './places';
+import { ANIMATED_PLACES, PLACE_H, PLACE_LABELS, PLACE_W, paintPlace, type Place } from './places';
 import { appFont, fillCentered } from '../fonts';
 
 /**
@@ -130,11 +130,22 @@ export const tableauBeat = (spec: Tableau): Beat => ({ kit, set, x, duration }) 
   const animated = ANIMATED_PLACES.includes(spec.place);
   // Paper of the backdrop's own tone reaches past the frame, so the painting has no visible edge.
   kit.mesh(new THREE.PlaneGeometry(80, 45), tone(0xece6da), set, 0, 0.5, -2.1);
-  // Backdrops with writing on them (plaques, labels) are painted at a higher resolution so the
-  // characters stay sharp; moving backdrops, repainted every frame, get less.
-  const res = PLACES_WITH_WRITING.includes(spec.place) ? (animated ? 1.5 : 2.5) : 1;
-  const back = painting(kit, set, PLACE_W * res, PLACE_H * res, [19.2, 10.8], (ctx, t) => paintPlace(ctx, spec.place, t), animated, res > 1);
+  const back = painting(kit, set, PLACE_W, PLACE_H, [19.2, 10.8], (ctx, t) => paintPlace(ctx, spec.place, t), animated);
   back.mesh.position.set(0, 0.9, -2);
+  // The backdrop's plaques and labels: each on its own sharp canvas, laid just in front of its frame,
+  // one 256-pixel cell per character, in writing ink.
+  const unit = 19.2 / PLACE_W;
+  const labels = (PLACE_LABELS[spec.place] ?? []).map(label => {
+    const chars = [...label.text], cell = label.px / 0.84 * unit, n = chars.length;
+    const [cw, ch] = label.vertical ? [1, n] : [n, 1];
+    const art = painting(kit, set, cw * 256, ch * 256, [cw * cell, ch * cell], ctx => {
+      ctx.clearRect(0, 0, cw * 256, ch * 256);
+      ctx.fillStyle = WRITING_INK; ctx.font = appFont(216, 500);
+      chars.forEach((c, i) => fillCentered(ctx, c, (label.vertical ? 0 : i) * 256 + 128, (label.vertical ? i : 0) * 256 + 128));
+    }, false, true);
+    art.mesh.position.set((label.x - PLACE_W / 2) * unit, 0.9 + (PLACE_H / 2 - label.y) * unit, -1.98);
+    return art;
+  });
 
   const back2 = spec.aura ? painting(kit, set, 512, 512, [7, 7], (ctx, t) => {
     ctx.clearRect(0, 0, 512, 512);
@@ -239,6 +250,7 @@ export const tableauBeat = (spec: Tableau): Beat => ({ kit, set, x, duration }) 
       const pan = cam.pan ? cam.pan[0] + (cam.pan[1] - cam.pan[0]) * ease(t / duration) : 0;
       frontCamera(kit, x + pan, t, duration, { from: cam.from ?? 11, to: cam.to ?? 10, y: cam.y ?? 0.3, drift: cam.drift ?? 0.5 });
       back.set(ease(t / 1.2), t);
+      for (const label of labels) label.set(ease(t / 1.2), t);
       back2?.set(ease((t - 0.5) / 2), t);
       front?.set(1, t);
       frame?.set(1, t);

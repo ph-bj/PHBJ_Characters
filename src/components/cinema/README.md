@@ -143,8 +143,12 @@ Authored scenes render through an ink pass (`createCinema(..., 'ink')`, the defa
 - **Writing is special.** Characters from `kit.calligraphy`, `kit.glyph` and `wordsBeat` live on
   `WRITING_LAYER`: they skip the ink pass and are drawn over the finished picture in flat ink (or
   vermilion), so they are pure, even fill at any size. Use `asWriting(mesh, material, color)` for any
-  other writing mesh built on `inkRevealMaterial`. Characters painted into a canvas (plaques, cards,
-  seals) should use `WRITING_INK` / `WRITING_RED`, which the ink pass prints without outlines. Put
+  other writing mesh built on `inkRevealMaterial`. Characters painted into a canvas (cards, album
+  pages) use `WRITING_INK`, pure blue: the ink pass reads its coverage in each pixel and prints it as
+  clean, even ink over the background, so it stays sharp at any size and figures can still pass in
+  front of it. Never use that blue for anything else. `WRITING_RED` does the same for vermilion.
+  Backdrop plaques and labels go in `PLACE_LABELS` (places.ts), not the painting: tableau draws each on
+  its own sharp canvas over its frame. Put
   writing on sharp textures: `kit.calligraphy`, `kit.glyph` (a crisp character to settle over a
   particle-built one), `painting(..., animate, true)` or `canvasTexture(canvas, true)`, and give its
   canvas enough pixels for its size on screen (about 300 px per world unit).

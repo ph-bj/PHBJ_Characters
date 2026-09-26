@@ -99,10 +99,11 @@ export function petalGeometry(width: number, height: number, base: number, tip: 
 }
 
 /**
- * The ink for characters (calligraphy, labels, cards). Nearly black, with a faint blue excess the ink
- * pass recognises, so writing prints as solid, crisp ink rather than a washed shape with an outline.
+ * The ink for characters painted into a canvas (labels, cards, album pages). Pure blue, which no other
+ * paint uses: the ink pass reads its coverage in every pixel and prints it as clean, even ink over
+ * whatever lies behind, so painted writing is crisp at any size and still sits in the scene.
  */
-export const WRITING_INK = '#0a0822';
+export const WRITING_INK = '#0000ff';
 /** Vermilion for writing (e.g. the 花 of a verse game): prints as seal red, likewise without an outline. */
 export const WRITING_RED = '#b8283c';
 
@@ -203,11 +204,12 @@ const inkPassShader = {
     varying vec2 vUv;
     ${noiseGlsl}
     float lum(vec2 uv) { return dot(texture2D(tDiffuse, uv).rgb, vec3(0.299, 0.587, 0.114)); }
-    // Writing is drawn in WRITING_INK, whose blue exceeds its red and green; measured relative to its
-    // own blue (values here may be linear and tiny), on dark pixels only.
+    // Painted writing is drawn in WRITING_INK, pure blue, which nothing else in the films uses. How much
+    // of a pixel is writing follows from its blue excess: 1 inside a stroke, falling to 0 across the
+    // anti-aliased edge (paper, with blue below red, sits at about -0.17).
     float writingAt(vec3 c) {
-      float l = dot(c, vec3(0.299, 0.587, 0.114));
-      return clamp((c.b - max(c.r, c.g)) / max(c.b, 0.004) * 1.6, 0.0, 1.0) * (1.0 - smoothstep(0.2, 0.35, l));
+      float e = c.b - max(c.r, c.g);
+      return clamp((e + 0.17) / 1.17, 0.0, 1.0) * smoothstep(0.0, 0.05, e);
     }
     // Vermilion writing (WRITING_RED) is red with its blue above its green; other reds have blue below.
     float redWritingAt(vec3 c) {
@@ -234,26 +236,28 @@ const inkPassShader = {
         steady = max(steady, max(writingAt(s), redWritingAt(s)));
       }
       uv = mix(uv, vUv, steady);
-      vec3 c = texture2D(tDiffuse, uv).rgb;
+      vec3 raw = texture2D(tDiffuse, uv).rgb;
+      // Separate painted writing from what lies behind it: its coverage, and the background colour.
+      float writing = writingAt(raw);
+      vec3 c = clamp((raw - writing * vec3(0.0, 0.0, 1.0)) / max(1.0 - writing, 0.05), 0.0, 1.0);
       float l = dot(c, vec3(0.299, 0.587, 0.114));
       float tl = lum(uv + px * vec2(-1.0, 1.0)), t = lum(uv + px * vec2(0.0, 1.0)), tr = lum(uv + px * vec2(1.0, 1.0));
       float ml = lum(uv + px * vec2(-1.0, 0.0)), mr = lum(uv + px * vec2(1.0, 0.0));
       float bl = lum(uv + px * vec2(-1.0, -1.0)), b = lum(uv + px * vec2(0.0, -1.0)), br = lum(uv + px * vec2(1.0, -1.0));
       float edge = smoothstep(0.1, 0.55, length(vec2(-tl - 2.0 * ml - bl + tr + 2.0 * mr + br, -bl - 2.0 * b - br + tl + 2.0 * t + tr)));
       float grain = fbm(frag / 2.5), wash = fbm(frag / 140.0);
-      // Writing prints as solid ink, and gets no brush outline beside it, so characters stay crisp.
-      float writing = writingAt(c);
+      // No brush outline is drawn beside writing, so characters are pure fill.
       float nearWriting = edge > 0.0 ? writingNear(uv, px) : 0.0;
       // Uneven washes: ink pools in some places and thins in others.
       float ink = smoothstep(0.03, 0.97, 1.0 - l) * (0.8 + 0.34 * wash);
       ink = clamp(max(ink, edge * 0.8 * (1.0 - nearWriting)), 0.0, 1.0);
-      ink = mix(ink, 1.0, writing);
       vec3 paper = uPaper * (0.93 + 0.07 * grain);
       paper *= 1.0 - 0.2 * pow(length(vUv - 0.5) * 1.3, 3.0);
-      // The paper's grain shows through ink, but not through writing, which stays clean and even.
-      vec3 color = mix(paper, uInk, ink * mix(0.9 + 0.1 * grain, 1.0, writing));
+      vec3 color = mix(paper, uInk, ink * (0.9 + 0.1 * grain));
       float red = clamp((c.r - max(c.g, c.b)) * 2.5, 0.0, 1.0);
       color = mix(color, uSeal * mix(0.85 + 0.15 * grain, 0.97, redWritingAt(c)), red);
+      // Then the writing, in even, grain-free ink, anti-aliased by its own coverage.
+      color = mix(color, uInk, writing);
       gl_FragColor = vec4(color, 1.0);
     }`,
 };
