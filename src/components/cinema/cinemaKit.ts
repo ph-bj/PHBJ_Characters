@@ -209,7 +209,8 @@ const inkPassShader = {
     // anti-aliased edge (paper, with blue below red, sits at about -0.17).
     float writingAt(vec3 c) {
       float e = c.b - max(c.r, c.g);
-      return clamp((e + 0.17) / 1.17, 0.0, 1.0) * smoothstep(0.0, 0.05, e);
+      // Only a strong blue counts (a faint cast is never writing); the edge's faintest sliver is let go.
+      return clamp((e + 0.17) / 1.17, 0.0, 1.0) * smoothstep(0.1, 0.18, e);
     }
     // Vermilion writing (WRITING_RED) is red with its blue above its green; other reds have blue below.
     float redWritingAt(vec3 c) {
@@ -493,8 +494,10 @@ export function createCinema(
     });
     const dome = mesh(new THREE.SphereGeometry(500, 48, 24), sky, scene);
     dome.renderOrder = -1; dome.frustumCulled = false;
-    scene.add(new THREE.HemisphereLight(0x7d8fbf, 0x2a1f1c, 0.55));
-    const moonlight = new THREE.DirectionalLight(0xa9bde6, 1.1);
+    // Night scenes have cool moonlight. Ink scenes read only brightness, so their lights are neutral
+    // greys of the same brightness: a blue cast would be mistaken for WRITING_INK by the ink pass.
+    scene.add(new THREE.HemisphereLight(style === 'ink' ? 0x8f8f8f : 0x7d8fbf, style === 'ink' ? 0x222222 : 0x2a1f1c, 0.55));
+    const moonlight = new THREE.DirectionalLight(style === 'ink' ? 0xbcbcbc : 0xa9bde6, 1.1);
     scene.add(moonlight, moonlight.target);
     const moonDirection = new THREE.Vector3();
     let currentEnv: Env | undefined;

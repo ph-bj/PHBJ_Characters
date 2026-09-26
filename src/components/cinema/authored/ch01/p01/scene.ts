@@ -303,7 +303,8 @@ export default defineScene({
       const light = new THREE.PointLight(0xfff6ea, 9, 9, 1.5); light.position.set(x, 3.6, 0.9); gate.add(light);
       box(gate, ink, [x, 4.35, 0.42], [0.05, 0.05, 0.4]);
     }
-    const fill = new THREE.DirectionalLight(0x8a9cc8, 0.6); fill.position.set(-4, 7, 12); gate.add(fill, fill.target);
+    // Neutral, same brightness as the old cool fill: a blue cast would read as writing in the ink pass.
+    const fill = new THREE.DirectionalLight(0x9c9c9c, 0.6); fill.position.set(-4, 7, 12); gate.add(fill, fill.target);
     glows(gate, blossoms);
     const fallingPetals = new THREE.InstancedMesh(petalGeometry(0.05, 0.06, 0xd89aa6, 0xffe2e6), new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.DoubleSide }), 90);
     const petalSeeds = Array.from({ length: 90 }, () => [rand(), rand(), rand(), rand()]);
