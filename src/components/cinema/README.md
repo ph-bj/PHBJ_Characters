@@ -61,6 +61,12 @@ export default beatScene(1013, [          // one beat per shot in story.ts, in o
   `poemBeat`, and `readersBeat` (Zhongqing, Ziyu and Nanxiang reacting at given moments).
 - `beats/motifs.ts` paints the emblems; `figures.ts` has dan performers (`dan`, `DAN_POSES`, props)
   and scholars (`scholar` with gestures); `paint.ts` has brush flowers (`paintFlower`) and strokes.
+- `beats/tableau.ts`: `tableauBeat`, the everyday-scene beat. A painted place (`beats/places.ts`:
+  study, hall, boudoir, gate, street, theatre, river, arch, moon palace…), a cast who walk, change
+  gesture on cue, blush, fade in and out (`beats/people.ts`: scholars, ladies, pages, officials,
+  merchants, escorts, clowns, warriors, horses and carts), an optional table, an inscription slip,
+  and weather (north wind, drifting petals, a radiance, a cart-window frame). `who.ziyu(x)` etc. are
+  shorthands for chapter 1's regulars. `coverBeat` opens a book.
 - Per-chapter data lives beside the paragraphs, e.g. `authored/ch01/actors.ts`.
 
 Review a batch at a glance: `npm run cinema-contact-sheet -- 1 13 34` saves a frame from the middle of

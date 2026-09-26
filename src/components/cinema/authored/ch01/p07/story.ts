@@ -1,0 +1,42 @@
+import { defineStory } from '../../define';
+
+/**
+ * Chapter 1, paragraph 7.
+ *
+ * 原文：往往有仲清鄙夷不屑之学，经子玉精心讲贯，便觉妙义环生。亦有子玉所索解不得之理，经仲清一言
+ *   点悟，顿觉白地光明。
+ *
+ * Translation: Often, a subject that Zhongqing would dismiss with disdainful neglect, once meticulously
+ *   expounded by Ziyu, would suddenly bloom with endless, subtle meaning. Conversely, a
+ *   principle that eluded Ziyu's deepest searching could be illuminated by a single word from
+ *   Zhongqing, instantly flooding the barren ground with brilliant light.
+ *
+ * Staged from tableau beats (cinema/beats/tableau.ts): Ziyu expounding to Zhongqing, then Zhongqing’s single word lighting up Ziyu.
+ */
+export default defineStory({
+  title: { en: 'Each lights the other', zh: '互相点悟' },
+  description: {
+    en: 'What Zhongqing scorns blooms when Ziyu explains it; what Ziyu cannot solve, one word from Zhongqing makes clear.',
+    zh: '仲清所鄙，经子玉讲贯而妙义环生；子玉不解，经仲清一言而白地光明。',
+  },
+  shots: [
+    {
+      start: 0, end: 18,
+      title: { en: 'Endless subtle meaning', zh: '妙义环生' },
+      quote: '往往有仲清鄙夷不屑之学，经子玉精心讲贯，便觉妙义环生。',
+      caption: { en: 'A subject Zhongqing dismisses, once Ziyu expounds it, blooms with subtle meaning.', zh: '仲清鄙夷之学，经子玉讲贯，妙义环生。' },
+    },
+    {
+      start: 18, end: 36,
+      title: { en: 'Light on barren ground', zh: '白地光明' },
+      quote: '亦有子玉所索解不得之理，经仲清一言点悟，顿觉白地光明。',
+      caption: { en: 'A principle Ziyu cannot reach, one word from Zhongqing floods with light.', zh: '子玉索解不得之理，仲清一言点悟，顿觉白地光明。' },
+    },
+  ],
+  subtitles: [
+    { start: 0.4, end: 9, zh: '往往有仲清鄙夷不屑之学，', en: 'Often, a subject that Zhongqing would dismiss with disdain,' },
+    { start: 9, end: 17.6, zh: '经子玉精心讲贯，便觉妙义环生。', en: 'once meticulously expounded by Ziyu, would bloom with endless, subtle meaning.' },
+    { start: 18.4, end: 27, zh: '亦有子玉所索解不得之理，', en: 'Conversely, a principle that eluded Ziyu’s deepest searching' },
+    { start: 27, end: 35.6, zh: '经仲清一言点悟，顿觉白地光明。', en: 'could be illuminated by a single word from Zhongqing, flooding the barren ground with light.' },
+  ],
+});

@@ -23,3 +23,6 @@ export const ACTORS = {
   // 天上玉麟 — the youngest; holds the incense burner "waiting upon the Jade Emperor".
   chunxi: { name: '林春喜', emblem: '天上玉麟', motif: 'qilin', facts: ['年十四', '姑苏人', '联锦部'], flower: 'peach', pose: { lift: [0.5, 1.4], swing: 0.1, sleeve: 0.7, turn: 0, crouch: 0, prop: 'censer' }, seal: '春喜' },
 } satisfies Record<string, Actor>;
+
+/** Paragraph 53: the boy "like a crabapple blossom" in the cart Ziyu passes, for a portrait page. */
+export const BOY: Actor = { name: '', emblem: '', motif: 'jade-moon', facts: [], flower: 'begonia', pose: DAN_POSES[7], seal: '' };

@@ -1,0 +1,43 @@
+import { defineStory } from '../../define';
+
+/**
+ * Chapter 1, paragraph 44.
+ *
+ * 原文：生得一表非凡，丰华俊雅，文才既极精通，心地尤为浑厚。纳了个上舍生，在北闱乡试。与子玉是表
+ *   弟兄，为莫逆之交。
+ *
+ * Translation: He possessed an extraordinary, handsome, and elegant appearance. His literary talents were
+ *   profoundly accomplished, and his nature was exceptionally generous and sincere. He had
+ *   purchased the title of a senior student at the Imperial Academy and was participating in
+ *   the northern provincial examinations. He and Ziyu were cousins and sworn, inseparable
+ *   friends.
+ *
+ * Staged from tableau beats (cinema/beats/tableau.ts): Wang Xun’s portrait, then the two cousins greeting each other.
+ */
+export default defineStory({
+  title: { en: 'Wang Xun, cousin and friend', zh: '表弟兄，莫逆之交' },
+  description: {
+    en: 'Wang Xun: handsome, gifted and generous-hearted; Ziyu’s cousin and inseparable friend.',
+    zh: '王恂一表非凡，文才精通，心地浑厚，与子玉为莫逆之交。',
+  },
+  shots: [
+    {
+      start: 0, end: 20,
+      title: { en: 'Handsome and generous', zh: '一表非凡' },
+      quote: '生得一表非凡，丰华俊雅，文才既极精通，心地尤为浑厚。',
+      caption: { en: 'Handsome and elegant, accomplished in letters, and generous of heart.', zh: '一表非凡，丰华俊雅，文才精通，心地浑厚。' },
+    },
+    {
+      start: 20, end: 36,
+      title: { en: 'Sworn friends', zh: '莫逆之交' },
+      quote: '与子玉是表弟兄，为莫逆之交。',
+      caption: { en: 'A senior student sitting the northern examinations, he is Ziyu’s cousin and sworn friend.', zh: '纳了上舍生，在北闱乡试；与子玉是表弟兄，莫逆之交。' },
+    },
+  ],
+  subtitles: [
+    { start: 0.4, end: 10, zh: '生得一表非凡，丰华俊雅，', en: 'He possessed an extraordinary, handsome and elegant appearance.' },
+    { start: 10, end: 19.6, zh: '文才既极精通，心地尤为浑厚。', en: 'His literary talents were accomplished, his nature exceptionally generous and sincere.' },
+    { start: 20.4, end: 28, zh: '纳了个上舍生，在北闱乡试。', en: 'He had purchased a senior studentship and was sitting the northern provincial examinations.' },
+    { start: 28, end: 35.6, zh: '与子玉是表弟兄，为莫逆之交。', en: 'He and Ziyu were cousins and sworn, inseparable friends.' },
+  ],
+});

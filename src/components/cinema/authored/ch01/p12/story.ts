@@ -1,0 +1,66 @@
+import { defineStory } from '../../define';
+
+/**
+ * Chapter 1, paragraph 12.
+ *
+ * 原文：醇醪醉心，古剑照胆，交友中难道无动心荡魄处么？」南湘笑道：「你总是这一间屋子里的说话，所
+ *   见不广，所游未化。」即从（靴）里取出一本书来，送与子玉道：「这是我近刻的，大约可以娱耳悦
+ *   目，动心荡魄者，要在此数君。」仲清笑道：「你将此书呈政于庾香，真似苏秦始见秦王，可保的你
+ *   书十上而说不行。他非但没有领略此中情味，且未见过这些人，如何能教他一时索解出来？」子玉见
+ *   他们说得郑重，不知是什么好书，便揭开一看，书目是《曲台花选》，有好几篇序，无非骈四俪六之
+ *   文。南湘叫他不要看序，且看所选的人。子玉见第一个题的是：
+ *
+ * Translation: Does not rich, heart-intoxicating wine, or an ancient sword reflecting a hero's courage—do
+ *   these not stir the soul within the bonds of friendship?" Nanxiang smiled and said: "Your
+ *   words never leave the confines of this single room. Your vision is not broad, and your
+ *   wanderings have yet to transform you." With that, he drew a book from his boot and handed
+ *   it to Ziyu, saying: "This is my recent printing. Those capable of pleasing the ear,
+ *   delighting the eye, and stirring the soul are, I daresay, to be found among these few
+ *   gentlemen." Zhongqing chuckled: "Presenting this book to Yuxiang for his judgment is rather
+ *   like Su Qin's first audience with the King of Qin; I guarantee you could submit it ten
+ *   times and he would still remain unconvinced. Not only has he failed to grasp the flavor of
+ *   these sentiments, he has never even laid eyes on such people. How can you expect him to
+ *   instantly comprehend it?" Seeing their earnestness, Ziyu wondered what extraordinary book
+ *   this could be. He opened it and saw the title: "The Opera Stage Flower Manual." It began
+ *   with several prefaces, all written in ornate, parallel prose. Nanxiang urged him to skip
+ *   the prefaces and proceed directly to the selected individuals. Ziyu noted that the first
+ *   entry read:
+ *
+ * Staged from tableau beats (cinema/beats/tableau.ts): a still life of wine and sword, Nanxiang handing over his book, and the book opening.
+ */
+export default defineStory({
+  title: { en: 'A book from his boot', zh: '靴中取书' },
+  description: {
+    en: 'Ziyu adds wine and an ancient sword; Nanxiang draws his newly printed 《曲台花选》 from his boot, and Ziyu opens it.',
+    zh: '子玉又举醇醪古剑；南湘从靴里取出新刻《曲台花选》，子玉揭开一看。',
+  },
+  shots: [
+    {
+      start: 0, end: 9,
+      title: { en: 'Wine and an ancient sword', zh: '醇醪醉心，古剑照胆' },
+      quote: '醇醪醉心，古剑照胆，交友中难道无动心荡魄处么？',
+      caption: { en: 'Rich wine and an ancient sword: do these not stir the soul between friends?', zh: '醇醪醉心，古剑照胆，交友中岂无动心荡魄处？' },
+    },
+    {
+      start: 9, end: 22,
+      title: { en: 'Nanxiang’s new book', zh: '我近刻的' },
+      quote: '即从靴里取出一本书来，送与子玉',
+      caption: { en: 'Nanxiang draws a book from his boot: those who stir the soul are among these gentlemen. Zhongqing laughs that Ziyu will never be convinced.', zh: '南湘从靴里取出一本书送与子玉；仲清笑他如苏秦说秦王。' },
+    },
+    {
+      start: 22, end: 36,
+      title: { en: 'The Opera Stage Flower Manual', zh: '《曲台花选》' },
+      quote: '书目是《曲台花选》……子玉见第一个题的是：',
+      caption: { en: 'The title reads 《曲台花选》. Skipping the prefaces, Ziyu turns to the first entry.', zh: '书名《曲台花选》，子玉略过序文，看第一题。' },
+    },
+  ],
+  subtitles: [
+    { start: 0.4, end: 8.6, zh: '醇醪醉心，古剑照胆，交友中难道无动心荡魄处么？', en: 'Heart-intoxicating wine, an ancient sword reflecting courage—do these not stir the soul in friendship?' },
+    { start: 9.4, end: 13.4, zh: '南湘笑道：「你总是这一间屋子里的说话，所见不广。」', en: 'Nanxiang smiled: “Your words never leave this single room. Your vision is not broad.”' },
+    { start: 13.4, end: 17.6, zh: '即从靴里取出一本书来：「大约可以动心荡魄者，要在此数君。」', en: 'He drew a book from his boot: “Those who stir the soul are to be found among these few gentlemen.”' },
+    { start: 17.6, end: 21.6, zh: '仲清笑道：「你将此书呈政于庾香，真似苏秦始见秦王。」', en: 'Zhongqing chuckled: “Presenting this to Yuxiang is like Su Qin’s first audience with the King of Qin.”' },
+    { start: 22.4, end: 27, zh: '子玉便揭开一看，书目是《曲台花选》，', en: 'Ziyu opened it and saw the title: “The Opera Stage Flower Manual.”' },
+    { start: 27, end: 31.6, zh: '南湘叫他不要看序，且看所选的人。', en: 'Nanxiang urged him to skip the prefaces and look at the selected individuals.' },
+    { start: 31.6, end: 35.6, zh: '子玉见第一个题的是：', en: 'Ziyu noted that the first entry read:' },
+  ],
+});

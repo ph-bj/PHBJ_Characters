@@ -1,0 +1,110 @@
+import { defineStory } from '../../define';
+
+/**
+ * Chapter 1, paragraph 4.
+ *
+ * 原文：此书不着姓名，究不知何代何年何地何人所作。书中开首说一极忘情之人，生一极钟情之子。这人姓
+ *   梅，名士燮，号铁庵．江南金陵人氏；是个阀阅世家，现任翰林院侍读学士，寓居城南鸣珂里。其祖
+ *   名鼎，曾任吏部尚书；其父名羹调，曾任文华殿大学士，三代单传。士燮于十七岁中了进士，入了翰
+ *   林，迄今已二十九年，行年四十六岁了。家世本是金、张，经术复师马、郑。贵胃偏祟儒素，词臣竟
+ *   屏纷华。蔼蔼乎心似春和，凛凛乎却貌如秋肃。人比他为司马君实、赵清献一流人物。夫人额氏，也
+ *   是金陵大家，为左都御史颜尧臣之女，翰林院编修颜庄之妹，父兄皆已物故。这颜夫人今年四十四
+ *   岁，真是德容兼备，贤淑无双，与梅学士唱随已二十余年。二十九岁上梦神人授玉，遂生了一个玉
+ *   郎，取名子玉，号庾香。这梅子玉今年已十七岁了，生得貌如良玉，质比精金，宝贵如明珠在胎，光
+ *   彩如华月升岫。而且天授神奇，胸罗斗宿，虽只十年诵读，已是万卷贯通。士燮前年告假回乡扫墓，
+ *   子玉随了回去，即入了泮，在本省过了一回乡试未中，仍随任进京，因回南不便，遂以上舍生肄业成
+ *   均，现从了浙江一个名宿李性全读书。这性全系士燮乡榜门生，是个言方行矩的道学先生。颜夫人将
+ *   此子爱如珍宝，读书之外时不离身。宅中丫鬟仆妇甚多，仆妇三十岁以下，丫鬟十五岁以上者，皆不
+ *   令其服侍子玉，恐为引诱。而子玉亦能守身如玉，虽在罗绮丛中，却无纨绔习气，不佩罗囊而自丽，
+ *   不傅香粉而自华。惟取友尊师，功能刻苦； 论今讨古，志在云霄。目下已有景星庆云之誉，人以一
+ *   睹为快。
+ *
+ * Translation: The author of this book remains nameless, leaving the era, year, place, and identity
+ *   forever unknown. The narrative begins by telling of a man utterly detached from feeling,
+ *   who sires a son profoundly devoted to feeling. The father's surname is Mei, his personal
+ *   name Shixie, and his style name Tie'an, a native of Jinling in Jiangnan. Born into an
+ *   illustrious lineage, he currently holds the post of Reader-in-Waiting at the Hanlin
+ *   Academy, residing in Mingke Lane in the southern sector of the city. His grandfather, Ding,
+ *   once served as Minister of Personnel, while his father, Gengdiao, was a Grand Secretary of
+ *   the Wenhua Hall; for three generations, the family line has passed to a single heir. Shixie
+ *   attained his jinshi degree at the age of seventeen and entered the Hanlin Academy;
+ *   twenty-nine years have elapsed since then, making him forty-six this year. His family
+ *   pedigree rivals the legendary Jin and Zhang clans, and his mastery of the classics honors
+ *   the traditions of Ma and Zheng. Though of noble birth, he reveres the simplicity of the
+ *   scholar; despite his high office at court, he shuns ostentatious display. His inner heart
+ *   radiates the gentle warmth of spring, yet his outward demeanor commands the stern awe of
+ *   autumn. Contemporaries liken him to the great figures Sima Guang and Zhao Bian. His wife,
+ *   Lady Yan, also hails from a prominent Jinling family; she is the daughter of Yan Yaochen,
+ *   Left Censor-in-Chief, and the younger sister of Yan Zhuang, a Hanlin Compiler, though both
+ *   her father and brother have since passed away. Lady Yan, now forty-four, embodies a rare
+ *   union of virtue and beauty, peerless in her gracious wisdom. She and Academician Mei have
+ *   lived in harmonious partnership for over two decades. At the age of twenty-nine, she
+ *   dreamed that a divine being bestowed upon her a piece of jade, and subsequently gave birth
+ *   to a jade-like son, named Ziyu and styled Yuxiang. This Mei Ziyu is now seventeen, his
+ *   countenance as flawless as fine jade, his essence as pure as refined gold—precious as a
+ *   luminous pearl taking shape, radiant as the glorious moon cresting the peaks. Furthermore,
+ *   endowed with heavenly intellect, his mind encompasses the constellations; though he has
+ *   studied for merely ten years, he has already mastered ten thousand volumes. Two years ago,
+ *   when Shixie took leave to sweep the ancestral tombs in the south, Ziyu accompanied him; he
+ *   swiftly passed the local examinations to enter the county school. Though he did not succeed
+ *   in the subsequent provincial examination, he returned to the capital with his father.
+ *   Finding a journey south inconvenient, he enrolled as a senior student in the Imperial
+ *   Academy and currently studies under Li Xingquan, a renowned scholar from Zhejiang. This Li
+ *   Xingquan, a former examinee passed by Shixie in the provincial exams, is a strict
+ *   neo-Confucian teacher of meticulous words and rigorous conduct. Lady Yan treasures her son
+ *   beyond measure, keeping him close by her side whenever he is not at his books. Although the
+ *   household employs numerous maids and serving women, she permits neither women under thirty
+ *   nor maids over fifteen to wait upon Ziyu, fearing they might lead him astray. Yet Ziyu
+ *   himself guards his purity like unblemished jade; though surrounded by rustling silks, he
+ *   harbors no foppish habits. He adorns himself with no scented pouches yet remains naturally
+ *   splendid, applies no powder yet shines with inherent brilliance. He devotes himself solely
+ *   to honoring his teachers and choosing worthy friends, laboring bitterly over his studies;
+ *   debating the present and investigating the past, his ambitions soar to the clouds. Even
+ *   now, he enjoys the reputation of an auspicious star and a propitious cloud, with people
+ *   deeming a single glimpse of him a profound joy.
+ *
+ * Staged from tableau beats (cinema/beats/tableau.ts): an unsigned book, the Mei ancestral hall, Lady Yan’s dream of jade, and Ziyu at his books.
+ */
+export default defineStory({
+  title: { en: 'A father without feeling, a son all feeling', zh: '极忘情之人，极钟情之子' },
+  description: {
+    en: 'The Mei household: three generations of officials, Lady Yan’s dream of a jade gift, and Mei Ziyu, the jade-like son.',
+    zh: '梅家三代单传、颜夫人梦神人授玉，以及貌如良玉的梅子玉。',
+  },
+  shots: [
+    {
+      start: 0, end: 7,
+      title: { en: 'An unsigned book', zh: '此书不着姓名' },
+      quote: '此书不着姓名，究不知何代何年何地何人所作。',
+      caption: { en: 'The book bears no author’s name; no one knows when, where or by whom it was written.', zh: '此书不着姓名，不知何代何人所作。' },
+    },
+    {
+      start: 7, end: 16,
+      title: { en: 'Three generations, one heir', zh: '三代单传' },
+      quote: '其祖名鼎，曾任吏部尚书；其父名羹调……三代单传。',
+      caption: { en: 'In the Mei ancestral hall: a grandfather who was Minister of Personnel, a father who was Grand Secretary, and Mei Shixie of the Hanlin Academy, stern as autumn.', zh: '梅氏祠堂：祖为吏部尚书，父为大学士，梅士燮官翰林院侍读学士，貌如秋肃。' },
+    },
+    {
+      start: 16, end: 25,
+      title: { en: 'A dream of jade', zh: '梦神人授玉' },
+      quote: '二十九岁上梦神人授玉，遂生了一个玉郎，取名子玉。',
+      caption: { en: 'Lady Yan dreams that an immortal hands her a piece of jade, and bears a son: Ziyu.', zh: '颜夫人梦神人授玉，遂生子玉。' },
+    },
+    {
+      start: 25, end: 36,
+      title: { en: 'Pure as jade', zh: '守身如玉' },
+      quote: '子玉亦能守身如玉……志在云霄。',
+      caption: { en: 'At seventeen Ziyu has mastered ten thousand books, kept close by his mother and guarded pure as jade.', zh: '子玉十七岁，万卷贯通；颜夫人爱如珍宝，子玉守身如玉。' },
+    },
+  ],
+  subtitles: [
+    { start: 0.4, end: 6.6, zh: '此书不着姓名，究不知何代何年何地何人所作。', en: 'The author of this book remains nameless: the era, place and identity are forever unknown.' },
+    { start: 7.4, end: 11.4, zh: '书中开首说一极忘情之人，生一极钟情之子。这人姓梅，名士燮。', en: 'It begins with a man utterly detached from feeling, who sires a son devoted to feeling: Mei Shixie.' },
+    { start: 11.4, end: 15.6, zh: '其祖曾任吏部尚书，其父曾任文华殿大学士，三代单传。', en: 'His grandfather was Minister of Personnel, his father a Grand Secretary; for three generations, a single heir.' },
+    { start: 16.4, end: 20.4, zh: '夫人颜氏，德容兼备，贤淑无双。', en: 'His wife, Lady Yan, is a rare union of virtue and beauty.' },
+    { start: 20.4, end: 24.6, zh: '二十九岁上梦神人授玉，遂生了一个玉郎，取名子玉。', en: 'At twenty-nine she dreamed a divine being gave her jade, and bore a jade-like son named Ziyu.' },
+    { start: 25.4, end: 29.4, zh: '这梅子玉今年十七岁，貌如良玉，质比精金。', en: 'Mei Ziyu is now seventeen, his face as flawless as fine jade, his essence as pure as gold.' },
+    { start: 29.4, end: 33, zh: '颜夫人将此子爱如珍宝，而子玉亦能守身如玉。', en: 'Lady Yan treasures him beyond measure, and Ziyu guards his purity like unblemished jade.' },
+    { start: 33, end: 35.6, zh: '论今讨古，志在云霄。', en: 'Debating the present and the past, his ambitions soar to the clouds.' },
+  ],
+});

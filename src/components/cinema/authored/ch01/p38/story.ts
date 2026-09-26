@@ -1,0 +1,57 @@
+import { defineStory } from '../../define';
+
+/**
+ * Chapter 1, paragraph 38.
+ *
+ * 原文：所以我不愿看小旦戏，宁看净末老丑，翻可舒荡心胸，足助欢笑。吾兄不惜笔墨，竭力铺张，为若辈
+ *   增光，而使古人抱恨，窃为吾兄有所不取。」这一番话，把个史南湘说出气来。仲清笑道：「庾香之
+ *   论未尝不是，而竹君之选也甚平允。但庾香不知天地间有此数人，譬如读《搜神》之记，《幽怪》之
+ *   书。
+ *
+ * Translation: That is why I am unwilling to watch plays featuring young dan; I would rather watch the
+ *   painted-face, secondary male, old man, and clown roles, which can instead ease the mind and
+ *   provoke hearty laughter. My elder brother, you spare no ink and spare no effort in your
+ *   extravagant exaggerations to add glory to this lot, while leaving the ancients to harbor
+ *   regrets. I secretly feel there is something lacking in your approach." This speech
+ *   infuriated Shi Nanxiang. Zhongqing laughed and said, "Yuxiang's argument is not without
+ *   merit, yet Zhujun's selections are also quite fair. It is just that Yuxiang does not
+ *   realize that such individuals exist in the universe. It is like reading 'In Search of the
+ *   Supernatural' or books of 'Hidden Marvels';
+ *
+ * Staged from tableau beats (cinema/beats/tableau.ts): clowns capering on stage, Nanxiang angered, and Zhongqing mediating.
+ */
+export default defineStory({
+  title: { en: 'Better the clowns', zh: '宁看净末老丑' },
+  description: {
+    en: 'Ziyu would rather watch clowns than young dan; Nanxiang is furious, and Zhongqing makes peace.',
+    zh: '子玉宁看净末老丑；南湘气恼，仲清调停。',
+  },
+  shots: [
+    {
+      start: 0, end: 12,
+      title: { en: 'Clowns and painted faces', zh: '净末老丑' },
+      quote: '所以我不愿看小旦戏，宁看净末老丑，翻可舒荡心胸，足助欢笑。',
+      caption: { en: 'Ziyu would rather watch painted faces, old men and clowns: at least they make him laugh.', zh: '宁看净末老丑，翻可舒荡心胸，足助欢笑。' },
+    },
+    {
+      start: 12, end: 24,
+      title: { en: 'Nanxiang angered', zh: '把南湘说出气来' },
+      quote: '这一番话，把个史南湘说出气来。',
+      caption: { en: 'Ziyu says Nanxiang’s ink only wrongs the ancients; Nanxiang is furious.', zh: '子玉说南湘为若辈增光，使古人抱恨；南湘气恼。' },
+    },
+    {
+      start: 24, end: 36,
+      title: { en: 'Zhongqing mediates', zh: '仲清笑道' },
+      quote: '庾香之论未尝不是，而竹君之选也甚平允。',
+      caption: { en: 'Zhongqing laughs: both are right; Ziyu simply does not know such people exist—like tales of marvels.', zh: '仲清笑道：二人之论皆是，只是庾香不知天地间有此数人。' },
+    },
+  ],
+  subtitles: [
+    { start: 0.4, end: 6, zh: '所以我不愿看小旦戏，宁看净末老丑，', en: 'That is why I would rather not watch the young dan, but the painted faces, old men and clowns,' },
+    { start: 6, end: 11.6, zh: '翻可舒荡心胸，足助欢笑。', en: 'who at least ease the mind and provoke hearty laughter.' },
+    { start: 12.4, end: 18.6, zh: '吾兄不惜笔墨，竭力铺张，为若辈增光，而使古人抱恨，', en: 'You spare no ink to add glory to this lot, while leaving the ancients to harbor regrets—' },
+    { start: 18.6, end: 23.6, zh: '窃为吾兄有所不取。」这一番话，把个史南湘说出气来。', en: 'I find it lacking.” This speech infuriated Shi Nanxiang.' },
+    { start: 24.4, end: 29.4, zh: '仲清笑道：「庾香之论未尝不是，而竹君之选也甚平允。', en: 'Zhongqing laughed: “Yuxiang is not wrong, yet Zhujun’s selections are quite fair.' },
+    { start: 29.4, end: 35.6, zh: '但庾香不知天地间有此数人，譬如读《搜神》之记，《幽怪》之书。', en: 'Yuxiang just doesn’t know such people exist—like reading “In Search of the Supernatural.”' },
+  ],
+});

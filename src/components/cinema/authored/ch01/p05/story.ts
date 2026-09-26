@@ -1,0 +1,49 @@
+import { defineStory } from '../../define';
+
+/**
+ * Chapter 1, paragraph 5.
+ *
+ * 原文：一日，先生有事放学，子玉正在独坐，却有两个好友来看他。一个姓颜名仲清，号剑潭，现年二十三
+ *   岁，即系已故编修颜庄之于，为颜夫人之侄。
+ *
+ * Translation: One day, the teacher dismissed his students early to attend to some affairs, leaving Ziyu
+ *   sitting in solitude, when two close companions arrived to visit him. One was surnamed Yan,
+ *   named Zhongqing, and styled Jiantan; currently twenty-three years of age, he was the son of
+ *   the late Compiler Yan Zhuang, making him Lady Yan's nephew.
+ *
+ * Staged from tableau beats (cinema/beats/tableau.ts): the teacher leaving the study, two friends arriving at the gate, and Yan Zhongqing introduced.
+ */
+export default defineStory({
+  title: { en: 'Two friends at the gate', zh: '两个好友来看他' },
+  description: {
+    en: 'The teacher leaves early; Ziyu sits alone until two friends arrive, one of them his cousin Yan Zhongqing.',
+    zh: '先生有事放学，子玉独坐，两个好友来访，其一是表兄颜仲清。',
+  },
+  shots: [
+    {
+      start: 0, end: 12,
+      title: { en: 'Alone in the study', zh: '子玉独坐' },
+      quote: '一日，先生有事放学，子玉正在独坐',
+      caption: { en: 'One day the teacher dismisses class early, and Ziyu sits alone with his books.', zh: '先生有事放学，子玉独坐书房。' },
+    },
+    {
+      start: 12, end: 24,
+      title: { en: 'Two friends arrive', zh: '两个好友来看他' },
+      quote: '却有两个好友来看他。',
+      caption: { en: 'Two close companions arrive at the gate.', zh: '两个好友来到门前。' },
+    },
+    {
+      start: 24, end: 36,
+      title: { en: 'Yan Zhongqing', zh: '颜仲清' },
+      quote: '一个姓颜名仲清，号剑潭，现年二十三岁……为颜夫人之侄。',
+      caption: { en: 'One is Yan Zhongqing, styled Jiantan, twenty-three: Lady Yan’s nephew.', zh: '其一颜仲清，号剑潭，年二十三，颜夫人之侄。' },
+    },
+  ],
+  subtitles: [
+    { start: 0.4, end: 6, zh: '一日，先生有事放学，', en: 'One day, the teacher dismissed his students early to attend to some affairs,' },
+    { start: 6, end: 11.6, zh: '子玉正在独坐，', en: 'leaving Ziyu sitting in solitude,' },
+    { start: 12.4, end: 23.6, zh: '却有两个好友来看他。', en: 'when two close companions arrived to visit him.' },
+    { start: 24.4, end: 29.4, zh: '一个姓颜名仲清，号剑潭，现年二十三岁，', en: 'One was Yan Zhongqing, styled Jiantan, twenty-three years of age,' },
+    { start: 29.4, end: 35.6, zh: '即系已故编修颜庄之子，为颜夫人之侄。', en: 'the son of the late Compiler Yan Zhuang, and Lady Yan’s nephew.' },
+  ],
+});

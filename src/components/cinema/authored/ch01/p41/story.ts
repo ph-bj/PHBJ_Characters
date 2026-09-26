@@ -1,0 +1,52 @@
+import { defineStory } from '../../define';
+
+/**
+ * Chapter 1, paragraph 41.
+ *
+ * 原文：便拉了仲清去了。子玉送客转来，又将南湘的《花选》默默的一想，再想从前看过的戏，与见过的小
+ *   旦一毫不对，犹以南湘为妄言，借此以自消遣的，便也不放在心上了。李先生回来，仍在书房念了一
+ *   会书，颜夫人然后叫了进去。
+ *
+ * Translation: He then dragged Zhongqing away. Ziyu saw his guests out and returned, silently pondering
+ *   Nanxiang's "Opera Stage Flower Manual" once more. He thought back to the plays he had seen
+ *   in the past and the young dan he had encountered, finding that they did not match the
+ *   descriptions in the slightest. He still concluded that Nanxiang was speaking wildly, using
+ *   this merely for his own amusement, and so he put the matter out of his mind. Teacher Li
+ *   returned; Ziyu studied in the study for a while longer before Lady Yan called him inside.
+ *
+ * Staged from tableau beats (cinema/beats/tableau.ts): the friends leaving at the gate, Ziyu alone with the book, and the teacher and Lady Yan.
+ */
+export default defineStory({
+  title: { en: 'Put out of mind', zh: '不放在心上' },
+  description: {
+    en: 'Nanxiang drags Zhongqing away; Ziyu decides the 《花选》 is idle boasting; his teacher returns and his mother calls him in.',
+    zh: '南湘拉仲清去了；子玉仍以《花选》为妄言；李先生回来，颜夫人叫他进去。',
+  },
+  shots: [
+    {
+      start: 0, end: 12,
+      title: { en: 'Dragged away', zh: '拉了仲清去了' },
+      quote: '便拉了仲清去了。',
+      caption: { en: 'Nanxiang drags Zhongqing off; Ziyu sees them out.', zh: '南湘拉了仲清去了，子玉送客。' },
+    },
+    {
+      start: 12, end: 24,
+      title: { en: 'Nothing like the actors he knew', zh: '一毫不对' },
+      quote: '再想从前看过的戏，与见过的小旦一毫不对',
+      caption: { en: 'Ziyu thinks back on the actors he has seen: nothing like the book. He puts it out of mind.', zh: '子玉想起从前见过的小旦，一毫不对，便不放在心上。' },
+    },
+    {
+      start: 24, end: 36,
+      title: { en: 'Back to his books', zh: '仍在书房念书' },
+      quote: '李先生回来，仍在书房念了一会书，颜夫人然后叫了进去。',
+      caption: { en: 'Teacher Li returns; Ziyu studies a while, then Lady Yan calls him inside.', zh: '李先生回来，子玉念了一会书，颜夫人叫他进去。' },
+    },
+  ],
+  subtitles: [
+    { start: 0.4, end: 11.6, zh: '便拉了仲清去了。子玉送客转来，', en: 'He then dragged Zhongqing away. Ziyu saw his guests out and returned,' },
+    { start: 12.4, end: 18, zh: '又将南湘的《花选》默默的一想，再想从前看过的戏，与见过的小旦一毫不对，', en: 'pondering the “Flower Manual”; the young dan he had seen did not match it in the slightest.' },
+    { start: 18, end: 23.6, zh: '犹以南湘为妄言，便也不放在心上了。', en: 'He concluded Nanxiang was speaking wildly, and put it out of his mind.' },
+    { start: 24.4, end: 30, zh: '李先生回来，仍在书房念了一会书，', en: 'Teacher Li returned; Ziyu studied in the study for a while longer,' },
+    { start: 30, end: 35.6, zh: '颜夫人然后叫了进去。', en: 'before Lady Yan called him inside.' },
+  ],
+});

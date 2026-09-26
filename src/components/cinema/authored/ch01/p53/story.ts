@@ -1,0 +1,64 @@
+import { defineStory } from '../../define';
+
+/**
+ * Chapter 1, paragraph 53.
+ *
+ * 原文：一个已似海棠花，娇艳无比，眉目天然。一个真是天上神仙，人间绝色，以玉为骨，以月为魂，以花
+ *   为情，以珠光宝气为精神。子玉惊得呆了，不知不觉把帘子掀开，凝神而望。那两个妙童，也四目澄
+ *   澄的看他；那个绝色的更觉凝眸伫望，对着子玉出神。子玉觉得心摇目眩。那个绝色的脸上，似有一
+ *   层光彩照过来，散作满鼻的异香。
+ *
+ * Translation: One was already like a crabapple blossom, incomparably delicate and radiant, his features
+ *   perfectly shaped by nature. The other was truly a divine being from the heavens, a peerless
+ *   beauty in the mortal world. He had jade for bones and the moon for a soul; flowers formed
+ *   his emotions, and the glowing aura of pearls and jewels formed his spirit. Ziyu was struck
+ *   dumb. Without realizing it, he lifted the curtain and stared intently. Those two wondrous
+ *   boys also gazed back at him with clear, unblinking eyes. The one of peerless beauty seemed
+ *   to stare even more intently, his gaze fixed on Ziyu, lost in thought. Ziyu felt his heart
+ *   sway and his eyes dazzle. A layer of radiant light seemed to project from the peerless
+ *   boy's face, scattering into an exotic fragrance that filled Ziyu's nose.
+ *
+ * Staged from tableau beats (cinema/beats/tableau.ts): the crabapple boy, the peerless boy in radiance, the gazes across the carts, and the dazzled scattering of light and fragrance.
+ */
+export default defineStory({
+  title: { en: 'Jade for bones, the moon for a soul', zh: '以玉为骨，以月为魂' },
+  description: {
+    en: 'One boy is a crabapple blossom; the other a peerless immortal. Ziyu lifts the curtain and stares; the boy gazes back, and a radiance fills the air.',
+    zh: '一个似海棠花；一个天上神仙，人间绝色。子玉掀帘凝望，那绝色的也凝眸相对，异香满鼻。',
+  },
+  shots: [
+    {
+      start: 0, end: 9,
+      title: { en: 'Like a crabapple blossom', zh: '似海棠花' },
+      quote: '一个已似海棠花，娇艳无比，眉目天然。',
+      caption: { en: 'One is like a crabapple blossom, delicate and radiant, his features shaped by nature.', zh: '一个似海棠花，娇艳无比，眉目天然。' },
+    },
+    {
+      start: 9, end: 20,
+      title: { en: 'A peerless beauty', zh: '人间绝色' },
+      quote: '一个真是天上神仙，人间绝色，以玉为骨，以月为魂……',
+      caption: { en: 'The other: an immortal, a peerless beauty—jade for bones, the moon for a soul, flowers for feeling, pearls for spirit.', zh: '一个天上神仙，人间绝色：以玉为骨，以月为魂，以花为情，以珠光宝气为精神。' },
+    },
+    {
+      start: 20, end: 30,
+      title: { en: 'Their eyes meet', zh: '凝眸伫望' },
+      quote: '子玉惊得呆了，不知不觉把帘子掀开……对着子玉出神。',
+      caption: { en: 'Ziyu, struck dumb, lifts the curtain and stares; the boy gazes back at him, lost in thought.', zh: '子玉惊呆，掀帘凝望；那绝色的也凝眸伫望，对着子玉出神。' },
+    },
+    {
+      start: 30, end: 36,
+      title: { en: 'Dazzled', zh: '心摇目眩' },
+      quote: '子玉觉得心摇目眩……散作满鼻的异香。',
+      caption: { en: 'Ziyu’s heart sways, his eyes dazzle; a radiance seems to fall on him, scattering into fragrance.', zh: '子玉心摇目眩；那脸上似有光彩照来，散作满鼻异香。' },
+    },
+  ],
+  subtitles: [
+    { start: 0.4, end: 8.6, zh: '一个已似海棠花，娇艳无比，眉目天然。', en: 'One was already like a crabapple blossom, incomparably delicate, his features perfectly shaped by nature.' },
+    { start: 9.4, end: 14.4, zh: '一个真是天上神仙，人间绝色，', en: 'The other was truly a divine being from the heavens, a peerless beauty in the mortal world,' },
+    { start: 14.4, end: 19.6, zh: '以玉为骨，以月为魂，以花为情，以珠光宝气为精神。', en: 'jade for bones, the moon for a soul, flowers for emotions, the aura of pearls for his spirit.' },
+    { start: 20.4, end: 25, zh: '子玉惊得呆了，不知不觉把帘子掀开，凝神而望。', en: 'Ziyu was struck dumb; without realizing it, he lifted the curtain and stared.' },
+    { start: 25, end: 29.6, zh: '那个绝色的更觉凝眸伫望，对着子玉出神。', en: 'The peerless one gazed back even more intently, lost in thought before Ziyu.' },
+    { start: 30.4, end: 33, zh: '子玉觉得心摇目眩。', en: 'Ziyu felt his heart sway and his eyes dazzle.' },
+    { start: 33, end: 35.6, zh: '那个绝色的脸上，似有一层光彩照过来，散作满鼻的异香。', en: 'A radiance seemed to fall from that face, scattering into an exotic fragrance.' },
+  ],
+});

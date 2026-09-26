@@ -1,0 +1,62 @@
+import { defineStory } from '../../define';
+
+/**
+ * Chapter 1, paragraph 50.
+ *
+ * 原文：见王恂问那人道：「你这相公叫什么名字？」那人道：「叫保珠。」子玉听了，忍不住一笑。又见王
+ *   恂问道：「你不在桂保处么？」那人道：「桂保处人多，前日出来的。这保珠就住在桂保间壁，少爷
+ *   今日叫保珠伺候？」王恂支吾，那保珠便拉了王恂的手问道：「到什么地方去，也是时候了。」王恂
+ *   道：「改日罢。」那相公便缠往了王恂，要带他吃饭。子玉实在坐不住了，又恐王恂要拉他同去，不
+ *   如先走为抄，便叫云儿去看车。云儿不一刻进来说：「都伺候了。」子玉即对王恂道：「我要回去
+ *   了。」王恂知他坐不住，自己也觉得无趣，说道：
+ *
+ * Translation: He heard Wang Xun ask the man, "What is this boy's name?" The man replied, "He's called
+ *   Baozhu." Hearing this, Ziyu couldn't suppress a laugh. He then heard Wang Xun ask, "Aren't
+ *   you with Guibao?" The man answered, "There are too many people at Guibao's place; he left
+ *   there a few days ago. This Baozhu lives right next door to Guibao. Will the young master
+ *   call for Baozhu to serve him today?" Wang Xun offered a noncommittal reply. That Baozhu
+ *   then grabbed Wang Xun's hand and asked, "Where are we going? It's about time." Wang Xun
+ *   said, "Another day." The boy then pestered Wang Xun, wanting him to take him out to eat.
+ *   Ziyu truly could sit there no longer, and fearing Wang Xun might drag him along, decided it
+ *   was best to leave first. He told Yun'er to go check the carriage. Yun'er came back a moment
+ *   later and said, "It's ready." Ziyu immediately said to Wang Xun, "I am going back." Knowing
+ *   Ziyu couldn't stand it, and feeling rather bored himself, Wang Xun said,
+ *
+ * Staged from tableau beats (cinema/beats/tableau.ts): the name that makes Ziyu laugh, the boy pestering Wang Xun, and Yun’er announcing the carriage.
+ */
+export default defineStory({
+  title: { en: '“He’s called Baozhu”', zh: '叫保珠' },
+  description: {
+    en: 'The boy’s name is Baozhu—Ziyu laughs; the boy pesters Wang Xun, and Ziyu sends for the carriage.',
+    zh: '那相公名叫保珠，子玉忍不住一笑；保珠缠住王恂，子玉叫云儿看车。',
+  },
+  shots: [
+    {
+      start: 0, end: 12,
+      title: { en: 'Baozhu', zh: '叫保珠' },
+      quote: '那人道：「叫保珠。」子玉听了，忍不住一笑。',
+      caption: { en: 'Wang Xun asks the boy’s name: “Baozhu.” Ziyu cannot help laughing—the name of the album’s first beauty.', zh: '那相公叫保珠，与《花选》第一人同音，子玉忍不住一笑。' },
+    },
+    {
+      start: 12, end: 24,
+      title: { en: 'Pestering Wang Xun', zh: '缠住了王恂' },
+      quote: '那保珠便拉了王恂的手……要带他吃饭。',
+      caption: { en: 'The boy grabs Wang Xun’s hand, pestering him to take him out to eat.', zh: '保珠拉着王恂的手，缠着要他带去吃饭。' },
+    },
+    {
+      start: 24, end: 36,
+      title: { en: 'The carriage is ready', zh: '都伺候了' },
+      quote: '便叫云儿去看车。云儿不一刻进来说：「都伺候了。」',
+      caption: { en: 'Ziyu sends Yun’er to check the carriage: “It’s ready.” He tells Wang Xun he is going home.', zh: '子玉叫云儿看车，云儿回说都伺候了；子玉要回去了。' },
+    },
+  ],
+  subtitles: [
+    { start: 0.4, end: 4.6, zh: '王恂问那人道：「你这相公叫什么名字？」那人道：「叫保珠。」', en: 'Wang Xun asked, “What is this boy’s name?” The man replied, “He’s called Baozhu.”' },
+    { start: 4.6, end: 8, zh: '子玉听了，忍不住一笑。', en: 'Hearing this, Ziyu couldn’t suppress a laugh.' },
+    { start: 8, end: 11.6, zh: '「这保珠就住在桂保间壁，少爷今日叫保珠伺候？」', en: '“Baozhu lives next door to Guibao. Will the young master call for him today?”' },
+    { start: 12.4, end: 18, zh: '那保珠便拉了王恂的手问道：「到什么地方去，也是时候了。」', en: 'Baozhu grabbed Wang Xun’s hand: “Where are we going? It’s about time.”' },
+    { start: 18, end: 23.6, zh: '王恂道：「改日罢。」那相公便缠住了王恂，要带他吃饭。', en: '“Another day.” The boy pestered Wang Xun to take him out to eat.' },
+    { start: 24.4, end: 30, zh: '子玉实在坐不住了，便叫云儿去看车。云儿进来说：「都伺候了。」', en: 'Ziyu could sit no longer and sent Yun’er to check the carriage. “It’s ready.”' },
+    { start: 30, end: 35.6, zh: '子玉即对王恂道：「我要回去了。」', en: 'Ziyu immediately said to Wang Xun, “I am going back.”' },
+  ],
+});
