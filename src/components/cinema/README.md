@@ -136,6 +136,10 @@ Authored scenes render through an ink pass (`createCinema(..., 'ink')`, the defa
   English, Noto Sans SC for Chinese): set `ctx.font = appFont(px, weight)` from `fonts.ts`, never a
   separate film font. The player loads the web font for the film's characters before building it, and
   kit writing repaints itself once any late characters arrive (`writeInAppFont`).
+- **Framed writing is centred.** When characters sit in a rectangle (a slip, placard, card, plaque,
+  seal, scroll), centre the block in it with even margins, and centre each character on its cell
+  with `fillCentered(ctx, text, x, y)` from `fonts.ts` (it measures the font, rather than trusting
+  the text baseline).
 - **Writing is special.** Characters from `kit.calligraphy`, `kit.glyph` and `wordsBeat` live on
   `WRITING_LAYER`: they skip the ink pass and are drawn over the finished picture in flat ink (or
   vermilion), so they are pure, even fill at any size. Use `asWriting(mesh, material, color)` for any

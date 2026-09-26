@@ -110,8 +110,10 @@ export const poemBeat = (lines: string[], actor?: Actor): Beat => ({ kit, set, x
   kit.mesh(new THREE.PlaneGeometry(10.4, 7.6), tone(0xcfc8bc), set, 0, 0, -0.03);
   kit.mesh(new THREE.PlaneGeometry(9.8, 6.6), tone(0xf3eee3), set, 0, 0, -0.02);
   for (const y of [3.75, -3.75]) kit.box(set, tone(0x3f3a35), [0, y, 0], [11, 0.26, 0.26]);
-  const size = Math.min(0.62, 5.4 / Math.max(...lines.map(l => [...l].length)));
-  const text = columns(kit, set, lines, { size, gap: size * 1.28, x: actor ? 1.1 : 0, y: 2.8 });
+  const longest = Math.max(...lines.map(l => [...l].length));
+  const size = Math.min(0.62, 5.4 / longest);
+  // The verse block is centred on the scroll's paper (beside the portrait when there is one).
+  const text = columns(kit, set, lines, { size, gap: size * 1.28, x: actor ? 1.1 : 0, y: longest * size / 2 });
   const portrait = actor ? figure(kit, set, 4.4, (ctx, t) => dan(ctx, t, actor.pose)) : undefined;
   portrait?.mesh.position.set(-3.6, -0.6, 0.01);
   // A faint portrait in pale wash beside the poem.

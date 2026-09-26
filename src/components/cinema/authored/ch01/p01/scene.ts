@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { defineScene } from '../../define';
 import { createShadowPlay } from './shadowPlay';
 import { clamp01, ease, hallGeometry, inkDotFragment, petalGeometry, roofGeometry, type Env, type V3, WRITING_RED } from '../../../cinemaKit';
-import { appFont } from '../../../fonts';
+import { appFont, fillCentered } from '../../../fonts';
 
 // Each shot has its own set, placed far apart; only the current one is shown.
 const SET = { shadow: 400, gate: 800, glyph: 1200 };
@@ -388,7 +388,7 @@ export default defineScene({
       ctx.fillStyle = WRITING_RED; ctx.fillRect(6, 6, 116, 116);
       ctx.fillStyle = '#f4e3c4'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.font = appFont(50, 700);
-      ctx.fillText('品', 64, 38); ctx.fillText('花', 64, 92);
+      fillCentered(ctx, '品', 64, 35); fillCentered(ctx, '花', 64, 93);
     }
     const sealMaterial = new THREE.MeshBasicMaterial({ map: canvasTexture(sealCanvas, true), transparent: true, opacity: 0, fog: false });
     const seal = mesh(new THREE.PlaneGeometry(1.8, 1.8), sealMaterial, glyphSet, 0, 0, 1);

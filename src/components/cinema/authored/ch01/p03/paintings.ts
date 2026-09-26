@@ -1,7 +1,7 @@
 import { disc, limb, type Ctx } from '../../../brush';
 import { WRITING_INK } from '../../../cinemaKit';
 import { FLOWER_NAMES, INK, leaf, paintFlower, PETAL_RED, RED, seeded, stroke, WASH } from '../../../paint';
-import { appFont } from '../../../fonts';
+import { appFont, fillCentered } from '../../../fonts';
 
 /**
  * Brush paintings for Chapter 1, paragraph 3: a flower album of the ten kinds of leading
@@ -30,7 +30,7 @@ export function paintFlowerPanel(ctx: Ctx, rank: number) {
   ctx.font = appFont(44, 700);
   ['情', '中', RANKS[rank]].forEach((char, i) => ctx.fillText(char, 452, 76 + i * 52));
   ctx.fillStyle = RED; ctx.fillRect(430, 250, 44, 44);
-  ctx.fillStyle = '#f4ece0'; ctx.font = appFont(32, 700); ctx.fillText(RANKS[rank], 452, 274);
+  ctx.fillStyle = '#f4ece0'; ctx.font = appFont(32, 700); fillCentered(ctx, RANKS[rank], 452, 272);
 }
 
 /** One of the lower kinds: the word blotted and splattered, as if the ink had spoiled. */

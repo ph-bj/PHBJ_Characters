@@ -6,7 +6,7 @@ import { WRITING_INK, WRITING_RED } from '../cinemaKit';
 import { clamp01, columns, ease, figure, frontCamera, painting, tone, type Beat } from './engine';
 import { CART_H, CART_W, cart, horse, person, type Gesture, type PersonKind } from './people';
 import { ANIMATED_PLACES, PLACE_H, PLACE_W, PLACES_WITH_WRITING, paintPlace, type Place } from './places';
-import { appFont } from '../fonts';
+import { appFont, fillCentered } from '../fonts';
 
 /**
  * The tableau: one beat for everyday scenes. A painted place, a cast who can walk, talk, change
@@ -94,8 +94,10 @@ function paintProp(ctx: CanvasRenderingContext2D, p: Prop) {
     ctx.fillStyle = p.kind === 'card' ? red : paper; ctx.fillRect(78, 20, 100, 216);
     ctx.strokeRect(78, 20, 100, 216);
     ctx.fillStyle = WRITING_INK; // black ink, on red paper for a visiting card
-    ctx.font = appFont(40, 700); ctx.textAlign = 'center';
-    [...(p.text ?? '')].slice(0, 5).forEach((c, i) => ctx.fillText(c, 128, 68 + i * 40));
+    // The characters, one per 44-unit cell, form a column centred on the card.
+    const chars = [...(p.text ?? '')].slice(0, 4), step = 44;
+    ctx.font = appFont(40, 700);
+    chars.forEach((c, i) => fillCentered(ctx, c, 128, 128 + (i - (chars.length - 1) / 2) * step));
   } else if (p.kind === 'gifts') {
     for (const [x, y, w, h] of [[30, 130, 110, 90], [120, 90, 100, 130], [70, 60, 80, 70]]) { ctx.fillStyle = '#4e4640'; ctx.fillRect(x, y, w, h); ctx.fillStyle = red; ctx.fillRect(x + w / 2 - 6, y, 12, h); ctx.fillRect(x, y + h / 2 - 6, w, 12); }
   } else if (p.kind === 'coins') {
@@ -222,9 +224,12 @@ export const tableauBeat = (spec: Tableau): Beat => ({ kit, set, x, duration }) 
     const size = Math.min(0.56, 4.2 / longest), gap = size * 1.36, n = spec.lines.length, tall = longest * size;
     // Hung clear of the frame's top edge, even in a wide, short player.
     const cx = (spec.linesSide === 'left' ? -1 : 1) * (5.9 - (n - 1) * gap / 2), top = 3.05;
-    kit.mesh(new THREE.PlaneGeometry((n - 1) * gap + 1, tall + 0.7), tone(0x6e675f), set, cx, top - tall / 2 - 0.1, 0.28);
-    kit.mesh(new THREE.PlaneGeometry((n - 1) * gap + 0.86, tall + 0.56), tone(0xf3eee3), set, cx, top - tall / 2 - 0.1, 0.29);
-    lines = columns(kit, set, spec.lines, { size, gap, x: cx, y: top + 0.14 });
+    // The text block (columns of the longest line's height) sits exactly in the middle of the slip,
+    // with an even margin on all four sides.
+    const margin = 0.3, cy = top - tall / 2 - margin, textW = (n - 1) * gap + size;
+    kit.mesh(new THREE.PlaneGeometry(textW + margin * 2 + 0.14, tall + margin * 2 + 0.14), tone(0x6e675f), set, cx, cy, 0.28);
+    kit.mesh(new THREE.PlaneGeometry(textW + margin * 2, tall + margin * 2), tone(0xf3eee3), set, cx, cy, 0.29);
+    lines = columns(kit, set, spec.lines, { size, gap, x: cx, y: cy + tall / 2 });
     set.children.slice(-n).forEach(child => { child.position.z = 0.31; });
   }
 

@@ -7,7 +7,7 @@ import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
 import { Pass } from 'three/examples/jsm/postprocessing/Pass.js';
 import { CopyShader } from 'three/examples/jsm/shaders/CopyShader.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
-import { appFont } from './fonts';
+import { appFont, fillCentered } from './fonts';
 /** Every authored cinema runs this long, in seconds. */
 export const CINEMA_DURATION = 36;
 
@@ -517,9 +517,9 @@ export function createCinema(
       const font = appFont(cell * 0.86, size >= 0.8 ? 700 : 500);
       const draw = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = WRITING_INK; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = font;
-        // Traditional layout: top to bottom, columns from right to left.
-        chars.forEach((char, i) => ctx.fillText(char, (columns - 1 - Math.floor(i / rows) + 0.5) * cell, (i % rows + 0.53) * cell));
+        ctx.fillStyle = WRITING_INK; ctx.font = font;
+        // Traditional layout: top to bottom, columns from right to left, each character centred in its cell.
+        chars.forEach((char, i) => fillCentered(ctx, char, (columns - 1 - Math.floor(i / rows) + 0.5) * cell, (i % rows + 0.5) * cell));
       };
       const texture = canvasTexture(canvas, true);
       writeInAppFont(draw, texture, font, text);
@@ -556,8 +556,8 @@ export function createCinema(
         ctx.clearRect(0, 0, 128, 128);
         // The seal's red is WRITING_RED, so its characters print without outlines.
         ctx.fillStyle = WRITING_RED; ctx.fillRect(6, 6, 116, 116);
-        ctx.fillStyle = '#f4ece0'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = font;
-        chars.forEach((char, i) => ctx.fillText(char, 64 + (columns === 2 ? (Math.floor(i / rows) ? -26 : 26) : 0), 12 + (i % rows + 0.5) * (104 / rows)));
+        ctx.fillStyle = '#f4ece0'; ctx.font = font;
+        chars.forEach((char, i) => fillCentered(ctx, char, 64 + (columns === 2 ? (Math.floor(i / rows) ? -26 : 26) : 0), 12 + (i % rows + 0.5) * (104 / rows)));
       };
       const texture = canvasTexture(canvas, true);
       writeInAppFont(draw, texture, font, text);

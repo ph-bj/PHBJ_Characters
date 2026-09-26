@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { appFont } from '../fonts';
+import { appFont, fillCentered } from '../fonts';
 import { asWriting, WRITING_FLAT, WRITING_INK, WRITING_RED } from '../cinemaKit';
 import { ease, frontCamera, painting, tone, type Beat } from './engine';
 
@@ -28,6 +28,8 @@ export const wordsBeat = (lines: WordLine[], { seal }: { seal?: string } = {}): 
   const longest = Math.max(...lines.map(l => [...l.text].length));
   const size = Math.min(0.62, 5.6 / longest);
   const gap = Math.min(size * 1.6, 11 / Math.max(1, lines.length));
+  const blockH = Math.max(...lines.map(l => [...l.text].length * (l.small ? size * 0.7 : size) * 1.02));
+  const top = 0.1 + blockH / 2;
   const stamps: { at: number; mesh: THREE.Mesh; material: THREE.ShaderMaterial; s: number }[] = [];
   lines.forEach((line, col) => {
     const cx = ((lines.length - 1) / 2 - col) * gap;
@@ -41,12 +43,13 @@ export const wordsBeat = (lines: WordLine[], { seal }: { seal?: string } = {}): 
       if (c !== '、') prev = c;
       const red = line.red?.includes(c);
       const art = painting(kit, set, 256, 256, [s, s], ctx => {
-        ctx.fillStyle = red ? WRITING_RED : WRITING_INK; ctx.font = appFont(216, 700); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.fillText(c, 128, 138);
+        ctx.fillStyle = red ? WRITING_RED : WRITING_INK; ctx.font = appFont(216, 700);
+        fillCentered(ctx, c, 128, 128);
       }, false, true);
       // Drawn over the finished ink picture in flat ink or vermilion: pure fill at any size.
       asWriting(art.mesh, art.material, red ? WRITING_FLAT.red : WRITING_FLAT.ink);
-      art.mesh.position.set(cx, 3.1 - s / 2 - i * s * 1.02, 0.02);
+      // Columns hang from a common top, placed so the block (as tall as the longest) is centred on the sheet.
+      art.mesh.position.set(cx, top - s / 2 - i * s * 1.02, 0.02);
       art.material.uniforms.uOpacity.value = Math.max(0.45, 1 - repeat * 0.2);
       stamps.push({ at: line.at + i * (line.pace ?? 0.22), mesh: art.mesh, material: art.material, s: 1 - Math.min(0.3, repeat * 0.1) });
     });
